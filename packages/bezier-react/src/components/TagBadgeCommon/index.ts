@@ -1,7 +1,7 @@
 export {
   TagBadgeBgColorPreset,
-  type TagBadgeSize,
-  type TagBadgeVariant,
+  TagBadgeSize,
+  TagBadgeVariant,
   getProperTagBadgeBgColor,
   getProperTagBadgeTypo,
 } from './TagBadgeCommon'

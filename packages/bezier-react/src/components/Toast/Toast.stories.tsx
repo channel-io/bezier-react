@@ -14,6 +14,7 @@ import {
 } from './Toast'
 import {
   type ToastOptions,
+  ToastPreset,
   type ToastProps,
   type ToastProviderProps,
 } from './Toast.types'
@@ -44,7 +45,7 @@ const Template: StoryFn<ToastOptions & ToastProviderProps> = ({
 export const Primary: StoryObj<ToastOptions & ToastProviderProps> = {
   render: Template,
   args: {
-    preset: 'default',
+    preset: ToastPreset.Default,
     rightSide: false,
     autoDismiss: true,
     autoDismissTimeout: 3000,

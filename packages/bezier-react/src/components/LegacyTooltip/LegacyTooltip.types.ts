@@ -55,16 +55,17 @@ export interface GetReplacement extends Required<Pick<LegacyTooltipOptions, 'pla
   rootElement: HTMLElement
 }
 
-export type LegacyTooltipPosition =
-| 'top-center'
-| 'top-left'
-| 'top-right'
-| 'right-center'
-| 'right-top'
-| 'right-bottom'
-| 'bottom-center'
-| 'bottom-left'
-| 'bottom-right'
-| 'left-center'
-| 'left-top'
-| 'left-bottom'
+export enum LegacyTooltipPosition {
+  TopCenter = 'topCenter',
+  TopLeft = 'topLeft',
+  TopRight = 'topRight',
+  RightCenter = 'rightCenter',
+  RightTop = 'rightTop',
+  RightBottom = 'rightBottom',
+  BottomCenter = 'bottomCenter',
+  BottomLeft = 'bottomLeft',
+  BottomRight = 'bottomRight',
+  LeftCenter = 'leftCenter',
+  LeftTop = 'leftTop',
+  LeftBottom = 'leftBottom',
+}

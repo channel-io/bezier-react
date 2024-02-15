@@ -14,8 +14,13 @@ import {
   isNil,
 } from '~/src/utils/type'
 
-import { Icon } from '~/src/components/Icon'
 import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
+import {
+  TagBadgeSize,
+  TagBadgeVariant,
   getProperTagBadgeBgColor,
   getProperTagBadgeTypo,
 } from '~/src/components/TagBadgeCommon'
@@ -34,8 +39,8 @@ export const TAG_DELETE_TEST_ID = 'bezier-tag-delete-icon'
  * @example
  * ```tsx
  * <Tag
- *   size="m"
- *   variant="default"
+ *   size={TagBadgeSize.M}
+ *   variant={TagBadgeVariant.Default}
  *   onDelete={handleDelete}
  * >
  *   Payment
@@ -43,8 +48,8 @@ export const TAG_DELETE_TEST_ID = 'bezier-tag-delete-icon'
  * ```
  */
 export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
-  size = 'm',
-  variant = 'default',
+  size = TagBadgeSize.M,
+  variant = TagBadgeVariant.Default,
   color: givenColor,
   children,
   className,
@@ -86,7 +91,7 @@ export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
           tabIndex={0}
           className={styles.CloseIcon}
           source={CancelSmallIcon}
-          size="xs"
+          size={IconSize.XS}
           color="txt-black-darker"
           onClick={(e) => {
             e.stopPropagation()

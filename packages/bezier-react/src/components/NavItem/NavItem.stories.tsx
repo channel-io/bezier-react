@@ -7,7 +7,10 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { Icon } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 
 import { NavItem } from './NavItem'
 import type { NavItemProps } from './NavItem.types'
@@ -35,7 +38,7 @@ export const Primary: StoryObj<NavItemProps> = {
     rightContent: (
       <Icon
         source={ErrorFilledIcon}
-        size="xs"
+        size={IconSize.XS}
         color="bgtxt-orange-normal"
       />
     ),

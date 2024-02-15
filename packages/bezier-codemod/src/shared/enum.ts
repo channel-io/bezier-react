@@ -11,7 +11,7 @@ import {
 
 type Name = string
 type Member = string
-type Value = string | number
+type Value = string
 export type EnumTransformMap = Record<Name, Record<Member, Value>>
 
 export const transformEnumToStringLiteralInBezier = (sourceFile: SourceFile, enumTransforms: EnumTransformMap) => {

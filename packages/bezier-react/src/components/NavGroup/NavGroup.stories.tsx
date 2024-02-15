@@ -10,7 +10,10 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { Icon } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 import { NavItem } from '~/src/components/NavItem'
 
 import { NavGroup } from './NavGroup'
@@ -55,7 +58,7 @@ export const Primary: StoryObj<NavGroupProps> = {
     content: '일반 설정',
     leftContent: SettingsIcon,
     rightContent: (
-      <Icon source={DotIcon} size="xs" color="bgtxt-orange-normal" />
+      <Icon source={DotIcon} size={IconSize.XS} color="bgtxt-orange-normal" />
     ),
   },
 }

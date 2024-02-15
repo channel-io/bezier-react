@@ -7,8 +7,15 @@ import classNames from 'classnames'
 
 import { isEmpty } from '~/src/utils/type'
 
-import { Icon } from '~/src/components/Icon'
-import { getProperTagBadgeTypo } from '~/src/components/TagBadgeCommon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
+import {
+  TagBadgeSize,
+  TagBadgeVariant,
+  getProperTagBadgeTypo,
+} from '~/src/components/TagBadgeCommon'
 import commonStyles from '~/src/components/TagBadgeCommon/TagBadge.module.scss'
 import { Text } from '~/src/components/Text'
 
@@ -23,8 +30,8 @@ export const BADGE_TEST_ID = 'bezier-badge'
  * @example
  * ```tsx
  * <Badge
- *   size="xs"
- *   variant="blue"
+ *   size={TagBadgeSize.XS}
+ *   variant={TagBadgeVariant.Blue}
  *   icon={AppleIcon}
  * >
  *   Beta
@@ -32,8 +39,8 @@ export const BADGE_TEST_ID = 'bezier-badge'
  * ```
  */
 export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge({
-  size = 'm',
-  variant = 'default',
+  size = TagBadgeSize.M,
+  variant = TagBadgeVariant.Default,
   icon,
   children,
   className,
@@ -55,7 +62,7 @@ export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge(
       { icon && (
         <Icon
           source={icon}
-          size="xs"
+          size={IconSize.XS}
         />
       ) }
 

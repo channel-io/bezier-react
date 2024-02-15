@@ -1,5 +1,5 @@
 export { Overlay } from './Overlay'
 export {
-  type OverlayPosition,
+  OverlayPosition,
   type OverlayProps,
 } from './Overlay.types'

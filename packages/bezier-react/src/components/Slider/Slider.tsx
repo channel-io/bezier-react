@@ -9,7 +9,10 @@ import classNames from 'classnames'
 
 import { cssDimension } from '~/src/utils/style'
 
-import { Tooltip } from '~/src/components/Tooltip'
+import {
+  Tooltip,
+  TooltipPosition,
+} from '~/src/components/Tooltip'
 
 import { type SliderProps } from './Slider.types'
 
@@ -53,7 +56,7 @@ const SliderThumb = forwardRef<HTMLDivElement, Pick<SliderProps, 'disableTooltip
     <Tooltip
       content={value}
       offset={6}
-      placement="top-center"
+      placement={TooltipPosition.TopCenter}
       onPointerDownOutside={e => e.preventDefault()}
     >
       <div

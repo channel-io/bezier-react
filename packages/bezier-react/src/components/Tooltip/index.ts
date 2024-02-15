@@ -1,5 +1,5 @@
 export { Tooltip } from './Tooltip'
-export type {
+export {
   TooltipPosition,
-  TooltipProps,
+  type TooltipProps,
 } from './Tooltip.types'

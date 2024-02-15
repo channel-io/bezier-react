@@ -11,14 +11,17 @@ import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
 import { isEmpty } from '~/src/utils/type'
 
-import { Icon } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 import { HStack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
 import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
 import { useRootElement } from '~/src/components/WindowProvider'
 
 import {
-  type TooltipPosition,
+  TooltipPosition,
   type TooltipProps,
 } from './Tooltip.types'
 
@@ -28,62 +31,62 @@ function getSideAndAlign(
   placement: TooltipPosition,
 ): Pick<TooltipPrimitive.TooltipContentProps, 'side' | 'align'> {
   switch (placement) {
-    case 'top-center':
+    case TooltipPosition.TopCenter:
       return {
         side: 'top',
         align: 'center',
       }
-    case 'top-left':
+    case TooltipPosition.TopLeft:
       return {
         side: 'top',
         align: 'start',
       }
-    case 'top-right':
+    case TooltipPosition.TopRight:
       return {
         side: 'top',
         align: 'end',
       }
-    case 'right-center':
+    case TooltipPosition.RightCenter:
       return {
         side: 'right',
         align: 'center',
       }
-    case 'right-top':
+    case TooltipPosition.RightTop:
       return {
         side: 'right',
         align: 'start',
       }
-    case 'right-bottom':
+    case TooltipPosition.RightBottom:
       return {
         side: 'right',
         align: 'end',
       }
-    case 'bottom-center':
+    case TooltipPosition.BottomCenter:
       return {
         side: 'bottom',
         align: 'center',
       }
-    case 'bottom-left':
+    case TooltipPosition.BottomLeft:
       return {
         side: 'bottom',
         align: 'start',
       }
-    case 'bottom-right':
+    case TooltipPosition.BottomRight:
       return {
         side: 'bottom',
         align: 'end',
       }
-    case 'left-center':
+    case TooltipPosition.LeftCenter:
       return {
         side: 'left',
         align: 'center',
       }
-    case 'left-top':
+    case TooltipPosition.LeftTop:
       return {
         side: 'left',
         align: 'start',
       }
-    case 'left-bottom':
+    case TooltipPosition.LeftBottom:
       return {
         side: 'left',
         align: 'end',
@@ -121,7 +124,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   content,
   description,
   icon,
-  placement = 'bottom-center',
+  placement = TooltipPosition.BottomCenter,
   offset = 4,
   container: containerProp,
   keepInContainer = true,
@@ -262,7 +265,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
 
                 { icon && (
                   <Icon
-                    size="xs"
+                    size={IconSize.XS}
                     color="txt-black-darkest"
                     source={icon}
                     className={styles.Icon}

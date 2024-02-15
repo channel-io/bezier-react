@@ -16,14 +16,15 @@ import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { useFormFieldProps } from '~/src/components/FormControl'
 
 import type { TextAreaProps } from './TextArea.types'
+import { TextAreaHeight } from './TextArea.types'
 
 import styles from './TextArea.module.scss'
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea({
   style,
   className,
-  minRows = 6,
-  maxRows = 6,
+  minRows = TextAreaHeight.Row6,
+  maxRows = TextAreaHeight.Row6,
   autoFocus = false,
   value = '',
   onKeyDown,

@@ -1,7 +1,7 @@
 import {
   type GetReplacement,
   type GetTooltipStyle,
-  type LegacyTooltipPosition,
+  LegacyTooltipPosition,
 } from './LegacyTooltip.types'
 
 export function getReplacement({
@@ -35,42 +35,42 @@ export function getReplacement({
 
   if (isOverTop) {
     if (isOverLeft) {
-      return 'bottom-left'
+      return LegacyTooltipPosition.BottomLeft
     }
     if (isOverRight) {
-      return 'bottom-right'
+      return LegacyTooltipPosition.BottomRight
     }
-    return 'bottom-center'
+    return LegacyTooltipPosition.BottomCenter
   }
 
   if (isOverBottom) {
     if (isOverLeft) {
-      return 'top-left'
+      return LegacyTooltipPosition.TopLeft
     }
     if (isOverRight) {
-      return 'top-right'
+      return LegacyTooltipPosition.TopRight
     }
-    return 'top-center'
+    return LegacyTooltipPosition.TopCenter
   }
 
   if (isOverLeft) {
     if (isOverTop) {
-      return 'right-top'
+      return LegacyTooltipPosition.RightTop
     }
     if (isOverBottom) {
-      return 'right-bottom'
+      return LegacyTooltipPosition.RightBottom
     }
-    return 'right-center'
+    return LegacyTooltipPosition.RightCenter
   }
 
   if (isOverRight) {
     if (isOverTop) {
-      return 'left-top'
+      return LegacyTooltipPosition.LeftTop
     }
     if (isOverBottom) {
-      return 'left-bottom'
+      return LegacyTooltipPosition.LeftBottom
     }
-    return 'left-center'
+    return LegacyTooltipPosition.LeftCenter
   }
 
   return placement
@@ -101,50 +101,50 @@ export function getTooltipStyle({
   let offsetStyle = {}
 
   switch (placement) {
-    case 'top-center':
-    case 'top-left':
-    case 'top-right':
+    case LegacyTooltipPosition.TopCenter:
+    case LegacyTooltipPosition.TopLeft:
+    case LegacyTooltipPosition.TopRight:
       translateY = -100
       offsetBottom = offset
       break
-    case 'right-center':
-    case 'right-top':
-    case 'right-bottom':
+    case LegacyTooltipPosition.RightCenter:
+    case LegacyTooltipPosition.RightTop:
+    case LegacyTooltipPosition.RightBottom:
       left += containerWidth
       offsetLeft = offset
       break
-    case 'bottom-center':
-    case 'bottom-left':
-    case 'bottom-right':
+    case LegacyTooltipPosition.BottomCenter:
+    case LegacyTooltipPosition.BottomLeft:
+    case LegacyTooltipPosition.BottomRight:
       top += containerHeight
       offsetTop = offset
       break
-    case 'left-center':
-    case 'left-top':
-    case 'left-bottom':
+    case LegacyTooltipPosition.LeftCenter:
+    case LegacyTooltipPosition.LeftTop:
+    case LegacyTooltipPosition.LeftBottom:
       translateX = -100
       offsetRight = offset
       break
   }
 
   switch (placement) {
-    case 'top-center':
-    case 'bottom-center':
+    case LegacyTooltipPosition.TopCenter:
+    case LegacyTooltipPosition.BottomCenter:
       translateX = -50
       left += (containerWidth / 2)
       break
-    case 'top-right':
-    case 'bottom-right':
+    case LegacyTooltipPosition.TopRight:
+    case LegacyTooltipPosition.BottomRight:
       translateX = -100
       left += containerWidth
       break
-    case 'right-center':
-    case 'left-center':
+    case LegacyTooltipPosition.RightCenter:
+    case LegacyTooltipPosition.LeftCenter:
       translateY = -50
       top += (containerHeight / 2)
       break
-    case 'right-bottom':
-    case 'left-bottom':
+    case LegacyTooltipPosition.RightBottom:
+    case LegacyTooltipPosition.LeftBottom:
       translateY = -100
       top += containerHeight
       break

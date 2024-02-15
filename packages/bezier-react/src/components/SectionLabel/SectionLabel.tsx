@@ -16,7 +16,10 @@ import {
 import { BaseButton } from '~/src/components/BaseButton'
 import { Button } from '~/src/components/Button'
 import { Help } from '~/src/components/Help'
-import { Icon } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 import {
   LegacyIcon,
   isIconName,
@@ -53,7 +56,7 @@ function LeftContent({ children }: { children: SectionLabelLeftContent }) {
       } : {
         source: children,
       }}
-      size="s"
+      size={IconSize.S}
       color="txt-black-dark"
     />
   )

@@ -7,13 +7,31 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
+import {
+  TagBadgeSize,
+  TagBadgeVariant,
+} from '~/src/components/TagBadgeCommon'
+
 import { Badge } from './Badge'
 import { type BadgeProps } from './Badge.types'
 
 const meta:Meta<typeof Badge> = {
   component: Badge,
+  argTypes: {
+    size: {
+      control: {
+        type: 'radio',
+      },
+      options: Object.keys(TagBadgeSize).map(k => TagBadgeSize[k]),
+    },
+    variant: {
+      control: {
+        type: 'radio',
+      },
+      options: Object.keys(TagBadgeVariant).map(k => TagBadgeVariant[k]),
+    },
+  },
 }
-
 export default meta
 
 const Template: StoryFn<BadgeProps> = ({ children, ...badgeProps }) => (
@@ -25,8 +43,8 @@ export const Primary: StoryObj<BadgeProps> = {
 
   args: {
     children: 'Design',
-    size: 'm',
+    size: TagBadgeSize.M,
     icon: AppleIcon,
-    variant: 'default',
+    variant: TagBadgeVariant.Default,
   },
 }

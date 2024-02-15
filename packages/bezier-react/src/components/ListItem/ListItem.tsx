@@ -9,7 +9,10 @@ import {
   isString,
 } from '~/src/utils/type'
 
-import { Icon } from '~/src/components/Icon'
+import {
+  Icon,
+  IconSize,
+} from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
 import { type ListItemProps } from './ListItem.types'
@@ -80,7 +83,7 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
                 <Icon
                   className={styles.ListItemLeftIcon}
                   source={leftContent}
-                  size="s"
+                  size={IconSize.S}
                 />
               )
               : leftContent }

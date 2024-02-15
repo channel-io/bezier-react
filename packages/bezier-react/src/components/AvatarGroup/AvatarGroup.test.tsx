@@ -8,7 +8,10 @@ import {
   AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID,
   AvatarGroup,
 } from './AvatarGroup'
-import { type AvatarGroupProps } from './AvatarGroup.types'
+import {
+  AvatarGroupEllipsisType,
+  type AvatarGroupProps,
+} from './AvatarGroup.types'
 import MOCK_AVATAR_LIST from './__mocks__/avatarList'
 
 describe('AvatarGroup', () => {
@@ -19,7 +22,7 @@ describe('AvatarGroup', () => {
     props = {
       max: MOCK_AVATAR_LIST.length - 1,
       spacing: 4,
-      ellipsisType: 'icon',
+      ellipsisType: AvatarGroupEllipsisType.Icon,
     }
   })
 
@@ -42,7 +45,7 @@ describe('AvatarGroup', () => {
 
   describe('Ellipsis type - Icon', () => {
     beforeEach(() => {
-      props.ellipsisType = 'icon'
+      props.ellipsisType = AvatarGroupEllipsisType.Icon
     })
 
     it('Snapshot', () => {
@@ -67,7 +70,7 @@ describe('AvatarGroup', () => {
 
   describe('Ellipsis type - Count', () => {
     beforeEach(() => {
-      props.ellipsisType = 'count'
+      props.ellipsisType = AvatarGroupEllipsisType.Count
     })
 
     it('Snapshot', () => {

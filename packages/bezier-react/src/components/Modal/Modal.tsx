@@ -35,7 +35,7 @@ import {
   type ModalFooterProps,
   type ModalHeaderProps,
   type ModalProps,
-  type ModalTitleSize,
+  ModalTitleSize,
   type ModalTriggerProps,
 } from './Modal.types'
 
@@ -224,8 +224,8 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
 
 function getTitleTypo(size: ModalTitleSize) {
   return ({
-    l: '24',
-    m: '16',
+    [ModalTitleSize.L]: '24',
+    [ModalTitleSize.M]: '16',
   } as const)[size]
 }
 
@@ -285,7 +285,7 @@ export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function Mo
   title,
   subtitle,
   description,
-  titleSize = 'l',
+  titleSize = ModalTitleSize.L,
   hidden = false,
   ...rest
 }, forwardedRef) {

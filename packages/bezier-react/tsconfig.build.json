@@ -6,6 +6,7 @@
     "**/*.test.ts",
     "**/*.test.tsx",
     "src/utils/test.tsx",
+    "src/utils/story.ts",
   ],
   "compilerOptions": {
     "outDir": "dist/types",

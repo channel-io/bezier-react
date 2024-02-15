@@ -28,6 +28,7 @@ import {
 } from '@storybook/react'
 
 import { type SemanticColor } from '~/src/types/tokens'
+import { getObjectFromEnum } from '~/src/utils/story'
 import { camelCase } from '~/src/utils/string'
 
 import {
@@ -43,7 +44,10 @@ import { useToken } from '~/src/components/ThemeProvider'
 
 import { Icon } from './Icon'
 import mdx from './Icon.mdx'
-import { type IconProps } from './Icon.types'
+import {
+  type IconProps,
+  IconSize,
+} from './Icon.types'
 
 const meta: Meta<typeof Icon> = {
   component: Icon,
@@ -52,13 +56,21 @@ const meta: Meta<typeof Icon> = {
       page: mdx,
     },
   },
+  argTypes: {
+    size: {
+      control: {
+        type: 'radio',
+      },
+      options: getObjectFromEnum(IconSize),
+    },
+  },
 }
 export default meta
 
 export const Playground: StoryObj<IconProps> = {
   args: {
     source: ChannelIcon,
-    size: 'm',
+    size: IconSize.Normal,
     color: 'bg-black-darker',
   },
 }
@@ -99,7 +111,7 @@ export const AllIcons: StoryObj<Omit<IconProps, 'source'>> = {
   ),
 
   args: {
-    size: 'm',
+    size: IconSize.Normal,
     color: 'bg-black-darkest',
   },
 }
@@ -155,7 +167,7 @@ export const Overview: StoryFn<{}> = () => (
           ]
             .map(semanticName => (
               <LegacyStackItem key={semanticName}>
-                <Icon source={ChannelBtnSmileFilledIcon} color={semanticName} size="l" />
+                <Icon source={ChannelBtnSmileFilledIcon} color={semanticName} size={IconSize.L} />
               </LegacyStackItem>
             ))
         }
@@ -163,15 +175,15 @@ export const Overview: StoryFn<{}> = () => (
     </LegacyStackItem>
     <LegacyStackItem>
       <LegacyHStack spacing={8}>
-        { ([
-          'xxxs',
-          'xxs',
-          'xs',
-          's',
-          'm',
-          'l',
-          'xl',
-        ] as const).map((size) => (
+        { [
+          IconSize.XXXS,
+          IconSize.XXS,
+          IconSize.XS,
+          IconSize.S,
+          IconSize.Normal,
+          IconSize.L,
+          IconSize.XL,
+        ].map((size) => (
           <LegacyStackItem key={size}>
             <Icon
               source={ChannelBtnSmileFilledIcon}
@@ -194,7 +206,7 @@ function ColorIcon() {
         <Icon
           source={ChannelBtnSmileFilledIcon}
           color={color}
-          size="l"
+          size={IconSize.L}
         />
       </LegacyStackItem>
       <LegacyStackItem>
@@ -221,20 +233,20 @@ export const UsageColor: StoryObj<{}> = {
 
 export const UsageSize: StoryFn<{}> = () => (
   <LegacyVStack spacing={16}>
-    { ([
-      'xxxs',
-      'xxs',
-      'xs',
-      's',
-      'm',
-      'l',
-      'xl',
-    ] as const).map((size) => (
+    { [
+      { label: 'XXXS', size: IconSize.XXXS },
+      { label: 'XXS', size: IconSize.XXS },
+      { label: 'XS', size: IconSize.XS },
+      { label: 'S', size: IconSize.S },
+      { label: 'Normal', size: IconSize.Normal },
+      { label: 'L', size: IconSize.L },
+      { label: 'XL', size: IconSize.XL },
+    ].map(({ label, size }) => (
       <LegacyStackItem key={size}>
         <LegacyHStack spacing={24}>
-          <LegacyStackItem size={30}>
+          <LegacyStackItem size={100}>
             <Text typo="13" color="txt-black-darkest">
-              { size }
+              { `${label} (${size}x${size})` }
             </Text>
           </LegacyStackItem>
           <LegacyStackItem>
