@@ -3,16 +3,18 @@ import type {
   SizeProps,
 } from '~/src/types/props'
 
-export type StatusType =
-| 'online'
-| 'offline'
-| 'lock'
-| 'online-crescent'
-| 'offline-crescent'
+export enum StatusType {
+  Online = 'Online',
+  Offline = 'Offline',
+  Lock = 'Lock',
+  OnlineCrescent = 'OnlineCrescent',
+  OfflineCrescent = 'OfflineCrescent',
+}
 
-export type StatusSize =
-| 'm'
-| 'l'
+export enum StatusSize {
+  M = 'm',
+  L = 'l',
+}
 
 interface StatusOwnProps {
   /**

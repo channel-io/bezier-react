@@ -6,7 +6,12 @@ import classNames from 'classnames'
 import { warn } from '~/src/utils/assert'
 import { isNil } from '~/src/utils/type'
 
-import { Button } from '~/src/components/Button'
+import {
+  Button,
+  ButtonColorVariant,
+  ButtonSize,
+  ButtonStyleVariant,
+} from '~/src/components/Button'
 import {
   Icon,
   IconSize,
@@ -19,7 +24,7 @@ import { Text } from '~/src/components/Text'
 
 import {
   type BannerProps,
-  type BannerVariant,
+  BannerVariant,
   type RenderLinkFunc,
 } from './Banner.types'
 
@@ -29,13 +34,13 @@ const BANNER_TEST_ID = 'bezier-banner'
 
 function getActionButtonColorVariant(variant: BannerVariant) {
   return ({
-    default: 'monochrome-dark',
-    blue: 'blue',
-    cobalt: 'cobalt',
-    green: 'green',
-    orange: 'orange',
-    red: 'red',
-    alt: 'monochrome-dark',
+    [BannerVariant.Default]: ButtonColorVariant.MonochromeDark,
+    [BannerVariant.Blue]: ButtonColorVariant.Blue,
+    [BannerVariant.Cobalt]: ButtonColorVariant.Cobalt,
+    [BannerVariant.Green]: ButtonColorVariant.Green,
+    [BannerVariant.Orange]: ButtonColorVariant.Orange,
+    [BannerVariant.Red]: ButtonColorVariant.Red,
+    [BannerVariant.Alt]: ButtonColorVariant.MonochromeDark,
   } as const)[variant]
 }
 
@@ -57,7 +62,7 @@ const externalLinkRenderer: RenderLinkFunc = ({
  * @example
  * ```tsx
  * <Banner
- *   variant="blue"
+ *   variant={BannerVariant.Blue}
  *   icon={LightbulbIcon}
  *   content="Information here."
  * />
@@ -65,7 +70,7 @@ const externalLinkRenderer: RenderLinkFunc = ({
  */
 export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner({
   className,
-  variant = 'default',
+  variant = BannerVariant.Default,
   icon,
   iconColor,
   content,
@@ -136,9 +141,9 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner({
       { !isNil(actionIcon) && (
         <div className={styles.Center}>
           <Button
-            size="xs"
+            size={ButtonSize.XS}
             colorVariant={getActionButtonColorVariant(variant)}
-            styleVariant="tertiary"
+            styleVariant={ButtonStyleVariant.Tertiary}
             leftContent={actionIcon}
             onClick={onClickAction}
           />

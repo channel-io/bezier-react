@@ -12,7 +12,12 @@ import { createContext } from '~/src/utils/react'
 import { isNil } from '~/src/utils/type'
 
 import { BaseButton } from '~/src/components/BaseButton'
-import { Button } from '~/src/components/Button'
+import {
+  Button,
+  ButtonColorVariant,
+  ButtonSize,
+  ButtonStyleVariant,
+} from '~/src/components/Button'
 import {
   Icon,
   IconSize,
@@ -26,7 +31,7 @@ import {
   type TabItemsProps,
   type TabListContextValue,
   type TabListProps,
-  type TabSize,
+  TabSize,
   type TabsProps,
 } from '~/src/components/Tabs/Tabs.types'
 import { Text } from '~/src/components/Text'
@@ -81,7 +86,7 @@ const [
   TabListContextProvider,
   useTabListContext,
 ] = createContext<TabListContextValue>({
-  size: 'm',
+  size: TabSize.M,
 })
 
 /**
@@ -90,7 +95,7 @@ const [
 export const TabList = forwardRef<HTMLDivElement, TabListProps>(function TabList({
   className,
   children,
-  size = 'm',
+  size = TabSize.M,
   ...rest
 }, forwardedRef) {
   const heightContextValue = useMemo(() => ({
@@ -137,9 +142,9 @@ export const TabItems = forwardRef<HTMLDivElement, TabItemsProps>(function TabIt
 
 function getButtonSizeBy(size: TabSize) {
   return ({
-    l: 'l',
-    m: 'm',
-    s: 's',
+    [TabSize.L]: ButtonSize.L,
+    [TabSize.M]: ButtonSize.M,
+    [TabSize.S]: ButtonSize.S,
   } as const)[size]
 }
 
@@ -173,8 +178,8 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(function TabI
         disabled={disabled}
         text={children}
         size={getButtonSizeBy(size)}
-        colorVariant="monochrome-light"
-        styleVariant="tertiary"
+        colorVariant={ButtonColorVariant.MonochromeLight}
+        styleVariant={ButtonStyleVariant.Tertiary}
         ref={forwardedRef}
         {...rest}
       />
@@ -229,17 +234,17 @@ export const TabActions = forwardRef<HTMLDivElement, TabActionsProps>(function T
 
 function getTypoBy(size: TabSize) {
   return ({
-    l: '14',
-    m: '14',
-    s: '13',
+    [TabSize.L]: '14',
+    [TabSize.M]: '14',
+    [TabSize.S]: '13',
   } as const)[size]
 }
 
 function getIconSizeBy(size: TabSize) {
   return ({
-    l: IconSize.S,
-    m: IconSize.XS,
-    s: IconSize.XS,
+    [TabSize.L]: IconSize.S,
+    [TabSize.M]: IconSize.XS,
+    [TabSize.S]: IconSize.XS,
   } as const)[size]
 }
 

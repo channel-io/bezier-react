@@ -9,7 +9,12 @@ import {
   isNil,
 } from '~/src/utils/type'
 
-import { Button } from '~/src/components/Button'
+import {
+  Button,
+  ButtonColorVariant,
+  ButtonSize,
+  ButtonStyleVariant,
+} from '~/src/components/Button'
 import {
   Icon,
   IconSize,
@@ -94,10 +99,10 @@ function ActionButton({ children }: { children: KeyValueItemAction }) {
   return (
     <Wrapper {...(withTooltip ? { content: children.tooltip } : {})}>
       <Button
-        size="xs"
+        size={ButtonSize.XS}
         leftContent={children.icon}
-        styleVariant="tertiary"
-        colorVariant="monochrome-light"
+        styleVariant={ButtonStyleVariant.Tertiary}
+        colorVariant={ButtonColorVariant.MonochromeLight}
         onClick={children.onClick}
       />
     </Wrapper>

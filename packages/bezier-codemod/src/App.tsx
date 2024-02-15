@@ -18,9 +18,9 @@ import {
 } from 'ink'
 
 import project from './project.js'
+import enumMemberToStringLiteral from './transforms/enum-member-to-string-literal/transform.js'
 import iconNameToBezierIcon from './transforms/icon-name-to-bezier-icons/transform.js'
 import iconsToBezierIcons from './transforms/icons-to-bezier-icons/transform.js'
-import enumMemberToStringLiteral from './transforms/v2-enum-member-to-string-literal/transform.js'
 import foundationToCssVariableBorder from './transforms/v2-foundation-to-css-variable/border.js'
 import foundationToCssVariableElevation from './transforms/v2-foundation-to-css-variable/elevation.js'
 import foundationToCssVariableRounding from './transforms/v2-foundation-to-css-variable/rounding.js'
@@ -47,8 +47,7 @@ enum Step {
 enum Option {
   IconsToBezierIcons = 'icons-to-bezier-icons',
   IconNameToBezierIcon = 'icon-name-to-bezier-icon',
-
-  V2EnumMemberToStringLiteral = 'v2-enum-member-to-string-literal',
+  EnumMemberToStringLiteral = 'enum-member-to-string-literal',
 
   V2FoundationToCssVariable = 'v2-foundation-to-css-variable',
   V2FoundationToCssVariableTheme = 'v2-foundation-to-css-variable-theme',
@@ -75,8 +74,7 @@ type TransformName = Exclude<Option, Option.Exit>
 const transformMap = {
   [Option.IconsToBezierIcons]: iconsToBezierIcons,
   [Option.IconNameToBezierIcon]: iconNameToBezierIcon,
-
-  [Option.V2EnumMemberToStringLiteral]: enumMemberToStringLiteral,
+  [Option.EnumMemberToStringLiteral]: enumMemberToStringLiteral,
 
   [Option.V2FoundationToCssVariableTheme]: foundationToCssVariableTheme,
   [Option.V2FoundationToCssVariableBorder]: foundationToCssVariableBorder,

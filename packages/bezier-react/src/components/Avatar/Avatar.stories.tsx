@@ -6,14 +6,41 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
+import { isNaN } from '~/src/utils/type'
+
+import { StatusType } from '~/src/components/Status'
+
 import { Avatar } from './Avatar'
 import type { AvatarProps } from './Avatar.types'
+import { AvatarSize } from './Avatar.types'
 
 const MOCK_AVATAR_URL = 'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png'
+
+const avatarSizeList = Object.keys(AvatarSize)
+  .filter(value => isNaN(Number(value)) === true)
+  .map(key => AvatarSize[key])
+
+const statusTypeList = Object.keys(StatusType)
+  .map(key => StatusType[key])
 
 const meta:Meta<typeof Avatar> = {
   component: Avatar,
   argTypes: {
+    size: {
+      control: {
+        type: 'radio',
+      },
+      options: avatarSizeList,
+    },
+    status: {
+      control: {
+        type: 'radio',
+      },
+      options: [
+        undefined,
+        ...statusTypeList,
+      ],
+    },
     onClick: {
       action: 'clicked',
     },
@@ -37,7 +64,7 @@ export const Primary: StoryObj<AvatarProps> = {
   args: {
     avatarUrl: MOCK_AVATAR_URL,
     name: 'Channel',
-    size: '24',
+    size: AvatarSize.Size24,
     showBorder: false,
     disabled: false,
     smoothCorners: true,
@@ -49,7 +76,7 @@ const TemplateWithCustomStatus: StoryFn<AvatarProps> = (args) => (
     <Avatar
       avatarUrl="https://bit.ly/kent-c-dodds"
       name="Kent Dodds"
-      size="20"
+      size={AvatarSize.Size20}
       showBorder
     />
   </Avatar>
@@ -61,7 +88,7 @@ export const WithCustomStatus: StoryObj<AvatarProps> = {
   args: {
     avatarUrl: MOCK_AVATAR_URL,
     name: 'Channel',
-    size: '48',
+    size: AvatarSize.Size48,
     showBorder: false,
     disabled: false,
   },

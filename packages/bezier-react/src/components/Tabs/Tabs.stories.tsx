@@ -29,6 +29,7 @@ import {
 import {
   type TabActionProps,
   type TabListProps,
+  TabSize,
   type TabsProps,
 } from './Tabs.types'
 
@@ -115,7 +116,7 @@ const meta: Meta<TabsCompositionProps> = {
       control: {
         type: 'radio',
       },
-      options: ['s', 'm', 'l'],
+      options: [TabSize.S, TabSize.M, TabSize.L],
     },
     onValueChange: {
       action: 'clicked',
@@ -130,7 +131,7 @@ export const Composition: StoryObj<TabsCompositionProps> = {
   render: Template,
 
   args: {
-    size: 'm',
+    size: TabSize.M,
     onValueChange: noop,
     defaultValue: undefined,
     activationMode: 'automatic',
@@ -142,7 +143,7 @@ export const UnControlled: StoryObj<TabsCompositionProps> = {
   render: Template,
 
   args: {
-    size: 'm',
+    size: TabSize.M,
     onValueChange: noop,
     defaultValue: 'One',
     activationMode: 'automatic',

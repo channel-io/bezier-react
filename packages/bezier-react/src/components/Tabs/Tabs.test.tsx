@@ -16,6 +16,7 @@ import {
 } from './Tabs'
 import {
   type TabListProps,
+  TabSize,
   type TabsProps,
 } from './Tabs.types'
 
@@ -42,7 +43,7 @@ describe('Tabs', () => {
     tabListProps,
   }: RenderTabsProps = {
     tabListProps: {
-      size: 'm',
+      size: TabSize.M,
     },
   }) => render(
     <Tabs {...tabsProps} defaultValue={VALUE1}>

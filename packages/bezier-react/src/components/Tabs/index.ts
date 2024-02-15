@@ -7,10 +7,10 @@ export {
   TabList,
   Tabs,
 } from './Tabs'
-export type {
-  TabActionProps,
-  TabItemProps,
-  TabListProps,
+export {
+  type TabActionProps,
+  type TabItemProps,
+  type TabListProps,
   TabSize,
-  TabsProps,
+  type TabsProps,
 } from './Tabs.types'

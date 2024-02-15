@@ -18,6 +18,7 @@ import type {
 } from '@storybook/react'
 
 import { noop } from '~/src/utils/function'
+import { getObjectFromEnum } from '~/src/utils/story'
 
 import {
   LegacyStackItem,
@@ -26,7 +27,10 @@ import {
 
 import { Banner } from './Banner'
 import mdx from './Banner.mdx'
-import { type BannerProps } from './Banner.types'
+import {
+  type BannerProps,
+  BannerVariant,
+} from './Banner.types'
 
 const meta: Meta<typeof Banner> = {
   component: Banner,
@@ -36,6 +40,12 @@ const meta: Meta<typeof Banner> = {
     },
   },
   argTypes: {
+    variant: {
+      control: {
+        type: 'radio',
+      },
+      options: getObjectFromEnum(BannerVariant),
+    },
     hasLink: {
       control: {
         type: 'boolean',
@@ -57,7 +67,7 @@ export default meta
 
 export const Playground: StoryObj<BannerProps> = {
   args: {
-    variant: 'default',
+    variant: BannerVariant.Default,
     icon: LightbulbIcon,
     content: 'Information here.',
     actionIcon: CancelSmallIcon,
@@ -69,7 +79,7 @@ export const Overview: StoryFn<{}> = () => (
   <LegacyVStack spacing={6} align="stretch">
     <LegacyStackItem>
       <Banner
-        variant="default"
+        variant={BannerVariant.Default}
         icon={LightbulbIcon}
         content="Information here."
         actionIcon={CancelIcon}
@@ -77,42 +87,42 @@ export const Overview: StoryFn<{}> = () => (
     </LegacyStackItem>
     <LegacyStackItem>
       <Banner
-        variant="blue"
+        variant={BannerVariant.Blue}
         icon={LightbulbIcon}
         content="Information here."
       />
     </LegacyStackItem>
     <LegacyStackItem>
       <Banner
-        variant="cobalt"
+        variant={BannerVariant.Cobalt}
         icon={InfoIcon}
         content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
       />
     </LegacyStackItem>
     <LegacyStackItem>
       <Banner
-        variant="green"
+        variant={BannerVariant.Green}
         icon={CheckCircleFilledIcon}
         content="Now Running..."
       />
     </LegacyStackItem>
     <LegacyStackItem>
       <Banner
-        variant="orange"
+        variant={BannerVariant.Orange}
         icon={ErrorTriangleFilledIcon}
         content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
       />
     </LegacyStackItem>
     <LegacyStackItem>
       <Banner
-        variant="red"
+        variant={BannerVariant.Red}
         icon={BlockIcon}
         content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
       />
     </LegacyStackItem>
     <LegacyStackItem>
       <Banner
-        variant="alt"
+        variant={BannerVariant.Alt}
         icon={Hourglass3Icon}
         content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
       />
@@ -125,7 +135,7 @@ export const UsageMinWidth: StoryObj<{}> = {
     <LegacyVStack spacing={6} align="start">
       <LegacyStackItem>
         <Banner
-          variant="orange"
+          variant={BannerVariant.Orange}
           icon={ErrorTriangleFilledIcon}
           content="네."
         />
@@ -141,21 +151,21 @@ export const UsageFullWidth: StoryObj<{}> = {
     <LegacyVStack spacing={6} align="start">
       <LegacyStackItem style={{ width: 360, border: '1px solid red' }}>
         <Banner
-          variant="orange"
+          variant={BannerVariant.Orange}
           icon={ErrorTriangleFilledIcon}
           content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
         />
       </LegacyStackItem>
       <LegacyStackItem style={{ width: 480, border: '1px solid red' }}>
         <Banner
-          variant="orange"
+          variant={BannerVariant.Orange}
           icon={ErrorTriangleFilledIcon}
           content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
         />
       </LegacyStackItem>
       <LegacyStackItem style={{ width: 720, border: '1px solid red' }}>
         <Banner
-          variant="orange"
+          variant={BannerVariant.Orange}
           icon={ErrorTriangleFilledIcon}
           content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
         />
@@ -171,7 +181,7 @@ export const UsageMaxWidth: StoryObj<{}> = {
     <LegacyVStack spacing={6} align="start">
       <LegacyStackItem>
         <Banner
-          variant="cobalt"
+          variant={BannerVariant.Cobalt}
           icon={InfoIcon}
           // eslint-disable-next-line max-len
           content={
@@ -190,7 +200,7 @@ export const UsageConsecutive: StoryObj<{}> = {
     <LegacyVStack spacing={6} align="stretch">
       <LegacyStackItem>
         <Banner
-          variant="cobalt"
+          variant={BannerVariant.Cobalt}
           icon={InfoIcon}
           content="전화번호 설정하는 게 좋아요."
           hasLink
@@ -199,14 +209,14 @@ export const UsageConsecutive: StoryObj<{}> = {
       </LegacyStackItem>
       <LegacyStackItem>
         <Banner
-          variant="orange"
+          variant={BannerVariant.Orange}
           icon={ErrorTriangleFilledIcon}
           content="빠진 내용을 모두 입력해주세요."
         />
       </LegacyStackItem>
       <LegacyStackItem>
         <Banner
-          variant="default"
+          variant={BannerVariant.Default}
           icon={InfoIcon}
           content="아래 내용을 입력해주세요."
           hasLink
@@ -224,7 +234,7 @@ export const UsageNoIcon: StoryObj<{}> = {
   render: () => (
     <Banner
       icon={null}
-      variant="green"
+      variant={BannerVariant.Green}
       content="이제는 모든 기능을 사용할 수 있습니다."
       hasLink
       linkText="바로가기"
@@ -237,7 +247,7 @@ export const UsageNoIcon: StoryObj<{}> = {
 export const UsageLink: StoryObj<{}> = {
   render: () => (
     <Banner
-      variant="default"
+      variant={BannerVariant.Default}
       icon={InfoIcon}
       content="아래 내용을 입력해주세요."
       hasLink
@@ -252,7 +262,7 @@ export const UsageLink: StoryObj<{}> = {
 export const UsageLinkTo: StoryObj<{}> = {
   render: () => (
     <Banner
-      variant="cobalt"
+      variant={BannerVariant.Cobalt}
       icon={ChannelIcon}
       content="채널톡 정말 좋은 서비스에요."
       hasLink

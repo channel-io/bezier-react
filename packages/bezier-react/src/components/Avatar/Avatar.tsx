@@ -13,11 +13,12 @@ import {
 } from '~/src/components/AlphaSmoothCornersBox'
 import {
   Status,
-  type StatusSize,
+  StatusSize,
 } from '~/src/components/Status'
 import { useToken } from '~/src/components/ThemeProvider'
 
 import type { AvatarProps } from './Avatar.types'
+import { AvatarSize } from './Avatar.types'
 import defaultAvatarUrl from './assets/default-avatar.svg'
 import useProgressiveImage from './useProgressiveImage'
 
@@ -44,7 +45,7 @@ export const STATUS_WRAPPER_TEST_ID = 'bezier-status-wrapper'
  * <Avatar
  *   avatarUrl="'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png"
  *   name="channel"
- *   size="48"
+ *   size={AvatarSize.Size48}
  *   showBorder
  *   disabled
  * />
@@ -53,7 +54,7 @@ export const STATUS_WRAPPER_TEST_ID = 'bezier-status-wrapper'
 export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
   avatarUrl = '',
   fallbackUrl = defaultAvatarUrl,
-  size = '24',
+  size = AvatarSize.Size24,
   name,
   disabled = false,
   showBorder = false,
@@ -74,15 +75,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
       return null
     }
 
-    const statusSize: StatusSize = (() => {
-      switch (size) {
-        case '90':
-        case '120':
-          return 'l'
-        default:
-          return 'm'
-      }
-    })()
+    const statusSize = size >= AvatarSize.Size90 ? StatusSize.L : StatusSize.M
 
     const Contents = (() => {
       if (children) { return children }
@@ -128,7 +121,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
         aria-label={name}
         className={classNames(
           styles.AvatarImage,
-          Number(size) >= 72 && styles['big-size'],
+          size >= AvatarSize.Size72 && styles['big-size'],
           showBorder && styles.bordered,
         )}
         disabled={!smoothCorners}

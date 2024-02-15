@@ -6,6 +6,10 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
+import { getObjectFromEnum } from '~/src/utils/story'
+
+import { AvatarSize } from '~/src/components/Avatar'
+
 import { CheckableAvatar } from './CheckableAvatar'
 import type { CheckableAvatarProps } from './CheckableAvatar.types'
 
@@ -16,6 +20,12 @@ const meta: Meta<typeof CheckableAvatar> = {
       control: {
         type: 'boolean',
       },
+    },
+    size: {
+      control: {
+        type: 'select',
+      },
+      options: getObjectFromEnum(AvatarSize),
     },
   },
 }
@@ -32,7 +42,7 @@ export const Primary: StoryObj<CheckableAvatarProps> = {
     avatarUrl:
       'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png',
     name: 'Channel',
-    size: '24',
+    size: AvatarSize.Size24,
     checked: undefined,
     defaultChecked: false,
     disabled: false,

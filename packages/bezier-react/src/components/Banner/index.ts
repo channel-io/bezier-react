@@ -1,5 +1,5 @@
 export { Banner } from './Banner'
-export type {
-  BannerProps,
+export {
+  type BannerProps,
   BannerVariant,
 } from './Banner.types'

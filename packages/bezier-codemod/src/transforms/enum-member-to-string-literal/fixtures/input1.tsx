@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProgressBar, ProgressBarSize, ProgressBarVariant, AvatarSize, Avatar } from '@channel.io/bezier-react'
+import { ProgressBar, ProgressBarSize, ProgressBarVariant } from '@channel.io/bezier-react'
 
 export default function UploadProgress({
   uploadProgressPercentage,
@@ -14,14 +14,4 @@ export default function UploadProgress({
       value={uploadProgressPercentage / 100}
     />
   )
-}
-
-export function DummyAvatar() {
-  return (
-  <Avatar
-    avatarUrl="https://bit.ly/kent-c-dodds"
-    name="Kent Dodds"
-    size={AvatarSize.Size20}
-    showBorder
-  />)
 }
