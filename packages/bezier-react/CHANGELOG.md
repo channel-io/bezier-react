@@ -1,5 +1,16 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.12
+
+### Patch Changes
+
+- Now exports the `tokens` object from `@channel.io/bezier-tokens`. ([#1992](https://github.com/channel-io/bezier-react/pull/1992)) by @sungik-choi
+
+- Fixes an issue where multi line truncated in `Text` was not being applied. ([#1994](https://github.com/channel-io/bezier-react/pull/1994)) by @sungik-choi
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.1.0-alpha.5
+
 ## 2.0.0-alpha.11
 
 ### Minor Changes
