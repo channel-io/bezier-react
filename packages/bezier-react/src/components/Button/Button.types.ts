@@ -8,34 +8,37 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
-export type ButtonStyleVariant =
-| 'primary'
-| 'secondary'
-| 'tertiary'
-| 'floating'
-| 'floating-alt'
+export enum ButtonStyleVariant {
+  Primary = 'primary',
+  Secondary = 'secondary',
+  Tertiary = 'tertiary',
+  Floating = 'floating',
+  FloatingAlt = 'floating-alt',
+}
 
-export type ButtonColorVariant =
-| 'blue'
-| 'red'
-| 'green'
-| 'cobalt'
-| 'orange'
-| 'pink'
-| 'purple'
-/**
- * @deprecated use `monochrome-light` or `monochrome-dark`
- */
-| 'monochrome'
-| 'monochrome-light'
-| 'monochrome-dark'
+export enum ButtonColorVariant {
+  Blue = 'blue',
+  Red = 'red',
+  Green = 'green',
+  Cobalt = 'cobalt',
+  Orange = 'orange',
+  Pink = 'pink',
+  Purple = 'purple',
+  /**
+   * @deprecated use `ButtonColorVariant.MonochromeLight` or `ButtonColorVariant.MonochromeDark`
+   */
+  Monochrome = 'monochrome',
+  MonochromeLight = 'monochrome-light',
+  MonochromeDark = 'monochrome-dark',
+}
 
-export type ButtonSize =
-| 'xs'
-| 's'
-| 'm'
-| 'l'
-| 'xl'
+export enum ButtonSize {
+  XS = 'xs',
+  S = 's',
+  M = 'm',
+  L = 'l',
+  XL = 'xl',
+}
 
 export type SideContent = React.ReactNode | BezierIcon
 
@@ -72,7 +75,7 @@ interface ButtonOwnProps {
 
   /**
    * The style variant.
-   * @default "primary"
+   * @default ButtonStyleVariant.Primary
    */
   styleVariant?: ButtonStyleVariant
 

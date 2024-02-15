@@ -6,7 +6,12 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { Avatar } from '~/src/components/Avatar'
+import { isNaN } from '~/src/utils/type'
+
+import {
+  Avatar,
+  AvatarSize,
+} from '~/src/components/Avatar'
 
 import { AvatarGroup } from './AvatarGroup'
 import {
@@ -14,6 +19,10 @@ import {
   type AvatarGroupProps,
 } from './AvatarGroup.types'
 import MOCK_AVATAR_LIST from './__mocks__/avatarList'
+
+const avatarSizeList = Object.keys(AvatarSize)
+  .filter(value => isNaN(Number(value)) === true)
+  .map(key => AvatarSize[key])
 
 const meta: Meta<typeof AvatarGroup> = {
   component: AvatarGroup,
@@ -23,6 +32,12 @@ const meta: Meta<typeof AvatarGroup> = {
         type: 'radio',
       },
       options: AvatarGroupEllipsisType,
+    },
+    size: {
+      control: {
+        type: 'radio',
+      },
+      options: avatarSizeList,
     },
     max: {
       control: {
@@ -63,7 +78,7 @@ export const Primary: StoryObj<AvatarGroupProps> = {
 
   args: {
     max: 5,
-    size: '30',
+    size: AvatarSize.Size30,
     ellipsisType: AvatarGroupEllipsisType.Icon,
     spacing: 4,
   },

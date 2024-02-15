@@ -13,7 +13,7 @@ import { px } from '~/src/utils/style'
 import { AlphaSmoothCornersBox } from '~/src/components/AlphaSmoothCornersBox'
 import {
   type AvatarProps,
-  type AvatarSize,
+  AvatarSize,
   useAvatarRadiusToken,
 } from '~/src/components/Avatar'
 import {
@@ -41,28 +41,28 @@ function getRestAvatarListCountText(count: number, max: number) {
 // TODO: Not specified
 function getProperIconSize(avatarSize: AvatarSize) {
   return {
-    20: IconSize.XXS,
-    24: IconSize.XS,
-    30: IconSize.S,
-    36: IconSize.Normal,
-    42: IconSize.Normal,
-    48: IconSize.L,
-    90: IconSize.L,
-    120: IconSize.L,
+    [AvatarSize.Size20]: IconSize.XXS,
+    [AvatarSize.Size24]: IconSize.XS,
+    [AvatarSize.Size30]: IconSize.S,
+    [AvatarSize.Size36]: IconSize.Normal,
+    [AvatarSize.Size42]: IconSize.Normal,
+    [AvatarSize.Size48]: IconSize.L,
+    [AvatarSize.Size90]: IconSize.L,
+    [AvatarSize.Size120]: IconSize.L,
   }[avatarSize]
 }
 
 // TODO: Not specified
 function getProperTypoSize(avatarSize: AvatarSize) {
   return {
-    20: '12',
-    24: '13',
-    30: '15',
-    36: '16',
-    42: '18',
-    48: '24',
-    90: '24',
-    120: '24',
+    [AvatarSize.Size20]: '12',
+    [AvatarSize.Size24]: '13',
+    [AvatarSize.Size30]: '15',
+    [AvatarSize.Size36]: '16',
+    [AvatarSize.Size42]: '18',
+    [AvatarSize.Size48]: '24',
+    [AvatarSize.Size90]: '24',
+    [AvatarSize.Size120]: '24',
   }[avatarSize]
 }
 
@@ -84,7 +84,7 @@ function getProperTypoSize(avatarSize: AvatarSize) {
  */
 export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function AvatarGroup({
   max,
-  size = '24',
+  size = AvatarSize.Size24,
   spacing = AVATAR_GROUP_DEFAULT_SPACING,
   ellipsisType = AvatarGroupEllipsisType.Icon,
   onMouseEnterEllipsis,
@@ -205,11 +205,11 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
       ref={forwardedRef}
       className={classNames(
         styles.AvatarGroup,
-        styles[`size-${size}`],
         className,
       )}
       style={{
         '--b-avatar-group-spacing': px(spacing),
+        '--b-avatar-group-size': px(size),
         ...style,
       } as React.CSSProperties}
       {...rest}

@@ -11,7 +11,11 @@ import {
 
 import { getObjectFromEnum } from '~/src/utils/story'
 
-import { Button } from '~/src/components/Button'
+import {
+  Button,
+  ButtonColorVariant,
+  ButtonStyleVariant,
+} from '~/src/components/Button'
 import { ButtonGroup } from '~/src/components/ButtonGroup'
 import { FormControl } from '~/src/components/FormControl'
 import { FormLabel } from '~/src/components/FormLabel'
@@ -101,15 +105,15 @@ function ModalComposition({
             <ButtonGroup>
               <ModalClose>
                 <Button
-                  colorVariant="monochrome-light"
-                  styleVariant="secondary"
+                  colorVariant={ButtonColorVariant.MonochromeLight}
+                  styleVariant={ButtonStyleVariant.Secondary}
                   text="Cancel"
                 />
               </ModalClose>
               <ModalClose>
                 <Button
-                  colorVariant="blue"
-                  styleVariant="primary"
+                  colorVariant={ButtonColorVariant.Blue}
+                  styleVariant={ButtonStyleVariant.Primary}
                   text="Save"
                 />
               </ModalClose>

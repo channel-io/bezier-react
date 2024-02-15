@@ -7,10 +7,11 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
-export type TabSize =
-| 'l'
-| 'm'
-| 's'
+export enum TabSize {
+  L = 'l',
+  M = 'm',
+  S = 's',
+}
 
 export interface TabListContextValue {
   size: TabSize

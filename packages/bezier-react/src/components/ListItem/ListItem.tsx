@@ -15,7 +15,11 @@ import {
 } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
-import { type ListItemProps } from './ListItem.types'
+import {
+  type ListItemProps,
+  ListItemSize,
+  ListItemVariant,
+} from './ListItem.types'
 
 import styles from './ListItem.module.scss'
 
@@ -36,8 +40,8 @@ export const LIST_ITEM_TEST_ID = 'bezier-list-item'
 export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem({
   className,
   as,
-  variant = 'monochrome',
-  size = 's',
+  variant = ListItemVariant.Monochrome,
+  size = ListItemSize.S,
   content,
   description,
   descriptionMaxLines,
@@ -94,7 +98,7 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(function ListItem
           { isString(content) ? (
             <Text
               truncated
-              typo={size === 'l'
+              typo={size === ListItemSize.L
                 ? '16'
                 : '14'}
             >

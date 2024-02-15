@@ -8,7 +8,10 @@ import type {
 
 import { range } from '~/src/utils/number'
 
-import { Button } from '~/src/components/Button'
+import {
+  Button,
+  ButtonSize,
+} from '~/src/components/Button'
 import { Text } from '~/src/components/Text'
 
 import { LegacyHStack } from './LegacyHStack'
@@ -225,7 +228,7 @@ export const Overview: StoryFn<{}> = () => (
         }}
       >
         <Button
-          size="l"
+          size={ButtonSize.L}
           text="스택에 대해 더 자세히 알아보기"
         />
       </div>

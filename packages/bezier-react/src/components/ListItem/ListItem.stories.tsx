@@ -10,7 +10,10 @@ import {
 import { range } from '~/src/utils/number'
 
 import { ListItem } from './ListItem'
-import { type ListItemProps } from './ListItem.types'
+import {
+  type ListItemProps,
+  ListItemSize,
+} from './ListItem.types'
 
 const meta: Meta<typeof ListItem> = {
   component: ListItem,
@@ -25,7 +28,7 @@ const Template: StoryFn<ListItemProps> = (props) => (
 export const Primary: StoryObj<ListItemProps> = {
   render: Template,
   args: {
-    size: 's',
+    size: ListItemSize.S,
     content: '상담이 열릴 때',
     leftContent: InboxIcon,
     active: false,

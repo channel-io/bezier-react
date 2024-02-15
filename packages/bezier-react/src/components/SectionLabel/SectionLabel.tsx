@@ -14,7 +14,12 @@ import {
 } from '~/src/utils/type'
 
 import { BaseButton } from '~/src/components/BaseButton'
-import { Button } from '~/src/components/Button'
+import {
+  Button,
+  ButtonColorVariant,
+  ButtonSize,
+  ButtonStyleVariant,
+} from '~/src/components/Button'
 import { Help } from '~/src/components/Help'
 import {
   Icon,
@@ -88,9 +93,9 @@ function RightContent({ children }: { children: SectionLabelRightContent }) {
         leftContent: children,
       }}
       className={styles.RightItem}
-      size="xs"
-      styleVariant="tertiary"
-      colorVariant="monochrome-light"
+      size={ButtonSize.XS}
+      styleVariant={ButtonStyleVariant.Tertiary}
+      colorVariant={ButtonColorVariant.MonochromeLight}
     />
   )
 }
