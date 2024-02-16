@@ -30,7 +30,7 @@ export function render(
 
 interface RenderHookOptions<Props> {
   initialProps?: Props
-  wrapper?: React.JSXElementConstructor<{ children: React.ReactElement }>
+  wrapper?: React.JSXElementConstructor<{ children: React.ReactNode }>
 }
 
 export function renderHook<Result, Props>(
