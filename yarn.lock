@@ -61,7 +61,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.10.4, @babel/code-frame@npm:^7.12.13, @babel/code-frame@npm:^7.16.0, @babel/code-frame@npm:^7.16.7, @babel/code-frame@npm:^7.22.13, @babel/code-frame@npm:^7.23.5, @babel/code-frame@npm:^7.8.3":
+"@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.10.4, @babel/code-frame@npm:^7.12.13, @babel/code-frame@npm:^7.16.0, @babel/code-frame@npm:^7.16.7, @babel/code-frame@npm:^7.23.5, @babel/code-frame@npm:^7.8.3":
   version: 7.23.5
   resolution: "@babel/code-frame@npm:7.23.5"
   dependencies:
@@ -274,16 +274,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-module-imports@npm:^7.18.6":
-  version: 7.22.5
-  resolution: "@babel/helper-module-imports@npm:7.22.5"
-  dependencies:
-    "@babel/types": ^7.22.5
-  checksum: 9ac2b0404fa38b80bdf2653fbeaf8e8a43ccb41bd505f9741d820ed95d3c4e037c62a1bcdcb6c9527d7798d2e595924c4d025daed73283badc180ada2c9c49ad
-  languageName: node
-  linkType: hard
-
-"@babel/helper-module-imports@npm:^7.22.15":
+"@babel/helper-module-imports@npm:^7.18.6, @babel/helper-module-imports@npm:^7.22.15":
   version: 7.22.15
   resolution: "@babel/helper-module-imports@npm:7.22.15"
   dependencies:
@@ -1690,11 +1681,11 @@ __metadata:
   linkType: hard
 
 "@babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.13.10, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.20.1, @babel/runtime@npm:^7.20.7, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.7.6, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
-  version: 7.23.6
-  resolution: "@babel/runtime@npm:7.23.6"
+  version: 7.23.9
+  resolution: "@babel/runtime@npm:7.23.9"
   dependencies:
     regenerator-runtime: ^0.14.0
-  checksum: 1a8eaf3d3a103ef5227b60ca7ab5c589118c36ca65ef2d64e65380b32a98a3f3b5b3ef96660fa0471b079a18b619a8317f3e7f03ab2b930c45282a8b69ed9a16
+  checksum: 6bbebe8d27c0c2dd275d1ac197fc1a6c00e18dab68cc7aaff0adc3195b45862bae9c4cc58975629004b0213955b2ed91e99eccb3d9b39cabea246c657323d667
   languageName: node
   linkType: hard
 
@@ -1739,7 +1730,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/traverse@npm:^7.1.6, @babel/traverse@npm:^7.23.9":
+"@babel/traverse@npm:^7.1.6, @babel/traverse@npm:^7.22.8, @babel/traverse@npm:^7.23.2, @babel/traverse@npm:^7.23.9":
   version: 7.23.9
   resolution: "@babel/traverse@npm:7.23.9"
   dependencies:
@@ -1754,24 +1745,6 @@ __metadata:
     debug: ^4.3.1
     globals: ^11.1.0
   checksum: a932f7aa850e158c00c97aad22f639d48c72805c687290f6a73e30c5c4957c07f5d28310c9bf59648e2980fe6c9d16adeb2ff92a9ca0f97fa75739c1328fc6c3
-  languageName: node
-  linkType: hard
-
-"@babel/traverse@npm:^7.22.8, @babel/traverse@npm:^7.23.2":
-  version: 7.23.2
-  resolution: "@babel/traverse@npm:7.23.2"
-  dependencies:
-    "@babel/code-frame": ^7.22.13
-    "@babel/generator": ^7.23.0
-    "@babel/helper-environment-visitor": ^7.22.20
-    "@babel/helper-function-name": ^7.23.0
-    "@babel/helper-hoist-variables": ^7.22.5
-    "@babel/helper-split-export-declaration": ^7.22.6
-    "@babel/parser": ^7.23.0
-    "@babel/types": ^7.23.0
-    debug: ^4.1.0
-    globals: ^11.1.0
-  checksum: 26a1eea0dde41ab99dde8b9773a013a0dc50324e5110a049f5d634e721ff08afffd54940b3974a20308d7952085ac769689369e9127dea655f868c0f6e1ab35d
   languageName: node
   linkType: hard
 
@@ -2109,7 +2082,7 @@ __metadata:
     "@channel.io/bezier-icons": ^0.18.0
     "@channel.io/bezier-tokens": 0.1.0-alpha.5
     "@radix-ui/react-checkbox": ^1.0.4
-    "@radix-ui/react-dialog": ^1.0.4
+    "@radix-ui/react-dialog": ^1.0.5
     "@radix-ui/react-radio-group": ^1.1.3
     "@radix-ui/react-separator": ^1.0.3
     "@radix-ui/react-slider": ^1.1.2
@@ -2117,7 +2090,7 @@ __metadata:
     "@radix-ui/react-switch": ^1.0.3
     "@radix-ui/react-tabs": ^1.0.4
     "@radix-ui/react-toolbar": ^1.0.4
-    "@radix-ui/react-tooltip": ^1.0.6
+    "@radix-ui/react-tooltip": ^1.0.7
     "@radix-ui/react-visually-hidden": ^1.0.3
     "@rollup/plugin-alias": ^5.1.0
     "@rollup/plugin-babel": ^6.0.4
@@ -2145,7 +2118,7 @@ __metadata:
     babel-loader: ^9.1.3
     babel-preset-react-app: ^10.0.1
     chromatic: ^10.9.5
-    classnames: ^2.3.2
+    classnames: ^2.5.1
     core-js: ^3.36.0
     eslint-config-bezier: "workspace:*"
     eslint-plugin-jsdoc: ^48.0.4
@@ -4033,7 +4006,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-dialog@npm:^1.0.4":
+"@radix-ui/react-dialog@npm:^1.0.5":
   version: 1.0.5
   resolution: "@radix-ui/react-dialog@npm:1.0.5"
   dependencies:
@@ -4633,7 +4606,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-tooltip@npm:^1.0.6":
+"@radix-ui/react-tooltip@npm:^1.0.7":
   version: 1.0.7
   resolution: "@radix-ui/react-tooltip@npm:1.0.7"
   dependencies:
@@ -4802,10 +4775,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@remix-run/router@npm:1.8.0":
-  version: 1.8.0
-  resolution: "@remix-run/router@npm:1.8.0"
-  checksum: f754f02d3b4fc86791b88acf16065000609e2324b9436027844a76831c7107c0994067cb83abdd6093c282bd518a5c89b5e02aead585782978586e3a04534428
+"@remix-run/router@npm:1.15.0":
+  version: 1.15.0
+  resolution: "@remix-run/router@npm:1.15.0"
+  checksum: 0b5ea6b2e7bb7f3266005e033337a6fed29c458aa5ddc9a97a90ff19813ae6dfb4392871722d66d7e8db93a29760a8257830a9af58824b3a3363ed58e1e471d8
   languageName: node
   linkType: hard
 
@@ -8440,7 +8413,7 @@ __metadata:
     react: ^18.2.0
     react-dev-utils: ^12.0.1
     react-dom: ^18.2.0
-    react-router-dom: ^6.15.0
+    react-router-dom: ^6.22.0
     style-loader: ^3.3.4
     ts-loader: ^9.5.1
     tsconfig: "workspace:*"
@@ -8978,10 +8951,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"classnames@npm:^2.3.2":
-  version: 2.3.2
-  resolution: "classnames@npm:2.3.2"
-  checksum: 2c62199789618d95545c872787137262e741f9db13328e216b093eea91c85ef2bfb152c1f9e63027204e2559a006a92eb74147d46c800a9f96297ae1d9f96f4e
+"classnames@npm:^2.5.1":
+  version: 2.5.1
+  resolution: "classnames@npm:2.5.1"
+  checksum: da424a8a6f3a96a2e87d01a432ba19315503294ac7e025f9fece656db6b6a0f7b5003bb1fbb51cbb0d9624d964f1b9bb35a51c73af9b2434c7b292c42231c1e5
   languageName: node
   linkType: hard
 
@@ -18099,27 +18072,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:^6.15.0":
-  version: 6.15.0
-  resolution: "react-router-dom@npm:6.15.0"
+"react-router-dom@npm:^6.22.0":
+  version: 6.22.0
+  resolution: "react-router-dom@npm:6.22.0"
   dependencies:
-    "@remix-run/router": 1.8.0
-    react-router: 6.15.0
+    "@remix-run/router": 1.15.0
+    react-router: 6.22.0
   peerDependencies:
     react: ">=16.8"
     react-dom: ">=16.8"
-  checksum: 95301837e293654f00934de6a4bdb27bfb06f613503e4cce7a93f19384793729832e7479d50faf3b9457d149014d4df40a3ee3a5193d7e3a3caadb7aaa6ec0f9
+  checksum: 21cbdda0070dffb50845a97e2688648a9925c7ebabd1f9335523a1f8ae66048c1d9d06442f1b0ec35a266d1c63ed3b56b437db70807f73440a185f3e2d3c632f
   languageName: node
   linkType: hard
 
-"react-router@npm:6.15.0":
-  version: 6.15.0
-  resolution: "react-router@npm:6.15.0"
+"react-router@npm:6.22.0":
+  version: 6.22.0
+  resolution: "react-router@npm:6.22.0"
   dependencies:
-    "@remix-run/router": 1.8.0
+    "@remix-run/router": 1.15.0
   peerDependencies:
     react: ">=16.8"
-  checksum: 345b29277e13997f2625f0037f537eaf1955bb9f44ebfea80dd3ff83fc06273f7b64e1be944bfc75945fd2af5af917874133a8a93ed5ecaca523be8f045ae166
+  checksum: 94f382f3fa6fcb8525c143d83d4c3a3b010979f417cac0bbe7a63f906b3809e2bb56e8c329b9b3fd3212a498670ab278aea72893e921b827dcf00024c3d115dd
   languageName: node
   linkType: hard
 
