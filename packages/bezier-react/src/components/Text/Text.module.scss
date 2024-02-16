@@ -34,12 +34,12 @@ $typo-sizes: 11, 12, 13, 14, 15, 16, 17, 18, 22, 24, 30, 36;
   &:where(.multi-line-truncated) {
     overflow: hidden;
     display: -webkit-box;
+    -webkit-box-orient: vertical;
 
     max-height: calc(var(--b-text-line-clamp) * var(--b-text-line-height));
 
     text-overflow: ellipsis;
 
-    -webkit-box-orient: vertical;
     -webkit-line-clamp: var(--b-text-line-clamp);
   }
 
