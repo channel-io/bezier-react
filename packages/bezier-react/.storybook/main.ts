@@ -77,8 +77,12 @@ export default {
   },
 
   framework: {
-    name: '@storybook/react-webpack5',
-    options: {},
+    name: getAbsolutePath('@storybook/react-webpack5'),
+    options: {
+      builder: {
+        useSWC: true,
+      },
+    },
   },
 
   docs: {
