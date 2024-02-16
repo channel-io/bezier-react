@@ -1,0 +1,18 @@
+# To support the following CSS features
+# - CSS Variables
+# - CSS Cascade Layers
+# - Modern selectors, such as :has(), :where() and :is()
+>= 1% in KR
+>= 1% in JP
+>= 1% in US
+not dead
+Chrome >= 105
+Edge >= 105
+# As of February 2024, added because it includes Edge version 87.
+not Edge < 105
+Firefox >= 121
+iOS >= 15.4
+Safari >= 15.4
+Android >= 121
+Opera >= 91
+Samsung >= 20
