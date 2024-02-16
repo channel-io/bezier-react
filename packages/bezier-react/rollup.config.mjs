@@ -8,7 +8,6 @@ import babel from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import url from '@rollup/plugin-url'
-import autoprefixer from 'autoprefixer'
 import { transform } from 'lightningcss'
 import postcssPresetEnv from 'postcss-preset-env'
 import { defineConfig } from 'rollup'
@@ -78,7 +77,6 @@ const generateConfig = ({
         hashPrefix: 'bezier',
       },
       plugins: [
-        autoprefixer(),
         postcssPresetEnv(),
         postcssAutoLayer({
           name: 'components',
