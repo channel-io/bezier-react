@@ -2055,17 +2055,17 @@ __metadata:
     "@babel/preset-env": ^7.23.9
     "@babel/preset-react": ^7.23.3
     "@babel/preset-typescript": ^7.23.3
-    "@rollup/plugin-alias": ^5.0.0
-    "@rollup/plugin-babel": ^6.0.3
-    "@rollup/plugin-node-resolve": ^15.2.1
-    "@rollup/plugin-terser": ^0.4.3
-    "@rollup/plugin-virtual": ^3.0.1
-    "@rollup/pluginutils": ^5.0.4
+    "@rollup/plugin-alias": ^5.1.0
+    "@rollup/plugin-babel": ^6.0.4
+    "@rollup/plugin-node-resolve": ^15.2.3
+    "@rollup/plugin-terser": ^0.4.4
+    "@rollup/plugin-virtual": ^3.0.2
+    "@rollup/pluginutils": ^5.1.0
     "@svgr/core": ^8.1.0
     "@svgr/plugin-jsx": ^8.1.0
     eslint-config-bezier: "workspace:^"
-    rollup: ^3.29.1
-    rollup-plugin-visualizer: ^5.9.2
+    rollup: ^3.29.4
+    rollup-plugin-visualizer: ^5.12.0
     svgo: ^3.2.0
     tsconfig: "workspace:^"
   languageName: unknown
@@ -2124,11 +2124,11 @@ __metadata:
     "@radix-ui/react-toolbar": ^1.0.4
     "@radix-ui/react-tooltip": ^1.0.6
     "@radix-ui/react-visually-hidden": ^1.0.3
-    "@rollup/plugin-alias": ^5.0.0
-    "@rollup/plugin-babel": ^6.0.3
-    "@rollup/plugin-commonjs": ^25.0.4
-    "@rollup/plugin-node-resolve": ^15.2.1
-    "@rollup/plugin-url": ^8.0.1
+    "@rollup/plugin-alias": ^5.1.0
+    "@rollup/plugin-babel": ^6.0.4
+    "@rollup/plugin-commonjs": ^25.0.7
+    "@rollup/plugin-node-resolve": ^15.2.3
+    "@rollup/plugin-url": ^8.0.2
     "@storybook/addon-a11y": ^7.6.16
     "@storybook/addon-actions": ^7.6.16
     "@storybook/addon-backgrounds": ^7.6.16
@@ -2146,7 +2146,7 @@ __metadata:
     "@types/react": ^18.2.55
     "@types/react-dom": ^18.2.19
     "@types/uuid": ^9.0.8
-    autoprefixer: ^10.4.14
+    autoprefixer: ^10.4.17
     babel-loader: ^9.1.3
     babel-preset-react-app: ^10.0.1
     chromatic: ^10.9.5
@@ -2157,19 +2157,19 @@ __metadata:
     eslint-plugin-sort-export-all: ^1.4.1
     eslint-plugin-storybook: ^0.6.13
     identity-obj-proxy: ^3.0.0
-    lightningcss: ^1.22.1
+    lightningcss: ^1.23.0
     minimatch: ^9.0.3
     paths.macro: ^3.0.1
-    postcss: ^8.4.33
+    postcss: ^8.4.35
     postcss-preset-env: ^9.3.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-textarea-autosize: 8.3.4
-    rollup: ^3.29.1
-    rollup-plugin-node-externals: ^6.1.1
+    rollup: ^3.29.4
+    rollup-plugin-node-externals: ^7.0.1
     rollup-plugin-postcss: ^4.0.2
-    rollup-plugin-visualizer: ^5.9.2
-    sass: ^1.63.6
+    rollup-plugin-visualizer: ^5.12.0
+    sass: ^1.71.0
     ssr-window: ^4.0.2
     storybook: ^7.6.16
     ts-prune: ^0.10.3
@@ -4844,9 +4844,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-alias@npm:^5.0.0":
-  version: 5.0.1
-  resolution: "@rollup/plugin-alias@npm:5.0.1"
+"@rollup/plugin-alias@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "@rollup/plugin-alias@npm:5.1.0"
   dependencies:
     slash: ^4.0.0
   peerDependencies:
@@ -4854,11 +4854,11 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: dab5bba16a0425c8412ece858df677c9f792bb0c5a7789c1677ee34b03533c1cda407191fcc40f3e93eb5f992cd8ed0e980e49dad3e38346547a2723b0f56fa1
+  checksum: e9f0a27b0f6f166c4c72757a2ecf23411dcc6da22ae2e020ddf30fa95526c8ab36ad372ed994dde806de4dcc47b2f1305138b953764a8f879c85fd725ac2a493
   languageName: node
   linkType: hard
 
-"@rollup/plugin-babel@npm:^6.0.3":
+"@rollup/plugin-babel@npm:^6.0.4":
   version: 6.0.4
   resolution: "@rollup/plugin-babel@npm:6.0.4"
   dependencies:
@@ -4877,7 +4877,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:^25.0.4":
+"@rollup/plugin-commonjs@npm:^25.0.7":
   version: 25.0.7
   resolution: "@rollup/plugin-commonjs@npm:25.0.7"
   dependencies:
@@ -4896,7 +4896,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-node-resolve@npm:^15.2.1":
+"@rollup/plugin-node-resolve@npm:^15.2.3":
   version: 15.2.3
   resolution: "@rollup/plugin-node-resolve@npm:15.2.3"
   dependencies:
@@ -4915,7 +4915,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-terser@npm:^0.4.3":
+"@rollup/plugin-terser@npm:^0.4.4":
   version: 0.4.4
   resolution: "@rollup/plugin-terser@npm:0.4.4"
   dependencies:
@@ -4931,7 +4931,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-url@npm:^8.0.1":
+"@rollup/plugin-url@npm:^8.0.2":
   version: 8.0.2
   resolution: "@rollup/plugin-url@npm:8.0.2"
   dependencies:
@@ -4947,7 +4947,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-virtual@npm:^3.0.1":
+"@rollup/plugin-virtual@npm:^3.0.2":
   version: 3.0.2
   resolution: "@rollup/plugin-virtual@npm:3.0.2"
   peerDependencies:
@@ -4959,9 +4959,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/pluginutils@npm:^5.0.1, @rollup/pluginutils@npm:^5.0.4":
-  version: 5.0.5
-  resolution: "@rollup/pluginutils@npm:5.0.5"
+"@rollup/pluginutils@npm:^5.0.1, @rollup/pluginutils@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "@rollup/pluginutils@npm:5.1.0"
   dependencies:
     "@types/estree": ^1.0.0
     estree-walker: ^2.0.2
@@ -4971,7 +4971,7 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: dcd4d6e3cb6047f18c465a5f2bcd29995c565f083fb6ca5505bcf2018ae0c16634fd38d99538fbb7dcef4e1b491cf4b4465f8845b5666778a925a27e9202dbab
+  checksum: 3cc5a6d91452a6eabbfd1ae79b4dd1f1e809d2eecda6e175deb784e75b0911f47e9ecce73f8dd315d6a8b3f362582c91d3c0f66908b6ced69345b3cbe28f8ce8
   languageName: node
   linkType: hard
 
@@ -7920,13 +7920,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.4.14, autoprefixer@npm:^10.4.16":
-  version: 10.4.16
-  resolution: "autoprefixer@npm:10.4.16"
+"autoprefixer@npm:^10.4.16, autoprefixer@npm:^10.4.17":
+  version: 10.4.17
+  resolution: "autoprefixer@npm:10.4.17"
   dependencies:
-    browserslist: ^4.21.10
-    caniuse-lite: ^1.0.30001538
-    fraction.js: ^4.3.6
+    browserslist: ^4.22.2
+    caniuse-lite: ^1.0.30001578
+    fraction.js: ^4.3.7
     normalize-range: ^0.1.2
     picocolors: ^1.0.0
     postcss-value-parser: ^4.2.0
@@ -7934,7 +7934,7 @@ __metadata:
     postcss: ^8.1.0
   bin:
     autoprefixer: bin/autoprefixer
-  checksum: 45fad7086495048dacb14bb7b00313e70e135b5d8e8751dcc60548889400763705ab16fc2d99ea628b44c3472698fb0e39598f595ba28409c965ab159035afde
+  checksum: 1b4cf4097507f9dc48cef3194f18a05901311c881380cc634b308fce54a6554cf2dcd20aec8384b44e994d4665ab12c63dc89492523f8d74ff5d4d5eb1469f8c
   languageName: node
   linkType: hard
 
@@ -8622,7 +8622,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001538, caniuse-lite@npm:^1.0.30001587":
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001578, caniuse-lite@npm:^1.0.30001587":
   version: 1.0.30001587
   resolution: "caniuse-lite@npm:1.0.30001587"
   checksum: fb50aa9beaaae42f9feae92ce038f6ff71e97510f024ef1bef2666f3adcfd36d6c59e5675442e5fe795575193f71bc826cb7721d4b0f6d763e82d193bea57863
@@ -11886,7 +11886,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fraction.js@npm:^4.3.6":
+"fraction.js@npm:^4.3.7":
   version: 4.3.7
   resolution: "fraction.js@npm:4.3.7"
   checksum: e1553ae3f08e3ba0e8c06e43a3ab20b319966dfb7ddb96fd9b5d0ee11a66571af7f993229c88ebbb0d4a816eb813a24ed48207b140d442a8f76f33763b8d1f3f
@@ -14591,83 +14591,83 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lightningcss-darwin-arm64@npm:1.22.1":
-  version: 1.22.1
-  resolution: "lightningcss-darwin-arm64@npm:1.22.1"
+"lightningcss-darwin-arm64@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-darwin-arm64@npm:1.23.0"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"lightningcss-darwin-x64@npm:1.22.1":
-  version: 1.22.1
-  resolution: "lightningcss-darwin-x64@npm:1.22.1"
+"lightningcss-darwin-x64@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-darwin-x64@npm:1.23.0"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"lightningcss-freebsd-x64@npm:1.22.1":
-  version: 1.22.1
-  resolution: "lightningcss-freebsd-x64@npm:1.22.1"
+"lightningcss-freebsd-x64@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-freebsd-x64@npm:1.23.0"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"lightningcss-linux-arm-gnueabihf@npm:1.22.1":
-  version: 1.22.1
-  resolution: "lightningcss-linux-arm-gnueabihf@npm:1.22.1"
+"lightningcss-linux-arm-gnueabihf@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-linux-arm-gnueabihf@npm:1.23.0"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"lightningcss-linux-arm64-gnu@npm:1.22.1":
-  version: 1.22.1
-  resolution: "lightningcss-linux-arm64-gnu@npm:1.22.1"
+"lightningcss-linux-arm64-gnu@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-linux-arm64-gnu@npm:1.23.0"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"lightningcss-linux-arm64-musl@npm:1.22.1":
-  version: 1.22.1
-  resolution: "lightningcss-linux-arm64-musl@npm:1.22.1"
+"lightningcss-linux-arm64-musl@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-linux-arm64-musl@npm:1.23.0"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"lightningcss-linux-x64-gnu@npm:1.22.1":
-  version: 1.22.1
-  resolution: "lightningcss-linux-x64-gnu@npm:1.22.1"
+"lightningcss-linux-x64-gnu@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-linux-x64-gnu@npm:1.23.0"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"lightningcss-linux-x64-musl@npm:1.22.1":
-  version: 1.22.1
-  resolution: "lightningcss-linux-x64-musl@npm:1.22.1"
+"lightningcss-linux-x64-musl@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-linux-x64-musl@npm:1.23.0"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"lightningcss-win32-x64-msvc@npm:1.22.1":
-  version: 1.22.1
-  resolution: "lightningcss-win32-x64-msvc@npm:1.22.1"
+"lightningcss-win32-x64-msvc@npm:1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss-win32-x64-msvc@npm:1.23.0"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"lightningcss@npm:^1.22.1":
-  version: 1.22.1
-  resolution: "lightningcss@npm:1.22.1"
+"lightningcss@npm:^1.23.0":
+  version: 1.23.0
+  resolution: "lightningcss@npm:1.23.0"
   dependencies:
     detect-libc: ^1.0.3
-    lightningcss-darwin-arm64: 1.22.1
-    lightningcss-darwin-x64: 1.22.1
-    lightningcss-freebsd-x64: 1.22.1
-    lightningcss-linux-arm-gnueabihf: 1.22.1
-    lightningcss-linux-arm64-gnu: 1.22.1
-    lightningcss-linux-arm64-musl: 1.22.1
-    lightningcss-linux-x64-gnu: 1.22.1
-    lightningcss-linux-x64-musl: 1.22.1
-    lightningcss-win32-x64-msvc: 1.22.1
+    lightningcss-darwin-arm64: 1.23.0
+    lightningcss-darwin-x64: 1.23.0
+    lightningcss-freebsd-x64: 1.23.0
+    lightningcss-linux-arm-gnueabihf: 1.23.0
+    lightningcss-linux-arm64-gnu: 1.23.0
+    lightningcss-linux-arm64-musl: 1.23.0
+    lightningcss-linux-x64-gnu: 1.23.0
+    lightningcss-linux-x64-musl: 1.23.0
+    lightningcss-win32-x64-msvc: 1.23.0
   dependenciesMeta:
     lightningcss-darwin-arm64:
       optional: true
@@ -14687,7 +14687,7 @@ __metadata:
       optional: true
     lightningcss-win32-x64-msvc:
       optional: true
-  checksum: 75319e14cae842f92d2d3fbf3c7616ef427298fc3bd010bc644eb67c21af93debc2dff5dcf67b6dcf0eab0ca6c073bc670805bba1977cf3423d0da766e15caf3
+  checksum: c9cf793762a9c30ebf9376f461954e5667e9e034f3a76a5ab4f8823648c4012b5da929b93b54ad240d6fdb002efd82768685602f32a8a9c0b215d8af848ea66a
   languageName: node
   linkType: hard
 
@@ -18475,12 +18475,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-node-externals@npm:^6.1.1":
-  version: 6.1.2
-  resolution: "rollup-plugin-node-externals@npm:6.1.2"
+"rollup-plugin-node-externals@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "rollup-plugin-node-externals@npm:7.0.1"
   peerDependencies:
     rollup: ^3.0.0 || ^4.0.0
-  checksum: fd139d95dd46b04cc5d337322724455b6d30971d99b9a303fef61d54c1b6a9f2be5b4d22e98c16670fd216e2d275db8fc842d7f395ddd78e0535b699fbbe1155
+  checksum: 3437d650577671d7a1320f5a5a21d6c435f10c30358fd2717fc9016445e8c4989ed2605d1d801ae7e1024b1e7debfa7cfb942c36512acc146e62f6b976c1afbd
   languageName: node
   linkType: hard
 
@@ -18507,22 +18507,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-visualizer@npm:^5.9.2":
-  version: 5.9.2
-  resolution: "rollup-plugin-visualizer@npm:5.9.2"
+"rollup-plugin-visualizer@npm:^5.12.0":
+  version: 5.12.0
+  resolution: "rollup-plugin-visualizer@npm:5.12.0"
   dependencies:
     open: ^8.4.0
     picomatch: ^2.3.1
     source-map: ^0.7.4
     yargs: ^17.5.1
   peerDependencies:
-    rollup: 2.x || 3.x
+    rollup: 2.x || 3.x || 4.x
   peerDependenciesMeta:
     rollup:
       optional: true
   bin:
     rollup-plugin-visualizer: dist/bin/cli.js
-  checksum: ab2adf322e3b20bffc94a8dc804f46be8840a9fcbab4f872dcc2dec205cdd7752e4d2d90cfcf00783bfb5209c5a8bb4e591984e8b61bca41fd048fb7deb0ed4e
+  checksum: 17dc10a93d4bd457c8bb7796a57c284487fb00f4b9703a33a1a954f5d40c66a89b24aca98564569922456f4fa8f72281c3ef96a95502195e6930b3fac62fce8e
   languageName: node
   linkType: hard
 
@@ -18535,7 +18535,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.29.1":
+"rollup@npm:^3.29.4":
   version: 3.29.4
   resolution: "rollup@npm:3.29.4"
   dependencies:
@@ -18649,7 +18649,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.63.6, sass@npm:^1.70.0":
+"sass@npm:^1.70.0, sass@npm:^1.71.0":
   version: 1.71.0
   resolution: "sass@npm:1.71.0"
   dependencies:
