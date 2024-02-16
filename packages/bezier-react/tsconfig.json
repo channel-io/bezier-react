@@ -23,6 +23,7 @@
   "include": [
     "src/*",
     "src/**/*",
-    ".storybook/**/*",
+    "./jest.setup.ts",
+    ".storybook/**/*"
   ],
 }
