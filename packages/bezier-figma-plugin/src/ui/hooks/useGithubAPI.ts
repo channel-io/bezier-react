@@ -157,7 +157,7 @@ function useGithubAPI({
   const addLabels = useCallback(async ({
     issueNumber,
     labels,
-  }: { issueNumber: AddLabelsRequestParameters['issue_number'] } & Pick<AddLabelsRequestParameters, 'labels'>) => {
+  }: { issueNumber: AddLabelsRequestParameters['issue_number'] } & { labels: string[] }) => {
     const { data } = await octokit.rest.issues.addLabels({
       owner,
       repo,
