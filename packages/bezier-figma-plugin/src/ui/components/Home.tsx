@@ -6,7 +6,6 @@ import { HexahedronIcon } from '@channel.io/bezier-icons'
 import {
   ListItem,
   ListItemSize,
-  StackItem,
   VStack,
 } from '@channel.io/bezier-react'
 
@@ -19,14 +18,12 @@ function Home() {
 
   return (
     <VStack align="stretch">
-      <StackItem>
-        <ListItem
-          size={ListItemSize.XL}
-          leftIcon={HexahedronIcon}
-          content="아이콘 추출"
-          onClick={handleClickExtract}
-        />
-      </StackItem>
+      <ListItem
+        size={ListItemSize.L}
+        leftContent={HexahedronIcon}
+        content="아이콘 추출"
+        onClick={handleClickExtract}
+      />
     </VStack>
   )
 }
