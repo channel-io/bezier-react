@@ -2146,7 +2146,6 @@ __metadata:
     "@types/react": ^18.2.55
     "@types/react-dom": ^18.2.19
     "@types/uuid": ^9.0.8
-    autoprefixer: ^10.4.17
     babel-loader: ^9.1.3
     babel-preset-react-app: ^10.0.1
     chromatic: ^10.9.5
@@ -7920,7 +7919,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.4.16, autoprefixer@npm:^10.4.17":
+"autoprefixer@npm:^10.4.16":
   version: 10.4.17
   resolution: "autoprefixer@npm:10.4.17"
   dependencies:
