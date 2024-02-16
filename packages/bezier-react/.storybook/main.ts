@@ -3,8 +3,9 @@ import {
   join,
 } from 'path'
 
-import { type StorybookConfig } from '@storybook/react-webpack5'
-import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
+import { type StorybookConfigVite } from '@storybook/builder-vite'
+import { mergeConfig } from 'vite'
+import tsconfigPaths from 'vite-tsconfig-paths'
 
 function getAbsolutePath(value) {
   return dirname(require.resolve(join(value, 'package.json')))
@@ -12,7 +13,7 @@ function getAbsolutePath(value) {
 
 export default {
   stories: [
-    '../src/**/*.stories.(tsx|mdx)',
+    '../src/**/*.stories.@(tsx|mdx)',
   ],
 
   addons: [
@@ -22,15 +23,26 @@ export default {
     getAbsolutePath('@storybook/addon-toolbars'),
     getAbsolutePath('@storybook/addon-docs'),
     getAbsolutePath('@storybook/addon-backgrounds'),
-    {
-      name: '@storybook/addon-styling',
-      options: {
-        sass: {
-          implementation: require('sass'),
-        },
+  ],
+
+  framework: {
+    name: getAbsolutePath('@storybook/react-vite'),
+    options: {
+      builder: {
+        useSWC: true,
       },
     },
-  ],
+  },
+
+  viteFinal: async (config) => mergeConfig(config, {
+    define: {
+      'process.env': process.env,
+    },
+    sourcemap: true,
+    plugins: [
+      tsconfigPaths(),
+    ],
+  }),
 
   typescript: {
     /**
@@ -45,47 +57,7 @@ export default {
     },
   },
 
-  webpackFinal: async (config) => {
-    config.resolve = {
-      ...config.resolve,
-      // Apply tsconfig alias path
-      plugins: [
-        ...(config?.resolve?.plugins ?? []),
-        new TsconfigPathsPlugin({}),
-      ],
-      extensions: [
-        ...(config.resolve?.extensions ?? []),
-        '.ts',
-        '.tsx',
-      ],
-    }
-
-    config.module = {
-      ...config.module,
-      rules: [
-        ...(config.module?.rules ?? []), {
-          test: /\.(ts|tsx)$/,
-          loader: require.resolve('babel-loader'),
-          options: {
-            presets: [['react-app', { flow: false, typescript: true }]],
-          },
-        },
-      ],
-    }
-
-    return config
-  },
-
-  framework: {
-    name: getAbsolutePath('@storybook/react-webpack5'),
-    options: {
-      builder: {
-        useSWC: true,
-      },
-    },
-  },
-
   docs: {
     autodocs: true,
   },
-} as StorybookConfig
+} as StorybookConfigVite
