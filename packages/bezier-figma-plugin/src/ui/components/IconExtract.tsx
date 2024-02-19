@@ -16,8 +16,6 @@ import {
   FormLabel,
   HStack,
   ProgressBar,
-  Spacer,
-  StackItem,
   Text,
   TextField,
   TextFieldType,
@@ -112,16 +110,12 @@ function Progress({
   }, [])
 
   return (
-    <VStack align="stretch" spacing={6}>
-      <StackItem>
-        <ProgressBar
-          width="100%"
-          value={progressValue}
-        />
-      </StackItem>
-      <StackItem>
-        <Text>{ progressTitle }</Text>
-      </StackItem>
+    <VStack spacing={6}>
+      <ProgressBar
+        width="100%"
+        value={progressValue}
+      />
+      <Text>{ progressTitle }</Text>
     </VStack>
   )
 }
@@ -177,83 +171,65 @@ function IconExtract() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <VStack align="stretch">
-        <StackItem>
-          <VStack align="stretch" spacing={12}>
-            <StackItem>
-              <FormControl required readOnly={step !== Step.Pending}>
-                <FormLabel help="좌측 상단 Figma 로고 > Help and account > Account settings 에서 발급 받을 수 있습니다.">
-                  Figma personal access token
-                </FormLabel>
-                <TextField
-                  type={TextFieldType.Password}
-                  name="figmaToken"
-                  placeholder="figd_..."
-                  value={figmaToken}
-                  onChange={handleChangeFigmaToken}
-                />
-              </FormControl>
-            </StackItem>
-            <StackItem>
-              <FormControl required readOnly={step !== Step.Pending}>
-                <FormLabel help="Github Repository 쓰기 권한이 있는 토큰을 사용해주세요.">
-                  Github personal access token
-                </FormLabel>
-                <TextField
-                  type={TextFieldType.Password}
-                  name="githubToken"
-                  placeholder="ghp_..."
-                  value={githubToken}
-                  onChange={handleChangeGithubToken}
-                />
-              </FormControl>
-            </StackItem>
-            <StackItem>
-              <FormControl readOnly>
-                <FormLabel>추출할 경로 (루트 기준)</FormLabel>
-                <TextField value={config.repository.iconExtractPath} />
-              </FormControl>
-            </StackItem>
-            <StackItem marginBefore={4}>
-              { errorMessage
-                ? <FormErrorMessage>{ errorMessage }</FormErrorMessage>
-                : <FormHelperText>토큰은 추출 성공 시 로컬 스토리지에 저장됩니다.</FormHelperText> }
-            </StackItem>
-          </VStack>
-        </StackItem>
-
-        <Spacer />
-
-        <StackItem>
-          { step === Step.Pending && (
-            <HStack justify="end" spacing={6}>
-              <StackItem>
-                <Button
-                  type="submit"
-                  styleVariant={ButtonStyleVariant.Primary}
-                  colorVariant={ButtonColorVariant.Blue}
-                  text="아이콘 추출"
-                />
-              </StackItem>
-              <StackItem>
-                <Button
-                  styleVariant={ButtonStyleVariant.Secondary}
-                  colorVariant={ButtonColorVariant.MonochromeDark}
-                  text="선택 단계로"
-                  onClick={handleClickCancel}
-                />
-              </StackItem>
-            </HStack>
-          ) }
-
-          { step === Step.Processing && (
-            <Progress
-              figmaToken={figmaToken}
-              githubToken={githubToken}
-              onError={handleExtractError}
+      <VStack justify="between">
+        <VStack spacing={12}>
+          <FormControl required readOnly={step !== Step.Pending}>
+            <FormLabel help="좌측 상단 Figma 로고 > Help and account > Account settings 에서 발급 받을 수 있습니다.">
+              Figma personal access token
+            </FormLabel>
+            <TextField
+              type={TextFieldType.Password}
+              name="figmaToken"
+              placeholder="figd_..."
+              value={figmaToken}
+              onChange={handleChangeFigmaToken}
             />
-          ) }
-        </StackItem>
+          </FormControl>
+          <FormControl required readOnly={step !== Step.Pending}>
+            <FormLabel help="Github Repository 쓰기 권한이 있는 토큰을 사용해주세요.">
+              Github personal access token
+            </FormLabel>
+            <TextField
+              type={TextFieldType.Password}
+              name="githubToken"
+              placeholder="ghp_..."
+              value={githubToken}
+              onChange={handleChangeGithubToken}
+            />
+          </FormControl>
+          <FormControl readOnly>
+            <FormLabel>추출할 경로 (루트 기준)</FormLabel>
+            <TextField value={config.repository.iconExtractPath} />
+          </FormControl>
+          { errorMessage
+            ? <FormErrorMessage>{ errorMessage }</FormErrorMessage>
+            : <FormHelperText>토큰은 추출 성공 시 로컬 스토리지에 저장됩니다.</FormHelperText> }
+        </VStack>
+
+        { step === Step.Pending && (
+          <HStack justify="end" spacing={6}>
+            <Button
+              type="submit"
+              styleVariant={ButtonStyleVariant.Primary}
+              colorVariant={ButtonColorVariant.Blue}
+              text="아이콘 추출"
+            />
+            <Button
+              styleVariant={ButtonStyleVariant.Secondary}
+              colorVariant={ButtonColorVariant.MonochromeDark}
+              text="선택 단계로"
+              onClick={handleClickCancel}
+            />
+          </HStack>
+        ) }
+
+        { step === Step.Processing && (
+          <Progress
+            figmaToken={figmaToken}
+            githubToken={githubToken}
+            onError={handleExtractError}
+          />
+        ) }
       </VStack>
     </form>
   )
