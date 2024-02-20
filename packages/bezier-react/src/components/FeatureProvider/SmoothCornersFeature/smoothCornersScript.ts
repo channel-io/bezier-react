@@ -171,5 +171,14 @@ class SmoothCorners {
     ctx.closePath()
   }
 }
-registerPaint('smooth-corners', SmoothCorners)
+
+try {
+  registerPaint('smooth-corners', SmoothCorners)
+} catch (e) {
+  // If the paint already exists, don't make it error.
+  if (e instanceof TypeError) {
+    throw e
+  }
+}
+
 `
