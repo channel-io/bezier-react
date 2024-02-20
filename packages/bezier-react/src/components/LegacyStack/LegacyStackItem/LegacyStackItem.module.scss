@@ -4,6 +4,10 @@
   /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
   flex-shrink: var(--b-shrink-weight);
 
+  /* NOTE: You may think it's unnecessary, but there are application styles that are leaning on that default style default (incorrectly). */
+  margin-top: var(--b-margin-before);
+  margin-bottom: var(--b-margin-after);
+
   &:where(.direction-horizontal) {
     margin-right: var(--b-margin-after);
     margin-left: var(--b-margin-before);
