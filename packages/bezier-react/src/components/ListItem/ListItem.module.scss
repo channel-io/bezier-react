@@ -65,10 +65,6 @@
       background-color: var(--bgtxt-blue-lighter);
     }
 
-    & :where(.ListItemLeftIcon) {
-      color: var(--bgtxt-blue-normal);
-    }
-
     /* NOTE: When multiple adjacent elements are active, it naturally stitches the border together. */
     /* stylelint-disable selector-max-specificity */
     &:has(+ .ListItem.active) {
@@ -84,35 +80,20 @@
   }
 
   &.variant-blue {
-    color: var(--bgtxt-blue-normal);
+     color: var(--bgtxt-blue-normal);
 
-    & :where(.ListItemLeftIcon) {
-      color: var(--bgtxt-blue-normal);
-    }
   }
 
   &.variant-red {
     color: var(--bgtxt-red-normal);
-
-    & :where(.ListItemLeftIcon) {
-      color: var(--bgtxt-red-normal);
-    }
   }
 
   &.variant-green {
     color: var(--bgtxt-green-normal);
-
-    & :where(.ListItemLeftIcon) {
-      color: var(--bgtxt-green-normal);
-    }
   }
 
   &.variant-cobalt {
     color: var(--bgtxt-cobalt-normal);
-
-    & :where(.ListItemLeftIcon) {
-      color: var(--bgtxt-cobalt-normal);
-    }
   }
 }
 

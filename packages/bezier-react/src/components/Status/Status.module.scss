@@ -3,7 +3,7 @@
 .Status {
   --b-status-size: 0;
   --b-status-border-width: 0;
-  --b-status-bg-color: inherit;
+  --b-status-bg-color: initial;
 
   position: relative;
   z-index: var(--z-index-base);
