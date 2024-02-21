@@ -4,7 +4,7 @@
   * @see {@link https://github.com/channel-io/bezier-react/issues/1879}
   * share background style logic with `Badge` after removing `color` props
   */
-  --b-tag-badge-background-color: inherit;
+  --b-tag-badge-background-color: initial;
 
   background-color: var(--b-tag-badge-background-color);
 }

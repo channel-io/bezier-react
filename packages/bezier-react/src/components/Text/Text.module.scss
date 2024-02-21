@@ -3,7 +3,7 @@
 $typo-sizes: 11, 12, 13, 14, 15, 16, 17, 18, 22, 24, 30, 36;
 
 .Text {
-  --b-text-color: inherit;
+  --b-text-color: initial;
   --b-text-line-clamp: 1;
   --b-text-line-height: initial;
   --b-text-font-size: initial;

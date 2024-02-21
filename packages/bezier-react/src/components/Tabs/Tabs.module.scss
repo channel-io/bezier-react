@@ -39,7 +39,6 @@ $tab-item-indicator-height: 3px;
 .TabItem {
   top: 4px;
   overflow: visible;
-  color: inherit;
 
   &::after {
     content: '';
