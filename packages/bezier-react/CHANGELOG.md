@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.13
+
+### Patch Changes
+
+- Fixes an issue with color inheritance across components. ([#2009](https://github.com/channel-io/bezier-react/pull/2009)) by @sungik-choi
+
+- Add missing default margin styles of `LegacyStackItem` ([#2004](https://github.com/channel-io/bezier-react/pull/2004)) by @sungik-choi
+
 ## 2.0.0-alpha.12
 
 ### Patch Changes
