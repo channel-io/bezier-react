@@ -12,10 +12,7 @@ $tab-item-indicator-height: 3px;
 .TabList {
   display: flex;
   justify-content: space-between;
-
   width: 100%;
-  height: var(--b-tabs-size);
-
   box-shadow: 0 -1px 0 0 var(--bg-black-light) inset;
 
   &:where(.size-l) {

@@ -108,6 +108,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(function TabList
         className={classNames(
           styles.TabList,
           styles[`size-${size}`],
+          className,
         )}
         ref={forwardedRef}
         {...rest}
