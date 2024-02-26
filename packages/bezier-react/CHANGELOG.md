@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.15
+
+### Patch Changes
+
+- Fix `ListItem`'s left icon color specificity issue. ([#2018](https://github.com/channel-io/bezier-react/pull/2018)) by @sungik-choi
+
 ## 2.0.0-alpha.14
 
 ### Patch Changes
