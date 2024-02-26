@@ -44,6 +44,23 @@ $close-icon-button-margin-y: -6;
   }
 }
 
+.ModalHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: #{$modal-padding}px #{$modal-padding}px 0 #{$modal-padding}px;
+}
+
+.ModalBody {
+  flex: 1;
+  padding: #{$modal-padding}px;
+}
+
+.ModalFooter {
+  display: flex;
+  padding: #{$footer-top-gap}px #{$modal-padding}px #{$modal-padding}px;
+}
+
 .ModalContent {
   position: relative;
 
@@ -67,6 +84,19 @@ $close-icon-button-margin-y: -6;
     animation: content-show var(--transition-m);
   }
 
+  /* NOTE(@ed): Support when ModalFooter is used without ModalBody */
+  /* stylelint-disable-next-line selector-max-specificity */
+  &:has(.ModalBody) .ModalFooter {
+    margin-top: #{$footer-top-gap - $modal-padding}px;
+    padding-top: 0;
+  }
+
+  /* NOTE(@ed): Support when ModalBody is used without ModalHeader */
+  /* stylelint-disable-next-line selector-max-specificity */
+  &:has(.ModalHeader:not(.hidden)) .ModalBody {
+    padding-top: #{$header-body-gap}px;
+  }
+
   &:focus {
     outline: none;
   }
@@ -82,34 +112,6 @@ $close-icon-button-margin-y: -6;
   flex-direction: column;
   width: 100%;
   height: 100%;
-}
-
-.ModalBody {
-  flex: 1;
-  padding: #{$modal-padding}px;
-}
-
-.ModalHeader {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: #{$modal-padding}px #{$modal-padding}px 0 #{$modal-padding}px;
-
-  /* NOTE(@ed): Support when ModalBody is used as stand-alone */
-  &:where(:not(.hidden)) + :is(.ModalBody, * .ModalBody) {
-    padding-top: #{$header-body-gap}px;
-  }
-}
-
-.ModalFooter {
-  display: flex;
-  padding: #{$footer-top-gap}px #{$modal-padding}px #{$modal-padding}px;
-
-  /* NOTE(@ed): Support when ModalFooter is used without ModalBody */
-  :is(.ModalBody + &, .ModalBody + * &) {
-    margin-top: #{$footer-top-gap - $modal-padding}px;
-    padding-top: 0;
-  }
 }
 
 .TitleContainer {
