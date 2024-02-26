@@ -13,6 +13,7 @@ import { ListItem } from './ListItem'
 import {
   type ListItemProps,
   ListItemSize,
+  ListItemVariant,
 } from './ListItem.types'
 
 const meta: Meta<typeof ListItem> = {
@@ -28,6 +29,7 @@ const Template: StoryFn<ListItemProps> = (props) => (
 export const Primary: StoryObj<ListItemProps> = {
   render: Template,
   args: {
+    variant: ListItemVariant.Monochrome,
     size: ListItemSize.S,
     content: '상담이 열릴 때',
     leftContent: InboxIcon,
