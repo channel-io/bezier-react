@@ -42,7 +42,7 @@
   transition: border-color var(--transition-s), box-shadow var(--transition-s);
 
   &:where(.variant-secondary) {
-    background-color: var(--bg-black-lightest);
+    background-color: var(--bg-black-lighter);
   }
 
   &:where(.size-l) .TextFieldInput {
