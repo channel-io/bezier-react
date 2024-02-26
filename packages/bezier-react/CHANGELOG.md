@@ -1,5 +1,19 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.14
+
+### Patch Changes
+
+- Fixes issue with `ModalBody`, `ModalFooter` not applying styling correctly when wrapped in other elements. ([#2017](https://github.com/channel-io/bezier-react/pull/2017)) by @sungik-choi
+
+- Add `overflow: hidden` to `ListItem` component ([#2013](https://github.com/channel-io/bezier-react/pull/2013)) by @yangwooseong
+
+- Update background color of `TextField`'s secondary variant. ([#2016](https://github.com/channel-io/bezier-react/pull/2016)) by @sungik-choi
+
+- Mute the error of `smoothCornerScript` when called twice. ([#2010](https://github.com/channel-io/bezier-react/pull/2010)) by @chaejunlee
+
+- Fix invalid style migrations of `Tabs` component. ([#2014](https://github.com/channel-io/bezier-react/pull/2014)) by @sungik-choi
+
 ## 2.0.0-alpha.13
 
 ### Patch Changes
