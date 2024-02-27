@@ -58,12 +58,6 @@
   ],
   "author": "Channel Corp.",
   "license": "Apache-2.0",
-  "browserslist": [
-    "> 1% in KR",
-    "> 1% in JP",
-    "> 1% in US",
-    "not dead"
-  ],
   "devDependencies": {
     "@babel/core": "^7.22.17",
     "@babel/preset-env": "^7.22.15",
