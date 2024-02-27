@@ -8,7 +8,7 @@
       "pinVersion": "workspace:*"
     },
     {
-      "label": "Pin react-textarea-autosize version due to config and build conflicts",
+      "label": "Pin react-textarea-autosize version due to package.json config issue affecting build (#1688)",
       "packages": ["@channel.io/*"],
       "dependencies": ["react-textarea-autosize"],
       "pinVersion": "8.3.4"
@@ -20,7 +20,7 @@
       "isIgnored": true
     },
     {
-      "label": "Pin storybook version due to react-docgen dependency issues affecting build",
+      "label": "Pin storybook version due to react-docgen dependency issue affecting build (#1997)",
       "packages": ["@channel.io/*"],
       "dependencies": ["storybook", "@storybook/*"],
       "pinVersion": "~7.5.3"
