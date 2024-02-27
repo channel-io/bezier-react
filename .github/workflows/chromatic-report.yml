@@ -79,7 +79,7 @@ jobs:
             buildUrl: ${{ steps.build-url.outputs.result }}
 
       - name: Find comment
-        uses: peter-evans/find-comment@v2
+        uses: peter-evans/find-comment@v3
         id: find-comment
         with:
           issue-number: ${{ steps.pr-number.outputs.result }}
