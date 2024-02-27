@@ -3,7 +3,7 @@ module.exports = {
   cacheDirectory: '.jestcache',
   testEnvironment: 'jsdom',
   roots: ['./src'],
-  setupFilesAfterEnv: ['./jest.setup.ts'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   transformIgnorePatterns: [],
   transform: {
     '^.+\\.[t|j]sx?$': ['@swc/jest'],

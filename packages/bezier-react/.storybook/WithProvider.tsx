@@ -1,6 +1,6 @@
 import React from 'react'
 
-import type { Preview } from '@storybook/react'
+import type { Decorator } from '@storybook/react'
 
 import { AppProvider } from '~/src/components/AppProvider'
 import { SmoothCornersFeature } from '~/src/components/FeatureProvider'
@@ -11,7 +11,7 @@ import styles from './preview.module.scss'
 
 const features = [SmoothCornersFeature]
 
-export const WithProvider: NonNullable<Preview['decorators']>[number] = (Story, context) => (
+export const WithProvider: Decorator = (Story, context) => (
   <AppProvider
     themeName="light"
     features={features}

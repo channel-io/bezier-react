@@ -53,7 +53,7 @@
   "devDependencies": {
     "eslint-config-bezier": "workspace:*",
     "minimatch": "^9.0.3",
-    "style-dictionary": "^3.9.0",
+    "style-dictionary": "^3.9.2",
     "tsconfig": "workspace:*"
   }
 }
