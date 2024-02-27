@@ -9,7 +9,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --filter=@channel.io/bezier-react",
-    "lint": "turbo run lint",
+    "lint": "turbo run lint && syncpack lint",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules .turbo",
