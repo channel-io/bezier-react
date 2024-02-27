@@ -33,8 +33,8 @@
 		"ts-morph": "^21.0.1"
 	},
 	"devDependencies": {
-		"@types/node": "^20.11.19",
-		"@types/react": "^18.2.55",
+		"@types/node": "^20.11.20",
+		"@types/react": "^18.2.59",
 		"eslint-config-bezier": "workspace:*",
 		"tsconfig": "workspace:*"
 	},

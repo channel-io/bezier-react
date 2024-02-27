@@ -22,8 +22,8 @@
   "author": "Channel Corp.",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@figma/plugin-typings": "^1.76.0",
-    "@types/react": "^18.2.55",
+    "@figma/plugin-typings": "^1.87.0",
+    "@types/react": "^18.2.59",
     "@types/react-dom": "^18.2.19",
     "css-loader": "^6.10.0",
     "eslint-config-bezier": "workspace:*",
@@ -34,7 +34,7 @@
     "ts-loader": "^9.5.1",
     "tsconfig": "workspace:*",
     "url-loader": "^4.1.1",
-    "webpack": "^5.90.2",
+    "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
@@ -43,6 +43,6 @@
     "octokit": "^3.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.0"
+    "react-router-dom": "^6.22.1"
   }
 }
