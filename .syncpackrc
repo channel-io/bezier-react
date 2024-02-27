@@ -14,7 +14,7 @@
       "pinVersion": "8.3.4"
     },
     {
-      "label": "Pin storybook version due to react-docgen dependency issues affecting build",
+      "label": "Ignore storybook related packages that have different version than other storybook packages",
       "packages": ["@channel.io/*"],
       "dependencies": ["@storybook/addon-styling"],
       "isIgnored": true
