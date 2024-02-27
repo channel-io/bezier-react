@@ -25,5 +25,6 @@
       "dependencies": ["storybook", "@storybook/*"],
       "pinVersion": "~7.5.3"
     }
-  ]
+  ],
+  "lintFormatting": false
 }
