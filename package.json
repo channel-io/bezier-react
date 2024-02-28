@@ -44,12 +44,12 @@
   },
   "engines": {
     "node": "18.18.2",
-    "yarn": "3.4.1"
+    "yarn": "4.1.0"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "packageManager": "yarn@3.4.1"
+  "packageManager": "yarn@4.1.0"
 }
