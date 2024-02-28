@@ -55,8 +55,12 @@ If you need to validate the icon source component, use the utility function `isB
 ```tsx
 import { isBezierIcon, AllIcon } from '@channel.io/bezier-icons'
 
+function FooIcon() {
+  return (<svg />)
+}
+
 console.log(isBezierIcon(AllIcon)) // true
-console.log(isBezierIcon(<svg />)) // false
+console.log(isBezierIcon(FooIcon)) // false
 ```
 
 ## Contributing
