@@ -21,13 +21,13 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
           cache: yarn
 
       - name: Restore cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             **/.turbo
@@ -43,7 +43,7 @@ jobs:
         run: yarn build --filter=@channel.io/bezier-react^...
 
       - name: Publish to Chromatic
-        uses: chromaui/action@v1
+        uses: chromaui/action@v11
         id: chromatic
         with:
           workingDir: packages/bezier-react
@@ -59,7 +59,7 @@ jobs:
           echo "${{ steps.chromatic.outputs.buildUrl }}" > ./pr/buildUrl
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pr
           path: pr/
