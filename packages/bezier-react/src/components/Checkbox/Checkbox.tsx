@@ -16,6 +16,7 @@ import {
   Icon,
   IconSize,
 } from '~/src/components/Icon'
+import { Text } from '~/src/components/Text'
 
 import {
   type CheckboxProps,
@@ -96,12 +97,17 @@ function CheckboxImpl<Checked extends CheckedState>({
         </BaseButton>
       </CheckboxPrimitive.Root>
       { children && (
-        <label
-          className={styles.Label}
+        <Text
+          as="label"
+          // TODO: Apply polymorphic types to `as` prop.
+          // @ts-expect-error
           htmlFor={id}
+          className={styles.Label}
+          typo="14"
+          color="txt-black-darkest"
         >
           { children }
-        </label>
+        </Text>
       ) }
     </div>
   )
