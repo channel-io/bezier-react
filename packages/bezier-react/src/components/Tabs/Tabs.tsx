@@ -236,7 +236,7 @@ export const TabActions = forwardRef<HTMLDivElement, TabActionsProps>(function T
 function getTypoBy(size: TabSize) {
   return ({
     [TabSize.L]: '14',
-    [TabSize.M]: '14',
+    [TabSize.M]: '13',
     [TabSize.S]: '13',
   } as const)[size]
 }
