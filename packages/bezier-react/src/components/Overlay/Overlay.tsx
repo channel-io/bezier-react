@@ -153,7 +153,10 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(function Overlay
   }, [])
 
   const handleHideOverlay = useCallback((event: MouseEvent) => {
-    if (!event.target || (event.target instanceof HTMLElement && !event.target.closest(`.${styles.Overlay}`))) {
+    /**
+     * NOTE: Type checking with instanceof makes it difficult to handle cases where the window object is different.
+     */
+    if (!event.target || !(event.target as HTMLElement).closest(`.${styles.Overlay}`)) {
       onHide?.()
 
       if (!enableClickOutside) {
