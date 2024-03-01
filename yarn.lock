@@ -3129,9 +3129,9 @@ __metadata:
   linkType: hard
 
 "@figma/plugin-typings@npm:^1.87.0":
-  version: 1.87.0
-  resolution: "@figma/plugin-typings@npm:1.87.0"
-  checksum: 10/0a9884423657973433e50d4b621268734f4df47eeb20a084178d4488c7eb8fcf270bea1d0319d7931b9f104e015cea6795e789ca53f567a281b5031f9476e7af
+  version: 1.88.0
+  resolution: "@figma/plugin-typings@npm:1.88.0"
+  checksum: 10/4912df8e0aa82a8cef49043d4cdee1581133bfff6a9c737f028f3a7abf409e0f3109b181014eec8108be2d68e833e020ee25bb38cf02af6027f41178ad525b87
   languageName: node
   linkType: hard
 
