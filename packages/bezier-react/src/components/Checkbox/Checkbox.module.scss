@@ -1,4 +1,3 @@
-@use "../../styles/mixins/typography";
 @use '../../styles/mixins/dimension';
 @use '../../styles/mixins/interaction';
 
@@ -79,13 +78,7 @@
   }
 }
 
-/**
- * NOTE: When using the `Text` component in combination with the `as` prop,
- * radix-ui lib does not bind the mouse-enter(hover) and click handler.
- */
 .Label {
-  @include typography.size(14);
-
   cursor: inherit;
 
   display: flex;
