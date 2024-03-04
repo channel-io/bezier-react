@@ -6,7 +6,6 @@ import React, {
 } from 'react'
 
 import { CancelIcon } from '@channel.io/bezier-icons'
-import * as DialogPrimitive from '@radix-ui/react-dialog'
 import classNames from 'classnames'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
@@ -17,6 +16,18 @@ import {
   isNil,
   isNumber,
 } from '~/src/utils/type'
+
+import {
+  DialogPrimitive,
+  DialogPrimitiveClose,
+  DialogPrimitiveContent,
+  DialogPrimitiveDescription,
+  DialogPrimitiveOverlay,
+  DialogPrimitivePortal,
+  type DialogPrimitiveProps,
+  DialogPrimitiveTitle,
+  DialogPrimitiveTrigger,
+} from '~/src/primitives/DialogPrimitive'
 
 import {
   Button,
@@ -87,7 +98,7 @@ export function Modal({
   onShow,
   onHide,
 }: ModalProps) {
-  const onOpenChange = useCallback<NonNullable<DialogPrimitive.DialogProps['onOpenChange']>>((open) => {
+  const onOpenChange = useCallback<NonNullable<DialogPrimitiveProps['onOpenChange']>>((open) => {
     const callback = open ? onShow : onHide
     callback?.()
   }, [
@@ -96,13 +107,13 @@ export function Modal({
   ])
 
   return (
-    <DialogPrimitive.Root
+    <DialogPrimitive
       open={show}
       defaultOpen={defaultShow}
       onOpenChange={onOpenChange}
     >
       { children }
-    </DialogPrimitive.Root>
+    </DialogPrimitive>
   )
 }
 
@@ -162,16 +173,16 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
   }), [showCloseIcon])
 
   return (
-    <DialogPrimitive.Portal container={container}>
+    <DialogPrimitivePortal container={container}>
       <ThemeProvider themeName={useThemeName()}>
-        <DialogPrimitive.Overlay
+        <DialogPrimitiveOverlay
           style={overlayStyle}
           className={classNames(
             styles.ModalOverlay,
             getZIndexClassName(zIndex),
           )}
         >
-          <DialogPrimitive.Content
+          <DialogPrimitiveContent
             asChild
             onPointerDownOutside={(e) => {
               if (preventHideOnOutsideClick) {
@@ -220,10 +231,10 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
                 ) }
               </section>
             </div>
-          </DialogPrimitive.Content>
-        </DialogPrimitive.Overlay>
+          </DialogPrimitiveContent>
+        </DialogPrimitiveOverlay>
       </ThemeProvider>
-    </DialogPrimitive.Portal>
+    </DialogPrimitivePortal>
   )
 })
 
@@ -254,7 +265,7 @@ function ModalHeaderTitle({
   )
 
   return (
-    <DialogPrimitive.Title asChild>
+    <DialogPrimitiveTitle asChild>
       { !isNil(subtitle)
         ? (
           <hgroup
@@ -276,7 +287,7 @@ function ModalHeaderTitle({
           </hgroup>
         )
         : Title }
-    </DialogPrimitive.Title>
+    </DialogPrimitiveTitle>
   )
 }
 
@@ -331,7 +342,7 @@ export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function Mo
         ) }
 
         { description && (
-          <DialogPrimitive.Description asChild>
+          <DialogPrimitiveDescription asChild>
             <Text
               as="p"
               color="txt-black-darkest"
@@ -339,7 +350,7 @@ export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function Mo
             >
               { description }
             </Text>
-          </DialogPrimitive.Description>
+          </DialogPrimitiveDescription>
         ) }
       </header>
     </Hidden>
@@ -410,9 +421,9 @@ export const ModalFooter = forwardRef<HTMLElement, ModalFooterProps>(function Mo
  */
 export function ModalTrigger({ children }: ModalTriggerProps) {
   return (
-    <DialogPrimitive.Trigger asChild>
+    <DialogPrimitiveTrigger asChild>
       { children }
-    </DialogPrimitive.Trigger>
+    </DialogPrimitiveTrigger>
   )
 }
 
@@ -422,8 +433,8 @@ export function ModalTrigger({ children }: ModalTriggerProps) {
  */
 export function ModalClose({ children }: ModalCloseProps) {
   return (
-    <DialogPrimitive.Close asChild>
+    <DialogPrimitiveClose asChild>
       { children }
-    </DialogPrimitive.Close>
+    </DialogPrimitiveClose>
   )
 }
