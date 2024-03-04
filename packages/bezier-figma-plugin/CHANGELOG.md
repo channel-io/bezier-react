@@ -1,5 +1,12 @@
 # bezier-figma-plugin
 
+## 0.5.0-alpha.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@2.0.0-alpha.16
+
 ## 0.5.0-alpha.3
 
 ### Minor Changes

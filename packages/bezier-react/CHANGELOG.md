@@ -1,5 +1,15 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.16
+
+### Patch Changes
+
+- Fix `TabAction` typography style for size M. ([#2035](https://github.com/channel-io/bezier-react/pull/2035)) by @sungik-choi
+
+- Add missing `overflow: hidden` style to item wrapper of `KeyValueItem` component. ([#2036](https://github.com/channel-io/bezier-react/pull/2036)) by @sungik-choi
+
+- Fixes `Overlay` not closing in other windows. ([#2037](https://github.com/channel-io/bezier-react/pull/2037)) by @sungik-choi
+
 ## 2.0.0-alpha.15
 
 ### Patch Changes
