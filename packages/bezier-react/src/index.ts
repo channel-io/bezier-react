@@ -68,7 +68,7 @@ export * from '~/src/components/WindowProvider'
 export * from '~/src/hooks/useKeyboardActionLockerWhileComposing'
 
 /* -------------------------- PRIMITIVE COMPONENTS -------------------------- */
-export * from '~/src/primitives/Checkbox'
+export * from '~/src/primitives/CheckboxPrimitive'
 
 /* ---------------------------------- TYPES --------------------------------- */
 export * from '~/src/types/props'

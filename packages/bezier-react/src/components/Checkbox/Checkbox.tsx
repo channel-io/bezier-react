@@ -12,7 +12,7 @@ import { getFormFieldSizeClassName } from '~/src/types/props-helpers'
 import {
   CheckboxPrimitive,
   CheckboxPrimitiveIndicator,
-} from '~/src/primitives/Checkbox'
+} from '~/src/primitives/CheckboxPrimitive'
 
 import { BaseButton } from '~/src/components/BaseButton'
 import { useFormFieldProps } from '~/src/components/FormControl'

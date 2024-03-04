@@ -3,7 +3,7 @@ import * as Checkbox from '@radix-ui/react-checkbox'
 import {
   type CheckboxPrimitiveIndicatorProps,
   type CheckboxPrimitiveProps,
-} from './Checkbox.types'
+} from './CheckboxPrimitive.types'
 
 /**
  * @see {@link https://www.radix-ui.com/primitives/docs/components/checkbox#root}

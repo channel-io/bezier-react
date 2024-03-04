@@ -8,7 +8,7 @@ import useId from '~/src/hooks/useId'
 import {
   CheckboxPrimitive,
   CheckboxPrimitiveIndicator,
-} from '~/src/primitives/Checkbox'
+} from '~/src/primitives/CheckboxPrimitive'
 
 import {
   Avatar,
