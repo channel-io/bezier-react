@@ -3,6 +3,6 @@ export {
   CheckboxPrimitiveIndicator,
 } from './CheckboxPrimitive'
 export type {
-  CheckboxPrimitiveIndicatorProps,
   CheckboxPrimitiveProps,
+  CheckboxPrimitiveIndicatorProps,
 } from './CheckboxPrimitive.types'
