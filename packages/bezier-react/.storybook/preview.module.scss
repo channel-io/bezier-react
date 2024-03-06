@@ -1,3 +1,12 @@
+// Override the default styles for the Storybook docs
+:where(*:not(code, pre)) {
+  font-family: var(--font-family-sans-kr) !important;
+}
+
+:where(code, pre), :where(code, pre) * {
+  font-family: var(--font-family-mono) !important;
+}
+
 .Wrapper {
   display: flex;
   flex-flow: row wrap;
