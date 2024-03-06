@@ -16,17 +16,18 @@ const Content = forwardRef<HTMLDivElement, React.PropsWithChildren<React.HTMLAtt
   ...rest
 }, forwardedRef) => (
   <div
-    className={styles.Theme}
+    className={styles.Story}
     ref={forwardedRef}
     {...rest}
   >
-    <div className={styles.Story}>
-      { children }
-    </div>
+    { children }
   </div>
 ))
 
 const preview: Preview = {
+  parameters: {
+    layout: 'centered',
+  },
   decorators: [(Story) => (
     <AppProvider
       themeName="light"
