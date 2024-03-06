@@ -19,9 +19,9 @@ export default {
     getAbsolutePath('@storybook/addon-controls'),
     getAbsolutePath('@storybook/addon-actions'),
     getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath('@storybook/addon-toolbars'),
     getAbsolutePath('@storybook/addon-docs'),
-    getAbsolutePath('@storybook/addon-backgrounds'),
+    getAbsolutePath('@storybook/addon-measure'),
+    getAbsolutePath('@storybook/addon-outline'),
     {
       name: '@storybook/addon-styling',
       options: {
