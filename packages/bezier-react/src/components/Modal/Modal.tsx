@@ -185,7 +185,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
             }}
           >
             <div
-              aria-modal
+              aria-modal="true"
               ref={contentRef}
               style={{
                 '--b-modal-width': cssDimension(width),
