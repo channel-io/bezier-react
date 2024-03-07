@@ -27,6 +27,11 @@ const Content = forwardRef<HTMLDivElement, React.PropsWithChildren<React.HTMLAtt
 const preview: Preview = {
   parameters: {
     layout: 'centered',
+    options: {
+      storySort: {
+        order: ['ReadMe', 'Changelog', 'Components'],
+      },
+    },
   },
   decorators: [(Story) => (
     <AppProvider
