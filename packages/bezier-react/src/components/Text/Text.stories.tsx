@@ -16,11 +16,7 @@ const meta: Meta<typeof Text> = {
 }
 
 const Template: StoryFn<TextProps> = ({ children, ...rest }) => (
-  <Box
-    width={200}
-    borderWidth={1}
-    borderColor="bdr-black-light"
-  >
+  <Box width={200}>
     <Text {...rest}>
       { children }
     </Text>
@@ -43,11 +39,7 @@ const MultiLineTruncated: StoryFn<TextProps> = ({
   children,
   ...rest
 }) => (
-  <Box
-    width={200}
-    borderWidth={1}
-    borderColor="bdr-black-light"
-  >
+  <Box width={200}>
     <Text {...rest} color="txt-black-darkest">{ children }</Text>
   </Box>
 )
