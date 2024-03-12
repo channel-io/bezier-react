@@ -14,10 +14,10 @@ export const getImportDeclarations = (sourceFile: SourceFile, specifier: string)
     .filter((declaration) => declaration.getModuleSpecifier().getLiteralValue() === specifier)
 
 export const hasNamedImportInImportDeclaration = (sourceFile: SourceFile, namedImport: string, moduleName: string) => {
-  const importDeclaration = getImportDeclaration(sourceFile, moduleName)
-  return importDeclaration
-    ?.getNamedImports()
-    .map((node) => node.getText())
+  const importDeclarations = getImportDeclarations(sourceFile, moduleName)
+  return importDeclarations
+    .flatMap(v => v?.getNamedImports())
+    .map(v => v.getText())
     .includes(namedImport)
 }
 
