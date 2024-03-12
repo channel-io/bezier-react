@@ -92,8 +92,8 @@ const AsyncActionButton = () => {
     <Button
       leftContent={PlayIcon}
       text="Click Me!"
-      colorVariant={ButtonColorVariant.Cobalt}
-      styleVariant={ButtonStyleVariant.Primary}
+      colorVariant="cobalt"
+      styleVariant="primary"
       loading={isFetching}
       disabled={isFetching}
       onClick={handleClick}
@@ -121,8 +121,8 @@ const OpenDropdownButton = () => {
         text="Select"
         rightContent={TriangleDownIcon}
         active={isOpen}
-        colorVariant={ButtonColorVariant.MonochromeLight}
-        styleVariant={ButtonStyleVariant.Tertiary}
+        colorVariant="monochrome-light"
+        styleVariant="tertiary
         onClick={() => setIsOpen(true)}
       />
 

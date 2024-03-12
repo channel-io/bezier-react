@@ -12,12 +12,7 @@ import { createContext } from '~/src/utils/react'
 import { isNil } from '~/src/utils/type'
 
 import { BaseButton } from '~/src/components/BaseButton'
-import {
-  Button,
-  ButtonColorVariant,
-  ButtonSize,
-  ButtonStyleVariant,
-} from '~/src/components/Button'
+import { Button } from '~/src/components/Button'
 import { Icon } from '~/src/components/Icon'
 import {
   type TabActionElement,
@@ -28,7 +23,7 @@ import {
   type TabItemsProps,
   type TabListContextValue,
   type TabListProps,
-  TabSize,
+  type TabSize,
   type TabsProps,
 } from '~/src/components/Tabs/Tabs.types'
 import { Text } from '~/src/components/Text'
@@ -83,7 +78,7 @@ const [
   TabListContextProvider,
   useTabListContext,
 ] = createContext<TabListContextValue>({
-  size: TabSize.M,
+  size: 'm',
 })
 
 /**
@@ -92,7 +87,7 @@ const [
 export const TabList = forwardRef<HTMLDivElement, TabListProps>(function TabList({
   className,
   children,
-  size = TabSize.M,
+  size = 'm',
   ...rest
 }, forwardedRef) {
   const heightContextValue = useMemo(() => ({
@@ -140,9 +135,9 @@ export const TabItems = forwardRef<HTMLDivElement, TabItemsProps>(function TabIt
 
 function getButtonSizeBy(size: TabSize) {
   return ({
-    [TabSize.L]: ButtonSize.L,
-    [TabSize.M]: ButtonSize.M,
-    [TabSize.S]: ButtonSize.S,
+    l: 'l',
+    m: 'm',
+    s: 's',
   } as const)[size]
 }
 
@@ -176,8 +171,8 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(function TabI
         disabled={disabled}
         text={children}
         size={getButtonSizeBy(size)}
-        colorVariant={ButtonColorVariant.MonochromeLight}
-        styleVariant={ButtonStyleVariant.Tertiary}
+        colorVariant="monochrome-light"
+        styleVariant="tertiary"
         ref={forwardedRef}
         {...rest}
       />
@@ -232,9 +227,9 @@ export const TabActions = forwardRef<HTMLDivElement, TabActionsProps>(function T
 
 function getTypoBy(size: TabSize) {
   return ({
-    [TabSize.L]: '14',
-    [TabSize.M]: '13',
-    [TabSize.S]: '13',
+    l: '14',
+    m: '14',
+    s: '13',
   } as const)[size]
 }
 

@@ -6,10 +6,7 @@ import classNames from 'classnames'
 
 import useId from '~/src/hooks/useId'
 
-import {
-  Avatar,
-  AvatarSize,
-} from '~/src/components/Avatar'
+import { Avatar } from '~/src/components/Avatar'
 import { BaseButton } from '~/src/components/BaseButton'
 import { Icon } from '~/src/components/Icon'
 import { VisuallyHidden } from '~/src/components/VisuallyHidden'
@@ -44,7 +41,7 @@ export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProp
   className,
   id: idProp,
   name,
-  size = AvatarSize.Size24,
+  size = '24',
   disabled,
   avatarUrl,
   fallbackUrl,

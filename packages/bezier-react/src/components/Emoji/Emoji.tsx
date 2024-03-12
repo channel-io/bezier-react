@@ -7,10 +7,7 @@ import classNames from 'classnames'
 
 import { cssUrl } from '~/src/utils/style'
 
-import {
-  type EmojiProps,
-  EmojiSize,
-} from './Emoji.types'
+import { type EmojiProps } from './Emoji.types'
 
 import styles from './Emoji.module.scss'
 
@@ -23,7 +20,7 @@ export const EMOJI_TEST_ID = 'bezier-emoji'
  * <Emoji
  *   name="A"
  *   imageUrl="https://cf.exp.channel.io/asset/emoji/images/80/a.png"
- *   size={EmojiSize.Size20}
+ *   size="20"
  * />
  * ```
  */
@@ -32,7 +29,7 @@ export const Emoji = forwardRef<HTMLDivElement, EmojiProps>(function Emoji({
   imageUrl,
   className,
   name,
-  size = EmojiSize.Size24,
+  size = '24',
   ...rest
 }, forwardedRef) {
   return (

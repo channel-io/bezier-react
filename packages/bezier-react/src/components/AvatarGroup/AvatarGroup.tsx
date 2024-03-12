@@ -13,7 +13,7 @@ import { px } from '~/src/utils/style'
 import { AlphaSmoothCornersBox } from '~/src/components/AlphaSmoothCornersBox'
 import {
   type AvatarProps,
-  AvatarSize,
+  type AvatarSize,
   useAvatarRadiusToken,
 } from '~/src/components/Avatar'
 import { Icon } from '~/src/components/Icon'
@@ -35,28 +35,28 @@ function getRestAvatarListCountText(count: number, max: number) {
 // TODO: Not specified
 function getProperIconSize(avatarSize: AvatarSize) {
   return {
-    [AvatarSize.Size20]: 'xxs',
-    [AvatarSize.Size24]: 'xs',
-    [AvatarSize.Size30]: 's',
-    [AvatarSize.Size36]: 'm',
-    [AvatarSize.Size42]: 'm',
-    [AvatarSize.Size48]: 'l',
-    [AvatarSize.Size90]: 'l',
-    [AvatarSize.Size120]: 'l',
+    20: 'xxs',
+    24: 'xs',
+    30: 's',
+    36: 'm',
+    42: 'm',
+    48: 'l',
+    90: 'l',
+    120: 'l',
   }[avatarSize]
 }
 
 // TODO: Not specified
 function getProperTypoSize(avatarSize: AvatarSize) {
   return {
-    [AvatarSize.Size20]: '12',
-    [AvatarSize.Size24]: '13',
-    [AvatarSize.Size30]: '15',
-    [AvatarSize.Size36]: '16',
-    [AvatarSize.Size42]: '18',
-    [AvatarSize.Size48]: '24',
-    [AvatarSize.Size90]: '24',
-    [AvatarSize.Size120]: '24',
+    20: '12',
+    24: '13',
+    30: '15',
+    36: '16',
+    42: '18',
+    48: '24',
+    90: '24',
+    120: '24',
   }[avatarSize]
 }
 
@@ -78,7 +78,7 @@ function getProperTypoSize(avatarSize: AvatarSize) {
  */
 export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function AvatarGroup({
   max,
-  size = AvatarSize.Size24,
+  size = '24',
   spacing = AVATAR_GROUP_DEFAULT_SPACING,
   ellipsisType = 'icon',
   onMouseEnterEllipsis,
@@ -199,11 +199,11 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
       ref={forwardedRef}
       className={classNames(
         styles.AvatarGroup,
+        styles[`size-${size}`],
         className,
       )}
       style={{
         '--b-avatar-group-spacing': px(spacing),
-        '--b-avatar-group-size': px(size),
         ...style,
       } as React.CSSProperties}
       {...rest}

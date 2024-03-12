@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 import { HexahedronIcon } from '@channel.io/bezier-icons'
 import {
   ListItem,
-  ListItemSize,
   VStack,
 } from '@channel.io/bezier-react'
 
@@ -19,7 +18,7 @@ function Home() {
   return (
     <VStack align="stretch">
       <ListItem
-        size={ListItemSize.L}
+        size="l"
         leftContent={HexahedronIcon}
         content="아이콘 추출"
         onClick={handleClickExtract}
