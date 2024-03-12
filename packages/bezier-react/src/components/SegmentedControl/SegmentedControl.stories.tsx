@@ -5,8 +5,6 @@ import {
   type StoryFn,
 } from '@storybook/react'
 
-import { getObjectFromEnum } from '~/src/utils/story'
-
 import { Text } from '~/src/components/Text'
 
 import {
@@ -15,10 +13,7 @@ import {
   SegmentedControlTabContent,
   SegmentedControlTabList,
 } from './SegmentedControl'
-import {
-  type SegmentedControlProps,
-  SegmentedControlSize,
-} from './SegmentedControl.types'
+import { type SegmentedControlProps } from './SegmentedControl.types'
 
 const meta: Meta<typeof SegmentedControl> = {
   component: SegmentedControl,
@@ -28,12 +23,6 @@ const meta: Meta<typeof SegmentedControl> = {
         type: 'radio',
       },
       options: ['radiogroup', 'tabs'],
-    },
-    size: {
-      control: {
-        type: 'radio',
-      },
-      options: getObjectFromEnum(SegmentedControlSize),
     },
     value: {
       control: {
@@ -115,7 +104,7 @@ export const Primary = {
 
   args: {
     type: 'radiogroup',
-    size: SegmentedControlSize.XS,
+    size: 'xs',
     width: '100%',
     value: undefined,
     defaultValue: undefined,

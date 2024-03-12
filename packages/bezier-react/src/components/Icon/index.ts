@@ -1,5 +1,5 @@
 export { Icon } from './Icon'
-export {
-  type IconProps,
+export type {
+  IconProps,
   IconSize,
 } from './Icon.types'

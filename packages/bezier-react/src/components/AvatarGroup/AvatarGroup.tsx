@@ -13,19 +13,13 @@ import { px } from '~/src/utils/style'
 import { AlphaSmoothCornersBox } from '~/src/components/AlphaSmoothCornersBox'
 import {
   type AvatarProps,
-  AvatarSize,
+  type AvatarSize,
   useAvatarRadiusToken,
 } from '~/src/components/Avatar'
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
-import {
-  AvatarGroupEllipsisType,
-  type AvatarGroupProps,
-} from './AvatarGroup.types'
+import { type AvatarGroupProps } from './AvatarGroup.types'
 
 import styles from './AvatarGroup.module.scss'
 
@@ -41,28 +35,28 @@ function getRestAvatarListCountText(count: number, max: number) {
 // TODO: Not specified
 function getProperIconSize(avatarSize: AvatarSize) {
   return {
-    [AvatarSize.Size20]: IconSize.XXS,
-    [AvatarSize.Size24]: IconSize.XS,
-    [AvatarSize.Size30]: IconSize.S,
-    [AvatarSize.Size36]: IconSize.Normal,
-    [AvatarSize.Size42]: IconSize.Normal,
-    [AvatarSize.Size48]: IconSize.L,
-    [AvatarSize.Size90]: IconSize.L,
-    [AvatarSize.Size120]: IconSize.L,
+    20: 'xxs',
+    24: 'xs',
+    30: 's',
+    36: 'm',
+    42: 'm',
+    48: 'l',
+    90: 'l',
+    120: 'l',
   }[avatarSize]
 }
 
 // TODO: Not specified
 function getProperTypoSize(avatarSize: AvatarSize) {
   return {
-    [AvatarSize.Size20]: '12',
-    [AvatarSize.Size24]: '13',
-    [AvatarSize.Size30]: '15',
-    [AvatarSize.Size36]: '16',
-    [AvatarSize.Size42]: '18',
-    [AvatarSize.Size48]: '24',
-    [AvatarSize.Size90]: '24',
-    [AvatarSize.Size120]: '24',
+    20: '12',
+    24: '13',
+    30: '15',
+    36: '16',
+    42: '18',
+    48: '24',
+    90: '24',
+    120: '24',
   }[avatarSize]
 }
 
@@ -74,7 +68,7 @@ function getProperTypoSize(avatarSize: AvatarSize) {
  * <AvatarGroup
  *  max={2}
  *  spacing={4}
- *  ellipsisType={AvatarGroupEllipsisType.Icon}
+ *  ellipsisType="icon"
  * >
  *    <Avatar />
  *    <Avatar />
@@ -84,9 +78,9 @@ function getProperTypoSize(avatarSize: AvatarSize) {
  */
 export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function AvatarGroup({
   max,
-  size = AvatarSize.Size24,
+  size = '24',
   spacing = AVATAR_GROUP_DEFAULT_SPACING,
-  ellipsisType = AvatarGroupEllipsisType.Icon,
+  ellipsisType = 'icon',
   onMouseEnterEllipsis,
   onMouseLeaveEllipsis,
   style,
@@ -132,7 +126,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
         return AvatarElement
       }
 
-      if (ellipsisType === AvatarGroupEllipsisType.Icon) {
+      if (ellipsisType === 'icon') {
         return (
           <div
             key="ellipsis"
@@ -157,7 +151,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
         )
       }
 
-      if (ellipsisType === AvatarGroupEllipsisType.Count) {
+      if (ellipsisType === 'count') {
         return (
           <React.Fragment key="ellipsis">
             { AvatarElement }
@@ -205,11 +199,11 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
       ref={forwardedRef}
       className={classNames(
         styles.AvatarGroup,
+        styles[`size-${size}`],
         className,
       )}
       style={{
         '--b-avatar-group-spacing': px(spacing),
-        '--b-avatar-group-size': px(size),
         ...style,
       } as React.CSSProperties}
       {...rest}

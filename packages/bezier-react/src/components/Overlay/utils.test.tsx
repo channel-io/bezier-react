@@ -1,4 +1,3 @@
-import { OverlayPosition } from './Overlay.types'
 import {
   getOverlayPosition,
   getOverlayTranslation,
@@ -78,7 +77,7 @@ describe('positionUtils Test >', () => {
       // @ts-ignore
       const { translateX, translateY } = getOverlayTranslation({
         ...mockArgs,
-        position: OverlayPosition.TopCenter,
+        position: 'top-center',
       })
 
       expect(translateX).toEqual(-75)
@@ -89,7 +88,7 @@ describe('positionUtils Test >', () => {
       // @ts-ignore
       const { translateX, translateY } = getOverlayTranslation({
         ...mockArgs,
-        position: OverlayPosition.TopLeft,
+        position: 'top-left',
       })
 
       expect(translateX).toEqual(5)
@@ -100,7 +99,7 @@ describe('positionUtils Test >', () => {
       // @ts-ignore
       const { translateX, translateY } = getOverlayTranslation({
         ...mockArgs,
-        position: OverlayPosition.TopRight,
+        position: 'top-right',
       })
 
       expect(translateX).toEqual(-155)
@@ -111,7 +110,7 @@ describe('positionUtils Test >', () => {
       // @ts-ignore
       const { translateX, translateY } = getOverlayTranslation({
         ...mockArgs,
-        position: OverlayPosition.RightCenter,
+        position: 'right-center',
       })
 
       expect(translateX).toEqual(105)
@@ -122,7 +121,7 @@ describe('positionUtils Test >', () => {
       // @ts-ignore
       const { translateX, translateY } = getOverlayTranslation({
         ...mockArgs,
-        position: OverlayPosition.RightTop,
+        position: 'right-top',
       })
 
       expect(translateX).toEqual(105)
@@ -133,7 +132,7 @@ describe('positionUtils Test >', () => {
       // @ts-ignore
       const { translateX, translateY } = getOverlayTranslation({
         ...mockArgs,
-        position: OverlayPosition.RightBottom,
+        position: 'right-bottom',
       })
 
       expect(translateX).toEqual(105)
@@ -144,7 +143,7 @@ describe('positionUtils Test >', () => {
       // @ts-ignore
       const { translateX, translateY } = getOverlayTranslation({
         ...mockArgs,
-        position: OverlayPosition.BottomCenter,
+        position: 'bottom-center',
       })
 
       expect(translateX).toEqual(-75)
@@ -155,7 +154,7 @@ describe('positionUtils Test >', () => {
       // @ts-ignore
       const { translateX, translateY } = getOverlayTranslation({
         ...mockArgs,
-        position: OverlayPosition.BottomLeft,
+        position: 'bottom-left',
       })
 
       expect(translateX).toEqual(5)
@@ -166,7 +165,7 @@ describe('positionUtils Test >', () => {
       // @ts-ignore
       const { translateX, translateY } = getOverlayTranslation({
         ...mockArgs,
-        position: OverlayPosition.BottomRight,
+        position: 'bottom-right',
       })
 
       expect(translateX).toEqual(-155)
@@ -177,7 +176,7 @@ describe('positionUtils Test >', () => {
       // @ts-ignore
       const { translateX, translateY } = getOverlayTranslation({
         ...mockArgs,
-        position: OverlayPosition.LeftCenter,
+        position: 'left-center',
       })
 
       expect(translateX).toEqual(-265)
@@ -188,7 +187,7 @@ describe('positionUtils Test >', () => {
       // @ts-ignore
       const { translateX, translateY } = getOverlayTranslation({
         ...mockArgs,
-        position: OverlayPosition.LeftTop,
+        position: 'left-top',
       })
 
       expect(translateX).toEqual(-265)
@@ -199,7 +198,7 @@ describe('positionUtils Test >', () => {
       // @ts-ignore
       const { translateX, translateY } = getOverlayTranslation({
         ...mockArgs,
-        position: OverlayPosition.LeftBottom,
+        position: 'left-bottom',
       })
 
       expect(translateX).toEqual(-265)
@@ -210,7 +209,7 @@ describe('positionUtils Test >', () => {
       // @ts-ignore
       const { translateX, translateY } = getOverlayTranslation({
         ...mockArgs,
-        position: OverlayPosition.InnerLeftTop,
+        position: 'inner-left-top',
       })
 
       expect(translateX).toEqual(5)
@@ -221,7 +220,7 @@ describe('positionUtils Test >', () => {
       // @ts-ignore
       const { translateX, translateY } = getOverlayTranslation({
         ...mockArgs,
-        position: OverlayPosition.InnerLeftBottom,
+        position: 'inner-left-bottom',
       })
 
       expect(translateX).toEqual(5)
@@ -232,7 +231,7 @@ describe('positionUtils Test >', () => {
       // @ts-ignore
       const { translateX, translateY } = getOverlayTranslation({
         ...mockArgs,
-        position: OverlayPosition.InnerRightTop,
+        position: 'inner-right-top',
       })
 
       expect(translateX).toEqual(-155)
@@ -243,7 +242,7 @@ describe('positionUtils Test >', () => {
       // @ts-ignore
       const { translateX, translateY } = getOverlayTranslation({
         ...mockArgs,
-        position: OverlayPosition.InnerRightBottom,
+        position: 'inner-right-bottom',
       })
 
       expect(translateX).toEqual(-155)

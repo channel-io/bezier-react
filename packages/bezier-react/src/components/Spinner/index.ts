@@ -1,6 +1,5 @@
 export { Spinner } from './Spinner'
 export {
   type SpinnerProps,
-  SpinnerSize,
-  SpinnerThickness,
+  type SpinnerSize,
 } from './Spinner.types'

@@ -8,8 +8,6 @@ import { useNavigate } from 'react-router-dom'
 
 import {
   Button,
-  ButtonColorVariant,
-  ButtonStyleVariant,
   FormControl,
   FormErrorMessage,
   FormHelperText,
@@ -18,7 +16,6 @@ import {
   ProgressBar,
   Text,
   TextField,
-  TextFieldType,
   VStack,
 } from '@channel.io/bezier-react'
 
@@ -178,7 +175,7 @@ function IconExtract() {
               Figma personal access token
             </FormLabel>
             <TextField
-              type={TextFieldType.Password}
+              type="password"
               name="figmaToken"
               placeholder="figd_..."
               value={figmaToken}
@@ -190,7 +187,7 @@ function IconExtract() {
               Github personal access token
             </FormLabel>
             <TextField
-              type={TextFieldType.Password}
+              type="password"
               name="githubToken"
               placeholder="ghp_..."
               value={githubToken}
@@ -210,13 +207,13 @@ function IconExtract() {
           <HStack justify="end" spacing={6}>
             <Button
               type="submit"
-              styleVariant={ButtonStyleVariant.Primary}
-              colorVariant={ButtonColorVariant.Blue}
+              styleVariant="primary"
+              colorVariant="blue"
               text="아이콘 추출"
             />
             <Button
-              styleVariant={ButtonStyleVariant.Secondary}
-              colorVariant={ButtonColorVariant.MonochromeDark}
+              styleVariant="secondary"
+              colorVariant="monochrome-dark"
               text="선택 단계로"
               onClick={handleClickCancel}
             />

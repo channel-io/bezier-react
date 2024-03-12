@@ -3,59 +3,57 @@ import { type SemanticColor } from '~/src/types/tokens'
 /**
  * @deprecated
  */
-export enum TagBadgeSize {
-  XS = 'xs',
-  S = 's',
-  M = 'm',
-  L = 'l',
-}
+export type TagBadgeSize =
+| 'xs'
+| 's'
+| 'm'
+| 'l'
 
 /**
  * @deprecated
  */
-export enum TagBadgeVariant {
-  Default = 'Default',
-  MonochromeLight = 'MonochromeLight',
-  MonochromeDark = 'MonochromeDark',
-  Blue = 'Blue',
-  Cobalt = 'Cobalt',
-  Teal = 'Teal',
-  Green = 'Green',
-  Olive = 'Olive',
-  Pink = 'Pink',
-  Navy = 'Navy',
-  Yellow = 'Yellow',
-  Orange = 'Orange',
-  Red = 'Red',
-  Purple = 'Purple',
-}
+export type TagBadgeVariant =
+| 'default'
+| 'monochrome-light'
+| 'monochrome-dark'
+| 'blue'
+| 'cobalt'
+| 'teal'
+| 'green'
+| 'olive'
+| 'pink'
+| 'navy'
+| 'yellow'
+| 'orange'
+| 'red'
+| 'purple'
 
 /**
  * @deprecated
  */
 export const TagBadgeBgColorPreset = {
-  [TagBadgeVariant.Default]: 'bg-black-lighter',
-  [TagBadgeVariant.MonochromeLight]: 'bg-black-lighter',
-  [TagBadgeVariant.MonochromeDark]: 'bg-black-darker',
-  [TagBadgeVariant.Blue]: 'bgtxt-blue-lighter',
-  [TagBadgeVariant.Cobalt]: 'bgtxt-cobalt-lighter',
-  [TagBadgeVariant.Teal]: 'bgtxt-teal-lighter',
-  [TagBadgeVariant.Green]: 'bgtxt-green-lighter',
-  [TagBadgeVariant.Olive]: 'bgtxt-olive-lighter',
-  [TagBadgeVariant.Pink]: 'bgtxt-pink-lighter',
-  [TagBadgeVariant.Navy]: 'bgtxt-navy-lighter',
-  [TagBadgeVariant.Yellow]: 'bgtxt-yellow-lighter',
-  [TagBadgeVariant.Orange]: 'bgtxt-orange-lighter',
-  [TagBadgeVariant.Red]: 'bgtxt-red-lighter',
-  [TagBadgeVariant.Purple]: 'bgtxt-purple-lighter',
+  default: 'bg-black-lighter',
+  'monochrome-light': 'bg-black-lighter',
+  'monochrome-dark': 'bg-black-darker',
+  blue: 'bgtxt-blue-lighter',
+  cobalt: 'bgtxt-cobalt-lighter',
+  teal: 'bgtxt-teal-lighter',
+  green: 'bgtxt-green-lighter',
+  olive: 'bgtxt-olive-lighter',
+  pink: 'bgtxt-pink-lighter',
+  navy: 'bgtxt-navy-lighter',
+  yellow: 'bgtxt-yellow-lighter',
+  orange: 'bgtxt-orange-lighter',
+  red: 'bgtxt-red-lighter',
+  purple: 'bgtxt-purple-lighter',
 } as const
 
 export function getProperTagBadgeTypo(size: TagBadgeSize) {
   return {
-    [TagBadgeSize.XS]: '11' as const,
-    [TagBadgeSize.S]: '13' as const,
-    [TagBadgeSize.M]: '14' as const,
-    [TagBadgeSize.L]: '15' as const,
+    xs: '11' as const,
+    s: '13' as const,
+    m: '14' as const,
+    l: '15' as const,
   }[size]
 }
 

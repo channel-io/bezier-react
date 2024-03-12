@@ -1,5 +1,5 @@
 export { Switch } from './Switch'
-export {
-  type SwitchProps,
+export type {
+  SwitchProps,
   SwitchSize,
 } from './Switch.types'

@@ -5,10 +5,9 @@ import {
 } from '~/src/types/props'
 import { type ZIndex } from '~/src/types/tokens'
 
-export enum ModalTitleSize {
-  L = 'L',
-  M = 'M',
-}
+export type ModalTitleSize =
+| 'l'
+| 'm'
 
 type BoxSide = 'top' | 'right' | 'bottom' | 'left'
 
@@ -99,7 +98,7 @@ interface ModalHeaderOwnProps {
 
   /**
    * Size of the title
-   * @default ModalTitleSize.L
+   * @default 'l'
    */
   titleSize?: ModalTitleSize
 

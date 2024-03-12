@@ -3,7 +3,7 @@ import {
   SyntaxKind,
 } from 'ts-morph'
 
-export const renameEnumMember = (node: PropertyAccessExpression, to: string) => {
+export const renameEnumMember = (node: PropertyAccessExpression, to: string | number) => {
   const ancestor = node.getFirstAncestor()
 
   if (ancestor?.isKind(SyntaxKind.JsxExpression)) {

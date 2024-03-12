@@ -9,13 +9,7 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { getObjectFromEnum } from '~/src/utils/story'
-
-import {
-  Button,
-  ButtonColorVariant,
-  ButtonStyleVariant,
-} from '~/src/components/Button'
+import { Button } from '~/src/components/Button'
 import { ButtonGroup } from '~/src/components/ButtonGroup'
 import { FormControl } from '~/src/components/FormControl'
 import { FormLabel } from '~/src/components/FormLabel'
@@ -35,7 +29,6 @@ import {
   type ModalContentProps,
   type ModalHeaderProps,
   type ModalProps,
-  ModalTitleSize,
 } from './Modal.types'
 
 type ModalCompositionProps = ModalProps & ModalContentProps & ModalHeaderProps
@@ -105,15 +98,15 @@ function ModalComposition({
             <ButtonGroup>
               <ModalClose>
                 <Button
-                  colorVariant={ButtonColorVariant.MonochromeLight}
-                  styleVariant={ButtonStyleVariant.Secondary}
+                  colorVariant="monochrome-light"
+                  styleVariant="secondary"
                   text="Cancel"
                 />
               </ModalClose>
               <ModalClose>
                 <Button
-                  colorVariant={ButtonColorVariant.Blue}
-                  styleVariant={ButtonStyleVariant.Primary}
+                  colorVariant="blue"
+                  styleVariant="primary"
                   text="Save"
                 />
               </ModalClose>
@@ -138,12 +131,6 @@ const meta: Meta<typeof ModalComposition> = {
         type: 'text',
       },
     },
-    titleSize: {
-      control: {
-        type: 'radio',
-      },
-      options: getObjectFromEnum(ModalTitleSize),
-    },
   },
 }
 
@@ -158,7 +145,7 @@ export const Composition: StoryObj<ModalCompositionProps> = {
     subtitle: 'Profile Settings',
     description:
       "Make changes to your profile here. Click save when you're done.",
-    titleSize: ModalTitleSize.L,
+    titleSize: 'l',
     hidden: false,
     preventHideOnOutsideClick: false,
   },

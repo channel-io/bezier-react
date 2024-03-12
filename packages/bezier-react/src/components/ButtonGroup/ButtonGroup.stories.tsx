@@ -6,10 +6,7 @@ import type {
   StoryObj,
 } from '@storybook/react'
 
-import {
-  Button,
-  ButtonStyleVariant,
-} from '~/src/components/Button'
+import { Button } from '~/src/components/Button'
 import { Center } from '~/src/components/Center'
 import {
   LegacySpacer,
@@ -38,8 +35,8 @@ const Template: StoryFn<ButtonGroupProps> = (props) => (
     <LegacySpacer />
     <LegacyStackItem>
       <ButtonGroup {...props}>
-        <Button text="취소" styleVariant={ButtonStyleVariant.Secondary} />
-        <Button text="확인" styleVariant={ButtonStyleVariant.Primary} />
+        <Button text="취소" styleVariant="secondary" />
+        <Button text="확인" styleVariant="primary" />
       </ButtonGroup>
     </LegacyStackItem>
     <LegacySpacer />

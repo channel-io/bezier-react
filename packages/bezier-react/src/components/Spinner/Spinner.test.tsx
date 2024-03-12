@@ -6,7 +6,6 @@ import {
   SPINNER_TEST_ID,
   Spinner,
 } from './Spinner'
-import { SpinnerSize } from './Spinner.types'
 
 describe('Spinner >', () => {
   const renderSpinner = (props?: React.ComponentProps<typeof Spinner>) => render(
@@ -51,7 +50,7 @@ describe('Spinner >', () => {
   })
 
   it('should receive size', () => {
-    const { getByTestId } = renderSpinner({ size: SpinnerSize.M })
+    const { getByTestId } = renderSpinner({ size: 'm' })
     const renderedSpinner = getByTestId(SPINNER_TEST_ID)
     expect(renderedSpinner).toHaveClass('size-m')
   })

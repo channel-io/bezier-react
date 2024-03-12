@@ -7,18 +7,14 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
-/**
- * TODO: migrate to string literal
- */
-export enum IconSize {
-  XL = 44,
-  L = 36,
-  Normal = 24,
-  S = 20,
-  XS = 16,
-  XXS = 12,
-  XXXS = 10,
-}
+export type IconSize =
+| 'xl'
+| 'l'
+| 'm'
+| 's'
+| 'xs'
+| 'xxs'
+| 'xxxs'
 
 interface IconOwnProps {
   /**

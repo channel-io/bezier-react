@@ -1,6 +1,6 @@
 export { LegacyTooltip } from './LegacyTooltip'
 export {
   type LegacyTooltipContentProps,
-  LegacyTooltipPosition,
+  type LegacyTooltipPosition,
   type LegacyTooltipProps,
 } from './LegacyTooltip.types'

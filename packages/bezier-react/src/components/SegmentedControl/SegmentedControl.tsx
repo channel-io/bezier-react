@@ -27,7 +27,6 @@ import {
   type SegmentedControlItemProps,
   type SegmentedControlProps,
   type SegmentedControlRadioGroupProps,
-  SegmentedControlSize,
   type SegmentedControlTabContentProps,
   type SegmentedControlTabListProps,
   type SegmentedControlTabsProps,
@@ -185,7 +184,7 @@ function SegmentedControlImpl<
   Value extends string,
 >({
   type = 'radiogroup' as Type,
-  size = SegmentedControlSize.M,
+  size = 'm',
   width = '100%',
   onValueChange,
   children,

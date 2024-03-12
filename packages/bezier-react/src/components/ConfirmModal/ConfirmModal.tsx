@@ -7,7 +7,6 @@ import {
   ModalContent,
   ModalFooter,
   ModalHeader,
-  ModalTitleSize,
   ModalTrigger,
 } from '~/src/components/Modal'
 
@@ -85,7 +84,7 @@ export const ConfirmModalHeader = forwardRef(function ConfirmModalHeader(
     <ModalHeader
       ref={forwardedRef}
       subtitle={null}
-      titleSize={ModalTitleSize.M}
+      titleSize="m"
       {...props}
     />
   )

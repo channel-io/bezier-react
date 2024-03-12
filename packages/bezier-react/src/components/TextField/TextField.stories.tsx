@@ -10,13 +10,10 @@ import {
   type StoryFn,
 } from '@storybook/react'
 
-import { getObjectFromEnum } from '~/src/utils/story'
-
 import { TextField } from './TextField'
 import {
   type TextFieldProps,
   type TextFieldRef,
-  TextFieldVariant,
 } from './TextField.types'
 
 const meta: Meta<typeof TextField> = {
@@ -60,7 +57,7 @@ export const Primary = {
   render: PrimaryTemplate,
 
   args: {
-    variant: TextFieldVariant.Primary,
+    variant: 'primary',
     size: 'm',
     disabled: false,
     readOnly: false,
@@ -69,13 +66,5 @@ export const Primary = {
     selectAllOnFocus: false,
     maxLength: 10,
     placeholder: 'this is placeholder',
-  },
-  argTypes: {
-    variant: {
-      control: {
-        type: 'radio',
-      },
-      options: getObjectFromEnum(TextFieldVariant),
-    },
   },
 }

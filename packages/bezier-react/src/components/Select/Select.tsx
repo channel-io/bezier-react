@@ -23,14 +23,8 @@ import { isEmpty } from '~/src/utils/type'
 
 import { BaseButton } from '~/src/components/BaseButton'
 import { useFormFieldProps } from '~/src/components/FormControl'
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
-import {
-  Overlay,
-  OverlayPosition,
-} from '~/src/components/Overlay'
+import { Icon } from '~/src/components/Icon'
+import { Overlay } from '~/src/components/Overlay'
 import { Text } from '~/src/components/Text'
 
 import {
@@ -61,7 +55,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
   dropdownMarginX,
   dropdownMarginY = 6,
   dropdownZIndex = 'overlay',
-  dropdownPosition = OverlayPosition.BottomLeft,
+  dropdownPosition = 'bottom-left',
   onClickTrigger,
   onHideDropdown,
   ...rest
@@ -150,7 +144,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
             ? (
               <Icon
                 source={leftContent}
-                size={IconSize.XS}
+                size="xs"
                 marginRight={6}
                 color={iconColor}
               />
@@ -170,7 +164,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
             ? (
               <Icon
                 source={rightContent}
-                size={IconSize.XS}
+                size="xs"
                 marginRight={6}
                 color={iconColor}
               />
@@ -181,7 +175,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
         { !withoutChevron && (
           <Icon
             source={isDropdownOpened ? ChevronUpIcon : ChevronDownIcon}
-            size={IconSize.XS}
+            size="xs"
             color={readOnly ? 'txt-black-dark' : 'txt-black-darker'}
             marginLeft={6}
           />

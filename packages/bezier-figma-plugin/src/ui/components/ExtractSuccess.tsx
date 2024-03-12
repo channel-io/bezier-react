@@ -7,8 +7,6 @@ import {
 
 import {
   Button,
-  ButtonColorVariant,
-  ButtonStyleVariant,
   Text,
   VStack,
 } from '@channel.io/bezier-react'
@@ -28,8 +26,8 @@ function ExtractSuccess() {
       { /* @ts-ignore */ }
       <Text color="bgtxt-blue-normal" as="a" href={url} target="_blank">PR 링크</Text>
       <Button
-        styleVariant={ButtonStyleVariant.Secondary}
-        colorVariant={ButtonColorVariant.MonochromeDark}
+        styleVariant="secondary"
+        colorVariant="monochrome-dark"
         text="선택 단계로"
         onClick={handleClickGoHome}
       />

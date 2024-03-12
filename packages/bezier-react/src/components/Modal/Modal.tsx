@@ -18,12 +18,7 @@ import {
   isNumber,
 } from '~/src/utils/type'
 
-import {
-  Button,
-  ButtonColorVariant,
-  ButtonSize,
-  ButtonStyleVariant,
-} from '~/src/components/Button'
+import { Button } from '~/src/components/Button'
 import { Text } from '~/src/components/Text'
 import {
   ThemeProvider,
@@ -40,7 +35,7 @@ import {
   type ModalFooterProps,
   type ModalHeaderProps,
   type ModalProps,
-  ModalTitleSize,
+  type ModalTitleSize,
   type ModalTriggerProps,
 } from './Modal.types'
 
@@ -211,10 +206,10 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
                   <ModalClose>
                     <Button
                       className={styles.CloseIconButton}
-                      size={ButtonSize.M}
+                      size="m"
                       leftContent={CancelIcon}
-                      colorVariant={ButtonColorVariant.MonochromeDark}
-                      styleVariant={ButtonStyleVariant.Tertiary}
+                      colorVariant="monochrome-dark"
+                      styleVariant="tertiary"
                     />
                   </ModalClose>
                 ) }
@@ -229,8 +224,8 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(functi
 
 function getTitleTypo(size: ModalTitleSize) {
   return ({
-    [ModalTitleSize.L]: '24',
-    [ModalTitleSize.M]: '16',
+    l: '24',
+    m: '16',
   } as const)[size]
 }
 
@@ -290,7 +285,7 @@ export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function Mo
   title,
   subtitle,
   description,
-  titleSize = ModalTitleSize.L,
+  titleSize = 'l',
   hidden = false,
   ...rest
 }, forwardedRef) {
@@ -324,7 +319,7 @@ export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(function Mo
               <Button
                 className={styles.CloseIconButtonSpacer}
                 as="div"
-                size={ButtonSize.M}
+                size="m"
               />
             ) }
           </div>

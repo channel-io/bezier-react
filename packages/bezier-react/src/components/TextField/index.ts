@@ -2,6 +2,6 @@ export { TextField } from './TextField'
 export {
   type TextFieldProps,
   type TextFieldRef,
-  TextFieldType,
-  TextFieldVariant,
+  type TextFieldType,
+  type TextFieldVariant,
 } from './TextField.types'
