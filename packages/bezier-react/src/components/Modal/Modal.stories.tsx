@@ -9,8 +9,6 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { getObjectFromEnum } from '~/src/utils/story'
-
 import {
   Button,
   ButtonColorVariant,
@@ -35,7 +33,6 @@ import {
   type ModalContentProps,
   type ModalHeaderProps,
   type ModalProps,
-  ModalTitleSize,
 } from './Modal.types'
 
 type ModalCompositionProps = ModalProps & ModalContentProps & ModalHeaderProps
@@ -138,12 +135,6 @@ const meta: Meta<typeof ModalComposition> = {
         type: 'text',
       },
     },
-    titleSize: {
-      control: {
-        type: 'radio',
-      },
-      options: getObjectFromEnum(ModalTitleSize),
-    },
   },
 }
 
@@ -158,7 +149,7 @@ export const Composition: StoryObj<ModalCompositionProps> = {
     subtitle: 'Profile Settings',
     description:
       "Make changes to your profile here. Click save when you're done.",
-    titleSize: ModalTitleSize.L,
+    titleSize: 'l',
     hidden: false,
     preventHideOnOutsideClick: false,
   },

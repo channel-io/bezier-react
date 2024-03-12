@@ -18,10 +18,7 @@ import {
   ButtonSize,
   ButtonStyleVariant,
 } from '~/src/components/Button'
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import {
   type TabActionElement,
   type TabActionProps,
@@ -243,9 +240,9 @@ function getTypoBy(size: TabSize) {
 
 function getIconSizeBy(size: TabSize) {
   return ({
-    [TabSize.L]: IconSize.S,
-    [TabSize.M]: IconSize.XS,
-    [TabSize.S]: IconSize.XS,
+    l: 's',
+    m: 'xs',
+    s: 'xs',
   } as const)[size]
 }
 

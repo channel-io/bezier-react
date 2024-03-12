@@ -4,10 +4,7 @@ import { DotIcon } from '@channel.io/bezier-icons'
 
 import { render } from '~/src/utils/test'
 
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 
 import {
   NAV_GROUP_LEFT_ICON_TEST_ID,
@@ -24,7 +21,7 @@ describe('NavGroup Test >', () => {
       leftContent: DotIcon,
       name: 'general',
       content: 'test-content',
-      rightContent: <Icon source={DotIcon} size={IconSize.XS} color="bgtxt-orange-normal" />,
+      rightContent: <Icon source={DotIcon} size="xs" color="bgtxt-orange-normal" />,
     }
   })
 

@@ -75,7 +75,7 @@ interface ButtonOwnProps {
 
   /**
    * The style variant.
-   * @default ButtonStyleVariant.Primary
+   * @default 'primary'
    */
   styleVariant?: ButtonStyleVariant
 

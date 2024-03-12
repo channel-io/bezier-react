@@ -14,7 +14,6 @@ import classNames from 'classnames'
 import { useWindow } from '~/src/components/WindowProvider'
 
 import { type LegacyTooltipProps } from './LegacyTooltip.types'
-import { LegacyTooltipPosition } from './LegacyTooltip.types'
 import { LegacyTooltipContent } from './LegacyTooltipContent'
 
 import styles from './LegacyTooltip.module.scss'
@@ -36,7 +35,7 @@ export const LegacyTooltip = memo(forwardRef(function LegacyTooltip(
     contentWrapperClassName,
     content = null,
     lazy = false, // optional prop 에서 추후 default behavior 를 lazy 하게 바꿀 예정
-    placement = LegacyTooltipPosition.BottomCenter,
+    placement = 'bottom-center',
     disabled = false,
     offset = 4,
     keepInContainer = false,

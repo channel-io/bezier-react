@@ -16,16 +16,10 @@ import {
   AvatarSize,
   useAvatarRadiusToken,
 } from '~/src/components/Avatar'
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
-import {
-  AvatarGroupEllipsisType,
-  type AvatarGroupProps,
-} from './AvatarGroup.types'
+import { type AvatarGroupProps } from './AvatarGroup.types'
 
 import styles from './AvatarGroup.module.scss'
 
@@ -41,14 +35,14 @@ function getRestAvatarListCountText(count: number, max: number) {
 // TODO: Not specified
 function getProperIconSize(avatarSize: AvatarSize) {
   return {
-    [AvatarSize.Size20]: IconSize.XXS,
-    [AvatarSize.Size24]: IconSize.XS,
-    [AvatarSize.Size30]: IconSize.S,
-    [AvatarSize.Size36]: IconSize.Normal,
-    [AvatarSize.Size42]: IconSize.Normal,
-    [AvatarSize.Size48]: IconSize.L,
-    [AvatarSize.Size90]: IconSize.L,
-    [AvatarSize.Size120]: IconSize.L,
+    [AvatarSize.Size20]: 'xxs',
+    [AvatarSize.Size24]: 'xs',
+    [AvatarSize.Size30]: 's',
+    [AvatarSize.Size36]: 'm',
+    [AvatarSize.Size42]: 'm',
+    [AvatarSize.Size48]: 'l',
+    [AvatarSize.Size90]: 'l',
+    [AvatarSize.Size120]: 'l',
   }[avatarSize]
 }
 
@@ -74,7 +68,7 @@ function getProperTypoSize(avatarSize: AvatarSize) {
  * <AvatarGroup
  *  max={2}
  *  spacing={4}
- *  ellipsisType={AvatarGroupEllipsisType.Icon}
+ *  ellipsisType="icon"
  * >
  *    <Avatar />
  *    <Avatar />
@@ -86,7 +80,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
   max,
   size = AvatarSize.Size24,
   spacing = AVATAR_GROUP_DEFAULT_SPACING,
-  ellipsisType = AvatarGroupEllipsisType.Icon,
+  ellipsisType = 'icon',
   onMouseEnterEllipsis,
   onMouseLeaveEllipsis,
   style,
@@ -132,7 +126,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
         return AvatarElement
       }
 
-      if (ellipsisType === AvatarGroupEllipsisType.Icon) {
+      if (ellipsisType === 'icon') {
         return (
           <div
             key="ellipsis"
@@ -157,7 +151,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
         )
       }
 
-      if (ellipsisType === AvatarGroupEllipsisType.Count) {
+      if (ellipsisType === 'count') {
         return (
           <React.Fragment key="ellipsis">
             { AvatarElement }

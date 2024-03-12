@@ -12,10 +12,7 @@ import {
   ButtonSize,
   ButtonStyleVariant,
 } from '~/src/components/Button'
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import {
   LegacyIcon,
   isIconName,
@@ -104,14 +101,14 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner({
               className={styles.Icon}
               source={icon}
               color={iconColor}
-              size={IconSize.S}
+              size="s"
             />
           ) : (
             <LegacyIcon
               className={styles.Icon}
               name={icon}
               color={iconColor}
-              size={IconSize.S}
+              size="s"
             />
           ) }
         </div>

@@ -13,10 +13,7 @@ import classNames from 'classnames'
 import { type SemanticColor } from '~/src/types/tokens'
 import { cssVar } from '~/src/utils/style'
 
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 
 import {
   type StatusProps,
@@ -70,7 +67,7 @@ export const Status = memo(forwardRef<HTMLDivElement, StatusProps>(function Stat
       { withIcon && (
         <Icon
           source={type === StatusType.Lock ? LockIcon : MoonFilledIcon}
-          size={size === StatusSize.M ? IconSize.XXXS : IconSize.XS}
+          size={size === StatusSize.M ? 'xxxs' : 'xs'}
           color={statusColor[type]}
           className={styles.Icon}
         />

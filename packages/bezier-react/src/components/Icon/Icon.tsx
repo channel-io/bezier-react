@@ -13,12 +13,22 @@ import { tokenCssVar } from '~/src/utils/style'
 
 import {
   type IconProps,
-  IconSize,
+  type IconSize,
 } from './Icon.types'
 
 import styles from './Icon.module.scss'
 
 export const ICON_TEST_ID = 'bezier-icon'
+
+const getSizeValue = (size: IconSize) => ({
+  xl: 44,
+  l: 36,
+  m: 24,
+  s: 20,
+  xs: 16,
+  xxs: 12,
+  xxxs: 10,
+} satisfies Record<IconSize, number>)[size]
 
 export const Icon = memo(forwardRef<SVGSVGElement, IconProps>(function Icon(
   props,
@@ -29,7 +39,7 @@ export const Icon = memo(forwardRef<SVGSVGElement, IconProps>(function Icon(
 
   const {
     className,
-    size = IconSize.Normal,
+    size = 'm',
     color,
     source: SourceElement,
     style,
@@ -49,8 +59,8 @@ export const Icon = memo(forwardRef<SVGSVGElement, IconProps>(function Icon(
         marginStyles.className,
         className,
       )}
-      width={size}
-      height={size}
+      width={getSizeValue(size)}
+      height={getSizeValue(size)}
       data-testid={ICON_TEST_ID}
       {...rest}
     />

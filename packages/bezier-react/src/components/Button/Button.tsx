@@ -9,18 +9,12 @@ import classNames from 'classnames'
 import { warn } from '~/src/utils/assert'
 
 import { BaseButton } from '~/src/components/BaseButton'
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import {
   LegacyIcon,
   isIconName,
 } from '~/src/components/LegacyIcon'
-import {
-  Spinner,
-  SpinnerSize,
-} from '~/src/components/Spinner'
+import { Spinner } from '~/src/components/Spinner'
 import { Text } from '~/src/components/Text'
 
 import type {
@@ -49,21 +43,21 @@ function getTypography(size: ButtonSize) {
 
 function getIconSize(size: ButtonSize) {
   return ({
-    [ButtonSize.XS]: IconSize.XS,
-    [ButtonSize.S]: IconSize.XS,
-    [ButtonSize.M]: IconSize.S,
-    [ButtonSize.L]: IconSize.S,
-    [ButtonSize.XL]: IconSize.Normal,
+    [ButtonSize.XS]: 'xs',
+    [ButtonSize.S]: 'xs',
+    [ButtonSize.M]: 's',
+    [ButtonSize.L]: 's',
+    [ButtonSize.XL]: 'm',
   } as const)[size]
 }
 
 function getSpinnerSize(size: ButtonSize) {
   return ({
-    [ButtonSize.XS]: SpinnerSize.XS,
-    [ButtonSize.S]: SpinnerSize.XS,
-    [ButtonSize.M]: SpinnerSize.S,
-    [ButtonSize.L]: SpinnerSize.S,
-    [ButtonSize.XL]: SpinnerSize.S,
+    [ButtonSize.XS]: 'xs',
+    [ButtonSize.S]: 'xs',
+    [ButtonSize.M]: 's',
+    [ButtonSize.L]: 's',
+    [ButtonSize.XL]: 's',
   } as const)[size]
 }
 

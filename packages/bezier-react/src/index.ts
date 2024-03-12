@@ -52,8 +52,8 @@ export * from '~/src/components/Tabs'
 export * from '~/src/components/Tag'
 export {
   TagBadgeBgColorPreset,
-  TagBadgeSize,
-  TagBadgeVariant,
+  type TagBadgeSize,
+  type TagBadgeVariant,
 } from '~/src/components/TagBadgeCommon'
 export * from '~/src/components/Text'
 export * from '~/src/components/TextArea'

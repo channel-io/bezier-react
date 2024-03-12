@@ -20,7 +20,6 @@ import {
   type ModalContentProps,
   type ModalHeaderProps,
   type ModalProps,
-  ModalTitleSize,
 } from './Modal.types'
 
 const TRIGGER_TEXT = 'Open'
@@ -37,7 +36,7 @@ describe('Modal', () => {
       title: TITLE_TEXT,
       subtitle: SUBTITLE_TEXT,
       description: DESCRIPTION_TEXT,
-      titleSize: ModalTitleSize.L,
+      titleSize: 'l',
     },
   }: {
     modalProps?: ModalProps

@@ -4,32 +4,14 @@ import type {
   VariantProps,
 } from '~/src/types/props'
 
-/**
- * @deprecated Use string literal instead of enum.
- * @example
- *
- * ```tsx
- * <ProgressBar size="m" />
- * ```
- */
-export enum ProgressBarSize {
-  M = 'm',
-  S = 's',
-}
+export type ProgressBarSize =
+| 'm'
+| 's'
 
-/**
- * @deprecated Use string literal instead of enum.
- * @example
- *
- * ```tsx
- * <ProgressBar variant="green" />
- * ```
- */
-export enum ProgressBarVariant {
-  Green = 'green',
-  GreenAlt = 'green-alt',
-  Monochrome = 'monochrome',
-}
+export type ProgressBarVariant =
+  | 'green'
+  | 'green-alt'
+  | 'monochrome'
 
 interface ProgressBarOwnProps {
   /**
@@ -48,6 +30,6 @@ interface ProgressBarOwnProps {
 
 export interface ProgressBarProps extends
   BezierComponentProps<'div'>,
-  SizeProps<ProgressBarSize | `${ProgressBarSize}`>,
-  VariantProps<ProgressBarVariant | `${ProgressBarVariant}`>,
+  SizeProps<ProgressBarSize>,
+  VariantProps<ProgressBarVariant>,
   ProgressBarOwnProps {}

@@ -18,7 +18,6 @@ import {
   ProgressBar,
   Text,
   TextField,
-  TextFieldType,
   VStack,
 } from '@channel.io/bezier-react'
 
@@ -178,7 +177,7 @@ function IconExtract() {
               Figma personal access token
             </FormLabel>
             <TextField
-              type={TextFieldType.Password}
+              type="password"
               name="figmaToken"
               placeholder="figd_..."
               value={figmaToken}
@@ -190,7 +189,7 @@ function IconExtract() {
               Github personal access token
             </FormLabel>
             <TextField
-              type={TextFieldType.Password}
+              type="password"
               name="githubToken"
               placeholder="ghp_..."
               value={githubToken}

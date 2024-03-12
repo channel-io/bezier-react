@@ -1,6 +1,6 @@
 export { ProgressBar } from './ProgressBar'
 export {
   type ProgressBarProps,
-  ProgressBarSize,
-  ProgressBarVariant,
+  type ProgressBarSize,
+  type ProgressBarVariant,
 } from './ProgressBar.types'

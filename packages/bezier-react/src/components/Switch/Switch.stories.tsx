@@ -5,23 +5,12 @@ import {
   type StoryFn,
 } from '@storybook/react'
 
-import { getObjectFromEnum } from '~/src/utils/story'
-
 import { Switch } from './Switch'
-import {
-  type SwitchProps,
-  SwitchSize,
-} from './Switch.types'
+import { type SwitchProps } from './Switch.types'
 
 const meta: Meta<typeof Switch> = {
   component: Switch,
   argTypes: {
-    size: {
-      control: {
-        type: 'radio',
-      },
-      options: getObjectFromEnum(SwitchSize),
-    },
     checked: {
       control: {
         type: 'boolean',
@@ -47,7 +36,7 @@ export const Primary = {
   render: Template,
 
   args: {
-    size: SwitchSize.M,
+    size: 'm',
     checked: true,
     disabled: false,
   },
@@ -57,7 +46,7 @@ export const Uncontrolled = {
   render: Template,
 
   args: {
-    size: SwitchSize.M,
+    size: 'm',
     disabled: false,
   },
 }

@@ -4,10 +4,7 @@ import classNames from 'classnames'
 
 import { cssVar } from '~/src/utils/style'
 
-import {
-  type SpinnerProps,
-  SpinnerSize,
-} from './Spinner.types'
+import { type SpinnerProps } from './Spinner.types'
 
 import styles from './Spinner.module.scss'
 
@@ -16,7 +13,7 @@ export const SPINNER_TEST_ID = 'bezier-spinner'
 export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(function Spinner({
   style,
   className,
-  size = SpinnerSize.M,
+  size = 'm',
   color,
   ...rest
 }, forwardedRef) {
