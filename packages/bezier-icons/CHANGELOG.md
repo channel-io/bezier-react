@@ -1,5 +1,46 @@
 # @channel.io/bezier-icons
 
+## 0.21.0
+
+### Minor Changes
+
+- Update icons ([#2065](https://github.com/channel-io/bezier-react/pull/2065)) by @Jamie-channel
+
+  Modified
+
+  - app-check.svg
+  - bookmark-filled.svg
+  - bookmark.svg
+  - check-verification-filled.svg
+  - error-diamond-filled.svg
+  - error-triangle-filled.svg
+  - error-triangle.svg
+  - flashlight.svg
+  - goal.svg
+  - hourglass-1.svg
+  - hourglass-2.svg
+  - hourglass-3.svg
+  - limit.svg
+  - link-off.svg
+  - link.svg
+  - pin-off.svg
+  - pin.svg
+  - play.svg
+  - upload.svg
+
+  Added
+
+  - clock-filled.svg
+  - heading-1.svg
+  - heading-2.svg
+  - heading-3.svg
+  - heading-4.svg
+  - person-remove-filled.svg
+  - plus-bold.svg
+  - quote.svg
+  - table.svg
+  - tag-filled.svg
+
 ## 0.20.0
 
 ### Minor Changes
