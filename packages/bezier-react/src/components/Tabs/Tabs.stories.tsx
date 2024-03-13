@@ -45,7 +45,7 @@ function TabsComposition({
 }: TabsCompositionProps) {
   const [currentValue, setCurrentValue] = useState(value ?? defaultValue)
 
-  const handleValueChange = useCallback((_value) => {
+  const handleValueChange = useCallback((_value: typeof value) => {
     setCurrentValue(_value)
     if (isFunction(onValueChange)) {
       onValueChange(_value)
