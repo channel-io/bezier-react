@@ -163,13 +163,13 @@ describe('Tabs', () => {
     })
 
     describe('Keyboard Navigation', () => {
-      const assertTab1IsActive = (getByRole) => {
+      const assertTab1IsActive = (getByRole: ReturnType<typeof renderTabs>['getByRole']) => {
         expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('data-state', 'active')
         expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('data-state', 'inactive')
         expect(getByRole('tabpanel', { name: TAB1 })).toHaveAttribute('data-state', 'active')
       }
 
-      const assertTab2IsActive = (getByRole) => {
+      const assertTab2IsActive = (getByRole: ReturnType<typeof renderTabs>['getByRole']) => {
         expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('data-state', 'inactive')
         expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('data-state', 'active')
         expect(getByRole('tabpanel', { name: TAB2 })).toHaveAttribute('data-state', 'active')

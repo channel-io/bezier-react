@@ -74,7 +74,7 @@ describe('useToastContextValues', () => {
   it('remove()', () => {
     const { result } = renderHook(() => useToastContextValues())
 
-    let toastId
+    let toastId: string
     act(() => {
       toastId = result.current.add('0')
     })
@@ -122,7 +122,7 @@ describe('useToastContextValues', () => {
     const onDismiss = jest.fn()
     const { result } = renderHook(() => useToastContextValues())
 
-    let toastId
+    let toastId: string
     act(() => {
       toastId = result.current.add('0')
     })

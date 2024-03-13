@@ -34,30 +34,32 @@ function getRestAvatarListCountText(count: number, max: number) {
 
 // TODO: Not specified
 function getProperIconSize(avatarSize: AvatarSize) {
-  return {
+  return ({
     20: 'xxs',
     24: 'xs',
     30: 's',
     36: 'm',
     42: 'm',
     48: 'l',
+    72: 'l',
     90: 'l',
     120: 'l',
-  }[avatarSize]
+  } as const)[avatarSize]
 }
 
 // TODO: Not specified
 function getProperTypoSize(avatarSize: AvatarSize) {
-  return {
+  return ({
     20: '12',
     24: '13',
     30: '15',
     36: '16',
     42: '18',
     48: '24',
+    72: '24',
     90: '24',
     120: '24',
-  }[avatarSize]
+  } as const)[avatarSize]
 }
 
 /**

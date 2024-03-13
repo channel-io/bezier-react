@@ -22,7 +22,7 @@ import {
 
 import styles from './Checkbox.module.scss'
 
-type CheckIconProps = {} | {
+interface CheckIconProps {
   style: React.CSSProperties
   'data-state': 'checked' | 'unchecked' | 'indeterminate'
   'data-disabled': boolean | undefined
@@ -89,6 +89,7 @@ function CheckboxImpl<Checked extends CheckedState>({
             /* NOTE: To allow the icon to be rendered even if unchecked. */
             forceMount
           >
+            { /* @ts-expect-error */ }
             <CheckIcon />
           </CheckboxPrimitive.Indicator>
         </BaseButton>

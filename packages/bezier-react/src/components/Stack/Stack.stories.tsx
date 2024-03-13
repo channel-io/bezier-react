@@ -19,7 +19,7 @@ const meta = {
 
 type Story = StoryObj<typeof meta>
 
-function DecorativeBox({ children }) {
+function DecorativeBox({ children }: React.PropsWithChildren<{}>) {
   return (
     <Box
       width={50}
