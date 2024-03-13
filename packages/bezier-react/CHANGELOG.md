@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.18
+
+### Patch Changes
+
+- Fix `Badge` component style issue ([#2068](https://github.com/channel-io/bezier-react/pull/2068)) by @yangwooseong
+
 ## 2.0.0-alpha.17
 
 ### Major Changes
