@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.19
+
+### Patch Changes
+
+- Adds icon and typo size for avatar size `"72"`, which were missing from `AvatarGroup`. ([#2071](https://github.com/channel-io/bezier-react/pull/2071)) by @sungik-choi
+
 ## 2.0.0-alpha.18
 
 ### Patch Changes
