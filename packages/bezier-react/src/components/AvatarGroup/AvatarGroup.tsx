@@ -10,13 +10,13 @@ import classNames from 'classnames'
 import { isLastIndex } from '~/src/utils/array'
 import { px } from '~/src/utils/style'
 
-import { SmoothCornersBox } from '~/src/components/SmoothCornersBox'
 import {
   type AvatarProps,
   type AvatarSize,
   useAvatarRadiusToken,
 } from '~/src/components/Avatar'
 import { Icon } from '~/src/components/Icon'
+import { SmoothCornersBox } from '~/src/components/SmoothCornersBox'
 import { Text } from '~/src/components/Text'
 
 import { type AvatarGroupProps } from './AvatarGroup.types'
