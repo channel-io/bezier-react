@@ -10,7 +10,7 @@ import classNames from 'classnames'
 import { isLastIndex } from '~/src/utils/array'
 import { px } from '~/src/utils/style'
 
-import { AlphaSmoothCornersBox } from '~/src/components/AlphaSmoothCornersBox'
+import { SmoothCornersBox } from '~/src/components/SmoothCornersBox'
 import {
   type AvatarProps,
   type AvatarSize,
@@ -137,7 +137,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
             onMouseLeave={onMouseLeaveEllipsis}
             data-testid={AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID}
           >
-            <AlphaSmoothCornersBox
+            <SmoothCornersBox
               borderRadius={AVATAR_BORDER_RADIUS}
               backgroundColor="bgtxt-absolute-black-lightest"
               className={styles.AvatarEllipsisIcon}
@@ -147,7 +147,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(function
                 size={getProperIconSize(size)}
                 color="bgtxt-absolute-white-dark"
               />
-            </AlphaSmoothCornersBox>
+            </SmoothCornersBox>
             { AvatarElement }
           </div>
         )

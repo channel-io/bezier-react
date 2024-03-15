@@ -8,9 +8,9 @@ import classNames from 'classnames'
 import { isEmpty } from '~/src/utils/type'
 
 import {
-  AlphaSmoothCornersBox,
-  type AlphaSmoothCornersBoxProps,
-} from '~/src/components/AlphaSmoothCornersBox'
+  SmoothCornersBox,
+  type SmoothCornersBoxProps,
+} from '~/src/components/SmoothCornersBox'
 import {
   Status,
   type StatusSize,
@@ -23,7 +23,7 @@ import useProgressiveImage from './useProgressiveImage'
 
 import styles from './Avatar.module.scss'
 
-const shadow: AlphaSmoothCornersBoxProps['shadow'] = {
+const shadow: SmoothCornersBoxProps['shadow'] = {
   spreadRadius: 2,
   color: 'bg-white-high',
 }
@@ -123,7 +123,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
       data-testid={AVATAR_WRAPPER_TEST_ID}
       {...rest}
     >
-      <AlphaSmoothCornersBox
+      <SmoothCornersBox
         ref={forwardedRef}
         aria-label={name}
         className={classNames(
@@ -139,7 +139,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
         data-testid={AVATAR_TEST_ID}
       >
         { StatusComponent }
-      </AlphaSmoothCornersBox>
+      </SmoothCornersBox>
     </div>
   )
 })
