@@ -17,16 +17,12 @@ import {
 import {
 	TextDocument
 } from 'vscode-languageserver-textdocument';
+import { merge } from './utils';
 
-const tokens = {
-	..._tokens.darkTheme,
-	..._tokens.global,
-	// TODO: use deep merge
-	color: {
-		..._tokens.darkTheme.color,
-		..._tokens.global.color,
-	},
-} as const;
+const tokens = merge(
+	JSON.parse(JSON.stringify(_tokens.darkTheme)), 
+	JSON.parse(JSON.stringify(_tokens.global))
+);
 
 type TokenGroup = keyof typeof tokens
 
