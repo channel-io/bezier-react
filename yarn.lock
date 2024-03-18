@@ -2444,7 +2444,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@channel.io/bezier-icons@^0.21.0, @channel.io/bezier-icons@workspace:packages/bezier-icons":
+"@channel.io/bezier-icons@^0.22.0, @channel.io/bezier-icons@workspace:packages/bezier-icons":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-icons@workspace:packages/bezier-icons"
   dependencies:
@@ -2476,7 +2476,7 @@ __metadata:
     "@babel/preset-env": ^7.22.15
     "@babel/preset-react": ^7.22.15
     "@babel/preset-typescript": ^7.22.15
-    "@channel.io/bezier-icons": ^0.21.0
+    "@channel.io/bezier-icons": ^0.22.0
     "@mdx-js/react": ^1.6.22
     "@radix-ui/react-checkbox": ^1.0.4
     "@radix-ui/react-dialog": ^1.0.4
@@ -8496,7 +8496,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bezier-figma-plugin@workspace:packages/bezier-figma-plugin"
   dependencies:
-    "@channel.io/bezier-icons": ^0.21.0
+    "@channel.io/bezier-icons": ^0.22.0
     "@channel.io/bezier-react": "workspace:^"
     "@figma/plugin-typings": ^1.76.0
     "@types/react": ^18.2.21
