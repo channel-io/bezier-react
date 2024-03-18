@@ -2,9 +2,9 @@
 
 exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 <div
-  class="AvatarGroup"
+  class="AvatarGroup size-24"
   role="group"
-  style="--b-avatar-group-spacing: 4px; --b-avatar-group-size: 24px;"
+  style="--b-avatar-group-spacing: 4px;"
 >
   <div
     class="Avatar size-24"
@@ -101,9 +101,9 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
 
 exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
 <div
-  class="AvatarGroup"
+  class="AvatarGroup size-24"
   role="group"
-  style="--b-avatar-group-spacing: 4px; --b-avatar-group-size: 24px;"
+  style="--b-avatar-group-spacing: 4px;"
 >
   <div
     class="Avatar size-24"

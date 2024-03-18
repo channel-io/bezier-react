@@ -5,15 +5,13 @@ import type {
   FormFieldProps,
 } from '~/src/types/props'
 
-// TODO: Use number literal types instead of enums
-export enum TextAreaHeight {
-  Row3 = 3,
-  Row6 = 6,
-  Row10 = 10,
-  Row16 = 16,
-  Row24 = 24,
-  Row36 = 36,
-}
+export type TextAreaHeight =
+| 3
+| 6
+| 10
+| 16
+| 24
+| 36
 
 interface TextAreaOwnProps {
   minRows?: TextAreaHeight

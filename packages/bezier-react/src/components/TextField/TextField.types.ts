@@ -13,23 +13,21 @@ import type {
   VariantProps,
 } from '~/src/types/props'
 
-export enum TextFieldType {
-  Search = 'search',
-  Text = 'text',
-  Email = 'email',
-  Password = 'password',
-  Tel = 'tel',
-  Url = 'url',
-  Hidden = 'hidden',
-  Number = 'number',
-}
+export type TextFieldType =
+| 'search'
+| 'text'
+| 'email'
+| 'password'
+| 'tel'
+| 'url'
+| 'hidden'
+| 'number'
 
 export type SelectionRangeDirections = 'forward' | 'backward' | 'none'
 
-export enum TextFieldVariant {
-  Primary = 'primary',
-  Secondary = 'secondary',
-}
+export type TextFieldVariant =
+| 'primary'
+| 'secondary'
 
 export type TextFieldItemProps = {
   icon: BezierIcon

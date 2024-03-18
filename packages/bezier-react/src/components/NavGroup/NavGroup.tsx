@@ -9,10 +9,7 @@ import classNames from 'classnames'
 import { isNil } from '~/src/utils/type'
 
 import { BaseButton } from '~/src/components/BaseButton'
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
 // eslint-disable-next-line no-restricted-imports
@@ -68,7 +65,7 @@ export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function Na
         <div className={commonStyles.LeftIconWrapper}>
           <Icon
             source={leftContent}
-            size={IconSize.S}
+            size="s"
             color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}
             data-testid={NAV_GROUP_LEFT_ICON_TEST_ID}
           />
@@ -82,7 +79,7 @@ export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(function Na
           <div className={styles.ChevronWrapper}>
             <Icon
               source={chevronIconSource}
-              size={IconSize.S}
+              size="s"
               color="txt-black-dark"
             />
           </div>

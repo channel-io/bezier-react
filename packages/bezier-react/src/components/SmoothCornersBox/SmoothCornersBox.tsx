@@ -13,22 +13,22 @@ import {
   useFeatureFlag,
 } from '~/src/components/FeatureProvider'
 
-import { type AlphaSmoothCornersBoxProps } from './AlphaSmoothCornersBox.types'
+import { type SmoothCornersBoxProps } from './SmoothCornersBox.types'
 
-import styles from './AlphaSmoothCornersBox.module.scss'
+import styles from './SmoothCornersBox.module.scss'
 
 /**
- * `AlphaSmoothCornersBox` is a simple `div` element with smooth corners.
+ * `SmoothCornersBox` is a simple `div` element with smooth corners.
  * It is available by enabling the `SmoothCornersFeature`.
  * @example
  *
  * ```tsx
  * <AppProvider features={[SmoothCornersFeature]}>
- *   <AlphaSmoothCornersBox />
+ *   <SmoothCornersBox />
  * </AppProvider>
  * ```
  */
-export const AlphaSmoothCornersBox = forwardRef<HTMLDivElement, AlphaSmoothCornersBoxProps>(function AlphaSmoothCornersBox({
+export const SmoothCornersBox = forwardRef<HTMLDivElement, SmoothCornersBoxProps>(function SmoothCornersBox({
   children,
   style,
   className,

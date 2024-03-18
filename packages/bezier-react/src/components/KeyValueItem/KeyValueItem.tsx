@@ -9,16 +9,8 @@ import {
   isNil,
 } from '~/src/utils/type'
 
-import {
-  Button,
-  ButtonColorVariant,
-  ButtonSize,
-  ButtonStyleVariant,
-} from '~/src/components/Button'
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Button } from '~/src/components/Button'
+import { Icon } from '~/src/components/Icon'
 import {
   Text,
   type TextProps,
@@ -48,7 +40,7 @@ function KeyItem({
       { isBezierIcon(icon)
         ? (
           <Icon
-            size={IconSize.S}
+            size="s"
             source={icon}
             color="txt-black-dark"
             data-testid={KEY_VALUE_ITEM_KEY_ICON_TEST_ID}
@@ -99,10 +91,10 @@ function ActionButton({ children }: { children: KeyValueItemAction }) {
   return (
     <Wrapper {...(withTooltip ? { content: children.tooltip } : {})}>
       <Button
-        size={ButtonSize.XS}
+        size="xs"
         leftContent={children.icon}
-        styleVariant={ButtonStyleVariant.Tertiary}
-        colorVariant={ButtonColorVariant.MonochromeLight}
+        styleVariant="tertiary"
+        colorVariant="monochrome-light"
         onClick={children.onClick}
       />
     </Wrapper>

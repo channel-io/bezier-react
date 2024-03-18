@@ -2,17 +2,17 @@ import React from 'react'
 
 import { render } from '~/src/utils/test'
 
-import { AlphaSmoothCornersBox } from './AlphaSmoothCornersBox'
-import { type AlphaSmoothCornersBoxProps } from './AlphaSmoothCornersBox.types'
+import { SmoothCornersBox } from './SmoothCornersBox'
+import { type SmoothCornersBoxProps } from './SmoothCornersBox.types'
 
-describe('AlphaSmoothCornersBox', () => {
+describe('SmoothCornersBox', () => {
   const renderSmoothCornersBox = ({
     children,
     ...rest
-  }: AlphaSmoothCornersBoxProps = { borderRadius: 0 }) => render(
-    <AlphaSmoothCornersBox {...rest}>
+  }: SmoothCornersBoxProps = { borderRadius: 0 }) => render(
+    <SmoothCornersBox {...rest}>
       { children }
-    </AlphaSmoothCornersBox>,
+    </SmoothCornersBox>,
   )
 
   describe('Style', () => {

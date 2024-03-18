@@ -18,7 +18,6 @@ import type {
   OverlayProps,
   TargetRectAttr,
 } from './Overlay.types'
-import { OverlayPosition } from './Overlay.types'
 import { getOverlayTranslation } from './utils'
 
 import styles from './Overlay.module.scss'
@@ -72,7 +71,7 @@ describe('Overlay', () => {
         const result = getOverlayTranslation({
           overlay: null,
           targetRect: null,
-          position: OverlayPosition.BottomCenter,
+          position: 'bottom-center',
           marginX: 0,
           marginY: 0,
           keepInContainer: true,
@@ -96,7 +95,7 @@ describe('Overlay', () => {
         const result = getOverlayTranslation({
           overlay,
           targetRect,
-          position: OverlayPosition.BottomLeft,
+          position: 'bottom-left',
           marginX: 0,
           marginY: 0,
           keepInContainer: true,
@@ -118,7 +117,7 @@ describe('Overlay', () => {
         const result = getOverlayTranslation({
           overlay,
           targetRect: overflowTarget,
-          position: OverlayPosition.BottomLeft,
+          position: 'bottom-left',
           marginX: 0,
           marginY: 0,
           keepInContainer: true,
@@ -153,7 +152,7 @@ describe('Overlay', () => {
         const result = getOverlayTranslation({
           overlay,
           targetRect: overflowTarget,
-          position: OverlayPosition.BottomLeft,
+          position: 'bottom-left',
           marginX: 0,
           marginY: 0,
           keepInContainer: true,
@@ -176,7 +175,7 @@ describe('Overlay', () => {
         show: true,
         className: '',
         containerClassName: '',
-        position: OverlayPosition.LeftCenter,
+        position: 'left-center',
         marginX: 0,
         marginY: 0,
         keepInContainer: false,

@@ -1,5 +1,33 @@
 # @channel.io/bezier-codemod
 
+## 0.5.0-alpha.8
+
+### Patch Changes
+
+- Fix `hasNamedImportInImportDeclaration` util to check all named imports ([#2060](https://github.com/channel-io/bezier-react/pull/2060)) by @yangwooseong
+
+## 0.5.0-alpha.7
+
+### Minor Changes
+
+- Add more various cases to `v2-enum-member-to-string-literal` ([#2059](https://github.com/channel-io/bezier-react/pull/2059)) by @yangwooseong
+
+- Add more various cases to `v2-enum-member-to-string-literal`. Now it covers following enums. ([#2059](https://github.com/channel-io/bezier-react/pull/2059)) by @yangwooseong
+
+  - `AvatarGroupEllipsisType`
+  - `IconSize`
+  - `LegacyTooltipPosition`
+  - `ModalTitleSize`
+  - `OverlayPosition`
+  - `ProgressBarSize`, `ProgressBarVariant`
+  - `SpinnerSize`
+  - `SwitchSize`
+  - `TagBadgeSize`, `TagBadgeVariant`
+  - `TextAreaHeight`
+  - `TextFieldSize`, `TextFieldVariant`
+  - `ToastPlacement`, `ToastAppearance`, `ToastPreset`
+  - `TooltipPosition`
+
 ## 0.5.0-alpha.6
 
 ### Patch Changes

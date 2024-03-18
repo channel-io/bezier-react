@@ -29,7 +29,6 @@ import {
 import {
   type TabActionProps,
   type TabListProps,
-  TabSize,
   type TabsProps,
 } from './Tabs.types'
 
@@ -46,7 +45,7 @@ function TabsComposition({
 }: TabsCompositionProps) {
   const [currentValue, setCurrentValue] = useState(value ?? defaultValue)
 
-  const handleValueChange = useCallback((_value) => {
+  const handleValueChange = useCallback((_value: typeof value) => {
     setCurrentValue(_value)
     if (isFunction(onValueChange)) {
       onValueChange(_value)
@@ -116,7 +115,7 @@ const meta: Meta<TabsCompositionProps> = {
       control: {
         type: 'radio',
       },
-      options: [TabSize.S, TabSize.M, TabSize.L],
+      options: ['s', 'm', 'l'],
     },
     onValueChange: {
       action: 'clicked',
@@ -131,7 +130,7 @@ export const Composition: StoryObj<TabsCompositionProps> = {
   render: Template,
 
   args: {
-    size: TabSize.M,
+    size: 'm',
     onValueChange: noop,
     defaultValue: undefined,
     activationMode: 'automatic',
@@ -143,7 +142,7 @@ export const UnControlled: StoryObj<TabsCompositionProps> = {
   render: Template,
 
   args: {
-    size: TabSize.M,
+    size: 'm',
     onValueChange: noop,
     defaultValue: 'One',
     activationMode: 'automatic',

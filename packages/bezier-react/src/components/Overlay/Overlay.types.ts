@@ -22,24 +22,23 @@ export interface TargetRectAttr {
   clientLeft: number
 }
 
-export enum OverlayPosition {
-  TopCenter = 'topCenter',
-  TopLeft = 'topLeft',
-  TopRight = 'topRight',
-  RightCenter = 'rightCenter',
-  RightTop = 'rightTop',
-  RightBottom = 'rightBottom',
-  BottomCenter = 'bottomCenter',
-  BottomLeft = 'bottomLeft',
-  BottomRight = 'bottomRight',
-  LeftCenter = 'leftCenter',
-  LeftTop = 'leftTop',
-  LeftBottom = 'leftBottom',
-  InnerLeftTop = 'innerLeftTop',
-  InnerLeftBottom = 'innerLeftBottom',
-  InnerRightTop = 'innerRightTop',
-  InnerRightBottom = 'innerRightBottom',
-}
+export type OverlayPosition =
+| 'top-center'
+| 'top-left'
+| 'top-right'
+| 'right-center'
+| 'right-top'
+| 'right-bottom'
+| 'bottom-center'
+| 'bottom-left'
+| 'bottom-right'
+| 'left-center'
+| 'left-top'
+| 'left-bottom'
+| 'inner-left-top'
+| 'inner-left-bottom'
+| 'inner-right-top'
+| 'inner-right-bottom'
 
 interface OverlayOwnProps {
   show?: boolean

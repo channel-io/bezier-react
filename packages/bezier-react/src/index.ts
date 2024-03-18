@@ -5,7 +5,6 @@ import '~/src/styles/index.scss'
 export { tokens } from '@channel.io/bezier-tokens'
 
 /* ------------------------------- COMPONENTS ------------------------------- */
-export * from '~/src/components/AlphaSmoothCornersBox'
 export * from '~/src/components/AppProvider'
 export * from '~/src/components/AutoFocus'
 export * from '~/src/components/Avatar'
@@ -44,6 +43,7 @@ export * from '~/src/components/SectionLabel'
 export * from '~/src/components/SegmentedControl'
 export * from '~/src/components/Select'
 export * from '~/src/components/Slider'
+export * from '~/src/components/SmoothCornersBox'
 export * from '~/src/components/Spinner'
 export * from '~/src/components/Stack'
 export * from '~/src/components/Status'
@@ -52,8 +52,8 @@ export * from '~/src/components/Tabs'
 export * from '~/src/components/Tag'
 export {
   TagBadgeBgColorPreset,
-  TagBadgeSize,
-  TagBadgeVariant,
+  type TagBadgeSize,
+  type TagBadgeVariant,
 } from '~/src/components/TagBadgeCommon'
 export * from '~/src/components/Text'
 export * from '~/src/components/TextArea'

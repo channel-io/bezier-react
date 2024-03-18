@@ -61,7 +61,7 @@ export function isEqual(source: unknown, other: unknown): boolean {
     if (!Object.prototype.hasOwnProperty.call(other, key)) { return false }
   }
   for (const key of keys) {
-    if (!isEqual(source[key], other[key])) { return false }
+    if (!isEqual((source as { [Key: string]: unknown })[key], (other as { [Key: string]: unknown })[key])) { return false }
   }
 
   return true

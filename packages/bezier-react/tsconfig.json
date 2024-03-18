@@ -12,7 +12,7 @@
     "strict": true,
     "useUnknownInCatchVariables": false,
     "allowJs": true,
-    "noImplicitAny": false,
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
       "~/*": ["./*"]

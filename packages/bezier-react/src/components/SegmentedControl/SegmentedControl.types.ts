@@ -11,12 +11,11 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
-export enum SegmentedControlSize {
-  XS = 'xs',
-  S = 's',
-  M = 'm',
-  L = 'l',
-}
+export type SegmentedControlSize =
+| 'xs'
+| 's'
+| 'm'
+| 'l'
 
 export type SegmentedControlType = 'radiogroup' | 'tabs'
 

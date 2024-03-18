@@ -9,11 +9,7 @@ import {
   type StoryFn,
 } from '@storybook/react'
 
-import {
-  Button,
-  ButtonColorVariant,
-  ButtonStyleVariant,
-} from '~/src/components/Button'
+import { Button } from '~/src/components/Button'
 import { ButtonGroup } from '~/src/components/ButtonGroup'
 
 import {
@@ -74,15 +70,15 @@ function ConfirmModalComposition({
             <ButtonGroup>
               <ConfirmModalClose>
                 <Button
-                  colorVariant={ButtonColorVariant.MonochromeLight}
-                  styleVariant={ButtonStyleVariant.Secondary}
+                  colorVariant="monochrome-light"
+                  styleVariant="secondary"
                   text="Cancel"
                 />
               </ConfirmModalClose>
               <ConfirmModalClose>
                 <Button
-                  colorVariant={ButtonColorVariant.Red}
-                  styleVariant={ButtonStyleVariant.Primary}
+                  colorVariant="red"
+                  styleVariant="primary"
                   text="Yes, delete account"
                 />
               </ConfirmModalClose>

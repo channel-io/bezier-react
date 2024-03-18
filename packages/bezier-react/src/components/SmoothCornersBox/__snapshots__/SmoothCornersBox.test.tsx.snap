@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AlphaSmoothCornersBox Style snapshot with default value 1`] = `
+exports[`SmoothCornersBox Style snapshot with default value 1`] = `
 <div>
   <div
     class="SmoothCornersBox"

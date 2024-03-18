@@ -1,5 +1,62 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.19
+
+### Patch Changes
+
+- Adds icon and typo size for avatar size `"72"`, which were missing from `AvatarGroup`. ([#2071](https://github.com/channel-io/bezier-react/pull/2071)) by @sungik-choi
+
+## 2.0.0-alpha.18
+
+### Patch Changes
+
+- Fix `Badge` component style issue ([#2068](https://github.com/channel-io/bezier-react/pull/2068)) by @yangwooseong
+
+## 2.0.0-alpha.17
+
+### Major Changes
+
+- **Breaking Changes: The enum type that the component receives as props is changed to a string (or number) literal type** ([#2059](https://github.com/channel-io/bezier-react/pull/2059)) by @yangwooseong
+
+  The properties that change are:
+
+  - `AvatarGroupEllipsisType`
+  - `IconSize`
+  - `LegacyTooltipPosition`
+  - `ModalTitleSize`
+  - `OverlayPosition`
+  - `ProgressBarSize`, `ProgressBarVariant`
+  - `SpinnerSize`
+  - `SwitchSize`
+  - `TagBadgeSize`, `TagBadgeVariant`
+  - `TextAreaHeight`
+  - `TextFieldSize`, `TextFieldVariant`
+  - `ToastPlacement`, `ToastAppearance`, `ToastPreset`
+  - `TooltipPosition`
+
+  Also, `SpinnerThickness` props of `Spinner` is not supported any more.
+
+  When changed to string literal type, it is changed to the kebab-cased value of enum. e.g. `TooltipPosition.TopCenter` -> `top-center`. Among the above enums, `TextAreaHeight` is converted to number literal type. e.g. `TextAreaHeight.Row16` -> `16`, and `IconSize.normal` is converted to `m` for consistency
+
+- **Breaking Changes: The enum type that the component receives as props is changed to a string literal type** ([#2059](https://github.com/channel-io/bezier-react/pull/2059)) by @yangwooseong
+
+  The properties that change are:
+
+  - `AvatarSize`
+  - `BannerVariant`
+  - `ButtonColorVariant`, `ButtonStyleVariant`, `ButtonSize`
+  - `EmojiSize`
+  - `SegmentedControlSize`
+  - `TabSize`
+  - `ListItemVariant`, `ListItemSize`
+  - `StatusType`, `StatusSize`
+
+  When changed to string literal type, it is changed to the kebab-cased value of enum. e.g. `ButtonStyleVariant.MonoChromeDark` -> `monochrome-dark`, `StatusType.OnlineCrescent` -> `online-crescent`
+
+### Patch Changes
+
+- Fix invalid `aria-modal` value in Modal Content. ([#2052](https://github.com/channel-io/bezier-react/pull/2052)) by @sungik-choi
+
 ## 2.0.0-alpha.16
 
 ### Patch Changes

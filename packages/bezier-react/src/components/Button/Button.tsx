@@ -9,28 +9,18 @@ import classNames from 'classnames'
 import { warn } from '~/src/utils/assert'
 
 import { BaseButton } from '~/src/components/BaseButton'
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import {
   LegacyIcon,
   isIconName,
 } from '~/src/components/LegacyIcon'
-import {
-  Spinner,
-  SpinnerSize,
-} from '~/src/components/Spinner'
+import { Spinner } from '~/src/components/Spinner'
 import { Text } from '~/src/components/Text'
 
 import type {
   ButtonProps,
-  SideContent,
-} from './Button.types'
-import {
-  ButtonColorVariant,
   ButtonSize,
-  ButtonStyleVariant,
+  SideContent,
 } from './Button.types'
 
 import styles from './Button.module.scss'
@@ -39,31 +29,31 @@ export const BUTTON_TEST_ID = 'bezier-button'
 
 function getTypography(size: ButtonSize) {
   return ({
-    [ButtonSize.XS]: '13',
-    [ButtonSize.S]: '13',
-    [ButtonSize.M]: '14',
-    [ButtonSize.L]: '15',
-    [ButtonSize.XL]: '18',
+    xs: '13',
+    s: '13',
+    m: '14',
+    l: '15',
+    xl: '18',
   } as const)[size]
 }
 
 function getIconSize(size: ButtonSize) {
   return ({
-    [ButtonSize.XS]: IconSize.XS,
-    [ButtonSize.S]: IconSize.XS,
-    [ButtonSize.M]: IconSize.S,
-    [ButtonSize.L]: IconSize.S,
-    [ButtonSize.XL]: IconSize.Normal,
+    xs: 'xs',
+    s: 'xs',
+    m: 's',
+    l: 's',
+    xl: 'm',
   } as const)[size]
 }
 
 function getSpinnerSize(size: ButtonSize) {
   return ({
-    [ButtonSize.XS]: SpinnerSize.XS,
-    [ButtonSize.S]: SpinnerSize.XS,
-    [ButtonSize.M]: SpinnerSize.S,
-    [ButtonSize.L]: SpinnerSize.S,
-    [ButtonSize.XL]: SpinnerSize.S,
+    xs: 'xs',
+    s: 'xs',
+    m: 's',
+    l: 's',
+    xl: 's',
   } as const)[size]
 }
 
@@ -106,9 +96,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   disabled = false,
   loading = false,
   active = false,
-  size = ButtonSize.M,
-  styleVariant = ButtonStyleVariant.Primary,
-  colorVariant = ButtonColorVariant.Blue,
+  size = 'm',
+  styleVariant = 'primary',
+  colorVariant = 'blue',
   leftContent,
   rightContent,
   onClick,

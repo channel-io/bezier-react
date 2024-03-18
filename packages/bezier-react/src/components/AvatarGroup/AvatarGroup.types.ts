@@ -7,10 +7,9 @@ import type {
 
 import { type AvatarSize } from '~/src/components/Avatar'
 
-export enum AvatarGroupEllipsisType {
-  Icon = 'Icon',
-  Count = 'Count',
-}
+export type AvatarGroupEllipsisType =
+| 'icon'
+| 'count'
 
 type MouseEventHandler = React.MouseEventHandler<HTMLDivElement>
 
@@ -31,7 +30,7 @@ interface AvatarGroupOwnProps {
 
   /**
    * Controls how the ellipsis is displayed.
-   * @default AvatarGroupEllipsisType.Icon
+   * @default 'icon'
    */
   ellipsisType?: AvatarGroupEllipsisType
 

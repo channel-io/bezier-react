@@ -8,23 +8,22 @@ import classNames from 'classnames'
 import { isEmpty } from '~/src/utils/type'
 
 import {
-  AlphaSmoothCornersBox,
-  type AlphaSmoothCornersBoxProps,
-} from '~/src/components/AlphaSmoothCornersBox'
+  SmoothCornersBox,
+  type SmoothCornersBoxProps,
+} from '~/src/components/SmoothCornersBox'
 import {
   Status,
-  StatusSize,
+  type StatusSize,
 } from '~/src/components/Status'
 import { useTokens } from '~/src/components/ThemeProvider'
 
 import type { AvatarProps } from './Avatar.types'
-import { AvatarSize } from './Avatar.types'
 import defaultAvatarUrl from './assets/default-avatar.svg'
 import useProgressiveImage from './useProgressiveImage'
 
 import styles from './Avatar.module.scss'
 
-const shadow: AlphaSmoothCornersBoxProps['shadow'] = {
+const shadow: SmoothCornersBoxProps['shadow'] = {
   spreadRadius: 2,
   color: 'bg-white-high',
 }
@@ -45,7 +44,7 @@ export const STATUS_WRAPPER_TEST_ID = 'bezier-status-wrapper'
  * <Avatar
  *   avatarUrl="'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png"
  *   name="channel"
- *   size={AvatarSize.Size48}
+ *   size="48"
  *   showBorder
  *   disabled
  * />
@@ -54,7 +53,7 @@ export const STATUS_WRAPPER_TEST_ID = 'bezier-status-wrapper'
 export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
   avatarUrl = '',
   fallbackUrl = defaultAvatarUrl,
-  size = AvatarSize.Size24,
+  size = '24',
   name,
   disabled = false,
   showBorder = false,
@@ -75,7 +74,15 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
       return null
     }
 
-    const statusSize = size >= AvatarSize.Size90 ? StatusSize.L : StatusSize.M
+    const statusSize: StatusSize = (() => {
+      switch (size) {
+        case '90':
+        case '120':
+          return 'l'
+        default:
+          return 'm'
+      }
+    })()
 
     const Contents = (() => {
       if (children) { return children }
@@ -116,12 +123,12 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
       data-testid={AVATAR_WRAPPER_TEST_ID}
       {...rest}
     >
-      <AlphaSmoothCornersBox
+      <SmoothCornersBox
         ref={forwardedRef}
         aria-label={name}
         className={classNames(
           styles.AvatarImage,
-          size >= AvatarSize.Size72 && styles['big-size'],
+          Number(size) >= 72 && styles['big-size'],
           showBorder && styles.bordered,
         )}
         disabled={!smoothCorners}
@@ -132,7 +139,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
         data-testid={AVATAR_TEST_ID}
       >
         { StatusComponent }
-      </AlphaSmoothCornersBox>
+      </SmoothCornersBox>
     </div>
   )
 })

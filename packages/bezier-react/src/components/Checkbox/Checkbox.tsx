@@ -16,10 +16,7 @@ import {
 
 import { BaseButton } from '~/src/components/BaseButton'
 import { useFormFieldProps } from '~/src/components/FormControl'
-import {
-  Icon,
-  IconSize,
-} from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
 import {
@@ -29,7 +26,7 @@ import {
 
 import styles from './Checkbox.module.scss'
 
-type CheckIconProps = {} | {
+interface CheckIconProps {
   style: React.CSSProperties
   'data-state': 'checked' | 'unchecked' | 'indeterminate'
   'data-disabled': boolean | undefined
@@ -50,7 +47,7 @@ const CheckIcon = forwardRef<SVGSVGElement, CheckIconProps>(function CheckIcon(
       className={styles.CheckIcon}
       ref={forwardedRef}
       source={!isIndeterminate ? CheckBoldIcon : HyphenBoldIcon}
-      size={IconSize.XS}
+      size="xs"
       color={isUnchecked ? 'bg-black-dark' : 'bgtxt-absolute-white-dark'}
       {...props}
     />
@@ -96,6 +93,7 @@ function CheckboxImpl<Checked extends CheckedState>({
             /* NOTE: To allow the icon to be rendered even if unchecked. */
             forceMount
           >
+            { /* @ts-expect-error */ }
             <CheckIcon />
           </CheckboxPrimitiveIndicator>
         </BaseButton>
