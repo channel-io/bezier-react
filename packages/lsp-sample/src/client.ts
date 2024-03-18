@@ -43,7 +43,6 @@ export function activate(context: ExtensionContext) {
       {scheme: 'file', language: 'css'},
       {scheme: 'file', language: 'scss'},
       {scheme: 'file', language: 'typescript'},
-      {scheme: 'file', language: 'plaintext'},
     ],
 		synchronize: {
 			// Notify the server about file changes to '.clientrc files contained in the workspace
