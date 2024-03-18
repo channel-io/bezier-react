@@ -6,10 +6,10 @@
 			"type": "extensionHost",
 			"request": "launch",
 			"name": "Launch Client",
-			"runtimeExecutable": "${execPath}/packages/lsp-sample",
-			"args": ["--extensionDevelopmentPath=${workspaceRoot}/packages/lsp-sample"],
+			"runtimeExecutable": "${execPath}/packages/bezier-vscode",
+			"args": ["--extensionDevelopmentPath=${workspaceRoot}/packages/bezier-vscode"],
 			"outFiles": [
-				"${workspaceRoot}/packages/lsp-sample/out/**/*.js",
+				"${workspaceRoot}/packages/bezier-vscode/out/**/*.js",
 			],
 			"autoAttachChildProcesses": true,
 		},
@@ -19,7 +19,7 @@
 			"name": "Attach to Server",
 			"port": 6009,
 			"restart": true,
-			"outFiles": ["${workspaceRoot}/packages/lsp-sample/out/**/server.js"]
+			"outFiles": ["${workspaceRoot}/packages/bezier-vscode/out/**/server.js"]
 		},
 	]
 }

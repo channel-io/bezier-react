@@ -2853,6 +2853,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@channel.io/bezier-vscode@workspace:packages/bezier-vscode":
+  version: 0.0.0-use.local
+  resolution: "@channel.io/bezier-vscode@workspace:packages/bezier-vscode"
+  dependencies:
+    "@types/node": "npm:^18.14.6"
+    "@types/vscode": "npm:^1.64.0"
+    vscode-languageclient: "npm:^9.0.1"
+    vscode-languageserver: "npm:^9.0.1"
+    vscode-languageserver-textdocument: "npm:^1.0.11"
+  languageName: unknown
+  linkType: soft
+
 "@channel.io/eslint-config@npm:^2.0.4":
   version: 2.0.4
   resolution: "@channel.io/eslint-config@npm:2.0.4"
@@ -16129,18 +16141,6 @@ __metadata:
   checksum: 10/5bb91a97a342a41fd049c3494b44d9e21a7d4843f9284d0a0b26f00bb0e436f1f627d0641c78f88be16b86b4231546c5ee4f284733fb530c7960f0bcd7579026
   languageName: node
   linkType: hard
-
-"lsp-sample@workspace:packages/lsp-sample":
-  version: 0.0.0-use.local
-  resolution: "lsp-sample@workspace:packages/lsp-sample"
-  dependencies:
-    "@types/node": "npm:^18.14.6"
-    "@types/vscode": "npm:^1.64.0"
-    vscode-languageclient: "npm:^9.0.1"
-    vscode-languageserver: "npm:^9.0.1"
-    vscode-languageserver-textdocument: "npm:^1.0.11"
-  languageName: unknown
-  linkType: soft
 
 "lz-string@npm:^1.5.0":
   version: 1.5.0

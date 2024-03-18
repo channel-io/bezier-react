@@ -1,23 +1,26 @@
 {
-	"name": "lsp-sample",
-	"description": "A language server example",
-	"author": "Microsoft Corporation",
-	"license": "MIT",
-	"version": "1.0.0",
+	"name": "@channel.io/bezier-vscode",
+	"version": "0.1.0",
+	"description": "VS Code extension for Bezier Design System",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/Microsoft/vscode-extension-samples"
+		"url": "https://github.com/channel-io/bezier-react",
+		"directory": "packages/bezier-vscode"
 	},
-	"publisher": "vscode-samples",
-	"categories": [],
+	"author": "Channel Corp.",
+	"license": "Apache-2.0",
 	"keywords": [
-		"multi-root ready"
+		"channel",
+		"bezier",
+		"extension"
 	],
 	"engines": {
 		"vscode": "^1.75.0"
 	},
 	"activationEvents": [
-		"onLanguage:plaintext"
+		"onLanguage:typescript",
+		"onLanguage:scss",
+		"onLanguage:css"
 	],
 	"main": "./out/client.js",
 	"contributes": {
@@ -46,10 +49,10 @@
 		}
 	},
 	"scripts": {
-		"vscode:prepublish": "npm run compile",
-		"build": "yarn compile",
-		"compile": "tsc -b",
-		"watch": "tsc -b -w"
+		"build": "yarn typecheck",
+		"typecheck": "tsc -b",
+		"watch": "tsc -b -w",
+		"clean:build": "rm -rf out"
 	},
 	"dependencies": {
 		"vscode-languageclient": "^9.0.1",
