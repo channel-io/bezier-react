@@ -49,8 +49,8 @@
 		}
 	},
 	"scripts": {
-		"build": "yarn typecheck",
-		"typecheck": "tsc -b",
+		"build": "tsc --build --verbose",
+		"typecheck": "tsc --noEmit",
 		"watch": "tsc -b -w",
 		"clean:build": "rm -rf out"
 	},
