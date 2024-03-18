@@ -2857,6 +2857,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-vscode@workspace:packages/bezier-vscode"
   dependencies:
+    "@channel.io/bezier-tokens": "npm:0.1.0-alpha.5"
     "@types/node": "npm:^18.14.6"
     "@types/vscode": "npm:^1.64.0"
     vscode-languageclient: "npm:^9.0.1"
