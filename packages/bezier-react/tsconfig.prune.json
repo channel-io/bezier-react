@@ -1,11 +1,11 @@
 {
   "extends": "./tsconfig.json",
   "exclude": [
-    "src/index.ts",
     "**/*.stories.tsx",
     ".storybook/**/*"
   ],
   "files": [
-    "./src/index.ts"
+    "./src/index.ts",
+    "./src/alpha-components/index.ts",
   ]
 }
