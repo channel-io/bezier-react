@@ -57,7 +57,10 @@ const generateConfig = ({
   output = [],
   plugins = [],
 }) => defineConfig({
-  input: 'src/index.ts',
+  input: [
+    'src/index.ts',
+    'src/alpha-components/index.ts',
+  ],
   output,
   plugins: [
     alias({
