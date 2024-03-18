@@ -2858,7 +2858,7 @@ __metadata:
   resolution: "@channel.io/bezier-vscode@workspace:packages/bezier-vscode"
   dependencies:
     "@channel.io/bezier-tokens": "npm:0.1.0-alpha.5"
-    "@types/node": "npm:^18.14.6"
+    "@types/node": "npm:^20.11.20"
     "@types/vscode": "npm:^1.64.0"
     vscode-languageclient: "npm:^9.0.1"
     vscode-languageserver: "npm:^9.0.1"
@@ -7676,15 +7676,6 @@ __metadata:
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 10/75aa69309d76c6be300d7264c462952ab0d37d69c289a0fd5d27ccf06273b3a9c745317c2004f757bdbcc8f48d693a625b5925c09cac77605979ecb825066627
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^18.14.6":
-  version: 18.19.4
-  resolution: "@types/node@npm:18.19.4"
-  dependencies:
-    undici-types: "npm:~5.26.4"
-  checksum: 10/4eaf6e1bb588da960c7e5974e8a0112633138b5468f0e48fc959d5585863baca549bc8c5f5f7b751c61dd282b8c2879842220f6eeed33aa54c255e876ec16536
   languageName: node
   linkType: hard
 
