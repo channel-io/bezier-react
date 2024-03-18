@@ -6,26 +6,26 @@ import {
   type StoryObj,
 } from '@storybook/react'
 
-import { AlphaSmoothCornersBox } from './AlphaSmoothCornersBox'
-import { type AlphaSmoothCornersBoxProps } from './AlphaSmoothCornersBox.types'
+import { SmoothCornersBox } from './SmoothCornersBox'
+import { type SmoothCornersBoxProps } from './SmoothCornersBox.types'
 
 const meta: Meta = {
-  component: AlphaSmoothCornersBox,
+  component: SmoothCornersBox,
 }
 
-const Template: StoryFn<AlphaSmoothCornersBoxProps> = ({
+const Template: StoryFn<SmoothCornersBoxProps> = ({
   children,
   ...otherCheckboxProps
 }) => (
-  <AlphaSmoothCornersBox
+  <SmoothCornersBox
     style={{ width: 200, height: 200 }}
     {...otherCheckboxProps}
   >
     { children }
-  </AlphaSmoothCornersBox>
+  </SmoothCornersBox>
 )
 
-export const Primary: StoryObj<AlphaSmoothCornersBoxProps> = {
+export const Primary: StoryObj<SmoothCornersBoxProps> = {
   render: Template,
   args: {
     disabled: false,

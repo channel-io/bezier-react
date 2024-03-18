@@ -36,7 +36,7 @@ interface BoxShadow {
   color?: SemanticColor
 }
 
-interface AlphaSmoothCornersBoxOwnProps {
+interface SmoothCornersBoxOwnProps {
   /**
    * Rounds the corners of an element's outer border edge.
    * @default 0
@@ -62,8 +62,8 @@ interface AlphaSmoothCornersBoxOwnProps {
   backgroundImage?: string
 }
 
-export interface AlphaSmoothCornersBoxProps extends
+export interface SmoothCornersBoxProps extends
   BezierComponentProps<'div'>,
   ChildrenProps,
   DisableProps,
-  AlphaSmoothCornersBoxOwnProps {}
+  SmoothCornersBoxOwnProps {}
