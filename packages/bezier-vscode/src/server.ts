@@ -35,18 +35,18 @@ const completionItemsByTokenGroup = Object.fromEntries(
       return [groupName, completionItems]
     })) as Record<TokenGroup, CompletionItem[]>
 
-const tokenGroupPatterns: Record<string, RegExp> = {
+const tokenGroupPatterns = {
   radius: /border/,
   color:
     /color|background|border|outline|background-color/,
   elevation: /box-shadow/,
   input: /box-shadow/,
   typography: /font|letter-spacing|line-height/,
+  font: /font|letter-spacing|line-height/,
   transition: /transition/,
   opacity: /opacity/,
-  space: /margin|padding|gap|top|left|right|bottom/,
   'z-index': /z-index/,
-}
+} satisfies Record<TokenGroup, RegExp>
 
 const allCompletionItems = Object.values(completionItemsByTokenGroup).flat()
 
