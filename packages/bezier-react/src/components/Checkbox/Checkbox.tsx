@@ -4,15 +4,12 @@ import {
   CheckBoldIcon,
   HyphenBoldIcon,
 } from '@channel.io/bezier-icons'
+import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 import classNames from 'classnames'
 
 import useId from '~/src/hooks/useId'
 import { getFormFieldSizeClassName } from '~/src/types/props-helpers'
 
-import {
-  CheckboxPrimitive,
-  CheckboxPrimitiveIndicator,
-} from '~/src/alpha-components/CheckboxPrimitive'
 import { BaseButton } from '~/src/components/BaseButton'
 import { useFormFieldProps } from '~/src/components/FormControl'
 import { Icon } from '~/src/components/Icon'
@@ -74,7 +71,7 @@ function CheckboxImpl<Checked extends CheckedState>({
       getFormFieldSizeClassName('m'),
     )}
     >
-      <CheckboxPrimitive
+      <CheckboxPrimitive.Root
         asChild
         className={classNames(
           styles.Checkbox,
@@ -87,16 +84,16 @@ function CheckboxImpl<Checked extends CheckedState>({
         {...formFieldProps}
       >
         <BaseButton>
-          <CheckboxPrimitiveIndicator
+          <CheckboxPrimitive.Indicator
             asChild
             /* NOTE: To allow the icon to be rendered even if unchecked. */
             forceMount
           >
             { /* @ts-expect-error */ }
             <CheckIcon />
-          </CheckboxPrimitiveIndicator>
+          </CheckboxPrimitive.Indicator>
         </BaseButton>
-      </CheckboxPrimitive>
+      </CheckboxPrimitive.Root>
       { children && (
         <Text
           as="label"

@@ -1,14 +1,11 @@
 import React, { forwardRef } from 'react'
 
 import { CheckIcon } from '@channel.io/bezier-icons'
+import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 import classNames from 'classnames'
 
 import useId from '~/src/hooks/useId'
 
-import {
-  CheckboxPrimitive,
-  CheckboxPrimitiveIndicator,
-} from '~/src/alpha-components/CheckboxPrimitive'
 import { Avatar } from '~/src/components/Avatar'
 import { BaseButton } from '~/src/components/BaseButton'
 import { Icon } from '~/src/components/Icon'
@@ -55,7 +52,7 @@ export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProp
   const id = useId(idProp, 'bezier-checkable-avatar')
 
   return (
-    <CheckboxPrimitive
+    <CheckboxPrimitive.Root
       asChild
       className={classNames(
         styles.Checkbox,
@@ -68,7 +65,7 @@ export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProp
       {...props}
     >
       <BaseButton>
-        <CheckboxPrimitiveIndicator
+        <CheckboxPrimitive.Indicator
           asChild
           forceMount
         >
@@ -80,7 +77,7 @@ export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProp
             source={CheckIcon}
             color="bgtxt-absolute-white-normal"
           />
-        </CheckboxPrimitiveIndicator>
+        </CheckboxPrimitive.Indicator>
 
         <Avatar
           className={styles.Avatar}
@@ -100,6 +97,6 @@ export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProp
           <label htmlFor={id}>{ name }</label>
         </VisuallyHidden>
       </BaseButton>
-    </CheckboxPrimitive>
+    </CheckboxPrimitive.Root>
   )
 })
