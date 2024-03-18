@@ -6,13 +6,12 @@ import {
 } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import useId from '~/src/hooks/useId'
-import { getFormFieldSizeClassName } from '~/src/types/props-helpers'
-
 import {
   CheckboxPrimitive,
   CheckboxPrimitiveIndicator,
-} from '~/src/primitives/CheckboxPrimitive'
+} from '~/src/alpha-components/CheckboxPrimitive'
+import useId from '~/src/hooks/useId'
+import { getFormFieldSizeClassName } from '~/src/types/props-helpers'
 
 import { BaseButton } from '~/src/components/BaseButton'
 import { useFormFieldProps } from '~/src/components/FormControl'
