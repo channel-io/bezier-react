@@ -1,0 +1,28 @@
+import { Canvas, Meta } from '@storybook/blocks'
+
+import * as TooltipPrimitive from './TooltipPrimitive.stories'
+
+<Meta of={TooltipPrimitive} />
+
+# TooltipPrimitive
+
+`TooltipPrimitive` is wrapper component for the radix-ui `Tooltip` component. For more information, see [radix-ui documentation](https://www.radix-ui.com/primitives/docs/components/tooltip).
+
+<Canvas of={TooltipPrimitive.Primary} />
+
+## Anatomy
+
+`TooltipPrimitive` is a composition of several components:
+
+```tsx
+<TooltipPrimitiveProvider>
+  <TooltipPrimitive>
+    <TooltipPrimitiveTrigger />
+    <TooltipPrimitivePortal>
+      <TooltipPrimitiveContent>
+        <TooltipPrimitiveArrow />
+      </TooltipPrimitiveContent>
+    </TooltipPrimitivePortal>
+  </TooltipPrimitive>
+</TooltipPrimitiveProvider>
+```
