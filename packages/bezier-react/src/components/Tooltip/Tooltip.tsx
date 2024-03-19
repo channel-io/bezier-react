@@ -7,10 +7,16 @@ import React, {
   useState,
 } from 'react'
 
-import * as TooltipPrimitive from '@radix-ui/react-tooltip'
-
 import { isEmpty } from '~/src/utils/type'
 
+import {
+  TooltipPrimitive,
+  TooltipPrimitiveContent,
+  type TooltipPrimitiveContentProps,
+  TooltipPrimitivePortal,
+  TooltipPrimitiveProvider,
+  TooltipPrimitiveTrigger,
+} from '~/src/alpha-components/TooltipPrimitive'
 import { Icon } from '~/src/components/Icon'
 import { HStack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
@@ -26,7 +32,7 @@ import styles from './Tooltip.module.scss'
 
 function getSideAndAlign(
   placement: TooltipPosition,
-): Pick<TooltipPrimitive.TooltipContentProps, 'side' | 'align'> {
+): Pick<TooltipPrimitiveContentProps, 'side' | 'align'> {
   switch (placement) {
     case 'top-center':
       return {
@@ -201,21 +207,21 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
   ])
 
   return (
-    <TooltipPrimitive.Provider skipDelayDuration={0}>
-      <TooltipPrimitive.Root
+    <TooltipPrimitiveProvider skipDelayDuration={0}>
+      <TooltipPrimitive
         open={show}
         defaultOpen={defaultShow}
         delayDuration={delayShow}
         disableHoverableContent={!allowHover}
         onOpenChange={onOpenChange}
       >
-        <TooltipPrimitive.Trigger asChild>
+        <TooltipPrimitiveTrigger asChild>
           { children }
-        </TooltipPrimitive.Trigger>
+        </TooltipPrimitiveTrigger>
 
-        <TooltipPrimitive.Portal container={container}>
+        <TooltipPrimitivePortal container={container}>
           <InvertedThemeProvider>
-            <TooltipPrimitive.Content
+            <TooltipPrimitiveContent
               {...rest}
               {...getSideAndAlign(placement)}
               asChild
@@ -269,10 +275,10 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
                   />
                 ) }
               </HStack>
-            </TooltipPrimitive.Content>
+            </TooltipPrimitiveContent>
           </InvertedThemeProvider>
-        </TooltipPrimitive.Portal>
-      </TooltipPrimitive.Root>
-    </TooltipPrimitive.Provider>
+        </TooltipPrimitivePortal>
+      </TooltipPrimitive>
+    </TooltipPrimitiveProvider>
   )
 })

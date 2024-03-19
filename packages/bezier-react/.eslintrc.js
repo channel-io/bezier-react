@@ -43,7 +43,7 @@ module.exports = {
         group: 'external',
         position: 'before',
       }, {
-        pattern: '~/src/components/**',
+        pattern: '~/src/{alpha-components,components}/**',
         group: 'internal',
         position: 'after',
       }, {

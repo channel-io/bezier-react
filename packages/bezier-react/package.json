@@ -16,9 +16,21 @@
       "require": "./dist/cjs/index.js",
       "import": "./dist/esm/index.mjs"
     },
+    "./alpha": {
+      "types": "./dist/types/alpha-components/index.d.ts",
+      "require": "./dist/cjs/alpha-components/index.js",
+      "import": "./dist/esm/alpha-components/index.mjs"
+    },
     "./styles.css": {
       "require": "./dist/cjs/styles.css",
       "import": "./dist/esm/styles.css"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "alpha": [
+        "./dist/types/alpha-components/index.d.ts"
+      ]
     }
   },
   "sideEffects": [
