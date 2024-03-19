@@ -48,4 +48,3 @@ export const DialogPrimitiveTitle = DialogTitle
  * @see {@link https://www.radix-ui.com/primitives/docs/components/dialog#trigger}
  */
 export const DialogPrimitiveTrigger = DialogTrigger
-
