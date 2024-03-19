@@ -1,5 +1,41 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.20
+
+### Major Changes
+
+- **Breaking Changes: `AlphaSmoothCornersBox` component is now `SmoothCornersBox` component.** ([#2079](https://github.com/channel-io/bezier-react/pull/2079)) by @sungik-choi
+
+### Minor Changes
+
+- Add the `TooltipPrimitive` component, which is the same as the [`Tooltip` component in radix-ui](https://www.radix-ui.com/primitives/docs/components/tooltip). You can use it by importing it from the `/alpha` path. ([#2049](https://github.com/channel-io/bezier-react/pull/2049)) by @sungik-choi
+
+  ```tsx
+  import {
+    TooltipPrimitive,
+    TooltipPrimitiveArrow,
+    TooltipPrimitiveContent,
+    TooltipPrimitivePortal,
+    TooltipPrimitiveProvider,
+    TooltipPrimitiveTrigger,
+  } from "@channel.io/bezier-react/alpha";
+  ```
+
+- Add the `DialogPrimitive` component, which is the same as the [`Dialog` component in radix-ui](https://www.radix-ui.com/primitives/docs/components/dialog). You can use it by importing it from the `/alpha` path. ([#2049](https://github.com/channel-io/bezier-react/pull/2049)) by @sungik-choi
+
+  ```tsx
+  import {
+    DialogPrimitive,
+    DialogPrimitiveClose,
+    DialogPrimitiveContent,
+    DialogPrimitiveDescription,
+    DialogPrimitiveOverlay,
+    DialogPrimitivePortal,
+    DialogPrimitiveTitle,
+    DialogPrimitiveTrigger,
+  } from "@channel.io/bezier-react/alpha";
+  ```
+
 ## 2.0.0-alpha.19
 
 ### Patch Changes

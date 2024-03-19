@@ -1,5 +1,14 @@
 # bezier-figma-plugin
 
+## 0.5.0-alpha.8
+
+### Patch Changes
+
+- Enhance icon extract logic by catching error ([#2073](https://github.com/channel-io/bezier-react/pull/2073)) by @yangwooseong
+
+- Updated dependencies
+  - @channel.io/bezier-react@2.0.0-alpha.20
+
 ## 0.5.0-alpha.7
 
 ### Patch Changes
