@@ -5,7 +5,6 @@ module.exports = {
   extends: ['@channel.io/eslint-config/web'],
   plugins: [
     '@channel.io/eslint-plugin',
-    'import-newlines',
     'jest',
   ],
   parser: "@typescript-eslint/parser",
@@ -27,7 +26,6 @@ module.exports = {
         }],
       },
     ],
-    'import-newlines/enforce': ['error', { items: 1 }],
     'sort-imports': [
       'error',
       {

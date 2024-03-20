@@ -14,5 +14,9 @@ export default {
     ],
     // NOTE: Set to reduce difficulties caused by selector specificity between components.
     "selector-max-specificity": ["0,2,0"],
+    // NOTE: Disable rules that conflict with prettier
+    'at-rule-empty-line-before': null,
+    'scss/operator-no-newline-after': null,
+    'scss/dollar-variable-colon-space-after': null,
   }
 }
