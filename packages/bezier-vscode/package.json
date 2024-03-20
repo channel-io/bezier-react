@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/bezier-vscode",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "VS Code extension for Bezier Design System",
   "repository": {
     "type": "git",
