@@ -1,8 +1,6 @@
 {
   "extends": "tsconfig/browser.json",
   "compilerOptions": {
-    "useUnknownInCatchVariables": false,
-    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
       "~/*": ["./*"]
@@ -13,6 +11,6 @@
   "include": [
     "src",
     "jest.setup.ts",
-    ".storybook"
+    ".storybook/**/*"
   ],
 }

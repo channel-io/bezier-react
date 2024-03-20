@@ -5,7 +5,7 @@
   },
   "include": [
     "src",
-    ".storybook",
+    ".storybook/**/*",
     "*.ts",
     "*.tsx",
     "*.js",

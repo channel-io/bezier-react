@@ -2017,10 +2017,10 @@ __metadata:
     sass: "npm:^1.71.1"
     ssr-window: "npm:^4.0.2"
     storybook: "npm:7.5.3"
+    ts-patch: "npm:^3.1.2"
     ts-prune: "npm:^0.10.3"
     tsconfig: "workspace:*"
     tsconfig-paths-webpack-plugin: "npm:^4.1.0"
-    ttypescript: "npm:^1.5.15"
     typescript-plugin-css-modules: "npm:^5.1.0"
     typescript-transform-paths: "npm:^3.4.7"
     uuid: "npm:^9.0.1"
@@ -18216,7 +18216,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:>=1.9.0, resolve@npm:^1.10.0, resolve@npm:^1.12.0, resolve@npm:^1.14.2, resolve@npm:^1.19.0, resolve@npm:^1.20.0, resolve@npm:^1.22.1, resolve@npm:^1.22.4":
+"resolve@npm:^1.10.0, resolve@npm:^1.12.0, resolve@npm:^1.14.2, resolve@npm:^1.19.0, resolve@npm:^1.20.0, resolve@npm:^1.22.1, resolve@npm:^1.22.2, resolve@npm:^1.22.4":
   version: 1.22.8
   resolution: "resolve@npm:1.22.8"
   dependencies:
@@ -18242,7 +18242,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A>=1.9.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.12.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.19.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.4#optional!builtin<compat/resolve>":
+"resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.12.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.19.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.4#optional!builtin<compat/resolve>":
   version: 1.22.8
   resolution: "resolve@patch:resolve@npm%3A1.22.8#optional!builtin<compat/resolve>::version=1.22.8&hash=c3c19d"
   dependencies:
@@ -20108,6 +20108,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ts-patch@npm:^3.1.2":
+  version: 3.1.2
+  resolution: "ts-patch@npm:3.1.2"
+  dependencies:
+    chalk: "npm:^4.1.2"
+    global-prefix: "npm:^3.0.0"
+    minimist: "npm:^1.2.8"
+    resolve: "npm:^1.22.2"
+    semver: "npm:^7.5.4"
+    strip-ansi: "npm:^6.0.1"
+  bin:
+    ts-patch: bin/ts-patch.js
+    tspc: bin/tspc.js
+  checksum: 10/d738f51f1a7d16249ef82212a8dec8391c02812dde0f1dfdcd6bfc22b96bf99efd89c560172544f6339ab05083ccc9be895168915e4c7c0a8f019496728137ce
+  languageName: node
+  linkType: hard
+
 "ts-prune@npm:^0.10.3":
   version: 0.10.3
   resolution: "ts-prune@npm:0.10.3"
@@ -20212,21 +20229,6 @@ __metadata:
   bin:
     tty-table: adapters/terminal-adapter.js
   checksum: 10/8532c784027a833bd805de5962be469faaee0ec314cc1c01e77d06ec89d44f18992455969b29ec460abbc7798ea584d805966cbd6480f5a5ffd29865e8de2501
-  languageName: node
-  linkType: hard
-
-"ttypescript@npm:^1.5.15":
-  version: 1.5.15
-  resolution: "ttypescript@npm:1.5.15"
-  dependencies:
-    resolve: "npm:>=1.9.0"
-  peerDependencies:
-    ts-node: ">=8.0.2"
-    typescript: ">=3.2.2"
-  bin:
-    ttsc: bin/tsc
-    ttsserver: bin/tsserver
-  checksum: 10/b49e6eb79bc800bafb7a97232d0dde6b65442f968f8f7c08431bd11b4f157842f058d51718bbf678df93e62e1f65a967630d9989c76c4da5cbd19815341636dd
   languageName: node
   linkType: hard
 
