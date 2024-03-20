@@ -39,7 +39,7 @@ const completionItemsByTokenGroup = Object.fromEntries(
     })) as Record<TokenGroup, CompletionItem[]>
 
 const tokenGroupPatterns = {
-  radius: /border/,
+  radius: /border-radius/,
   color:
     /color|background|border|outline|background-color/,
   elevation: /box-shadow/,
