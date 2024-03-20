@@ -34,8 +34,6 @@ module.exports = {
         ignoreDeclarationSort: true,
       },
     ],
-    // FIXME: Conflict with consistent-type-imports rule. Try testing again after TS version 5 update.
-    // 'import/no-duplicates': ['error', { 'prefer-inline': true }],
     '@typescript-eslint/consistent-type-imports': ['error', { fixStyle: 'inline-type-imports' }],
     '@typescript-eslint/consistent-type-exports': ['error', { fixMixedExportsWithInlineTypeSpecifier: true }],
     '@typescript-eslint/naming-convention': 'off',
