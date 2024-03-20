@@ -15,6 +15,7 @@ import nodeExternals from 'rollup-plugin-node-externals'
 import postcss from 'rollup-plugin-postcss'
 import { visualizer } from 'rollup-plugin-visualizer'
 
+// eslint-disable-next-line import/extensions
 import postcssAutoLayer from './postcss-auto-layer.mjs'
 
 const pkg = JSON.parse(

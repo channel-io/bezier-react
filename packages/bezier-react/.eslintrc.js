@@ -6,6 +6,7 @@ module.exports = {
   plugins: [
     'jsdoc',
     'sort-export-all',
+    'storybook',
   ],
   extends: [
     'bezier',
@@ -16,9 +17,6 @@ module.exports = {
     project: './tsconfig.eslint.json',
   },
   rules: {
-    'sort-imports': ['error', {
-      ignoreDeclarationSort: true,
-    }],
     'import/order': ['error', {
       'newlines-between': 'always',
       alphabetize: { order: 'asc' },
@@ -49,8 +47,5 @@ module.exports = {
     'jsdoc/check-tag-names': ['error', {
       typed: false,
     }],
-    'max-classes-per-file': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'react/no-array-index-key': 'warn',
   },
 }
