@@ -12,7 +12,8 @@ function getAbsolutePath(value: string) {
 
 export default {
   stories: [
-    '../src/**/*.stories.(tsx|mdx)',
+    '../src/**/*.mdx',
+    '../src/**/*.stories.tsx',
   ],
 
   addons: [
