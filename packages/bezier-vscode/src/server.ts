@@ -41,7 +41,7 @@ const completionItemsByTokenGroup = Object.fromEntries(
 const tokenGroupPatterns = {
   radius: /border-radius/,
   color:
-    /color|background|border|outline|background-color/,
+    /color|background|border(?!-radius)|outline|background-color/,
   elevation: /box-shadow/,
   input: /box-shadow/,
   typography: /font|letter-spacing|line-height/,
