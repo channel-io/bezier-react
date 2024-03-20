@@ -51,8 +51,8 @@
   "scripts": {
     "build": "tsc --build --verbose",
     "typecheck": "tsc --noEmit",
-    "watch": "tsc -b -w",
-    "clean:build": "rm -rf out"
+    "dev": "tsc -b -w",
+    "clean": "rm -rf out"
   },
   "dependencies": {
     "vscode-languageclient": "^9.0.1",
