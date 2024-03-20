@@ -11057,9 +11057,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-bezier@workspace:*, eslint-config-bezier@workspace:supports/eslint-config-bezier":
+"eslint-config-bezier@workspace:*, eslint-config-bezier@workspace:configs/eslint-config-bezier":
   version: 0.0.0-use.local
-  resolution: "eslint-config-bezier@workspace:supports/eslint-config-bezier"
+  resolution: "eslint-config-bezier@workspace:configs/eslint-config-bezier"
   dependencies:
     "@channel.io/eslint-config": "npm:^1.5.1"
     "@channel.io/eslint-plugin": "npm:^1.2.3"
@@ -20434,9 +20434,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsconfig@workspace:*, tsconfig@workspace:supports/tsconfig":
+"tsconfig@workspace:*, tsconfig@workspace:configs/tsconfig":
   version: 0.0.0-use.local
-  resolution: "tsconfig@workspace:supports/tsconfig"
+  resolution: "tsconfig@workspace:configs/tsconfig"
   languageName: unknown
   linkType: soft
 
