@@ -1,67 +1,67 @@
 {
-	"name": "@channel.io/bezier-vscode",
-	"version": "0.1.0",
-	"description": "VS Code extension for Bezier Design System",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/channel-io/bezier-react",
-		"directory": "packages/bezier-vscode"
-	},
-	"author": "Channel Corp.",
-	"license": "Apache-2.0",
-	"keywords": [
-		"channel",
-		"bezier",
-		"extension"
-	],
-	"engines": {
-		"vscode": "^1.75.0"
-	},
-	"activationEvents": [
-		"onLanguage:typescript",
-		"onLanguage:scss",
-		"onLanguage:css"
-	],
-	"main": "./out/client.js",
-	"contributes": {
-		"configuration": {
-			"type": "object",
-			"title": "Example configuration",
-			"properties": {
-				"languageServerExample.maxNumberOfProblems": {
-					"scope": "resource",
-					"type": "number",
-					"default": 100,
-					"description": "Controls the maximum number of problems produced by the server."
-				},
-				"languageServerExample.trace.server": {
-					"scope": "window",
-					"type": "string",
-					"enum": [
-						"off",
-						"messages",
-						"verbose"
-					],
-					"default": "verbose",
-					"description": "Traces the communication between VS Code and the language server."
-				}
-			}
-		}
-	},
-	"scripts": {
-		"build": "tsc --build --verbose",
-		"typecheck": "tsc --noEmit",
-		"watch": "tsc -b -w",
-		"clean:build": "rm -rf out"
-	},
-	"dependencies": {
-		"vscode-languageclient": "^9.0.1",
-		"vscode-languageserver": "^9.0.1",
-		"vscode-languageserver-textdocument": "^1.0.11"
-	},
-	"devDependencies": {
-		"@channel.io/bezier-tokens": "0.1.0-alpha.5",
-		"@types/node": "^20.11.20",
-		"@types/vscode": "^1.64.0"
-	}
+  "name": "@channel.io/bezier-vscode",
+  "version": "0.1.0",
+  "description": "VS Code extension for Bezier Design System",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/channel-io/bezier-react",
+    "directory": "packages/bezier-vscode"
+  },
+  "author": "Channel Corp.",
+  "license": "Apache-2.0",
+  "keywords": [
+    "channel",
+    "bezier",
+    "extension"
+  ],
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:scss",
+    "onLanguage:css"
+  ],
+  "main": "./out/client.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Example configuration",
+      "properties": {
+        "languageServerExample.maxNumberOfProblems": {
+          "scope": "resource",
+          "type": "number",
+          "default": 100,
+          "description": "Controls the maximum number of problems produced by the server."
+        },
+        "languageServerExample.trace.server": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "verbose",
+          "description": "Traces the communication between VS Code and the language server."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc --build --verbose",
+    "typecheck": "tsc --noEmit",
+    "watch": "tsc -b -w",
+    "clean:build": "rm -rf out"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1",
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.11"
+  },
+  "devDependencies": {
+    "@channel.io/bezier-tokens": "0.1.0-alpha.5",
+    "@types/node": "^20.11.20",
+    "@types/vscode": "^1.64.0"
+  }
 }
