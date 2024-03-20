@@ -19,10 +19,10 @@ function ExtractSuccess() {
       spacing={2}
     >
       <Text typo="18">아이콘 추출 성공!</Text>
-      {/* @ts-ignore */}
       <Text
         color="bgtxt-blue-normal"
         as="a"
+        // @ts-expect-error
         href={url}
         target="_blank"
       >
