@@ -1,13 +1,12 @@
 import React from 'react'
 
+import { AppProvider } from '@channel.io/bezier-react'
 import { createRoot } from 'react-dom/client'
 import {
   MemoryRouter,
   Route,
   Routes,
 } from 'react-router-dom'
-
-import { AppProvider } from '@channel.io/bezier-react'
 
 import ExtractSuccess from './components/ExtractSuccess'
 import Home from './components/Home'

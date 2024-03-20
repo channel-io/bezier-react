@@ -22,24 +22,10 @@ module.exports = {
     'import/order': ['error', {
       'newlines-between': 'always',
       alphabetize: { order: 'asc' },
-      groups: [
-        'builtin',
-        'external',
-        'internal',
-        'parent',
-        'sibling',
-        'index',
-      ],
-      pathGroupsExcludedImportTypes: [
-        'react',
-        'react-dom',
-      ],
+      groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+      pathGroupsExcludedImportTypes: ['react', 'react-dom'],
       pathGroups: [{
-        pattern: 'react',
-        group: 'external',
-        position: 'before',
-      }, {
-        pattern: 'react-dom',
+        pattern: '{react,react-dom}',
         group: 'external',
         position: 'before',
       }, {
@@ -66,6 +52,5 @@ module.exports = {
     'max-classes-per-file': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/no-array-index-key': 'warn',
-    '@typescript-eslint/naming-convention': 'off',
   },
 }

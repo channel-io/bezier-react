@@ -1,15 +1,43 @@
+/**
+ * @type {import('eslint').Linter.Config}
+ */
 module.exports = {
-  plugins: ['import-newlines'],
-  extends: ['@channel.io/eslint-config'],
+  extends: ['@channel.io/eslint-config/web'],
+  plugins: [
+    '@channel.io/eslint-plugin',
+    'import-newlines',
+    'jest',
+  ],
+  parser: "@typescript-eslint/parser",
+  env: {
+    node: true,
+  },
   rules: {
-    "no-multiple-empty-lines": ['error', { max: 1, maxEOF: 1, maxBOF: 0 }],
+    'import/order': [
+      'error',
+      {
+        'newlines-between': 'always',
+        alphabetize: { order: 'asc' },
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+        pathGroupsExcludedImportTypes: ['react', 'react-dom'],
+        pathGroups: [{
+          pattern: '{react,react-dom}',
+          group: 'external',
+          position: 'before',
+        }],
+      },
+    ],
     'import-newlines/enforce': ['error', { items: 1 }],
+    'sort-imports': [
+      'error',
+      {
+        ignoreDeclarationSort: true,
+      },
+    ],
     // FIXME: Conflict with consistent-type-imports rule. Try testing again after TS version 5 update.
     // 'import/no-duplicates': ['error', { 'prefer-inline': true }],
     '@typescript-eslint/consistent-type-imports': ['error', { fixStyle: 'inline-type-imports' }],
     '@typescript-eslint/consistent-type-exports': ['error', { fixMixedExportsWithInlineTypeSpecifier: true }],
-    'jsx-a11y/alt-text': 'warn',
-    'jsx-a11y/click-events-have-key-events': 'warn',
-    'jsx-a11y/no-static-element-interactions': 'warn',
+    '@typescript-eslint/naming-convention': 'off',
   }
 }

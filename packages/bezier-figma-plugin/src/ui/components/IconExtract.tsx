@@ -4,8 +4,6 @@ import React, {
   useState,
 } from 'react'
 
-import { useNavigate } from 'react-router-dom'
-
 import {
   Button,
   FormControl,
@@ -18,6 +16,7 @@ import {
   TextField,
   VStack,
 } from '@channel.io/bezier-react'
+import { useNavigate } from 'react-router-dom'
 
 import config from '../../config'
 import type { PluginMessage } from '../../types/Message'
