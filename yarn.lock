@@ -2073,6 +2073,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@channel.io/prettier-config@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "@channel.io/prettier-config@npm:0.0.1"
+  checksum: 10/37ee72214bc07d67b24ee9f46169a22f37395c92e99d83ca2a754912e565fbc337470d33d338a3b667ed885c68cb19a348e3b205fce2b727b6c0d72124b2e814
+  languageName: node
+  linkType: hard
+
 "@channel.io/typescript-config@npm:^0.0.1":
   version: 0.0.1
   resolution: "@channel.io/typescript-config@npm:0.0.1"
@@ -8354,6 +8361,7 @@ __metadata:
     "@changesets/cli": "npm:^2.27.1"
     "@changesets/get-github-info": "npm:^0.6.0"
     "@changesets/types": "npm:^6.0.0"
+    "@channel.io/prettier-config": "npm:^0.0.1"
     "@commitlint/cli": "npm:^19.0.0"
     "@commitlint/config-conventional": "npm:^19.0.0"
     "@swc/core": "npm:^1.4.2"
@@ -8365,6 +8373,7 @@ __metadata:
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
     npm-run-all2: "npm:^6.1.2"
+    prettier: "npm:^3.2.5"
     stylelint: "npm:^16.2.1"
     stylelint-config-clean-order: "npm:^5.4.1"
     stylelint-config-standard-scss: "npm:^13.0.0"
@@ -17276,6 +17285,15 @@ __metadata:
   bin:
     prettier: bin-prettier.js
   checksum: 10/00cdb6ab0281f98306cd1847425c24cbaaa48a5ff03633945ab4c701901b8e96ad558eb0777364ffc312f437af9b5a07d0f45346266e8245beaf6247b9c62b24
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^3.2.5":
+  version: 3.2.5
+  resolution: "prettier@npm:3.2.5"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 10/d509f9da0b70e8cacc561a1911c0d99ec75117faed27b95cc8534cb2349667dee6351b0ca83fa9d5703f14127faa52b798de40f5705f02d843da133fc3aa416a
   languageName: node
   linkType: hard
 
