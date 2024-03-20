@@ -1,8 +1,11 @@
 {
-  "extends": "tsconfig/eslint.json",
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+  },
   "include": [
-    "utils/**/*",
-    "scripts/**/*",
+    "utils",
+    "scripts",
     ".eslintrc.js",
     "babel.config.js",
     "rollup.config.mjs",

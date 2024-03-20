@@ -1,13 +1,12 @@
 {
-  "extends": "tsconfig/eslint.json",
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+  },
   "include": [
+    "src",
     ".*.js",
-    "src/**/*",
     "*.js",
     "*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
   ]
 }

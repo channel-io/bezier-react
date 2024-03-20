@@ -1,4 +1,7 @@
 {
-  "extends": "tsconfig/eslint.json",
-  "include": ["scripts/**/*", ".eslintrc.js"]
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+  },
+  "include": ["scripts", ".eslintrc.js"]
 }

@@ -1,12 +1,5 @@
 {
-  "extends": "tsconfig/script.json",
-  "compilerOptions": {
-    "target": "es2020",
-    "module": "nodenext",
-    "strict": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true
-  },
+  "extends": "tsconfig/node.json",
   "include": ["scripts"],
   "exclude": ["node_modules"]
 }
