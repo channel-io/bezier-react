@@ -11,7 +11,10 @@ import {
 } from 'vscode-languageserver/node'
 import { TextDocument } from 'vscode-languageserver-textdocument'
 
-import { merge } from './utils'
+import {
+  hexToRGB,
+  merge,
+} from './utils'
 
 const tokens = merge(
   JSON.parse(JSON.stringify(_tokens.darkTheme)),
@@ -28,7 +31,7 @@ const completionItemsByTokenGroup = Object.fromEntries(
         ([key, value]) => ({
           label: `--${key}`,
           insertText: `--${key}`,
-          detail: String(value),
+          detail: groupName === 'color' ? hexToRGB(value) : String(value),
           kind: groupName === 'color' ? CompletionItemKind.Color : CompletionItemKind.Variable,
         }),
       )
