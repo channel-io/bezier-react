@@ -17,7 +17,7 @@ import {
 } from './utils'
 
 const tokens = merge(
-  JSON.parse(JSON.stringify(_tokens.darkTheme)),
+  JSON.parse(JSON.stringify(_tokens.lightTheme)),
   JSON.parse(JSON.stringify(_tokens.global)),
 )
 
