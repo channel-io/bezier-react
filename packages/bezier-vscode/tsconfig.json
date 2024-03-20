@@ -4,10 +4,11 @@
     "target": "es2020",
     "lib": ["es2020"],
     "outDir": "out",
+    "noImplicitAny": true,
     "rootDir": "src",
     "typeRoots": [
       "./node_modules/@types"
-    ]
+    ],
   },
   "include": [
     "src"
