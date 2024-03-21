@@ -5,7 +5,8 @@
   },
   "include": [
     "src",
-    ".eslintrc.cjs",
-    "jest.config.cjs",
+    ".*.cjs",
+    "*.cjs",
   ],
+  "exclude": ["src/**/fixtures/*"]
 }

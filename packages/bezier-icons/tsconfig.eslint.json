@@ -6,9 +6,8 @@
   "include": [
     "utils",
     "scripts",
-    ".eslintrc.js",
-    "babel.config.js",
-    "rollup.config.mjs",
-    "jest.config.js",
+    "*.js",
+    ".*.js",
+    "*.mjs",
   ],
 }

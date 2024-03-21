@@ -4,5 +4,6 @@
   "compilerOptions": {
     "module": "nodenext",
     "moduleResolution": "nodenext",
+    "allowJs": true,
   }
 }

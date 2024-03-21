@@ -9,7 +9,7 @@
     "src",
   ],
 	"exclude": [
-    "node_modules",
-		"src/**/fixtures/*"
+    "src/**/fixtures/*",
+    "src/**/*.test.ts",
   ],
 }

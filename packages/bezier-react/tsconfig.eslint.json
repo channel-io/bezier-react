@@ -5,12 +5,10 @@
   },
   "include": [
     "src",
+    "jest.setup.ts",
     ".storybook/**/*",
-    "*.ts",
-    "*.tsx",
     "*.js",
-    "*.jsx",
-    ".*.js",
     "*.mjs",
+    ".*.js"
   ],
 }
