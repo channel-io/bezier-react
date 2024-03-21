@@ -1,15 +1,10 @@
 {
-	"extends": "tsconfig/node.json",
-	"compilerOptions": {
-		"outDir": "dist",
-		"jsx": "react",
-		"declaration": true,
-	},
-	"include": [
-    "src",
-  ],
-	"exclude": [
-    "src/**/fixtures/*",
-    "src/**/*.test.ts",
-  ],
+  "extends": "tsconfig/node.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "jsx": "react",
+    "declaration": true
+  },
+  "include": ["src"],
+  "exclude": ["src/**/fixtures/*", "src/**/*.test.ts"]
 }

@@ -1,14 +1,12 @@
 /* eslint-disable no-template-curly-in-string */
-import {
-  Node,
-  type SourceFile,
-} from 'ts-morph'
+import { Node, type SourceFile } from 'ts-morph'
 
 import { getArrowFunctionsWithOneArgument } from '../../utils/function.js'
 
 const getRound = (text: string) => text.match(/round(\d+)/)?.[1]
 
-const isRoundingTheme = (node: Node) => node.getText().includes('foundation?.rounding')
+const isRoundingTheme = (node: Node) =>
+  node.getText().includes('foundation?.rounding')
 
 const getRoundStyle = (text: string) => {
   let roundStyle = ''
@@ -21,15 +19,17 @@ const replaceRound = (sourceFile: SourceFile) => {
   sourceFile.forEachDescendant((node) => {
     if (Node.isTemplateExpression(node)) {
       const roundArrowFunctions = getArrowFunctionsWithOneArgument(
-        node, isRoundingTheme,
+        node,
+        isRoundingTheme
       )
       roundArrowFunctions
         .map((v) => v.getText())
-        .forEach(text => {
+        .forEach((text) => {
           node.replaceWithText(
-            node.getText()
+            node
+              .getText()
               .replace(`\${${text}}`, getRoundStyle(text))
-              .replaceAll(';;', ';'),
+              .replaceAll(';;', ';')
           )
         })
     }

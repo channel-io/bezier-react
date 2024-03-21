@@ -11,19 +11,34 @@ import styles from './LegacyStackItem.module.scss'
 describe('StackItem', () => {
   describe('Supports BezierComponentProps interface', () => {
     it('supports as prop', () => {
-      const { getByTestId } = render(<LegacyStackItem data-testid="stack-item" as="main" />)
+      const { getByTestId } = render(
+        <LegacyStackItem
+          data-testid="stack-item"
+          as="main"
+        />
+      )
 
       expect(getByTestId('stack-item').tagName).toBe('MAIN')
     })
 
     it('supports style prop', () => {
-      const { getByTestId } = render(<LegacyStackItem data-testid="stack-item" style={{ color: 'blue' }} />)
+      const { getByTestId } = render(
+        <LegacyStackItem
+          data-testid="stack-item"
+          style={{ color: 'blue' }}
+        />
+      )
 
       expect(getByTestId('stack-item')).toHaveStyle({ color: 'blue' })
     })
 
     it('supports className prop', () => {
-      const { getByTestId } = render(<LegacyStackItem data-testid="stack-item" className="foo" />)
+      const { getByTestId } = render(
+        <LegacyStackItem
+          data-testid="stack-item"
+          className="foo"
+        />
+      )
 
       expect(getByTestId('stack-item')).toHaveClass('foo')
     })
@@ -31,11 +46,14 @@ describe('StackItem', () => {
 
   it('inherits main axis alignment of parent stack-item component', () => {
     const { getByTestId } = render(
-      <LegacyStack direction="horizontal" justify="start">
+      <LegacyStack
+        direction="horizontal"
+        justify="start"
+      >
         <LegacyStackItem data-testid="item">
           <div />
         </LegacyStackItem>
-      </LegacyStack>,
+      </LegacyStack>
     )
 
     expect(getByTestId('item')).not.toHaveClass(styles['justify-start'])
@@ -43,23 +61,38 @@ describe('StackItem', () => {
 
   it('can override main axis alignment of parent stack component', () => {
     const { getByTestId } = render(
-      <LegacyStack direction="horizontal" justify="start">
-        <LegacyStackItem data-testid="item-start" justify="start">
+      <LegacyStack
+        direction="horizontal"
+        justify="start"
+      >
+        <LegacyStackItem
+          data-testid="item-start"
+          justify="start"
+        >
           <div />
         </LegacyStackItem>
 
-        <LegacyStackItem data-testid="item-center" justify="center">
+        <LegacyStackItem
+          data-testid="item-center"
+          justify="center"
+        >
           <div />
         </LegacyStackItem>
 
-        <LegacyStackItem data-testid="item-end" justify="end">
+        <LegacyStackItem
+          data-testid="item-end"
+          justify="end"
+        >
           <div />
         </LegacyStackItem>
 
-        <LegacyStackItem data-testid="item-stretch" justify="stretch">
+        <LegacyStackItem
+          data-testid="item-stretch"
+          justify="stretch"
+        >
           <div />
         </LegacyStackItem>
-      </LegacyStack>,
+      </LegacyStack>
     )
 
     expect(getByTestId('item-start')).toHaveClass(styles['justify-start'])
@@ -70,11 +103,14 @@ describe('StackItem', () => {
 
   it('inherits cross axis alignment of parent stack component', () => {
     const { getByTestId } = render(
-      <LegacyStack direction="horizontal" align="start">
+      <LegacyStack
+        direction="horizontal"
+        align="start"
+      >
         <LegacyStackItem data-testid="item">
           <div />
         </LegacyStackItem>
-      </LegacyStack>,
+      </LegacyStack>
     )
 
     expect(getByTestId('item')).not.toHaveClass(styles['align-start'])
@@ -82,23 +118,38 @@ describe('StackItem', () => {
 
   it('can override cross axis alignment of parent stack component', () => {
     const { getByTestId } = render(
-      <LegacyStack direction="horizontal" align="center">
-        <LegacyStackItem data-testid="item-start" align="start">
+      <LegacyStack
+        direction="horizontal"
+        align="center"
+      >
+        <LegacyStackItem
+          data-testid="item-start"
+          align="start"
+        >
           <div />
         </LegacyStackItem>
 
-        <LegacyStackItem data-testid="item-center" align="center">
+        <LegacyStackItem
+          data-testid="item-center"
+          align="center"
+        >
           <div />
         </LegacyStackItem>
 
-        <LegacyStackItem data-testid="item-end" align="end">
+        <LegacyStackItem
+          data-testid="item-end"
+          align="end"
+        >
           <div />
         </LegacyStackItem>
 
-        <LegacyStackItem data-testid="item-stretch" align="stretch">
+        <LegacyStackItem
+          data-testid="item-stretch"
+          align="stretch"
+        >
           <div />
         </LegacyStackItem>
-      </LegacyStack>,
+      </LegacyStack>
     )
 
     expect(getByTestId('item-start')).toHaveClass(styles['align-start'])
@@ -122,16 +173,32 @@ describe('StackItem', () => {
       const { getByTestId } = render(
         <LegacyStack direction="horizontal">
           <LegacyStackItem data-testid="one" />
-          <LegacyStackItem data-testid="two" grow shrink weight={1} />
-          <LegacyStackItem data-testid="three" marginBefore={16} shrink weight={2} />
-          <LegacyStackItem data-testid="four" style={{ color: 'red' }} marginAfter={20} size={32} />
-        </LegacyStack>,
+          <LegacyStackItem
+            data-testid="two"
+            grow
+            shrink
+            weight={1}
+          />
+          <LegacyStackItem
+            data-testid="three"
+            marginBefore={16}
+            shrink
+            weight={2}
+          />
+          <LegacyStackItem
+            data-testid="four"
+            style={{ color: 'red' }}
+            marginAfter={20}
+            size={32}
+          />
+        </LegacyStack>
       )
 
-      TEST_IDS
-        .map(id => getByTestId(id))
-        .forEach(el => REQUIRED_CSS_VARS
-          .forEach(field => expect(el.style.getPropertyValue(field)).not.toBe('')))
+      TEST_IDS.map((id) => getByTestId(id)).forEach((el) =>
+        REQUIRED_CSS_VARS.forEach((field) =>
+          expect(el.style.getPropertyValue(field)).not.toBe('')
+        )
+      )
     })
   })
 })

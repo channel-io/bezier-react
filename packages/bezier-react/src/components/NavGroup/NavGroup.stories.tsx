@@ -1,14 +1,7 @@
 import React from 'react'
 
-import {
-  DotIcon,
-  SettingsIcon,
-} from '@channel.io/bezier-icons'
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
+import { DotIcon, SettingsIcon } from '@channel.io/bezier-icons'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { Icon } from '~/src/components/Icon'
 import { NavItem } from '~/src/components/NavItem'
@@ -26,7 +19,10 @@ const Template: StoryFn<NavGroupProps> = (args) => (
     style={{ width: '240px', padding: '6px' }}
     aria-label="navgroup storybook"
   >
-    <ul style={{ margin: '0', padding: '0' }} role="menubar">
+    <ul
+      style={{ margin: '0', padding: '0' }}
+      role="menubar"
+    >
       <NavGroup {...args}>
         <NavItem
           name="profile"
@@ -55,7 +51,11 @@ export const Primary: StoryObj<NavGroupProps> = {
     content: '일반 설정',
     leftContent: SettingsIcon,
     rightContent: (
-      <Icon source={DotIcon} size="xs" color="bgtxt-orange-normal" />
+      <Icon
+        source={DotIcon}
+        size="xs"
+        color="bgtxt-orange-normal"
+      />
     ),
   },
 }

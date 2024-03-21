@@ -11,7 +11,8 @@ import {
   type TokenProviderProps,
 } from './TokenProvider.types'
 
-const [TokenContextProvider, useTokenContext] = createContext<TokenContextValue | null>(null, 'TokenProvider')
+const [TokenContextProvider, useTokenContext] =
+  createContext<TokenContextValue | null>(null, 'TokenProvider')
 
 export { useTokenContext }
 
@@ -29,17 +30,18 @@ const tokenSet: Record<ThemeName, ThemeSpecificTokens> = Object.freeze({
 /**
  * @private
  */
-export function TokenProvider({
-  themeName,
-  children,
-}: TokenProviderProps) {
+export function TokenProvider({ themeName, children }: TokenProviderProps) {
   return (
-    <TokenContextProvider value={useMemo(() => ({
-      themeName,
-      tokens: tokenSet[themeName],
-    }), [themeName])}
+    <TokenContextProvider
+      value={useMemo(
+        () => ({
+          themeName,
+          tokens: tokenSet[themeName],
+        }),
+        [themeName]
+      )}
     >
-      { children }
+      {children}
     </TokenContextProvider>
   )
 }

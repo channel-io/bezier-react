@@ -1,15 +1,8 @@
 import React from 'react'
 
-import type {
-  Meta,
-  StoryFn,
-  StoryObj,
-} from '@storybook/react'
+import type { Meta, StoryFn, StoryObj } from '@storybook/react'
 
-import {
-  FormErrorMessage,
-  FormHelperText,
-} from './FormHelperText'
+import { FormErrorMessage, FormHelperText } from './FormHelperText'
 import {
   type FormErrorMessageProps,
   type FormHelperTextProps,

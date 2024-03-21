@@ -11,19 +11,19 @@ import { useFormFieldProps } from '~/src/components/FormControl'
 import { Stack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
 
-import {
-  type RadioGroupProps,
-  type RadioProps,
-} from './RadioGroup.types'
+import { type RadioGroupProps, type RadioProps } from './RadioGroup.types'
 
 import styles from './RadioGroup.module.scss'
 
-function RadioGroupImpl<Value extends string>({
-  children,
-  spacing = 0,
-  direction = 'vertical',
-  ...rest
-}: RadioGroupProps<Value>, forwardedRef: React.Ref<HTMLDivElement>) {
+function RadioGroupImpl<Value extends string>(
+  {
+    children,
+    spacing = 0,
+    direction = 'vertical',
+    ...rest
+  }: RadioGroupProps<Value>,
+  forwardedRef: React.Ref<HTMLDivElement>
+) {
   const { hasError, ...formFieldProps } = useFormFieldProps(rest)
 
   return (
@@ -38,7 +38,7 @@ function RadioGroupImpl<Value extends string>({
         spacing={spacing}
         direction={direction}
       >
-        { children }
+        {children}
       </Stack>
     </RadioGroupPrimitive.Root>
   )
@@ -62,12 +62,10 @@ export const RadioGroup = forwardRef(RadioGroupImpl) as <Value extends string>(
   props: RadioGroupProps<Value> & { ref?: React.ForwardedRef<HTMLDivElement> }
 ) => ReturnType<typeof RadioGroupImpl<Value>>
 
-function RadioImpl<Value extends string>({
-  children,
-  className,
-  id: idProp,
-  ...rest
-}: RadioProps<Value>, forwardedRef: React.Ref<HTMLButtonElement>) {
+function RadioImpl<Value extends string>(
+  { children, className, id: idProp, ...rest }: RadioProps<Value>,
+  forwardedRef: React.Ref<HTMLButtonElement>
+) {
   const id = useId(idProp, 'bezier-radio')
 
   return (
@@ -76,14 +74,14 @@ function RadioImpl<Value extends string>({
       className={classNames(
         styles.RadioGroupItem,
         getFormFieldSizeClassName('m'),
-        className,
+        className
       )}
       ref={forwardedRef}
       id={id}
       {...rest}
     >
       <BaseButton>
-        { children && (
+        {children && (
           <Text
             className={styles.Label}
             as="label"
@@ -93,9 +91,9 @@ function RadioImpl<Value extends string>({
             typo="14"
             color="txt-black-darkest"
           >
-            { children }
+            {children}
           </Text>
-        ) }
+        )}
       </BaseButton>
     </RadioGroupPrimitive.Item>
   )

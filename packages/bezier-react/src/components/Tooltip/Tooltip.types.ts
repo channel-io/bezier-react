@@ -8,18 +8,18 @@ import {
 } from '~/src/types/props'
 
 export type TooltipPosition =
-| 'top-center'
-| 'top-left'
-| 'top-right'
-| 'right-center'
-| 'right-top'
-| 'right-bottom'
-| 'bottom-center'
-| 'bottom-left'
-| 'bottom-right'
-| 'left-center'
-| 'left-top'
-| 'left-bottom'
+  | 'top-center'
+  | 'top-left'
+  | 'top-right'
+  | 'right-center'
+  | 'right-top'
+  | 'right-bottom'
+  | 'bottom-center'
+  | 'bottom-left'
+  | 'bottom-right'
+  | 'left-center'
+  | 'left-top'
+  | 'left-bottom'
 
 interface TooltipOwnProps {
   /**
@@ -92,12 +92,17 @@ interface TooltipOwnProps {
    * Event handler called when a pointer event occurs outside the bounds of the component.
    * It can be prevented by calling `event.preventDefault`.
    */
-  onPointerDownOutside?: (event: CustomEvent<{ originalEvent: PointerEvent }>) => void
+  onPointerDownOutside?: (
+    event: CustomEvent<{ originalEvent: PointerEvent }>
+  ) => void
 }
 
-export interface TooltipProps extends
-  Omit<BezierComponentProps<'div'>, 'title' | keyof ContentProps | keyof ChildrenProps>,
-  ChildrenProps<React.ReactElement>,
-  ContentProps,
-  DisableProps,
-  TooltipOwnProps {}
+export interface TooltipProps
+  extends Omit<
+      BezierComponentProps<'div'>,
+      'title' | keyof ContentProps | keyof ChildrenProps
+    >,
+    ChildrenProps<React.ReactElement>,
+    ContentProps,
+    DisableProps,
+    TooltipOwnProps {}

@@ -1,10 +1,6 @@
 import React from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { CheckableAvatar } from './CheckableAvatar'
 import type { CheckableAvatarProps } from './CheckableAvatar.types'
@@ -22,7 +18,7 @@ const meta: Meta<typeof CheckableAvatar> = {
 export default meta
 
 const Template: StoryFn<CheckableAvatarProps> = ({ children, ...rest }) => (
-  <CheckableAvatar {...rest}>{ children }</CheckableAvatar>
+  <CheckableAvatar {...rest}>{children}</CheckableAvatar>
 )
 
 export const Primary: StoryObj<CheckableAvatarProps> = {

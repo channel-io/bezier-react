@@ -1,7 +1,4 @@
-import type {
-  Meta,
-  StoryObj,
-} from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { FormLabel } from './FormLabel'
 import { type FormLabelProps } from './FormLabel.types'

@@ -7,7 +7,11 @@ import zIndexTransform from './zIndex.js'
 
 describe('typography interpolation transform', () => {
   it('should transform typography interpolation to css variable', () => {
-    testTransformFunction(__dirname, 'typography-interpolation', typographyTransform)
+    testTransformFunction(
+      __dirname,
+      'typography-interpolation',
+      typographyTransform
+    )
   })
 })
 
@@ -25,7 +29,11 @@ describe('rounding interpolation transform', () => {
 
 describe('z-index interpolation transform', () => {
   it('should transform z-index interpolation to css variable in styled-component', () => {
-    testTransformFunction(__dirname, 'z-index-interpolation-in-styled-component', zIndexTransform)
+    testTransformFunction(
+      __dirname,
+      'z-index-interpolation-in-styled-component',
+      zIndexTransform
+    )
   })
 
   it('should transform z-index enum to css variable', () => {
@@ -37,6 +45,10 @@ describe('z-index interpolation transform', () => {
   })
 
   it('should not transform z-index enum if it is not imported from bezier-react', () => {
-    testTransformFunction(__dirname, 'z-index-enum-not-from-bezier-react', zIndexTransform)
+    testTransformFunction(
+      __dirname,
+      'z-index-enum-not-from-bezier-react',
+      zIndexTransform
+    )
   })
 })

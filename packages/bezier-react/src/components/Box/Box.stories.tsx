@@ -1,10 +1,6 @@
 import React from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { Box } from './Box'
 import { type BoxProps } from './Box.types'
@@ -14,9 +10,7 @@ const meta: Meta<typeof Box> = {
 }
 
 const Template: StoryFn<BoxProps> = ({ children, ...rest }) => (
-  <Box {...rest}>
-    { children }
-  </Box>
+  <Box {...rest}>{children}</Box>
 )
 
 export const Primary: StoryObj<typeof Box> = {

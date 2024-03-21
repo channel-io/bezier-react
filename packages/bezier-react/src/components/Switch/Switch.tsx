@@ -22,44 +22,45 @@ export const SWITCH_TEST_ID = 'bezier-switch'
  * />
  * ```
  */
-export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch({
-  checked,
-  defaultChecked = false,
-  onCheckedChange,
-  size = 'm',
-  className,
-  ...rest
-}, forwardedRef) {
-  const {
-    disabled,
-    required,
-    hasError,
-    ...ownProps
-  } = useFormFieldProps(rest)
+export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
+  function Switch(
+    {
+      checked,
+      defaultChecked = false,
+      onCheckedChange,
+      size = 'm',
+      className,
+      ...rest
+    },
+    forwardedRef
+  ) {
+    const { disabled, required, hasError, ...ownProps } =
+      useFormFieldProps(rest)
 
-  return (
-    <SwitchPrimitive.Root
-      asChild
-      checked={checked}
-      defaultChecked={defaultChecked}
-      onCheckedChange={onCheckedChange}
-      required={required}
-      disabled={disabled}
-      data-testid={SWITCH_TEST_ID}
-      {...ownProps}
-    >
-      <BaseButton
-        ref={forwardedRef}
-        className={classNames(
-          styles.Switch,
-          styles[`size-${size}`],
-          className,
-        )}
+    return (
+      <SwitchPrimitive.Root
+        asChild
+        checked={checked}
+        defaultChecked={defaultChecked}
+        onCheckedChange={onCheckedChange}
+        required={required}
+        disabled={disabled}
+        data-testid={SWITCH_TEST_ID}
+        {...ownProps}
       >
-        <SwitchPrimitive.Thumb asChild>
-          <span className={styles.SwitchThumb} />
-        </SwitchPrimitive.Thumb>
-      </BaseButton>
-    </SwitchPrimitive.Root>
-  )
-})
+        <BaseButton
+          ref={forwardedRef}
+          className={classNames(
+            styles.Switch,
+            styles[`size-${size}`],
+            className
+          )}
+        >
+          <SwitchPrimitive.Thumb asChild>
+            <span className={styles.SwitchThumb} />
+          </SwitchPrimitive.Thumb>
+        </BaseButton>
+      </SwitchPrimitive.Root>
+    )
+  }
+)

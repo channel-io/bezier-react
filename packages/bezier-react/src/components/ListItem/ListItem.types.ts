@@ -14,18 +14,9 @@ import type {
   VariantProps,
 } from '~/src/types/props'
 
-export type ListItemSize =
-| 'xs'
-| 's'
-| 'm'
-| 'l'
+export type ListItemSize = 'xs' | 's' | 'm' | 'l'
 
-export type ListItemVariant =
-| 'blue'
-| 'red'
-| 'green'
-| 'cobalt'
-| 'monochrome'
+export type ListItemVariant = 'blue' | 'red' | 'green' | 'cobalt' | 'monochrome'
 
 interface ListItemOwnProps {
   focused?: boolean
@@ -33,14 +24,14 @@ interface ListItemOwnProps {
   descriptionMaxLines?: number
 }
 
-export interface ListItemProps extends
-  Omit<BezierComponentProps, keyof ContentProps>,
-  ContentProps,
-  PolymorphicProps,
-  SizeProps<ListItemSize>,
-  VariantProps<ListItemVariant>,
-  SideContentProps<React.ReactNode | BezierIcon, React.ReactNode>,
-  LinkProps,
-  DisableProps,
-  ActivatableProps,
-  ListItemOwnProps {}
+export interface ListItemProps
+  extends Omit<BezierComponentProps, keyof ContentProps>,
+    ContentProps,
+    PolymorphicProps,
+    SizeProps<ListItemSize>,
+    VariantProps<ListItemVariant>,
+    SideContentProps<React.ReactNode | BezierIcon, React.ReactNode>,
+    LinkProps,
+    DisableProps,
+    ActivatableProps,
+    ListItemOwnProps {}

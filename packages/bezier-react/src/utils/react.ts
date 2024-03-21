@@ -23,11 +23,14 @@ export function createContext<ContextValue extends NonStrictContextValue>(
 ): [React.Provider<ContextValue>, () => ContextValue]
 export function createContext<ContextValue extends StrictContextValue>(
   defaultValue: ContextValue,
-  providerName: string,
-): [React.Provider<ContextValue>, (consumerName: string) => NonNullable<ContextValue>]
+  providerName: string
+): [
+  React.Provider<ContextValue>,
+  (consumerName: string) => NonNullable<ContextValue>,
+]
 export function createContext<ContextValue extends StrictContextValue>(
   defaultValue: ContextValue,
-  providerName?: string,
+  providerName?: string
 ) {
   const Context = React.createContext<ContextValue>(defaultValue)
 
@@ -36,14 +39,11 @@ export function createContext<ContextValue extends StrictContextValue>(
 
     assert(
       contextValue !== null,
-      `'${consumerName}' must be used within '${providerName}'`,
+      `'${consumerName}' must be used within '${providerName}'`
     )
 
     return contextValue
   }
 
-  return [
-    Context.Provider,
-    useContext,
-  ] as const
+  return [Context.Provider, useContext] as const
 }

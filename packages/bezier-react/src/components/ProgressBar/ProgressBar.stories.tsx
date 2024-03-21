@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
 
-import type {
-  Meta,
-  StoryFn,
-  StoryObj,
-} from '@storybook/react'
+import type { Meta, StoryFn, StoryObj } from '@storybook/react'
 
 import { Button } from '~/src/components/Button'
 import {
@@ -72,9 +68,15 @@ export const Overview: StoryFn<{}> = () => {
   }
 
   return (
-    <LegacyVStack spacing={12} align="center">
+    <LegacyVStack
+      spacing={12}
+      align="center"
+    >
       <LegacyStackItem>
-        <LegacyVStack spacing={6} align="stretch">
+        <LegacyVStack
+          spacing={6}
+          align="stretch"
+        >
           <LegacyStackItem>
             <ProgressBar
               size="m"
@@ -121,34 +123,64 @@ export const Overview: StoryFn<{}> = () => {
 
 export const UsageWidth: StoryObj<{}> = {
   render: () => (
-    <LegacyVStack spacing={6} align="stretch">
+    <LegacyVStack
+      spacing={6}
+      align="stretch"
+    >
       <LegacyStackItem>
-        <LegacyHStack spacing={8} align="center">
+        <LegacyHStack
+          spacing={8}
+          align="center"
+        >
           <LegacyStackItem style={{ width: 120 }}>
             <Text color="txt-black-darkest">36px (default)</Text>
           </LegacyStackItem>
-          <LegacyStackItem grow shrink weight={1}>
+          <LegacyStackItem
+            grow
+            shrink
+            weight={1}
+          >
             <ProgressBar value={0.5} />
           </LegacyStackItem>
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={8} align="center">
+        <LegacyHStack
+          spacing={8}
+          align="center"
+        >
           <LegacyStackItem style={{ width: 120 }}>
             <Text color="txt-black-darkest">80px</Text>
           </LegacyStackItem>
-          <LegacyStackItem grow shrink weight={1}>
-            <ProgressBar width={80} value={0.5} />
+          <LegacyStackItem
+            grow
+            shrink
+            weight={1}
+          >
+            <ProgressBar
+              width={80}
+              value={0.5}
+            />
           </LegacyStackItem>
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={8} align="center">
+        <LegacyHStack
+          spacing={8}
+          align="center"
+        >
           <LegacyStackItem style={{ width: 120 }}>
             <Text color="txt-black-darkest">200px</Text>
           </LegacyStackItem>
-          <LegacyStackItem grow shrink weight={1}>
-            <ProgressBar width={200} value={0.5} />
+          <LegacyStackItem
+            grow
+            shrink
+            weight={1}
+          >
+            <ProgressBar
+              width={200}
+              value={0.5}
+            />
           </LegacyStackItem>
         </LegacyHStack>
       </LegacyStackItem>
@@ -160,74 +192,144 @@ export const UsageWidth: StoryObj<{}> = {
 
 export const UsageValue: StoryObj<{}> = {
   render: () => (
-    <LegacyVStack spacing={6} align="stretch">
+    <LegacyVStack
+      spacing={6}
+      align="stretch"
+    >
       <LegacyStackItem>
-        <LegacyHStack spacing={8} align="center">
+        <LegacyHStack
+          spacing={8}
+          align="center"
+        >
           <LegacyStackItem style={{ width: 120 }}>
             <Text color="txt-black-darkest">0 (default)</Text>
           </LegacyStackItem>
-          <LegacyStackItem grow shrink weight={1}>
+          <LegacyStackItem
+            grow
+            shrink
+            weight={1}
+          >
             <ProgressBar width={200} />
           </LegacyStackItem>
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={8} align="center">
+        <LegacyHStack
+          spacing={8}
+          align="center"
+        >
           <LegacyStackItem style={{ width: 120 }}>
             <Text color="txt-black-darkest">0.25</Text>
           </LegacyStackItem>
-          <LegacyStackItem grow shrink weight={1}>
-            <ProgressBar width={200} value={0.25} />
+          <LegacyStackItem
+            grow
+            shrink
+            weight={1}
+          >
+            <ProgressBar
+              width={200}
+              value={0.25}
+            />
           </LegacyStackItem>
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={8} align="center">
+        <LegacyHStack
+          spacing={8}
+          align="center"
+        >
           <LegacyStackItem style={{ width: 120 }}>
             <Text color="txt-black-darkest">0.5</Text>
           </LegacyStackItem>
-          <LegacyStackItem grow shrink weight={1}>
-            <ProgressBar width={200} value={0.5} />
+          <LegacyStackItem
+            grow
+            shrink
+            weight={1}
+          >
+            <ProgressBar
+              width={200}
+              value={0.5}
+            />
           </LegacyStackItem>
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={8} align="center">
+        <LegacyHStack
+          spacing={8}
+          align="center"
+        >
           <LegacyStackItem style={{ width: 120 }}>
             <Text color="txt-black-darkest">0.75</Text>
           </LegacyStackItem>
-          <LegacyStackItem grow shrink weight={1}>
-            <ProgressBar width={200} value={0.75} />
+          <LegacyStackItem
+            grow
+            shrink
+            weight={1}
+          >
+            <ProgressBar
+              width={200}
+              value={0.75}
+            />
           </LegacyStackItem>
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={8} align="center">
+        <LegacyHStack
+          spacing={8}
+          align="center"
+        >
           <LegacyStackItem style={{ width: 120 }}>
             <Text color="txt-black-darkest">1</Text>
           </LegacyStackItem>
-          <LegacyStackItem grow shrink weight={1}>
-            <ProgressBar width={200} value={1} />
+          <LegacyStackItem
+            grow
+            shrink
+            weight={1}
+          >
+            <ProgressBar
+              width={200}
+              value={1}
+            />
           </LegacyStackItem>
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={8} align="center">
+        <LegacyHStack
+          spacing={8}
+          align="center"
+        >
           <LegacyStackItem style={{ width: 120 }}>
             <Text color="txt-black-darkest">-1 (invalid value)</Text>
           </LegacyStackItem>
-          <LegacyStackItem grow shrink weight={1}>
-            <ProgressBar width={200} value={-1} />
+          <LegacyStackItem
+            grow
+            shrink
+            weight={1}
+          >
+            <ProgressBar
+              width={200}
+              value={-1}
+            />
           </LegacyStackItem>
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={8} align="center">
+        <LegacyHStack
+          spacing={8}
+          align="center"
+        >
           <LegacyStackItem style={{ width: 120 }}>
             <Text color="txt-black-darkest">3 (invalid value)</Text>
           </LegacyStackItem>
-          <LegacyStackItem grow shrink weight={1}>
-            <ProgressBar width={200} value={3} />
+          <LegacyStackItem
+            grow
+            shrink
+            weight={1}
+          >
+            <ProgressBar
+              width={200}
+              value={3}
+            />
           </LegacyStackItem>
         </LegacyHStack>
       </LegacyStackItem>
@@ -239,26 +341,45 @@ export const UsageValue: StoryObj<{}> = {
 
 export const SizeVariant: StoryObj<{}> = {
   render: () => (
-    <LegacyVStack spacing={16} align="stretch">
+    <LegacyVStack
+      spacing={16}
+      align="stretch"
+    >
       <LegacyStackItem>
-        <LegacyHStack spacing={8} align="center">
+        <LegacyHStack
+          spacing={8}
+          align="center"
+        >
           <LegacyStackItem>
             <Text color="txt-black-darkest">M (6px)</Text>
           </LegacyStackItem>
           <LegacySpacer />
           <LegacyStackItem>
-            <ProgressBar size="m" variant="green" width={200} value={0.5} />
+            <ProgressBar
+              size="m"
+              variant="green"
+              width={200}
+              value={0.5}
+            />
           </LegacyStackItem>
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={8} align="center">
+        <LegacyHStack
+          spacing={8}
+          align="center"
+        >
           <LegacyStackItem>
             <Text color="txt-black-darkest">S (4px)</Text>
           </LegacyStackItem>
           <LegacySpacer />
           <LegacyStackItem>
-            <ProgressBar size="s" variant="green" width={200} value={0.5} />
+            <ProgressBar
+              size="s"
+              variant="green"
+              width={200}
+              value={0.5}
+            />
           </LegacyStackItem>
         </LegacyHStack>
       </LegacyStackItem>
@@ -270,20 +391,34 @@ export const SizeVariant: StoryObj<{}> = {
 
 export const Variant: StoryObj<{}> = {
   render: () => (
-    <LegacyVStack spacing={16} align="stretch">
+    <LegacyVStack
+      spacing={16}
+      align="stretch"
+    >
       <LegacyStackItem>
-        <LegacyHStack spacing={8} align="center">
+        <LegacyHStack
+          spacing={8}
+          align="center"
+        >
           <LegacyStackItem>
             <Text color="txt-black-darkest">green</Text>
           </LegacyStackItem>
           <LegacySpacer />
           <LegacyStackItem>
-            <ProgressBar size="m" variant="green" width={200} value={0.5} />
+            <ProgressBar
+              size="m"
+              variant="green"
+              width={200}
+              value={0.5}
+            />
           </LegacyStackItem>
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={8} align="center">
+        <LegacyHStack
+          spacing={8}
+          align="center"
+        >
           <LegacyStackItem>
             <Text color="txt-black-darkest">monochrome</Text>
           </LegacyStackItem>
@@ -299,13 +434,21 @@ export const Variant: StoryObj<{}> = {
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={8} align="center">
+        <LegacyHStack
+          spacing={8}
+          align="center"
+        >
           <LegacyStackItem>
             <Text color="txt-black-darkest">green-alt</Text>
           </LegacyStackItem>
           <LegacySpacer />
           <LegacyStackItem>
-            <ProgressBar size="m" variant="green-alt" width={200} value={0.5} />
+            <ProgressBar
+              size="m"
+              variant="green-alt"
+              width={200}
+              value={0.5}
+            />
           </LegacyStackItem>
         </LegacyHStack>
       </LegacyStackItem>

@@ -10,12 +10,13 @@ interface BaseHelperTextOwnProps {
   type: 'info' | 'error'
 }
 
-export interface BaseHelperTextProps extends
-  Omit<TextProps, keyof MarginProps>,
-  ChildrenProps,
-  Partial<IdentifierProps>,
-  BaseHelperTextOwnProps {}
+export interface BaseHelperTextProps
+  extends Omit<TextProps, keyof MarginProps>,
+    ChildrenProps,
+    Partial<IdentifierProps>,
+    BaseHelperTextOwnProps {}
 
-export interface FormHelperTextProps extends Omit<BaseHelperTextProps, 'type'> {}
+export interface FormHelperTextProps
+  extends Omit<BaseHelperTextProps, 'type'> {}
 
 export interface FormErrorMessageProps extends FormHelperTextProps {}

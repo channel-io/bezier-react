@@ -1,8 +1,4 @@
-import {
-  compact,
-  flattenDeep,
-  isLastIndex,
-} from './array'
+import { compact, flattenDeep, isLastIndex } from './array'
 
 describe('isLastIndex', () => {
   it('should return true when the last array index', () => {

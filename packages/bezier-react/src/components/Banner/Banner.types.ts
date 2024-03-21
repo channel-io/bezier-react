@@ -1,9 +1,6 @@
 import type { ReactNode } from 'react'
 
-import {
-  type BezierIcon,
-  type IconName,
-} from '@channel.io/bezier-icons'
+import { type BezierIcon, type IconName } from '@channel.io/bezier-icons'
 
 import type {
   AdditionalColorProps,
@@ -15,13 +12,13 @@ import type {
 import type { ButtonProps } from '~/src/components/Button'
 
 export type BannerVariant =
-| 'default'
-| 'blue'
-| 'cobalt'
-| 'green'
-| 'orange'
-| 'red'
-| 'alt'
+  | 'default'
+  | 'blue'
+  | 'cobalt'
+  | 'green'
+  | 'orange'
+  | 'red'
+  | 'alt'
 
 export type RenderLinkFunc = (props: {
   content: ReactNode
@@ -79,9 +76,9 @@ interface BannerOwnProps {
   onClickAction?: ButtonProps['onClick']
 }
 
-export interface BannerProps extends
-  Omit<BezierComponentProps<'div'>, keyof ContentProps>,
-  ContentProps,
-  VariantProps<BannerVariant>,
-  AdditionalColorProps<'icon'>,
-  BannerOwnProps {}
+export interface BannerProps
+  extends Omit<BezierComponentProps<'div'>, keyof ContentProps>,
+    ContentProps,
+    VariantProps<BannerVariant>,
+    AdditionalColorProps<'icon'>,
+    BannerOwnProps {}

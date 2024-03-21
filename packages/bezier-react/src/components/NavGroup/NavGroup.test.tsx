@@ -21,12 +21,23 @@ describe('NavGroup Test >', () => {
       leftContent: DotIcon,
       name: 'general',
       content: 'test-content',
-      rightContent: <Icon source={DotIcon} size="xs" color="bgtxt-orange-normal" />,
+      rightContent: (
+        <Icon
+          source={DotIcon}
+          size="xs"
+          color="bgtxt-orange-normal"
+        />
+      ),
     }
   })
 
   const renderNavItem = (optionProps?: Partial<NavGroupProps>) =>
-    render(<NavGroup {...props} {...optionProps} />)
+    render(
+      <NavGroup
+        {...props}
+        {...optionProps}
+      />
+    )
 
   describe('Snapshot >', () => {
     it('Active', () => {

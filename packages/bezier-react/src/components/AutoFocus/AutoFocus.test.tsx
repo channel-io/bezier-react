@@ -6,14 +6,8 @@ import { AutoFocus } from './AutoFocus'
 import { type AutoFocusProps } from './AutoFocus.types'
 
 describe('AutoFocus', () => {
-  const renderComponent = ({
-    children,
-    ...rest
-  }: AutoFocusProps) => render(
-    <AutoFocus {...rest}>
-      { children }
-    </AutoFocus>,
-  )
+  const renderComponent = ({ children, ...rest }: AutoFocusProps) =>
+    render(<AutoFocus {...rest}>{children}</AutoFocus>)
 
   it('should focus on the child element - HTMLDivElement', () => {
     const { getByText } = renderComponent({

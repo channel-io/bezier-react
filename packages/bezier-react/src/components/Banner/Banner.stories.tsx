@@ -11,18 +11,11 @@ import {
   InfoIcon,
   LightbulbIcon,
 } from '@channel.io/bezier-icons'
-import type {
-  Meta,
-  StoryFn,
-  StoryObj,
-} from '@storybook/react'
+import type { Meta, StoryFn, StoryObj } from '@storybook/react'
 
 import { noop } from '~/src/utils/function'
 
-import {
-  LegacyStackItem,
-  LegacyVStack,
-} from '~/src/components/LegacyStack'
+import { LegacyStackItem, LegacyVStack } from '~/src/components/LegacyStack'
 
 import { Banner } from './Banner'
 import mdx from './Banner.mdx'
@@ -66,7 +59,10 @@ export const Playground: StoryObj<BannerProps> = {
 }
 
 export const Overview: StoryFn<{}> = () => (
-  <LegacyVStack spacing={6} align="stretch">
+  <LegacyVStack
+    spacing={6}
+    align="stretch"
+  >
     <LegacyStackItem>
       <Banner
         variant="default"
@@ -122,7 +118,10 @@ export const Overview: StoryFn<{}> = () => (
 
 export const UsageMinWidth: StoryObj<{}> = {
   render: () => (
-    <LegacyVStack spacing={6} align="start">
+    <LegacyVStack
+      spacing={6}
+      align="start"
+    >
       <LegacyStackItem>
         <Banner
           variant="orange"
@@ -138,7 +137,10 @@ export const UsageMinWidth: StoryObj<{}> = {
 
 export const UsageFullWidth: StoryObj<{}> = {
   render: () => (
-    <LegacyVStack spacing={6} align="start">
+    <LegacyVStack
+      spacing={6}
+      align="start"
+    >
       <LegacyStackItem style={{ width: 360, border: '1px solid red' }}>
         <Banner
           variant="orange"
@@ -168,7 +170,10 @@ export const UsageFullWidth: StoryObj<{}> = {
 
 export const UsageMaxWidth: StoryObj<{}> = {
   render: () => (
-    <LegacyVStack spacing={6} align="start">
+    <LegacyVStack
+      spacing={6}
+      align="start"
+    >
       <LegacyStackItem>
         <Banner
           variant="cobalt"
@@ -187,7 +192,10 @@ export const UsageMaxWidth: StoryObj<{}> = {
 
 export const UsageConsecutive: StoryObj<{}> = {
   render: () => (
-    <LegacyVStack spacing={6} align="stretch">
+    <LegacyVStack
+      spacing={6}
+      align="stretch"
+    >
       <LegacyStackItem>
         <Banner
           variant="cobalt"

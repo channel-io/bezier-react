@@ -14,11 +14,14 @@ interface NavGroupOwnProps {
   onClick?: (e?: React.MouseEvent, name?: string) => void
 }
 
-export interface NavGroupProps extends
-  Omit<BezierComponentProps<'button'>, keyof ContentProps | keyof NavGroupOwnProps>,
-  ChildrenProps,
-  ContentProps,
-  Required<Pick<SideContentProps<BezierIcon>, 'leftContent'>>,
-  Pick<SideContentProps, 'rightContent'>,
-  ActivatableProps,
-  NavGroupOwnProps {}
+export interface NavGroupProps
+  extends Omit<
+      BezierComponentProps<'button'>,
+      keyof ContentProps | keyof NavGroupOwnProps
+    >,
+    ChildrenProps,
+    ContentProps,
+    Required<Pick<SideContentProps<BezierIcon>, 'leftContent'>>,
+    Pick<SideContentProps, 'rightContent'>,
+    ActivatableProps,
+    NavGroupOwnProps {}

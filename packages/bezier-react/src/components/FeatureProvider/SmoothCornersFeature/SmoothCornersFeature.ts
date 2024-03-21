@@ -1,8 +1,5 @@
 // eslint-disable-next-line no-restricted-imports
-import {
-  type Feature,
-  FeatureType,
-} from '../FeatureProvider.types'
+import { type Feature, FeatureType } from '../FeatureProvider.types'
 
 import { smoothCornersScript } from './smoothCornersScript'
 
@@ -39,7 +36,9 @@ class SmoothCornersFeature implements Feature {
 
   private globalObject: typeof globalThis | null = null
 
-  private activated: WeakMap<typeof globalThis, boolean> = new WeakMap([[globalThis, false]])
+  private activated: WeakMap<typeof globalThis, boolean> = new WeakMap([
+    [globalThis, false],
+  ])
 
   private updateCurrentGlobalObject(globalObject: typeof globalThis) {
     this.globalObject = globalObject
@@ -50,13 +49,19 @@ class SmoothCornersFeature implements Feature {
   }
 
   private supportCSSPaintWorklet(globalObject: typeof globalThis) {
-    return typeof globalObject.CSS !== 'undefined' && 'paintWorklet' in globalObject.CSS
+    return (
+      typeof globalObject.CSS !== 'undefined' &&
+      'paintWorklet' in globalObject.CSS
+    )
   }
 
   async activate(globalObject: typeof globalThis = globalThis) {
-    if (!this.isGlobalObjectIdentical(globalObject) && this.supportCSSPaintWorklet(globalObject)) {
+    if (
+      !this.isGlobalObjectIdentical(globalObject) &&
+      this.supportCSSPaintWorklet(globalObject)
+    ) {
       const workletURL = URL.createObjectURL(
-        new Blob([smoothCornersScript], { type: 'application/javascript' }),
+        new Blob([smoothCornersScript], { type: 'application/javascript' })
       )
 
       try {

@@ -10,34 +10,58 @@ describe('useProgressiveImage >', () => {
 
   const mockImageCache = new Map<string, CachedImage>()
 
-  mockImageCache.set(mockValidImageUrlFoo, { src: mockValidImageUrlFoo, isLoaded: true })
-  mockImageCache.set(mockInvalidImageUrl, { src: mockInvalidImageUrl, isLoaded: false })
+  mockImageCache.set(mockValidImageUrlFoo, {
+    src: mockValidImageUrlFoo,
+    isLoaded: true,
+  })
+  mockImageCache.set(mockInvalidImageUrl, {
+    src: mockInvalidImageUrl,
+    isLoaded: false,
+  })
 
   it('should return giving url when imageCache.get(givingUrl).isLoaded is "true"', () => {
-    const { result } = renderHook(() => useProgressiveImage(mockValidImageUrlFoo, mockFallbackImageUrl, mockImageCache))
+    const { result } = renderHook(() =>
+      useProgressiveImage(
+        mockValidImageUrlFoo,
+        mockFallbackImageUrl,
+        mockImageCache
+      )
+    )
 
     expect(result.current).toStrictEqual(mockValidImageUrlFoo)
   })
 
   it('should return fallback url when imageCache.get(givingUrl).isLoaded is "false"', () => {
-    const { result } = renderHook(() => useProgressiveImage(mockInvalidImageUrl, mockFallbackImageUrl, mockImageCache))
+    const { result } = renderHook(() =>
+      useProgressiveImage(
+        mockInvalidImageUrl,
+        mockFallbackImageUrl,
+        mockImageCache
+      )
+    )
 
     expect(result.current).toStrictEqual(mockFallbackImageUrl)
   })
 
   it('should update url when imageCache.get(url).isLoaded is "true"', () => {
-    const { result, rerender } = renderHook(({ src, defaultSrc, imageCache }) =>
-      useProgressiveImage(src, defaultSrc, imageCache), {
-      initialProps: {
-        src: mockValidImageUrlFoo,
-        defaultSrc: mockFallbackImageUrl,
-        imageCache: mockImageCache,
-      },
-    })
+    const { result, rerender } = renderHook(
+      ({ src, defaultSrc, imageCache }) =>
+        useProgressiveImage(src, defaultSrc, imageCache),
+      {
+        initialProps: {
+          src: mockValidImageUrlFoo,
+          defaultSrc: mockFallbackImageUrl,
+          imageCache: mockImageCache,
+        },
+      }
+    )
 
     expect(result.current).toStrictEqual(mockValidImageUrlFoo)
 
-    mockImageCache.set(mockValidImageUrlBar, { src: mockValidImageUrlBar, isLoaded: true })
+    mockImageCache.set(mockValidImageUrlBar, {
+      src: mockValidImageUrlBar,
+      isLoaded: true,
+    })
 
     rerender({
       src: mockValidImageUrlBar,

@@ -1,7 +1,4 @@
-import {
-  type SourceFile,
-  ts,
-} from 'ts-morph'
+import { type SourceFile, ts } from 'ts-morph'
 
 import {
   getImportDeclaration,
@@ -11,12 +8,25 @@ import {
 } from '../../utils/import.js'
 
 const STYLED = 'styled'
-const NAMED_IMPORTS = ['css', 'createGlobalStyle', 'keyframes', 'StyleSheetManager', 'ServerStyleSheet']
+const NAMED_IMPORTS = [
+  'css',
+  'createGlobalStyle',
+  'keyframes',
+  'StyleSheetManager',
+  'ServerStyleSheet',
+]
 const STYLED_COMPONENTS = 'styled-components'
 const BEZIER_REACT = '@channel.io/bezier-react'
 
-const addImportToStyledComponents = (sourceFile: SourceFile, importSpecifier: string, isDefault: boolean = false) => {
-  const styledComponentsImport = getImportDeclaration(sourceFile, STYLED_COMPONENTS)
+const addImportToStyledComponents = (
+  sourceFile: SourceFile,
+  importSpecifier: string,
+  isDefault: boolean = false
+) => {
+  const styledComponentsImport = getImportDeclaration(
+    sourceFile,
+    STYLED_COMPONENTS
+  )
   if (styledComponentsImport) {
     if (isDefault) {
       styledComponentsImport.setDefaultImport(importSpecifier)
@@ -54,12 +64,13 @@ const replaceStyledImport = (sourceFile: SourceFile) => {
     }
   })
 
-  getImportDeclarations(sourceFile, BEZIER_REACT)
-    .forEach((importDeclaration) => {
+  getImportDeclarations(sourceFile, BEZIER_REACT).forEach(
+    (importDeclaration) => {
       if (!importDeclaration.getImportClause()?.getText()) {
         importDeclaration.remove()
       }
-    })
+    }
+  )
 }
 
 export default replaceStyledImport

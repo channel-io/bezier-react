@@ -15,9 +15,9 @@ interface CenterOwnProps {
   display?: Display
 }
 
-export interface CenterProps extends
-  BezierComponentProps<'div'>,
-  ChildrenProps,
-  LayoutProps,
-  MarginProps,
-  CenterOwnProps {}
+export interface CenterProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    LayoutProps,
+    MarginProps,
+    CenterOwnProps {}

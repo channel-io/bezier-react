@@ -9,33 +9,28 @@ import {
 } from '~/src/types/props'
 
 export type ButtonStyleVariant =
-| 'primary'
-| 'secondary'
-| 'tertiary'
-| 'floating'
-| 'floating-alt'
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'floating'
+  | 'floating-alt'
 
 export type ButtonColorVariant =
-| 'blue'
-| 'red'
-| 'green'
-| 'cobalt'
-| 'orange'
-| 'pink'
-| 'purple'
-/**
- * @deprecated use `monochrome-light` or `monochrome-dark`
- */
-| 'monochrome'
-| 'monochrome-light'
-| 'monochrome-dark'
+  | 'blue'
+  | 'red'
+  | 'green'
+  | 'cobalt'
+  | 'orange'
+  | 'pink'
+  | 'purple'
+  /**
+   * @deprecated use `monochrome-light` or `monochrome-dark`
+   */
+  | 'monochrome'
+  | 'monochrome-light'
+  | 'monochrome-dark'
 
-export type ButtonSize =
-| 'xs'
-| 's'
-| 'm'
-| 'l'
-| 'xl'
+export type ButtonSize = 'xs' | 's' | 'm' | 'l' | 'xl'
 
 export type SideContent = React.ReactNode | BezierIcon
 
@@ -83,10 +78,10 @@ interface ButtonOwnProps {
   colorVariant?: ButtonColorVariant
 }
 
-export interface ButtonProps extends
-  BezierComponentProps<'button'>,
-  PolymorphicProps,
-  SizeProps<ButtonSize>,
-  DisableProps,
-  SideContentProps<SideContent, SideContent>,
-  ButtonOwnProps {}
+export interface ButtonProps
+  extends BezierComponentProps<'button'>,
+    PolymorphicProps,
+    SizeProps<ButtonSize>,
+    DisableProps,
+    SideContentProps<SideContent, SideContent>,
+    ButtonOwnProps {}

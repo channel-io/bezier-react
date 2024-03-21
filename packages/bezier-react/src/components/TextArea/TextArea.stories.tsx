@@ -1,12 +1,6 @@
-import React, {
-  useCallback,
-  useState,
-} from 'react'
+import React, { useCallback, useState } from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-} from '@storybook/react'
+import { type Meta, type StoryFn } from '@storybook/react'
 
 import { TextArea } from './TextArea'
 import type { TextAreaProps } from './TextArea.types'
@@ -25,7 +19,7 @@ const Template: StoryFn<TextAreaProps> = (args) => {
       console.log(e)
       setValue(e.target.value)
     },
-    [],
+    []
   )
 
   return (

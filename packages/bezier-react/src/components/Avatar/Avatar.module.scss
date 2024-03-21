@@ -75,8 +75,11 @@
     --b-avatar-status-gap: 4px;
   }
 
-  &:where(.bordered[data-state="enabled"]) {
-    --b-avatar-computed-status-gap: calc(var(--b-avatar-status-gap) + (2 * var(--b-smooth-corners-box-shadow-spread-radius)));
+  &:where(.bordered[data-state='enabled']) {
+    --b-avatar-computed-status-gap: calc(
+      var(--b-avatar-status-gap) +
+        (2 * var(--b-smooth-corners-box-shadow-spread-radius))
+    );
   }
 }
 

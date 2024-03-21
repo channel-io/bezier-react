@@ -1,4 +1,4 @@
-@use "../../styles/mixins/typography";
+@use '../../styles/mixins/typography';
 
 $typo-sizes: 11, 12, 13, 14, 15, 16, 17, 18, 22, 24, 30, 36;
 
@@ -59,9 +59,9 @@ $typo-sizes: 11, 12, 13, 14, 15, 16, 17, 18, 22, 24, 30, 36;
     &:where(.typo-#{$size}) {
       @include typography.size(
         $size,
-        "b-text-font-size",
-        "b-text-line-height",
-        "b-text-letter-spacing",
+        'b-text-font-size',
+        'b-text-line-height',
+        'b-text-letter-spacing'
       );
     }
   }

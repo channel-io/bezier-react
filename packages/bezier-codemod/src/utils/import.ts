@@ -1,23 +1,36 @@
-import {
-  type SourceFile,
-  SyntaxKind,
-} from 'ts-morph'
+import { type SourceFile, SyntaxKind } from 'ts-morph'
 
-export const getImportDeclaration = (sourceFile: SourceFile, specifier: string) =>
+export const getImportDeclaration = (
+  sourceFile: SourceFile,
+  specifier: string
+) =>
   sourceFile
     .getImportDeclarations()
-    .find((declaration) => declaration.getModuleSpecifier().getLiteralValue() === specifier)
+    .find(
+      (declaration) =>
+        declaration.getModuleSpecifier().getLiteralValue() === specifier
+    )
 
-export const getImportDeclarations = (sourceFile: SourceFile, specifier: string) =>
+export const getImportDeclarations = (
+  sourceFile: SourceFile,
+  specifier: string
+) =>
   sourceFile
     .getImportDeclarations()
-    .filter((declaration) => declaration.getModuleSpecifier().getLiteralValue() === specifier)
+    .filter(
+      (declaration) =>
+        declaration.getModuleSpecifier().getLiteralValue() === specifier
+    )
 
-export const hasNamedImportInImportDeclaration = (sourceFile: SourceFile, namedImport: string, moduleName: string) => {
+export const hasNamedImportInImportDeclaration = (
+  sourceFile: SourceFile,
+  namedImport: string,
+  moduleName: string
+) => {
   const importDeclarations = getImportDeclarations(sourceFile, moduleName)
   return importDeclarations
-    .flatMap(v => v?.getNamedImports())
-    .map(v => v.getText())
+    .flatMap((v) => v?.getNamedImports())
+    .map((v) => v.getText())
     .includes(namedImport)
 }
 
@@ -30,22 +43,36 @@ export const getNamedImport = (sourceFile: SourceFile, namedImport: string) =>
 export const hasNamedImport = (sourceFile: SourceFile, namedImport: string) =>
   !!getNamedImport(sourceFile, namedImport)
 
-export const removeNamedImport = (sourceFile: SourceFile, namedImport: string) =>
-  getNamedImport(sourceFile, namedImport)?.remove()
+export const removeNamedImport = (
+  sourceFile: SourceFile,
+  namedImport: string
+) => getNamedImport(sourceFile, namedImport)?.remove()
 
-export const removeUnusedNamedImport = (sourceFile: SourceFile, importDeclarations?: string[]) => {
-  const trimQuoteAtBothEnds = (text: string) => text.match(/^['"](.*)['"]$/)?.[1]
+export const removeUnusedNamedImport = (
+  sourceFile: SourceFile,
+  importDeclarations?: string[]
+) => {
+  const trimQuoteAtBothEnds = (text: string) =>
+    text.match(/^['"](.*)['"]$/)?.[1]
 
-  sourceFile.getImportDeclarations()
+  sourceFile
+    .getImportDeclarations()
     .flatMap((declaration) => declaration.getNamedImports())
-    .filter((v) => (sourceFile.getDescendantsOfKind(SyntaxKind.Identifier).filter((_v) => _v.getText() === v.getText()).length === 1))
+    .filter(
+      (v) =>
+        sourceFile
+          .getDescendantsOfKind(SyntaxKind.Identifier)
+          .filter((_v) => _v.getText() === v.getText()).length === 1
+    )
     .forEach((v) => v.remove())
 
   if (importDeclarations) {
     sourceFile
       .getImportDeclarations()
-      .filter((v) => importDeclarations.includes(
-        trimQuoteAtBothEnds(v.getModuleSpecifier().getText()) ?? ''),
+      .filter((v) =>
+        importDeclarations.includes(
+          trimQuoteAtBothEnds(v.getModuleSpecifier().getText()) ?? ''
+        )
       )
       .forEach((v) => {
         if (!v.getImportClause()) {
@@ -55,13 +82,19 @@ export const removeUnusedNamedImport = (sourceFile: SourceFile, importDeclaratio
   }
 }
 
-export const renameNamedImport = (sourceFile: SourceFile, targets: string[], renameFn: (name: string) => string) => {
+export const renameNamedImport = (
+  sourceFile: SourceFile,
+  targets: string[],
+  renameFn: (name: string) => string
+) => {
   targets.forEach((target) => {
     if (hasNamedImport(sourceFile, target)) {
       const importSpecifier = getNamedImport(sourceFile, target)
       const alias = importSpecifier?.getAliasNode()
       if (alias) {
-        importSpecifier?.replaceWithText(`${renameFn(target)} as ${alias.getText()}`)
+        importSpecifier?.replaceWithText(
+          `${renameFn(target)} as ${alias.getText()}`
+        )
       } else {
         importSpecifier?.replaceWithText(renameFn(target))
         sourceFile

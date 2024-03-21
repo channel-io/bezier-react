@@ -54,9 +54,9 @@ interface TextOwnProps {
   align?: TextAlign
 }
 
-export interface TextProps extends
-  Omit<BezierComponentProps, keyof TextOwnProps>,
-  PolymorphicProps,
-  ChildrenProps,
-  MarginProps,
-  TextOwnProps {}
+export interface TextProps
+  extends Omit<BezierComponentProps, keyof TextOwnProps>,
+    PolymorphicProps,
+    ChildrenProps,
+    MarginProps,
+    TextOwnProps {}

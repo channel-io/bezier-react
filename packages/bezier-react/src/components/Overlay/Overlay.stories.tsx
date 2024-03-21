@@ -1,14 +1,6 @@
-import React, {
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { isBoolean } from '~/src/utils/type'
 
@@ -71,11 +63,14 @@ const Template: StoryFn<OverlayProps> = ({
   const containerRef = useRef<HTMLDivElement | null>(null)
   const targetRef = useRef<HTMLButtonElement | null>(null)
 
-  useEffect(function syncShow() {
-    if (isBoolean(showProp)) {
-      setShow(showProp)
-    }
-  }, [showProp])
+  useEffect(
+    function syncShow() {
+      if (isBoolean(showProp)) {
+        setShow(showProp)
+      }
+    },
+    [showProp]
+  )
 
   return (
     <div
@@ -109,7 +104,7 @@ const Template: StoryFn<OverlayProps> = ({
         onHide={() => setShow(false)}
         {...rest}
       >
-        { children }
+        {children}
       </Overlay>
     </div>
   )

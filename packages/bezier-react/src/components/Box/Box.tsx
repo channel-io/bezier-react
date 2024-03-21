@@ -1,7 +1,4 @@
-import {
-  createElement,
-  forwardRef,
-} from 'react'
+import { createElement, forwardRef } from 'react'
 
 import classNames from 'classnames'
 
@@ -32,40 +29,46 @@ import styles from './Box.module.scss'
  * </Box>
  * ```
  */
-export const Box = forwardRef<HTMLElement, BoxProps>(function Box(props, forwardedRef) {
-  const [marginProps, marginRest] = splitByMarginProps(props)
-  const [layoutProps, layoutRest] = splitByLayoutProps(marginRest)
-  const marginStyles = getMarginStyles(marginProps)
-  const layoutStyles = getLayoutStyles(layoutProps)
+export const Box = forwardRef<HTMLElement, BoxProps>(
+  function Box(props, forwardedRef) {
+    const [marginProps, marginRest] = splitByMarginProps(props)
+    const [layoutProps, layoutRest] = splitByLayoutProps(marginRest)
+    const marginStyles = getMarginStyles(marginProps)
+    const layoutStyles = getLayoutStyles(layoutProps)
 
-  const {
-    children,
-    style,
-    className,
-    as = 'div',
-    display,
-    ...rest
-  } = layoutRest
-
-  /**
-   * NOTE: Using the createElement function directly because of a ref type related error.
-   * TODO: Fix type error.
-   */
-  return createElement(as, {
-    ref: forwardedRef,
-    style: {
-      ...marginStyles.style,
-      ...layoutStyles.style,
-      ...style,
-    },
-    className: classNames(
-      styles.Box,
-      display && styles[`display-${display}`],
-      marginStyles.className,
-      layoutStyles.className,
+    const {
+      children,
+      style,
       className,
-    ),
-    'data-testid': 'bezier-box',
-    ...rest,
-  }, children)
-})
+      as = 'div',
+      display,
+      ...rest
+    } = layoutRest
+
+    /**
+     * NOTE: Using the createElement function directly because of a ref type related error.
+     * TODO: Fix type error.
+     */
+    return createElement(
+      as,
+      {
+        ref: forwardedRef,
+        style: {
+          ...marginStyles.style,
+          ...layoutStyles.style,
+          ...style,
+        },
+        className: classNames(
+          styles.Box,
+          display && styles[`display-${display}`],
+          marginStyles.className,
+          layoutStyles.className,
+          className
+        ),
+        'data-testid': 'bezier-box',
+        ...rest,
+      },
+      children
+    )
+  }
+)

@@ -7,8 +7,8 @@ const destination = 'styles.css'
 function concatenateStylesheet() {
   const files = fs.readdirSync(buildPath)
   const outputData = files
-    .filter(file => file.endsWith('.css') && file !== destination)
-    .map(file => fs.readFileSync(path.join(buildPath, file), 'utf8'))
+    .filter((file) => file.endsWith('.css') && file !== destination)
+    .map((file) => fs.readFileSync(path.join(buildPath, file), 'utf8'))
     .join('\n')
 
   fs.writeFileSync(path.join(buildPath, destination), outputData)
@@ -18,7 +18,7 @@ function concatenateStylesheet() {
 
 function cleanUp() {
   const files = fs.readdirSync(buildPath)
-  files.forEach(file => {
+  files.forEach((file) => {
     if (file !== destination) {
       fs.unlinkSync(path.join(buildPath, file))
       // eslint-disable-next-line no-console

@@ -5,10 +5,7 @@ import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
 
-import {
-  SELECT_DROPDOWN_TEST_ID,
-  Select,
-} from './Select'
+import { SELECT_DROPDOWN_TEST_ID, Select } from './Select'
 import { type SelectProps } from './Select.types'
 
 describe('Select', () => {
@@ -24,14 +21,21 @@ describe('Select', () => {
     body.appendChild(rootElement)
   })
 
-  const renderSelect = (optionProps?: Partial<SelectProps>) => render(<Select {...props} {...optionProps} />)
+  const renderSelect = (optionProps?: Partial<SelectProps>) =>
+    render(
+      <Select
+        {...props}
+        {...optionProps}
+      />
+    )
 
   describe('Event', () => {
-    const renderFormWithSelect = (onSubmit: React.FormEventHandler) => render(
-      <form onSubmit={onSubmit}>
-        <Select {...props} />
-      </form>,
-    )
+    const renderFormWithSelect = (onSubmit: React.FormEventHandler) =>
+      render(
+        <form onSubmit={onSubmit}>
+          <Select {...props} />
+        </form>
+      )
 
     it('should fire click event when clicking the trigger button', () => {
       const onClick = jest.fn()

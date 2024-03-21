@@ -1,10 +1,6 @@
 import React from 'react'
 
-import type {
-  Meta,
-  StoryFn,
-  StoryObj,
-} from '@storybook/react'
+import type { Meta, StoryFn, StoryObj } from '@storybook/react'
 
 import { Checkbox } from '~/src/components/Checkbox'
 import { FormGroup } from '~/src/components/FormGroup'
@@ -13,10 +9,7 @@ import {
   FormHelperText,
 } from '~/src/components/FormHelperText'
 import { FormLabel } from '~/src/components/FormLabel'
-import {
-  Radio,
-  RadioGroup,
-} from '~/src/components/RadioGroup'
+import { Radio, RadioGroup } from '~/src/components/RadioGroup'
 import {
   SegmentedControl,
   SegmentedControlItem,
@@ -43,7 +36,10 @@ const meta: Meta<typeof FormControl> = {
 export default meta
 
 const Template: StoryFn<FormControlProps> = (args) => (
-  <FormControl style={{ width: 400 }} {...args}>
+  <FormControl
+    style={{ width: 400 }}
+    {...args}
+  >
     <FormLabel help="Lorem Ipsum">Label</FormLabel>
     <TextField placeholder="Placeholder" />
     <FormHelperText>Description</FormHelperText>
@@ -96,14 +92,14 @@ const WithMultiFormTemplate: StoryFn<FormControlProps> = (args) => (
     <FormControl {...args}>
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
       <SegmentedControl>
-        { ['Open', 'Snoozed', 'Closed'].map((item) => (
+        {['Open', 'Snoozed', 'Closed'].map((item) => (
           <SegmentedControlItem
             key={item}
             value={item}
           >
-            { item }
+            {item}
           </SegmentedControlItem>
-        )) }
+        ))}
       </SegmentedControl>
       <FormHelperText>Description</FormHelperText>
       <FormErrorMessage>Error!</FormErrorMessage>
@@ -111,7 +107,10 @@ const WithMultiFormTemplate: StoryFn<FormControlProps> = (args) => (
 
     <FormControl {...args}>
       <FormLabel help="Lorem Ipsum">Label</FormLabel>
-      <FormGroup direction="horizontal" spacing={10}>
+      <FormGroup
+        direction="horizontal"
+        spacing={10}
+      >
         <Checkbox>Option</Checkbox>
         <Checkbox>Option</Checkbox>
         <Checkbox>Option</Checkbox>

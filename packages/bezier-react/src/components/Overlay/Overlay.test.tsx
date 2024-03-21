@@ -24,9 +24,7 @@ import styles from './Overlay.module.scss'
 
 const RootOverlay: React.FC<OverlayProps> = ({ children, ...rests }) => (
   <div id="main">
-    <Overlay {...rests}>
-      { children }
-    </Overlay>
+    <Overlay {...rests}>{children}</Overlay>
   </div>
 )
 
@@ -168,7 +166,13 @@ describe('Overlay', () => {
   })
 
   describe('Props and Event', () => {
-    const renderRootOverlay = (optionProps?: OverlayProps) => render(<RootOverlay {...props} {...optionProps} />)
+    const renderRootOverlay = (optionProps?: OverlayProps) =>
+      render(
+        <RootOverlay
+          {...props}
+          {...optionProps}
+        />
+      )
 
     beforeEach(() => {
       props = {
@@ -219,7 +223,9 @@ describe('Overlay', () => {
       describe('containerClassName', () => {
         it('is transferred', () => {
           const CLASSNAME = 'Test__Container'
-          const { getByTestId } = renderRootOverlay({ containerClassName: CLASSNAME })
+          const { getByTestId } = renderRootOverlay({
+            containerClassName: CLASSNAME,
+          })
           const overlay = getByTestId(CONTAINER_TEST_ID)
           expect(overlay).toHaveClass(CLASSNAME)
         })
@@ -243,7 +249,10 @@ describe('Overlay', () => {
         afterEach(jest.clearAllMocks)
 
         it('is True', () => {
-          const { getByTestId } = renderRootOverlay({ enableClickOutside: true, onHide })
+          const { getByTestId } = renderRootOverlay({
+            enableClickOutside: true,
+            onHide,
+          })
           const overlay = getByTestId(CONTAINER_TEST_ID)
 
           overlay.click()
@@ -284,7 +293,10 @@ describe('Overlay', () => {
 
       describe('keydown', () => {
         it('is Triggered By Escape', () => {
-          const { getByTestId } = renderRootOverlay({ withTransition: true, onHide })
+          const { getByTestId } = renderRootOverlay({
+            withTransition: true,
+            onHide,
+          })
           const overlay = getByTestId(OVERLAY_TEST_ID)
           fireEvent.keyDown(overlay, { key: ESCAPE_KEY })
           expect(document.onkeydown).toHaveBeenCalledTimes(1)
@@ -295,7 +307,10 @@ describe('Overlay', () => {
         })
 
         it('is not Triggered By All keys except Escape', () => {
-          const { getByTestId } = renderRootOverlay({ withTransition: true, onHide })
+          const { getByTestId } = renderRootOverlay({
+            withTransition: true,
+            onHide,
+          })
           const overlay = getByTestId(OVERLAY_TEST_ID)
           fireEvent.keyDown(overlay, { key: 'Enter' })
           expect(document.onkeydown).toHaveBeenCalledTimes(1)
@@ -317,7 +332,10 @@ describe('Overlay', () => {
         })
 
         it('does not call onHide when element inside the overlay is clicked', () => {
-          const { getByRole } = renderRootOverlay({ children: (<Button text="button" />), onHide })
+          const { getByRole } = renderRootOverlay({
+            children: <Button text="button" />,
+            onHide,
+          })
           const button = getByRole('button')
           fireEvent.click(button)
           expect(onHide).not.toHaveBeenCalled()

@@ -4,16 +4,12 @@ import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
 
-import {
-  SWITCH_TEST_ID,
-  Switch,
-} from './Switch'
+import { SWITCH_TEST_ID, Switch } from './Switch'
 import { type SwitchProps } from './Switch.types'
 
 describe('Switch', () => {
-  const renderComponent = (props?: Partial<SwitchProps>) => render(
-    <Switch {...props} />,
-  )
+  const renderComponent = (props?: Partial<SwitchProps>) =>
+    render(<Switch {...props} />)
 
   describe('data attribute', () => {
     describe('data-state', () => {

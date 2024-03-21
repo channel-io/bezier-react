@@ -16,25 +16,37 @@ const cssVarByDuration: Record<string, string> = {
   'TransitionDuration.L': 'var(--transition-l)',
 }
 
-const getTransitionStyle = (transitionCallExpression: CallExpression<ts.CallExpression>) => {
+const getTransitionStyle = (
+  transitionCallExpression: CallExpression<ts.CallExpression>
+) => {
   const firstArg = transitionCallExpression.getArguments()[0]
 
-  if (!firstArg.getText().includes("'")) { return null }
+  if (!firstArg.getText().includes("'")) {
+    return null
+  }
 
-  const properties = (Node.isArrayLiteralExpression(firstArg) ? firstArg.getElements().map(v => v.getText()) : [firstArg.getText()])
-    .map(text => text.slice(1, -1))
-  const duration = transitionCallExpression.getArguments()[1]?.getText() ?? 'TransitionDuration.S'
+  const properties = (
+    Node.isArrayLiteralExpression(firstArg)
+      ? firstArg.getElements().map((v) => v.getText())
+      : [firstArg.getText()]
+  ).map((text) => text.slice(1, -1))
+  const duration =
+    transitionCallExpression.getArguments()[1]?.getText() ??
+    'TransitionDuration.S'
   const thirdArg = transitionCallExpression.getArguments()[2]?.getText()
   const delay = thirdArg ? ` ${thirdArg}ms` : ''
 
-  if (!cssVarByDuration[duration]) { return null }
+  if (!cssVarByDuration[duration]) {
+    return null
+  }
 
   const transitionStyle = `transition: ${properties.map((property) => `${property} ${cssVarByDuration[duration]}${delay}`).join(', ')};\n`
 
   return transitionStyle
 }
 
-const hasTransitionFoundation = (node: Node) => node.getText().includes('getTransitionsCSS')
+const hasTransitionFoundation = (node: Node) =>
+  node.getText().includes('getTransitionsCSS')
 
 const replaceTransitionsCSS = (sourceFile: SourceFile) => {
   sourceFile.forEachDescendant((node) => {
@@ -44,22 +56,28 @@ const replaceTransitionsCSS = (sourceFile: SourceFile) => {
         .getDescendantsOfKind(SyntaxKind.CallExpression)
         .find(hasTransitionFoundation)
 
-      if (!transitionCallExpression) { return }
+      if (!transitionCallExpression) {
+        return
+      }
 
       const transitionArrowFunctions = getArrowFunctionsWithOneArgument(
-        node, hasTransitionFoundation,
+        node,
+        hasTransitionFoundation
       )
       const transitionStyle = getTransitionStyle(transitionCallExpression)
 
-      if (!transitionStyle) { return }
+      if (!transitionStyle) {
+        return
+      }
 
       transitionArrowFunctions
-        .map(v => v.getText())
+        .map((v) => v.getText())
         .forEach((text) => {
           node.replaceWithText(
-            node.getText()
+            node
+              .getText()
               .replace(`\${${text}};\n` ?? '', transitionStyle)
-              .replace(`\${${text}}\n` ?? '', transitionStyle),
+              .replace(`\${${text}}\n` ?? '', transitionStyle)
           )
         })
 

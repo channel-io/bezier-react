@@ -27,39 +27,39 @@ import { Icon } from '~/src/components/Icon'
 import { Overlay } from '~/src/components/Overlay'
 import { Text } from '~/src/components/Text'
 
-import {
-  type SelectProps,
-  type SelectRef,
-} from './Select.types'
+import { type SelectProps, type SelectRef } from './Select.types'
 
 import styles from './Select.module.scss'
 
 export const SELECT_DROPDOWN_TEST_ID = 'bezier-select-dropdown'
 
-export const Select = forwardRef<SelectRef, SelectProps>(function Select({
-  children,
-  style,
-  className,
-  size: sizeProps,
-  defaultFocus = false,
-  placeholder = '',
-  leftContent,
-  rightContent,
-  iconColor = 'txt-black-dark',
-  text,
-  textColor = 'txt-black-darkest',
-  withoutChevron = false,
-  dropdownStyle,
-  dropdownClassName,
-  dropdownContainer,
-  dropdownMarginX,
-  dropdownMarginY = 6,
-  dropdownZIndex = 'overlay',
-  dropdownPosition = 'bottom-left',
-  onClickTrigger,
-  onHideDropdown,
-  ...rest
-}, forwardedRef) {
+export const Select = forwardRef<SelectRef, SelectProps>(function Select(
+  {
+    children,
+    style,
+    className,
+    size: sizeProps,
+    defaultFocus = false,
+    placeholder = '',
+    leftContent,
+    rightContent,
+    iconColor = 'txt-black-dark',
+    text,
+    textColor = 'txt-black-darkest',
+    withoutChevron = false,
+    dropdownStyle,
+    dropdownClassName,
+    dropdownContainer,
+    dropdownMarginX,
+    dropdownMarginY = 6,
+    dropdownZIndex = 'overlay',
+    dropdownPosition = 'bottom-left',
+    onClickTrigger,
+    onHideDropdown,
+    ...rest
+  },
+  forwardedRef
+) {
   const {
     disabled,
     readOnly,
@@ -75,16 +75,15 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
 
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
-  const handleClickTrigger = useCallback((event: React.MouseEvent) => {
-    if (!disabled && !readOnly) {
-      setIsDropdownOpened(prevState => !prevState)
-      onClickTrigger?.(event)
-    }
-  }, [
-    disabled,
-    readOnly,
-    onClickTrigger,
-  ])
+  const handleClickTrigger = useCallback(
+    (event: React.MouseEvent) => {
+      if (!disabled && !readOnly) {
+        setIsDropdownOpened((prevState) => !prevState)
+        onClickTrigger?.(event)
+      }
+    },
+    [disabled, readOnly, onClickTrigger]
+  )
 
   const handleHideDropdown = useCallback(() => {
     setIsDropdownOpened(false)
@@ -93,25 +92,23 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
 
   const getDOMNode = useCallback(() => triggerRef.current, [])
 
-  const handle = useMemo((): SelectRef => ({
-    handleClickTrigger,
-    handleHideDropdown,
-    getDOMNode,
-  }), [
-    handleClickTrigger,
-    handleHideDropdown,
-    getDOMNode,
-  ])
+  const handle = useMemo(
+    (): SelectRef => ({
+      handleClickTrigger,
+      handleHideDropdown,
+      getDOMNode,
+    }),
+    [handleClickTrigger, handleHideDropdown, getDOMNode]
+  )
 
-  useEffect(function handleDefaultFocus() {
-    if (defaultFocus && !disabled && !readOnly) {
-      setIsDropdownOpened(true)
-    }
-  }, [
-    defaultFocus,
-    disabled,
-    readOnly,
-  ])
+  useEffect(
+    function handleDefaultFocus() {
+      if (defaultFocus && !disabled && !readOnly) {
+        setIsDropdownOpened(true)
+      }
+    },
+    [defaultFocus, disabled, readOnly]
+  )
 
   useImperativeHandle(forwardedRef, () => handle)
 
@@ -120,10 +117,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
   return (
     <div
       style={style}
-      className={classNames(
-        styles.SelectContainer,
-        className,
-      )}
+      className={classNames(styles.SelectContainer, className)}
       ref={containerRef}
     >
       <BaseButton
@@ -132,7 +126,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
           getFormFieldSizeClassName(size),
           hasError && styles.invalid,
           readOnly && styles.readonly,
-          isDropdownOpened && styles.active,
+          isDropdownOpened && styles.active
         )}
         ref={triggerRef}
         disabled={disabled}
@@ -140,16 +134,16 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
         {...ownProps}
       >
         <div className={styles.SelectMainContent}>
-          { isBezierIcon(leftContent)
-            ? (
-              <Icon
-                source={leftContent}
-                size="xs"
-                marginRight={6}
-                color={iconColor}
-              />
-            )
-            : leftContent }
+          {isBezierIcon(leftContent) ? (
+            <Icon
+              source={leftContent}
+              size="xs"
+              marginRight={6}
+              color={iconColor}
+            />
+          ) : (
+            leftContent
+          )}
 
           <Text
             data-testid="bezier-select-trigger-text"
@@ -157,29 +151,29 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
             truncated
             color={hasContent ? textColor : 'txt-black-dark'}
           >
-            { hasContent ? text : placeholder }
+            {hasContent ? text : placeholder}
           </Text>
 
-          { isBezierIcon(rightContent)
-            ? (
-              <Icon
-                source={rightContent}
-                size="xs"
-                marginRight={6}
-                color={iconColor}
-              />
-            )
-            : rightContent }
+          {isBezierIcon(rightContent) ? (
+            <Icon
+              source={rightContent}
+              size="xs"
+              marginRight={6}
+              color={iconColor}
+            />
+          ) : (
+            rightContent
+          )}
         </div>
 
-        { !withoutChevron && (
+        {!withoutChevron && (
           <Icon
             source={isDropdownOpened ? ChevronUpIcon : ChevronDownIcon}
             size="xs"
             color={readOnly ? 'txt-black-dark' : 'txt-black-darker'}
             marginLeft={6}
           />
-        ) }
+        )}
       </BaseButton>
 
       <Overlay
@@ -187,7 +181,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
         className={classNames(
           styles.SelectDropdown,
           getZIndexClassName(dropdownZIndex),
-          dropdownClassName,
+          dropdownClassName
         )}
         withTransition
         show={isDropdownOpened && !disabled}
@@ -199,7 +193,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select({
         data-testid={SELECT_DROPDOWN_TEST_ID}
         onHide={handleHideDropdown}
       >
-        { children }
+        {children}
       </Overlay>
     </div>
   )

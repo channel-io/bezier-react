@@ -1,8 +1,4 @@
-import {
-  ArgsTable,
-  Canvas,
-  Story,
-} from '@storybook/addon-docs'
+import { ArgsTable, Canvas, Story } from '@storybook/addon-docs'
 import {
   LegacyHStack,
   LegacyVStack,
@@ -54,7 +50,6 @@ Flexbox 내의 각 item을 `StackItem`으로 구성합니다. Flex layout 내에
   <Story id="components-legacystack--direction-horizontal" />
 </Canvas>
 
-
 <Canvas>
   <Story id="components-legacystack--direction-vertical" />
 </Canvas>
@@ -96,7 +91,6 @@ Flex layout의 특징은, container의 크기에 맞춰 item의 크기가 적절
 </Canvas>
 
 - Item이 container의 크기와 무관하게 (특히, container 크기가 충분하지 않은 경우) 일정한 크기를 차지하고자 하는 경우, 기본값인 `grow={false} shrink={false} weight={0}` prop을 지정합니다. 그리고, 의도하는 크기를 `size` prop으로 지정합니다.
-
 
 <Canvas>
   <Story id="components-legacystack--weight-fixed" />

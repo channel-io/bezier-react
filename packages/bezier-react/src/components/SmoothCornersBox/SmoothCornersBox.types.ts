@@ -62,8 +62,8 @@ interface SmoothCornersBoxOwnProps {
   backgroundImage?: string
 }
 
-export interface SmoothCornersBoxProps extends
-  BezierComponentProps<'div'>,
-  ChildrenProps,
-  DisableProps,
-  SmoothCornersBoxOwnProps {}
+export interface SmoothCornersBoxProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    DisableProps,
+    SmoothCornersBoxOwnProps {}

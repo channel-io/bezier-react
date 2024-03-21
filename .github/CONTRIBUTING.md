@@ -25,17 +25,18 @@ We actively welcome your pull requests:
 3. Ensure the test suite passes.
 4. Make sure your code lints.
 5. (Recommended) Commit with [commitizen(cz-cli)](https://github.com/commitizen/cz-cli).
-    1. Install commitizen globally.
 
-        ```bash
-        yarn dlx commitizen
-        ```
+   1. Install commitizen globally.
 
-    2. Commit with commitizen.
+      ```bash
+      yarn dlx commitizen
+      ```
 
-        ```bash
-        git cz
-        ```
+   2. Commit with commitizen.
+
+      ```bash
+      git cz
+      ```
 
 6. Push to your forked repository.
 7. Issue that pull request (from forked repository to origin).

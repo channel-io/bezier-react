@@ -1,10 +1,6 @@
 import React from 'react'
 
-import type {
-  Meta,
-  StoryFn,
-  StoryObj,
-} from '@storybook/react'
+import type { Meta, StoryFn, StoryObj } from '@storybook/react'
 
 import { Checkbox } from '~/src/components/Checkbox'
 

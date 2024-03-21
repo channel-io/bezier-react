@@ -1,6 +1,8 @@
 .KeyValueItem {
   border-radius: var(--radius-6);
-  transition: background-color var(--transition-s), color var(--transition-s);
+  transition:
+    background-color var(--transition-s),
+    color var(--transition-s);
 
   &:where(.singleline) {
     display: flex;
@@ -77,4 +79,3 @@
   display: flex;
   align-items: center;
 }
-

@@ -1,10 +1,13 @@
-$chromatic-color-variants: "blue", "red", "green", "cobalt", "orange", "pink", "purple";
-$active-selector: ":where(.active, :hover):where(:not(:disabled))";
+$chromatic-color-variants: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink',
+  'purple';
+$active-selector: ':where(.active, :hover):where(:not(:disabled))';
 
 .Button {
   position: relative;
   box-sizing: border-box;
-  transition: background-color var(--transition-s), box-shadow var(--transition-s);
+  transition:
+    background-color var(--transition-s),
+    box-shadow var(--transition-s);
 
   /* Size */
   &:where(.size-xs) {
@@ -242,7 +245,9 @@ $active-selector: ":where(.active, :hover):where(:not(:disabled))";
   }
 
   /* Hover styles for text, icon, and loader */
-  &:where(.color-monochrome):where(.style-secondary, .style-tertiary):where(:not(.active, :hover)) {
+  &:where(.color-monochrome):where(.style-secondary, .style-tertiary):where(
+      :not(.active, :hover)
+    ) {
     &:where(.size-s, .size-xs) .ButtonText {
       color: var(--txt-black-darker);
     }
@@ -256,13 +261,21 @@ $active-selector: ":where(.active, :hover):where(:not(:disabled))";
     }
   }
 
-  &:where(.color-monochrome-light):where(.style-secondary, .style-tertiary, .style-floating):where(:not(.active, :hover)) {
+  &:where(.color-monochrome-light):where(
+      .style-secondary,
+      .style-tertiary,
+      .style-floating
+    ):where(:not(.active, :hover)) {
     & :is(.ButtonIcon, .ButtonLoader) {
       color: var(--txt-black-dark);
     }
   }
 
-  &:where(.color-monochrome-dark):where(.style-secondary, .style-tertiary, .style-floating):where(:not(.active, :hover)) {
+  &:where(.color-monochrome-dark):where(
+      .style-secondary,
+      .style-tertiary,
+      .style-floating
+    ):where(:not(.active, :hover)) {
     & :is(.ButtonIcon, .ButtonLoader) {
       color: var(--txt-black-darker);
     }

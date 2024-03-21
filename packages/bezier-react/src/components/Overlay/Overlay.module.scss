@@ -27,6 +27,8 @@
   }
 
   &:where(.transition) {
-    transition: top var(--transition-s), opacity var(--transition-s);
+    transition:
+      top var(--transition-s),
+      opacity var(--transition-s);
   }
 }

@@ -5,17 +5,14 @@ import StyleDictionary, {
   type Platform,
 } from 'style-dictionary'
 
-import {
-  customJsCjs,
-  customJsEsm,
-} from './lib/format'
+import { customJsCjs, customJsEsm } from './lib/format'
 import { CSSTransforms } from './lib/transform'
 
 const CustomTransforms = [...Object.values(CSSTransforms)]
 
 const TokenBuilder = CustomTransforms.reduce(
   (builder, transform) => builder.registerTransform(transform),
-  StyleDictionary,
+  StyleDictionary
 )
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)
@@ -96,13 +93,13 @@ function defineConfig({
 }
 
 function main() {
-  [
+  ;[
     TokenBuilder.extend(
       defineConfig({
         source: ['src/global/*.json'],
         destination: 'global',
         options: { cssSelector: ':where(:root, :host)' },
-      }),
+      })
     ),
     TokenBuilder.extend(
       defineConfig({
@@ -112,7 +109,7 @@ function main() {
         options: {
           cssSelector: ':where(:root, :host), [data-bezier-theme="light"]',
         },
-      }),
+      })
     ),
     TokenBuilder.extend(
       defineConfig({
@@ -120,7 +117,7 @@ function main() {
         reference: ['src/global/*.json'],
         destination: 'darkTheme',
         options: { cssSelector: '[data-bezier-theme="dark"]' },
-      }),
+      })
     ),
   ].forEach((builder) => builder.buildAllPlatforms())
 }

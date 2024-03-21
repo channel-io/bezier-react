@@ -29,7 +29,10 @@ class ToastService {
     if (!this.toasts.length) {
       return false
     }
-    return this.toasts.reduce((flag, toast) => (toast.id === toastId ? true : flag), false)
+    return this.toasts.reduce(
+      (flag, toast) => (toast.id === toastId ? true : flag),
+      false
+    )
   }
 
   add = (content: ToastContent, options: ToastOptions = defaultOptions) => {
@@ -50,7 +53,11 @@ class ToastService {
     return newId
   }
 
-  update = (toastId: ToastId, content: ToastContent, options: ToastOptions = {}) => {
+  update = (
+    toastId: ToastId,
+    content: ToastContent,
+    options: ToastOptions = {}
+  ) => {
     if (!this.has(toastId)) {
       return ''
     }
@@ -74,7 +81,9 @@ class ToastService {
     if (!this.has(id)) {
       return false
     }
-    const newToasts: ToastType[] = this.toasts.filter((toast) => toast.id !== id)
+    const newToasts: ToastType[] = this.toasts.filter(
+      (toast) => toast.id !== id
+    )
     this.setToasts(newToasts)
     return true // remove success
   }

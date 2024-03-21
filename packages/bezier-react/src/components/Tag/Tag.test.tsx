@@ -4,11 +4,7 @@ import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
 
-import {
-  TAG_DELETE_TEST_ID,
-  TAG_TEST_ID,
-  Tag,
-} from './Tag'
+import { TAG_DELETE_TEST_ID, TAG_TEST_ID, Tag } from './Tag'
 import { type TagProps } from './Tag.types'
 
 describe('Tag test >', () => {
@@ -19,7 +15,13 @@ describe('Tag test >', () => {
     props = {}
   })
 
-  const renderTag = (optionProps?: TagProps) => render(<Tag {...props} {...optionProps} />)
+  const renderTag = (optionProps?: TagProps) =>
+    render(
+      <Tag
+        {...props}
+        {...optionProps}
+      />
+    )
 
   it('Snapshot >', () => {
     const { getByTestId } = renderTag()
@@ -41,7 +43,10 @@ describe('Tag test >', () => {
     it('onDelete function should be called when the delete icon is clicked', async () => {
       const onClickFn = jest.fn()
       const onDeleteFn = jest.fn()
-      const { getByTestId } = renderTag({ onClick: onClickFn, onDelete: onDeleteFn })
+      const { getByTestId } = renderTag({
+        onClick: onClickFn,
+        onDelete: onDeleteFn,
+      })
 
       await user.click(getByTestId(TAG_DELETE_TEST_ID))
 
@@ -51,7 +56,10 @@ describe('Tag test >', () => {
     it('onClick function should not be called when the delete icon is clicked', async () => {
       const onClickFn = jest.fn()
       const onDeleteFn = jest.fn()
-      const { getByTestId } = renderTag({ onClick: onClickFn, onDelete: onDeleteFn })
+      const { getByTestId } = renderTag({
+        onClick: onClickFn,
+        onDelete: onDeleteFn,
+      })
 
       await user.click(getByTestId(TAG_DELETE_TEST_ID))
 

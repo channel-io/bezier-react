@@ -1,11 +1,7 @@
 import React from 'react'
 
 import { ErrorFilledIcon } from '@channel.io/bezier-icons'
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { Icon } from '~/src/components/Icon'
 

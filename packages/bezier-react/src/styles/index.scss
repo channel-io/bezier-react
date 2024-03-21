@@ -3,9 +3,9 @@
 @layer tokens, base, components;
 
 @layer tokens {
-  @include meta.load-css("tokens")
+  @include meta.load-css('tokens');
 }
 
 @layer base {
-  @include meta.load-css("base")
+  @include meta.load-css('base');
 }

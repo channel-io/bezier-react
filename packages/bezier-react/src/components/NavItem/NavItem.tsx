@@ -23,64 +23,70 @@ export const NAV_ITEM_LEFT_ICON_TEST_ID = 'bezier-nav-item-left-icon'
  * />
  * ```
  */
-export const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(function NavItem({
-  name,
-  style,
-  className,
-  content,
-  href,
-  target = '_self',
-  rightContent,
-  leftContent,
-  active,
-  onClick,
-  ...rest
-}, forwardedRef) {
-  const handleClickItem = (e?: React.MouseEvent) => {
-    onClick?.(e, name)
-  }
+export const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(
+  function NavItem(
+    {
+      name,
+      style,
+      className,
+      content,
+      href,
+      target = '_self',
+      rightContent,
+      leftContent,
+      active,
+      onClick,
+      ...rest
+    },
+    forwardedRef
+  ) {
+    const handleClickItem = (e?: React.MouseEvent) => {
+      onClick?.(e, name)
+    }
 
-  return (
-    <li
-      className={styles.Wrapper}
-      role="none"
-    >
-      <a
-        ref={forwardedRef}
-        style={style}
-        className={classNames(
-          styles.Item,
-          active && styles.active,
-          className,
-        )}
-        href={href}
-        target={target}
-        role="menuitem"
-        onClick={handleClickItem}
-        data-testid={NAV_ITEM_TEST_ID}
-        {...rest}
+    return (
+      <li
+        className={styles.Wrapper}
+        role="none"
       >
-        <div className={styles.LeftIconWrapper}>
-          { leftContent && (
-            <Icon
-              data-testid={NAV_ITEM_LEFT_ICON_TEST_ID}
-              source={leftContent}
-              size="s"
-              color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}
-            />
-          ) }
-        </div>
-
-        <Text typo="14" truncated>
-          { content }
-        </Text>
-
-        { rightContent && (
-          <div className={styles.RightContentWrapper}>
-            { rightContent }
+        <a
+          ref={forwardedRef}
+          style={style}
+          className={classNames(
+            styles.Item,
+            active && styles.active,
+            className
+          )}
+          href={href}
+          target={target}
+          role="menuitem"
+          onClick={handleClickItem}
+          data-testid={NAV_ITEM_TEST_ID}
+          {...rest}
+        >
+          <div className={styles.LeftIconWrapper}>
+            {leftContent && (
+              <Icon
+                data-testid={NAV_ITEM_LEFT_ICON_TEST_ID}
+                source={leftContent}
+                size="s"
+                color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}
+              />
+            )}
           </div>
-        ) }
-      </a>
-    </li>
-  )
-})
+
+          <Text
+            typo="14"
+            truncated
+          >
+            {content}
+          </Text>
+
+          {rightContent && (
+            <div className={styles.RightContentWrapper}>{rightContent}</div>
+          )}
+        </a>
+      </li>
+    )
+  }
+)

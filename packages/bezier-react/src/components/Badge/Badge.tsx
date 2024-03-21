@@ -1,7 +1,4 @@
-import React, {
-  forwardRef,
-  memo,
-} from 'react'
+import React, { forwardRef, memo } from 'react'
 
 import classNames from 'classnames'
 
@@ -31,42 +28,40 @@ export const BADGE_TEST_ID = 'bezier-badge'
  * </Badge>
  * ```
  */
-export const Badge = memo(forwardRef<HTMLDivElement, BadgeProps>(function Badge({
-  size = 'm',
-  variant = 'default',
-  icon,
-  children,
-  className,
-  ...rest
-}, forwardedRef) {
-  return (
-    <div
-      ref={forwardedRef}
-      className={classNames(
-        styles.Badge,
-        styles[`variant-${variant}`],
-        commonStyles.TagBadge,
-        commonStyles[`size-${size}`],
-        className,
-      )}
-      data-testid={BADGE_TEST_ID}
-      {...rest}
-    >
-      { icon && (
-        <Icon
-          source={icon}
-          size="xs"
-        />
-      ) }
+export const Badge = memo(
+  forwardRef<HTMLDivElement, BadgeProps>(function Badge(
+    { size = 'm', variant = 'default', icon, children, className, ...rest },
+    forwardedRef
+  ) {
+    return (
+      <div
+        ref={forwardedRef}
+        className={classNames(
+          styles.Badge,
+          styles[`variant-${variant}`],
+          commonStyles.TagBadge,
+          commonStyles[`size-${size}`],
+          className
+        )}
+        data-testid={BADGE_TEST_ID}
+        {...rest}
+      >
+        {icon && (
+          <Icon
+            source={icon}
+            size="xs"
+          />
+        )}
 
-      { !isEmpty(children) && (
-        <Text
-          typo={getProperTagBadgeTypo(size)}
-          marginHorizontal={3}
-        >
-          { children }
-        </Text>
-      ) }
-    </div>
-  )
-}))
+        {!isEmpty(children) && (
+          <Text
+            typo={getProperTagBadgeTypo(size)}
+            marginHorizontal={3}
+          >
+            {children}
+          </Text>
+        )}
+      </div>
+    )
+  })
+)

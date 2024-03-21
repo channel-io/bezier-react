@@ -10,9 +10,8 @@ import styles from './Center.module.scss'
 const CONTENT = 'Centered content'
 
 describe('Center', () => {
-  const renderComponent = ({ children, ...rest }: CenterProps) => render(
-    <Center {...rest}>{ children }</Center>,
-  )
+  const renderComponent = ({ children, ...rest }: CenterProps) =>
+    render(<Center {...rest}>{children}</Center>)
 
   it('should have a centered style', () => {
     const { getByText } = renderComponent({ children: CONTENT })

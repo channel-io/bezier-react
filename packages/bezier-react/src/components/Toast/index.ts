@@ -1,7 +1,4 @@
-export {
-  ToastProvider,
-  useToast,
-} from './Toast'
+export { ToastProvider, useToast } from './Toast'
 export type {
   ToastAppearance,
   ToastContent,

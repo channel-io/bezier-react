@@ -6,9 +6,8 @@ import { ProgressBar } from './ProgressBar'
 import { type ProgressBarProps } from './ProgressBar.types'
 
 describe('ProgressBar', () => {
-  const renderComponent = (props?: Partial<ProgressBarProps>) => render(
-    <ProgressBar {...props} />,
-  )
+  const renderComponent = (props?: Partial<ProgressBarProps>) =>
+    render(<ProgressBar {...props} />)
 
   it('should render ProgressBar with valid aria attributes', () => {
     const { getByRole } = renderComponent({ value: 0.5 })

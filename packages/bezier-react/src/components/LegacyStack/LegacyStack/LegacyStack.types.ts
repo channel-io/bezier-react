@@ -49,8 +49,8 @@ interface LegacyStackOwnProps {
 /**
  * @deprecated Use `Stack` instead.s
  */
-export default interface LegacyStackProps extends
-  BezierComponentProps,
-  PolymorphicProps,
-  ChildrenProps,
-  LegacyStackOwnProps {}
+export default interface LegacyStackProps
+  extends BezierComponentProps,
+    PolymorphicProps,
+    ChildrenProps,
+    LegacyStackOwnProps {}

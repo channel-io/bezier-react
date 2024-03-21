@@ -2,15 +2,11 @@ import React from 'react'
 
 import { render } from '~/src/utils/test'
 
-import {
-  SPINNER_TEST_ID,
-  Spinner,
-} from './Spinner'
+import { SPINNER_TEST_ID, Spinner } from './Spinner'
 
 describe('Spinner >', () => {
-  const renderSpinner = (props?: React.ComponentProps<typeof Spinner>) => render(
-    <Spinner {...props} />,
-  )
+  const renderSpinner = (props?: React.ComponentProps<typeof Spinner>) =>
+    render(<Spinner {...props} />)
 
   it('should render', () => {
     const { getByTestId } = renderSpinner()

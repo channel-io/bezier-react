@@ -13,9 +13,7 @@ import {
 import { type LegacyTooltipProps } from './LegacyTooltip.types'
 
 const RootTooltip: React.FC<LegacyTooltipProps> = ({ children, ...rests }) => (
-  <LegacyTooltip {...rests}>
-    { children }
-  </LegacyTooltip>
+  <LegacyTooltip {...rests}>{children}</LegacyTooltip>
 )
 
 describe('Tooltip test >', () => {
@@ -36,9 +34,13 @@ describe('Tooltip test >', () => {
     jest.useRealTimers()
   })
 
-  const renderTooltip = (optionProps?: LegacyTooltipProps) => render(
-    <RootTooltip {...props} {...optionProps} />,
-  )
+  const renderTooltip = (optionProps?: LegacyTooltipProps) =>
+    render(
+      <RootTooltip
+        {...props}
+        {...optionProps}
+      />
+    )
 
   it('Tooltip with default props', () => {
     const { baseElement, getByTestId } = renderTooltip()

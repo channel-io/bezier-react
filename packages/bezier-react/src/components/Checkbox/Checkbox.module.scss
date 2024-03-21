@@ -41,7 +41,7 @@
   }
 
   &[data-invalid] {
-    box-shadow: var(--input-box-shadow-invalid)
+    box-shadow: var(--input-box-shadow-invalid);
   }
 
   &:where([data-state='checked'], [data-state='indeterminate']) {

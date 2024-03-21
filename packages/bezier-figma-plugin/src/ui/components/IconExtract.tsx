@@ -1,8 +1,4 @@
-import React, {
-  useCallback,
-  useEffect,
-  useState,
-} from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 import {
   Button,
@@ -38,24 +34,27 @@ export function useProgress() {
   const [progressTitle, setProgressTitle] = useState('')
   const [progressValue, setProgressValue] = useState(0)
 
-  const progress = useCallback(async <Fn extends () => Promise<any>>({
-    callback,
-    title,
-    successValueOffset,
-  }: {
-    callback: Fn
-    title?: string
-    successValueOffset?: number
-  }) => {
-    if (title) {
-      setProgressTitle(title)
-    }
-    const result = await callback()
-    if (successValueOffset) {
-      setProgressValue(prev => Math.min(prev + successValueOffset, 1))
-    }
-    return result as ReturnType<Fn>
-  }, [])
+  const progress = useCallback(
+    async <Fn extends () => Promise<any>>({
+      callback,
+      title,
+      successValueOffset,
+    }: {
+      callback: Fn
+      title?: string
+      successValueOffset?: number
+    }) => {
+      if (title) {
+        setProgressTitle(title)
+      }
+      const result = await callback()
+      if (successValueOffset) {
+        setProgressValue((prev) => Math.min(prev + successValueOffset, 1))
+      }
+      return result as ReturnType<Fn>
+    },
+    []
+  )
 
   return {
     progress,
@@ -64,18 +63,10 @@ export function useProgress() {
   }
 }
 
-function Progress({
-  figmaToken,
-  githubToken,
-  onError,
-}: ProgressProps) {
+function Progress({ figmaToken, githubToken, onError }: ProgressProps) {
   const navigate = useNavigate()
 
-  const {
-    progress,
-    progressTitle,
-    progressValue,
-  } = useProgress()
+  const { progress, progressTitle, progressValue } = useProgress()
 
   const createPr = useCreatePRWithSvgMap({ progress, githubToken })
 
@@ -89,12 +80,15 @@ function Progress({
 
           const prUrl = await createPr(svgByName)
 
-          parent.postMessage({
-            pluginMessage: {
-              type: 'setToken',
-              payload: { figmaToken, githubToken },
+          parent.postMessage(
+            {
+              pluginMessage: {
+                type: 'setToken',
+                payload: { figmaToken, githubToken },
+              },
             },
-          }, '*')
+            '*'
+          )
 
           navigate('../extract_success', { state: { url: prUrl } })
         } catch (e: any) {
@@ -102,7 +96,7 @@ function Progress({
         }
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
@@ -111,7 +105,7 @@ function Progress({
         width="100%"
         value={progressValue}
       />
-      <Text>{ progressTitle }</Text>
+      <Text>{progressTitle}</Text>
     </VStack>
   )
 }
@@ -141,20 +135,27 @@ function IconExtract() {
     }
   }, [])
 
-  const handleChangeFigmaToken = useCallback<React.ChangeEventHandler<HTMLInputElement>>((event) => {
+  const handleChangeFigmaToken = useCallback<
+    React.ChangeEventHandler<HTMLInputElement>
+  >((event) => {
     setFigmaToken(event.currentTarget.value)
   }, [])
 
-  const handleChangeGithubToken = useCallback<React.ChangeEventHandler<HTMLInputElement>>((event) => {
+  const handleChangeGithubToken = useCallback<
+    React.ChangeEventHandler<HTMLInputElement>
+  >((event) => {
     setGithubToken(event.currentTarget.value)
   }, [])
 
-  const handleSubmit = useCallback<React.FormEventHandler<HTMLFormElement>>((event) => {
-    setErrorMessage('')
-    event.preventDefault()
-    setStep(Step.Processing)
-    parent.postMessage({ pluginMessage: { type: 'extract' } }, '*')
-  }, [])
+  const handleSubmit = useCallback<React.FormEventHandler<HTMLFormElement>>(
+    (event) => {
+      setErrorMessage('')
+      event.preventDefault()
+      setStep(Step.Processing)
+      parent.postMessage({ pluginMessage: { type: 'extract' } }, '*')
+    },
+    []
+  )
 
   const handleClickCancel = useCallback(() => {
     navigate('/')
@@ -169,7 +170,10 @@ function IconExtract() {
     <form onSubmit={handleSubmit}>
       <VStack justify="between">
         <VStack spacing={12}>
-          <FormControl required readOnly={step !== Step.Pending}>
+          <FormControl
+            required
+            readOnly={step !== Step.Pending}
+          >
             <FormLabel help="좌측 상단 Figma 로고 > Help and account > Account settings 에서 발급 받을 수 있습니다.">
               Figma personal access token
             </FormLabel>
@@ -181,7 +185,10 @@ function IconExtract() {
               onChange={handleChangeFigmaToken}
             />
           </FormControl>
-          <FormControl required readOnly={step !== Step.Pending}>
+          <FormControl
+            required
+            readOnly={step !== Step.Pending}
+          >
             <FormLabel help="Github Repository 쓰기 권한이 있는 토큰을 사용해주세요.">
               Github personal access token
             </FormLabel>
@@ -197,13 +204,20 @@ function IconExtract() {
             <FormLabel>추출할 경로 (루트 기준)</FormLabel>
             <TextField value={config.repository.iconExtractPath} />
           </FormControl>
-          { errorMessage
-            ? <FormErrorMessage>{ errorMessage }</FormErrorMessage>
-            : <FormHelperText>토큰은 추출 성공 시 로컬 스토리지에 저장됩니다.</FormHelperText> }
+          {errorMessage ? (
+            <FormErrorMessage>{errorMessage}</FormErrorMessage>
+          ) : (
+            <FormHelperText>
+              토큰은 추출 성공 시 로컬 스토리지에 저장됩니다.
+            </FormHelperText>
+          )}
         </VStack>
 
-        { step === Step.Pending && (
-          <HStack justify="end" spacing={6}>
+        {step === Step.Pending && (
+          <HStack
+            justify="end"
+            spacing={6}
+          >
             <Button
               type="submit"
               styleVariant="primary"
@@ -217,15 +231,15 @@ function IconExtract() {
               onClick={handleClickCancel}
             />
           </HStack>
-        ) }
+        )}
 
-        { step === Step.Processing && (
+        {step === Step.Processing && (
           <Progress
             figmaToken={figmaToken}
             githubToken={githubToken}
             onError={handleExtractError}
           />
-        ) }
+        )}
       </VStack>
     </form>
   )

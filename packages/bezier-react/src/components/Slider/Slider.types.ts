@@ -1,7 +1,4 @@
-import type {
-  BezierComponentProps,
-  DisableProps,
-} from '~/src/types/props'
+import type { BezierComponentProps, DisableProps } from '~/src/types/props'
 
 interface SliderOwnProps {
   /**
@@ -70,7 +67,7 @@ interface SliderOwnProps {
   onValueCommit?: (value: number[]) => void
 }
 
-export interface SliderProps extends
-  Omit<BezierComponentProps<'span'>, keyof SliderOwnProps>,
-  DisableProps,
-  SliderOwnProps {}
+export interface SliderProps
+  extends Omit<BezierComponentProps<'span'>, keyof SliderOwnProps>,
+    DisableProps,
+    SliderOwnProps {}

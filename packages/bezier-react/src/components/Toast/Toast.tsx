@@ -1,9 +1,4 @@
-import React, {
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 
 import {
@@ -28,10 +23,7 @@ import { BaseButton } from '~/src/components/BaseButton'
 import { Icon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
-import {
-  useRootElement,
-  useWindow,
-} from '~/src/components/WindowProvider'
+import { useRootElement, useWindow } from '~/src/components/WindowProvider'
 
 import {
   type ToastContextValue,
@@ -92,44 +84,44 @@ export function Toast({
     styles.ToastElement,
     zIndex && getZIndexClassName(zIndex),
     placement && styles[`placement-${placement}`],
-    isSlidingOut && styles['slide-out'],
+    isSlidingOut && styles['slide-out']
   )
 
   const runSlideOutAnimation = useCallback(() => {
     setIsSlidingOut(true)
   }, [])
 
-  const handleAnimationEnd = useCallback<React.AnimationEventHandler>((event) => {
-    if (
-      event.animationName === styles['slide-out-left']
-      || event.animationName === styles['slide-out-right']
-    ) {
-      onDismiss?.()
-    }
-  }, [onDismiss])
-
-  useEffect(function startDismissTimer() {
-    if (autoDismiss) {
-      dismissTimer.current = window.setTimeout(runSlideOutAnimation, autoDismissTimeout)
-    }
-
-    return function cleanup() {
-      if (dismissTimer.current != null) {
-        clearTimeout(dismissTimer.current)
+  const handleAnimationEnd = useCallback<React.AnimationEventHandler>(
+    (event) => {
+      if (
+        event.animationName === styles['slide-out-left'] ||
+        event.animationName === styles['slide-out-right']
+      ) {
+        onDismiss?.()
       }
-    }
-  }, [
-    autoDismiss,
-    autoDismissTimeout,
-    runSlideOutAnimation,
-    window,
-    version,
-  ])
+    },
+    [onDismiss]
+  )
 
-  const {
-    appearance,
-    icon,
-  } = getToastPreset(preset)
+  useEffect(
+    function startDismissTimer() {
+      if (autoDismiss) {
+        dismissTimer.current = window.setTimeout(
+          runSlideOutAnimation,
+          autoDismissTimeout
+        )
+      }
+
+      return function cleanup() {
+        if (dismissTimer.current != null) {
+          clearTimeout(dismissTimer.current)
+        }
+      }
+    },
+    [autoDismiss, autoDismissTimeout, runSlideOutAnimation, window, version]
+  )
+
+  const { appearance, icon } = getToastPreset(preset)
 
   return (
     <div
@@ -141,7 +133,7 @@ export function Toast({
       <div
         className={classNames(
           styles.IconWrapper,
-          styles[`appearance-${appearanceProp ?? appearance}`],
+          styles[`appearance-${appearanceProp ?? appearance}`]
         )}
       >
         <Icon
@@ -157,15 +149,15 @@ export function Toast({
           color="txt-black-darkest"
           truncated={5}
         >
-          { isString(content)
+          {isString(content)
             ? content.split('\n').map((str, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <React.Fragment key={index}>
-                { index !== 0 && (<br />) }
-                { str }
-              </React.Fragment>
-            ))
-            : content }
+                // eslint-disable-next-line react/no-array-index-key
+                <React.Fragment key={index}>
+                  {index !== 0 && <br />}
+                  {str}
+                </React.Fragment>
+              ))
+            : content}
         </Text>
       </div>
 
@@ -182,17 +174,15 @@ export function Toast({
   )
 }
 
-const [
-  ToastContextProvider,
-  useToastContext,
-] = createContext<ToastContextValue>({
-  add: () => '',
-  update: () => '',
-  remove: noop,
-  removeAll: noop,
-  leftToasts: [],
-  rightToasts: [],
-})
+const [ToastContextProvider, useToastContext] =
+  createContext<ToastContextValue>({
+    add: () => '',
+    update: () => '',
+    remove: noop,
+    removeAll: noop,
+    leftToasts: [],
+    rightToasts: [],
+  })
 
 /**
  * @deprecated
@@ -214,56 +204,48 @@ export function ToastProvider({
   const isMounted = useIsMounted()
 
   const toastContextValue = useToastProviderValues()
-  const {
-    leftToasts,
-    rightToasts,
-    dismiss,
-  } = toastContextValue
+  const { leftToasts, rightToasts, dismiss } = toastContextValue
   const container = givenContainer ?? rootElement
 
-  const createContainer = useCallback((placement: ToastPlacement, toasts: ToastType[]) => (
-    <InvertedThemeProvider>
-      <div
-        key={placement}
-        style={{
-          bottom: px(offset?.bottom),
-          ...(placement === 'bottom-right'
-            ? { right: px(offset?.right) }
-            : { left: px(offset?.left) }),
-        }}
-        className={styles.ToastContainer}
-      >
-        { toasts.map(({
-          id,
-          onDismiss,
-          ...rest
-        }) => (
-          <Toast
-            {...rest}
-            key={id}
-            placement={placement}
-            autoDismissTimeout={autoDismissTimeout}
-            onDismiss={() => dismiss(id, onDismiss)}
-          />
-        )) }
-      </div>
-    </InvertedThemeProvider>
-  ), [
-    autoDismissTimeout,
-    dismiss,
-    offset,
-  ])
+  const createContainer = useCallback(
+    (placement: ToastPlacement, toasts: ToastType[]) => (
+      <InvertedThemeProvider>
+        <div
+          key={placement}
+          style={{
+            bottom: px(offset?.bottom),
+            ...(placement === 'bottom-right'
+              ? { right: px(offset?.right) }
+              : { left: px(offset?.left) }),
+          }}
+          className={styles.ToastContainer}
+        >
+          {toasts.map(({ id, onDismiss, ...rest }) => (
+            <Toast
+              {...rest}
+              key={id}
+              placement={placement}
+              autoDismissTimeout={autoDismissTimeout}
+              onDismiss={() => dismiss(id, onDismiss)}
+            />
+          ))}
+        </div>
+      </InvertedThemeProvider>
+    ),
+    [autoDismissTimeout, dismiss, offset]
+  )
 
   return (
     <ToastContextProvider value={toastContextValue}>
-      { children }
-      { isMounted && createPortal(
-        [
-          createContainer('bottom-left', leftToasts),
-          createContainer('bottom-right', rightToasts),
-        ],
-        container,
-      ) }
+      {children}
+      {isMounted &&
+        createPortal(
+          [
+            createContainer('bottom-left', leftToasts),
+            createContainer('bottom-right', rightToasts),
+          ],
+          container
+        )}
     </ToastContextProvider>
   )
 }
@@ -272,7 +254,7 @@ export function useToast() {
   const context = useToastContext()
 
   if (!context) {
-    throw Error('\'useToast\' must be used within \'ToastProvider\'')
+    throw Error("'useToast' must be used within 'ToastProvider'")
   }
 
   return {

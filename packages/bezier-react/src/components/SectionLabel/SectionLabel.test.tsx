@@ -1,9 +1,6 @@
 import React from 'react'
 
-import {
-  TagIcon,
-  ToolIcon,
-} from '@channel.io/bezier-icons'
+import { TagIcon, ToolIcon } from '@channel.io/bezier-icons'
 
 import { render } from '~/src/utils/test'
 
@@ -58,10 +55,7 @@ describe('SectionLabel', () => {
 
   it('should renders multiple right contents, and item with iconColor is not rendered as button', () => {
     const { getAllByTestId, getAllByRole } = renderComponent({
-      rightContent: [
-        TagIcon,
-        { icon: ToolIcon, onClick: jest.fn() },
-      ],
+      rightContent: [TagIcon, { icon: ToolIcon, onClick: jest.fn() }],
     })
     expect(getAllByTestId(BUTTON_TEST_ID)).toHaveLength(2)
     expect(getAllByRole('button')).toHaveLength(1)
@@ -69,10 +63,7 @@ describe('SectionLabel', () => {
 
   it('should renders right content as it is', () => {
     const { getByText } = renderComponent({
-      rightContent: [
-        <div key="foo">foo</div>,
-        'bar',
-      ],
+      rightContent: [<div key="foo">foo</div>, 'bar'],
     })
     expect(getByText('foo')).toBeInTheDocument()
     expect(getByText('bar')).toBeInTheDocument()

@@ -29,9 +29,13 @@ describe('Avatar >', () => {
   })
 
   // NOTE: unavailable smoothCorners
-  const renderAvatar = (optionProps?: Partial<AvatarProps>) => render(
-    <Avatar {...props} {...optionProps} />,
-  )
+  const renderAvatar = (optionProps?: Partial<AvatarProps>) =>
+    render(
+      <Avatar
+        {...props}
+        {...optionProps}
+      />
+    )
 
   it('Snapshot', () => {
     const { getByTestId } = renderAvatar()
@@ -77,7 +81,11 @@ describe('Avatar >', () => {
   })
 
   it('should have right 8px, bottom 8px style on StatusWrapper when size grater then 72 and show border', () => {
-    const { getByTestId } = renderAvatar({ status: 'online', size: '72', showBorder: true })
+    const { getByTestId } = renderAvatar({
+      status: 'online',
+      size: '72',
+      showBorder: true,
+    })
     const statusWrapper = getByTestId(STATUS_WRAPPER_TEST_ID)
 
     expect(statusWrapper).toMatchSnapshot()
@@ -91,7 +99,11 @@ describe('Avatar >', () => {
   })
 
   it('should have right 8px, bottom 8px style on StatusWrapper when size grater then 90 and show border', () => {
-    const { getByTestId } = renderAvatar({ status: 'online', size: '90', showBorder: true })
+    const { getByTestId } = renderAvatar({
+      status: 'online',
+      size: '90',
+      showBorder: true,
+    })
     const statusWrapper = getByTestId(STATUS_WRAPPER_TEST_ID)
 
     expect(statusWrapper).toMatchSnapshot()

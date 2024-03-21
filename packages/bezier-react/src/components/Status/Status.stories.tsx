@@ -1,17 +1,13 @@
 import React from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { Center } from '~/src/components/Center'
 
 import { Status } from './Status'
 import { type StatusProps } from './Status.types'
 
-const meta:Meta<typeof Status> = {
+const meta: Meta<typeof Status> = {
   component: Status,
 }
 

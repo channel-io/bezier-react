@@ -49,7 +49,7 @@ describe('SegmentedControl >', () => {
         key={value}
         value={value}
       >
-        { label }
+        {label}
       </SegmentedControlItem>
     ))
 
@@ -58,25 +58,23 @@ describe('SegmentedControl >', () => {
         type={type}
         {...rest}
       >
-        { type === 'radiogroup'
-          ? ItemList
-          : (
-            <>
-              <SegmentedControlTabList>
-                { ItemList }
-              </SegmentedControlTabList>
+        {type === 'radiogroup' ? (
+          ItemList
+        ) : (
+          <>
+            <SegmentedControlTabList>{ItemList}</SegmentedControlTabList>
 
-              { MOCK_UI_DATA.map(({ value, content }) => (
-                <SegmentedControlTabContent
-                  key={value}
-                  value={value}
-                >
-                  { content }
-                </SegmentedControlTabContent>
-              )) }
-            </>
-          ) }
-      </SegmentedControl>,
+            {MOCK_UI_DATA.map(({ value, content }) => (
+              <SegmentedControlTabContent
+                key={value}
+                value={value}
+              >
+                {content}
+              </SegmentedControlTabContent>
+            ))}
+          </>
+        )}
+      </SegmentedControl>
     )
   }
 
@@ -99,19 +97,28 @@ describe('SegmentedControl >', () => {
       })
 
       it('should be required when required prop is true', () => {
-        const { getByRole } = renderComponent({ type: 'radiogroup', required: true })
+        const { getByRole } = renderComponent({
+          type: 'radiogroup',
+          required: true,
+        })
         expect(getByRole('radiogroup')).toBeRequired()
       })
 
       it('should be disabled when disabled prop is true', () => {
-        const { getByRole } = renderComponent({ type: 'radiogroup', disabled: true })
+        const { getByRole } = renderComponent({
+          type: 'radiogroup',
+          disabled: true,
+        })
         expect(getByRole('radiogroup')).toHaveAttribute('aria-disabled', 'true')
       })
 
       it('children(Item) should be disabled when disabled prop is true', () => {
-        const { getAllByRole } = renderComponent({ type: 'radiogroup', disabled: true })
+        const { getAllByRole } = renderComponent({
+          type: 'radiogroup',
+          disabled: true,
+        })
         const items = getAllByRole('radio')
-        items.forEach(item => expect(item).toBeDisabled())
+        items.forEach((item) => expect(item).toBeDisabled())
       })
     })
 
@@ -128,7 +135,10 @@ describe('SegmentedControl >', () => {
 
       it('should have \'aria-orientation="horizontal"\' attribute', () => {
         const { getByRole } = renderComponent({ type: 'tabs' })
-        expect(getByRole('tablist')).toHaveAttribute('aria-orientation', 'horizontal')
+        expect(getByRole('tablist')).toHaveAttribute(
+          'aria-orientation',
+          'horizontal'
+        )
       })
     })
   })
@@ -136,17 +146,28 @@ describe('SegmentedControl >', () => {
   describe('Style Props', () => {
     describe('"radiogroup" type', () => {
       it('when changing the width property, the width style should be applied to the outer wrapper', () => {
-        const { getByRole } = renderComponent({ type: 'radiogroup', width: '100%' })
-        expect(getByRole('radiogroup')).toHaveStyle('--b-segmented-control-width: 100%')
-        expect(getByRole('radiogroup')).toHaveStyle('width: var(--b-segmented-control-width)')
+        const { getByRole } = renderComponent({
+          type: 'radiogroup',
+          width: '100%',
+        })
+        expect(getByRole('radiogroup')).toHaveStyle(
+          '--b-segmented-control-width: 100%'
+        )
+        expect(getByRole('radiogroup')).toHaveStyle(
+          'width: var(--b-segmented-control-width)'
+        )
       })
     })
 
     describe('"tabs" type', () => {
       it('when changing the width property, the width style should be applied to the outer wrapper', () => {
         const { getByRole } = renderComponent({ type: 'tabs', width: '100%' })
-        expect(getByRole('tablist')).toHaveStyle('--b-segmented-control-width: 100%')
-        expect(getByRole('tablist')).toHaveStyle('width: var(--b-segmented-control-width)')
+        expect(getByRole('tablist')).toHaveStyle(
+          '--b-segmented-control-width: 100%'
+        )
+        expect(getByRole('tablist')).toHaveStyle(
+          'width: var(--b-segmented-control-width)'
+        )
       })
     })
   })
@@ -164,7 +185,10 @@ describe('SegmentedControl >', () => {
 
       it('should call the change event handler when user clicks on a item in a controlled item group', async () => {
         const onValueChange = jest.fn()
-        const { getByRole } = renderComponent({ type: 'radiogroup', onValueChange })
+        const { getByRole } = renderComponent({
+          type: 'radiogroup',
+          onValueChange,
+        })
         const item = getByRole('radio', { name: MOCK_UI_DATA[1].label })
         await user.click(item)
         expect(onValueChange).toHaveBeenCalledTimes(1)
@@ -305,38 +329,43 @@ describe('SegmentedControl >', () => {
 
   describe('With FormControl', () => {
     describe('"radiogroup" type', () => {
-      const renderComponentWithFormControl = (props: Omit<FormControlProps, 'children'>) => render(
-        <FormControl {...props}>
-          <SegmentedControl type="radiogroup">
-            { MOCK_UI_DATA.map(({ value, label }) => (
-              <SegmentedControlItem
-                key={value}
-                value={value}
-              >
-                { label }
-              </SegmentedControlItem>
-            )) }
-          </SegmentedControl>
-        </FormControl>,
-      )
+      const renderComponentWithFormControl = (
+        props: Omit<FormControlProps, 'children'>
+      ) =>
+        render(
+          <FormControl {...props}>
+            <SegmentedControl type="radiogroup">
+              {MOCK_UI_DATA.map(({ value, label }) => (
+                <SegmentedControlItem
+                  key={value}
+                  value={value}
+                >
+                  {label}
+                </SegmentedControlItem>
+              ))}
+            </SegmentedControl>
+          </FormControl>
+        )
 
-      it('FormControl\'s disabled prop should be passed to SegmentedControl', () => {
+      it("FormControl's disabled prop should be passed to SegmentedControl", () => {
         const { getByRole } = renderComponentWithFormControl({ disabled: true })
         expect(getByRole('radiogroup')).toHaveAttribute('aria-disabled', 'true')
       })
 
-      it('FormControl\'s hasError prop should be passed to SegmentedControl', () => {
+      it("FormControl's hasError prop should be passed to SegmentedControl", () => {
         const { getByRole } = renderComponentWithFormControl({ hasError: true })
         expect(getByRole('radiogroup')).toHaveAttribute('aria-invalid', 'true')
       })
 
-      it('FormControl\'s required prop should be passed to SegmentedControl', () => {
+      it("FormControl's required prop should be passed to SegmentedControl", () => {
         const { getByRole } = renderComponentWithFormControl({ required: true })
         expect(getByRole('radiogroup')).toHaveAttribute('aria-required', 'true')
       })
 
-      it('FormControl\'s id prop should be passed to SegmentedControl', () => {
-        const { getByRole } = renderComponentWithFormControl({ id: 'form-control-id' })
+      it("FormControl's id prop should be passed to SegmentedControl", () => {
+        const { getByRole } = renderComponentWithFormControl({
+          id: 'form-control-id',
+        })
         expect(getByRole('radiogroup')).toHaveAttribute('id', 'form-control-id')
       })
     })

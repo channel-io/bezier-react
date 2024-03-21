@@ -31,36 +31,40 @@ import styles from './LegacyStack.module.scss'
  * </Stack>
  * ```
  */
-export const LegacyStack = forwardRef<HTMLElement, LegacyStackProps>(function Stack({
-  as = 'div',
-  className,
-  children,
-  direction,
-  justify = 'start',
-  align = 'stretch',
-  spacing = 0,
-  ...rest
-}, forwardedRef) {
-  const Comp = as
-  const firstValidElementIdx = useRef(-1)
+export const LegacyStack = forwardRef<HTMLElement, LegacyStackProps>(
+  function Stack(
+    {
+      as = 'div',
+      className,
+      children,
+      direction,
+      justify = 'start',
+      align = 'stretch',
+      spacing = 0,
+      ...rest
+    },
+    forwardedRef
+  ) {
+    const Comp = as
+    const firstValidElementIdx = useRef(-1)
 
-  return (
-    <Comp
-      className={classNames(
-        styles.LegacyStack,
-        styles[`direction-${direction}`],
-        styles[`justify-${justify}`],
-        styles[`align-${align}`],
-        className,
-      )}
-      ref={forwardedRef}
-      data-testid="bezier-legacy-stack"
-      {...rest}
-    >
-      { Children.map(
-        children,
-        (element, index) => {
-          if (!isValidElement(element)) { return element }
+    return (
+      <Comp
+        className={classNames(
+          styles.LegacyStack,
+          styles[`direction-${direction}`],
+          styles[`justify-${justify}`],
+          styles[`align-${align}`],
+          className
+        )}
+        ref={forwardedRef}
+        data-testid="bezier-legacy-stack"
+        {...rest}
+      >
+        {Children.map(children, (element, index) => {
+          if (!isValidElement(element)) {
+            return element
+          }
 
           /**
            * NOTE: this assumes that this element is `StackItem`.
@@ -69,16 +73,18 @@ export const LegacyStack = forwardRef<HTMLElement, LegacyStackProps>(function St
            * it could forward the prop to `StackItem` deeper in the tree,
            * or implement a custom behavior compatible with `StackItemProps`.
            */
-          if (firstValidElementIdx.current === -1) { firstValidElementIdx.current = index }
+          if (firstValidElementIdx.current === -1) {
+            firstValidElementIdx.current = index
+          }
           return cloneElement(element, {
             ...element.props,
             direction,
             marginBefore:
-                element.props.marginBefore ??
-                (index > firstValidElementIdx.current ? spacing : 0),
+              element.props.marginBefore ??
+              (index > firstValidElementIdx.current ? spacing : 0),
           })
-        },
-      ) }
-    </Comp>
-  )
-})
+        })}
+      </Comp>
+    )
+  }
+)

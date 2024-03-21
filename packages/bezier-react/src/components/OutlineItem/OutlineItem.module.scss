@@ -13,7 +13,9 @@
 
   border-radius: var(--radius-6);
 
-  transition: background-color var(--transition-s), color var(--transition-s);
+  transition:
+    background-color var(--transition-s),
+    color var(--transition-s);
 
   &:where(.active) {
     color: var(--bgtxt-blue-normal);

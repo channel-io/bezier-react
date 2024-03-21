@@ -22,6 +22,6 @@ interface TokenProviderOwnProps {
   themeName: ThemeName
 }
 
-export interface TokenProviderProps extends
-  ChildrenProps,
-  TokenProviderOwnProps {}
+export interface TokenProviderProps
+  extends ChildrenProps,
+    TokenProviderOwnProps {}

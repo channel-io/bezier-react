@@ -7,9 +7,9 @@ import {
 
 import { type TokenProviderProps } from '~/src/components/TokenProvider'
 
-export interface ThemeProviderProps extends
-  Pick<TokenProviderProps, 'themeName'>,
-  Omit<BezierComponentProps, 'children'>,
-  ChildrenProps<React.ReactElement> {}
+export interface ThemeProviderProps
+  extends Pick<TokenProviderProps, 'themeName'>,
+    Omit<BezierComponentProps, 'children'>,
+    ChildrenProps<React.ReactElement> {}
 
 export type FixedThemeProviderProps = Omit<ThemeProviderProps, 'themeName'>

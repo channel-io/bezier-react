@@ -1,7 +1,8 @@
 import { type ToastType } from './Toast.types'
 import ToastService from './ToastService'
 
-const UUID_V4_REGEX = /^[0-9A-F]{8}-[0-9A-F]{4}-[4][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
+const UUID_V4_REGEX =
+  /^[0-9A-F]{8}-[0-9A-F]{4}-[4][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
 
 function createToasts(size: number): ToastType[] {
   return Array.from(Array(size)).map((_, i) => ({
@@ -67,7 +68,9 @@ describe('ToastService', () => {
         ...targetToast,
         content: 'New Toast',
       }
-      expect(toastService.update(updateTargetToast.id, updateTargetToast.content)).toBe(updateTargetToast.id)
+      expect(
+        toastService.update(updateTargetToast.id, updateTargetToast.content)
+      ).toBe(updateTargetToast.id)
       expect(toastService.getToasts()[targetIndex]).toStrictEqual({
         ...updateTargetToast,
         version: 1,

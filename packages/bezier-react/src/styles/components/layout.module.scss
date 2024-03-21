@@ -39,12 +39,14 @@
   height: var(--b-height);
   min-height: var(--b-min-height);
   max-height: var(--b-max-height);
-  padding: var(--b-padding-top) var(--b-padding-right) var(--b-padding-bottom) var(--b-padding-left);
+  padding: var(--b-padding-top) var(--b-padding-right) var(--b-padding-bottom)
+    var(--b-padding-left);
 
   background-color: var(--b-background-color);
   border-color: var(--b-border-color);
   border-style: solid;
-  border-width: var(--b-border-top-width) var(--b-border-right-width) var(--b-border-bottom-width) var(--b-border-left-width);
+  border-width: var(--b-border-top-width) var(--b-border-right-width)
+    var(--b-border-bottom-width) var(--b-border-left-width);
 
   &:where(.position-relative) {
     position: relative;

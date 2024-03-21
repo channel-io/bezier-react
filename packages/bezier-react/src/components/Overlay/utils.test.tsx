@@ -1,7 +1,4 @@
-import {
-  getOverlayPosition,
-  getOverlayTranslation,
-} from './utils'
+import { getOverlayPosition, getOverlayTranslation } from './utils'
 
 const MOCK_CONTAINER_RECT = {
   containerWidth: 500,
@@ -30,7 +27,11 @@ describe('positionUtils Test >', () => {
       const targetRect = {
         ...MOCK_TARGET_RECT,
       }
-      const { top, left } = getOverlayPosition({ containerRect, targetRect, show: true })
+      const { top, left } = getOverlayPosition({
+        containerRect,
+        targetRect,
+        show: true,
+      })
 
       expect(top).toBe(98)
       expect(left).toBe(68)
@@ -45,7 +46,11 @@ describe('positionUtils Test >', () => {
       const targetRect = {
         ...MOCK_TARGET_RECT,
       }
-      const { top, left } = getOverlayPosition({ containerRect, targetRect, show: true })
+      const { top, left } = getOverlayPosition({
+        containerRect,
+        targetRect,
+        show: true,
+      })
       expect(top).toBe(48)
       expect(left).toBe(48)
     })

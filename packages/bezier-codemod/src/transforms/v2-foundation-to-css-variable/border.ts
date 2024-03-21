@@ -9,7 +9,9 @@ import {
 
 import { getArrowFunctionsWithOneArgument } from '../../utils/function.js'
 
-const getBorderStyle = (borderCallExpression: CallExpression<ts.CallExpression>) => {
+const getBorderStyle = (
+  borderCallExpression: CallExpression<ts.CallExpression>
+) => {
   const width = borderCallExpression
     .getArguments()
     .find(Node.isNumericLiteral)
@@ -22,25 +24,28 @@ const getBorderStyle = (borderCallExpression: CallExpression<ts.CallExpression>)
     ?.getText()
     .slice(1, -1)
 
-  if (!color || !width) { return null }
+  if (!color || !width) {
+    return null
+  }
 
   const borderDirection = borderCallExpression
     .getArguments()
     .find(Node.isObjectLiteralExpression)
 
-  const hasBorders = ['top', 'right', 'bottom', 'left']
-    .map((value) => borderDirection?.getProperty(value)?.getText() !== `${value}: false`)
+  const hasBorders = ['top', 'right', 'bottom', 'left'].map(
+    (value) =>
+      borderDirection?.getProperty(value)?.getText() !== `${value}: false`
+  )
 
   let borderStyle = ''
 
-  if (hasBorders.every((v => v))) {
+  if (hasBorders.every((v) => v)) {
     borderStyle = `border: ${width}px solid var(--${color});\n`
   } else {
     borderStyle += `border-color: var(--${color});\n`
     borderStyle += `  border-style: ${hasBorders
       .map((hasBorder) => (hasBorder ? 'solid' : 'none'))
-      .join(' ')
-    };\n`
+      .join(' ')};\n`
     borderStyle += `  border-width: ${width}px;\n`
   }
 
@@ -56,22 +61,28 @@ const replaceBorder = (sourceFile: SourceFile) => {
         .getDescendantsOfKind(SyntaxKind.CallExpression)
         .find(hasBorderFoundation)
 
-      if (!borderCallExpression) { return }
+      if (!borderCallExpression) {
+        return
+      }
 
       const borderArrowFunctions = getArrowFunctionsWithOneArgument(
-        node, hasBorderFoundation,
+        node,
+        hasBorderFoundation
       )
       const borderStyle = getBorderStyle(borderCallExpression)
 
-      if (!borderStyle) { return }
+      if (!borderStyle) {
+        return
+      }
 
       borderArrowFunctions
         .map((v) => v.getText())
         .forEach((text) => {
           node.replaceWithText(
-            node.getText()
+            node
+              .getText()
               .replace(`\${${text}};\n` ?? '', borderStyle)
-              .replace(`\${${text}}\n` ?? '', borderStyle),
+              .replace(`\${${text}}\n` ?? '', borderStyle)
           )
         })
     }

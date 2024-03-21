@@ -1,7 +1,4 @@
-import {
-  dirname,
-  join,
-} from 'path'
+import { dirname, join } from 'path'
 
 import { type StorybookConfig } from '@storybook/react-webpack5'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
@@ -11,10 +8,7 @@ function getAbsolutePath(value: string) {
 }
 
 export default {
-  stories: [
-    '../src/**/*.mdx',
-    '../src/**/*.stories.tsx',
-  ],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.tsx'],
 
   addons: [
     getAbsolutePath('@storybook/addon-controls'),
@@ -38,11 +32,13 @@ export default {
      * `react-docgen-typescript-plugin` introduces significant overhead
      * when HMR is enabled, so we enable it only in production.
      */
-    reactDocgen: process.env.NODE_ENV === 'production' && 'react-docgen-typescript',
+    reactDocgen:
+      process.env.NODE_ENV === 'production' && 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldRemoveUndefinedFromOptional: true,
       shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+      propFilter: (prop) =>
+        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
 
@@ -54,17 +50,14 @@ export default {
         ...(config?.resolve?.plugins ?? []),
         new TsconfigPathsPlugin({}),
       ],
-      extensions: [
-        ...(config.resolve?.extensions ?? []),
-        '.ts',
-        '.tsx',
-      ],
+      extensions: [...(config.resolve?.extensions ?? []), '.ts', '.tsx'],
     }
 
     config.module = {
       ...config.module,
       rules: [
-        ...(config.module?.rules ?? []), {
+        ...(config.module?.rules ?? []),
+        {
           test: /\.(ts|tsx)$/,
           loader: require.resolve('babel-loader'),
           options: {

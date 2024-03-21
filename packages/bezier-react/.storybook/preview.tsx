@@ -11,16 +11,16 @@ import '~/src/styles/index.scss'
 
 const features = [SmoothCornersFeature]
 
-const Content = forwardRef<HTMLDivElement, React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>>(({
-  children,
-  ...rest
-}, forwardedRef) => (
+const Content = forwardRef<
+  HTMLDivElement,
+  React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>
+>(({ children, ...rest }, forwardedRef) => (
   <div
     className={styles.Story}
     ref={forwardedRef}
     {...rest}
   >
-    { children }
+    {children}
   </div>
 ))
 
@@ -33,24 +33,26 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [(Story) => (
-    <AppProvider
-      themeName="light"
-      features={features}
-    >
-      <div className={styles.Wrapper}>
-        <Content>
-          <Story />
-        </Content>
-
-        <InvertedThemeProvider>
+  decorators: [
+    (Story) => (
+      <AppProvider
+        themeName="light"
+        features={features}
+      >
+        <div className={styles.Wrapper}>
           <Content>
             <Story />
           </Content>
-        </InvertedThemeProvider>
-      </div>
-    </AppProvider>
-  )],
+
+          <InvertedThemeProvider>
+            <Content>
+              <Story />
+            </Content>
+          </InvertedThemeProvider>
+        </div>
+      </AppProvider>
+    ),
+  ],
 }
 
 export default preview

@@ -1,7 +1,4 @@
-import {
-  has,
-  isEqual,
-} from '~/src/utils/object'
+import { has, isEqual } from '~/src/utils/object'
 
 describe('objectUtils', () => {
   describe('has', () => {

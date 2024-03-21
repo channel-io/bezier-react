@@ -9,7 +9,13 @@ import {
 } from 'ts-morph'
 
 const iconSourceNamePattern = /^(?!LegacyIcon$)[A-Z][a-zA-Z]*Icon$/
-const iconModuleNames = ['isBezierIcon', 'createBezierIcon', 'IconSource', 'BezierIcon', 'IconName']
+const iconModuleNames = [
+  'isBezierIcon',
+  'createBezierIcon',
+  'IconSource',
+  'BezierIcon',
+  'IconName',
+]
 
 interface CollectResult {
   bezierReactImportDeclaration: ImportDeclaration
@@ -25,7 +31,9 @@ const collect = (sourceFile: SourceFile): CollectResult | null => {
       return false
     }
 
-    const isBezierReactImport = statement.getModuleSpecifier().getLiteralValue() === '@channel.io/bezier-react'
+    const isBezierReactImport =
+      statement.getModuleSpecifier().getLiteralValue() ===
+      '@channel.io/bezier-react'
 
     if (isBezierReactImport) {
       bezierReactImportDeclaration = statement
@@ -46,60 +54,67 @@ const collect = (sourceFile: SourceFile): CollectResult | null => {
   }
 }
 
-const migrate = (sourceFile: SourceFile) => ({
-  bezierReactImportDeclaration,
-  bezierReactImportDeclarationIndex,
-}: CollectResult): true | void => {
-  const bezierReactNamedImports = bezierReactImportDeclaration.getNamedImports()
+const migrate =
+  (sourceFile: SourceFile) =>
+  ({
+    bezierReactImportDeclaration,
+    bezierReactImportDeclarationIndex,
+  }: CollectResult): true | void => {
+    const bezierReactNamedImports =
+      bezierReactImportDeclaration.getNamedImports()
 
-  const bezierReactImportsToRemove: ImportSpecifier[] = []
-  const bezierIconsImportsToInsert: OptionalKind<ImportSpecifierStructure>[] = []
+    const bezierReactImportsToRemove: ImportSpecifier[] = []
+    const bezierIconsImportsToInsert: OptionalKind<ImportSpecifierStructure>[] =
+      []
 
-  bezierReactNamedImports.forEach((namedImport) => {
-    const importName = namedImport.getName()
-    const isImportNameToRemove = iconSourceNamePattern.test(importName) || iconModuleNames.includes(importName)
+    bezierReactNamedImports.forEach((namedImport) => {
+      const importName = namedImport.getName()
+      const isImportNameToRemove =
+        iconSourceNamePattern.test(importName) ||
+        iconModuleNames.includes(importName)
 
-    if (isImportNameToRemove) {
-      bezierReactImportsToRemove.push(namedImport)
+      if (isImportNameToRemove) {
+        bezierReactImportsToRemove.push(namedImport)
+      }
+    })
+
+    bezierReactImportsToRemove.forEach((namedImport) => {
+      bezierIconsImportsToInsert.push(namedImport.getStructure())
+      namedImport.remove()
+    })
+
+    const isEmptyBezierReactImport =
+      bezierReactImportDeclaration.getNamedImports().length === 0
+
+    if (isEmptyBezierReactImport) {
+      bezierReactImportDeclaration.remove()
     }
-  })
 
-  bezierReactImportsToRemove.forEach((namedImport) => {
-    bezierIconsImportsToInsert.push(namedImport.getStructure())
-    namedImport.remove()
-  })
+    if (bezierIconsImportsToInsert.length > 0) {
+      sourceFile.insertImportDeclaration(bezierReactImportDeclarationIndex, {
+        namedImports: bezierIconsImportsToInsert,
+        moduleSpecifier: '@channel.io/bezier-icons',
+      })
 
-  const isEmptyBezierReactImport = bezierReactImportDeclaration.getNamedImports().length === 0
+      /**
+       * FIXME: Needs to be modified to communicate with the App
+       * and display it on the screen via react.
+       */
+      // eslint-disable-next-line no-console
+      console.debug(`- ${sourceFile.getBaseName()}`)
 
-  if (isEmptyBezierReactImport) {
-    bezierReactImportDeclaration.remove()
+      sourceFile.formatText({
+        semicolons: ts.SemicolonPreference.Remove,
+      })
+
+      /**
+       * NOTE: Transformed successfully.
+       */
+      return true
+    }
+
+    return undefined
   }
-
-  if (bezierIconsImportsToInsert.length > 0) {
-    sourceFile.insertImportDeclaration(bezierReactImportDeclarationIndex, {
-      namedImports: bezierIconsImportsToInsert,
-      moduleSpecifier: '@channel.io/bezier-icons',
-    })
-
-    /**
-     * FIXME: Needs to be modified to communicate with the App
-     * and display it on the screen via react.
-     */
-    // eslint-disable-next-line no-console
-    console.debug(`- ${sourceFile.getBaseName()}`)
-
-    sourceFile.formatText({
-      semicolons: ts.SemicolonPreference.Remove,
-    })
-
-    /**
-     * NOTE: Transformed successfully.
-     */
-    return true
-  }
-
-  return undefined
-}
 
 function iconsToBezierIcons(sourceFile: SourceFile): true | void {
   const collectResult = collect(sourceFile)

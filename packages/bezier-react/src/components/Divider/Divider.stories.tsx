@@ -1,10 +1,6 @@
 import React from 'react'
 
-import type {
-  Meta,
-  StoryFn,
-  StoryObj,
-} from '@storybook/react'
+import type { Meta, StoryFn, StoryObj } from '@storybook/react'
 
 import { ListItem } from '~/src/components/ListItem'
 import { Stack } from '~/src/components/Stack'
@@ -73,7 +69,10 @@ const CompositionTemplate: StoryFn<DividerProps> = ({
     height={200}
   >
     <ListItem content="Channel" />
-    <Divider orientation={orientation} {...rest} />
+    <Divider
+      orientation={orientation}
+      {...rest}
+    />
     <ListItem content="Bezier" />
   </Stack>
 )

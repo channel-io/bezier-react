@@ -1,9 +1,6 @@
 import React from 'react'
 
-import {
-  AllIcon,
-  InfoIcon,
-} from '@channel.io/bezier-icons'
+import { AllIcon, InfoIcon } from '@channel.io/bezier-icons'
 import { fireEvent } from '@testing-library/react'
 
 import { render } from '~/src/utils/test'
@@ -22,7 +19,13 @@ describe('Banner', () => {
     }
   })
 
-  const renderBanner = (otherProps?: Partial<BannerProps>) => render(<Banner {...props} {...otherProps} />)
+  const renderBanner = (otherProps?: Partial<BannerProps>) =>
+    render(
+      <Banner
+        {...props}
+        {...otherProps}
+      />
+    )
 
   it('does not render link if hasLink = false', () => {
     const { queryByRole } = renderBanner()
@@ -30,7 +33,11 @@ describe('Banner', () => {
   })
 
   it('renders link if hasLink = true', () => {
-    const { queryByRole } = renderBanner({ hasLink: true, linkText: 'foo', linkTo: 'https://google.com' })
+    const { queryByRole } = renderBanner({
+      hasLink: true,
+      linkText: 'foo',
+      linkTo: 'https://google.com',
+    })
     expect(queryByRole('link')).toBeInTheDocument()
   })
 

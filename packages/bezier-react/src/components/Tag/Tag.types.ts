@@ -20,10 +20,10 @@ interface TagOwnProps {
   onDelete?: React.MouseEventHandler
 }
 
-export interface TagProps extends
-  Omit<BezierComponentProps<'div'>, keyof ColorProps>,
-  ChildrenProps,
-  SizeProps<TagBadgeSize>,
-  VariantProps<TagBadgeVariant>,
-  ColorProps,
-  TagOwnProps {}
+export interface TagProps
+  extends Omit<BezierComponentProps<'div'>, keyof ColorProps>,
+    ChildrenProps,
+    SizeProps<TagBadgeSize>,
+    VariantProps<TagBadgeVariant>,
+    ColorProps,
+    TagOwnProps {}

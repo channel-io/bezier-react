@@ -1,7 +1,4 @@
-export {
-  FeatureProvider,
-  useFeatureFlag,
-} from './FeatureProvider'
+export { FeatureProvider, useFeatureFlag } from './FeatureProvider'
 export {
   type Feature,
   type FeatureFlag,

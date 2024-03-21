@@ -1,18 +1,13 @@
-import type {
-  BezierComponentProps,
-  SizeProps,
-} from '~/src/types/props'
+import type { BezierComponentProps, SizeProps } from '~/src/types/props'
 
 export type StatusType =
-| 'online'
-| 'offline'
-| 'lock'
-| 'online-crescent'
-| 'offline-crescent'
+  | 'online'
+  | 'offline'
+  | 'lock'
+  | 'online-crescent'
+  | 'offline-crescent'
 
-export type StatusSize =
-| 'm'
-| 'l'
+export type StatusSize = 'm' | 'l'
 
 interface StatusOwnProps {
   /**
@@ -21,7 +16,7 @@ interface StatusOwnProps {
   type: StatusType
 }
 
-export interface StatusProps extends
-  BezierComponentProps<'div'>,
-  SizeProps<StatusSize>,
-  StatusOwnProps {}
+export interface StatusProps
+  extends BezierComponentProps<'div'>,
+    SizeProps<StatusSize>,
+    StatusOwnProps {}

@@ -3,38 +3,45 @@
  */
 module.exports = {
   root: true,
-  plugins: [
-    'jsdoc',
-    'sort-export-all',
-    'storybook',
-  ],
-  extends: [
-    'bezier',
-    'plugin:jsdoc/recommended-typescript-error',
-  ],
+  plugins: ['jsdoc', 'sort-export-all', 'storybook'],
+  extends: ['bezier', 'plugin:jsdoc/recommended-typescript-error'],
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: './tsconfig.eslint.json',
   },
   rules: {
-    'import/order': ['error', {
-      'newlines-between': 'always',
-      alphabetize: { order: 'asc' },
-      groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-      pathGroupsExcludedImportTypes: ['react', 'react-dom'],
-      pathGroups: [{
-        pattern: '{react,react-dom}',
-        group: 'external',
-        position: 'before',
-      }, {
-        pattern: '~/src/{alpha-components,components}/**',
-        group: 'internal',
-        position: 'after',
-      }, {
-        pattern: './**/*.scss',
-        group: 'sibling',
-        position: 'after',
-      }] },
+    'import/order': [
+      'error',
+      {
+        'newlines-between': 'always',
+        alphabetize: { order: 'asc' },
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+        ],
+        pathGroupsExcludedImportTypes: ['react', 'react-dom'],
+        pathGroups: [
+          {
+            pattern: '{react,react-dom}',
+            group: 'external',
+            position: 'before',
+          },
+          {
+            pattern: '~/src/{alpha-components,components}/**',
+            group: 'internal',
+            position: 'after',
+          },
+          {
+            pattern: './**/*.scss',
+            group: 'sibling',
+            position: 'after',
+          },
+        ],
+      },
     ],
     'sort-export-all/sort-export-all': 'error',
     'jsdoc/require-jsdoc': 'off',
@@ -44,8 +51,11 @@ module.exports = {
     /**
      * NOTE: To allow @type tag in configuration files
      */
-    'jsdoc/check-tag-names': ['error', {
-      typed: false,
-    }],
+    'jsdoc/check-tag-names': [
+      'error',
+      {
+        typed: false,
+      },
+    ],
   },
 }

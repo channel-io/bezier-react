@@ -6,9 +6,7 @@ import type {
   SizeProps,
 } from '~/src/types/props'
 
-export type SwitchSize =
-| 'm'
-| 's'
+export type SwitchSize = 'm' | 's'
 
 interface SwitchOwnProps extends Omit<SwitchPrimitiveProps, 'asChild'> {
   /**
@@ -51,8 +49,8 @@ interface SwitchOwnProps extends Omit<SwitchPrimitiveProps, 'asChild'> {
   value?: string
 }
 
-export interface SwitchProps extends
-  Omit<BezierComponentProps<'button'>, keyof SwitchOwnProps>,
-  SizeProps<SwitchSize>,
-  FormFieldProps,
-  SwitchOwnProps {}
+export interface SwitchProps
+  extends Omit<BezierComponentProps<'button'>, keyof SwitchOwnProps>,
+    SizeProps<SwitchSize>,
+    FormFieldProps,
+    SwitchOwnProps {}

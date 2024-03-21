@@ -19,9 +19,9 @@ interface BadgeOwnProps {
   icon?: BezierIcon
 }
 
-export interface BadgeProps extends
-  BezierComponentProps<'div'>,
-  ChildrenProps,
-  SizeProps<TagBadgeSize>,
-  VariantProps<TagBadgeVariant>,
-  BadgeOwnProps {}
+export interface BadgeProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    SizeProps<TagBadgeSize>,
+    VariantProps<TagBadgeVariant>,
+    BadgeOwnProps {}

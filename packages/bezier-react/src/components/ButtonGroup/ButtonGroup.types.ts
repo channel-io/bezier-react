@@ -14,9 +14,9 @@ interface ButtonGroupOwnProps {
   withoutSpacing?: boolean
 }
 
-export interface ButtonGroupProps extends
-  Omit<BezierComponentProps<'div'>, 'role'>,
-  ChildrenProps,
-  MarginProps,
-  Pick<StackProps, 'justify'>,
-  ButtonGroupOwnProps {}
+export interface ButtonGroupProps
+  extends Omit<BezierComponentProps<'div'>, 'role'>,
+    ChildrenProps,
+    MarginProps,
+    Pick<StackProps, 'justify'>,
+    ButtonGroupOwnProps {}

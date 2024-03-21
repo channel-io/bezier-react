@@ -1,13 +1,7 @@
 /* eslint-disable no-restricted-imports */
-import React, {
-  useEffect,
-  useState,
-} from 'react'
+import React, { useEffect, useState } from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-} from '@storybook/react'
+import { type Meta, type StoryFn } from '@storybook/react'
 
 import { Button } from '~/src/components/Button'
 import { ButtonGroup } from '~/src/components/ButtonGroup'
@@ -27,8 +21,8 @@ import {
 } from './ConfirmModal.types'
 
 type ConfirmModalCompositionProps = ConfirmModalProps &
-ConfirmModalContentProps &
-ConfirmModalHeaderProps
+  ConfirmModalContentProps &
+  ConfirmModalHeaderProps
 
 function ConfirmModalComposition({
   show: showProp = false,
@@ -43,7 +37,7 @@ function ConfirmModalComposition({
     function watchShowToChange() {
       setShow(showProp)
     },
-    [showProp],
+    [showProp]
   )
 
   return (
@@ -66,7 +60,7 @@ function ConfirmModalComposition({
         />
 
         <ConfirmModalFooter
-          rightContent={(
+          rightContent={
             <ButtonGroup>
               <ConfirmModalClose>
                 <Button
@@ -83,7 +77,7 @@ function ConfirmModalComposition({
                 />
               </ConfirmModalClose>
             </ButtonGroup>
-          )}
+          }
         />
       </ConfirmModalContent>
     </ConfirmModal>

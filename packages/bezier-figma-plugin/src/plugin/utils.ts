@@ -1,4 +1,5 @@
-export const isComponentNode = (node: SceneNode): node is ComponentNode => node.type === 'COMPONENT'
+export const isComponentNode = (node: SceneNode): node is ComponentNode =>
+  node.type === 'COMPONENT'
 
 export const findAllComponentNode = (rootNode: SceneNode) => {
   const result: ComponentNode[] = []

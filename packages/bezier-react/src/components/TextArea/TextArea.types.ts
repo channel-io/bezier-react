@@ -1,17 +1,8 @@
 import { type TextareaAutosizeProps } from 'react-textarea-autosize'
 
-import type {
-  BezierComponentProps,
-  FormFieldProps,
-} from '~/src/types/props'
+import type { BezierComponentProps, FormFieldProps } from '~/src/types/props'
 
-export type TextAreaHeight =
-| 3
-| 6
-| 10
-| 16
-| 24
-| 36
+export type TextAreaHeight = 3 | 6 | 10 | 16 | 24 | 36
 
 interface TextAreaOwnProps {
   minRows?: TextAreaHeight
@@ -19,8 +10,8 @@ interface TextAreaOwnProps {
   autoFocus?: boolean
 }
 
-export interface TextAreaProps extends
-  Omit<BezierComponentProps<'textarea'>, 'style'>,
-  Pick<TextareaAutosizeProps, 'style'>,
-  FormFieldProps,
-  TextAreaOwnProps {}
+export interface TextAreaProps
+  extends Omit<BezierComponentProps<'textarea'>, 'style'>,
+    Pick<TextareaAutosizeProps, 'style'>,
+    FormFieldProps,
+    TextAreaOwnProps {}

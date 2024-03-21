@@ -26,17 +26,26 @@ interface CallbackRefProps {
   ref: (node: HTMLElement | null) => void
 }
 
-type PropsGetter<ExtraReturnType = {}> = <Props = {}>(props: Props) => Props & Partial<IdentifierProps> & ExtraReturnType
+type PropsGetter<ExtraReturnType = {}> = <Props = {}>(
+  props: Props
+) => Props & Partial<IdentifierProps> & ExtraReturnType
 
-export type GroupPropsGetter = PropsGetter<CallbackRefProps & FormControlAriaProps>
+export type GroupPropsGetter = PropsGetter<
+  CallbackRefProps & FormControlAriaProps
+>
 
 export type LabelPropsGetter = PropsGetter<FormControlClassNameProps>
 
-export type FieldPropsGetter = PropsGetter<Omit<FormControlAriaProps, 'aria-labelledby'>>
+export type FieldPropsGetter = PropsGetter<
+  Omit<FormControlAriaProps, 'aria-labelledby'>
+>
 
-export type HelperTextPropsGetter = PropsGetter<FormControlClassNameProps & CallbackRefProps & {
-  visible: boolean
-}>
+export type HelperTextPropsGetter = PropsGetter<
+  FormControlClassNameProps &
+    CallbackRefProps & {
+      visible: boolean
+    }
+>
 
 export type ErrorMessagePropsGetter = HelperTextPropsGetter
 
@@ -52,14 +61,14 @@ export interface FormControlContextValue extends FormFieldProps {
   getErrorMessageProps: ErrorMessagePropsGetter
 }
 
-export interface ContainerProps extends
-  BezierComponentProps<'div'>,
-  ChildrenProps,
-  Pick<FormControlOwnProps, 'labelPosition'> {}
+export interface ContainerProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    Pick<FormControlOwnProps, 'labelPosition'> {}
 
-export interface FormControlProps extends
-  BezierComponentProps<'div'>,
-  ChildrenProps,
-  FormFieldProps,
-  SizeProps<FormFieldSize>,
-  FormControlOwnProps {}
+export interface FormControlProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    FormFieldProps,
+    SizeProps<FormFieldSize>,
+    FormControlOwnProps {}

@@ -38,8 +38,8 @@ interface CheckboxOwnProps<Checked extends CheckedState> {
   onCheckedChange?: (checked: Checked) => void
 }
 
-export interface CheckboxProps<Checked extends CheckedState> extends
-  Omit<BezierComponentProps<'button'>, keyof CheckboxOwnProps<Checked>>,
-  ChildrenProps,
-  FormFieldProps,
-  CheckboxOwnProps<Checked> {}
+export interface CheckboxProps<Checked extends CheckedState>
+  extends Omit<BezierComponentProps<'button'>, keyof CheckboxOwnProps<Checked>>,
+    ChildrenProps,
+    FormFieldProps,
+    CheckboxOwnProps<Checked> {}

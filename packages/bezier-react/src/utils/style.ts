@@ -1,8 +1,5 @@
 import { type FlattenAllToken } from '~/src/types/tokens'
-import {
-  isNil,
-  isString,
-} from '~/src/utils/type'
+import { isNil, isString } from '~/src/utils/type'
 
 /**
  * Convert a number to a string with `px` suffix.
@@ -38,13 +35,11 @@ export function cssDimension<Value extends number | string>(value?: Value) {
 /**
  * Generates a CSS variable string with the given property name.
  */
-export function cssVar<
-  PropertyName extends string | undefined,
->(propertyName: PropertyName) {
+export function cssVar<PropertyName extends string | undefined>(
+  propertyName: PropertyName
+) {
   /* eslint-disable no-nested-ternary */
-  return !isNil(propertyName)
-    ? `var(--${propertyName})` as const
-    : undefined
+  return !isNil(propertyName) ? (`var(--${propertyName})` as const) : undefined
   /* eslint-enable no-nested-ternary */
 }
 
@@ -52,9 +47,9 @@ export function cssVar<
  * Wrapper function for `cssVar` to handle tokens specifically.
  * It generates a CSS variable string for a given design token.
  */
-export function tokenCssVar<
-  PropertyName extends FlattenAllToken | undefined,
->(propertyName: PropertyName) {
+export function tokenCssVar<PropertyName extends FlattenAllToken | undefined>(
+  propertyName: PropertyName
+) {
   return cssVar(propertyName)
 }
 

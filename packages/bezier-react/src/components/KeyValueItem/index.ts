@@ -1,7 +1,4 @@
-export {
-  KeyValueItem,
-  KeyValueMultiLineItem,
-} from './KeyValueItem'
+export { KeyValueItem, KeyValueMultiLineItem } from './KeyValueItem'
 export type {
   KeyValueItemAction,
   KeyValueItemProps,

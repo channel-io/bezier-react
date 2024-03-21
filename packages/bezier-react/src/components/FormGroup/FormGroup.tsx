@@ -10,38 +10,34 @@ import { type FormGroupProps } from './FormGroup.types'
 
 const FORM_GROUP_TEST_ID = 'bezier-form-group'
 
-export const FormGroup = forwardRef<HTMLDivElement, FormGroupProps>(function FormGroup({
-  spacing = 6,
-  direction = 'vertical',
-  role = 'group',
-  children,
-  ...rest
-}, forwardedRef) {
-  const contextValue = useFormControlContext()
+export const FormGroup = forwardRef<HTMLDivElement, FormGroupProps>(
+  function FormGroup(
+    { spacing = 6, direction = 'vertical', role = 'group', children, ...rest },
+    forwardedRef
+  ) {
+    const contextValue = useFormControlContext()
 
-  const {
-    ref,
-    ...ownProps
-  } = contextValue?.getGroupProps(rest) ?? {
-    ref: noop,
-    ...rest,
+    const { ref, ...ownProps } = contextValue?.getGroupProps(rest) ?? {
+      ref: noop,
+      ...rest,
+    }
+
+    const mergedRef = useMergeRefs(ref, forwardedRef)
+
+    return (
+      <Stack
+        data-testid={FORM_GROUP_TEST_ID}
+        ref={mergedRef}
+        wrap
+        justify="start"
+        align="stretch"
+        spacing={spacing}
+        direction={direction}
+        role={role}
+        {...ownProps}
+      >
+        {children}
+      </Stack>
+    )
   }
-
-  const mergedRef = useMergeRefs(ref, forwardedRef)
-
-  return (
-    <Stack
-      data-testid={FORM_GROUP_TEST_ID}
-      ref={mergedRef}
-      wrap
-      justify="start"
-      align="stretch"
-      spacing={spacing}
-      direction={direction}
-      role={role}
-      {...ownProps}
-    >
-      { children }
-    </Stack>
-  )
-})
+)

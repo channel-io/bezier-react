@@ -8,15 +8,15 @@ import type {
 import { type StatusType } from '~/src/components/Status'
 
 export type AvatarSize =
-| '20'
-| '24'
-| '30'
-| '36'
-| '42'
-| '48'
-| '72'
-| '90'
-| '120'
+  | '20'
+  | '24'
+  | '30'
+  | '36'
+  | '42'
+  | '48'
+  | '72'
+  | '90'
+  | '120'
 
 interface AvatarOwnProps {
   /**
@@ -54,9 +54,9 @@ interface AvatarOwnProps {
   smoothCorners?: boolean
 }
 
-export interface AvatarProps extends
-  BezierComponentProps<'div'>,
-  SizeProps<AvatarSize>,
-  DisableProps,
-  ChildrenProps,
-  AvatarOwnProps {}
+export interface AvatarProps
+  extends BezierComponentProps<'div'>,
+    SizeProps<AvatarSize>,
+    DisableProps,
+    ChildrenProps,
+    AvatarOwnProps {}

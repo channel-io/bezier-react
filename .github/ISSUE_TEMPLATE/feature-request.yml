@@ -1,40 +1,40 @@
-name: "Feature request"
-description: "Suggest addition of new features (components, etc.) or improvement of existing features"
-labels: ["status:need triage"]
+name: 'Feature request'
+description: 'Suggest addition of new features (components, etc.) or improvement of existing features'
+labels: ['status:need triage']
 body:
-  - type: "markdown"
+  - type: 'markdown'
     attributes:
       value: |
         🙏 Please write the issue title in English!
 
         Thank you for writing the issue.
         Before you write, please search for the duplicate issue first!
-  - type: "textarea"
-    id: "description"
+  - type: 'textarea'
+    id: 'description'
     attributes:
-      label: "Description"
-      description: "Please summarize the suggestion within 1 to 2 lines."
+      label: 'Description'
+      description: 'Please summarize the suggestion within 1 to 2 lines.'
     validations:
       required: true
-  - type: "textarea"
-    id: "reason"
+  - type: 'textarea'
+    id: 'reason'
     attributes:
-      label: "Reasons for suggestion"
+      label: 'Reasons for suggestion'
       description: |
         Please explain in detail why this feature should be added/improved.
     validations:
       required: true
-  - type: "textarea"
-    id: "proposed-solution"
+  - type: 'textarea'
+    id: 'proposed-solution'
     attributes:
-      label: "Proposed solution"
+      label: 'Proposed solution'
       description: |
         Please write the specific ways to improve the problem. It's even better if you add code snippets.
     validations:
       required: true
-  - type: "textarea"
-    id: "reference"
+  - type: 'textarea'
+    id: 'reference'
     attributes:
-      label: "References"
+      label: 'References'
       description: |
         Please write anything(such as an external link) for reference.

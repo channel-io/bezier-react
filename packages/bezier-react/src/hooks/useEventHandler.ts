@@ -1,15 +1,8 @@
-import {
-  useEffect,
-  useMemo,
-  useRef,
-} from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 
 import { noop } from '~/src/utils/function'
 import { isEqual } from '~/src/utils/object'
-import {
-  isFunction,
-  isNil,
-} from '~/src/utils/type'
+import { isFunction, isNil } from '~/src/utils/type'
 
 interface HandlerOptionsProps {
   capture?: boolean
@@ -22,7 +15,7 @@ function useEventHandler<K extends keyof HTMLElementEventMap>(
   eventName: K,
   handler: (event: HTMLElementEventMap[K]) => any,
   condition: boolean = true,
-  options: boolean | HandlerOptionsProps = false,
+  options: boolean | HandlerOptionsProps = false
 ) {
   const prevOptionsRef = useRef<boolean | HandlerOptionsProps>()
 
@@ -44,13 +37,7 @@ function useEventHandler<K extends keyof HTMLElementEventMap>(
     }
 
     return noop
-  }, [
-    condition,
-    element,
-    eventName,
-    nextOptions,
-    handler,
-  ])
+  }, [condition, element, eventName, nextOptions, handler])
 
   return null
 }

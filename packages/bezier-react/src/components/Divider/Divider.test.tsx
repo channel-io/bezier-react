@@ -2,16 +2,14 @@ import React from 'react'
 
 import { render } from '~/src/utils/test'
 
-import {
-  DIVIDER_TEST_ID,
-  Divider,
-} from './Divider'
+import { DIVIDER_TEST_ID, Divider } from './Divider'
 import { type DividerProps } from './Divider.types'
 
 import styles from './Divider.module.scss'
 
 describe('Divider', () => {
-  const renderDivider = (props?: Partial<DividerProps>) => render(<Divider {...props} />)
+  const renderDivider = (props?: Partial<DividerProps>) =>
+    render(<Divider {...props} />)
 
   describe('no props specified', () => {
     it('should render default Divider', () => {

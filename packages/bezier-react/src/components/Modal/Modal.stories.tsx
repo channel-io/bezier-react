@@ -1,13 +1,6 @@
-import React, {
-  useEffect,
-  useState,
-} from 'react'
+import React, { useEffect, useState } from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { Button } from '~/src/components/Button'
 import { ButtonGroup } from '~/src/components/ButtonGroup'
@@ -51,7 +44,7 @@ function ModalComposition({
     function watchShowToChange() {
       setShow(showProp)
     },
-    [showProp],
+    [showProp]
   )
 
   return (
@@ -82,19 +75,19 @@ function ModalComposition({
           <FormControl labelPosition="left">
             <FormLabel help="Lorem Ipsum">Name</FormLabel>
             <Select text="Lorem Ipsum">
-              { Array.from({ length: 20 }).map((_, index) => (
+              {Array.from({ length: 20 }).map((_, index) => (
                 <ListItem
                   // eslint-disable-next-line react/no-array-index-key
                   key={index}
                   content={`Item ${index}`}
                 />
-              )) }
+              ))}
             </Select>
           </FormControl>
         </ModalBody>
 
         <ModalFooter
-          rightContent={(
+          rightContent={
             <ButtonGroup>
               <ModalClose>
                 <Button
@@ -111,7 +104,7 @@ function ModalComposition({
                 />
               </ModalClose>
             </ButtonGroup>
-          )}
+          }
         />
       </ModalContent>
     </Modal>

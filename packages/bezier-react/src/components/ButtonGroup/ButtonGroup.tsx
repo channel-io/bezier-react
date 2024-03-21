@@ -14,22 +14,22 @@ import type { ButtonGroupProps } from './ButtonGroup.types'
  * </ButtonGroup>
  * ```
  */
-export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(function ButtonGroup({
-  children,
-  justify = 'center',
-  withoutSpacing = false,
-  ...props
-}, forwardedRef) {
-  return (
-    <Stack
-      {...props}
-      role="group"
-      ref={forwardedRef}
-      direction="horizontal"
-      spacing={withoutSpacing ? 0 : 6}
-      justify={justify}
-    >
-      { children }
-    </Stack>
-  )
-})
+export const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>(
+  function ButtonGroup(
+    { children, justify = 'center', withoutSpacing = false, ...props },
+    forwardedRef
+  ) {
+    return (
+      <Stack
+        {...props}
+        role="group"
+        ref={forwardedRef}
+        direction="horizontal"
+        spacing={withoutSpacing ? 0 : 6}
+        justify={justify}
+      >
+        {children}
+      </Stack>
+    )
+  }
+)

@@ -35,24 +35,22 @@ export function AppProvider({
   features = [],
   window = defaultWindow,
 }: AppProviderProps) {
-  useEffect(function updateRootThemeDataAttribute() {
-    const rootElement = window.document.documentElement
-    // TODO: Change data attribute constant to import from bezier-tokens
-    rootElement.setAttribute('data-bezier-theme', themeName)
-    return function cleanup() {
-      rootElement.removeAttribute('data-bezier-theme')
-    }
-  }, [
-    window,
-    themeName,
-  ])
+  useEffect(
+    function updateRootThemeDataAttribute() {
+      const rootElement = window.document.documentElement
+      // TODO: Change data attribute constant to import from bezier-tokens
+      rootElement.setAttribute('data-bezier-theme', themeName)
+      return function cleanup() {
+        rootElement.removeAttribute('data-bezier-theme')
+      }
+    },
+    [window, themeName]
+  )
 
   return (
     <WindowProvider window={window}>
       <FeatureProvider features={features}>
-        <TokenProvider themeName={themeName}>
-          { children }
-        </TokenProvider>
+        <TokenProvider themeName={themeName}>{children}</TokenProvider>
       </FeatureProvider>
     </WindowProvider>
   )

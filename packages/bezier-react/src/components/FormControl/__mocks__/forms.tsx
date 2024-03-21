@@ -20,38 +20,36 @@ export const MOCK_CONSTS = {
 
 export const SingleFieldForm = (
   <>
-    <FormLabel>{ MOCK_CONSTS.LABEL_TEXT }</FormLabel>
+    <FormLabel>{MOCK_CONSTS.LABEL_TEXT}</FormLabel>
     <TextField />
-    <FormHelperText>{ MOCK_CONSTS.HELPER_TEXT_TEXT }</FormHelperText>
-    <FormErrorMessage>{ MOCK_CONSTS.ERROR_MESSAGE_TEXT }</FormErrorMessage>
+    <FormHelperText>{MOCK_CONSTS.HELPER_TEXT_TEXT}</FormHelperText>
+    <FormErrorMessage>{MOCK_CONSTS.ERROR_MESSAGE_TEXT}</FormErrorMessage>
   </>
 )
 
 export const SingleFieldFormWithLabelFont = (
   <>
-    <FormLabel typo='18'>{ MOCK_CONSTS.LABEL_TEXT }</FormLabel>
+    <FormLabel typo="18">{MOCK_CONSTS.LABEL_TEXT}</FormLabel>
     <TextField />
-    <FormHelperText>{ MOCK_CONSTS.HELPER_TEXT_TEXT }</FormHelperText>
-    <FormErrorMessage>{ MOCK_CONSTS.ERROR_MESSAGE_TEXT }</FormErrorMessage>
+    <FormHelperText>{MOCK_CONSTS.HELPER_TEXT_TEXT}</FormHelperText>
+    <FormErrorMessage>{MOCK_CONSTS.ERROR_MESSAGE_TEXT}</FormErrorMessage>
   </>
 )
 
 export const MultipleFieldForm = (
   <>
-    <FormLabel>
-      { MOCK_CONSTS.LABEL_TEXT }
-    </FormLabel>
+    <FormLabel>{MOCK_CONSTS.LABEL_TEXT}</FormLabel>
     <FormGroup>
       <FormControl>
-        <FormLabel>{ MOCK_CONSTS.FIRST_FIELD_LABEL_TEXT }</FormLabel>
+        <FormLabel>{MOCK_CONSTS.FIRST_FIELD_LABEL_TEXT}</FormLabel>
         <TextField />
       </FormControl>
       <FormControl hasError>
-        <FormLabel>{ MOCK_CONSTS.SECOND_FIELD_LABEL_TEXT }</FormLabel>
+        <FormLabel>{MOCK_CONSTS.SECOND_FIELD_LABEL_TEXT}</FormLabel>
         <TextField />
       </FormControl>
     </FormGroup>
-    <FormHelperText>{ MOCK_CONSTS.HELPER_TEXT_TEXT }</FormHelperText>
-    <FormErrorMessage>{ MOCK_CONSTS.ERROR_MESSAGE_TEXT }</FormErrorMessage>
+    <FormHelperText>{MOCK_CONSTS.HELPER_TEXT_TEXT}</FormHelperText>
+    <FormErrorMessage>{MOCK_CONSTS.ERROR_MESSAGE_TEXT}</FormErrorMessage>
   </>
 )

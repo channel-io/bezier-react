@@ -4,10 +4,7 @@ import { isInaccessible } from '@testing-library/react'
 
 import { render } from '~/src/utils/test'
 
-import {
-  FORM_CONTROL_TEST_ID,
-  FormControl,
-} from './FormControl'
+import { FORM_CONTROL_TEST_ID, FormControl } from './FormControl'
 import { type FormControlProps } from './FormControl.types'
 import {
   MOCK_CONSTS,
@@ -29,11 +26,15 @@ describe('FormControl >', () => {
     }
   })
 
-  const renderComponent = ({ children, ...rest }: FormControlProps) => render(
-    <FormControl {...props} {...rest}>
-      { children }
-    </FormControl>,
-  )
+  const renderComponent = ({ children, ...rest }: FormControlProps) =>
+    render(
+      <FormControl
+        {...props}
+        {...rest}
+      >
+        {children}
+      </FormControl>
+    )
 
   describe('Snapshot >', () => {
     it('With single field', () => {
@@ -213,7 +214,10 @@ describe('FormControl >', () => {
       const groupHelperTextNode = getByText(MOCK_CONSTS.HELPER_TEXT_TEXT)
 
       expect(groupNode).toHaveAttribute('aria-labelledby', groupLabelNode.id)
-      expect(groupNode).toHaveAttribute('aria-describedby', groupHelperTextNode.id)
+      expect(groupNode).toHaveAttribute(
+        'aria-describedby',
+        groupHelperTextNode.id
+      )
     })
 
     it('The FormGroup component should have the correct attribute when the "hasError" prop is true', () => {
@@ -227,7 +231,10 @@ describe('FormControl >', () => {
       const groupErrorMessageNode = getByText(MOCK_CONSTS.ERROR_MESSAGE_TEXT)
 
       expect(groupNode).toHaveAttribute('aria-labelledby', groupLabelNode.id)
-      expect(groupNode).toHaveAttribute('aria-describedby', groupErrorMessageNode.id)
+      expect(groupNode).toHaveAttribute(
+        'aria-describedby',
+        groupErrorMessageNode.id
+      )
     })
 
     it('The Field(Input) component inside FormGroup should have a unique ID that is not FormGroup ID', () => {
@@ -236,8 +243,12 @@ describe('FormControl >', () => {
       })
 
       const groupNodeId = getByRole('group').id
-      const firstInnerInputNodeId = getByLabelText(MOCK_CONSTS.FIRST_FIELD_LABEL_TEXT).id
-      const secondInnerInputNodeId = getByLabelText(MOCK_CONSTS.SECOND_FIELD_LABEL_TEXT).id
+      const firstInnerInputNodeId = getByLabelText(
+        MOCK_CONSTS.FIRST_FIELD_LABEL_TEXT
+      ).id
+      const secondInnerInputNodeId = getByLabelText(
+        MOCK_CONSTS.SECOND_FIELD_LABEL_TEXT
+      ).id
 
       expect(firstInnerInputNodeId).not.toEqual(groupNodeId)
       expect(secondInnerInputNodeId).not.toEqual(groupNodeId)

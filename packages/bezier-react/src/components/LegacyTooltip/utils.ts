@@ -131,7 +131,7 @@ export function getTooltipStyle({
     case 'top-center':
     case 'bottom-center':
       translateX = -50
-      left += (containerWidth / 2)
+      left += containerWidth / 2
       break
     case 'top-right':
     case 'bottom-right':
@@ -141,7 +141,7 @@ export function getTooltipStyle({
     case 'right-center':
     case 'left-center':
       translateY = -50
-      top += (containerHeight / 2)
+      top += containerHeight / 2
       break
     case 'right-bottom':
     case 'left-bottom':
@@ -158,8 +158,8 @@ export function getTooltipStyle({
       paddingLeft: offsetLeft,
     }
   } else {
-    top += (offsetTop - offsetBottom)
-    left += (offsetLeft - offsetRight)
+    top += offsetTop - offsetBottom
+    left += offsetLeft - offsetRight
   }
 
   return {

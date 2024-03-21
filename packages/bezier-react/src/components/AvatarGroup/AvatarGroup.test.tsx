@@ -4,10 +4,7 @@ import { render } from '~/src/utils/test'
 
 import { Avatar } from '~/src/components/Avatar'
 
-import {
-  AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID,
-  AvatarGroup,
-} from './AvatarGroup'
+import { AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID, AvatarGroup } from './AvatarGroup'
 import { type AvatarGroupProps } from './AvatarGroup.types'
 import MOCK_AVATAR_LIST from './__mocks__/avatarList'
 
@@ -27,18 +24,22 @@ describe('AvatarGroup', () => {
     jest.restoreAllMocks()
   })
 
-  const renderComponent = (otherProps?: AvatarGroupProps) => render(
-    <AvatarGroup {...props} {...otherProps}>
-      { MOCK_AVATAR_LIST.map(({ id, avatarUrl, name }) => (
-        <Avatar
-          key={id}
-          avatarUrl={avatarUrl}
-          fallbackUrl={mockFallbackUrl}
-          name={name}
-        />
-      )) }
-    </AvatarGroup>,
-  )
+  const renderComponent = (otherProps?: AvatarGroupProps) =>
+    render(
+      <AvatarGroup
+        {...props}
+        {...otherProps}
+      >
+        {MOCK_AVATAR_LIST.map(({ id, avatarUrl, name }) => (
+          <Avatar
+            key={id}
+            avatarUrl={avatarUrl}
+            fallbackUrl={mockFallbackUrl}
+            name={name}
+          />
+        ))}
+      </AvatarGroup>
+    )
 
   describe('Ellipsis type - Icon', () => {
     beforeEach(() => {

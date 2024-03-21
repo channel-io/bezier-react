@@ -26,7 +26,7 @@ interface DividerOwnProps {
   withoutIndent?: boolean
 }
 
-export interface DividerProps extends
-  BezierComponentProps<'div'>,
-  SeparatorPrimitiveProps,
-  DividerOwnProps {}
+export interface DividerProps
+  extends BezierComponentProps<'div'>,
+    SeparatorPrimitiveProps,
+    DividerOwnProps {}

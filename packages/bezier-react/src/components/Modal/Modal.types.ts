@@ -5,9 +5,7 @@ import {
 } from '~/src/types/props'
 import { type ZIndex } from '~/src/types/tokens'
 
-export type ModalTitleSize =
-| 'l'
-| 'm'
+export type ModalTitleSize = 'l' | 'm'
 
 type BoxSide = 'top' | 'right' | 'bottom' | 'left'
 
@@ -111,35 +109,31 @@ interface ModalHeaderOwnProps {
 
 type ModalFooterSideContent = React.ReactNode
 
-interface ModalFooterOwnProps extends
-  SideContentProps<ModalFooterSideContent, ModalFooterSideContent> {}
+interface ModalFooterOwnProps
+  extends SideContentProps<ModalFooterSideContent, ModalFooterSideContent> {}
 
-export interface ModalProps extends
-  ChildrenProps,
-  ModalOwnProps {}
+export interface ModalProps extends ChildrenProps, ModalOwnProps {}
 
-export interface ModalContentProps extends
-  BezierComponentProps<'div'>,
-  ChildrenProps,
-  ModalContentOwnProps {}
+export interface ModalContentProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    ModalContentOwnProps {}
 
-export interface ModalHeaderProps extends
-  Omit<BezierComponentProps<'header'>, keyof ModalHeaderOwnProps>,
-  ModalHeaderOwnProps {}
+export interface ModalHeaderProps
+  extends Omit<BezierComponentProps<'header'>, keyof ModalHeaderOwnProps>,
+    ModalHeaderOwnProps {}
 
-export interface ModalBodyProps extends
-  BezierComponentProps<'div'>,
-  ChildrenProps {}
+export interface ModalBodyProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps {}
 
-export interface ModalFooterProps extends
-  BezierComponentProps<'footer'>,
-  ModalFooterOwnProps {}
+export interface ModalFooterProps
+  extends BezierComponentProps<'footer'>,
+    ModalFooterOwnProps {}
 
-export interface ModalTriggerProps extends
-  ChildrenProps<React.ReactElement> {}
+export interface ModalTriggerProps extends ChildrenProps<React.ReactElement> {}
 
-export interface ModalCloseProps extends
-  ChildrenProps<React.ReactElement> {}
+export interface ModalCloseProps extends ChildrenProps<React.ReactElement> {}
 
-export interface ModalContentPropsContextValue extends
-  Required<Pick<ModalContentOwnProps, 'showCloseIcon'>> {}
+export interface ModalContentPropsContextValue
+  extends Required<Pick<ModalContentOwnProps, 'showCloseIcon'>> {}

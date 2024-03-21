@@ -1,9 +1,6 @@
 import React from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-} from '@storybook/react'
+import { type Meta, type StoryFn } from '@storybook/react'
 
 import { Switch } from './Switch'
 import { type SwitchProps } from './Switch.types'

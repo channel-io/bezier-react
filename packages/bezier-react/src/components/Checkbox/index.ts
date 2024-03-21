@@ -1,5 +1,2 @@
 export { Checkbox } from './Checkbox'
-export type {
-  CheckboxProps,
-  CheckedState,
-} from './Checkbox.types'
+export type { CheckboxProps, CheckedState } from './Checkbox.types'

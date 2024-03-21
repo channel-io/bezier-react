@@ -19,36 +19,40 @@ export const DIVIDER_TEST_ID = 'bezier-divider'
  * />
  * ```
  */
-export const Divider = forwardRef<HTMLDivElement, DividerProps>(({
-  orientation = 'horizontal',
-  decorative,
-  withoutSideIndent = false,
-  withoutParallelIndent = false,
-  withoutIndent = false,
-  style,
-  className,
-  ...rest
-}, forwardedRef,
-) => (
-  <SeparatorPrimitive.Root
-    asChild
-    orientation={orientation}
-    decorative={decorative}
-  >
-    <div
-      ref={forwardedRef}
-      style={style}
-      className={classNames(
-        styles.Divider,
-        styles.variables,
-        styles[orientation],
-        withoutIndent && styles['without-indent'],
-        withoutParallelIndent && styles['without-parallel-indent'],
-        withoutSideIndent && styles['without-side-indent'],
-        className,
-      )}
-      data-testid={DIVIDER_TEST_ID}
-      {...rest}
-    />
-  </SeparatorPrimitive.Root>
-))
+export const Divider = forwardRef<HTMLDivElement, DividerProps>(
+  (
+    {
+      orientation = 'horizontal',
+      decorative,
+      withoutSideIndent = false,
+      withoutParallelIndent = false,
+      withoutIndent = false,
+      style,
+      className,
+      ...rest
+    },
+    forwardedRef
+  ) => (
+    <SeparatorPrimitive.Root
+      asChild
+      orientation={orientation}
+      decorative={decorative}
+    >
+      <div
+        ref={forwardedRef}
+        style={style}
+        className={classNames(
+          styles.Divider,
+          styles.variables,
+          styles[orientation],
+          withoutIndent && styles['without-indent'],
+          withoutParallelIndent && styles['without-parallel-indent'],
+          withoutSideIndent && styles['without-side-indent'],
+          className
+        )}
+        data-testid={DIVIDER_TEST_ID}
+        {...rest}
+      />
+    </SeparatorPrimitive.Root>
+  )
+)

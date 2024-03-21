@@ -19,10 +19,7 @@ import {
   TriangleDownIcon,
   VideocamIcon,
 } from '@channel.io/bezier-icons'
-import {
-  type Meta,
-  type StoryObj,
-} from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 
 import { Avatar } from '~/src/components/Avatar'
 import { Box } from '~/src/components/Box'
@@ -77,7 +74,10 @@ export const WithCustomComponent: StoryObj<ButtonProps> = {
   args: {
     text: 'Set Manager',
     leftContent: (
-      <Avatar name="test" avatarUrl="https://source.unsplash.com/random" />
+      <Avatar
+        name="test"
+        avatarUrl="https://source.unsplash.com/random"
+      />
     ),
     size: 'm',
     styleVariant: 'primary',
@@ -87,7 +87,10 @@ export const WithCustomComponent: StoryObj<ButtonProps> = {
 
 export const OverviewCTA: StoryObj<{}> = {
   render: () => (
-    <LegacyHStack justify="center" spacing={6}>
+    <LegacyHStack
+      justify="center"
+      spacing={6}
+    >
       <LegacyStackItem>
         <Button
           disabled
@@ -188,7 +191,10 @@ export const UsageCTA2: StoryObj<{}> = {
 
 export const UsageWebLinks: StoryObj<{}> = {
   render: () => (
-    <LegacyHStack justify="center" spacing={6}>
+    <LegacyHStack
+      justify="center"
+      spacing={6}
+    >
       <LegacyStackItem>
         <Button
           leftContent={OpenInNewIcon}
@@ -232,21 +238,21 @@ export const UsageComposite: StoryObj<{}> = {
               <SectionLabel
                 leftContent={PeopleIcon}
                 content="태그 ∙ 2"
-                rightContent={(
+                rightContent={
                   <Button
                     size="xs"
                     leftContent={ChevronDownIcon}
                     styleVariant="tertiary"
                     colorVariant="monochrome-light"
                   />
-                )}
+                }
               />
             </LegacyStackItem>
             <LegacyStackItem>
               <ListItem
                 leftContent={TagIcon}
                 content="KR/Product"
-                rightContent={(
+                rightContent={
                   <LegacyHStack>
                     <LegacyStackItem>
                       <Button
@@ -265,14 +271,14 @@ export const UsageComposite: StoryObj<{}> = {
                       />
                     </LegacyStackItem>
                   </LegacyHStack>
-                )}
+                }
               />
             </LegacyStackItem>
             <LegacyStackItem>
               <ListItem
                 leftContent={TagIcon}
                 content="KR/Design"
-                rightContent={(
+                rightContent={
                   <LegacyHStack>
                     <LegacyStackItem>
                       <Button
@@ -291,7 +297,7 @@ export const UsageComposite: StoryObj<{}> = {
                       />
                     </LegacyStackItem>
                   </LegacyHStack>
-                )}
+                }
               />
             </LegacyStackItem>
           </LegacyVStack>
@@ -341,26 +347,29 @@ export const UsageVariousContentsCustom: StoryObj<{}> = {
     <LegacyHStack justify="center">
       <LegacyStackItem>
         <Button
-          leftContent={(
+          leftContent={
             <Avatar
               name="channel"
               avatarUrl="https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png"
               status="online"
             />
-          )}
+          }
           text="New messages"
-          rightContent={(
+          rightContent={
             <Center
               style={{ borderRadius: '50%' }}
               width={20}
               height={20}
               backgroundColor="bgtxt-red-dark"
             >
-              <Text typo="13" color="txt-white-normal">
+              <Text
+                typo="13"
+                color="txt-white-normal"
+              >
                 1
               </Text>
             </Center>
-          )}
+          }
           colorVariant="red"
           styleVariant="floating"
         />
@@ -409,7 +418,10 @@ const OpenDropdownButton = () => {
   const [target, setTarget] = useState<HTMLElement | null>(null)
   const [container, setContainer] = useState<HTMLElement | null>(null)
   return (
-    <div style={{ position: 'relative' }} ref={setContainer}>
+    <div
+      style={{ position: 'relative' }}
+      ref={setContainer}
+    >
       <Button
         ref={setTarget}
         text="Select"
@@ -433,7 +445,12 @@ const OpenDropdownButton = () => {
           elevation="2"
           borderRadius="8"
         >
-          <Text typo="13" marginLeft={6}>Dropdown content</Text>
+          <Text
+            typo="13"
+            marginLeft={6}
+          >
+            Dropdown content
+          </Text>
         </Box>
       </Overlay>
     </div>
@@ -454,9 +471,15 @@ export const UsageDropdown: StoryObj<{}> = {
 
 export const VariantsColor: StoryObj<{}> = {
   render: () => (
-    <LegacyVStack spacing={16} align="start">
+    <LegacyVStack
+      spacing={16}
+      align="start"
+    >
       <LegacyStackItem>
-        <LegacyHStack spacing={24} align="center">
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
           <LegacyStackItem size={80}>
             <Text typo="13">Blue</Text>
           </LegacyStackItem>
@@ -470,7 +493,10 @@ export const VariantsColor: StoryObj<{}> = {
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={24} align="center">
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
           <LegacyStackItem size={80}>
             <Text typo="13">Red</Text>
           </LegacyStackItem>
@@ -484,7 +510,10 @@ export const VariantsColor: StoryObj<{}> = {
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={24} align="center">
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
           <LegacyStackItem size={80}>
             <Text typo="13">Green</Text>
           </LegacyStackItem>
@@ -498,7 +527,10 @@ export const VariantsColor: StoryObj<{}> = {
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={24} align="center">
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
           <LegacyStackItem size={80}>
             <Text typo="13">Cobalt</Text>
           </LegacyStackItem>
@@ -512,7 +544,10 @@ export const VariantsColor: StoryObj<{}> = {
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={24} align="center">
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
           <LegacyStackItem size={80}>
             <Text typo="13">Orange</Text>
           </LegacyStackItem>
@@ -526,7 +561,10 @@ export const VariantsColor: StoryObj<{}> = {
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={24} align="center">
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
           <LegacyStackItem size={80}>
             <Text typo="13">Pink</Text>
           </LegacyStackItem>
@@ -540,7 +578,10 @@ export const VariantsColor: StoryObj<{}> = {
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={24} align="center">
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
           <LegacyStackItem size={80}>
             <Text typo="13">Purple</Text>
           </LegacyStackItem>
@@ -554,7 +595,10 @@ export const VariantsColor: StoryObj<{}> = {
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={24} align="center">
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
           <LegacyStackItem size={80}>
             <Text typo="13">Monochrome Dark</Text>
           </LegacyStackItem>
@@ -568,7 +612,10 @@ export const VariantsColor: StoryObj<{}> = {
         </LegacyHStack>
       </LegacyStackItem>
       <LegacyStackItem>
-        <LegacyHStack spacing={24} align="center">
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
           <LegacyStackItem size={80}>
             <Text typo="13">Monochrome Light</Text>
           </LegacyStackItem>
@@ -597,12 +644,18 @@ const buttonStyleVariants: ButtonStyleVariant[] = [
 
 export const VariantsStyle: StoryObj<{}> = {
   render: () => (
-    <LegacyVStack spacing={16} align="start">
-      { buttonStyleVariants.map((styleVariant) => (
+    <LegacyVStack
+      spacing={16}
+      align="start"
+    >
+      {buttonStyleVariants.map((styleVariant) => (
         <LegacyStackItem key={styleVariant}>
-          <LegacyHStack spacing={24} align="center">
+          <LegacyHStack
+            spacing={24}
+            align="center"
+          >
             <LegacyStackItem size={80}>
-              <Text typo="13">{ styleVariant }</Text>
+              <Text typo="13">{styleVariant}</Text>
             </LegacyStackItem>
             <LegacyStackItem>
               <Button
@@ -615,7 +668,7 @@ export const VariantsStyle: StoryObj<{}> = {
             </LegacyStackItem>
           </LegacyHStack>
         </LegacyStackItem>
-      )) }
+      ))}
     </LegacyVStack>
   ),
 
@@ -626,12 +679,18 @@ const buttonSizes: ButtonSize[] = ['xs', 's', 'm', 'l', 'xl']
 
 export const VariantsSize: StoryObj<{}> = {
   render: () => (
-    <LegacyVStack spacing={16} align="start">
-      { buttonSizes.map((size) => (
+    <LegacyVStack
+      spacing={16}
+      align="start"
+    >
+      {buttonSizes.map((size) => (
         <LegacyStackItem key={size}>
-          <LegacyHStack spacing={24} align="center">
+          <LegacyHStack
+            spacing={24}
+            align="center"
+          >
             <LegacyStackItem size={80}>
-              <Text typo="13">{ size }</Text>
+              <Text typo="13">{size}</Text>
             </LegacyStackItem>
             <LegacyStackItem>
               <Button
@@ -644,7 +703,7 @@ export const VariantsSize: StoryObj<{}> = {
             </LegacyStackItem>
           </LegacyHStack>
         </LegacyStackItem>
-      )) }
+      ))}
     </LegacyVStack>
   ),
 

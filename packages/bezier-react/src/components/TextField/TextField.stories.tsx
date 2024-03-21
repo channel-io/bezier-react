@@ -1,20 +1,10 @@
-import React, {
-  useCallback,
-  useRef,
-  useState,
-} from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 
 import { SearchIcon } from '@channel.io/bezier-icons'
-import {
-  type Meta,
-  type StoryFn,
-} from '@storybook/react'
+import { type Meta, type StoryFn } from '@storybook/react'
 
 import { TextField } from './TextField'
-import {
-  type TextFieldProps,
-  type TextFieldRef,
-} from './TextField.types'
+import { type TextFieldProps, type TextFieldRef } from './TextField.types'
 
 const meta: Meta<typeof TextField> = {
   component: TextField,
@@ -29,7 +19,7 @@ const PrimaryTemplate: StoryFn<TextFieldProps> = ({ ...otherProps }) => {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setValue(event.currentTarget.value)
     },
-    [],
+    []
   )
 
   const handleClickLeftIcon = useCallback(() => {

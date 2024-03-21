@@ -2,10 +2,7 @@ import React from 'react'
 
 import { render } from '~/src/utils/test'
 
-import {
-  LIST_ITEM_TEST_ID,
-  ListItem,
-} from './ListItem'
+import { LIST_ITEM_TEST_ID, ListItem } from './ListItem'
 import { type ListItemProps } from './ListItem.types'
 
 describe('ListItem', () => {
@@ -18,9 +15,13 @@ describe('ListItem', () => {
     }
   })
 
-  const renderComponent = (optionProps?: Partial<ListItemProps>) => render(
-    <ListItem {...props} {...optionProps} />,
-  )
+  const renderComponent = (optionProps?: Partial<ListItemProps>) =>
+    render(
+      <ListItem
+        {...props}
+        {...optionProps}
+      />
+    )
 
   it('should have "a tag" related attributes  when "href" prop is string', () => {
     const { getByTestId } = renderComponent({ href: 'https://naver.com' })

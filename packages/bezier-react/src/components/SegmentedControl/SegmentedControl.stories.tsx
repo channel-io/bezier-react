@@ -1,9 +1,6 @@
 import React from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-} from '@storybook/react'
+import { type Meta, type StoryFn } from '@storybook/react'
 
 import { Text } from '~/src/components/Text'
 
@@ -53,48 +50,47 @@ const VALUES = [
   },
 ]
 
-const Template: StoryFn<
-SegmentedControlProps<'radiogroup', string>
-> = ({ type, ...rest }) => (
+const Template: StoryFn<SegmentedControlProps<'radiogroup', string>> = ({
+  type,
+  ...rest
+}) => (
   <div style={{ width: 500 }}>
     <SegmentedControl
       type={type}
       {...rest}
     >
-      { type === 'radiogroup'
-        ? VALUES.map(({ value, label }) => (
+      {type === 'radiogroup' ? (
+        VALUES.map(({ value, label }) => (
           <SegmentedControlItem
             key={value}
             value={value}
           >
-            { label }
+            {label}
           </SegmentedControlItem>
         ))
-        : (
-          <>
-            <SegmentedControlTabList>
-              { VALUES.map(({ value, label }) => (
-                <SegmentedControlItem
-                  key={value}
-                  value={value}
-                >
-                  { label }
-                </SegmentedControlItem>
-              )) }
-            </SegmentedControlTabList>
-
-            { VALUES.map(({ value, label }) => (
-              <SegmentedControlTabContent
+      ) : (
+        <>
+          <SegmentedControlTabList>
+            {VALUES.map(({ value, label }) => (
+              <SegmentedControlItem
                 key={value}
                 value={value}
               >
-                <Text color="txt-black-darkest">
-                  { label }
-                </Text>
-              </SegmentedControlTabContent>
-            )) }
-          </>
-        ) }
+                {label}
+              </SegmentedControlItem>
+            ))}
+          </SegmentedControlTabList>
+
+          {VALUES.map(({ value, label }) => (
+            <SegmentedControlTabContent
+              key={value}
+              value={value}
+            >
+              <Text color="txt-black-darkest">{label}</Text>
+            </SegmentedControlTabContent>
+          ))}
+        </>
+      )}
     </SegmentedControl>
   </div>
 )
