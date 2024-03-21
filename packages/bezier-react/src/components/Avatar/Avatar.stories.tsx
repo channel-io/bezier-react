@@ -6,7 +6,7 @@ import { Avatar } from './Avatar'
 import type { AvatarProps } from './Avatar.types'
 
 const MOCK_AVATAR_URL =
-  'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png'
+  'https://cf.channel.io/thumb/200x200/pub-file/1/65fc43ee585607b276f6/tmp-3329819395'
 
 const meta: Meta<typeof Avatar> = {
   component: Avatar,

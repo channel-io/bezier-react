@@ -26,7 +26,7 @@ export const Primary: StoryObj<CheckableAvatarProps> = {
 
   args: {
     avatarUrl:
-      'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png',
+      'https://cf.channel.io/thumb/200x200/pub-file/1/65fc43ee585607b276f6/tmp-3329819395',
     name: 'Channel',
     size: '24',
     checked: undefined,
