@@ -1,19 +1,9 @@
 import React from 'react'
 
-import {
-  BadgeIcon,
-  EditIcon,
-} from '@channel.io/bezier-icons'
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
+import { BadgeIcon, EditIcon } from '@channel.io/bezier-icons'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
-import {
-  KeyValueItem,
-  KeyValueMultiLineItem,
-} from './KeyValueItem'
+import { KeyValueItem, KeyValueMultiLineItem } from './KeyValueItem'
 import { type KeyValueItemProps } from './KeyValueItem.types'
 
 const meta: Meta<typeof KeyValueItem> = {

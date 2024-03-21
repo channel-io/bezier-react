@@ -1,18 +1,11 @@
-import React, {
-  type CSSProperties,
-  forwardRef,
-  memo,
-} from 'react'
+import React, { type CSSProperties, forwardRef, memo } from 'react'
 
 import { CancelSmallIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import { type SemanticColor } from '~/src/types/tokens'
 import { cssVar } from '~/src/utils/style'
-import {
-  isEmpty,
-  isNil,
-} from '~/src/utils/type'
+import { isEmpty, isNil } from '~/src/utils/type'
 
 import { Icon } from '~/src/components/Icon'
 import {
@@ -42,59 +35,67 @@ export const TAG_DELETE_TEST_ID = 'bezier-tag-delete-icon'
  * </Tag>
  * ```
  */
-export const Tag = memo(forwardRef<HTMLDivElement, TagProps>(function Tag({
-  size = 'm',
-  variant = 'default',
-  color: givenColor,
-  children,
-  className,
-  onDelete,
-  style,
-  ...rest
-}, forwardedRef) {
-  const bgColor: SemanticColor = givenColor || getProperTagBadgeBgColor(variant)
+export const Tag = memo(
+  forwardRef<HTMLDivElement, TagProps>(function Tag(
+    {
+      size = 'm',
+      variant = 'default',
+      color: givenColor,
+      children,
+      className,
+      onDelete,
+      style,
+      ...rest
+    },
+    forwardedRef
+  ) {
+    const bgColor: SemanticColor =
+      givenColor || getProperTagBadgeBgColor(variant)
 
-  return (
-    <div
-      style={{
-        '--b-tag-badge-background-color': cssVar(bgColor),
-        ...style,
-      } as CSSProperties}
-      className={classNames(
-        styles.Tag,
-        commonStyles.TagBadge,
-        commonStyles[`size-${size}`],
-        className,
-      )}
-      ref={forwardedRef}
-      data-testid={TAG_TEST_ID}
-      {...rest}
-    >
-      { !isEmpty(children) && (
-        <Text
-          typo={getProperTagBadgeTypo(size)}
-          marginHorizontal={2}
-          color="txt-black-darkest"
-        >
-          { children }
-        </Text>
-      ) }
+    return (
+      <div
+        style={
+          {
+            '--b-tag-badge-background-color': cssVar(bgColor),
+            ...style,
+          } as CSSProperties
+        }
+        className={classNames(
+          styles.Tag,
+          commonStyles.TagBadge,
+          commonStyles[`size-${size}`],
+          className
+        )}
+        ref={forwardedRef}
+        data-testid={TAG_TEST_ID}
+        {...rest}
+      >
+        {!isEmpty(children) && (
+          <Text
+            typo={getProperTagBadgeTypo(size)}
+            marginHorizontal={2}
+            color="txt-black-darkest"
+          >
+            {children}
+          </Text>
+        )}
 
-      { !isNil(onDelete) && (
-        <Icon
-          role="button"
-          tabIndex={0}
-          className={styles.CloseIcon}
-          source={CancelSmallIcon}
-          size="xs"
-          color="txt-black-darker"
-          onClick={(e) => {
-            e.stopPropagation()
-            onDelete(e)
-          }}
-          data-testid={TAG_DELETE_TEST_ID}
-        />
-      ) }
-    </div>
-  )
-}))
+        {!isNil(onDelete) && (
+          <Icon
+            role="button"
+            tabIndex={0}
+            className={styles.CloseIcon}
+            source={CancelSmallIcon}
+            size="xs"
+            color="txt-black-darker"
+            onClick={(e) => {
+              e.stopPropagation()
+              onDelete(e)
+            }}
+            data-testid={TAG_DELETE_TEST_ID}
+          />
+        )}
+      </div>
+    )
+  })
+)

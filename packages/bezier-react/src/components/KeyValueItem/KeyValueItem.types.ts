@@ -2,10 +2,7 @@ import type React from 'react'
 
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
-import type {
-  BezierComponentProps,
-  ChildrenProps,
-} from '~/src/types/props'
+import type { BezierComponentProps, ChildrenProps } from '~/src/types/props'
 
 export type ItemActionWithIcon = {
   icon: BezierIcon
@@ -23,7 +20,7 @@ interface KeyValueItemOwnProps {
   onClickValue?: React.MouseEventHandler<HTMLDivElement>
 }
 
-export interface KeyValueItemProps extends
-  BezierComponentProps<'div'>,
-  ChildrenProps,
-  KeyValueItemOwnProps {}
+export interface KeyValueItemProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    KeyValueItemOwnProps {}

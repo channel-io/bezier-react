@@ -91,10 +91,26 @@
   position: absolute;
   top: 50%;
   left: var(--b-segmented-control-padding);
-  transform: translateX(calc((var(--b-segmented-control-item-index) * 100%) + var(--b-segmented-control-item-index) * var(--b-divider-thickness))) translateY(-50%);
+  transform: translateX(
+      calc(
+        (var(--b-segmented-control-item-index) * 100%) +
+          var(--b-segmented-control-item-index) * var(--b-divider-thickness)
+      )
+    )
+    translateY(-50%);
 
-  width: calc((100% - ((var(--b-segmented-control-item-count) - 1) * var(--b-divider-thickness)) - (var(--b-segmented-control-padding) * 2)) / var(--b-segmented-control-item-count));
-  height: calc(var(--b-segmented-control-height) - (var(--b-segmented-control-padding) * 2));
+  width: calc(
+    (
+        100% -
+          (
+            (var(--b-segmented-control-item-count) - 1) *
+              var(--b-divider-thickness)
+          ) - (var(--b-segmented-control-padding) * 2)
+      ) / var(--b-segmented-control-item-count)
+  );
+  height: calc(
+    var(--b-segmented-control-height) - (var(--b-segmented-control-padding) * 2)
+  );
 
   background-color: var(--bg-white-high);
   box-shadow: var(--ev-1);

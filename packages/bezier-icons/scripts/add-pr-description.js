@@ -8,15 +8,18 @@ const pullNumber = process.argv[3]
 
 const updateDescription = async (description) => {
   try {
-    const res = await fetch(`https://api.github.com/repos/channel-io/bezier-react/pulls/${pullNumber}`, {
-      method: 'PATCH',
-      headers: {
-        'X-GitHub-Api-Version': '2022-11-28',
-        Authorization: `Bearer ${githubToken}`,
-        Accept: 'application/vnd.github+json',
-      },
-      body: JSON.stringify({ body: description }),
-    })
+    const res = await fetch(
+      `https://api.github.com/repos/channel-io/bezier-react/pulls/${pullNumber}`,
+      {
+        method: 'PATCH',
+        headers: {
+          'X-GitHub-Api-Version': '2022-11-28',
+          Authorization: `Bearer ${githubToken}`,
+          Accept: 'application/vnd.github+json',
+        },
+        body: JSON.stringify({ body: description }),
+      }
+    )
 
     if (!res.ok) {
       console.log('Description: ', description)
@@ -27,7 +30,9 @@ const updateDescription = async (description) => {
   }
 }
 
-exec('git log -1 --name-status --pretty="format:"', async (_undefined, stdout) => {
-  updateDescription(getDescription(stdout))
-})
-
+exec(
+  'git log -1 --name-status --pretty="format:"',
+  async (_undefined, stdout) => {
+    updateDescription(getDescription(stdout))
+  }
+)

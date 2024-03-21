@@ -10,7 +10,8 @@ import styles from './Text.module.scss'
 const TEXT = 'Hello, Channel!'
 
 describe('Text', () => {
-  const renderComponent = (props?: TextProps) => render(<Text {...props}>{ TEXT }</Text>)
+  const renderComponent = (props?: TextProps) =>
+    render(<Text {...props}>{TEXT}</Text>)
 
   it('should have default style', () => {
     const { getByText } = renderComponent()

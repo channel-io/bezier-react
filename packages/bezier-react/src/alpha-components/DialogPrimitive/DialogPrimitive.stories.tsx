@@ -1,9 +1,6 @@
 import React from 'react'
 
-import {
-  type Meta,
-  type StoryObj,
-} from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 
 import {
   DialogPrimitive,
@@ -21,19 +18,21 @@ function DialogComposition() {
     <DialogPrimitive>
       <DialogPrimitiveTrigger>Trigger</DialogPrimitiveTrigger>
       <DialogPrimitivePortal>
-        <DialogPrimitiveOverlay style={{
-          position: 'fixed',
-          inset: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        }}
+        <DialogPrimitiveOverlay
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          }}
         />
-        <DialogPrimitiveContent style={{
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          backgroundColor: 'white',
-        }}
+        <DialogPrimitiveContent
+          style={{
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            backgroundColor: 'white',
+          }}
         >
           <DialogPrimitiveTitle>Title</DialogPrimitiveTitle>
           <DialogPrimitiveDescription>Description</DialogPrimitiveDescription>

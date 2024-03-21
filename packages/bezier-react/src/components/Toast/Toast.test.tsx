@@ -1,9 +1,6 @@
 import React from 'react'
 
-import {
-  fireEvent,
-  waitFor,
-} from '@testing-library/react'
+import { fireEvent, waitFor } from '@testing-library/react'
 
 import { render } from '~/src/utils/test'
 
@@ -13,7 +10,8 @@ import { type ToastProps } from './Toast.types'
 import styles from './Toast.module.scss'
 
 describe('Toast', () => {
-  const renderToast = (props?: Partial<ToastProps>) => render(<Toast {...props} />)
+  const renderToast = (props?: Partial<ToastProps>) =>
+    render(<Toast {...props} />)
 
   describe('onDismiss', () => {
     it('should be called when the animation ends after clicking the Cancel button', () => {
@@ -75,11 +73,7 @@ describe('Toast', () => {
       const onDismiss = jest.fn()
       const { getByText } = renderToast({
         onDismiss,
-        content: (
-          <button type="button">
-            Hello
-          </button>
-        ),
+        content: <button type="button">Hello</button>,
       })
       const content = getByText('Hello')
       expect(content).toBeInTheDocument()
@@ -89,19 +83,28 @@ describe('Toast', () => {
 
   describe('autoDismiss', () => {
     it('should work if the option is on', async () => {
-      const { getByRole, queryByRole } = renderToast({ autoDismiss: true, autoDismissTimeout: 10 })
+      const { getByRole, queryByRole } = renderToast({
+        autoDismiss: true,
+        autoDismissTimeout: 10,
+      })
       expect(getByRole('status')).toBeInTheDocument()
-      await waitFor(() => {
-        expect(queryByRole('status')).not.toBeInTheDocument()
-      }, { timeout: 100 })
+      await waitFor(
+        () => {
+          expect(queryByRole('status')).not.toBeInTheDocument()
+        },
+        { timeout: 100 }
+      )
     })
 
     it('should not work if the option is on', async () => {
       const { getByRole, queryByRole } = renderToast({ autoDismiss: false })
       expect(getByRole('status')).toBeInTheDocument()
-      await waitFor(() => {
-        expect(queryByRole('status')).toBeInTheDocument()
-      }, { timeout: 100 })
+      await waitFor(
+        () => {
+          expect(queryByRole('status')).toBeInTheDocument()
+        },
+        { timeout: 100 }
+      )
     })
   })
 })

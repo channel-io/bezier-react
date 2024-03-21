@@ -4,4 +4,3 @@ export type {
   ListItemSize,
   ListItemVariant,
 } from './ListItem.types'
-

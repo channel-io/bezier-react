@@ -2,10 +2,7 @@ import React from 'react'
 
 import { render } from '~/src/utils/test'
 
-import {
-  OUTLINE_ITEM_TEST_ID,
-  OutlineItem,
-} from './OutlineItem'
+import { OUTLINE_ITEM_TEST_ID, OutlineItem } from './OutlineItem'
 import { type OutlineItemProps } from './OutlineItem.types'
 
 describe('OutlineItem', () => {
@@ -18,11 +15,15 @@ describe('OutlineItem', () => {
     }
   })
 
-  const renderComponent = (optionProps?: Partial<OutlineItemProps>) => render(
-    <OutlineItem {...props} {...optionProps}>
-      <OutlineItem content="Lorem ipsum" />
-    </OutlineItem>,
-  )
+  const renderComponent = (optionProps?: Partial<OutlineItemProps>) =>
+    render(
+      <OutlineItem
+        {...props}
+        {...optionProps}
+      >
+        <OutlineItem content="Lorem ipsum" />
+      </OutlineItem>
+    )
 
   it('should have sibling elements if open is true.', () => {
     const { getAllByTestId } = renderComponent()

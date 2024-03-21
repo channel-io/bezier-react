@@ -2073,6 +2073,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@channel.io/prettier-config@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "@channel.io/prettier-config@npm:0.0.1"
+  checksum: 10/37ee72214bc07d67b24ee9f46169a22f37395c92e99d83ca2a754912e565fbc337470d33d338a3b667ed885c68cb19a348e3b205fce2b727b6c0d72124b2e814
+  languageName: node
+  linkType: hard
+
 "@channel.io/typescript-config@npm:^0.0.1":
   version: 0.0.1
   resolution: "@channel.io/typescript-config@npm:0.0.1"
@@ -8354,6 +8361,7 @@ __metadata:
     "@changesets/cli": "npm:^2.27.1"
     "@changesets/get-github-info": "npm:^0.6.0"
     "@changesets/types": "npm:^6.0.0"
+    "@channel.io/prettier-config": "npm:^0.0.1"
     "@commitlint/cli": "npm:^19.0.0"
     "@commitlint/config-conventional": "npm:^19.0.0"
     "@swc/core": "npm:^1.4.2"
@@ -8365,8 +8373,10 @@ __metadata:
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
     npm-run-all2: "npm:^6.1.2"
+    prettier: "npm:^3.2.5"
     stylelint: "npm:^16.2.1"
     stylelint-config-clean-order: "npm:^5.4.1"
+    stylelint-config-prettier-scss: "npm:^1.0.0"
     stylelint-config-standard-scss: "npm:^13.0.0"
     syncpack: "npm:^12.3.0"
     ts-node: "npm:^10.9.2"
@@ -10893,7 +10903,6 @@ __metadata:
   dependencies:
     "@channel.io/eslint-config": "npm:^2.0.4"
     "@channel.io/eslint-plugin": "npm:^1.2.3"
-    eslint-plugin-import-newlines: "npm:^1.3.4"
     eslint-plugin-jest: "npm:^22.21.0"
   languageName: unknown
   linkType: soft
@@ -10947,17 +10956,6 @@ __metadata:
     eslint:
       optional: true
   checksum: 10/3e7892c0a984c963632da56b30ccf8254c29b535467138f91086c2ecdb2ebd10e2be61b54e553f30e5abf1d14d47a7baa0dac890e3a658fd3cd07dca63afbe6d
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-import-newlines@npm:^1.3.4":
-  version: 1.3.4
-  resolution: "eslint-plugin-import-newlines@npm:1.3.4"
-  peerDependencies:
-    eslint: ">=6.0.0"
-  bin:
-    import-linter: lib/index.js
-  checksum: 10/90e050d4a0390501136d291ab80ca3065c283f873eb47d4c90f8f84b2fadab31849a408f006eddc18bbe3074b9451e0e4440efaed7a3a376931cf5e5d9609849
   languageName: node
   linkType: hard
 
@@ -17279,6 +17277,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier@npm:^3.2.5":
+  version: 3.2.5
+  resolution: "prettier@npm:3.2.5"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: 10/d509f9da0b70e8cacc561a1911c0d99ec75117faed27b95cc8534cb2349667dee6351b0ca83fa9d5703f14127faa52b798de40f5705f02d843da133fc3aa416a
+  languageName: node
+  linkType: hard
+
 "pretty-error@npm:^4.0.0":
   version: 4.0.0
   resolution: "pretty-error@npm:4.0.0"
@@ -19421,6 +19428,18 @@ __metadata:
   peerDependencies:
     stylelint: ">=14"
   checksum: 10/cfa9dc9fb181e0ffd2b3d4d9a28ed9becfa3e663c4fe72c943370c41a4f5a52a2dda31c3c9db04b930bf4f4af7f831d38d09735b1c53425b05d8b3c457b585fb
+  languageName: node
+  linkType: hard
+
+"stylelint-config-prettier-scss@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "stylelint-config-prettier-scss@npm:1.0.0"
+  peerDependencies:
+    stylelint: ">=15.0.0"
+  bin:
+    stylelint-config-prettier-scss: bin/check.js
+    stylelint-config-prettier-scss-check: bin/check.js
+  checksum: 10/b69b281aba1b2bde3923be5c2f06cf9bd841ff7dc87496f67384496260ea2fe902c759a5463ea9a7bdfc75fdf8e641d4e2e4041b6a3dea63115d04c1b3bbc648
   languageName: node
   linkType: hard
 

@@ -5,14 +5,8 @@ import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
 
-import {
-  Radio,
-  RadioGroup,
-} from './RadioGroup'
-import {
-  type RadioGroupProps,
-  type RadioProps,
-} from './RadioGroup.types'
+import { Radio, RadioGroup } from './RadioGroup'
+import { type RadioGroupProps, type RadioProps } from './RadioGroup.types'
 
 const VALUES = ['0', '1', '2']
 
@@ -23,19 +17,20 @@ describe('RadioGroup', () => {
   }: {
     radioGroupProps?: RadioGroupProps<string>
     radioProps?: Partial<RadioProps<string>>
-  } = {}) => render(
-    <RadioGroup {...radioGroupProps}>
-      { VALUES.map(value => (
-        <Radio
-          key={value}
-          value={value}
-          {...radioProps}
-        >
-          { value }
-        </Radio>
-      )) }
-    </RadioGroup>,
-  )
+  } = {}) =>
+    render(
+      <RadioGroup {...radioGroupProps}>
+        {VALUES.map((value) => (
+          <Radio
+            key={value}
+            value={value}
+            {...radioProps}
+          >
+            {value}
+          </Radio>
+        ))}
+      </RadioGroup>
+    )
 
   let user: ReturnType<typeof userEvent.setup>
 
@@ -55,19 +50,25 @@ describe('RadioGroup', () => {
     })
 
     it('should be required when required prop is true', () => {
-      const { getByRole } = renderRadioGroup({ radioGroupProps: { required: true } })
+      const { getByRole } = renderRadioGroup({
+        radioGroupProps: { required: true },
+      })
       expect(getByRole('radiogroup')).toBeRequired()
     })
 
     it('should be disabled when disabled prop is true', () => {
-      const { getByRole } = renderRadioGroup({ radioGroupProps: { disabled: true } })
+      const { getByRole } = renderRadioGroup({
+        radioGroupProps: { disabled: true },
+      })
       expect(getByRole('radiogroup')).toHaveAttribute('aria-disabled', 'true')
     })
 
     it('children(Radio) should be disabled when disabled prop is true', () => {
-      const { getAllByRole } = renderRadioGroup({ radioGroupProps: { disabled: true } })
+      const { getAllByRole } = renderRadioGroup({
+        radioGroupProps: { disabled: true },
+      })
       const radios = getAllByRole('radio')
-      radios.forEach(radio => expect(radio).toBeDisabled())
+      radios.forEach((radio) => expect(radio).toBeDisabled())
     })
   })
 
@@ -82,7 +83,9 @@ describe('RadioGroup', () => {
 
     it('should call the change event handler when user clicks on a radio in a controlled radio group', async () => {
       const onValueChange = jest.fn()
-      const { getByRole } = renderRadioGroup({ radioGroupProps: { value: VALUES[0], onValueChange } })
+      const { getByRole } = renderRadioGroup({
+        radioGroupProps: { value: VALUES[0], onValueChange },
+      })
       const radio = getByRole('radio', { name: VALUES[1] })
       await user.click(radio)
       expect(onValueChange).toHaveBeenCalledTimes(1)
@@ -159,13 +162,15 @@ describe('RadioGroup', () => {
       it('should have \'role="radio"\' attribute', () => {
         const { getAllByRole } = renderRadioGroup()
         const radios = getAllByRole('radio')
-        radios.forEach(radio => expect(radio).toBeInTheDocument())
+        radios.forEach((radio) => expect(radio).toBeInTheDocument())
       })
 
       it('should be disabled when disabled prop is true', () => {
-        const { getAllByRole } = renderRadioGroup({ radioProps: { disabled: true } })
+        const { getAllByRole } = renderRadioGroup({
+          radioProps: { disabled: true },
+        })
         const radios = getAllByRole('radio')
-        radios.forEach(radio => expect(radio).toBeDisabled())
+        radios.forEach((radio) => expect(radio).toBeDisabled())
       })
     })
   })

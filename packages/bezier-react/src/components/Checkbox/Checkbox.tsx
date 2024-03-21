@@ -1,9 +1,6 @@
 import React, { forwardRef } from 'react'
 
-import {
-  CheckBoldIcon,
-  HyphenBoldIcon,
-} from '@channel.io/bezier-icons'
+import { CheckBoldIcon, HyphenBoldIcon } from '@channel.io/bezier-icons'
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 import classNames from 'classnames'
 
@@ -15,10 +12,7 @@ import { useFormFieldProps } from '~/src/components/FormControl'
 import { Icon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
-import {
-  type CheckboxProps,
-  type CheckedState,
-} from './Checkbox.types'
+import { type CheckboxProps, type CheckedState } from './Checkbox.types'
 
 import styles from './Checkbox.module.scss'
 
@@ -29,34 +23,30 @@ interface CheckIconProps {
 }
 
 /* NOTE: Props are injected at runtime by `CheckboxPrimitive.Indicator`. */
-const CheckIcon = forwardRef<SVGSVGElement, CheckIconProps>(function CheckIcon(
-  props,
-  forwardedRef,
+const CheckIcon = forwardRef<SVGSVGElement, CheckIconProps>(
+  function CheckIcon(props, forwardedRef) {
+    // eslint-disable-next-line react/destructuring-assignment
+    const state = props['data-state']
+    const isUnchecked = state === 'unchecked'
+    const isIndeterminate = state === 'indeterminate'
+
+    return (
+      <Icon
+        className={styles.CheckIcon}
+        ref={forwardedRef}
+        source={!isIndeterminate ? CheckBoldIcon : HyphenBoldIcon}
+        size="xs"
+        color={isUnchecked ? 'bg-black-dark' : 'bgtxt-absolute-white-dark'}
+        {...props}
+      />
+    )
+  }
+)
+
+function CheckboxImpl<Checked extends CheckedState>(
+  { children, className, checked, id: idProp, ...rest }: CheckboxProps<Checked>,
+  forwardedRef: React.Ref<HTMLButtonElement>
 ) {
-  // eslint-disable-next-line react/destructuring-assignment
-  const state = props['data-state']
-  const isUnchecked = state === 'unchecked'
-  const isIndeterminate = state === 'indeterminate'
-
-  return (
-    <Icon
-      className={styles.CheckIcon}
-      ref={forwardedRef}
-      source={!isIndeterminate ? CheckBoldIcon : HyphenBoldIcon}
-      size="xs"
-      color={isUnchecked ? 'bg-black-dark' : 'bgtxt-absolute-white-dark'}
-      {...props}
-    />
-  )
-})
-
-function CheckboxImpl<Checked extends CheckedState>({
-  children,
-  className,
-  checked,
-  id: idProp,
-  ...rest
-}: CheckboxProps<Checked>, forwardedRef: React.Ref<HTMLButtonElement>) {
   const {
     id: formFieldId,
     hasError,
@@ -66,17 +56,12 @@ function CheckboxImpl<Checked extends CheckedState>({
   const id = useId(idProp ?? formFieldId, 'bezier-checkbox')
 
   return (
-    <div className={classNames(
-      styles.Container,
-      getFormFieldSizeClassName('m'),
-    )}
+    <div
+      className={classNames(styles.Container, getFormFieldSizeClassName('m'))}
     >
       <CheckboxPrimitive.Root
         asChild
-        className={classNames(
-          styles.Checkbox,
-          className,
-        )}
+        className={classNames(styles.Checkbox, className)}
         ref={forwardedRef}
         id={id}
         checked={checked}
@@ -89,12 +74,12 @@ function CheckboxImpl<Checked extends CheckedState>({
             /* NOTE: To allow the icon to be rendered even if unchecked. */
             forceMount
           >
-            { /* @ts-expect-error */ }
+            {/* @ts-expect-error */}
             <CheckIcon />
           </CheckboxPrimitive.Indicator>
         </BaseButton>
       </CheckboxPrimitive.Root>
-      { children && (
+      {children && (
         <Text
           as="label"
           // TODO: Apply polymorphic types to `as` prop.
@@ -104,9 +89,9 @@ function CheckboxImpl<Checked extends CheckedState>({
           typo="14"
           color="txt-black-darkest"
         >
-          { children }
+          {children}
         </Text>
-      ) }
+      )}
     </div>
   )
 }
@@ -138,6 +123,10 @@ function CheckboxImpl<Checked extends CheckedState>({
  * </Checkbox>
  * ```
  */
-export const Checkbox = forwardRef(CheckboxImpl) as <Checked extends CheckedState>(
-  props: CheckboxProps<Checked> & { ref?: React.ForwardedRef<HTMLButtonElement> }
+export const Checkbox = forwardRef(CheckboxImpl) as <
+  Checked extends CheckedState,
+>(
+  props: CheckboxProps<Checked> & {
+    ref?: React.ForwardedRef<HTMLButtonElement>
+  }
 ) => ReturnType<typeof CheckboxImpl<Checked>>

@@ -1,8 +1,4 @@
-import React, {
-  forwardRef,
-  useLayoutEffect,
-  useState,
-} from 'react'
+import React, { forwardRef, useLayoutEffect, useState } from 'react'
 
 import { Slot } from '@radix-ui/react-slot'
 
@@ -27,33 +23,28 @@ import { type AutoFocusProps } from './AutoFocus.types'
  * </AutoFocus>
  * ```
  */
-export const AutoFocus = forwardRef<HTMLElement, AutoFocusProps>(function AutoFocus({
-  children,
-  when = true,
-  ...rest
-}, forwardedRef) {
-  const [target, setTarget] = useState<HTMLElement | null>(null)
+export const AutoFocus = forwardRef<HTMLElement, AutoFocusProps>(
+  function AutoFocus({ children, when = true, ...rest }, forwardedRef) {
+    const [target, setTarget] = useState<HTMLElement | null>(null)
 
-  useLayoutEffect(function focus() {
-    if (target && when) {
-      target.focus()
-    }
-  }, [
-    target,
-    when,
-  ])
+    useLayoutEffect(
+      function focus() {
+        if (target && when) {
+          target.focus()
+        }
+      },
+      [target, when]
+    )
 
-  const ref = useMergeRefs(
-    setTarget,
-    forwardedRef,
-  )
+    const ref = useMergeRefs(setTarget, forwardedRef)
 
-  return (
-    <Slot
-      ref={ref}
-      {...rest}
-    >
-      { children }
-    </Slot>
-  )
-})
+    return (
+      <Slot
+        ref={ref}
+        {...rest}
+      >
+        {children}
+      </Slot>
+    )
+  }
+)

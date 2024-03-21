@@ -26,6 +26,7 @@ Deleted
 Added
 
 - people.svg
-- chevron-right.svg`)
+- chevron-right.svg`
+    )
   })
 })

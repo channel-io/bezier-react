@@ -20,13 +20,17 @@ import { type LegacyIconProps } from './LegacyIcon.types'
  * import { LegacyIcon, type LegacyIconProps } from '@channel.io/bezier-react'
  * <LegacyIcon name="all" color="bg-black-dark" />
  */
-export const LegacyIcon = memo(({
-  name,
-  ...rest
-}: LegacyIconProps) => {
+export const LegacyIcon = memo(({ name, ...rest }: LegacyIconProps) => {
   const IconSource = icons[name]
 
-  if (!IconSource) { return null }
+  if (!IconSource) {
+    return null
+  }
 
-  return (<Icon source={IconSource} {...rest} />)
+  return (
+    <Icon
+      source={IconSource}
+      {...rest}
+    />
+  )
 })

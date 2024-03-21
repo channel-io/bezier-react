@@ -54,7 +54,15 @@ $avatar-sizes: 20, 24, 30, 36, 42, 48, 72, 90, 120;
     --b-avatar-group-ellipsis-pr: 5px;
   }
 
-  &:where(.size-30, .size-36, .size-42, .size-48, .size-72, .size-90, .size-120) {
+  &:where(
+      .size-30,
+      .size-36,
+      .size-42,
+      .size-48,
+      .size-72,
+      .size-90,
+      .size-120
+    ) {
     --b-avatar-group-ellipsis-pr: 6px;
   }
 }

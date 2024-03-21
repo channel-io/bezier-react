@@ -1,9 +1,6 @@
 import React from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-} from '@storybook/react'
+import { type Meta, type StoryFn } from '@storybook/react'
 
 import { Spinner } from './Spinner'
 import { type SpinnerProps } from './Spinner.types'
@@ -15,13 +12,7 @@ const meta: Meta<typeof Spinner> = {
       control: {
         type: 'radio',
       },
-      options: [
-        'xl',
-        'l',
-        'm',
-        's',
-        'xs',
-      ],
+      options: ['xl', 'l', 'm', 's', 'xs'],
     },
   },
 }

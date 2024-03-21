@@ -1,10 +1,7 @@
 import React from 'react'
 
 import { TranslateIcon } from '@channel.io/bezier-icons'
-import {
-  type Meta,
-  type StoryFn,
-} from '@storybook/react'
+import { type Meta, type StoryFn } from '@storybook/react'
 
 import { Button } from '~/src/components/Button'
 
@@ -24,7 +21,7 @@ const meta: Meta<typeof Tooltip> = {
 export default meta
 
 const Template: StoryFn<TooltipProps> = ({ children, ...rest }) => (
-  <Tooltip {...rest}>{ children }</Tooltip>
+  <Tooltip {...rest}>{children}</Tooltip>
 )
 
 export const Primary = {

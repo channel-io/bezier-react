@@ -27,8 +27,10 @@ const config = {
   },
 }
 
-const iconBasePath = new URL(`./${config.input.icons}`, import.meta.url).pathname
-const utilBasePath = new URL(`./${config.input.utils}`, import.meta.url).pathname
+const iconBasePath = new URL(`./${config.input.icons}`, import.meta.url)
+  .pathname
+const utilBasePath = new URL(`./${config.input.utils}`, import.meta.url)
+  .pathname
 
 const iconFileNames = fs.readdirSync(config.input.icons, 'utf-8')
 
@@ -49,7 +51,9 @@ iconFileNames.forEach((iconFileName) => {
   const iconModuleName = `${toPascalCase(iconName)}Icon`
 
   iconNames.push(`'${iconName}'`)
-  iconImportLines.push(`import ${iconModuleName} from '../${config.input.icons}/${iconFileName}'`)
+  iconImportLines.push(
+    `import ${iconModuleName} from '../${config.input.icons}/${iconFileName}'`
+  )
   iconExportLines.push(`${iconModuleName},`)
   iconObjectLines.push(`'${iconName}': ${iconModuleName},`)
   iconComponentTypes.push(`export declare const ${iconModuleName}: BezierIcon`)
@@ -164,7 +168,9 @@ function svgBuild(options = {}) {
   return {
     name: 'svgBuild',
     async transform(code, id) {
-      if (!filter(id) || !id.endsWith('.svg')) { return null }
+      if (!filter(id) || !id.endsWith('.svg')) {
+        return null
+      }
 
       const rawSvg = fs.readFileSync(id, 'utf8')
 
@@ -192,7 +198,7 @@ function svgBuild(options = {}) {
         {
           filePath: id,
           caller: { name: 'svgBuild' },
-        },
+        }
       )
 
       return {
@@ -278,10 +284,12 @@ export default defineConfig({
      * Module resolution is not working well inside the virtual module, so use the alias plugin to resolve the module manually.
      */
     alias({
-      entries: [{
-        find: config.input.utils,
-        replacement: utilBasePath,
-      }],
+      entries: [
+        {
+          find: config.input.utils,
+          replacement: utilBasePath,
+        },
+      ],
     }),
     babel({
       exclude: 'node_modules/**',

@@ -8,10 +8,7 @@ import { isNil } from '~/src/utils/type'
 
 import { Button } from '~/src/components/Button'
 import { Icon } from '~/src/components/Icon'
-import {
-  LegacyIcon,
-  isIconName,
-} from '~/src/components/LegacyIcon'
+import { LegacyIcon, isIconName } from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
 
 import {
@@ -25,27 +22,26 @@ import styles from './Banner.module.scss'
 const BANNER_TEST_ID = 'bezier-banner'
 
 function getActionButtonColorVariant(variant: BannerVariant) {
-  return ({
-    default: 'monochrome-dark',
-    blue: 'blue',
-    cobalt: 'cobalt',
-    green: 'green',
-    orange: 'orange',
-    red: 'red',
-    alt: 'monochrome-dark',
-  } as const)[variant]
+  return (
+    {
+      default: 'monochrome-dark',
+      blue: 'blue',
+      cobalt: 'cobalt',
+      green: 'green',
+      orange: 'orange',
+      red: 'red',
+      alt: 'monochrome-dark',
+    } as const
+  )[variant]
 }
 
-const externalLinkRenderer: RenderLinkFunc = ({
-  content,
-  linkTo,
-}) => (
+const externalLinkRenderer: RenderLinkFunc = ({ content, linkTo }) => (
   <a
     href={linkTo}
     target="_blank"
     rel="noopener noreferrer"
   >
-    { content }
+    {content}
   </a>
 )
 
@@ -60,22 +56,27 @@ const externalLinkRenderer: RenderLinkFunc = ({
  * />
  * ```
  */
-export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner({
-  className,
-  variant = 'default',
-  icon,
-  iconColor,
-  content,
-  hasLink = false,
-  linkText,
-  linkTo,
-  renderLink = externalLinkRenderer,
-  actionIcon,
-  onClickAction,
-  ...rest
-}, forwardedRef) {
+export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(
+  {
+    className,
+    variant = 'default',
+    icon,
+    iconColor,
+    content,
+    hasLink = false,
+    linkText,
+    linkTo,
+    renderLink = externalLinkRenderer,
+    actionIcon,
+    onClickAction,
+    ...rest
+  },
+  forwardedRef
+) {
   if (isIconName(icon)) {
-    warn('Deprecation: IconName as a value for the icon property of Banner has been deprecated. Use the Icon of bezier-icons instead.')
+    warn(
+      'Deprecation: IconName as a value for the icon property of Banner has been deprecated. Use the Icon of bezier-icons instead.'
+    )
   }
 
   return (
@@ -84,14 +85,14 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner({
       className={classNames(
         styles.Banner,
         styles[`variant-${variant}`],
-        className,
+        className
       )}
       data-testid={BANNER_TEST_ID}
       {...rest}
     >
-      { !isNil(icon) && (
+      {!isNil(icon) && (
         <div className={styles.Center}>
-          { isBezierIcon(icon) ? (
+          {isBezierIcon(icon) ? (
             <Icon
               className={styles.Icon}
               source={icon}
@@ -105,15 +106,15 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner({
               color={iconColor}
               size="s"
             />
-          ) }
+          )}
         </div>
-      ) }
+      )}
 
       <div className={styles.Content}>
         <Text typo="14">
-          { content }
+          {content}
 
-          { hasLink && (
+          {hasLink &&
             renderLink({
               content: (
                 <Text
@@ -121,16 +122,15 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner({
                   typo="14"
                   bold
                 >
-                  { linkText }
+                  {linkText}
                 </Text>
               ),
               linkTo,
-            })
-          ) }
+            })}
         </Text>
       </div>
 
-      { !isNil(actionIcon) && (
+      {!isNil(actionIcon) && (
         <div className={styles.Center}>
           <Button
             size="xs"
@@ -140,7 +140,7 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner({
             onClick={onClickAction}
           />
         </div>
-      ) }
+      )}
     </div>
   )
 })

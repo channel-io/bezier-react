@@ -11,17 +11,29 @@ type From = string
 type To = string
 type FromToMap = Record<From, To>
 
-export type StyledAttrsTransformMap = Record<Component, { keyMapper?: FromToMap, valueMapper?: FromToMap }>
-export type ComponentTransformMap = { keyMapper?: Record<Component, FromToMap>, valueMapper?: Record<Props, FromToMap> }
+export type StyledAttrsTransformMap = Record<
+  Component,
+  { keyMapper?: FromToMap; valueMapper?: FromToMap }
+>
+export type ComponentTransformMap = {
+  keyMapper?: Record<Component, FromToMap>
+  valueMapper?: Record<Props, FromToMap>
+}
 
-const getName = (node: JsxSelfClosingElement | JsxOpeningElement) => node.getTagNameNode().getText()
+const getName = (node: JsxSelfClosingElement | JsxOpeningElement) =>
+  node.getTagNameNode().getText()
 
-export const changeComponentProp = (sourceFile: SourceFile, componentPropTransformMap: ComponentTransformMap) => {
+export const changeComponentProp = (
+  sourceFile: SourceFile,
+  componentPropTransformMap: ComponentTransformMap
+) => {
   const keyMapper = componentPropTransformMap.keyMapper
-  if (!keyMapper) { return }
-  const componentNames = Object.keys(keyMapper);
+  if (!keyMapper) {
+    return
+  }
+  const componentNames = Object.keys(keyMapper)
 
-  ([SyntaxKind.JsxSelfClosingElement, SyntaxKind.JsxOpeningElement] as const)
+  ;([SyntaxKind.JsxSelfClosingElement, SyntaxKind.JsxOpeningElement] as const)
     .flatMap((v) => sourceFile.getDescendantsOfKind(v))
     .filter((node) => componentNames.includes(getName(node)))
     .forEach((jsxElement) => {
@@ -38,11 +50,19 @@ export const changeComponentProp = (sourceFile: SourceFile, componentPropTransfo
     })
 
   const valueMapper = componentPropTransformMap.valueMapper
-  if (!valueMapper) { return }
-  const propsNames = Object.keys(valueMapper);
-  ([SyntaxKind.JsxSelfClosingElement, SyntaxKind.JsxOpeningElement] as const)
+  if (!valueMapper) {
+    return
+  }
+  const propsNames = Object.keys(valueMapper)
+  ;([SyntaxKind.JsxSelfClosingElement, SyntaxKind.JsxOpeningElement] as const)
     .flatMap((v) => sourceFile.getDescendantsOfKind(v))
-    .filter((v) => v.getDescendantsOfKind(SyntaxKind.JsxAttribute).some((attr) => propsNames.includes(attr.getFirstChild()?.getText() ?? '')))
+    .filter((v) =>
+      v
+        .getDescendantsOfKind(SyntaxKind.JsxAttribute)
+        .some((attr) =>
+          propsNames.includes(attr.getFirstChild()?.getText() ?? '')
+        )
+    )
     .forEach((jsxElement) => {
       jsxElement
         .getDescendantsOfKind(SyntaxKind.JsxAttribute)
@@ -57,14 +77,19 @@ export const changeComponentProp = (sourceFile: SourceFile, componentPropTransfo
     })
 }
 
-export const changeAttrProperty = (sourceFile: SourceFile, transformMap: StyledAttrsTransformMap) => {
+export const changeAttrProperty = (
+  sourceFile: SourceFile,
+  transformMap: StyledAttrsTransformMap
+) => {
   for (const component of Object.keys(transformMap)) {
     const { keyMapper, valueMapper } = transformMap[component]
 
     sourceFile
       .getDescendantsOfKind(SyntaxKind.TaggedTemplateExpression)
       .filter((node) => node.getText().startsWith(`styled(${component})`))
-      .flatMap((node) => node.getDescendantsOfKind(SyntaxKind.PropertyAssignment))
+      .flatMap((node) =>
+        node.getDescendantsOfKind(SyntaxKind.PropertyAssignment)
+      )
       .forEach((node) => {
         if (keyMapper) {
           const prop = node.getFirstChild()?.getText()

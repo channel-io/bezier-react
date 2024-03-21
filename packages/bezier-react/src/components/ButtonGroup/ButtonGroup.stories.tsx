@@ -1,17 +1,10 @@
 import React from 'react'
 
-import type {
-  Meta,
-  StoryFn,
-  StoryObj,
-} from '@storybook/react'
+import type { Meta, StoryFn, StoryObj } from '@storybook/react'
 
 import { Button } from '~/src/components/Button'
 import { Center } from '~/src/components/Center'
-import {
-  LegacySpacer,
-  LegacyStackItem,
-} from '~/src/components/LegacyStack'
+import { LegacySpacer, LegacyStackItem } from '~/src/components/LegacyStack'
 
 import { ButtonGroup } from './ButtonGroup'
 import mdx from './ButtonGroup.mdx'
@@ -35,8 +28,14 @@ const Template: StoryFn<ButtonGroupProps> = (props) => (
     <LegacySpacer />
     <LegacyStackItem>
       <ButtonGroup {...props}>
-        <Button text="취소" styleVariant="secondary" />
-        <Button text="확인" styleVariant="primary" />
+        <Button
+          text="취소"
+          styleVariant="secondary"
+        />
+        <Button
+          text="확인"
+          styleVariant="primary"
+        />
       </ButtonGroup>
     </LegacyStackItem>
     <LegacySpacer />

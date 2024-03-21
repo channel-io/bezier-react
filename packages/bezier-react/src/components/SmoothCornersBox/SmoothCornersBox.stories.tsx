@@ -1,10 +1,6 @@
 import React from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { SmoothCornersBox } from './SmoothCornersBox'
 import { type SmoothCornersBoxProps } from './SmoothCornersBox.types'
@@ -21,7 +17,7 @@ const Template: StoryFn<SmoothCornersBoxProps> = ({
     style={{ width: 200, height: 200 }}
     {...otherCheckboxProps}
   >
-    { children }
+    {children}
   </SmoothCornersBox>
 )
 

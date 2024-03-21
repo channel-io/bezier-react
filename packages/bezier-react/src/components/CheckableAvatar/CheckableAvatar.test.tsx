@@ -15,31 +15,33 @@ describe('CheckableAvatar', () => {
     children,
     name = 'foo',
     ...rest
-  }: Partial<CheckableAvatarProps> = {}) => render(
-    <CheckableAvatar
-      name={name}
-      {...rest}
-    >
-      { children }
-    </CheckableAvatar>,
-  )
+  }: Partial<CheckableAvatarProps> = {}) =>
+    render(
+      <CheckableAvatar
+        name={name}
+        {...rest}
+      >
+        {children}
+      </CheckableAvatar>
+    )
 
   const renderCheckableAvatars = (
-    props: Omit<Partial<CheckableAvatarProps>, 'children' | 'name'> = {},
-  ) => render(
-    <div role="group">
-      { VALUES.map(value => (
-        <CheckableAvatar
-          key={value}
-          value={value}
-          name={value}
-          {...props}
-        >
-          { value }
-        </CheckableAvatar>
-      )) }
-    </div>,
-  )
+    props: Omit<Partial<CheckableAvatarProps>, 'children' | 'name'> = {}
+  ) =>
+    render(
+      <div role="group">
+        {VALUES.map((value) => (
+          <CheckableAvatar
+            key={value}
+            value={value}
+            name={value}
+            {...props}
+          >
+            {value}
+          </CheckableAvatar>
+        ))}
+      </div>
+    )
 
   let user: ReturnType<typeof userEvent.setup>
 

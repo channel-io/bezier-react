@@ -1,10 +1,7 @@
 {
   "extends": "tsconfig/browser.json",
   "compilerOptions": {
-    "typeRoots": [
-      "../../node_modules/@types",
-      "../../node_modules/@figma"
-    ]
+    "typeRoots": ["../../node_modules/@types", "../../node_modules/@figma"]
   },
-  "include": ["src"],
+  "include": ["src"]
 }

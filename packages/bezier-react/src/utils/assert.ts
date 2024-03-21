@@ -20,7 +20,7 @@ export class AssertionException extends Error {
 
 export function assert(
   predicate: boolean,
-  message?: string,
+  message?: string
 ): asserts predicate {
   if (predicate) {
     return

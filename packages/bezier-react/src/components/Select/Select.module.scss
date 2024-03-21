@@ -20,7 +20,9 @@
   border-radius: var(--radius-8);
   box-shadow: var(--input-box-shadow);
 
-  transition: background-color var(--transition-s), box-shadow var(--transition-s);
+  transition:
+    background-color var(--transition-s),
+    box-shadow var(--transition-s);
 
   &.readonly {
     cursor: initial;

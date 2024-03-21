@@ -31,31 +31,32 @@ describe('ConfirmModal', () => {
   }: {
     modalProps?: ConfirmModalProps
     modalContentProps?: ConfirmModalContentProps
-  } = {}) => render(
-    <ConfirmModal {...modalProps}>
-      <ConfirmModalTrigger>
-        <button type="button">{ TRIGGER_TEXT }</button>
-      </ConfirmModalTrigger>
-      <ConfirmModalContent {...modalContentProps}>
-        <ConfirmModalHeader
-          title={TITLE_TEXT}
-          description={DESCRIPTION_TEXT}
-        />
-        <ConfirmModalFooter
-          rightContent={(
-            <>
-              <ConfirmModalClose>
-                <button type="button">{ CANCEL_TEXT }</button>
-              </ConfirmModalClose>
-              <ConfirmModalClose>
-                <button type="button">{ ACTION_TEXT }</button>
-              </ConfirmModalClose>
-            </>
-          )}
-        />
-      </ConfirmModalContent>
-    </ConfirmModal>,
-  )
+  } = {}) =>
+    render(
+      <ConfirmModal {...modalProps}>
+        <ConfirmModalTrigger>
+          <button type="button">{TRIGGER_TEXT}</button>
+        </ConfirmModalTrigger>
+        <ConfirmModalContent {...modalContentProps}>
+          <ConfirmModalHeader
+            title={TITLE_TEXT}
+            description={DESCRIPTION_TEXT}
+          />
+          <ConfirmModalFooter
+            rightContent={
+              <>
+                <ConfirmModalClose>
+                  <button type="button">{CANCEL_TEXT}</button>
+                </ConfirmModalClose>
+                <ConfirmModalClose>
+                  <button type="button">{ACTION_TEXT}</button>
+                </ConfirmModalClose>
+              </>
+            }
+          />
+        </ConfirmModalContent>
+      </ConfirmModal>
+    )
 
   let user: ReturnType<typeof userEvent.setup>
   let renderOpenedModal: typeof renderModal
@@ -68,7 +69,8 @@ describe('ConfirmModal', () => {
        */
       pointerEventsCheck: PointerEventsCheckLevel.Never,
     })
-    renderOpenedModal = (props) => renderModal({ modalProps: { defaultShow: true }, ...props })
+    renderOpenedModal = (props) =>
+      renderModal({ modalProps: { defaultShow: true }, ...props })
   })
 
   describe('Accessibility', () => {
@@ -83,7 +85,9 @@ describe('ConfirmModal', () => {
       const { getByRole } = renderModal()
       const trigger = getByRole('button', { name: TRIGGER_TEXT })
       await user.click(trigger)
-      expect(document.activeElement).toBe(getByRole('button', { name: CANCEL_TEXT }))
+      expect(document.activeElement).toBe(
+        getByRole('button', { name: CANCEL_TEXT })
+      )
     })
 
     it('should focus on the modal trigger when the modal is closed', async () => {
@@ -126,14 +130,18 @@ describe('ConfirmModal', () => {
         expect(getByRole('alertdialog')).toHaveAttribute('aria-modal', 'true')
       })
 
-      it('should have proper \'aria-labelledby\' attribute', () => {
+      it("should have proper 'aria-labelledby' attribute", () => {
         const { getByRole } = renderOpenedModal()
-        expect(getByRole('alertdialog', { name: TITLE_TEXT })).toBeInTheDocument()
+        expect(
+          getByRole('alertdialog', { name: TITLE_TEXT })
+        ).toBeInTheDocument()
       })
 
-      it('should have proper \'aria-describedby\' attribute', () => {
+      it("should have proper 'aria-describedby' attribute", () => {
         const { getByRole } = renderOpenedModal()
-        expect(getByRole('alertdialog', { description: DESCRIPTION_TEXT })).toBeInTheDocument()
+        expect(
+          getByRole('alertdialog', { description: DESCRIPTION_TEXT })
+        ).toBeInTheDocument()
       })
     })
 
@@ -152,7 +160,7 @@ describe('ConfirmModal', () => {
     })
 
     describe('Data Attributes', () => {
-      it('should have proper \'data-state\' attribute', () => {
+      it("should have proper 'data-state' attribute", () => {
         const { getByRole } = renderOpenedModal()
         expect(getByRole('alertdialog')).toHaveAttribute('data-state', 'open')
       })
@@ -163,7 +171,9 @@ describe('ConfirmModal', () => {
     describe('ARIA, Semantics', () => {
       it('the title should be an h2 element', () => {
         const { getByRole } = renderOpenedModal()
-        expect(getByRole('heading', { name: TITLE_TEXT, level: 2 })).toBeInTheDocument()
+        expect(
+          getByRole('heading', { name: TITLE_TEXT, level: 2 })
+        ).toBeInTheDocument()
       })
     })
   })
@@ -176,7 +186,7 @@ describe('ConfirmModal', () => {
         expect(trigger).toHaveAttribute('aria-haspopup', 'dialog')
       })
 
-      it('should have proper \'aria-expanded\' attribute', async () => {
+      it("should have proper 'aria-expanded' attribute", async () => {
         const { getByRole } = renderModal()
         const trigger = getByRole('button', { name: TRIGGER_TEXT })
         expect(trigger).toHaveAttribute('aria-expanded', 'false')
@@ -188,7 +198,10 @@ describe('ConfirmModal', () => {
         const { getByRole } = renderModal()
         const trigger = getByRole('button', { name: TRIGGER_TEXT })
         await user.click(trigger)
-        expect(trigger).toHaveAttribute('aria-controls', getByRole('alertdialog').id)
+        expect(trigger).toHaveAttribute(
+          'aria-controls',
+          getByRole('alertdialog').id
+        )
       })
     })
 
@@ -201,7 +214,9 @@ describe('ConfirmModal', () => {
 
       it('should open modal when clicked (Controlled)', async () => {
         const onShow = jest.fn()
-        const { getByRole } = renderModal({ modalProps: { show: false, onShow } })
+        const { getByRole } = renderModal({
+          modalProps: { show: false, onShow },
+        })
         await user.click(getByRole('button', { name: TRIGGER_TEXT }))
         expect(onShow).toHaveBeenCalledTimes(1)
       })
@@ -219,7 +234,9 @@ describe('ConfirmModal', () => {
 
       it('should close modal when clicked (Controlled)', async () => {
         const onHide = jest.fn()
-        const { getByRole } = renderModal({ modalProps: { show: true, onHide } })
+        const { getByRole } = renderModal({
+          modalProps: { show: true, onHide },
+        })
         await user.click(getByRole('button', { name: CANCEL_TEXT }))
         expect(onHide).toHaveBeenCalledTimes(1)
       })
@@ -237,7 +254,9 @@ describe('ConfirmModal', () => {
 
       it('should close modal when clicked (Controlled)', async () => {
         const onHide = jest.fn()
-        const { getByRole } = renderModal({ modalProps: { show: true, onHide } })
+        const { getByRole } = renderModal({
+          modalProps: { show: true, onHide },
+        })
         await user.click(getByRole('button', { name: ACTION_TEXT }))
         expect(onHide).toHaveBeenCalledTimes(1)
       })

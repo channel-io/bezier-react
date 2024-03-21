@@ -11,8 +11,8 @@ interface FormLabelOwnProps {
   help?: React.ReactNode
 }
 
-export interface FormLabelProps extends
-  Omit<TextProps, keyof MarginProps>,
-  ChildrenProps,
-  Partial<IdentifierProps>,
-  FormLabelOwnProps {}
+export interface FormLabelProps
+  extends Omit<TextProps, keyof MarginProps>,
+    ChildrenProps,
+    Partial<IdentifierProps>,
+    FormLabelOwnProps {}

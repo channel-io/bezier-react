@@ -92,7 +92,9 @@
 
     & :where(.Avatar > div) {
       --b-smooth-corners-box-background-image: none !important;
-      --b-smooth-corners-box-background-color: var(--bgtxt-green-normal) !important;
+      --b-smooth-corners-box-background-color: var(
+        --bgtxt-green-normal
+      ) !important;
     }
   }
 

@@ -12,7 +12,9 @@ describe('iconsToBezierIcons', () => {
 
     const inputCode = fs.readFileSync(inputPath, 'utf-8')
     const outputCode = fs.readFileSync(outputPath, 'utf-8')
-    const sourceFile = project.createSourceFile('test.tsx', inputCode, { overwrite: true })
+    const sourceFile = project.createSourceFile('test.tsx', inputCode, {
+      overwrite: true,
+    })
 
     const isMigrated = iconNameToBezierIcon(sourceFile)
 
@@ -28,7 +30,9 @@ describe('iconsToBezierIcons', () => {
 
     const inputCode = fs.readFileSync(inputPath, 'utf-8')
     const outputCode = fs.readFileSync(outputPath, 'utf-8')
-    const sourceFile = project.createSourceFile('test.tsx', inputCode, { overwrite: true })
+    const sourceFile = project.createSourceFile('test.tsx', inputCode, {
+      overwrite: true,
+    })
 
     const isMigrated = iconNameToBezierIcon(sourceFile)
 

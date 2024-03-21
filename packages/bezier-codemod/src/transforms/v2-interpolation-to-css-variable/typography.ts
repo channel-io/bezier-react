@@ -1,16 +1,17 @@
 /* eslint-disable no-template-curly-in-string */
-import {
-  type SourceFile,
-  ts,
-} from 'ts-morph'
+import { type SourceFile, ts } from 'ts-morph'
 
 import { interpolationTransform } from '../../shared/interpolation.js'
 import { removeUnusedNamedImport } from '../../utils/import.js'
 
-const WARNING_COMMENT = '/* NOTE: Do not use font-related css variables below separately, use Text component instead */'
-const getFontSize = (num: number) => `font-size: var(--typography-size-${num}-font-size);`
-const getLineHeight = (num: number) => `line-height: var(--typography-size-${num}-line-height);`
-const getLetterSpacing = (num: number) => `letter-spacing: var(--typography-size-${num}-letter-spacing);`
+const WARNING_COMMENT =
+  '/* NOTE: Do not use font-related css variables below separately, use Text component instead */'
+const getFontSize = (num: number) =>
+  `font-size: var(--typography-size-${num}-font-size);`
+const getLineHeight = (num: number) =>
+  `line-height: var(--typography-size-${num}-line-height);`
+const getLetterSpacing = (num: number) =>
+  `letter-spacing: var(--typography-size-${num}-letter-spacing);`
 
 const cssVariableByInterpolation = {
   'Typography.Size11': `${WARNING_COMMENT}\n  ${getFontSize(11)}\n  ${getLineHeight(11)}`,

@@ -11,11 +11,7 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
-export type SegmentedControlSize =
-| 'xs'
-| 's'
-| 'm'
-| 'l'
+export type SegmentedControlSize = 'xs' | 's' | 'm' | 'l'
 
 export type SegmentedControlType = 'radiogroup' | 'tabs'
 
@@ -50,15 +46,13 @@ type SegmentedControlValueProps<Value extends string> = {
   onValueChange?: (value: Value) => void
 }
 
-type SegmentedControlRadioGroupSpecificProps =
-  & FormFieldProps
-  & {
+type SegmentedControlRadioGroupSpecificProps = FormFieldProps & {
   /**
    * The name of the group.
    * Submitted with its owning form as part of a name/value pair.
    */
-    name?: string
-  }
+  name?: string
+}
 
 interface SegmentedControlItemOwnProps<Value extends string> {
   /**
@@ -78,47 +72,60 @@ interface SegmentedControlTabContentOwnProps<Value extends string> {
   value: Value
 }
 
-type SegmentedControlOwnProps<Type extends SegmentedControlType, Value extends string> =
-  (Type extends 'radiogroup'
-    ? SegmentedControlRadioGroupSpecificProps
-    : {})
-  & SegmentedControlNonValueProps<Type>
-  & SegmentedControlValueProps<Value>
+type SegmentedControlOwnProps<
+  Type extends SegmentedControlType,
+  Value extends string,
+> = (Type extends 'radiogroup' ? SegmentedControlRadioGroupSpecificProps : {}) &
+  SegmentedControlNonValueProps<Type> &
+  SegmentedControlValueProps<Value>
 
 type RadixTabsPredefinedPropKeys = 'dir'
 
-export type SegmentedControlProps<Type extends SegmentedControlType, Value extends string> =
-  & Omit<BezierComponentProps<'div'>, RadixTabsPredefinedPropKeys>
-  & ChildrenProps
-  & SizeProps<SegmentedControlSize>
-  & SegmentedControlOwnProps<Type, Value>
+export type SegmentedControlProps<
+  Type extends SegmentedControlType,
+  Value extends string,
+> = Omit<BezierComponentProps<'div'>, RadixTabsPredefinedPropKeys> &
+  ChildrenProps &
+  SizeProps<SegmentedControlSize> &
+  SegmentedControlOwnProps<Type, Value>
 
-export interface SegmentedControlRadioGroupProps<Value extends string> extends
-  Omit<SegmentedControlProps<'radiogroup', Value>, keyof SegmentedControlNonValueProps<'radiogroup'>> {}
+export interface SegmentedControlRadioGroupProps<Value extends string>
+  extends Omit<
+    SegmentedControlProps<'radiogroup', Value>,
+    keyof SegmentedControlNonValueProps<'radiogroup'>
+  > {}
 
-export interface SegmentedControlTabsProps<Value extends string> extends
-  Omit<SegmentedControlProps<'tabs', Value>, keyof SegmentedControlNonValueProps<'tabs'>> {}
+export interface SegmentedControlTabsProps<Value extends string>
+  extends Omit<
+    SegmentedControlProps<'tabs', Value>,
+    keyof SegmentedControlNonValueProps<'tabs'>
+  > {}
 
 type RadixTabListPredefinedPropKeys = 'defaultValue'
 
-export interface SegmentedControlTabListProps extends
-  Omit<BezierComponentProps<'div'>, RadixTabListPredefinedPropKeys>,
-  ChildrenProps {}
+export interface SegmentedControlTabListProps
+  extends Omit<BezierComponentProps<'div'>, RadixTabListPredefinedPropKeys>,
+    ChildrenProps {}
 
-export type SegmentedControlItemListProps<Type extends SegmentedControlType, Value extends string> =
-  Type extends 'radiogroup'
-    ? SegmentedControlRadioGroupProps<Value>
-    : SegmentedControlTabListProps
+export type SegmentedControlItemListProps<
+  Type extends SegmentedControlType,
+  Value extends string,
+> = Type extends 'radiogroup'
+  ? SegmentedControlRadioGroupProps<Value>
+  : SegmentedControlTabListProps
 
-export interface SegmentedControlItemProps<Value extends string> extends
-  Omit<BezierComponentProps<'button'>, keyof SegmentedControlItemOwnProps<Value>>,
-  ChildrenProps,
-  DisableProps,
-  SideContentProps,
-  SegmentedControlItemOwnProps<Value> {}
+export interface SegmentedControlItemProps<Value extends string>
+  extends Omit<
+      BezierComponentProps<'button'>,
+      keyof SegmentedControlItemOwnProps<Value>
+    >,
+    ChildrenProps,
+    DisableProps,
+    SideContentProps,
+    SegmentedControlItemOwnProps<Value> {}
 
-export interface SegmentedControlTabContentProps<Value extends string> extends
-  BezierComponentProps<'div'>,
-  ChildrenProps,
-  Pick<TabsPrimitive.TabsContentProps, 'forceMount'>,
-  SegmentedControlTabContentOwnProps<Value> {}
+export interface SegmentedControlTabContentProps<Value extends string>
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    Pick<TabsPrimitive.TabsContentProps, 'forceMount'>,
+    SegmentedControlTabContentOwnProps<Value> {}

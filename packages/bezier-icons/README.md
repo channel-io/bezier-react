@@ -32,7 +32,7 @@ function Component() {
     <div>
       <Icon source={AllIcon} />
     </div>
-  );
+  )
 }
 ```
 
@@ -46,7 +46,7 @@ function Component() {
     <div>
       <AllIcon />
     </div>
-  );
+  )
 }
 ```
 
@@ -56,7 +56,7 @@ If you need to validate the icon source component, use the utility function `isB
 import { isBezierIcon, AllIcon } from '@channel.io/bezier-icons'
 
 function FooIcon() {
-  return (<svg />)
+  return <svg />
 }
 
 console.log(isBezierIcon(AllIcon)) // true

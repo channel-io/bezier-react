@@ -1,7 +1,4 @@
-import {
-  clamp,
-  range,
-} from '~/src/utils/number'
+import { clamp, range } from '~/src/utils/number'
 
 describe('numberUtils', () => {
   describe('range', () => {

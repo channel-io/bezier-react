@@ -12,12 +12,11 @@ describe('ButtonGroup', () => {
 
   it('creates a button group with spacing', () => {
     const { getByRole } = render(
-      <ButtonGroup
-        {...props}
-      >
+      <ButtonGroup {...props}>
         <Button text="button1" />
         <Button text="button2" />
-      </ButtonGroup>)
+      </ButtonGroup>
+    )
 
     const buttonGroup = getByRole('group')
     expect(buttonGroup).toHaveStyle('--b-stack-spacing: 6px')
@@ -32,7 +31,8 @@ describe('ButtonGroup', () => {
       >
         <Button text="button1" />
         <Button text="button2" />
-      </ButtonGroup>)
+      </ButtonGroup>
+    )
 
     const buttonGroup = getByRole('group')
     expect(buttonGroup).toHaveStyle('--b-stack-spacing: 0')

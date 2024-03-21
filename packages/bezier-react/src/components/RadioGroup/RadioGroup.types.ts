@@ -54,14 +54,18 @@ interface RadioOwnProps<Value extends string> {
 
 type RadioFormComponentProps = Pick<FormFieldProps, 'disabled' | 'required'>
 
-export interface RadioGroupProps<Value extends string> extends
-  Omit<BezierComponentProps<'div'>, keyof RadioGroupOwnProps<Value> | keyof RadioGroupPrimitive.RadioGroupProps>,
-  ChildrenProps,
-  RadioFormComponentProps,
-  RadioGroupOwnProps<Value> {}
+export interface RadioGroupProps<Value extends string>
+  extends Omit<
+      BezierComponentProps<'div'>,
+      | keyof RadioGroupOwnProps<Value>
+      | keyof RadioGroupPrimitive.RadioGroupProps
+    >,
+    ChildrenProps,
+    RadioFormComponentProps,
+    RadioGroupOwnProps<Value> {}
 
-export interface RadioProps<Value extends string> extends
-  Omit<BezierComponentProps<'button'>, keyof RadioOwnProps<Value>>,
-  ChildrenProps,
-  RadioFormComponentProps,
-  RadioOwnProps<Value> {}
+export interface RadioProps<Value extends string>
+  extends Omit<BezierComponentProps<'button'>, keyof RadioOwnProps<Value>>,
+    ChildrenProps,
+    RadioFormComponentProps,
+    RadioOwnProps<Value> {}

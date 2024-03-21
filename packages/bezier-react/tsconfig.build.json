@@ -5,7 +5,7 @@
     "**/*.stories.tsx",
     "**/*.test.ts",
     "**/*.test.tsx",
-    "src/utils/test.tsx",
+    "src/utils/test.tsx"
   ],
   "compilerOptions": {
     "outDir": "dist/types",
@@ -14,7 +14,7 @@
     "declarationMap": true,
     "plugins": [
       { "transform": "typescript-transform-paths" },
-      { "transform": "typescript-transform-paths", "afterDeclarations": true },
-    ],
-  },
+      { "transform": "typescript-transform-paths", "afterDeclarations": true }
+    ]
+  }
 }

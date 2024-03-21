@@ -1,8 +1,4 @@
-import React, {
-  useEffect,
-  useMemo,
-  useState,
-} from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 import { compact } from '~/src/utils/array'
 import { getReactVersion } from '~/src/utils/react'
@@ -22,29 +18,19 @@ export function useIdLegacy(idProp?: string, prefix?: string) {
   const [id, setId] = useState(idRef.current)
 
   useEffect(() => {
-    if (idProp) { return }
+    if (idProp) {
+      return
+    }
     setId(generateId())
   }, [idProp])
 
-  return useMemo(() => (
-    idProp || joinId(prefix, id)
-  ), [
-    idProp,
-    prefix,
-    id,
-  ])
+  return useMemo(() => idProp || joinId(prefix, id), [idProp, prefix, id])
 }
 
 function useId(idProp?: string, prefix?: string) {
   const id = React.useId()
 
-  return useMemo(() => (
-    idProp || joinId(prefix, id)
-  ), [
-    idProp,
-    prefix,
-    id,
-  ])
+  return useMemo(() => idProp || joinId(prefix, id), [idProp, prefix, id])
 }
 
 const isReactUnderV18 = getReactVersion().major < 18

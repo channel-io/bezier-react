@@ -1,9 +1,4 @@
-import {
-  IndentationText,
-  NewLineKind,
-  Project,
-  QuoteKind,
-} from 'ts-morph'
+import { IndentationText, NewLineKind, Project, QuoteKind } from 'ts-morph'
 
 /**
  * By default, set to the value that most closely matches the setting used by Channel team.

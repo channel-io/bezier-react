@@ -1,7 +1,4 @@
-import React, {
-  forwardRef,
-  useMemo,
-} from 'react'
+import React, { forwardRef, useMemo } from 'react'
 
 import classNames from 'classnames'
 
@@ -11,10 +8,7 @@ import {
   SmoothCornersBox,
   type SmoothCornersBoxProps,
 } from '~/src/components/SmoothCornersBox'
-import {
-  Status,
-  type StatusSize,
-} from '~/src/components/Status'
+import { Status, type StatusSize } from '~/src/components/Status'
 import { useTokens } from '~/src/components/ThemeProvider'
 
 import type { AvatarProps } from './Avatar.types'
@@ -50,26 +44,29 @@ export const STATUS_WRAPPER_TEST_ID = 'bezier-status-wrapper'
  * />
  * ```
  */
-export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
-  avatarUrl = '',
-  fallbackUrl = defaultAvatarUrl,
-  size = '24',
-  name,
-  disabled = false,
-  showBorder = false,
-  smoothCorners = true,
-  status,
-  className,
-  children,
-  ...rest
-}, forwardedRef) {
+export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
+  {
+    avatarUrl = '',
+    fallbackUrl = defaultAvatarUrl,
+    size = '24',
+    name,
+    disabled = false,
+    showBorder = false,
+    smoothCorners = true,
+    status,
+    className,
+    children,
+    ...rest
+  },
+  forwardedRef
+) {
   const loadedAvatarUrl = useProgressiveImage(avatarUrl, fallbackUrl)
   const AVATAR_BORDER_RADIUS = useAvatarRadiusToken()
 
   const StatusComponent = useMemo(() => {
     if (
-      (isEmpty(children) && !status)
-      || (children && !React.isValidElement(children))
+      (isEmpty(children) && !status) ||
+      (children && !React.isValidElement(children))
     ) {
       return null
     }
@@ -85,7 +82,9 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
     })()
 
     const Contents = (() => {
-      if (children) { return children }
+      if (children) {
+        return children
+      }
       if (status) {
         return (
           <Status
@@ -97,19 +96,17 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
       return null
     })()
 
-    return Contents && (
-      <div
-        className={styles.StatusWrapper}
-        data-testid={STATUS_WRAPPER_TEST_ID}
-      >
-        { Contents }
-      </div>
+    return (
+      Contents && (
+        <div
+          className={styles.StatusWrapper}
+          data-testid={STATUS_WRAPPER_TEST_ID}
+        >
+          {Contents}
+        </div>
+      )
     )
-  }, [
-    status,
-    size,
-    children,
-  ])
+  }, [status, size, children])
 
   return (
     <div
@@ -117,7 +114,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
         styles.Avatar,
         styles[`size-${size}`],
         disabled && styles.disabled,
-        className,
+        className
       )}
       data-disabled={disabled}
       data-testid={AVATAR_WRAPPER_TEST_ID}
@@ -129,7 +126,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
         className={classNames(
           styles.AvatarImage,
           Number(size) >= 72 && styles['big-size'],
-          showBorder && styles.bordered,
+          showBorder && styles.bordered
         )}
         disabled={!smoothCorners}
         borderRadius={AVATAR_BORDER_RADIUS}
@@ -138,7 +135,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar({
         backgroundImage={loadedAvatarUrl}
         data-testid={AVATAR_TEST_ID}
       >
-        { StatusComponent }
+        {StatusComponent}
       </SmoothCornersBox>
     </div>
   )

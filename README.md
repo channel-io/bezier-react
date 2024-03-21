@@ -6,13 +6,13 @@
 
 ## About this repo
 
-| Name | Description |
-|---|---|
-| [bezier-react](packages/bezier-react) | React components library that implements Bezier design system. |
-| [bezier-icons](packages/bezier-icons) | Icon library that implements Bezier design system. |
-| [bezier-codemod](packages/bezier-codemod) | Codemod transformations to help upgrade app using Bezier design system. |
+| Name                                                | Description                                                                   |
+| --------------------------------------------------- | ----------------------------------------------------------------------------- |
+| [bezier-react](packages/bezier-react)               | React components library that implements Bezier design system.                |
+| [bezier-icons](packages/bezier-icons)               | Icon library that implements Bezier design system.                            |
+| [bezier-codemod](packages/bezier-codemod)           | Codemod transformations to help upgrade app using Bezier design system.       |
 | [bezier-figma-plugin](packages/bezier-figma-plugin) | Figma plugin that helps build Bezier design system and increase productivity. |
-| [bezier-tokens](packages/bezier-tokens) | Design token library for Bezier design system. |
+| [bezier-tokens](packages/bezier-tokens)             | Design token library for Bezier design system.                                |
 
 ## Commands
 
@@ -42,12 +42,12 @@ yarn dev
 
 ### Other Commands
 
-| Command | Description |
-|---|---|
-| `yarn test` | Tests all workspaces |
-| `yarn lint` | Lints all workspaces |
-| `yarn typecheck` | Type checks all workspaces |
-| `yarn clean` | Remove generated files |
+| Command                | Description                             |
+| ---------------------- | --------------------------------------- |
+| `yarn test`            | Tests all workspaces                    |
+| `yarn lint`            | Lints all workspaces                    |
+| `yarn typecheck`       | Type checks all workspaces              |
+| `yarn clean`           | Remove generated files                  |
 | `yarn update-snapshot` | Update test snapshots of `bezier-react` |
 
 ## Contributing

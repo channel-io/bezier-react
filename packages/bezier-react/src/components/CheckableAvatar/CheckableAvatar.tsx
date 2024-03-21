@@ -36,28 +36,31 @@ import styles from './CheckableAvatar.module.scss'
  * />
  * ```
  */
-export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProps>(function CheckableAvatar({
-  children,
-  className,
-  id: idProp,
-  name,
-  size = '24',
-  disabled,
-  avatarUrl,
-  fallbackUrl,
-  status,
-  showBorder,
-  ...props
-}, forwardedRef) {
+export const CheckableAvatar = forwardRef<
+  HTMLButtonElement,
+  CheckableAvatarProps
+>(function CheckableAvatar(
+  {
+    children,
+    className,
+    id: idProp,
+    name,
+    size = '24',
+    disabled,
+    avatarUrl,
+    fallbackUrl,
+    status,
+    showBorder,
+    ...props
+  },
+  forwardedRef
+) {
   const id = useId(idProp, 'bezier-checkable-avatar')
 
   return (
     <CheckboxPrimitive.Root
       asChild
-      className={classNames(
-        styles.Checkbox,
-        className,
-      )}
+      className={classNames(styles.Checkbox, className)}
       ref={forwardedRef}
       id={id}
       name={name}
@@ -70,10 +73,7 @@ export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProp
           forceMount
         >
           <Icon
-            className={classNames(
-              styles.CheckIcon,
-              styles[`size-${size}`],
-            )}
+            className={classNames(styles.CheckIcon, styles[`size-${size}`])}
             source={CheckIcon}
             color="bgtxt-absolute-white-normal"
           />
@@ -90,11 +90,11 @@ export const CheckableAvatar = forwardRef<HTMLButtonElement, CheckableAvatarProp
           status={status}
           showBorder={showBorder}
         >
-          { children }
+          {children}
         </Avatar>
 
         <VisuallyHidden>
-          <label htmlFor={id}>{ name }</label>
+          <label htmlFor={id}>{name}</label>
         </VisuallyHidden>
       </BaseButton>
     </CheckboxPrimitive.Root>

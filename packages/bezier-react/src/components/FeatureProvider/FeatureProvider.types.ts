@@ -18,6 +18,6 @@ interface FeatureProviderOwnProps {
   features: Feature[]
 }
 
-export interface FeatureProviderProps extends
-  ChildrenProps,
-  FeatureProviderOwnProps {}
+export interface FeatureProviderProps
+  extends ChildrenProps,
+    FeatureProviderOwnProps {}

@@ -14,30 +14,34 @@ import type {
 } from '~/src/types/props'
 
 export type TextFieldType =
-| 'search'
-| 'text'
-| 'email'
-| 'password'
-| 'tel'
-| 'url'
-| 'hidden'
-| 'number'
+  | 'search'
+  | 'text'
+  | 'email'
+  | 'password'
+  | 'tel'
+  | 'url'
+  | 'hidden'
+  | 'number'
 
 export type SelectionRangeDirections = 'forward' | 'backward' | 'none'
 
-export type TextFieldVariant =
-| 'primary'
-| 'secondary'
+export type TextFieldVariant = 'primary' | 'secondary'
 
-export type TextFieldItemProps = {
-  icon: BezierIcon
-  onClick?: React.MouseEventHandler
-} & AdditionalColorProps<'icon'> | React.ReactElement
+export type TextFieldItemProps =
+  | ({
+      icon: BezierIcon
+      onClick?: React.MouseEventHandler
+    } & AdditionalColorProps<'icon'>)
+  | React.ReactElement
 
 export interface TextFieldRef {
   focus(options?: FocusOptions): void
   blur(): void
-  setSelectionRange(start?: number, end?: number, direction?: SelectionRangeDirections): void
+  setSelectionRange(
+    start?: number,
+    end?: number,
+    direction?: SelectionRangeDirections
+  ): void
   getSelectionRange(): [number, number]
   selectAll(): void
   unselect(): void
@@ -61,13 +65,21 @@ interface TextFieldOwnProps {
   onKeyUp?: KeyboardEventHandler
 }
 
-type OmittedInputHTMLAttributes = 'type' | 'size' | 'readOnly' | 'disabled' | 'onFocus'
+type OmittedInputHTMLAttributes =
+  | 'type'
+  | 'size'
+  | 'readOnly'
+  | 'disabled'
+  | 'onFocus'
 
-export interface TextFieldProps extends
-  Omit<BezierComponentProps<'input'>, OmittedInputHTMLAttributes>,
-  AdditionalOverridableStyleProps<['wrapper', 'leftWrapper', 'rightWrapper']>,
-  FormFieldProps,
-  SizeProps<FormFieldSize>,
-  VariantProps<TextFieldVariant>,
-  SideContentProps<TextFieldItemProps, TextFieldItemProps | TextFieldItemProps[]>,
-  TextFieldOwnProps {}
+export interface TextFieldProps
+  extends Omit<BezierComponentProps<'input'>, OmittedInputHTMLAttributes>,
+    AdditionalOverridableStyleProps<['wrapper', 'leftWrapper', 'rightWrapper']>,
+    FormFieldProps,
+    SizeProps<FormFieldSize>,
+    VariantProps<TextFieldVariant>,
+    SideContentProps<
+      TextFieldItemProps,
+      TextFieldItemProps | TextFieldItemProps[]
+    >,
+    TextFieldOwnProps {}

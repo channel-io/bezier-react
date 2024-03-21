@@ -1,17 +1,10 @@
 import React from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { Button } from '~/src/components/Button'
 
-import {
-  ToastProvider,
-  useToast,
-} from './Toast'
+import { ToastProvider, useToast } from './Toast'
 import {
   type ToastOptions,
   type ToastProps,
@@ -27,7 +20,12 @@ function ToastContent(options: ToastOptions) {
   return (
     <Button
       text="Click me"
-      onClick={() => toast.addToast('Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nNulla tempor id ipsum at imperdiet. Vivamus eget euismod tortor, nec lobortis massa. Donec viverra varius felis eu sagittis.', options)}
+      onClick={() =>
+        toast.addToast(
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nNulla tempor id ipsum at imperdiet. Vivamus eget euismod tortor, nec lobortis massa. Donec viverra varius felis eu sagittis.',
+          options
+        )
+      }
     />
   )
 }
@@ -52,4 +50,3 @@ export const Primary: StoryObj<ToastOptions & ToastProviderProps> = {
 }
 
 export default meta
-

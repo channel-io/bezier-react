@@ -23,15 +23,12 @@ import { Text } from '~/src/components/Text'
 import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
 import { useRootElement } from '~/src/components/WindowProvider'
 
-import {
-  type TooltipPosition,
-  type TooltipProps,
-} from './Tooltip.types'
+import { type TooltipPosition, type TooltipProps } from './Tooltip.types'
 
 import styles from './Tooltip.module.scss'
 
 function getSideAndAlign(
-  placement: TooltipPosition,
+  placement: TooltipPosition
 ): Pick<TooltipPrimitiveContentProps, 'side' | 'align'> {
   switch (placement) {
     case 'top-center':
@@ -117,168 +114,170 @@ function getSideAndAlign(
  * </Tooltip>
  * ```
  */
-export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip({
-  children,
-  defaultShow,
-  onShow: onShowProp,
-  onHide: onHideProp,
-  disabled,
-  title,
-  content,
-  description,
-  icon,
-  placement = 'bottom-center',
-  offset = 4,
-  container: containerProp,
-  keepInContainer = true,
-  allowHover = false,
-  delayShow = 0,
-  delayHide = 0,
-  ...rest
-}, forwardedRef) {
-  const [show, setShow] = useState<boolean>(defaultShow ?? false)
-  const timeoutRef = useRef<NodeJS.Timeout>()
+export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
+  function Tooltip(
+    {
+      children,
+      defaultShow,
+      onShow: onShowProp,
+      onHide: onHideProp,
+      disabled,
+      title,
+      content,
+      description,
+      icon,
+      placement = 'bottom-center',
+      offset = 4,
+      container: containerProp,
+      keepInContainer = true,
+      allowHover = false,
+      delayShow = 0,
+      delayHide = 0,
+      ...rest
+    },
+    forwardedRef
+  ) {
+    const [show, setShow] = useState<boolean>(defaultShow ?? false)
+    const timeoutRef = useRef<NodeJS.Timeout>()
 
-  const rootElement = useRootElement()
-  const container = containerProp ?? rootElement
+    const rootElement = useRootElement()
+    const container = containerProp ?? rootElement
 
-  const shouldBeHidden = useMemo(() => (
-    disabled || isEmpty(content)
-  ), [
-    disabled,
-    content,
-  ])
+    const shouldBeHidden = useMemo(
+      () => disabled || isEmpty(content),
+      [disabled, content]
+    )
 
-  const onShow = useCallback(() => {
-    setShow(true)
-    onShowProp?.()
-  }, [onShowProp])
+    const onShow = useCallback(() => {
+      setShow(true)
+      onShowProp?.()
+    }, [onShowProp])
 
-  const onHide = useCallback(() => {
-    setShow(false)
-    onHideProp?.()
-  }, [onHideProp])
+    const onHide = useCallback(() => {
+      setShow(false)
+      onHideProp?.()
+    }, [onHideProp])
 
-  useEffect(function forceHide() {
-    if (shouldBeHidden) {
-      onHide()
-    }
-  }, [
-    shouldBeHidden,
-    onHide,
-  ])
+    useEffect(
+      function forceHide() {
+        if (shouldBeHidden) {
+          onHide()
+        }
+      },
+      [shouldBeHidden, onHide]
+    )
 
-  useEffect(function cleanUpTimeout() {
-    return function cleanUp() {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-      }
-    }
-  }, [shouldBeHidden])
+    useEffect(
+      function cleanUpTimeout() {
+        return function cleanUp() {
+          if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current)
+          }
+        }
+      },
+      [shouldBeHidden]
+    )
 
-  const onOpenChange = useCallback((open: boolean) => {
-    if (shouldBeHidden) {
-      return
-    }
+    const onOpenChange = useCallback(
+      (open: boolean) => {
+        if (shouldBeHidden) {
+          return
+        }
 
-    if (open) {
-      onShow()
-      return
-    }
+        if (open) {
+          onShow()
+          return
+        }
 
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current)
-      timeoutRef.current = undefined
-    }
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current)
+          timeoutRef.current = undefined
+        }
 
-    if (delayHide > 0) {
-      timeoutRef.current = setTimeout(() => {
+        if (delayHide > 0) {
+          timeoutRef.current = setTimeout(() => {
+            onHide()
+          }, delayHide)
+          return
+        }
+
         onHide()
-      }, delayHide)
-      return
-    }
+      },
+      [shouldBeHidden, delayHide, onShow, onHide]
+    )
 
-    onHide()
-  }, [
-    shouldBeHidden,
-    delayHide,
-    onShow,
-    onHide,
-  ])
+    return (
+      <TooltipPrimitiveProvider skipDelayDuration={0}>
+        <TooltipPrimitive
+          open={show}
+          defaultOpen={defaultShow}
+          delayDuration={delayShow}
+          disableHoverableContent={!allowHover}
+          onOpenChange={onOpenChange}
+        >
+          <TooltipPrimitiveTrigger asChild>{children}</TooltipPrimitiveTrigger>
 
-  return (
-    <TooltipPrimitiveProvider skipDelayDuration={0}>
-      <TooltipPrimitive
-        open={show}
-        defaultOpen={defaultShow}
-        delayDuration={delayShow}
-        disableHoverableContent={!allowHover}
-        onOpenChange={onOpenChange}
-      >
-        <TooltipPrimitiveTrigger asChild>
-          { children }
-        </TooltipPrimitiveTrigger>
-
-        <TooltipPrimitivePortal container={container}>
-          <InvertedThemeProvider>
-            <TooltipPrimitiveContent
-              {...rest}
-              {...getSideAndAlign(placement)}
-              asChild
-              ref={forwardedRef}
-              sideOffset={offset}
-              avoidCollisions={keepInContainer}
-              collisionPadding={8}
-              hideWhenDetached
-            >
-              <HStack
-                spacing={4}
-                className={styles.Tooltip}
+          <TooltipPrimitivePortal container={container}>
+            <InvertedThemeProvider>
+              <TooltipPrimitiveContent
+                {...rest}
+                {...getSideAndAlign(placement)}
+                asChild
+                ref={forwardedRef}
+                sideOffset={offset}
+                avoidCollisions={keepInContainer}
+                collisionPadding={8}
+                hideWhenDetached
               >
-                <div className={styles.TooltipContainer}>
-                  { title && (
+                <HStack
+                  spacing={4}
+                  className={styles.Tooltip}
+                >
+                  <div className={styles.TooltipContainer}>
+                    {title && (
+                      <Text
+                        typo="13"
+                        bold
+                        marginBottom={2}
+                        color="txt-black-darkest"
+                      >
+                        {title}
+                      </Text>
+                    )}
+
                     <Text
-                      typo="13"
-                      bold
-                      marginBottom={2}
                       color="txt-black-darkest"
+                      className={styles.TooltipContent}
+                      truncated={20}
+                      typo="13"
                     >
-                      { title }
+                      {content}
                     </Text>
-                  ) }
 
-                  <Text
-                    color="txt-black-darkest"
-                    className={styles.TooltipContent}
-                    truncated={20}
-                    typo="13"
-                  >
-                    { content }
-                  </Text>
+                    {description && (
+                      <Text
+                        typo="12"
+                        color="txt-black-dark"
+                      >
+                        {description}
+                      </Text>
+                    )}
+                  </div>
 
-                  { description && (
-                    <Text
-                      typo="12"
-                      color="txt-black-dark"
-                    >
-                      { description }
-                    </Text>
-                  ) }
-                </div>
-
-                { icon && (
-                  <Icon
-                    size="xs"
-                    color="txt-black-darkest"
-                    source={icon}
-                    className={styles.Icon}
-                  />
-                ) }
-              </HStack>
-            </TooltipPrimitiveContent>
-          </InvertedThemeProvider>
-        </TooltipPrimitivePortal>
-      </TooltipPrimitive>
-    </TooltipPrimitiveProvider>
-  )
-})
+                  {icon && (
+                    <Icon
+                      size="xs"
+                      color="txt-black-darkest"
+                      source={icon}
+                      className={styles.Icon}
+                    />
+                  )}
+                </HStack>
+              </TooltipPrimitiveContent>
+            </InvertedThemeProvider>
+          </TooltipPrimitivePortal>
+        </TooltipPrimitive>
+      </TooltipPrimitiveProvider>
+    )
+  }
+)

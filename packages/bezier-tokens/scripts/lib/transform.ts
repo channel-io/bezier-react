@@ -1,12 +1,6 @@
-import type {
-  Named,
-  Transform,
-} from 'style-dictionary'
+import type { Named, Transform } from 'style-dictionary'
 
-import {
-  extractNumber,
-  toCSSDimension,
-} from './utils'
+import { extractNumber, toCSSDimension } from './utils'
 
 type CustomTransform = Named<Transform<unknown>>
 type Transforms = Record<string, CustomTransform>
@@ -18,7 +12,8 @@ export const CSSTransforms = {
     transitive: true,
     matcher: (token) =>
       token.attributes?.category === 'font' && token.type === 'dimension',
-    transformer: ({ value }: { value: string }, options) => `${parseFloat(extractNumber(value) ?? '') / ((options && options.basePxFontSize) || 16)}rem`,
+    transformer: ({ value }: { value: string }, options) =>
+      `${parseFloat(extractNumber(value) ?? '') / ((options && options.basePxFontSize) || 16)}rem`,
   },
   fontFamily: {
     name: 'custom/css/font/family',
@@ -60,9 +55,12 @@ export const CSSTransforms = {
           return shadow
         }
         const { offsetX, offsetY, blur, spread, color, type } = shadow
-        return `${type === 'innerShadow' ? 'inset ' : ''}${offsetX ? toCSSDimension(offsetX) : 0
-        } ${offsetY ? toCSSDimension(offsetY) : 0} ${blur ? toCSSDimension(blur) : 0
-        }${spread ? ` ${toCSSDimension(spread)} ` : ' '}${color || 'rgba(0, 0, 0, 1)'
+        return `${type === 'innerShadow' ? 'inset ' : ''}${
+          offsetX ? toCSSDimension(offsetX) : 0
+        } ${offsetY ? toCSSDimension(offsetY) : 0} ${
+          blur ? toCSSDimension(blur) : 0
+        }${spread ? ` ${toCSSDimension(spread)} ` : ' '}${
+          color || 'rgba(0, 0, 0, 1)'
         }`.trim()
       }
 

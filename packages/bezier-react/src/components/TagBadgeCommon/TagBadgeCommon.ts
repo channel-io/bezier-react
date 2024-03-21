@@ -3,30 +3,26 @@ import { type SemanticColor } from '~/src/types/tokens'
 /**
  * @deprecated
  */
-export type TagBadgeSize =
-| 'xs'
-| 's'
-| 'm'
-| 'l'
+export type TagBadgeSize = 'xs' | 's' | 'm' | 'l'
 
 /**
  * @deprecated
  */
 export type TagBadgeVariant =
-| 'default'
-| 'monochrome-light'
-| 'monochrome-dark'
-| 'blue'
-| 'cobalt'
-| 'teal'
-| 'green'
-| 'olive'
-| 'pink'
-| 'navy'
-| 'yellow'
-| 'orange'
-| 'red'
-| 'purple'
+  | 'default'
+  | 'monochrome-light'
+  | 'monochrome-dark'
+  | 'blue'
+  | 'cobalt'
+  | 'teal'
+  | 'green'
+  | 'olive'
+  | 'pink'
+  | 'navy'
+  | 'yellow'
+  | 'orange'
+  | 'red'
+  | 'purple'
 
 /**
  * @deprecated
@@ -57,6 +53,8 @@ export function getProperTagBadgeTypo(size: TagBadgeSize) {
   }[size]
 }
 
-export function getProperTagBadgeBgColor(color: TagBadgeVariant): SemanticColor {
+export function getProperTagBadgeBgColor(
+  color: TagBadgeVariant
+): SemanticColor {
   return TagBadgeBgColorPreset[color]
 }

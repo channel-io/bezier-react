@@ -37,16 +37,20 @@ interface OverridableStyleProps {
  * type DivProps = ElementProps<'div'>; // React.HTMLAttributes<HTMLDivElement>
  * type AnchorProps = ElementProps<'a'>; // React.AnchorHTMLAttributes<HTMLAnchorElement>
  */
-type HTMLElementProps<Tag extends keyof JSX.IntrinsicElements> = React.ComponentPropsWithoutRef<Tag>
+type HTMLElementProps<Tag extends keyof JSX.IntrinsicElements> =
+  React.ComponentPropsWithoutRef<Tag>
 
 /**
  * Extends base configuration and overridable style properties with standard HTML attributes.
  * Designed for components requiring both custom and standard HTML properties.
  * @template Tag The tag name of the HTML element (e.g., 'div', 'a', 'button'). If null, returns contains `React.HTMLAttributes<HTMLElement>`.
  */
-export type BezierComponentProps<Tag extends keyof JSX.IntrinsicElements | null = null> =
-  & (Tag extends keyof JSX.IntrinsicElements ? HTMLElementProps<Tag> : React.HTMLAttributes<HTMLElement>)
-  & OverridableStyleProps
+export type BezierComponentProps<
+  Tag extends keyof JSX.IntrinsicElements | null = null,
+> = (Tag extends keyof JSX.IntrinsicElements
+  ? HTMLElementProps<Tag>
+  : React.HTMLAttributes<HTMLElement>) &
+  OverridableStyleProps
 
 /**
  * Props for polymorphic components that can render as different element types.
@@ -102,7 +106,10 @@ export interface SizeProps<Size extends string | number> {
 /**
  * Props for components that have content on their sides (left or right).
  */
-export interface SideContentProps<LeftContent = React.ReactNode, RightContent = React.ReactNode> {
+export interface SideContentProps<
+  LeftContent = React.ReactNode,
+  RightContent = React.ReactNode,
+> {
   /**
    * Content to be displayed on the left side of the component.
    */
@@ -148,19 +155,22 @@ type PropNameType = string | string[]
 /**
  * Generic type for defining additional properties with a specific suffix.
  */
-type AdditionalProps<PropName extends PropNameType, Suffix extends string, PropType> = {
+type AdditionalProps<
+  PropName extends PropNameType,
+  Suffix extends string,
+  PropType,
+> = {
   [Key in `${PropName extends string
     ? PropName
-    : PropName[number]
-  }${Capitalize<Suffix>}`]?: PropType
+    : PropName[number]}${Capitalize<Suffix>}`]?: PropType
 }
 
 /**
  * Props for adding additional overridable style properties to named elements within a component.
  */
 export type AdditionalOverridableStyleProps<ElementName extends PropNameType> =
-  & AdditionalProps<ElementName, 'style', React.CSSProperties>
-  & AdditionalProps<ElementName, 'className', string>
+  AdditionalProps<ElementName, 'style', React.CSSProperties> &
+    AdditionalProps<ElementName, 'className', string>
 
 /**
  * Props for adding color properties to named elements within a component.
@@ -416,9 +426,7 @@ export type FormFieldSize = 'xl' | 'l' | 'm' | 'xs'
 /**
  * Props for form field components, including states like disabled, error, and required.
  */
-export interface FormFieldProps extends
-  DisableProps,
-  Partial<IdentifierProps> {
+export interface FormFieldProps extends DisableProps, Partial<IdentifierProps> {
   /**
    * Indicates whether the validation failed.
    */

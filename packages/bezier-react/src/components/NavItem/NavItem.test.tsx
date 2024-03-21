@@ -23,7 +23,12 @@ describe('NavItem Test >', () => {
   })
 
   const renderNavItem = (optionProps?: Partial<NavItemProps>) =>
-    render(<NavItem {...props} {...optionProps} />)
+    render(
+      <NavItem
+        {...props}
+        {...optionProps}
+      />
+    )
 
   describe('Snapshot >', () => {
     it('Active', () => {

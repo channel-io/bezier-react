@@ -2,11 +2,7 @@ import React from 'react'
 
 import { AppProvider } from '@channel.io/bezier-react'
 import { createRoot } from 'react-dom/client'
-import {
-  MemoryRouter,
-  Route,
-  Routes,
-} from 'react-router-dom'
+import { MemoryRouter, Route, Routes } from 'react-router-dom'
 
 import ExtractSuccess from './components/ExtractSuccess'
 import Home from './components/Home'
@@ -21,10 +17,19 @@ root.render(
   <AppProvider>
     <MemoryRouter>
       <Routes>
-        <Route index element={(<Home />)} />
-        <Route path="extract" element={(<IconExtract />)} />
-        <Route path="extract_success" element={(<ExtractSuccess />)} />
+        <Route
+          index
+          element={<Home />}
+        />
+        <Route
+          path="extract"
+          element={<IconExtract />}
+        />
+        <Route
+          path="extract_success"
+          element={<ExtractSuccess />}
+        />
       </Routes>
     </MemoryRouter>
-  </AppProvider>,
+  </AppProvider>
 )

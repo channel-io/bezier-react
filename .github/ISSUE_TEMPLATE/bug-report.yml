@@ -1,27 +1,27 @@
-name: "Bug report"
-description: "Template for bug reporting"
-labels: ["bug"]
+name: 'Bug report'
+description: 'Template for bug reporting'
+labels: ['bug']
 body:
-  - type: "markdown"
+  - type: 'markdown'
     attributes:
       value: |
         🙏 Please write the issue title in English!
 
         Thank you for writing the issue.
         Before you write, please search for the duplicate issue first!
-  - type: "input"
-    id: "description"
+  - type: 'input'
+    id: 'description'
     attributes:
-      label: "Summary"
-      description: "Please summarize the bug in one line."
+      label: 'Summary'
+      description: 'Please summarize the bug in one line.'
       placeholder: |
         Please enter.
     validations:
       required: true
-  - type: "textarea"
-    id: "step"
+  - type: 'textarea'
+    id: 'step'
     attributes:
-      label: "Reproduction process"
+      label: 'Reproduction process'
       description: |
         Please explain the process of the bug in detail.
       value: |
@@ -29,32 +29,32 @@ body:
         2. ...
         3. ...
         4. ...
-  - type: "input"
-    id: "version"
+  - type: 'input'
+    id: 'version'
     attributes:
-      label: "Version of bezier-react"
-      description: "Please write the version of bezier-react that caused the bug."
-      placeholder: "1.0.1"
+      label: 'Version of bezier-react'
+      description: 'Please write the version of bezier-react that caused the bug.'
+      placeholder: '1.0.1'
     validations:
       required: true
-  - type: "input"
-    id: "browser"
+  - type: 'input'
+    id: 'browser'
     attributes:
-      label: "Browser"
-      description: "Please write about the browser where the bug occurred."
-      placeholder: "Google Chrome 93"
-  - type: "checkboxes"
-    id: "operating-system"
+      label: 'Browser'
+      description: 'Please write about the browser where the bug occurred.'
+      placeholder: 'Google Chrome 93'
+  - type: 'checkboxes'
+    id: 'operating-system'
     attributes:
-      label: "Operating system"
-      description: "Please write about the operating system where the bug occurred."
+      label: 'Operating system'
+      description: 'Please write about the operating system where the bug occurred.'
       options:
-        - label: "macOS"
-        - label: "Windows"
-        - label: "Linux"
-  - type: "textarea"
-    id: "additional-information"
+        - label: 'macOS'
+        - label: 'Windows'
+        - label: 'Linux'
+  - type: 'textarea'
+    id: 'additional-information'
     attributes:
-      label: "Additonal Information"
+      label: 'Additonal Information'
       description: |
         Please enter additional information (such as screenshots) related to bugs.

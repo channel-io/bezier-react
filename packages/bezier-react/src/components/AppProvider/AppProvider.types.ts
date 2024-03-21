@@ -21,6 +21,4 @@ interface AppProviderOwnProps {
   window?: Window
 }
 
-export interface AppProviderProps extends
-  ChildrenProps,
-  AppProviderOwnProps {}
+export interface AppProviderProps extends ChildrenProps, AppProviderOwnProps {}

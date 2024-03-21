@@ -14,11 +14,13 @@ import styles from './Help.module.scss'
 export const HELP_TEST_ID = 'bezier-help'
 export const HELP_DISPLAY_NAME = 'Help'
 
-export const Help = forwardRef<HTMLDivElement, HelpProps>(function Help({
-  children,
-  ...rest
-}, forwardedRef) {
-  if (isEmpty(children)) { return null }
+export const Help = forwardRef<HTMLDivElement, HelpProps>(function Help(
+  { children, ...rest },
+  forwardedRef
+) {
+  if (isEmpty(children)) {
+    return null
+  }
 
   return (
     <Tooltip

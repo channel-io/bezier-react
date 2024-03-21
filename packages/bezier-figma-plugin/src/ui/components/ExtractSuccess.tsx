@@ -1,14 +1,7 @@
 import React, { useCallback } from 'react'
 
-import {
-  Button,
-  Text,
-  VStack,
-} from '@channel.io/bezier-react'
-import {
-  useLocation,
-  useNavigate,
-} from 'react-router-dom'
+import { Button, Text, VStack } from '@channel.io/bezier-react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 function ExtractSuccess() {
   const navigate = useNavigate()
@@ -20,10 +13,21 @@ function ExtractSuccess() {
   }, [navigate])
 
   return (
-    <VStack align="center" justify="center" spacing={2}>
+    <VStack
+      align="center"
+      justify="center"
+      spacing={2}
+    >
       <Text typo="18">아이콘 추출 성공!</Text>
-      { /* @ts-ignore */ }
-      <Text color="bgtxt-blue-normal" as="a" href={url} target="_blank">PR 링크</Text>
+      <Text
+        color="bgtxt-blue-normal"
+        as="a"
+        // @ts-expect-error
+        href={url}
+        target="_blank"
+      >
+        PR 링크
+      </Text>
       <Button
         styleVariant="secondary"
         colorVariant="monochrome-dark"

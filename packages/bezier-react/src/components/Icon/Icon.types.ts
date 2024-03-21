@@ -7,14 +7,7 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
-export type IconSize =
-| 'xl'
-| 'l'
-| 'm'
-| 's'
-| 'xs'
-| 'xxs'
-| 'xxxs'
+export type IconSize = 'xl' | 'l' | 'm' | 's' | 'xs' | 'xxs' | 'xxxs'
 
 interface IconOwnProps {
   /**
@@ -31,9 +24,9 @@ interface IconOwnProps {
   source: React.ElementType<React.SVGProps<SVGSVGElement>>
 }
 
-export interface IconProps extends
-  Omit<BezierComponentProps<'svg'>, keyof ColorProps>,
-  MarginProps,
-  SizeProps<IconSize>,
-  ColorProps,
-  IconOwnProps {}
+export interface IconProps
+  extends Omit<BezierComponentProps<'svg'>, keyof ColorProps>,
+    MarginProps,
+    SizeProps<IconSize>,
+    ColorProps,
+    IconOwnProps {}

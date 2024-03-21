@@ -1,8 +1,4 @@
-import {
-  camelCase,
-  kebabCase,
-  toString,
-} from './string'
+import { camelCase, kebabCase, toString } from './string'
 
 describe('toString', () => {
   test('nullish value to empty string', () => {

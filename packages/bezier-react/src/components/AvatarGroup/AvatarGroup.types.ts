@@ -7,9 +7,7 @@ import type {
 
 import { type AvatarSize } from '~/src/components/Avatar'
 
-export type AvatarGroupEllipsisType =
-| 'icon'
-| 'count'
+export type AvatarGroupEllipsisType = 'icon' | 'count'
 
 type MouseEventHandler = React.MouseEventHandler<HTMLDivElement>
 
@@ -45,9 +43,9 @@ interface AvatarGroupOwnProps {
   onMouseLeaveEllipsis?: MouseEventHandler
 }
 
-export interface AvatarGroupProps extends
-  BezierComponentProps<'div'>,
-  ChildrenProps,
-  SizeProps<AvatarSize>,
-  AdditionalOverridableStyleProps<'ellipsis'>,
-  AvatarGroupOwnProps {}
+export interface AvatarGroupProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    SizeProps<AvatarSize>,
+    AdditionalOverridableStyleProps<'ellipsis'>,
+    AvatarGroupOwnProps {}

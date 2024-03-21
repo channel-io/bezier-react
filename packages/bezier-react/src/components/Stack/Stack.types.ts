@@ -46,16 +46,14 @@ interface StackOwnProps {
   wrap?: boolean
 }
 
-export interface StackProps extends
-  BezierComponentProps,
-  PolymorphicProps,
-  ChildrenProps,
-  LayoutProps,
-  MarginProps,
-  StackOwnProps {}
+export interface StackProps
+  extends BezierComponentProps,
+    PolymorphicProps,
+    ChildrenProps,
+    LayoutProps,
+    MarginProps,
+    StackOwnProps {}
 
-export interface HStackProps extends
-  Omit<StackProps, 'direction'> {}
+export interface HStackProps extends Omit<StackProps, 'direction'> {}
 
-export interface VStackProps extends
-  Omit<StackProps, 'direction'> {}
+export interface VStackProps extends Omit<StackProps, 'direction'> {}

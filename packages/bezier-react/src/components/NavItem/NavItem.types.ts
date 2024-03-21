@@ -14,10 +14,13 @@ interface NavItemOwnProps {
   onClick?: (e?: React.MouseEvent, name?: string) => void
 }
 
-export interface NavItemProps extends
-  Omit<BezierComponentProps<'a'>, keyof ContentProps | keyof NavItemOwnProps>,
-  ContentProps,
-  LinkProps,
-  SideContentProps<BezierIcon, React.ReactNode>,
-  ActivatableProps,
-  NavItemOwnProps {}
+export interface NavItemProps
+  extends Omit<
+      BezierComponentProps<'a'>,
+      keyof ContentProps | keyof NavItemOwnProps
+    >,
+    ContentProps,
+    LinkProps,
+    SideContentProps<BezierIcon, React.ReactNode>,
+    ActivatableProps,
+    NavItemOwnProps {}

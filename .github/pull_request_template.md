@@ -17,18 +17,23 @@
   - macOS: Chrome, Edge, Safari, (Optional) Firefox
 
 ## Related Issue
+
 <!-- Please link to issue if one exists -->
 
 <!-- Fixes #0000 -->
 
 ## Summary
+
 <!-- Please brief explanation of the changes made -->
 
 ## Details
+
 <!-- Please elaborate description of the changes -->
 
 ### Breaking change? (Yes/No)
+
 <!-- If Yes, please describe the impact and migration path for users -->
 
 ## References
+
 <!-- Please list any other resources or points the reviewer should be aware of -->

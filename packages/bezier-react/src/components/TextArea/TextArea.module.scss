@@ -1,4 +1,4 @@
-@use "../../styles/mixins/typography";
+@use '../../styles/mixins/typography';
 
 .TextArea {
   font: unset;
@@ -25,7 +25,9 @@
   outline: none;
   box-shadow: var(--input-box-shadow);
 
-  transition: border-color var(--transition-s), box-shadow var(--transition-s);
+  transition:
+    border-color var(--transition-s),
+    box-shadow var(--transition-s);
 
   &::-webkit-scrollbar {
     display: none;

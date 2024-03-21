@@ -1,15 +1,8 @@
 /* eslint-disable no-alert */
 
-import React, {
-  useCallback,
-  useState,
-} from 'react'
+import React, { useCallback, useState } from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { noop } from '~/src/utils/function'
 import { isFunction } from '~/src/utils/type'
@@ -33,8 +26,8 @@ import {
 } from './Tabs.types'
 
 type TabsCompositionProps = TabsProps &
-TabListProps &
-TabActionProps<string | undefined>
+  TabListProps &
+  TabActionProps<string | undefined>
 
 function TabsComposition({
   activationMode,
@@ -45,19 +38,23 @@ function TabsComposition({
 }: TabsCompositionProps) {
   const [currentValue, setCurrentValue] = useState(value ?? defaultValue)
 
-  const handleValueChange = useCallback((_value: typeof value) => {
-    setCurrentValue(_value)
-    if (isFunction(onValueChange)) {
-      onValueChange(_value as string)
-    }
-  }, [onValueChange])
+  const handleValueChange = useCallback(
+    (_value: typeof value) => {
+      setCurrentValue(_value)
+      if (isFunction(onValueChange)) {
+        onValueChange(_value as string)
+      }
+    },
+    [onValueChange]
+  )
 
   return (
-    <div style={{
-      display: 'flex',
-      width: 400,
-      height: 200,
-    }}
+    <div
+      style={{
+        display: 'flex',
+        width: 400,
+        height: 200,
+      }}
     >
       <Tabs
         activationMode={activationMode}
@@ -76,7 +73,11 @@ function TabsComposition({
             <TabAction href="https://github.com/channel-io/bezier-react">
               Sub1
             </TabAction>
-            <TabAction onClick={() => { window.alert('Hi!') }}>
+            <TabAction
+              onClick={() => {
+                window.alert('Hi!')
+              }}
+            >
               Sub2
             </TabAction>
           </TabActions>
@@ -84,23 +85,17 @@ function TabsComposition({
 
         <TabContent value="One">
           <Center height={100}>
-            <Text color="txt-black-darkest">
-              Tab1 content
-            </Text>
+            <Text color="txt-black-darkest">Tab1 content</Text>
           </Center>
         </TabContent>
         <TabContent value="Two">
           <Center height={100}>
-            <Text color="txt-black-darkest">
-              Tab2 content
-            </Text>
+            <Text color="txt-black-darkest">Tab2 content</Text>
           </Center>
         </TabContent>
         <TabContent value="Three">
           <Center height={100}>
-            <Text color="txt-black-darkest">
-              Tab3 content
-            </Text>
+            <Text color="txt-black-darkest">Tab3 content</Text>
           </Center>
         </TabContent>
       </Tabs>

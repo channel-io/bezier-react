@@ -1,7 +1,4 @@
-import React, {
-  type CSSProperties,
-  forwardRef,
-} from 'react'
+import React, { type CSSProperties, forwardRef } from 'react'
 
 import classNames from 'classnames'
 
@@ -24,28 +21,22 @@ export const EMOJI_TEST_ID = 'bezier-emoji'
  * />
  * ```
  */
-export const Emoji = forwardRef<HTMLDivElement, EmojiProps>(function Emoji({
-  style,
-  imageUrl,
-  className,
-  name,
-  size = '24',
-  ...rest
-}, forwardedRef) {
+export const Emoji = forwardRef<HTMLDivElement, EmojiProps>(function Emoji(
+  { style, imageUrl, className, name, size = '24', ...rest },
+  forwardedRef
+) {
   return (
     <div
       ref={forwardedRef}
       role="img"
       aria-label={name}
-      style={{
-        '--b-emoji-background-image': cssUrl(imageUrl),
-        ...style,
-      } as CSSProperties}
-      className={classNames(
-        styles.Emoji,
-        styles[`size-${size}`],
-        className,
-      )}
+      style={
+        {
+          '--b-emoji-background-image': cssUrl(imageUrl),
+          ...style,
+        } as CSSProperties
+      }
+      className={classNames(styles.Emoji, styles[`size-${size}`], className)}
       data-testid={EMOJI_TEST_ID}
       {...rest}
     />

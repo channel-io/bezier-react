@@ -7,10 +7,7 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
-export type TabSize =
-| 'l'
-| 'm'
-| 's'
+export type TabSize = 'l' | 'm' | 's'
 
 export interface TabListContextValue {
   size: TabSize
@@ -45,7 +42,9 @@ interface TabActionOwnProps<Link extends string | undefined> {
   /**
    * Event handler called when tab action is clicked.
    */
-  onClick?: Link extends string ? never : React.MouseEventHandler<HTMLButtonElement>
+  onClick?: Link extends string
+    ? never
+    : React.MouseEventHandler<HTMLButtonElement>
 }
 
 interface TabItemOwnProps {
@@ -62,39 +61,41 @@ interface TabContentOwnProps {
   value: string
 }
 
-export interface TabsProps extends
-  Omit<BezierComponentProps<'div'>, keyof TabsOwnProps>,
-  ChildrenProps,
-  TabsOwnProps {}
+export interface TabsProps
+  extends Omit<BezierComponentProps<'div'>, keyof TabsOwnProps>,
+    ChildrenProps,
+    TabsOwnProps {}
 
-export interface TabListProps extends
-  BezierComponentProps<'div'>,
-  ChildrenProps,
-  SizeProps<TabSize> {}
+export interface TabListProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    SizeProps<TabSize> {}
 
-export interface TabItemsProps extends
-  BezierComponentProps<'div'>,
-  ChildrenProps {}
+export interface TabItemsProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps {}
 
-export interface TabItemProps extends
-  Omit<BezierComponentProps<'button'>, keyof TabItemOwnProps>,
-  ChildrenProps,
-  DisableProps,
-  TabItemOwnProps {}
+export interface TabItemProps
+  extends Omit<BezierComponentProps<'button'>, keyof TabItemOwnProps>,
+    ChildrenProps,
+    DisableProps,
+    TabItemOwnProps {}
 
-export interface TabActionsProps extends
-  BezierComponentProps<'div'>,
-  ChildrenProps {}
+export interface TabActionsProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps {}
 
-export type TabActionElement<Link> = [Link] extends [string] ? HTMLAnchorElement : HTMLButtonElement
+export type TabActionElement<Link> = [Link] extends [string]
+  ? HTMLAnchorElement
+  : HTMLButtonElement
 
-export interface TabActionProps<Link extends string | undefined> extends
-  Omit<BezierComponentProps, keyof React.HTMLAttributes<HTMLElement>>,
-  ChildrenProps,
-  TabActionOwnProps<Link>,
-  Omit<React.HTMLAttributes<TabActionElement<Link>>, 'onClick'> {}
+export interface TabActionProps<Link extends string | undefined>
+  extends Omit<BezierComponentProps, keyof React.HTMLAttributes<HTMLElement>>,
+    ChildrenProps,
+    TabActionOwnProps<Link>,
+    Omit<React.HTMLAttributes<TabActionElement<Link>>, 'onClick'> {}
 
-export interface TabContentProps extends
-  BezierComponentProps<'div'>,
-  ChildrenProps,
-  TabContentOwnProps {}
+export interface TabContentProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    TabContentOwnProps {}

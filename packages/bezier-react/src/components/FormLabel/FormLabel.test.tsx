@@ -2,15 +2,9 @@ import React from 'react'
 
 import { render } from '~/src/utils/test'
 
-import {
-  HELP_TEST_ID,
-  Help,
-} from '~/src/components/Help/Help'
+import { HELP_TEST_ID, Help } from '~/src/components/Help/Help'
 
-import {
-  FORM_LABEL_TEST_ID,
-  FormLabel,
-} from './FormLabel'
+import { FORM_LABEL_TEST_ID, FormLabel } from './FormLabel'
 import { type FormLabelProps } from './FormLabel.types'
 
 describe('FormLabel >', () => {
@@ -24,7 +18,12 @@ describe('FormLabel >', () => {
   })
 
   const renderComponent = (otherProps?: Partial<FormLabelProps>) =>
-    render(<FormLabel {...props} {...otherProps} />)
+    render(
+      <FormLabel
+        {...props}
+        {...otherProps}
+      />
+    )
 
   it('Snapshot >', () => {
     const { getByTestId } = renderComponent()

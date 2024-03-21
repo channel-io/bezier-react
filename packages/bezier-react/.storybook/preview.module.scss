@@ -3,7 +3,8 @@
   font-family: var(--font-family-sans-kr) !important;
 }
 
-:where(code, pre), :where(code, pre) * {
+:where(code, pre),
+:where(code, pre) * {
   font-family: var(--font-family-mono) !important;
 }
 

@@ -29,7 +29,7 @@ interface CheckableAvatarPropsOwnProps {
   onCheckedChange?: (checked: boolean) => void
 }
 
-export interface CheckableAvatarProps extends
-  Omit<AvatarProps, keyof React.HTMLAttributes<HTMLDivElement>>,
-  React.HTMLAttributes<HTMLButtonElement>,
-  CheckableAvatarPropsOwnProps {}
+export interface CheckableAvatarProps
+  extends Omit<AvatarProps, keyof React.HTMLAttributes<HTMLDivElement>>,
+    React.HTMLAttributes<HTMLButtonElement>,
+    CheckableAvatarPropsOwnProps {}

@@ -9,9 +9,5 @@
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "types": ["react", "jest"],
-  "include": [
-    "src",
-    "jest.setup.ts",
-    ".storybook/**/*"
-  ],
+  "include": ["src", "jest.setup.ts", ".storybook/**/*"]
 }

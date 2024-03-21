@@ -1,10 +1,6 @@
 import React from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { range } from '~/src/utils/number'
 
@@ -29,9 +25,7 @@ function DecorativeBox({ children }: React.PropsWithChildren<{}>) {
       borderWidth={1}
       borderColor="bdr-black-light"
     >
-      <Text>
-        { children }
-      </Text>
+      <Text>{children}</Text>
     </Box>
   )
 }
@@ -42,9 +36,9 @@ const Template: StoryFn<typeof Stack> = (args) => (
     borderColor="bdr-black-dark"
     borderWidth={1}
   >
-    { range(4).map((i) => (
-      <DecorativeBox key={`item-${i}`}>{ i + 1 }</DecorativeBox>
-    )) }
+    {range(4).map((i) => (
+      <DecorativeBox key={`item-${i}`}>{i + 1}</DecorativeBox>
+    ))}
   </Stack>
 )
 

@@ -10,16 +10,12 @@ import { type ChildrenProps } from '~/src/types/props'
 import { AppProvider } from '~/src/components/AppProvider'
 
 function TestProvider({ children }: ChildrenProps) {
-  return (
-    <AppProvider>
-      { children }
-    </AppProvider>
-  )
+  return <AppProvider>{children}</AppProvider>
 }
 
 export function render(
   ui: Parameters<typeof baseRender>[0],
-  options?: Parameters<typeof baseRender>[1],
+  options?: Parameters<typeof baseRender>[1]
 ) {
   return baseRender(ui, {
     wrapper: TestProvider,
@@ -35,7 +31,7 @@ interface RenderHookOptions<Props> {
 
 export function renderHook<Result, Props>(
   hook: (initialProps: Props) => Result,
-  options?: RenderHookOptions<Props>,
+  options?: RenderHookOptions<Props>
 ) {
   return baseRenderHook(hook, {
     wrapper: TestProvider,

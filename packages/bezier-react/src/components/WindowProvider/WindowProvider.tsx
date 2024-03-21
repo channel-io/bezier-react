@@ -7,7 +7,8 @@ import {
   type WindowProviderProps,
 } from './WindowProvider.types'
 
-const [WindowContextProvider, useWindowContext] = createContext<WindowContextValue | null>(null, 'WindowProvider')
+const [WindowContextProvider, useWindowContext] =
+  createContext<WindowContextValue | null>(null, 'WindowProvider')
 
 /**
  * Custom hook to access the window context.
@@ -28,18 +29,19 @@ export function useRootElement() {
  * This component wraps its children in the WindowContextProvider, supplying
  * the window object and its root element to the context for consumption
  */
-export function WindowProvider({
-  window,
-  children,
-}: WindowProviderProps) {
+export function WindowProvider({ window, children }: WindowProviderProps) {
   return (
-    <WindowContextProvider value={useMemo(() => ({
-      window,
-      document: window.document,
-      rootElement: window.document.body,
-    }), [window])}
+    <WindowContextProvider
+      value={useMemo(
+        () => ({
+          window,
+          document: window.document,
+          rootElement: window.document.body,
+        }),
+        [window]
+      )}
     >
-      { children }
+      {children}
     </WindowContextProvider>
   )
 }

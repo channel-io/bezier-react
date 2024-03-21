@@ -1,10 +1,6 @@
 import React from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { Tag } from './Tag'
 
@@ -15,7 +11,7 @@ const meta: Meta<typeof Tag> = {
 export default meta
 
 const Template: StoryFn<typeof Tag> = ({ children, ...otherProps }) => (
-  <Tag {...otherProps}>{ children }</Tag>
+  <Tag {...otherProps}>{children}</Tag>
 )
 
 export const Primary: StoryObj<typeof Tag> = {

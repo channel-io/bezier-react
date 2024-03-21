@@ -12,12 +12,16 @@ describe('BaseButton', () => {
   })
 
   it('should apply custom inline style', () => {
-    const { getByText } = render(<BaseButton style={{ color: 'red' }}>Test Button</BaseButton>)
+    const { getByText } = render(
+      <BaseButton style={{ color: 'red' }}>Test Button</BaseButton>
+    )
     expect(getByText('Test Button')).toHaveStyle({ color: 'red' })
   })
 
   it('should apply custom className', () => {
-    const { getByText } = render(<BaseButton className="custom-class">Test Button</BaseButton>)
+    const { getByText } = render(
+      <BaseButton className="custom-class">Test Button</BaseButton>
+    )
     expect(getByText('Test Button')).toHaveClass('custom-class')
   })
 
@@ -29,7 +33,9 @@ describe('BaseButton', () => {
 
   it('should pass additional props to the button element', async () => {
     const onClick = jest.fn()
-    const { getByText } = render(<BaseButton onClick={onClick}>Test Button</BaseButton>)
+    const { getByText } = render(
+      <BaseButton onClick={onClick}>Test Button</BaseButton>
+    )
     await userEvent.click(getByText('Test Button'))
     expect(onClick).toHaveBeenCalled()
   })
@@ -40,7 +46,9 @@ describe('BaseButton', () => {
   })
 
   it('should be able to change the button type', () => {
-    const { getByText } = render(<BaseButton type="submit">Submit Button</BaseButton>)
+    const { getByText } = render(
+      <BaseButton type="submit">Submit Button</BaseButton>
+    )
     expect(getByText('Submit Button')).toHaveAttribute('type', 'submit')
   })
 })

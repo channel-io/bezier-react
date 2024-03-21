@@ -17,9 +17,13 @@ describe('TextArea', () => {
     props = {}
   })
 
-  const renderComponent = (optionProps?: TextAreaProps) => render(
-    <TextArea {...props} {...optionProps} />,
-  )
+  const renderComponent = (optionProps?: TextAreaProps) =>
+    render(
+      <TextArea
+        {...props}
+        {...optionProps}
+      />
+    )
 
   it('should have the default attributes', () => {
     const { getByRole } = renderComponent()
@@ -108,7 +112,10 @@ describe('TextArea', () => {
 
     it('should place the selection at the end', () => {
       const TEST_INITIAL_VALUE = 'test value'
-      const { getByRole } = renderComponent({ autoFocus: true, value: TEST_INITIAL_VALUE })
+      const { getByRole } = renderComponent({
+        autoFocus: true,
+        value: TEST_INITIAL_VALUE,
+      })
       const rendered = getByRole('textbox') as HTMLTextAreaElement
       expect(rendered.selectionEnd).toEqual(TEST_INITIAL_VALUE.length)
     })
@@ -122,7 +129,10 @@ describe('TextArea', () => {
 
       COMMON_IME_CONTROL_KEYS.forEach((key) => {
         const isCompositionStartFired = fireEvent.compositionStart(rendered)
-        fireEvent.keyDown(rendered, { key, isComposing: isCompositionStartFired })
+        fireEvent.keyDown(rendered, {
+          key,
+          isComposing: isCompositionStartFired,
+        })
         expect(onKeyDown).not.toHaveBeenCalled()
       })
     })

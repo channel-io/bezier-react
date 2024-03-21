@@ -40,15 +40,8 @@ import {
  * </ConfirmModal>
  * ```
  */
-export function ConfirmModal({
-  children,
-  ...rest
-}: ConfirmModalProps) {
-  return (
-    <Modal {...rest}>
-      { children }
-    </Modal>
-  )
+export function ConfirmModal({ children, ...rest }: ConfirmModalProps) {
+  return <Modal {...rest}>{children}</Modal>
 }
 
 /**
@@ -56,10 +49,10 @@ export function ConfirmModal({
  * It creates a portal to render the modal content outside of the DOM tree
  * and renders overlay behind the modal content too.
  */
-export const ConfirmModalContent = forwardRef(function ConfirmModalContent({
-  children,
-  ...rest
-}: ConfirmModalContentProps, forwardedRef: React.Ref<HTMLDivElement>) {
+export const ConfirmModalContent = forwardRef(function ConfirmModalContent(
+  { children, ...rest }: ConfirmModalContentProps,
+  forwardedRef: React.Ref<HTMLDivElement>
+) {
   return (
     <ModalContent
       role="alertdialog"
@@ -67,7 +60,7 @@ export const ConfirmModalContent = forwardRef(function ConfirmModalContent({
       showCloseIcon={false}
       {...rest}
     >
-      { children }
+      {children}
     </ModalContent>
   )
 })
@@ -78,7 +71,7 @@ export const ConfirmModalContent = forwardRef(function ConfirmModalContent({
  */
 export const ConfirmModalHeader = forwardRef(function ConfirmModalHeader(
   props: ConfirmModalHeaderProps,
-  forwardedRef: React.Ref<HTMLElement>,
+  forwardedRef: React.Ref<HTMLElement>
 ) {
   return (
     <ModalHeader
@@ -93,16 +86,16 @@ export const ConfirmModalHeader = forwardRef(function ConfirmModalHeader(
 /**
  * `ConfirmModalBody` is a simple wrapper of the main modal content.
  */
-export const ConfirmModalBody = forwardRef(function ConfirmModalBody({
-  children,
-  ...rest
-}: ConfirmModalBodyProps, forwardedRef: React.Ref<HTMLDivElement>) {
+export const ConfirmModalBody = forwardRef(function ConfirmModalBody(
+  { children, ...rest }: ConfirmModalBodyProps,
+  forwardedRef: React.Ref<HTMLDivElement>
+) {
   return (
     <ModalBody
       ref={forwardedRef}
       {...rest}
     >
-      { children }
+      {children}
     </ModalBody>
   )
 })
@@ -113,7 +106,7 @@ export const ConfirmModalBody = forwardRef(function ConfirmModalBody({
  */
 export const ConfirmModalFooter = forwardRef(function ConfirmModalFooter(
   props: ConfirmModalFooterProps,
-  forwardedRef: React.Ref<HTMLDivElement>,
+  forwardedRef: React.Ref<HTMLDivElement>
 ) {
   return (
     <ModalFooter
@@ -130,11 +123,7 @@ export const ConfirmModalFooter = forwardRef(function ConfirmModalFooter(
  * It **must** be placed outside of the `ConfirmModalContent`.
  */
 export function ConfirmModalTrigger({ children }: ConfirmModalTriggerProps) {
-  return (
-    <ModalTrigger>
-      { children }
-    </ModalTrigger>
-  )
+  return <ModalTrigger>{children}</ModalTrigger>
 }
 
 /**
@@ -142,9 +131,5 @@ export function ConfirmModalTrigger({ children }: ConfirmModalTriggerProps) {
  * It passes the handler that closes the modal to the children.
  */
 export function ConfirmModalClose({ children }: ConfirmModalCloseProps) {
-  return (
-    <ModalClose>
-      { children }
-    </ModalClose>
-  )
+  return <ModalClose>{children}</ModalClose>
 }

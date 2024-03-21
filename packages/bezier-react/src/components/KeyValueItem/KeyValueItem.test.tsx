@@ -1,9 +1,6 @@
 import React from 'react'
 
-import {
-  AppleIcon,
-  BadgeIcon,
-} from '@channel.io/bezier-icons'
+import { AppleIcon, BadgeIcon } from '@channel.io/bezier-icons'
 import { waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
@@ -22,9 +19,13 @@ const DEFAULT_PROPS = {
   children: 'Value',
 }
 
-const renderComponent = (optionProps?: Partial<KeyValueItemProps>) => render(
-  <KeyValueItem {...DEFAULT_PROPS} {...optionProps} />,
-)
+const renderComponent = (optionProps?: Partial<KeyValueItemProps>) =>
+  render(
+    <KeyValueItem
+      {...DEFAULT_PROPS}
+      {...optionProps}
+    />
+  )
 
 describe('KeyValueItem', () => {
   describe('Props', () => {
@@ -52,11 +53,7 @@ describe('KeyValueItem', () => {
       })
 
       it('should render as a node if keyContent is a React.Node', () => {
-        const keyContent = (
-          <button type="button">
-            Button
-          </button>
-        )
+        const keyContent = <button type="button">Button</button>
         const { getByRole } = renderComponent({ keyContent })
         const rendered = getByRole('button')
         expect(rendered).toBeInTheDocument()
@@ -102,9 +99,12 @@ describe('KeyValueItem', () => {
         const { getByRole } = renderComponent({ actions })
         const rendered = getByRole('button')
         await user.hover(rendered)
-        await waitFor(() => {
-          expect(getByRole('tooltip')).toBeInTheDocument()
-        }, { timeout: 10000 })
+        await waitFor(
+          () => {
+            expect(getByRole('tooltip')).toBeInTheDocument()
+          },
+          { timeout: 10000 }
+        )
       })
     })
 

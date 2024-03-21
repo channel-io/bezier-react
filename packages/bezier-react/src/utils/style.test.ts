@@ -1,10 +1,4 @@
-import {
-  cssDimension,
-  cssUrl,
-  cssVar,
-  px,
-  tokenCssVar,
-} from './style'
+import { cssDimension, cssUrl, cssVar, px, tokenCssVar } from './style'
 
 describe('style', () => {
   describe('px', () => {
@@ -69,4 +63,3 @@ describe('style', () => {
     })
   })
 })
-

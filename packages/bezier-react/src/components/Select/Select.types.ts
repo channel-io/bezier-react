@@ -34,12 +34,15 @@ interface SelectOwnProps {
   onHideDropdown?: () => void
 }
 
-export interface SelectProps extends
-  BezierComponentProps<'button'>,
-  ChildrenProps,
-  FormFieldProps,
-  SizeProps<FormFieldSize>,
-  SideContentProps<BezierIcon | React.ReactNode, BezierIcon | React.ReactNode>,
-  AdditionalOverridableStyleProps<'dropdown'>,
-  AdditionalColorProps<['icon', 'text']>,
-  SelectOwnProps {}
+export interface SelectProps
+  extends BezierComponentProps<'button'>,
+    ChildrenProps,
+    FormFieldProps,
+    SizeProps<FormFieldSize>,
+    SideContentProps<
+      BezierIcon | React.ReactNode,
+      BezierIcon | React.ReactNode
+    >,
+    AdditionalOverridableStyleProps<'dropdown'>,
+    AdditionalColorProps<['icon', 'text']>,
+    SelectOwnProps {}

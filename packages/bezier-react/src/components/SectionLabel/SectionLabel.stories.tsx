@@ -1,14 +1,7 @@
 import React from 'react'
 
-import {
-  ChevronDownIcon,
-  InfoFilledIcon,
-} from '@channel.io/bezier-icons'
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
+import { ChevronDownIcon, InfoFilledIcon } from '@channel.io/bezier-icons'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { SectionLabel } from './SectionLabel'
 import type { SectionLabelProps } from './SectionLabel.types'
@@ -19,9 +12,7 @@ const meta: Meta<typeof SectionLabel> = {
 
 const Template: StoryFn<SectionLabelProps> = ({ children, ...rest }) => (
   <div style={{ width: 200 }}>
-    <SectionLabel {...rest}>
-      { children }
-    </SectionLabel>
+    <SectionLabel {...rest}>{children}</SectionLabel>
   </div>
 )
 

@@ -23,39 +23,35 @@ import styles from './Center.module.scss'
  * </Center>
  * ```
  */
-export const Center = forwardRef<HTMLDivElement, CenterProps>(function Center(props, forwardedRef) {
-  const [marginProps, marginRest] = splitByMarginProps(props)
-  const [layoutProps, layoutRest] = splitByLayoutProps(marginRest)
-  const marginStyles = getMarginStyles(marginProps)
-  const layoutStyles = getLayoutStyles(layoutProps)
+export const Center = forwardRef<HTMLDivElement, CenterProps>(
+  function Center(props, forwardedRef) {
+    const [marginProps, marginRest] = splitByMarginProps(props)
+    const [layoutProps, layoutRest] = splitByLayoutProps(marginRest)
+    const marginStyles = getMarginStyles(marginProps)
+    const layoutStyles = getLayoutStyles(layoutProps)
 
-  const {
-    children,
-    style,
-    className,
-    display = 'flex',
-    ...rest
-  } = layoutRest
+    const { children, style, className, display = 'flex', ...rest } = layoutRest
 
-  return (
-    <div
-      ref={forwardedRef}
-      style={{
-        ...marginStyles.style,
-        ...layoutStyles.style,
-        ...style,
-      }}
-      className={classNames(
-        styles.Center,
-        display && styles[`display-${display}`],
-        marginStyles.className,
-        layoutStyles.className,
-        className,
-      )}
-      data-testid="bezier-center"
-      {...rest}
-    >
-      { children }
-    </div>
-  )
-})
+    return (
+      <div
+        ref={forwardedRef}
+        style={{
+          ...marginStyles.style,
+          ...layoutStyles.style,
+          ...style,
+        }}
+        className={classNames(
+          styles.Center,
+          display && styles[`display-${display}`],
+          marginStyles.className,
+          layoutStyles.className,
+          className
+        )}
+        data-testid="bezier-center"
+        {...rest}
+      >
+        {children}
+      </div>
+    )
+  }
+)

@@ -1,10 +1,6 @@
 import React from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { Avatar } from '~/src/components/Avatar'
 
@@ -43,9 +39,13 @@ export default meta
 
 const Template: StoryFn<AvatarGroupProps> = (args) => (
   <AvatarGroup {...args}>
-    { MOCK_AVATAR_LIST.map(({ id, avatarUrl, name }) => (
-      <Avatar key={id} avatarUrl={avatarUrl} name={name} />
-    )) }
+    {MOCK_AVATAR_LIST.map(({ id, avatarUrl, name }) => (
+      <Avatar
+        key={id}
+        avatarUrl={avatarUrl}
+        name={name}
+      />
+    ))}
   </AvatarGroup>
 )
 

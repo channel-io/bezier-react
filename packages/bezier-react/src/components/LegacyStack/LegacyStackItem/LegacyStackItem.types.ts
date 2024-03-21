@@ -95,8 +95,8 @@ interface LegacyStackItemOwnProps {
  * </Stack>
  * ```
  */
-export default interface LegacyStackItemProps extends
-  BezierComponentProps,
-  PolymorphicProps,
-  ChildrenProps,
-  LegacyStackItemOwnProps {}
+export default interface LegacyStackItemProps
+  extends BezierComponentProps,
+    PolymorphicProps,
+    ChildrenProps,
+    LegacyStackItemOwnProps {}

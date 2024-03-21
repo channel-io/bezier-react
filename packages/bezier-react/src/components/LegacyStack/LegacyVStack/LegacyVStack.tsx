@@ -9,9 +9,14 @@ import type LegacyVStackProps from './LegacyVStack.types'
  *
  * A container for vertical flex layout.
  */
-export const LegacyVStack = forwardRef<HTMLElement, LegacyVStackProps>(function VStack(
-  props,
-  forwardedRef,
-) {
-  return (<LegacyStack ref={forwardedRef} direction="vertical" {...props} />)
-})
+export const LegacyVStack = forwardRef<HTMLElement, LegacyVStackProps>(
+  function VStack(props, forwardedRef) {
+    return (
+      <LegacyStack
+        ref={forwardedRef}
+        direction="vertical"
+        {...props}
+      />
+    )
+  }
+)

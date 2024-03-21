@@ -4,14 +4,9 @@ import type {
   VariantProps,
 } from '~/src/types/props'
 
-export type ProgressBarSize =
-| 'm'
-| 's'
+export type ProgressBarSize = 'm' | 's'
 
-export type ProgressBarVariant =
-  | 'green'
-  | 'green-alt'
-  | 'monochrome'
+export type ProgressBarVariant = 'green' | 'green-alt' | 'monochrome'
 
 interface ProgressBarOwnProps {
   /**
@@ -28,8 +23,8 @@ interface ProgressBarOwnProps {
   value?: number
 }
 
-export interface ProgressBarProps extends
-  BezierComponentProps<'div'>,
-  SizeProps<ProgressBarSize>,
-  VariantProps<ProgressBarVariant>,
-  ProgressBarOwnProps {}
+export interface ProgressBarProps
+  extends BezierComponentProps<'div'>,
+    SizeProps<ProgressBarSize>,
+    VariantProps<ProgressBarVariant>,
+    ProgressBarOwnProps {}

@@ -1,10 +1,7 @@
 import React from 'react'
 
 import { fireEvent } from '@testing-library/dom'
-import {
-  act,
-  within,
-} from '@testing-library/react'
+import { act, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { COMMON_IME_CONTROL_KEYS } from '~/src/hooks/useKeyboardActionLockerWhileComposing'
@@ -25,9 +22,13 @@ describe('TextField', () => {
     props = {}
   })
 
-  const renderComponent = (optionProps?: TextFieldProps) => render(
-    <TextField {...props} {...optionProps} />,
-  )
+  const renderComponent = (optionProps?: TextFieldProps) =>
+    render(
+      <TextField
+        {...props}
+        {...optionProps}
+      />
+    )
 
   it('TextField have default attribute', () => {
     const { getByTestId } = renderComponent()
@@ -54,7 +55,9 @@ describe('TextField', () => {
   })
 
   it('should have "placeholder" attribute when "placeholder" props is "true"', () => {
-    const { getByTestId } = renderComponent({ placeholder: 'this is placeholder' })
+    const { getByTestId } = renderComponent({
+      placeholder: 'this is placeholder',
+    })
     const rendered = getByTestId(TEXT_INPUT_TEST_ID)
     const inputElement = rendered.getElementsByTagName('input')[0]
     expect(inputElement).toHaveAttribute('placeholder', 'this is placeholder')
@@ -259,7 +262,10 @@ describe('TextField', () => {
     // })
 
     it('appear when filled & hovered', async () => {
-      const { getByTestId } = renderComponent({ value: 'test', allowClear: true })
+      const { getByTestId } = renderComponent({
+        value: 'test',
+        allowClear: true,
+      })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
 
@@ -267,12 +273,17 @@ describe('TextField', () => {
         await user.hover(input)
       })
 
-      const clearButton = within(rendered).getByTestId(TEXT_INPUT_CLEAR_ICON_TEST_ID)
+      const clearButton = within(rendered).getByTestId(
+        TEXT_INPUT_CLEAR_ICON_TEST_ID
+      )
       expect(clearButton).toBeVisible()
     })
 
     it('appear when filled & focused', () => {
-      const { getByTestId } = renderComponent({ value: 'test', allowClear: true })
+      const { getByTestId } = renderComponent({
+        value: 'test',
+        allowClear: true,
+      })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
 
@@ -280,7 +291,9 @@ describe('TextField', () => {
         input.focus()
       })
 
-      const clearButton = within(rendered).getByTestId(TEXT_INPUT_CLEAR_ICON_TEST_ID)
+      const clearButton = within(rendered).getByTestId(
+        TEXT_INPUT_CLEAR_ICON_TEST_ID
+      )
       expect(clearButton).toBeVisible()
     })
   })

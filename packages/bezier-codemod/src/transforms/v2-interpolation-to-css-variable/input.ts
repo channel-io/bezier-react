@@ -1,8 +1,5 @@
 /* eslint-disable no-template-curly-in-string */
-import {
-  type SourceFile,
-  ts,
-} from 'ts-morph'
+import { type SourceFile, ts } from 'ts-morph'
 
 import { interpolationTransform } from '../../shared/interpolation.js'
 import { removeUnusedNamedImport } from '../../utils/import.js'

@@ -1,8 +1,4 @@
-import React, {
-  type CSSProperties,
-  forwardRef,
-  memo,
-} from 'react'
+import React, { type CSSProperties, forwardRef, memo } from 'react'
 
 import * as SliderPrimitive from '@radix-ui/react-slider'
 import classNames from 'classnames'
@@ -17,26 +13,26 @@ import styles from './Slider.module.scss'
 
 export const SLIDER_TEST_ID = 'bezier-slider'
 
-const SliderGuide = memo<Record<'min' | 'max' | 'value', number>>(function SliderGuide({
-  min,
-  max,
-  value,
-}) {
-  return (
-    <div
-      className={styles.SliderGuide}
-      style={{
-        '--b-slider-guide-left': `${(value / (max - min)) * 100}%`,
-      } as React.CSSProperties}
-    />
-  )
-})
+const SliderGuide = memo<Record<'min' | 'max' | 'value', number>>(
+  function SliderGuide({ min, max, value }) {
+    return (
+      <div
+        className={styles.SliderGuide}
+        style={
+          {
+            '--b-slider-guide-left': `${(value / (max - min)) * 100}%`,
+          } as React.CSSProperties
+        }
+      />
+    )
+  }
+)
 
 /* NOTE: Props are injected at runtime by `SliderPrimitive.Thumb`. */
-const SliderThumb = forwardRef<HTMLDivElement, Pick<SliderProps, 'disableTooltip'> & React.HTMLAttributes<HTMLDivElement>>(function SliderThumb({
-  disableTooltip,
-  ...rest
-}, forwardedRef) {
+const SliderThumb = forwardRef<
+  HTMLDivElement,
+  Pick<SliderProps, 'disableTooltip'> & React.HTMLAttributes<HTMLDivElement>
+>(function SliderThumb({ disableTooltip, ...rest }, forwardedRef) {
   const value = rest?.['aria-valuenow']
 
   if (disableTooltip) {
@@ -54,7 +50,7 @@ const SliderThumb = forwardRef<HTMLDivElement, Pick<SliderProps, 'disableTooltip
       content={value}
       offset={6}
       placement="top-center"
-      onPointerDownOutside={e => e.preventDefault()}
+      onPointerDownOutside={(e) => e.preventDefault()}
     >
       <div
         ref={forwardedRef}
@@ -81,34 +77,36 @@ const SliderThumb = forwardRef<HTMLDivElement, Pick<SliderProps, 'disableTooltip
  * <Slider defaultValue={[1]} />
  * ```
  */
-export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
-  className,
-  style,
-  width = 36,
-  guide,
-  defaultValue = [0],
-  value,
-  disabled = false,
-  min = 0,
-  max = 10,
-  step = 1,
-  minStepsBetweenThumbs = 0,
-  dir = 'ltr',
-  disableTooltip = false,
-  ...rest
-}, forwardedRef) {
+export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider(
+  {
+    className,
+    style,
+    width = 36,
+    guide,
+    defaultValue = [0],
+    value,
+    disabled = false,
+    min = 0,
+    max = 10,
+    step = 1,
+    minStepsBetweenThumbs = 0,
+    dir = 'ltr',
+    disableTooltip = false,
+    ...rest
+  },
+  forwardedRef
+) {
   const targetValue = value || defaultValue
 
   return (
     <SliderPrimitive.Root
-      style={{
-        '--b-slider-width': cssDimension(width),
-        ...style,
-      } as CSSProperties}
-      className={classNames(
-        styles.Slider,
-        className,
-      )}
+      style={
+        {
+          '--b-slider-width': cssDimension(width),
+          ...style,
+        } as CSSProperties
+      }
+      className={classNames(styles.Slider, className)}
       ref={forwardedRef}
       orientation="horizontal"
       defaultValue={defaultValue}
@@ -125,21 +123,21 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
       <SliderPrimitive.Track className={styles.SliderPrimitiveTrack}>
         <SliderPrimitive.Range className={styles.SliderPrimitiveRange} />
 
-        { guide && (
+        {guide && (
           <div className={styles.GuideContainer}>
-            { guide.map((guideValue) => (
+            {guide.map((guideValue) => (
               <SliderGuide
                 key={`slider-guide-${guideValue}`}
                 min={min}
                 max={max}
                 value={guideValue}
               />
-            )) }
+            ))}
           </div>
-        ) }
+        )}
       </SliderPrimitive.Track>
 
-      { targetValue.map((_, i) => (
+      {targetValue.map((_, i) => (
         <SliderPrimitive.Thumb
           // eslint-disable-next-line react/no-array-index-key
           key={`slider-thumb-${i}`}
@@ -147,7 +145,7 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(function Slider({
         >
           <SliderThumb disableTooltip={disableTooltip} />
         </SliderPrimitive.Thumb>
-      )) }
+      ))}
     </SliderPrimitive.Root>
   )
 })

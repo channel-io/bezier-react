@@ -1,12 +1,10 @@
-import {
-  act,
-  renderHook,
-} from '@testing-library/react'
+import { act, renderHook } from '@testing-library/react'
 
 import { type ToastType } from './Toast.types'
 import useToastContextValues from './useToastContextValues'
 
-const UUID_V4_REGEX = /^[0-9A-F]{8}-[0-9A-F]{4}-[4][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
+const UUID_V4_REGEX =
+  /^[0-9A-F]{8}-[0-9A-F]{4}-[4][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
 
 describe('useToastContextValues', () => {
   it('leftToasts', () => {
@@ -61,7 +59,9 @@ describe('useToastContextValues', () => {
         content: 'New Toast',
       }
       act(() => {
-        expect(result.current.update(updateTargetToast.id, updateTargetToast.content)).toBe(updateTargetToast.id)
+        expect(
+          result.current.update(updateTargetToast.id, updateTargetToast.content)
+        ).toBe(updateTargetToast.id)
       })
       expect(result.current.leftToasts[targetIndex]).toStrictEqual({
         ...updateTargetToast,

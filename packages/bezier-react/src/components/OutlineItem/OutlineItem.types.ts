@@ -20,12 +20,12 @@ interface OutlineItemOwnProps {
   disableChevron?: boolean
 }
 
-export interface OutlineItemProps extends
-  Omit<BezierComponentProps, keyof ContentProps>,
-  PolymorphicProps,
-  ChildrenProps,
-  ContentProps,
-  SideContentProps<BezierIcon | React.ReactNode, React.ReactNode>,
-  ActivatableProps,
-  LinkProps,
-  OutlineItemOwnProps {}
+export interface OutlineItemProps
+  extends Omit<BezierComponentProps, keyof ContentProps>,
+    PolymorphicProps,
+    ChildrenProps,
+    ContentProps,
+    SideContentProps<BezierIcon | React.ReactNode, React.ReactNode>,
+    ActivatableProps,
+    LinkProps,
+    OutlineItemOwnProps {}

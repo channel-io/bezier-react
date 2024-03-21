@@ -1,4 +1,4 @@
-@use "../../styles/mixins/typography";
+@use '../../styles/mixins/typography';
 
 .TextFieldInput {
   @include typography.size(14);
@@ -14,7 +14,7 @@
   outline: none;
 
   &:read-only {
-    color: var(--txt-black-darker)
+    color: var(--txt-black-darker);
   }
 
   &:disabled {
@@ -39,7 +39,9 @@
   background-color: var(--bg-grey-lightest);
   border-radius: var(--radius-8);
 
-  transition: border-color var(--transition-s), box-shadow var(--transition-s);
+  transition:
+    border-color var(--transition-s),
+    box-shadow var(--transition-s);
 
   &:where(.variant-secondary) {
     background-color: var(--bg-black-lighter);
@@ -73,7 +75,10 @@
     visibility: visible;
   }
 
-  &:where(.variant-primary):where(:has(.TextFieldInput[aria-invalid="true"]), :has(.TextFieldInput:not(:disabled, :read-only):focus)) {
+  &:where(.variant-primary):where(
+      :has(.TextFieldInput[aria-invalid='true']),
+      :has(.TextFieldInput:not(:disabled, :read-only):focus)
+    ) {
     background-color: var(--bg-white-normal);
   }
 
@@ -81,7 +86,7 @@
     background-color: var(--bg-grey-lighter);
   }
 
-  &:has(:where(.TextFieldInput[aria-invalid="true"])) {
+  &:has(:where(.TextFieldInput[aria-invalid='true'])) {
     box-shadow: var(--input-box-shadow-invalid);
   }
 }

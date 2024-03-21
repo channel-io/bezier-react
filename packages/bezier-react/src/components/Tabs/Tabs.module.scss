@@ -1,4 +1,4 @@
-@use "sass:math";
+@use 'sass:math';
 
 $tab-item-indicator-height: 3px;
 
@@ -52,7 +52,7 @@ $tab-item-indicator-height: 3px;
     transition: transform var(--transition-s);
   }
 
-  &:where([data-state="active"]) {
+  &:where([data-state='active']) {
     color: var(--bgtxt-blue-normal);
 
     &::after {
@@ -65,7 +65,7 @@ $tab-item-indicator-height: 3px;
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
-  &:where([data-state="inactive"]) {
+  &:where([data-state='inactive']) {
     color: var(--txt-black-dark);
 
     &:hover {

@@ -2,7 +2,7 @@ $outer-indicator-size: 18px;
 $outer-indicator-margin: 1px;
 $inner-indicator-size: 8px;
 
-@use "sass:math";
+@use 'sass:math';
 @use '../../styles/mixins/dimension';
 @use '../../styles/mixins/interaction';
 

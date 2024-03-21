@@ -1,7 +1,4 @@
-import React, {
-  forwardRef,
-  useMemo,
-} from 'react'
+import React, { forwardRef, useMemo } from 'react'
 
 import {
   ChevronSmallDownIcon,
@@ -11,10 +8,7 @@ import {
 import classNames from 'classnames'
 
 import { createContext } from '~/src/utils/react'
-import {
-  isEmpty,
-  isNil,
-} from '~/src/utils/type'
+import { isEmpty, isNil } from '~/src/utils/type'
 
 import { Icon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
@@ -26,100 +20,107 @@ import {
 
 import styles from './OutlineItem.module.scss'
 
-const [
-  OutlineItemContextProvider,
-  useOutlineItemContext,
-] = createContext<OutlineItemContextProps | undefined>(undefined)
+const [OutlineItemContextProvider, useOutlineItemContext] = createContext<
+  OutlineItemContextProps | undefined
+>(undefined)
 
 const DEFAULT_INDENT = 16
 
 export const OUTLINE_ITEM_TEST_ID = 'bezier-outline-item'
 
-export const OutlineItem = forwardRef<HTMLDivElement & HTMLAnchorElement, OutlineItemProps>(function OutlineItem({
-  children,
-  style,
-  className,
-  as,
-  open = false,
-  disableChevron = false,
-  active = false,
-  focused = false,
-  leftContent,
-  content,
-  rightContent,
-  href,
-  ...rest
-}, forwardedRef) {
+export const OutlineItem = forwardRef<
+  HTMLDivElement & HTMLAnchorElement,
+  OutlineItemProps
+>(function OutlineItem(
+  {
+    children,
+    style,
+    className,
+    as,
+    open = false,
+    disableChevron = false,
+    active = false,
+    focused = false,
+    leftContent,
+    content,
+    rightContent,
+    href,
+    ...rest
+  },
+  forwardedRef
+) {
   const context = useOutlineItemContext()
   const isRoot = isNil(context)
   const indent = isRoot ? 0 : context.indent + DEFAULT_INDENT
 
   const isLink = !isEmpty(href)
-  const Comp = isLink ? 'a' : (as ?? 'div') as 'div'
+  const Comp = isLink ? 'a' : ((as ?? 'div') as 'div')
 
   return (
     <>
       <Comp
-        {...isLink && {
+        {...(isLink && {
           href,
           target: '_blank',
           rel: 'noopener noreferrer',
-        }}
-        style={{
-          ...style,
-          '--b-outline-item-indent': `${indent}px`,
-        } as React.CSSProperties}
+        })}
+        style={
+          {
+            ...style,
+            '--b-outline-item-indent': `${indent}px`,
+          } as React.CSSProperties
+        }
         className={classNames(
           styles.OutlineItem,
           active && styles.active,
           focused && styles.focused,
-          className,
+          className
         )}
         ref={forwardedRef}
         data-testid={OUTLINE_ITEM_TEST_ID}
         {...rest}
       >
-        { !disableChevron && (
+        {!disableChevron && (
           <div className={styles.Chevron}>
-            { !isNil(children) && (
+            {!isNil(children) && (
               <Icon
                 className={styles.Icon}
                 source={open ? ChevronSmallDownIcon : ChevronSmallRightIcon}
                 size="xs"
                 color="txt-black-dark"
               />
-            ) }
+            )}
           </div>
-        ) }
+        )}
 
-        { leftContent && (
+        {leftContent && (
           <div className={styles.LeftContent}>
-            { isBezierIcon(leftContent)
-              ? (
-                <Icon
-                  className={styles.Icon}
-                  size="s"
-                  source={leftContent}
-                  color="txt-black-dark"
-                />
-              )
-              : leftContent }
+            {isBezierIcon(leftContent) ? (
+              <Icon
+                className={styles.Icon}
+                size="s"
+                source={leftContent}
+                color="txt-black-dark"
+              />
+            ) : (
+              leftContent
+            )}
           </div>
-        ) }
+        )}
 
         <Text
           className={styles.Content}
           typo="14"
           truncated
         >
-          { content }
+          {content}
         </Text>
 
-        { rightContent }
+        {rightContent}
       </Comp>
 
       <OutlineItemContextProvider value={useMemo(() => ({ indent }), [indent])}>
-        { open && children }
+        {open && children}
       </OutlineItemContextProvider>
     </>
   )

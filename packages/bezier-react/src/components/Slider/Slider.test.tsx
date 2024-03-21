@@ -1,23 +1,16 @@
 import React from 'react'
 
-import {
-  isInaccessible,
-  waitFor,
-} from '@testing-library/react'
+import { isInaccessible, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
 
-import {
-  SLIDER_TEST_ID,
-  Slider,
-} from './Slider'
+import { SLIDER_TEST_ID, Slider } from './Slider'
 import { type SliderProps } from './Slider.types'
 
 describe('Slider', () => {
-  const renderSlider = (props?: Partial<SliderProps>) => render(
-    <Slider {...props} />,
-  )
+  const renderSlider = (props?: Partial<SliderProps>) =>
+    render(<Slider {...props} />)
 
   let user: ReturnType<typeof userEvent.setup>
 
@@ -174,7 +167,11 @@ describe('Slider', () => {
     })
 
     it('should set the maximum/minimum value when user presses Home/End key', async () => {
-      const { getByRole } = renderSlider({ defaultValue: [0], min: 10, max: 100 })
+      const { getByRole } = renderSlider({
+        defaultValue: [0],
+        min: 10,
+        max: 100,
+      })
       const sliderThumb = getByRole('slider')
       await user.tab()
       await user.keyboard('[End]')
@@ -192,7 +189,10 @@ describe('Slider', () => {
     })
 
     it('If there are more than one thumb, the steps between them should not be less than `minStepsBetweenThumbs`.', async () => {
-      const { getAllByRole } = renderSlider({ defaultValue: [0, 2], minStepsBetweenThumbs: 2 })
+      const { getAllByRole } = renderSlider({
+        defaultValue: [0, 2],
+        minStepsBetweenThumbs: 2,
+      })
       const [firstThumb, secondThumb] = getAllByRole('slider')
       await user.tab()
       await user.keyboard('[ArrowRight]')
@@ -222,9 +222,12 @@ describe('Slider', () => {
       const { getByRole, getAllByText } = renderSlider({ defaultValue: [0] })
       const sliderThumb = getByRole('slider')
       await user.hover(sliderThumb)
-      await waitFor(() => {
-        expect(getAllByText('0')[0]).toBeInTheDocument()
-      }, { timeout: 10000 })
+      await waitFor(
+        () => {
+          expect(getAllByText('0')[0]).toBeInTheDocument()
+        },
+        { timeout: 10000 }
+      )
     })
 
     it('should show tooltip when user focuses on the thumb', async () => {
@@ -237,14 +240,20 @@ describe('Slider', () => {
       const { getByRole, getAllByText } = renderSlider({ defaultValue: [0] })
       const sliderThumb = getByRole('slider')
       await user.click(sliderThumb)
-      await waitFor(() => {
-        expect(getByRole('tooltip')).toBeInTheDocument()
-        expect(getAllByText('0')[0]).toBeInTheDocument()
-      }, { timeout: 10000 })
+      await waitFor(
+        () => {
+          expect(getByRole('tooltip')).toBeInTheDocument()
+          expect(getAllByText('0')[0]).toBeInTheDocument()
+        },
+        { timeout: 10000 }
+      )
     })
 
     it('should not show tooltip when disableTooltip is true', async () => {
-      const { getByRole, queryByRole, queryAllByText } = renderSlider({ defaultValue: [0], disableTooltip: true })
+      const { getByRole, queryByRole, queryAllByText } = renderSlider({
+        defaultValue: [0],
+        disableTooltip: true,
+      })
       const sliderThumb = getByRole('slider')
       await user.click(sliderThumb)
       expect(queryByRole('tooltip')).not.toBeInTheDocument()

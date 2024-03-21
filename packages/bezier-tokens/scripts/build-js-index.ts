@@ -7,7 +7,7 @@ interface BuildJsIndexFileOptions {
 }
 
 const getFileExtensionByModuleSystem = (isCjs: boolean) =>
-  (isCjs ? '.js' : '.mjs')
+  isCjs ? '.js' : '.mjs'
 
 function buildJsIndexFile({ buildPath, isCjs }: BuildJsIndexFileOptions) {
   const fileExtension = getFileExtensionByModuleSystem(isCjs)
@@ -56,7 +56,7 @@ function buildJsIndexFile({ buildPath, isCjs }: BuildJsIndexFileOptions) {
 }
 
 function main() {
-  [
+  ;[
     {
       buildPath: 'dist/cjs',
       isCjs: true,

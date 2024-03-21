@@ -1,19 +1,18 @@
 import React from 'react'
 
 import { CalendarIcon } from '@channel.io/bezier-icons'
-import {
-  type Meta,
-  type StoryFn,
-} from '@storybook/react'
+import { type Meta, type StoryFn } from '@storybook/react'
 
 import { Text } from '~/src/components/Text'
 
 import { Select } from './Select'
 import { type SelectProps } from './Select.types'
 
-const meta: Meta<SelectProps & {
-  wrapperSize: number
-}> = {
+const meta: Meta<
+  SelectProps & {
+    wrapperSize: number
+  }
+> = {
   component: Select,
   argTypes: {
     wrapperSize: {

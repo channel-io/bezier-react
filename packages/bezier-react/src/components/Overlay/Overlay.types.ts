@@ -23,22 +23,22 @@ export interface TargetRectAttr {
 }
 
 export type OverlayPosition =
-| 'top-center'
-| 'top-left'
-| 'top-right'
-| 'right-center'
-| 'right-top'
-| 'right-bottom'
-| 'bottom-center'
-| 'bottom-left'
-| 'bottom-right'
-| 'left-center'
-| 'left-top'
-| 'left-bottom'
-| 'inner-left-top'
-| 'inner-left-bottom'
-| 'inner-right-top'
-| 'inner-right-bottom'
+  | 'top-center'
+  | 'top-left'
+  | 'top-right'
+  | 'right-center'
+  | 'right-top'
+  | 'right-bottom'
+  | 'bottom-center'
+  | 'bottom-left'
+  | 'bottom-right'
+  | 'left-center'
+  | 'left-top'
+  | 'left-bottom'
+  | 'inner-left-top'
+  | 'inner-left-bottom'
+  | 'inner-right-top'
+  | 'inner-right-bottom'
 
 interface OverlayOwnProps {
   show?: boolean
@@ -58,8 +58,8 @@ interface OverlayOwnProps {
   onHide?: () => void
 }
 
-export interface OverlayProps extends
-  BezierComponentProps<'div'>,
-  ChildrenProps,
-  AdditionalOverridableStyleProps<'container'>,
-  OverlayOwnProps {}
+export interface OverlayProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    AdditionalOverridableStyleProps<'container'>,
+    OverlayOwnProps {}

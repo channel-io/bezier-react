@@ -15,12 +15,10 @@ import { type VisuallyHiddenProps } from './VisuallyHidden.types'
  * </VisuallyHidden>
  * ```
  */
-export function VisuallyHidden({
-  children,
-}: VisuallyHiddenProps) {
+export function VisuallyHidden({ children }: VisuallyHiddenProps) {
   return (
     <VisuallyHiddenPrimitive.Root asChild>
-      { children }
+      {children}
     </VisuallyHiddenPrimitive.Root>
   )
 }

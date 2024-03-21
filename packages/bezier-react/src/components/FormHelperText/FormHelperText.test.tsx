@@ -25,7 +25,12 @@ describe('FormHelperText >', () => {
   })
 
   const renderFormHelperText = (otherProps?: Partial<FormHelperTextProps>) =>
-    render(<FormHelperText {...props} {...otherProps} />)
+    render(
+      <FormHelperText
+        {...props}
+        {...otherProps}
+      />
+    )
 
   it('Snapshot >', () => {
     const { getByTestId } = renderFormHelperText()
@@ -61,7 +66,12 @@ describe('FormErrorMessage >', () => {
   })
 
   const renderFormHelperText = (otherProps?: Partial<FormErrorMessageProps>) =>
-    render(<FormErrorMessage {...props} {...otherProps} />)
+    render(
+      <FormErrorMessage
+        {...props}
+        {...otherProps}
+      />
+    )
 
   it('Snapshot >', () => {
     const { getByTestId } = renderFormHelperText()
@@ -91,4 +101,3 @@ describe('FormErrorMessage >', () => {
     expect(rendered).toHaveAttribute('aria-live', 'polite')
   })
 })
-

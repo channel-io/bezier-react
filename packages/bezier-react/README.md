@@ -29,13 +29,16 @@ pnpm install @channel.io/bezier-react
 In order to use bezier-react's styles, you need to import CSS. If you're using the module bundler, you can import CSS directly from within your JavaScript file.
 
 ```tsx
-import "@channel.io/bezier-react/styles.css"
+import '@channel.io/bezier-react/styles.css'
 ```
 
 Or if you're not using the module bundler, you can add the CSS directly to your HTML. We recommend referring to your styles file and copy-pasting it. As bezier-react updates, your styles should update with it.
 
 ```html
-<link rel="stylesheet" href="styles.css" />
+<link
+  rel="stylesheet"
+  href="styles.css"
+/>
 ```
 
 ### 2. Wrap `AppProvider`
@@ -53,7 +56,7 @@ const root = createRoot(container)
 root.render(
   <AppProvider themeName="dark">
     <Text as="h1">Hello World</Text>
-  </AppProvider>,
+  </AppProvider>
 )
 ```
 
@@ -62,8 +65,14 @@ root.render(
 Import font from CDN of Channel Corp. Or you can import it from [Google Fonts](https://fonts.google.com/specimen/Inter).
 
 ```html
-<link rel="preconnect" href="https://cf.channel.io" />
-<link rel="stylesheet" href="https://cf.channel.io/asset/font/Inter/inter.css" />
+<link
+  rel="preconnect"
+  href="https://cf.channel.io"
+/>
+<link
+  rel="stylesheet"
+  href="https://cf.channel.io/asset/font/Inter/inter.css"
+/>
 ```
 
 ## Contributing

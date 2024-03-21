@@ -1,9 +1,6 @@
 import type React from 'react'
 
-import {
-  type BezierIcon,
-  type IconName,
-} from '@channel.io/bezier-icons'
+import { type BezierIcon, type IconName } from '@channel.io/bezier-icons'
 
 import type {
   BezierComponentProps,
@@ -28,9 +25,12 @@ interface SectionLabelOwnProps {
   help?: React.ReactNode
 }
 
-export interface SectionLabelProps extends
-  Omit<BezierComponentProps, keyof ContentProps>,
-  ContentProps,
-  ChildrenProps,
-  SideContentProps<SectionLabelLeftContent, SectionLabelRightContent | SectionLabelRightContent[]>,
-  SectionLabelOwnProps {}
+export interface SectionLabelProps
+  extends Omit<BezierComponentProps, keyof ContentProps>,
+    ContentProps,
+    ChildrenProps,
+    SideContentProps<
+      SectionLabelLeftContent,
+      SectionLabelRightContent | SectionLabelRightContent[]
+    >,
+    SectionLabelOwnProps {}

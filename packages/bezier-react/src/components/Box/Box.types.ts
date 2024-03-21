@@ -15,10 +15,10 @@ interface BoxOwnProps {
   display?: Display
 }
 
-export interface BoxProps extends
-  BezierComponentProps<'div'>,
-  PolymorphicProps,
-  ChildrenProps,
-  LayoutProps,
-  MarginProps,
-  BoxOwnProps {}
+export interface BoxProps
+  extends BezierComponentProps<'div'>,
+    PolymorphicProps,
+    ChildrenProps,
+    LayoutProps,
+    MarginProps,
+    BoxOwnProps {}

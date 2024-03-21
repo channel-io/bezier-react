@@ -21,7 +21,7 @@ Update the import syntax for the icon source moved from `@channel.io/bezier-reac
 For example:
 
 ```tsx
-import React from "react";
+import React from 'react'
 import {
   AllIcon,
   Button,
@@ -29,23 +29,23 @@ import {
   Icon,
   type IconName,
   IconSize,
-} from "@channel.io/bezier-react";
+} from '@channel.io/bezier-react'
 
-import Foo from "./foo";
+import Foo from './foo'
 ```
 
 Transforms into:
 
 ```tsx
-import React from "react";
+import React from 'react'
 import {
   AllIcon,
   CheckIcon as CheckIconSource,
   type IconName,
-} from "@channel.io/bezier-icons";
-import { Button, Icon, IconSize } from "@channel.io/bezier-react";
+} from '@channel.io/bezier-icons'
+import { Button, Icon, IconSize } from '@channel.io/bezier-react'
 
-import Foo from "./foo";
+import Foo from './foo'
 ```
 
 ### Enum Member to String Literal
@@ -61,7 +61,7 @@ import {
   ProgressBar,
   ProgressBarSize,
   ProgressBarVariant,
-} from "@channel.io/bezier-react";
+} from '@channel.io/bezier-react'
 
 export default () => (
   <ProgressBar
@@ -70,13 +70,13 @@ export default () => (
     variant={ProgressBarVariant.GreenAlt}
     value={uploadProgressPercentage / 100}
   />
-);
+)
 ```
 
 Transforms into:
 
 ```tsx
-import { ProgressBar } from "@channel.io/bezier-react";
+import { ProgressBar } from '@channel.io/bezier-react'
 
 export default () => (
   <ProgressBar
@@ -85,7 +85,7 @@ export default () => (
     variant="green-alt"
     value={uploadProgressPercentage / 100}
   />
-);
+)
 ```
 
 ### Foundation to CSS Variable
@@ -98,15 +98,15 @@ You can also use individual transform function such as `foundation-to-css-theme`
 For example:
 
 ```tsx
-import { styled } from "@channel.io/bezier-react";
+import { styled } from '@channel.io/bezier-react'
 
 const Wrapper = styled.div`
-  color: ${({ foundation }) => foundation?.theme?.["txt-black-dark"]};
+  color: ${({ foundation }) => foundation?.theme?.['txt-black-dark']};
 
   ${({ foundation }) => foundation?.rounding.round12};
 
   ${({ foundation }) =>
-    foundation?.border?.getBorder(0.5, foundation.theme["bdr-black-light"], {
+    foundation?.border?.getBorder(0.5, foundation.theme['bdr-black-light'], {
       top: false,
       right: false,
       left: false,
@@ -116,14 +116,14 @@ const Wrapper = styled.div`
 
   margin-bottom: ${({ foundation }) => foundation?.spacing.s6};
 
-  ${({ foundation }) => foundation?.transition?.getTransitionsCSS("color")};
-`;
+  ${({ foundation }) => foundation?.transition?.getTransitionsCSS('color')};
+`
 ```
 
 Transforms into:
 
 ```tsx
-import { styled } from "@channel.io/bezier-react";
+import { styled } from '@channel.io/bezier-react'
 
 const Wrapper = styled.div`
   color: var(--txt-black-dark);
@@ -141,7 +141,7 @@ const Wrapper = styled.div`
   margin-bottom: 16px;
 
   transition: color var(--transition-s);
-`;
+`
 ```
 
 ### Interpolation to CSS Variable
@@ -160,7 +160,7 @@ import {
   erroredInputWrapperStyle,
   ZIndex,
   Rounding,
-} from "@channel.io/bezier-react";
+} from '@channel.io/bezier-react'
 
 const Wrapper = styled.div`
   ${Typography.Size11};
@@ -176,13 +176,13 @@ const Wrapper = styled.div`
   z-index: ${ZIndex.Hide};
 
   ${Rounding.round12};
-`;
+`
 ```
 
 Transforms into:
 
 ```tsx
-import { styled } from "@channel.io/bezier-react";
+import { styled } from '@channel.io/bezier-react'
 
 const Wrapper = styled.div`
   /* NOTE: Do not use font-related css variables below separately, use Text component instead */
@@ -207,25 +207,25 @@ const Wrapper = styled.div`
 
   overflow: hidden;
   border-radius: var(--radius-12);
-`;
+`
 ```
 
 It also handles when `ZIndex` is used in object.
 
 ```tsx
-import { ZIndex } from "@channel.io/bezier-react";
+import { ZIndex } from '@channel.io/bezier-react'
 
 export const OVERLAY_POSITION1 = {
   zIndex: ZIndex.Modal,
-};
+}
 ```
 
 Transforms into:
 
 ```tsx
 export const OVERLAY_POSITION1 = {
-  zIndex: "var(--z-index-modal)",
-};
+  zIndex: 'var(--z-index-modal)',
+}
 ```
 
 ### import directly from styled-components
@@ -236,26 +236,26 @@ Switch library to import `styled`, `css`, `StyleSheetManager`, `keyframes`, `cre
 For example:
 
 ```tsx
-import { styled, Button, css } from "@channel.io/bezier-react";
+import { styled, Button, css } from '@channel.io/bezier-react'
 
 export const Wrapper = styled(Button)`
   ${css`
     background: red;
   `}
-`;
+`
 ```
 
 Transforms into:
 
 ```tsx
-import styled, { css } from "styled-components";
-import { Button } from "@channel.io/bezier-react";
+import styled, { css } from 'styled-components'
+import { Button } from '@channel.io/bezier-react'
 
 export const Wrapper = styled(Button)`
   ${css`
     background: red;
   `}
-`;
+`
 ```
 
 ### Add `Legacy` prefix to components to be deprecated and remove `Alpha` prefix from experimental components
@@ -283,7 +283,7 @@ import {
   StackItem,
   AlphaStack,
   AlphaCenter,
-} from "@channel.io/bezier-react";
+} from '@channel.io/bezier-react'
 
 function Foo() {
   return (
@@ -295,7 +295,7 @@ function Foo() {
         <div />
       </StackItem>
     </VStack>
-  );
+  )
 }
 
 function Bar() {
@@ -304,7 +304,7 @@ function Bar() {
       <div />
       <div />
     </AlphaStack>
-  );
+  )
 }
 
 function Baz() {
@@ -312,7 +312,7 @@ function Baz() {
     <AlphaCenter>
       <div />
     </AlphaCenter>
-  );
+  )
 }
 ```
 
@@ -324,7 +324,7 @@ import {
   LegacyStackItem,
   Stack,
   Center,
-} from "@channel.io/bezier-react";
+} from '@channel.io/bezier-react'
 
 function Foo() {
   return (
@@ -336,7 +336,7 @@ function Foo() {
         <div />
       </LegacyStackItem>
     </LegacyVStack>
-  );
+  )
 }
 
 function Bar() {
@@ -345,7 +345,7 @@ function Bar() {
       <div />
       <div />
     </Stack>
-  );
+  )
 }
 
 function Baz() {
@@ -353,7 +353,7 @@ function Baz() {
     <Center>
       <div />
     </Center>
-  );
+  )
 }
 ```
 
@@ -366,37 +366,43 @@ Replace `Typography` enum with string literal and change `marginAll` property to
 For example:
 
 ```tsx
-import { Text, styled, Typography } from "@channel.io/bezier-react";
+import { Text, styled, Typography } from '@channel.io/bezier-react'
 
 function Foo() {
   return (
-    <Text typo={Typography.Size13} marginAll={4}>
+    <Text
+      typo={Typography.Size13}
+      marginAll={4}
+    >
       title
     </Text>
-  );
+  )
 }
 
 const Title = styled(Text).attrs({
   typo: Typography.Size13,
   marginAll: 4,
-})``;
+})``
 ```
 
 Transforms into:
 
 ```tsx
-import { Text, styled } from "@channel.io/bezier-react";
+import { Text, styled } from '@channel.io/bezier-react'
 
 function Foo() {
   return (
-    <Text typo="13" margin={4}>
+    <Text
+      typo="13"
+      margin={4}
+    >
       title
     </Text>
-  );
+  )
 }
 
 const Title = styled(Text).attrs({
-  typo: "13",
+  typo: '13',
   margin: 4,
-})``;
+})``
 ```

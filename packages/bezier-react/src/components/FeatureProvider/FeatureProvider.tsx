@@ -1,8 +1,4 @@
-import React, {
-  useLayoutEffect,
-  useMemo,
-  useState,
-} from 'react'
+import React, { useLayoutEffect, useMemo, useState } from 'react'
 
 import { createContext } from '~/src/utils/react'
 import { isEmpty } from '~/src/utils/type'
@@ -17,10 +13,8 @@ const initialFeatureFlag: FeatureFlag = {
   [FeatureType.SmoothCorners]: false,
 }
 
-const [
-  FeatureFlagContextProvider,
-  useFeatureFlagContext,
-] = createContext<FeatureFlag>(initialFeatureFlag)
+const [FeatureFlagContextProvider, useFeatureFlagContext] =
+  createContext<FeatureFlag>(initialFeatureFlag)
 
 /**
  * `FeatureProvider` is a component that activates features and provides.
@@ -32,34 +26,33 @@ const [
  * </FeatureProvider>
  * ```
  */
-export function FeatureProvider({
-  children,
-  features,
-}: FeatureProviderProps) {
-  const [featureFlag, setFeatureFlag] = useState<FeatureFlag>(initialFeatureFlag)
+export function FeatureProvider({ children, features }: FeatureProviderProps) {
+  const [featureFlag, setFeatureFlag] =
+    useState<FeatureFlag>(initialFeatureFlag)
 
-  useLayoutEffect(function activateFeatures() {
-    if (isEmpty(features)) {
-      return
-    }
+  useLayoutEffect(
+    function activateFeatures() {
+      if (isEmpty(features)) {
+        return
+      }
 
-    const promises = features.map(feature => (
-      feature.activate().then(activated => (
-        { [feature.name]: activated }
-      ))
-    ))
+      const promises = features.map((feature) =>
+        feature.activate().then((activated) => ({ [feature.name]: activated }))
+      )
 
-    Promise.all(promises).then(flags => {
-      setFeatureFlag(prev => ({
-        ...prev,
-        ...flags.reduce((acc, cur) => ({ ...acc, ...cur }), {}),
-      }))
-    })
-  }, [features])
+      Promise.all(promises).then((flags) => {
+        setFeatureFlag((prev) => ({
+          ...prev,
+          ...flags.reduce((acc, cur) => ({ ...acc, ...cur }), {}),
+        }))
+      })
+    },
+    [features]
+  )
 
   return (
     <FeatureFlagContextProvider value={featureFlag}>
-      { children }
+      {children}
     </FeatureFlagContextProvider>
   )
 }
@@ -67,10 +60,5 @@ export function FeatureProvider({
 export function useFeatureFlag(featureType: FeatureType) {
   const contextValue = useFeatureFlagContext()
 
-  return useMemo(() => (
-    contextValue[featureType]
-  ), [
-    contextValue,
-    featureType,
-  ])
+  return useMemo(() => contextValue[featureType], [contextValue, featureType])
 }
