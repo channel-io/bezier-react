@@ -22,7 +22,7 @@
     "onLanguage:scss",
     "onLanguage:css"
   ],
-  "main": "./out/client.js",
+  "main": "./dist/client.js",
   "contributes": {
     "configuration": {
       "type": "object",
@@ -52,7 +52,7 @@
     "build": "tsc --build --verbose",
     "typecheck": "tsc --noEmit",
     "dev": "tsc -b -w",
-    "clean": "rm -rf out"
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "vscode-languageclient": "^9.0.1",

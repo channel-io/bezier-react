@@ -9,7 +9,7 @@
       "runtimeExecutable": "${execPath}/packages/bezier-vscode",
       "args": ["--extensionDevelopmentPath=${workspaceRoot}/packages/bezier-vscode"],
       "outFiles": [
-        "${workspaceRoot}/packages/bezier-vscode/out/**/*.js",
+        "${workspaceRoot}/packages/bezier-vscode/dist/**/*.js",
       ],
       "autoAttachChildProcesses": true,
     },
@@ -19,7 +19,7 @@
       "name": "Attach to Server",
       "port": 6009,
       "restart": true,
-      "outFiles": ["${workspaceRoot}/packages/bezier-vscode/out/**/server.js"]
+      "outFiles": ["${workspaceRoot}/packages/bezier-vscode/dist/**/server.js"]
     },
   ]
 }
