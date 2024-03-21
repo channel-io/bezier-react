@@ -1,18 +1,7 @@
 {
+  "extends": "tsconfig/browser.json",
   "compilerOptions": {
-    "module": "esnext",
-    "target": "es2020",
-    "lib": ["dom", "es2020"],
     "jsx": "react",
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "isolatedModules": true,
-    "strict": true,
-    "useUnknownInCatchVariables": false,
-    "allowJs": true,
-    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
       "~/*": ["./*"]
@@ -21,9 +10,8 @@
   },
   "types": ["react", "jest"],
   "include": [
-    "src/*",
-    "src/**/*",
-    "./jest.setup.ts",
+    "src",
+    "jest.setup.ts",
     ".storybook/**/*"
   ],
 }

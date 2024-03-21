@@ -48,7 +48,7 @@ function TabsComposition({
   const handleValueChange = useCallback((_value: typeof value) => {
     setCurrentValue(_value)
     if (isFunction(onValueChange)) {
-      onValueChange(_value)
+      onValueChange(_value as string)
     }
   }, [onValueChange])
 

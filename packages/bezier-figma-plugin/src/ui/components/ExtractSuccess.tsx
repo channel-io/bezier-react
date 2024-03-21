@@ -1,15 +1,14 @@
 import React, { useCallback } from 'react'
 
 import {
-  useLocation,
-  useNavigate,
-} from 'react-router-dom'
-
-import {
   Button,
   Text,
   VStack,
 } from '@channel.io/bezier-react'
+import {
+  useLocation,
+  useNavigate,
+} from 'react-router-dom'
 
 function ExtractSuccess() {
   const navigate = useNavigate()

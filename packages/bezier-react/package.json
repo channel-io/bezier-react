@@ -45,7 +45,7 @@
   "scripts": {
     "build": "run-p 'build:*'",
     "build:js": "rollup -c",
-    "build:types": "ttsc -p ./tsconfig.build.json",
+    "build:types": "tspc -p ./tsconfig.build.json",
     "dev": "yarn storybook",
     "lint": "run-p 'lint:*'",
     "lint:js": "TIMING=1 eslint --cache .",
@@ -121,10 +121,10 @@
     "rollup-plugin-visualizer": "^5.12.0",
     "sass": "^1.71.1",
     "storybook": "7.5.3",
+    "ts-patch": "^3.1.2",
     "ts-prune": "^0.10.3",
     "tsconfig": "workspace:*",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
-    "ttypescript": "^1.5.15",
     "typescript-plugin-css-modules": "^5.1.0",
     "typescript-transform-paths": "^3.4.7"
   },

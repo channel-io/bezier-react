@@ -6,6 +6,7 @@ module.exports = {
   plugins: [
     'jsdoc',
     'sort-export-all',
+    'storybook',
   ],
   extends: [
     'bezier',
@@ -16,30 +17,13 @@ module.exports = {
     project: './tsconfig.eslint.json',
   },
   rules: {
-    'sort-imports': ['error', {
-      ignoreDeclarationSort: true,
-    }],
     'import/order': ['error', {
       'newlines-between': 'always',
       alphabetize: { order: 'asc' },
-      groups: [
-        'builtin',
-        'external',
-        'internal',
-        'parent',
-        'sibling',
-        'index',
-      ],
-      pathGroupsExcludedImportTypes: [
-        'react',
-        'react-dom',
-      ],
+      groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+      pathGroupsExcludedImportTypes: ['react', 'react-dom'],
       pathGroups: [{
-        pattern: 'react',
-        group: 'external',
-        position: 'before',
-      }, {
-        pattern: 'react-dom',
+        pattern: '{react,react-dom}',
         group: 'external',
         position: 'before',
       }, {
@@ -63,9 +47,5 @@ module.exports = {
     'jsdoc/check-tag-names': ['error', {
       typed: false,
     }],
-    'max-classes-per-file': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'react/no-array-index-key': 'warn',
-    '@typescript-eslint/naming-convention': 'off',
   },
 }

@@ -1,8 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@channel.io/typescript-config/web.json",
   "compilerOptions": {
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "module": "commonjs"
+    "allowJs": true,
   }
 }

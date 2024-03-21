@@ -1,13 +1,14 @@
 {
   "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+  },
   "include": [
-    "src/**/*",
+    "src",
+    "jest.setup.ts",
     ".storybook/**/*",
-    "*.ts",
-    "*.tsx",
     "*.js",
-    "*.jsx",
-    ".*.js",
     "*.mjs",
+    ".*.js"
   ],
 }
