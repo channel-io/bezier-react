@@ -39,6 +39,7 @@
     "prettier": "^3.2.5",
     "stylelint": "^16.2.1",
     "stylelint-config-clean-order": "^5.4.1",
+    "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-standard-scss": "^13.0.0",
     "syncpack": "^12.3.0",
     "ts-node": "^10.9.2",

@@ -8376,6 +8376,7 @@ __metadata:
     prettier: "npm:^3.2.5"
     stylelint: "npm:^16.2.1"
     stylelint-config-clean-order: "npm:^5.4.1"
+    stylelint-config-prettier-scss: "npm:^1.0.0"
     stylelint-config-standard-scss: "npm:^13.0.0"
     syncpack: "npm:^12.3.0"
     ts-node: "npm:^10.9.2"
@@ -19427,6 +19428,18 @@ __metadata:
   peerDependencies:
     stylelint: ">=14"
   checksum: 10/cfa9dc9fb181e0ffd2b3d4d9a28ed9becfa3e663c4fe72c943370c41a4f5a52a2dda31c3c9db04b930bf4f4af7f831d38d09735b1c53425b05d8b3c457b585fb
+  languageName: node
+  linkType: hard
+
+"stylelint-config-prettier-scss@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "stylelint-config-prettier-scss@npm:1.0.0"
+  peerDependencies:
+    stylelint: ">=15.0.0"
+  bin:
+    stylelint-config-prettier-scss: bin/check.js
+    stylelint-config-prettier-scss-check: bin/check.js
+  checksum: 10/b69b281aba1b2bde3923be5c2f06cf9bd841ff7dc87496f67384496260ea2fe902c759a5463ea9a7bdfc75fdf8e641d4e2e4041b6a3dea63115d04c1b3bbc648
   languageName: node
   linkType: hard
 
