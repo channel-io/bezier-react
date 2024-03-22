@@ -50,8 +50,9 @@
   },
   "scripts": {
     "build": "tsc --build --verbose",
-    "typecheck": "tsc --noEmit",
     "dev": "tsc -b -w",
+    "lint": "TIMING=1 eslint --cache .",
+    "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist"
   },
   "dependencies": {

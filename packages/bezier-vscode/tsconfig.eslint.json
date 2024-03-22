@@ -1,8 +1,7 @@
 {
-  "extends": "tsconfig/eslint.json",
-  "include": [
-    "src/**/*",
-    ".eslintrc.cjs",
-    "jest.config.cjs",
-  ],
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": ["src", ".*.cjs", "*.cjs"]
 }
