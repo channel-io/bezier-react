@@ -11,12 +11,16 @@ import {
 } from 'vscode-languageserver/node'
 import { TextDocument } from 'vscode-languageserver-textdocument'
 
-import { hexToRGB, merge } from './utils'
+import { hexToRGB } from './utils'
 
-const tokens = merge(
-  JSON.parse(JSON.stringify(_tokens.lightTheme)),
-  JSON.parse(JSON.stringify(_tokens.global))
-)
+const tokens = {
+  ..._tokens.lightTheme,
+  ..._tokens.global,
+  color: {
+    ..._tokens.lightTheme.color,
+    ..._tokens.global.color,
+  },
+}
 
 type TokenGroup = keyof typeof tokens
 
