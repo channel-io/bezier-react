@@ -1,11 +1,9 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src"],
-  "exclude": [
-    "**/*.stories.tsx",
-    "**/*.test.ts",
-    "**/*.test.tsx",
-    "src/utils/test.tsx"
+  "include": [
+    "src/index.ts",
+    "src/alpha-components/index.ts",
+    "src/custom.d.ts"
   ],
   "compilerOptions": {
     "outDir": "dist/types",
