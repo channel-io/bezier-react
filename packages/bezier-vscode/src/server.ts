@@ -11,37 +11,35 @@ import {
 } from 'vscode-languageserver/node'
 import { TextDocument } from 'vscode-languageserver-textdocument'
 
-import {
-  hexToRGB,
-  merge,
-} from './utils'
+import { hexToRGB, merge } from './utils'
 
 const tokens = merge(
   JSON.parse(JSON.stringify(_tokens.lightTheme)),
-  JSON.parse(JSON.stringify(_tokens.global)),
+  JSON.parse(JSON.stringify(_tokens.global))
 )
 
 type TokenGroup = keyof typeof tokens
 
 const completionItemsByTokenGroup = Object.fromEntries(
-  Object
-    .entries(tokens)
-    .map(([groupName, tokenKeyValues]) => {
-      const completionItems: CompletionItem[] = Object.entries(tokenKeyValues).map(
-        ([key, value]) => ({
-          label: `--${key}`,
-          insertText: `--${key}`,
-          detail: groupName === 'color' ? hexToRGB(value) : String(value),
-          kind: groupName === 'color' ? CompletionItemKind.Color : CompletionItemKind.Variable,
-        }),
-      )
-      return [groupName, completionItems]
-    })) as Record<TokenGroup, CompletionItem[]>
+  Object.entries(tokens).map(([groupName, tokenKeyValues]) => {
+    const completionItems: CompletionItem[] = Object.entries(
+      tokenKeyValues
+    ).map(([key, value]) => ({
+      label: `--${key}`,
+      insertText: `--${key}`,
+      detail: groupName === 'color' ? hexToRGB(value) : String(value),
+      kind:
+        groupName === 'color'
+          ? CompletionItemKind.Color
+          : CompletionItemKind.Variable,
+    }))
+    return [groupName, completionItems]
+  })
+) as Record<TokenGroup, CompletionItem[]>
 
 const tokenGroupPatterns = {
   radius: /border-radius/,
-  color:
-    /color|background|border(?!-radius)|outline|background-color/,
+  color: /color|background|border(?!-radius)|outline|background-color/,
   elevation: /box-shadow/,
   input: /box-shadow/,
   typography: /font|letter-spacing|line-height/,
@@ -94,19 +92,21 @@ connection.onCompletion(
       end: { line: _textDocumentPosition.position.line, character: 1000 },
     })
 
-    if (!currentText.includes('var(')) { return [] }
+    if (!currentText.includes('var(')) {
+      return []
+    }
 
     for (const [tokenGroupName, pattern] of Object.entries(
-      tokenGroupPatterns,
+      tokenGroupPatterns
     )) {
       if (pattern.test(currentText)) {
         const currentCompletionItems =
-        completionItemsByTokenGroup[
-          tokenGroupName as keyof typeof tokenGroupPatterns
-        ]
+          completionItemsByTokenGroup[
+            tokenGroupName as keyof typeof tokenGroupPatterns
+          ]
 
         matchedCompletionItems = matchedCompletionItems.concat(
-          currentCompletionItems,
+          currentCompletionItems
         )
       }
     }
@@ -118,7 +118,7 @@ connection.onCompletion(
 
     // if there were no matches, send everything
     return allCompletionItems
-  },
+  }
 )
 
 // Make the text document manager listen on the connection

@@ -1,9 +1,6 @@
 import * as path from 'path'
 
-import {
-  type ExtensionContext,
-  workspace,
-} from 'vscode'
+import { type ExtensionContext, workspace } from 'vscode'
 import {
   LanguageClient,
   type LanguageClientOptions,
@@ -15,9 +12,7 @@ let client: LanguageClient
 
 export function activate(context: ExtensionContext) {
   // The server is implemented in node
-  const serverModule = context.asAbsolutePath(
-    path.join('dist', 'server.js'),
-  )
+  const serverModule = context.asAbsolutePath(path.join('dist', 'server.js'))
 
   // The debug options for the server
   // --inspect=6009: runs the server in Node's Inspector mode so VS Code can attach to the server for debugging
@@ -53,7 +48,7 @@ export function activate(context: ExtensionContext) {
     'languageServerExample',
     'Language Server Example',
     serverOptions,
-    clientOptions,
+    clientOptions
   )
 
   // Start the client. This will also launch the server

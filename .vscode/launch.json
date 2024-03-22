@@ -7,11 +7,11 @@
       "request": "launch",
       "name": "Launch Client",
       "runtimeExecutable": "${execPath}/packages/bezier-vscode",
-      "args": ["--extensionDevelopmentPath=${workspaceRoot}/packages/bezier-vscode"],
-      "outFiles": [
-        "${workspaceRoot}/packages/bezier-vscode/dist/**/*.js",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceRoot}/packages/bezier-vscode"
       ],
-      "autoAttachChildProcesses": true,
+      "outFiles": ["${workspaceRoot}/packages/bezier-vscode/dist/**/*.js"],
+      "autoAttachChildProcesses": true
     },
     {
       "type": "node",
@@ -20,6 +20,6 @@
       "port": 6009,
       "restart": true,
       "outFiles": ["${workspaceRoot}/packages/bezier-vscode/dist/**/server.js"]
-    },
+    }
   ]
 }
