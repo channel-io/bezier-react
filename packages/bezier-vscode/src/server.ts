@@ -11,7 +11,7 @@ import {
 } from 'vscode-languageserver/node'
 import { TextDocument } from 'vscode-languageserver-textdocument'
 
-import { hexToRGB } from './utils'
+import { hexToRGBA } from './utils'
 
 const tokens = {
   ..._tokens.lightTheme,
@@ -31,7 +31,8 @@ const completionItemsByTokenGroup = Object.fromEntries(
     ).map(([key, value]) => ({
       label: `--${key}`,
       insertText: `--${key}`,
-      detail: groupName === 'color' ? hexToRGB(value) : String(value),
+      // RGBA conversion to display color preview in suggestion item
+      detail: groupName === 'color' ? hexToRGBA(value) : String(value),
       kind:
         groupName === 'color'
           ? CompletionItemKind.Color
