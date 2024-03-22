@@ -36,7 +36,7 @@ export const STATUS_WRAPPER_TEST_ID = 'bezier-status-wrapper'
  *
  * ```tsx
  * <Avatar
- *   avatarUrl="'https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png"
+ *   avatarUrl="https://..."
  *   name="channel"
  *   size="48"
  *   showBorder
