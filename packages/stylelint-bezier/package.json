@@ -1,0 +1,16 @@
+{
+  "name": "stylelint-bezier",
+  "version": "0.0.0",
+  "description": "Stylelint plugin for Bezier design system.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/channel-io/bezier-react",
+    "directory": "packages/stylelint-bezier"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Channel Corp.",
+  "license": "Apache-2.0"
+}
