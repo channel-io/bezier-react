@@ -8,7 +8,8 @@
     "@channel.io/bezier-react": "1.8.0",
     "eslint-config-bezier": "0.0.1",
     "tsconfig": "0.0.1",
-    "@channel.io/bezier-tokens": "0.0.0"
+    "@channel.io/bezier-tokens": "0.0.0",
+    "@channel.io/bezier-vscode": "0.0.0"
   },
   "changesets": [
     "afraid-kings-push",
@@ -114,6 +115,7 @@
     "tough-rats-drive",
     "tricky-forks-marry",
     "tricky-geese-lick",
+    "twelve-ladybugs-glow",
     "twenty-onions-rule",
     "two-adults-pay",
     "violet-queens-explain",
