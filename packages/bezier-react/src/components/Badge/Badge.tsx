@@ -24,7 +24,7 @@ export const BADGE_TEST_ID = 'bezier-badge'
  */
 export const Badge = memo(
   forwardRef<HTMLDivElement, BadgeProps>(function Badge(
-    { size = 'm', variant = 'default', icon, children, className, ...rest },
+    { size = 'm', variant = 'default', icon, children, ...rest },
     forwardedRef
   ) {
     return (

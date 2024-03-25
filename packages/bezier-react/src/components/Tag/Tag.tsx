@@ -29,7 +29,7 @@ export const TAG_DELETE_TEST_ID = 'bezier-tag-delete-icon'
  */
 export const Tag = memo(
   forwardRef<HTMLDivElement, TagProps>(function Tag(
-    { size = 'm', variant = 'default', children, className, onDelete, ...rest },
+    { size = 'm', variant = 'default', children, onDelete, ...rest },
     forwardedRef
   ) {
     return (
