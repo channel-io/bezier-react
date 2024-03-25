@@ -1,5 +1,28 @@
 # @channel.io/bezier-icons
 
+## 0.23.0
+
+### Minor Changes
+
+- Update icons ([#2098](https://github.com/channel-io/bezier-react/pull/2098)) by @Jamie-channel
+
+  Modified
+
+  - channel-btn.svg
+  - channel-smile-filled.svg
+
+- Update icons ([#2105](https://github.com/channel-io/bezier-react/pull/2105)) by @Jamie-channel
+
+  Deleted
+
+  - channel-btn-smile-filled.svg
+  - channel-smile-filled.svg
+  - channel-smile.svg
+
+  Modified
+
+  - chat-bubble-filled.svg
+
 ## 0.22.0
 
 ### Minor Changes
