@@ -18,7 +18,6 @@ export type TagBadgeVariant =
   | 'red'
   | 'purple'
 
-
 /**
  * @deprecated
  */
