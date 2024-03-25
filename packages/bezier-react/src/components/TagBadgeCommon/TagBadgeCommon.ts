@@ -18,6 +18,10 @@ export type TagBadgeVariant =
   | 'red'
   | 'purple'
 
+
+/**
+ * @deprecated
+ */
 export const TagBadgeBgColorPreset = {
   default: 'bg-black-lighter',
   'monochrome-light': 'bg-black-lighter',
