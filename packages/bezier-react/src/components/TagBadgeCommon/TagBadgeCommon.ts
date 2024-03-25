@@ -1,13 +1,7 @@
 import { type SemanticColor } from '~/src/types/tokens'
 
-/**
- * @deprecated
- */
 export type TagBadgeSize = 'xs' | 's' | 'm' | 'l'
 
-/**
- * @deprecated
- */
 export type TagBadgeVariant =
   | 'default'
   | 'monochrome-light'
@@ -24,9 +18,6 @@ export type TagBadgeVariant =
   | 'red'
   | 'purple'
 
-/**
- * @deprecated
- */
 export const TagBadgeBgColorPreset = {
   default: 'bg-black-lighter',
   'monochrome-light': 'bg-black-lighter',
