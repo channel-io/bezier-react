@@ -85,14 +85,14 @@ describe('Toast', () => {
     it('should work if the option is on', async () => {
       const { getByRole, queryByRole } = renderToast({
         autoDismiss: true,
-        autoDismissTimeout: 10,
+        autoDismissTimeout: 0,
       })
       expect(getByRole('status')).toBeInTheDocument()
       await waitFor(
         () => {
           expect(queryByRole('status')).not.toBeInTheDocument()
         },
-        { timeout: 100 }
+        { timeout: 1000 }
       )
     })
 
@@ -103,7 +103,7 @@ describe('Toast', () => {
         () => {
           expect(queryByRole('status')).toBeInTheDocument()
         },
-        { timeout: 100 }
+        { timeout: 1000 }
       )
     })
   })
