@@ -1,17 +1,12 @@
-import React, { type CSSProperties, forwardRef, memo } from 'react'
+import React, { forwardRef, memo } from 'react'
 
 import { CancelSmallIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import { type SemanticColor } from '~/src/types/tokens'
-import { cssVar } from '~/src/utils/style'
 import { isEmpty, isNil } from '~/src/utils/type'
 
 import { Icon } from '~/src/components/Icon'
-import {
-  getProperTagBadgeBgColor,
-  getProperTagBadgeTypo,
-} from '~/src/components/TagBadgeCommon'
+import { getProperTagBadgeTypo } from '~/src/components/TagBadgeCommon'
 import commonStyles from '~/src/components/TagBadgeCommon/TagBadge.module.scss'
 import { Text } from '~/src/components/Text'
 
@@ -40,33 +35,22 @@ export const Tag = memo(
     {
       size = 'm',
       variant = 'default',
-      color: givenColor,
       children,
       className,
       onDelete,
-      style,
       ...rest
     },
     forwardedRef
   ) {
-    const bgColor: SemanticColor =
-      givenColor || getProperTagBadgeBgColor(variant)
-
     return (
       <div
-        style={
-          {
-            '--b-tag-badge-background-color': cssVar(bgColor),
-            ...style,
-          } as CSSProperties
-        }
+        ref={forwardedRef}
         className={classNames(
-          styles.Tag,
           commonStyles.TagBadge,
           commonStyles[`size-${size}`],
+          commonStyles[`variant-${variant}`],
           className
         )}
-        ref={forwardedRef}
         data-testid={TAG_TEST_ID}
         {...rest}
       >
@@ -84,7 +68,7 @@ export const Tag = memo(
           <Icon
             role="button"
             tabIndex={0}
-            className={styles.CloseIcon}
+            className={styles.TagDeleteIcon}
             source={CancelSmallIcon}
             size="xs"
             color="txt-black-darker"

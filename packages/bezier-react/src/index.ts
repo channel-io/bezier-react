@@ -51,7 +51,6 @@ export * from '~/src/components/Switch'
 export * from '~/src/components/Tabs'
 export * from '~/src/components/Tag'
 export {
-  TagBadgeBgColorPreset,
   type TagBadgeSize,
   type TagBadgeVariant,
 } from '~/src/components/TagBadgeCommon'

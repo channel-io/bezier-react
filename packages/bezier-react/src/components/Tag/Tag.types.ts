@@ -1,7 +1,6 @@
 import {
   type BezierComponentProps,
   type ChildrenProps,
-  type ColorProps,
   type SizeProps,
   type VariantProps,
 } from '~/src/types/props'
@@ -21,9 +20,8 @@ interface TagOwnProps {
 }
 
 export interface TagProps
-  extends Omit<BezierComponentProps<'div'>, keyof ColorProps>,
+  extends BezierComponentProps<'div'>,
     ChildrenProps,
     SizeProps<TagBadgeSize>,
     VariantProps<TagBadgeVariant>,
-    ColorProps,
     TagOwnProps {}

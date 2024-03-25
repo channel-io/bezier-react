@@ -11,8 +11,6 @@ import { Text } from '~/src/components/Text'
 
 import { type BadgeProps } from './Badge.types'
 
-import styles from './Badge.module.scss'
-
 export const BADGE_TEST_ID = 'bezier-badge'
 
 /**
@@ -37,10 +35,9 @@ export const Badge = memo(
       <div
         ref={forwardedRef}
         className={classNames(
-          styles.Badge,
-          styles[`variant-${variant}`],
           commonStyles.TagBadge,
           commonStyles[`size-${size}`],
+          commonStyles[`variant-${variant}`],
           className
         )}
         data-testid={BADGE_TEST_ID}
