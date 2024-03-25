@@ -5,7 +5,7 @@ import React, {
   useState,
 } from 'react'
 
-import { ChannelSmileFilledIcon } from '@channel.io/bezier-icons'
+import { ChannelFilledIcon } from '@channel.io/bezier-icons'
 import {
   type Meta,
   type StoryFn,
@@ -132,7 +132,7 @@ function Div({
 
   const handleNeverDismiss = () => toast.addToast('이건 사라지지 않아요!', {
     appearance: ToastAppearance.Success,
-    icon: ChannelSmileFilledIcon,
+    icon: ChannelFilledIcon,
     autoDismiss: false,
   })
 
