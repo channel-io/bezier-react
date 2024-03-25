@@ -4,7 +4,7 @@ import {
   ArrowLeftIcon,
   BookmarkFilledIcon,
   CallInProgressIcon,
-  ChannelBtnSmileFilledIcon,
+  ChannelBtnFilledIcon,
   ChannelIcon,
   CheckCircleIcon,
   ChevronDownDoubleIcon,
@@ -121,7 +121,7 @@ export const Overview: StoryFn<{}> = () => (
       <HStack spacing={8}>
         {
           [
-            ChannelBtnSmileFilledIcon,
+            ChannelBtnFilledIcon,
             CheckCircleIcon,
             InfoFilledIcon,
             ErrorTriangleFilledIcon,
@@ -166,7 +166,7 @@ export const Overview: StoryFn<{}> = () => (
           ]
             .map(semanticName => (
               <StackItem key={semanticName}>
-                <Icon source={ChannelBtnSmileFilledIcon} color={semanticName} size={IconSize.L} />
+                <Icon source={ChannelBtnFilledIcon} color={semanticName} size={IconSize.L} />
               </StackItem>
             ))
         }
@@ -185,7 +185,7 @@ export const Overview: StoryFn<{}> = () => (
         ].map((size) => (
           <StackItem key={size}>
             <Icon
-              source={ChannelBtnSmileFilledIcon}
+              source={ChannelBtnFilledIcon}
               color="txt-black-darkest"
               size={size}
             />
@@ -204,7 +204,7 @@ export const UsageColor: StoryObj<{}> = {
       <VStack spacing={16}>
         <StackItem>
           <Icon
-            source={ChannelBtnSmileFilledIcon}
+            source={ChannelBtnFilledIcon}
             color={color}
             size={IconSize.L}
           />
@@ -249,7 +249,7 @@ export const UsageSize: StoryFn<{}> = () => (
           </StackItem>
           <StackItem>
             <Icon
-              source={ChannelBtnSmileFilledIcon}
+              source={ChannelBtnFilledIcon}
               color="txt-black-darkest"
               size={size}
             />
@@ -264,7 +264,7 @@ export const TipsMargin: StoryObj<{}> = {
   render: () => (
     <div style={{ border: '1px solid red' }}>
       <Icon
-        source={ChannelBtnSmileFilledIcon}
+        source={ChannelBtnFilledIcon}
         color="bgtxt-blue-normal"
         marginTop={16}
         marginRight={24}
