@@ -50,10 +50,6 @@ export * from '~/src/components/Status'
 export * from '~/src/components/Switch'
 export * from '~/src/components/Tabs'
 export * from '~/src/components/Tag'
-export {
-  type TagBadgeSize,
-  type TagBadgeVariant,
-} from '~/src/components/TagBadgeCommon'
 export * from '~/src/components/Text'
 export * from '~/src/components/TextArea'
 export * from '~/src/components/TextField'

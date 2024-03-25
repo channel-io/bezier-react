@@ -1,14 +1,11 @@
 import React, { forwardRef, memo } from 'react'
 
 import { CancelSmallIcon } from '@channel.io/bezier-icons'
-import classNames from 'classnames'
 
 import { isEmpty, isNil } from '~/src/utils/type'
 
+import { BaseTagBadge, BaseTagBadgeText } from '~/src/components/BaseTagBadge'
 import { Icon } from '~/src/components/Icon'
-import { getProperTagBadgeTypo } from '~/src/components/TagBadgeCommon'
-import commonStyles from '~/src/components/TagBadgeCommon/TagBadge.module.scss'
-import { Text } from '~/src/components/Text'
 
 import { type TagProps } from './Tag.types'
 
@@ -32,36 +29,25 @@ export const TAG_DELETE_TEST_ID = 'bezier-tag-delete-icon'
  */
 export const Tag = memo(
   forwardRef<HTMLDivElement, TagProps>(function Tag(
-    {
-      size = 'm',
-      variant = 'default',
-      children,
-      className,
-      onDelete,
-      ...rest
-    },
+    { size = 'm', variant = 'default', children, className, onDelete, ...rest },
     forwardedRef
   ) {
     return (
-      <div
+      <BaseTagBadge
         ref={forwardedRef}
-        className={classNames(
-          commonStyles.TagBadge,
-          commonStyles[`size-${size}`],
-          commonStyles[`variant-${variant}`],
-          className
-        )}
+        size={size}
+        variant={variant}
         data-testid={TAG_TEST_ID}
         {...rest}
       >
         {!isEmpty(children) && (
-          <Text
-            typo={getProperTagBadgeTypo(size)}
+          <BaseTagBadgeText
+            size={size}
             marginHorizontal={2}
             color="txt-black-darkest"
           >
             {children}
-          </Text>
+          </BaseTagBadgeText>
         )}
 
         {!isNil(onDelete) && (
@@ -79,7 +65,7 @@ export const Tag = memo(
             data-testid={TAG_DELETE_TEST_ID}
           />
         )}
-      </div>
+      </BaseTagBadge>
     )
   })
 )

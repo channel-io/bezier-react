@@ -1,13 +1,9 @@
 import React, { forwardRef, memo } from 'react'
 
-import classNames from 'classnames'
-
 import { isEmpty } from '~/src/utils/type'
 
+import { BaseTagBadge, BaseTagBadgeText } from '~/src/components/BaseTagBadge'
 import { Icon } from '~/src/components/Icon'
-import { getProperTagBadgeTypo } from '~/src/components/TagBadgeCommon'
-import commonStyles from '~/src/components/TagBadgeCommon/TagBadge.module.scss'
-import { Text } from '~/src/components/Text'
 
 import { type BadgeProps } from './Badge.types'
 
@@ -32,14 +28,10 @@ export const Badge = memo(
     forwardedRef
   ) {
     return (
-      <div
+      <BaseTagBadge
         ref={forwardedRef}
-        className={classNames(
-          commonStyles.TagBadge,
-          commonStyles[`size-${size}`],
-          commonStyles[`variant-${variant}`],
-          className
-        )}
+        size={size}
+        variant={variant}
         data-testid={BADGE_TEST_ID}
         {...rest}
       >
@@ -51,14 +43,14 @@ export const Badge = memo(
         )}
 
         {!isEmpty(children) && (
-          <Text
-            typo={getProperTagBadgeTypo(size)}
+          <BaseTagBadgeText
+            size={size}
             marginHorizontal={3}
           >
             {children}
-          </Text>
+          </BaseTagBadgeText>
         )}
-      </div>
+      </BaseTagBadge>
     )
   })
 )
