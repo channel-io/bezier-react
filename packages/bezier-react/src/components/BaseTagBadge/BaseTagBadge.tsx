@@ -13,12 +13,14 @@ import {
 import styles from './BaseTagBadge.module.scss'
 
 function getProperTypo(size: BaseTagBadgeSize) {
-  return {
-    xs: '11' as const,
-    s: '13' as const,
-    m: '14' as const,
-    l: '15' as const,
-  }[size]
+  return (
+    {
+      xs: '11',
+      s: '13',
+      m: '14',
+      l: '15',
+    } as const
+  )[size]
 }
 
 /**
