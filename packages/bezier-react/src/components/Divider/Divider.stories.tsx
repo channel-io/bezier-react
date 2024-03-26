@@ -1,19 +1,14 @@
 import React from 'react'
 
-import type {
-  Meta,
-  StoryFn,
-  StoryObj,
-} from '@storybook/react'
-
-import { styled } from '~/src/foundation'
+import type { Meta, StoryFn, StoryObj } from '@storybook/react'
 
 import { ListItem } from '~/src/components/ListItem'
+import { Stack } from '~/src/components/Stack'
 
-import Divider from './Divider'
-import type DividerProps from './Divider.types'
+import { Divider } from './Divider'
+import { type DividerProps } from './Divider.types'
 
-const meta:Meta<typeof Divider> = {
+const meta = {
   component: Divider,
   argTypes: {
     orientation: {
@@ -38,26 +33,20 @@ const meta:Meta<typeof Divider> = {
       },
     },
   },
-}
+} satisfies Meta<typeof Divider>
+
 export default meta
 
-interface WrapperProps {
-  direction?: 'column' | 'row'
-}
-
-const Wrapper = styled.div<WrapperProps>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: ${({ direction = 'column' }) => direction};
-  width: 200px;
-  height: 200px;
-`
-
 const Template: StoryFn<DividerProps> = (props) => (
-  <Wrapper>
+  <Stack
+    direction="vertical"
+    align="center"
+    justify="center"
+    width={200}
+    height={200}
+  >
     <Divider {...props} />
-  </Wrapper>
+  </Stack>
 )
 
 export const Primary: StoryObj<DividerProps> = {
@@ -72,11 +61,20 @@ const CompositionTemplate: StoryFn<DividerProps> = ({
   orientation,
   ...rest
 }) => (
-  <Wrapper direction={orientation === 'horizontal' ? 'column' : 'row'}>
+  <Stack
+    direction={orientation === 'horizontal' ? 'vertical' : 'horizontal'}
+    align="center"
+    justify="center"
+    width={200}
+    height={200}
+  >
     <ListItem content="Channel" />
-    <Divider orientation={orientation} {...rest} />
+    <Divider
+      orientation={orientation}
+      {...rest}
+    />
     <ListItem content="Bezier" />
-  </Wrapper>
+  </Stack>
 )
 
 export const Composition: StoryObj<DividerProps> = {

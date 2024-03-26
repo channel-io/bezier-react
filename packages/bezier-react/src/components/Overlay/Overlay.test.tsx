@@ -3,33 +3,32 @@ import React from 'react'
 import { fireEvent } from '@testing-library/dom'
 import { getWindow } from 'ssr-window'
 
-import { TransitionDuration } from '~/src/foundation'
-
 import { render } from '~/src/utils/test'
 
-import Overlay, {
+import { Button } from '~/src/components/Button'
+
+import {
   CONTAINER_TEST_ID,
   ESCAPE_KEY,
   OVERLAY_TEST_ID,
-  WRAPPER_TEST_ID,
+  Overlay,
 } from './Overlay'
-import type OverlayProps from './Overlay.types'
-import {
-  type ContainerRectAttr,
-  type TargetRectAttr,
+import type {
+  ContainerRectAttr,
+  OverlayProps,
+  TargetRectAttr,
 } from './Overlay.types'
-import { OverlayPosition } from './Overlay.types'
 import { getOverlayTranslation } from './utils'
+
+import styles from './Overlay.module.scss'
 
 const RootOverlay: React.FC<OverlayProps> = ({ children, ...rests }) => (
   <div id="main">
-    <Overlay {...rests}>
-      { children }
-    </Overlay>
+    <Overlay {...rests}>{children}</Overlay>
   </div>
 )
 
-describe('Overlay test >', () => {
+describe('Overlay', () => {
   let props: OverlayProps
 
   beforeEach(() => {
@@ -39,27 +38,7 @@ describe('Overlay test >', () => {
     }
   })
 
-  const renderOverlay = (optionProps?: OverlayProps) => render(
-    <div>
-      <div />
-      <Overlay {...props} {...optionProps}>
-        <div>
-          test
-        </div>
-      </Overlay>
-    </div>,
-  )
-
-  it('Snapshot >', () => {
-    // const { getByTestId: getContainerTestId } = renderContainer()
-    // const renderedContainer = getContainerTestId('container')
-
-    const { getByTestId } = renderOverlay()
-    const rendered = getByTestId(OVERLAY_TEST_ID)
-    expect(rendered).toMatchSnapshot()
-  })
-
-  describe('PositionUtils >', () => {
+  describe('Position', () => {
     const overlay = {
       getBoundingClientRect: () => ({
         width: 400,
@@ -85,12 +64,12 @@ describe('Overlay test >', () => {
       scrollLeft: 0,
     }
 
-    describe('getOverlayTranslation() > ', () => {
+    describe('getOverlayTranslation', () => {
       it('Without any option', () => {
         const result = getOverlayTranslation({
           overlay: null,
           targetRect: null,
-          position: OverlayPosition.BottomCenter,
+          position: 'bottom-center',
           marginX: 0,
           marginY: 0,
           keepInContainer: true,
@@ -114,7 +93,7 @@ describe('Overlay test >', () => {
         const result = getOverlayTranslation({
           overlay,
           targetRect,
-          position: OverlayPosition.BottomLeft,
+          position: 'bottom-left',
           marginX: 0,
           marginY: 0,
           keepInContainer: true,
@@ -136,7 +115,7 @@ describe('Overlay test >', () => {
         const result = getOverlayTranslation({
           overlay,
           targetRect: overflowTarget,
-          position: OverlayPosition.BottomLeft,
+          position: 'bottom-left',
           marginX: 0,
           marginY: 0,
           keepInContainer: true,
@@ -171,7 +150,7 @@ describe('Overlay test >', () => {
         const result = getOverlayTranslation({
           overlay,
           targetRect: overflowTarget,
-          position: OverlayPosition.BottomLeft,
+          position: 'bottom-left',
           marginX: 0,
           marginY: 0,
           keepInContainer: true,
@@ -187,14 +166,20 @@ describe('Overlay test >', () => {
   })
 
   describe('Props and Event', () => {
-    const renderRootOverlay = (optionProps?: OverlayProps) => render(<RootOverlay {...props} {...optionProps} />)
+    const renderRootOverlay = (optionProps?: OverlayProps) =>
+      render(
+        <RootOverlay
+          {...props}
+          {...optionProps}
+        />
+      )
 
     beforeEach(() => {
       props = {
         show: true,
         className: '',
         containerClassName: '',
-        position: OverlayPosition.LeftCenter,
+        position: 'left-center',
         marginX: 0,
         marginY: 0,
         keepInContainer: false,
@@ -206,35 +191,6 @@ describe('Overlay test >', () => {
 
     describe('Props', () => {
       describe('show', () => {
-        describe('is True', () => {
-          it('container style', () => {
-            const { getByTestId } = renderRootOverlay()
-            const overlay = getByTestId(CONTAINER_TEST_ID)
-            expect(overlay).toHaveStyle('position: fixed')
-            expect(overlay).toHaveStyle('top: 0')
-            expect(overlay).toHaveStyle('right: 0')
-            expect(overlay).toHaveStyle('bottom: 0')
-            expect(overlay).toHaveStyle('left: 0')
-            expect(overlay).toHaveStyle('width: 100%')
-            expect(overlay).toHaveStyle('height: 100%')
-            expect(overlay).toHaveStyle('pointer-events: all')
-          })
-
-          it('wrapper style', () => {
-            const { getByTestId } = renderRootOverlay()
-            const overlay = getByTestId(WRAPPER_TEST_ID)
-            expect(overlay).toHaveStyle('position: relative')
-            expect(overlay).toHaveStyle('width: 100%')
-            expect(overlay).toHaveStyle('height: 100%')
-          })
-
-          it('overlay style', () => {
-            const { getByTestId } = renderRootOverlay()
-            const overlay = getByTestId(OVERLAY_TEST_ID)
-            expect(overlay).toHaveStyle('position: absolute')
-          })
-        })
-
         describe('is False', () => {
           it('container style', () => {
             const { container } = renderRootOverlay()
@@ -267,7 +223,9 @@ describe('Overlay test >', () => {
       describe('containerClassName', () => {
         it('is transferred', () => {
           const CLASSNAME = 'Test__Container'
-          const { getByTestId } = renderRootOverlay({ containerClassName: CLASSNAME })
+          const { getByTestId } = renderRootOverlay({
+            containerClassName: CLASSNAME,
+          })
           const overlay = getByTestId(CONTAINER_TEST_ID)
           expect(overlay).toHaveClass(CLASSNAME)
         })
@@ -291,7 +249,10 @@ describe('Overlay test >', () => {
         afterEach(jest.clearAllMocks)
 
         it('is True', () => {
-          const { getByTestId } = renderRootOverlay({ enableClickOutside: true, onHide })
+          const { getByTestId } = renderRootOverlay({
+            enableClickOutside: true,
+            onHide,
+          })
           const overlay = getByTestId(CONTAINER_TEST_ID)
 
           overlay.click()
@@ -319,24 +280,23 @@ describe('Overlay test >', () => {
         it('is True', () => {
           const { getByTestId } = renderRootOverlay({ withTransition: true })
           const overlay = getByTestId(OVERLAY_TEST_ID)
-
-          expect(overlay).toHaveStyle(`transition-property: ${['top', 'opacity'].join(',')}`)
-          expect(overlay).toHaveStyle(`transition-duration: ${TransitionDuration.S}ms`)
-          expect(overlay).toHaveStyle('transition-timing-function: cubic-bezier(.3,0,0,1)')
-          expect(overlay).toHaveStyle('transition-delay: 0ms')
+          expect(overlay).toHaveClass(styles.transition)
         })
       })
     })
 
     describe('Event', () => {
+      document.onkeydown = jest.fn()
+      const onHide = jest.fn()
+
+      afterEach(jest.clearAllMocks)
+
       describe('keydown', () => {
-        document.onkeydown = jest.fn()
-        const onHide = jest.fn()
-
-        afterEach(jest.clearAllMocks)
-
         it('is Triggered By Escape', () => {
-          const { getByTestId } = renderRootOverlay({ withTransition: true, onHide })
+          const { getByTestId } = renderRootOverlay({
+            withTransition: true,
+            onHide,
+          })
           const overlay = getByTestId(OVERLAY_TEST_ID)
           fireEvent.keyDown(overlay, { key: ESCAPE_KEY })
           expect(document.onkeydown).toHaveBeenCalledTimes(1)
@@ -347,7 +307,10 @@ describe('Overlay test >', () => {
         })
 
         it('is not Triggered By All keys except Escape', () => {
-          const { getByTestId } = renderRootOverlay({ withTransition: true, onHide })
+          const { getByTestId } = renderRootOverlay({
+            withTransition: true,
+            onHide,
+          })
           const overlay = getByTestId(OVERLAY_TEST_ID)
           fireEvent.keyDown(overlay, { key: 'Enter' })
           expect(document.onkeydown).toHaveBeenCalledTimes(1)
@@ -358,6 +321,24 @@ describe('Overlay test >', () => {
           fireEvent.keyDown(overlay, { key: 'Z' })
           expect(document.onkeydown).toHaveBeenCalledTimes(3)
           expect(onHide).toHaveBeenCalledTimes(0)
+        })
+      })
+
+      describe('click', () => {
+        it('calls onHide when element outside the overlay is clicked', async () => {
+          renderRootOverlay({ onHide })
+          fireEvent.click(document.body)
+          expect(onHide).toHaveBeenCalled()
+        })
+
+        it('does not call onHide when element inside the overlay is clicked', () => {
+          const { getByRole } = renderRootOverlay({
+            children: <Button text="button" />,
+            onHide,
+          })
+          const button = getByRole('button')
+          fireEvent.click(button)
+          expect(onHide).not.toHaveBeenCalled()
         })
       })
     })

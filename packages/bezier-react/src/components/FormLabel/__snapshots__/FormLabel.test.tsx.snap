@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormLabel > Snapshot > 1`] = `
+<label
+  class="Text typo-13 bold align-left margin LabelText"
+  data-testid="bezier-form-label"
+  style="--b-text-color: var(--txt-black-darkest);"
+>
+  label
+</label>
+`;

@@ -1,0 +1,114 @@
+.layout {
+  --b-padding: 0;
+  --b-padding-horizontal: var(--b-padding);
+  --b-padding-vertical: var(--b-padding);
+  --b-padding-top: var(--b-padding-vertical);
+  --b-padding-right: var(--b-padding-horizontal);
+  --b-padding-bottom: var(--b-padding-vertical);
+  --b-padding-left: var(--b-padding-horizontal);
+  --b-width: initial;
+  --b-height: initial;
+  --b-max-width: initial;
+  --b-max-height: initial;
+  --b-min-width: initial;
+  --b-min-height: initial;
+  --b-inset: auto;
+  --b-top: var(--b-inset);
+  --b-right: var(--b-inset);
+  --b-bottom: var(--b-inset);
+  --b-left: var(--b-inset);
+  --b-shrink: initial;
+  --b-grow: initial;
+  --b-background-color: initial;
+  --b-border-color: initial;
+  --b-border-width: 0;
+  --b-border-top-width: var(--b-border-width);
+  --b-border-right-width: var(--b-border-width);
+  --b-border-bottom-width: var(--b-border-width);
+  --b-border-left-width: var(--b-border-width);
+
+  inset: var(--b-top) var(--b-right) var(--b-bottom) var(--b-left);
+
+  flex-grow: var(--b-grow);
+  flex-shrink: var(--b-shrink);
+
+  box-sizing: border-box;
+  width: var(--b-width);
+  min-width: var(--b-min-width);
+  max-width: var(--b-max-width);
+  height: var(--b-height);
+  min-height: var(--b-min-height);
+  max-height: var(--b-max-height);
+  padding: var(--b-padding-top) var(--b-padding-right) var(--b-padding-bottom)
+    var(--b-padding-left);
+
+  background-color: var(--b-background-color);
+  border-color: var(--b-border-color);
+  border-style: solid;
+  border-width: var(--b-border-top-width) var(--b-border-right-width)
+    var(--b-border-bottom-width) var(--b-border-left-width);
+
+  &:where(.position-relative) {
+    position: relative;
+  }
+
+  &:where(.position-absolute) {
+    position: absolute;
+  }
+
+  &:where(.position-fixed) {
+    position: fixed;
+  }
+
+  &:where(.position-sticky) {
+    position: sticky;
+  }
+
+  &:where(.overflow-visible) {
+    overflow: visible;
+  }
+
+  &:where(.overflow-hidden) {
+    overflow: hidden;
+  }
+
+  &:where(.overflow-scroll) {
+    overflow: scroll;
+  }
+
+  &:where(.overflow-auto) {
+    overflow: auto;
+  }
+
+  &:where(.overflow-x-visible) {
+    overflow-x: visible;
+  }
+
+  &:where(.overflow-x-hidden) {
+    overflow-x: hidden;
+  }
+
+  &:where(.overflow-x-scroll) {
+    overflow-x: scroll;
+  }
+
+  &:where(.overflow-x-auto) {
+    overflow-x: auto;
+  }
+
+  &:where(.overflow-y-visible) {
+    overflow-y: visible;
+  }
+
+  &:where(.overflow-y-hidden) {
+    overflow-y: hidden;
+  }
+
+  &:where(.overflow-y-scroll) {
+    overflow-y: scroll;
+  }
+
+  &:where(.overflow-y-auto) {
+    overflow-y: auto;
+  }
+}

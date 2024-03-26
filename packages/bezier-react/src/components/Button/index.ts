@@ -1,16 +1,7 @@
-import { Button } from './Button'
-import {
+export { Button } from './Button'
+export type {
   ButtonColorVariant,
+  ButtonProps,
   ButtonSize,
   ButtonStyleVariant,
 } from './Button.types'
-import type ButtonProps from './Button.types'
-
-export type { ButtonProps }
-
-export {
-  Button,
-  ButtonSize,
-  ButtonColorVariant,
-  ButtonStyleVariant,
-}

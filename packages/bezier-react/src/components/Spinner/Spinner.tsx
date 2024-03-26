@@ -1,34 +1,38 @@
 import React, { forwardRef } from 'react'
 
-import type SpinnerProps from './Spinner.types'
-import { SpinnerSize } from './Spinner.types'
+import classNames from 'classnames'
 
-import { SpinIcon } from './Spinner.styled'
+import { cssVar } from '~/src/utils/style'
 
-export const SPINNER_TEST_ID = 'bezier-react-spinner'
+import { type SpinnerProps } from './Spinner.types'
 
-const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(function Spinner({
-  testId = SPINNER_TEST_ID,
-  style,
-  className,
-  interpolation,
-  size = SpinnerSize.M,
-  color,
-  ...rest
-}, forwardedRef) {
-  return (
-    <SpinIcon
-      {...rest}
-      ref={forwardedRef}
-      style={style}
-      className={className}
-      interpolation={interpolation}
-      key="spinner"
-      size={size}
-      color={color}
-      data-testid={testId}
-    />
-  )
-})
+import styles from './Spinner.module.scss'
 
-export default Spinner
+export const SPINNER_TEST_ID = 'bezier-spinner'
+
+export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
+  function Spinner(
+    { style, className, size = 'm', color, ...rest },
+    forwardedRef
+  ) {
+    return (
+      <div
+        {...rest}
+        ref={forwardedRef}
+        style={
+          {
+            '--b-spinner-color': cssVar(color),
+            ...style,
+          } as React.CSSProperties
+        }
+        className={classNames(
+          styles.Spinner,
+          styles[`size-${size}`],
+          className
+        )}
+        key="spinner"
+        data-testid={SPINNER_TEST_ID}
+      />
+    )
+  }
+)

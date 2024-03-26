@@ -9,148 +9,154 @@ import React, {
   useState,
 } from 'react'
 
-import { useWindow } from '~/src/providers/WindowProvider'
+import classNames from 'classnames'
+
+import { useWindow } from '~/src/components/WindowProvider'
 
 import { type LegacyTooltipProps } from './LegacyTooltip.types'
-import { LegacyTooltipPosition } from './LegacyTooltip.types'
 import { LegacyTooltipContent } from './LegacyTooltipContent'
 
-import { Container } from './LegacyTooltip.styled'
+import styles from './LegacyTooltip.module.scss'
 
-export const TOOLTIP_TEST_ID = 'bezier-react-tooltip'
-export const TOOLTIP_CONTENT_TEST_ID = 'bezier-react-tooltip-content'
+export const TOOLTIP_TEST_ID = 'bezier-tooltip'
+export const TOOLTIP_CONTENT_TEST_ID = 'bezier-tooltip-content'
 
-export const LegacyTooltip = memo(forwardRef(function LegacyTooltip(
-  {
-    as,
-    testId = TOOLTIP_TEST_ID,
-    contentTestId = TOOLTIP_CONTENT_TEST_ID,
-    className,
-    contentClassName,
-    contentInterpolation,
-    contentWrapperStyle,
-    content = null,
-    lazy = false, // optional prop 에서 추후 default behavior 를 lazy 하게 바꿀 예정
-    placement = LegacyTooltipPosition.BottomCenter,
-    disabled = false,
-    offset = 4,
-    keepInContainer = false,
-    allowHover = false,
-    delayShow = 0,
-    delayHide = 0,
-    children,
-    ...otherProps
-  }: LegacyTooltipProps,
-  forwardedRef: Ref<any>,
-) {
-  const { window } = useWindow()
+/**
+ * @deprecated Use `Tooltip` instead. It may be removed in the next major version.
+ */
+export const LegacyTooltip = memo(
+  forwardRef(function LegacyTooltip(
+    {
+      as,
+      contentTestId = TOOLTIP_CONTENT_TEST_ID,
+      className,
+      contentStyle,
+      contentClassName,
+      contentWrapperStyle,
+      contentWrapperClassName,
+      content = null,
+      lazy = false, // optional prop 에서 추후 default behavior 를 lazy 하게 바꿀 예정
+      placement = 'bottom-center',
+      disabled = false,
+      offset = 4,
+      keepInContainer = false,
+      allowHover = false,
+      delayShow = 0,
+      delayHide = 0,
+      children,
+      ...otherProps
+    }: LegacyTooltipProps,
+    forwardedRef: Ref<any>
+  ) {
+    const { window } = useWindow()
 
-  const [show, setShow] = useState(false)
-  const [didMount, setDidMount] = useState(show)
+    const [show, setShow] = useState(false)
+    const [didMount, setDidMount] = useState(show)
 
-  const tooltipContainerRef = useRef<HTMLDivElement>(null)
-  const timerRef = useRef<ReturnType<Window['setTimeout']>>()
+    const tooltipContainerRef = useRef<HTMLDivElement>(null)
+    const timerRef = useRef<ReturnType<Window['setTimeout']>>()
 
-  useEffect(function hideTooltipContentWhenDisabled() {
-    if (disabled) {
-      setShow(false)
+    useEffect(
+      function hideTooltipContentWhenDisabled() {
+        if (disabled) {
+          setShow(false)
+        }
+      },
+      [disabled]
+    )
+
+    useEffect(
+      function updateDidMount() {
+        setDidMount((prev) => prev || show)
+      },
+      [show]
+    )
+
+    const handleMouseEnter = useCallback(() => {
+      if (disabled) {
+        return
+      }
+
+      if (timerRef.current) {
+        clearTimeout(timerRef.current)
+      }
+
+      timerRef.current = window.setTimeout(() => {
+        setShow(true)
+      }, delayShow)
+    }, [delayShow, disabled, window])
+
+    const handleMouseLeave = useCallback(() => {
+      if (disabled) {
+        return
+      }
+
+      if (timerRef.current) {
+        clearTimeout(timerRef.current)
+      }
+
+      timerRef.current = window.setTimeout(() => {
+        setShow(false)
+      }, delayHide)
+    }, [delayHide, disabled, window])
+
+    const TooltipComponent = useMemo(() => {
+      if (!lazy || didMount) {
+        return (
+          <LegacyTooltipContent
+            as={as}
+            content={content}
+            contentStyle={contentStyle}
+            contentClassName={contentClassName}
+            contentWrapperStyle={contentWrapperStyle}
+            contentWrapperClassName={contentWrapperClassName}
+            disabled={disabled}
+            placement={placement}
+            offset={offset}
+            allowHover={allowHover}
+            keepInContainer={keepInContainer}
+            tooltipContainer={tooltipContainerRef.current}
+            forwardedRef={forwardedRef}
+            data-testid={contentTestId}
+          />
+        )
+      }
+
+      return null
+    }, [
+      lazy,
+      didMount,
+      as,
+      content,
+      contentStyle,
+      contentClassName,
+      contentWrapperStyle,
+      contentWrapperClassName,
+      disabled,
+      placement,
+      offset,
+      allowHover,
+      keepInContainer,
+      forwardedRef,
+      contentTestId,
+    ])
+
+    if (!children) {
+      return null
     }
-  }, [disabled])
 
-  useEffect(function updateDidMount() {
-    setDidMount((prev) => prev || show)
-  }, [show])
-
-  const handleMouseEnter = useCallback(() => {
-    if (disabled) {
-      return
-    }
-
-    if (timerRef.current) {
-      clearTimeout(timerRef.current)
-    }
-
-    timerRef.current = window.setTimeout(() => {
-      setShow(true)
-    }, delayShow)
-  }, [
-    delayShow,
-    disabled,
-    window,
-  ])
-
-  const handleMouseLeave = useCallback(() => {
-    if (disabled) {
-      return
-    }
-
-    if (timerRef.current) {
-      clearTimeout(timerRef.current)
-    }
-
-    timerRef.current = window.setTimeout(() => {
-      setShow(false)
-    }, delayHide)
-  }, [
-    delayHide,
-    disabled,
-    window,
-  ])
-
-  const TooltipComponent = useMemo(() => {
-    if (!lazy || didMount) {
-      return (
-        <LegacyTooltipContent
-          as={as}
-          content={content}
-          contentClassName={contentClassName}
-          contentInterpolation={contentInterpolation}
-          contentWrapperStyle={contentWrapperStyle}
-          disabled={disabled}
-          placement={placement}
-          offset={offset}
-          allowHover={allowHover}
-          keepInContainer={keepInContainer}
-          tooltipContainer={tooltipContainerRef.current}
-          forwardedRef={forwardedRef}
-          testId={contentTestId}
-        />
-      )
-    }
-
-    return null
-  }, [
-    lazy,
-    didMount,
-    as,
-    content,
-    contentClassName,
-    contentInterpolation,
-    contentWrapperStyle,
-    disabled,
-    placement,
-    offset,
-    allowHover,
-    keepInContainer,
-    forwardedRef,
-    contentTestId,
-  ])
-
-  if (!children) {
-    return null
-  }
-
-  return (
-    <Container
-      ref={tooltipContainerRef}
-      data-testid={testId}
-      className={className}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      {...otherProps}
-    >
-      { children }
-      { show && TooltipComponent }
-    </Container>
-  )
-}))
+    return (
+      <div
+        ref={tooltipContainerRef}
+        className={classNames(styles.LegacyTooltip, className)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        data-testid={TOOLTIP_TEST_ID}
+        {...otherProps}
+      >
+        {children}
+        {show && TooltipComponent}
+      </div>
+    )
+  })
+)

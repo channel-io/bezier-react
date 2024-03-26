@@ -1,163 +1,71 @@
 import React from 'react'
 
-import {
-  TagIcon,
-  ToolIcon,
-} from '@channel.io/bezier-icons'
-
-import { LightFoundation } from '~/src/foundation'
+import { TagIcon, ToolIcon } from '@channel.io/bezier-icons'
 
 import { render } from '~/src/utils/test'
 
 import { BUTTON_TEST_ID } from '~/src/components/Button/Button'
-import { DIVIDER_TEST_ID } from '~/src/components/Divider/Divider'
 import { HELP_TEST_ID } from '~/src/components/Help/Help'
 import { ICON_TEST_ID } from '~/src/components/Icon/Icon'
 
-import SectionLabel, {
-  SECTION_LABEL_TEST_CONTENT_ID,
-  SECTION_LABEL_TEST_ID,
-  SECTION_LABEL_TEST_LEFT_CONTENT_ID,
-  SECTION_LABEL_TEST_RIGHT_CONTENT_ID,
-} from './SectionLabel'
-import type SectionLabelProps from './SectionLabel.types'
+import { SectionLabel } from './SectionLabel'
+import type { SectionLabelProps } from './SectionLabel.types'
 
 describe('SectionLabel', () => {
-  const defaultProps: SectionLabelProps = {}
-
   function renderComponent(props?: Partial<SectionLabelProps>) {
-    return render(<SectionLabel {...defaultProps} {...props} />)
+    return render(<SectionLabel {...props} />)
   }
 
-  it('renders string content as bold Text with Typography.Size13', () => {
-    const { getByTestId } = renderComponent({ content: 'hi' })
-    const content = getByTestId(SECTION_LABEL_TEST_CONTENT_ID)
-
-    expect(content.children.length).toBe(1)
-    expect(content.children.item(0)).toHaveStyle('font-weight: bold;')
-    expect(content.children.item(0)).toHaveStyle('font-size: 1.3rem;')
+  it('should renders element content as it is', () => {
+    const { getByText } = renderComponent({ content: 'foo' })
+    expect(getByText('foo')).toBeInTheDocument()
   })
 
-  it('renders number content as bold text with Typography.Size13', () => {
-    const { getByTestId } = renderComponent({ content: 123 })
-    const content = getByTestId(SECTION_LABEL_TEST_CONTENT_ID)
-
-    expect(content.children.length).toBe(1)
-    expect(content.children.item(0)).toHaveStyle('font-weight: bold;')
-    expect(content.children.item(0)).toHaveStyle('font-size: 1.3rem;')
+  it('should renders as button if onClick prop exists', () => {
+    const { getByRole } = renderComponent({ onClick: jest.fn() })
+    expect(getByRole('button')).toBeInTheDocument()
   })
 
-  it('renders element content as it is', () => {
-    const { getByTestId } = renderComponent({ content: <div id="i-am-sectionlabel-content-id" /> })
-    const content = getByTestId(SECTION_LABEL_TEST_CONTENT_ID)
-
-    expect(content.children.length).toBe(1)
-    expect(content.children.item(0)?.id).toBe('i-am-sectionlabel-content-id')
+  it('should renders left content with specified icon and default icon color', () => {
+    const { getByTestId } = renderComponent({ leftContent: TagIcon })
+    expect(getByTestId(ICON_TEST_ID)).toBeInTheDocument()
   })
 
-  it('does not render left content if given null', () => {
-    const { getByTestId } = renderComponent()
-    expect(() => getByTestId(SECTION_LABEL_TEST_LEFT_CONTENT_ID)).toThrowError()
+  it('should renders left content as it is', () => {
+    const { getByText } = renderComponent({ leftContent: 'foo' })
+    expect(getByText('foo')).toBeInTheDocument()
   })
 
-  it('renders left content with specified icon and default icon color', () => {
-    const { getByTestId } = renderComponent({ leftContent: { icon: TagIcon } })
-    const leftContent = getByTestId(SECTION_LABEL_TEST_LEFT_CONTENT_ID)
-
-    const leftIcon = leftContent.children.item(0)
-
-    expect(leftIcon).toHaveAttribute('data-testid', ICON_TEST_ID)
-    expect(leftIcon).toHaveStyle(`color: ${LightFoundation.theme['txt-black-dark']};`)
+  it('should renders help icon if help prop exists', () => {
+    const { getByTestId } = renderComponent({ help: <div>happy</div> })
+    expect(getByTestId(HELP_TEST_ID)).toBeInTheDocument()
   })
 
-  it('renders left content with specified icon and icon color', () => {
-    const { getByTestId } = renderComponent({ leftContent: { icon: TagIcon, iconColor: 'bgtxt-orange-normal' } })
-    const leftContent = getByTestId(SECTION_LABEL_TEST_LEFT_CONTENT_ID)
-
-    const leftIcon = leftContent.children.item(0)
-
-    expect(leftIcon).toHaveAttribute('data-testid', ICON_TEST_ID)
-    expect(leftIcon).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-orange-normal']};`)
+  it('should renders right content as button(only appearance) if only icon is specified', () => {
+    const { getByTestId } = renderComponent({ rightContent: TagIcon })
+    expect(getByTestId(BUTTON_TEST_ID)).toBeInTheDocument()
   })
 
-  it('renders left content as it is', () => {
-    const { getByTestId } = renderComponent({ leftContent: <div id="foo" /> })
-    const leftContent = getByTestId(SECTION_LABEL_TEST_LEFT_CONTENT_ID)
-
-    const leftIcon = leftContent.children.item(0)
-    expect(leftIcon?.id).toBe('foo')
-  })
-
-  it('renders help icon if help prop exists', () => {
-    const { getByTestId } = renderComponent({
-      help: <div>happy</div>,
+  it('should render right content as button if icon and onClick props of rightContent existed', () => {
+    const { getByRole } = renderComponent({
+      rightContent: { icon: ToolIcon, onClick: jest.fn() },
     })
-    const helpContent = getByTestId(HELP_TEST_ID)
-    expect(helpContent).toBeInTheDocument()
+    expect(getByRole('button')).toBeInTheDocument()
   })
 
-  it('does not render right content if given null', () => {
-    const { getByTestId } = renderComponent()
-    expect(() => getByTestId(SECTION_LABEL_TEST_RIGHT_CONTENT_ID)).toThrowError()
-  })
-
-  it('does not render right content if given empty array', () => {
-    const { getByTestId } = renderComponent({ rightContent: [] })
-    expect(() => getByTestId(SECTION_LABEL_TEST_RIGHT_CONTENT_ID)).toThrowError()
-  })
-
-  it('renders right content as button if only icon is specified', () => {
-    const { getByTestId } = renderComponent({ rightContent: { icon: TagIcon } })
-    const rightContent = getByTestId(SECTION_LABEL_TEST_RIGHT_CONTENT_ID)
-
-    expect(rightContent.children.length).toBe(1)
-
-    const rightButton = rightContent.children.item(0)
-
-    expect(rightButton).toHaveAttribute('data-testid', BUTTON_TEST_ID)
-    expect(rightButton).toHaveStyle('height: 20px') // NOTE: ButtonSize.XS
-  })
-
-  it('renders multiple right contents, and item with iconColor is not rendered as button', () => {
-    const { getByTestId } = renderComponent({
-      rightContent: [
-        { icon: TagIcon },
-        { icon: ToolIcon, iconColor: 'bgtxt-green-normal' },
-      ],
+  it('should renders multiple right contents, and item with iconColor is not rendered as button', () => {
+    const { getAllByTestId, getAllByRole } = renderComponent({
+      rightContent: [TagIcon, { icon: ToolIcon, onClick: jest.fn() }],
     })
-    const rightContent = getByTestId(SECTION_LABEL_TEST_RIGHT_CONTENT_ID)
-
-    expect(rightContent.children.length).toBe(2)
-
-    expect(rightContent.children.item(0)).toHaveAttribute('data-testid', BUTTON_TEST_ID)
-
-    expect(rightContent.children.item(1)).not.toHaveAttribute('data-testid', BUTTON_TEST_ID)
+    expect(getAllByTestId(BUTTON_TEST_ID)).toHaveLength(2)
+    expect(getAllByRole('button')).toHaveLength(1)
   })
 
-  it('renders right content as it is', () => {
-    const { getByTestId } = renderComponent({
-      rightContent: [
-        <div key="foo" id="foo" />,
-        <div key="bar" id="bar" />,
-        <div key="foobar" id="foobar" />,
-      ],
+  it('should renders right content as it is', () => {
+    const { getByText } = renderComponent({
+      rightContent: [<div key="foo">foo</div>, 'bar'],
     })
-    const rightContent = getByTestId(SECTION_LABEL_TEST_RIGHT_CONTENT_ID)
-
-    expect(rightContent.children.length).toBe(3)
-
-    expect(rightContent.children.item(0)?.id).toBe('foo')
-    expect(rightContent.children.item(1)?.id).toBe('bar')
-    expect(rightContent.children.item(2)?.id).toBe('foobar')
-  })
-
-  it('renders with divider if the divider prop is true', () => {
-    const { getByTestId } = renderComponent({
-      divider: true,
-    })
-
-    const content = getByTestId(SECTION_LABEL_TEST_ID)
-
-    expect(content.children.item(0)).toHaveAttribute('data-testid', DIVIDER_TEST_ID)
+    expect(getByText('foo')).toBeInTheDocument()
+    expect(getByText('bar')).toBeInTheDocument()
   })
 })

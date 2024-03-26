@@ -1,7 +1,6 @@
 const { getIconNamesByStatus } = require('./getIconNamesByStatus')
 
-const yamlFrontMatter =
-`---
+const yamlFrontMatter = `---
 "@channel.io/bezier-icons": minor
 ---\n
 `
@@ -18,14 +17,15 @@ const getIconChangeLog = (iconsByStatus) => {
   for (const [key, icons] of Object.entries(iconsByStatus)) {
     changeLog += statusByKey[key]
     changeLog += '\n\n'
-    changeLog += icons.map(icon => `- ${icon}`).join('\n')
+    changeLog += icons.map((icon) => `- ${icon}`).join('\n')
     changeLog += '\n\n'
   }
 
   return changeLog.trim()
 }
 
-const getChangeLog = (gitLog) => yamlFrontMatter + getIconChangeLog(getIconNamesByStatus(gitLog))
+const getChangeLog = (gitLog) =>
+  yamlFrontMatter + getIconChangeLog(getIconNamesByStatus(gitLog))
 
 module.exports = {
   getChangeLog,

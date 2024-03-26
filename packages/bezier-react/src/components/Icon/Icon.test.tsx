@@ -2,14 +2,9 @@ import React from 'react'
 
 import { AllIcon } from '@channel.io/bezier-icons'
 
-import { LightFoundation } from '~/src/foundation'
-
 import { render } from '~/src/utils/test'
 
-import {
-  ICON_TEST_ID,
-  Icon,
-} from './Icon'
+import { ICON_TEST_ID, Icon } from './Icon'
 import { type IconProps } from './Icon.types'
 
 describe('Icon test >', () => {
@@ -21,9 +16,13 @@ describe('Icon test >', () => {
     }
   })
 
-  const renderIcon = (optionProps?: IconProps) => render(
-    <Icon {...props} {...optionProps} />,
-  )
+  const renderIcon = (optionProps?: IconProps) =>
+    render(
+      <Icon
+        {...props}
+        {...optionProps}
+      />
+    )
 
   it('Icon inherits fill color', () => {
     const { getByTestId } = renderIcon()
@@ -33,11 +32,14 @@ describe('Icon test >', () => {
     expect(renderedIcon).toHaveStyle('color: inherit;')
   })
 
-  it('Icon receives custom color Theme Key', () => {
-    const { getByTestId } = renderIcon({ source: AllIcon, color: 'bgtxt-olive-dark' })
+  it('Icon receives custom color', () => {
+    const { getByTestId } = renderIcon({
+      source: AllIcon,
+      color: 'bgtxt-olive-dark',
+    })
 
     const renderedIcon = getByTestId(ICON_TEST_ID)
 
-    expect(renderedIcon).toHaveStyle(`color: ${LightFoundation.theme['bgtxt-olive-dark']};`)
+    expect(renderedIcon).toHaveStyle('--b-icon-color: var(--bgtxt-olive-dark);')
   })
 })

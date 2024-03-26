@@ -1,79 +1,63 @@
-import React, {
-  forwardRef,
-  memo,
-} from 'react'
+import React, { type CSSProperties, forwardRef, memo } from 'react'
 
-import {
-  LockIcon,
-  MoonFilledIcon,
-} from '@channel.io/bezier-icons'
+import { LockIcon, MoonFilledIcon } from '@channel.io/bezier-icons'
+import classNames from 'classnames'
 
-import type { SemanticNames } from '~/src/foundation'
+import { type SemanticColor } from '~/src/types/tokens'
+import { cssVar } from '~/src/utils/style'
 
-import {
-  cssVarName,
-  cssVarValue,
-  px,
-} from '~/src/utils/style'
+import { Icon } from '~/src/components/Icon'
 
-import { IconSize } from '~/src/components/Icon'
+import { type StatusProps, type StatusType } from './Status.types'
 
-import {
-  type StatusProps,
-  StatusSize,
-  StatusType,
-} from './Status.types'
-
-import * as Styled from './Status.styled'
-
-const cv = cssVarName('status')
+import styles from './Status.module.scss'
 
 const statusTypesWithIcon: Readonly<StatusType[]> = [
-  StatusType.OnlineCrescent,
-  StatusType.OfflineCrescent,
-  StatusType.Lock,
+  'online-crescent',
+  'offline-crescent',
+  'lock',
 ]
 
-const statusColor: Readonly<Record<StatusType, SemanticNames>> = {
-  [StatusType.Online]: 'bgtxt-green-normal',
-  [StatusType.Offline]: 'bg-black-dark',
-  [StatusType.OnlineCrescent]: 'bgtxt-green-normal',
-  [StatusType.OfflineCrescent]: 'bgtxt-yellow-normal',
-  [StatusType.Lock]: 'txt-black-darker',
+const statusColor: Readonly<Record<StatusType, SemanticColor>> = {
+  online: 'bgtxt-green-normal',
+  offline: 'bg-black-dark',
+  'online-crescent': 'bgtxt-green-normal',
+  'offline-crescent': 'bgtxt-yellow-normal',
+  lock: 'txt-black-darker',
 }
 
-function getStatusCircleBorderWidth(size: StatusSize) {
-  if (size >= StatusSize.L) { return 3 }
-  return 2
-}
+/**
+ * `Status` is a component to indicate user status.
+ */
+export const Status = memo(
+  forwardRef<HTMLDivElement, StatusProps>(function Status(
+    { type, size = 'm', style, className, ...rest },
+    forwardedRef
+  ) {
+    const withIcon = statusTypesWithIcon.includes(type)
+    const backgroundColor = withIcon ? 'bg-white-high' : statusColor[type]
 
-export const Status = memo(forwardRef(function Status({
-  type,
-  size = StatusSize.M,
-  style,
-  ...rest
-}: StatusProps, forwardedRef: React.Ref<HTMLDivElement>) {
-  const withIcon = statusTypesWithIcon.includes(type)
-  const backgroundColor = withIcon ? 'bg-white-high' : statusColor[type]
-
-  return (
-    <Styled.Circle
-      ref={forwardedRef}
-      style={{
-        ...style,
-        [cv('size')]: px(size),
-        [cv('bg-color')]: cssVarValue(backgroundColor),
-        [cv('border-width')]: px(getStatusCircleBorderWidth(size)),
-      }}
-      {...rest}
-    >
-      { withIcon && (
-        <Styled.Icon
-          source={type === StatusType.Lock ? LockIcon : MoonFilledIcon}
-          size={size <= StatusSize.M ? IconSize.XXXS : IconSize.XS}
-          color={statusColor[type]}
-        />
-      ) }
-    </Styled.Circle>
-  )
-}))
+    return (
+      <div
+        ref={forwardedRef}
+        style={
+          {
+            '--b-status-bg-color': cssVar(backgroundColor),
+            ...style,
+          } as CSSProperties
+        }
+        className={classNames(styles.Status, styles[`size-${size}`], className)}
+        {...rest}
+      >
+        {withIcon && (
+          <Icon
+            source={type === 'lock' ? LockIcon : MoonFilledIcon}
+            size={size === 'm' ? 'xxxs' : 'xs'}
+            color={statusColor[type]}
+            className={styles.Icon}
+          />
+        )}
+      </div>
+    )
+  })
+)

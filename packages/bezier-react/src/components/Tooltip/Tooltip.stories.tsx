@@ -1,20 +1,12 @@
 import React from 'react'
 
 import { TranslateIcon } from '@channel.io/bezier-icons'
-import {
-  type Meta,
-  type StoryFn,
-} from '@storybook/react'
-
-import { getObjectFromEnum } from '~/src/utils/story'
+import { type Meta, type StoryFn } from '@storybook/react'
 
 import { Button } from '~/src/components/Button'
 
 import { Tooltip } from './Tooltip'
-import {
-  TooltipPosition,
-  type TooltipProps,
-} from './Tooltip.types'
+import { type TooltipProps } from './Tooltip.types'
 
 const meta: Meta<typeof Tooltip> = {
   component: Tooltip,
@@ -24,18 +16,12 @@ const meta: Meta<typeof Tooltip> = {
         type: 'range',
       },
     },
-    placement: {
-      control: {
-        type: 'select',
-      },
-      options: getObjectFromEnum(TooltipPosition),
-    },
   },
 }
 export default meta
 
 const Template: StoryFn<TooltipProps> = ({ children, ...rest }) => (
-  <Tooltip {...rest}>{ children }</Tooltip>
+  <Tooltip {...rest}>{children}</Tooltip>
 )
 
 export const Primary = {
@@ -43,7 +29,7 @@ export const Primary = {
 
   args: {
     defaultShow: false,
-    placement: TooltipPosition.BottomCenter,
+    placement: 'bottom-center',
     offset: 4,
     disabled: false,
     keepInContainer: true,

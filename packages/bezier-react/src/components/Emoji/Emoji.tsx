@@ -1,56 +1,44 @@
-import React, {
-  forwardRef,
-  useMemo,
-} from 'react'
+import React, { type CSSProperties, forwardRef } from 'react'
 
-import { backgroundImageVariable } from '~/src/foundation'
+import classNames from 'classnames'
 
-import { noop } from '~/src/utils/function'
+import { cssUrl } from '~/src/utils/style'
 
-import type EmojiProps from './Emoji.types'
-import { EmojiSize } from './Emoji.types'
+import { type EmojiProps } from './Emoji.types'
 
-import { Icon } from './Emoji.styled'
+import styles from './Emoji.module.scss'
 
-export const EMOJI_TEST_ID = 'bezier-react-emoji'
+export const EMOJI_TEST_ID = 'bezier-emoji'
 
-function Emoji(
-  {
-    as,
-    style,
-    imageUrl,
-    className,
-    name,
-    interpolation,
-    size = EmojiSize.Size24,
-    testId = EMOJI_TEST_ID,
-    onClick = noop,
-  }: EmojiProps,
-  forwardedRef: React.Ref<HTMLDivElement>,
+/**
+ * `Emoji` is a component for representing emoji with variant size.
+ * @example
+ * ```tsx
+ * <Emoji
+ *   name="A"
+ *   imageUrl="https://cf.exp.channel.io/asset/emoji/images/80/a.png"
+ *   size="20"
+ * />
+ * ```
+ */
+export const Emoji = forwardRef<HTMLDivElement, EmojiProps>(function Emoji(
+  { style, imageUrl, className, name, size = '24', ...rest },
+  forwardedRef
 ) {
-  const mergedStyle = useMemo(() => ({
-    ...backgroundImageVariable({ imageUrl }),
-    ...style,
-  }), [
-    style,
-    imageUrl,
-  ])
-
   return (
-    <Icon
-      as={as}
+    <div
       ref={forwardedRef}
-      data-testid={testId}
       role="img"
       aria-label={name}
-      style={mergedStyle}
-      size={size}
-      className={className}
-      interpolation={interpolation}
-      imageUrl={imageUrl}
-      onClick={onClick}
+      style={
+        {
+          '--b-emoji-background-image': cssUrl(imageUrl),
+          ...style,
+        } as CSSProperties
+      }
+      className={classNames(styles.Emoji, styles[`size-${size}`], className)}
+      data-testid={EMOJI_TEST_ID}
+      {...rest}
     />
   )
-}
-
-export default forwardRef(Emoji)
+})

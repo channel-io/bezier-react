@@ -1,27 +1,22 @@
-import type {
-  BezierComponentProps,
-  SizeProps,
-} from '~/src/types/ComponentProps'
+import type { BezierComponentProps, SizeProps } from '~/src/types/props'
 
-export enum StatusType {
-  Online = 'Online',
-  Offline = 'Offline',
-  Lock = 'Lock',
-  OnlineCrescent = 'OnlineCrescent',
-  OfflineCrescent = 'OfflineCrescent',
-}
+export type StatusType =
+  | 'online'
+  | 'offline'
+  | 'lock'
+  | 'online-crescent'
+  | 'offline-crescent'
 
-export enum StatusSize {
-  M = 8,
-  L = 14,
-}
+export type StatusSize = 'm' | 'l'
 
-interface StatusOptions {
+interface StatusOwnProps {
+  /**
+   * Type of Status image.
+   */
   type: StatusType
 }
 
-export interface StatusProps extends
-  BezierComponentProps,
-  SizeProps<StatusSize>,
-  React.HTMLAttributes<HTMLDivElement>,
-  StatusOptions {}
+export interface StatusProps
+  extends BezierComponentProps<'div'>,
+    SizeProps<StatusSize>,
+    StatusOwnProps {}

@@ -1,0 +1,30 @@
+.LegacyTooltip {
+  position: relative;
+}
+
+.LegacyTooltipContentWrapper {
+  position: absolute;
+  z-index: var(--z-index-tooltip);
+  top: 0;
+  left: 0;
+
+  &:where(.disabled) {
+    display: none;
+  }
+}
+
+.LegacyTooltipContent {
+  box-sizing: border-box;
+  width: max-content;
+  max-width: 260px;
+  height: max-content;
+  padding: 8px 14px;
+
+  color: var(--txt-black-darkest);
+  word-break: normal;
+  word-wrap: break-word;
+
+  background-color: var(--bg-white-low);
+  border-radius: var(--radius-8);
+  box-shadow: var(--ev-2);
+}

@@ -13,6 +13,7 @@ import {
   EditIcon,
   EmailIcon,
   ErrorTriangleFilledIcon,
+  type IconName,
   InboxIcon,
   InfoFilledIcon,
   SendForwardFilledIcon,
@@ -20,40 +21,25 @@ import {
   TrashIcon,
   icons,
 } from '@channel.io/bezier-icons'
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
-import {
-  LightFoundation,
-  type SemanticNames,
-  Typography,
-  styled,
-} from '~/src/foundation'
-
-import {
-  getObjectFromEnum,
-  iconList,
-} from '~/src/utils/story'
+import { type SemanticColor } from '~/src/types/tokens'
 import { camelCase } from '~/src/utils/string'
 
-import { Select } from '~/src/components/Forms/Inputs/Select'
-import { ListItem } from '~/src/components/ListItem'
 import {
-  HStack,
-  StackItem,
-  VStack,
-} from '~/src/components/Stack'
+  LegacyHStack,
+  LegacyStackItem,
+  LegacyVStack,
+} from '~/src/components/LegacyStack'
+import { ListItem } from '~/src/components/ListItem'
+import { Select } from '~/src/components/Select'
+import { Stack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
+import { useTokens } from '~/src/components/ThemeProvider'
 
 import { Icon } from './Icon'
 import mdx from './Icon.mdx'
-import {
-  type IconProps,
-  IconSize,
-} from './Icon.types'
+import { type IconProps } from './Icon.types'
 
 const meta: Meta<typeof Icon> = {
   component: Icon,
@@ -62,34 +48,13 @@ const meta: Meta<typeof Icon> = {
       page: mdx,
     },
   },
-  argTypes: {
-    size: {
-      control: {
-        type: 'radio',
-      },
-      options: getObjectFromEnum(IconSize),
-    },
-  },
 }
 export default meta
-
-const IconInfo = styled.div`
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 120px;
-  height: 120px;
-`
-
-const Name = styled.p`
-  text-align: center;
-`
 
 export const Playground: StoryObj<IconProps> = {
   args: {
     source: ChannelIcon,
-    size: IconSize.Normal,
+    size: 'm',
     color: 'bg-black-darker',
   },
 }
@@ -100,164 +65,179 @@ const pascalCase = (str: string) =>
 export const AllIcons: StoryObj<Omit<IconProps, 'source'>> = {
   render: (args) => (
     <>
-      { iconList.map((iconName) => (
-        <IconInfo key={iconName}>
-          <Icon source={icons[iconName]} {...args} />
-          <Name>{ pascalCase(iconName) }</Name>
-        </IconInfo>
-      )) }
+      {(Object.keys(icons) as IconName[]).map((iconName) => (
+        <Stack
+          key={iconName}
+          display="inline-flex"
+          direction="vertical"
+          align="center"
+          justify="center"
+          wrap
+          padding={6}
+          spacing={12}
+          width={120}
+          height={120}
+        >
+          <Icon
+            source={icons[iconName]}
+            {...args}
+          />
+          <Text
+            style={{
+              wordBreak: 'break-word',
+            }}
+            typo="12"
+            color="txt-black-darkest"
+            align="center"
+          >
+            {pascalCase(iconName)}
+          </Text>
+        </Stack>
+      ))}
     </>
   ),
 
   args: {
-    size: IconSize.Normal,
-    color: 'bg-black-darker',
+    size: 'm',
+    color: 'bg-black-darkest',
   },
 }
 
 export const Overview: StoryFn<{}> = () => (
-  <VStack spacing={16}>
-    <StackItem>
-      <HStack spacing={8}>
-        {
-          [
-            ChannelBtnFilledIcon,
-            CheckCircleIcon,
-            InfoFilledIcon,
-            ErrorTriangleFilledIcon,
-            SendForwardFilledIcon,
-            EmailIcon,
-            InboxIcon,
-            CallInProgressIcon,
-            EditIcon,
-            SettingsIcon,
-            TrashIcon,
-            ClockIcon,
-            ChevronRightIcon,
-            ArrowLeftIcon,
-            ChevronDownDoubleIcon,
-            BookmarkFilledIcon,
-          ]
-            .map((source, i) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <StackItem key={`item-${i}`}>
-                <Icon source={source} color="txt-black-darkest" />
-              </StackItem>
-            ))
-        }
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={8}>
-        {
-          [
-            'txt-black-darkest' as const,
-            'bgtxt-blue-normal' as const,
-            'bgtxt-cobalt-normal' as const,
-            'bgtxt-teal-normal' as const,
-            'bgtxt-green-normal' as const,
-            'bgtxt-olive-normal' as const,
-            'bgtxt-yellow-normal' as const,
-            'bgtxt-orange-normal' as const,
-            'bgtxt-red-normal' as const,
-            'bgtxt-pink-normal' as const,
-            'bgtxt-purple-normal' as const,
-            'bgtxt-navy-normal' as const,
-          ]
-            .map(semanticName => (
-              <StackItem key={semanticName}>
-                <Icon source={ChannelBtnFilledIcon} color={semanticName} size={IconSize.L} />
-              </StackItem>
-            ))
-        }
-      </HStack>
-    </StackItem>
-    <StackItem>
-      <HStack spacing={8}>
-        { [
-          IconSize.XXXS,
-          IconSize.XXS,
-          IconSize.XS,
-          IconSize.S,
-          IconSize.Normal,
-          IconSize.L,
-          IconSize.XL,
-        ].map((size) => (
-          <StackItem key={size}>
+  <LegacyVStack spacing={16}>
+    <LegacyStackItem>
+      <LegacyHStack spacing={8}>
+        {[
+          ChannelBtnFilledIcon,
+          CheckCircleIcon,
+          InfoFilledIcon,
+          ErrorTriangleFilledIcon,
+          SendForwardFilledIcon,
+          EmailIcon,
+          InboxIcon,
+          CallInProgressIcon,
+          EditIcon,
+          SettingsIcon,
+          TrashIcon,
+          ClockIcon,
+          ChevronRightIcon,
+          ArrowLeftIcon,
+          ChevronDownDoubleIcon,
+          BookmarkFilledIcon,
+        ].map((source, i) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <LegacyStackItem key={`item-${i}`}>
+            <Icon
+              source={source}
+              color="txt-black-darkest"
+            />
+          </LegacyStackItem>
+        ))}
+      </LegacyHStack>
+    </LegacyStackItem>
+    <LegacyStackItem>
+      <LegacyHStack spacing={8}>
+        {[
+          'txt-black-darkest' as const,
+          'bgtxt-blue-normal' as const,
+          'bgtxt-cobalt-normal' as const,
+          'bgtxt-teal-normal' as const,
+          'bgtxt-green-normal' as const,
+          'bgtxt-olive-normal' as const,
+          'bgtxt-yellow-normal' as const,
+          'bgtxt-orange-normal' as const,
+          'bgtxt-red-normal' as const,
+          'bgtxt-pink-normal' as const,
+          'bgtxt-purple-normal' as const,
+          'bgtxt-navy-normal' as const,
+        ].map((semanticName) => (
+          <LegacyStackItem key={semanticName}>
+            <Icon
+              source={ChannelBtnFilledIcon}
+              color={semanticName}
+              size="l"
+            />
+          </LegacyStackItem>
+        ))}
+      </LegacyHStack>
+    </LegacyStackItem>
+    <LegacyStackItem>
+      <LegacyHStack spacing={8}>
+        {(['xxxs', 'xxs', 'xs', 's', 'm', 'l', 'xl'] as const).map((size) => (
+          <LegacyStackItem key={size}>
             <Icon
               source={ChannelBtnFilledIcon}
               color="txt-black-darkest"
               size={size}
             />
-          </StackItem>
-        )) }
-      </HStack>
-    </StackItem>
-  </VStack>
+          </LegacyStackItem>
+        ))}
+      </LegacyHStack>
+    </LegacyStackItem>
+  </LegacyVStack>
 )
 
+function ColorIcon() {
+  const [color, setColor] = useState<SemanticColor>('bgtxt-blue-normal')
+
+  return (
+    <LegacyVStack spacing={16}>
+      <LegacyStackItem>
+        <Icon
+          source={ChannelBtnFilledIcon}
+          color={color}
+          size="l"
+        />
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <Select
+          text={color}
+          style={{ width: 200 }}
+        >
+          <div style={{ padding: 6, maxHeight: 200, overflowY: 'auto' }}>
+            {Object.keys(useTokens().semantic.color).map((semanticName) => (
+              <ListItem
+                key={semanticName}
+                content={semanticName}
+                onClick={() => setColor(semanticName as SemanticColor)}
+              />
+            ))}
+          </div>
+        </Select>
+      </LegacyStackItem>
+    </LegacyVStack>
+  )
+}
+
 export const UsageColor: StoryObj<{}> = {
-  render: function Render() {
-    const [color, setColor] = useState<SemanticNames>('bgtxt-blue-normal')
-
-    return (
-      <VStack spacing={16}>
-        <StackItem>
-          <Icon
-            source={ChannelBtnFilledIcon}
-            color={color}
-            size={IconSize.L}
-          />
-        </StackItem>
-        <StackItem>
-          <Select text={color} style={{ width: 200 }}>
-            <div style={{ padding: 6, maxHeight: 200, overflowY: 'auto' }}>
-              { Object.keys(LightFoundation.theme).map((semanticName) => (
-                <ListItem
-                  key={semanticName}
-                  content={semanticName}
-                  onClick={() => setColor(semanticName as SemanticNames)}
-                />
-              )) }
-            </div>
-          </Select>
-        </StackItem>
-      </VStack>
-    )
-  },
-
+  render: () => <ColorIcon />,
   name: 'Usage (color)',
 }
 
 export const UsageSize: StoryFn<{}> = () => (
-  <VStack spacing={16}>
-    { [
-      { label: 'XXXS', size: IconSize.XXXS },
-      { label: 'XXS', size: IconSize.XXS },
-      { label: 'XS', size: IconSize.XS },
-      { label: 'S', size: IconSize.S },
-      { label: 'Normal', size: IconSize.Normal },
-      { label: 'L', size: IconSize.L },
-      { label: 'XL', size: IconSize.XL },
-    ].map(({ label, size }) => (
-      <StackItem key={size}>
-        <HStack spacing={24}>
-          <StackItem size={100}>
-            <Text typo={Typography.Size13} color="txt-black-darkest">
-              { `${label} (${size}x${size})` }
+  <LegacyVStack spacing={16}>
+    {(['xxxs', 'xxs', 'xs', 's', 'm', 'l', 'xl'] as const).map((size) => (
+      <LegacyStackItem key={size}>
+        <LegacyHStack spacing={24}>
+          <LegacyStackItem size={30}>
+            <Text
+              typo="13"
+              color="txt-black-darkest"
+            >
+              {size}
             </Text>
-          </StackItem>
-          <StackItem>
+          </LegacyStackItem>
+          <LegacyStackItem>
             <Icon
               source={ChannelBtnFilledIcon}
               color="txt-black-darkest"
               size={size}
             />
-          </StackItem>
-        </HStack>
-      </StackItem>
-    )) }
-  </VStack>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+    ))}
+  </LegacyVStack>
 )
 
 export const TipsMargin: StoryObj<{}> = {

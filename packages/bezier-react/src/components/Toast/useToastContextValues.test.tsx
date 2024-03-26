@@ -1,18 +1,12 @@
-import { InfoFilledIcon } from '@channel.io/bezier-icons'
-import {
-  act,
-  renderHook,
-} from '@testing-library/react'
+import { act, renderHook } from '@testing-library/react'
 
-import {
-  ToastAppearance,
-  type ToastType,
-} from './Toast.types'
+import { type ToastType } from './Toast.types'
 import useToastContextValues from './useToastContextValues'
 
-const UUID_V4_REGEX = /^[0-9A-F]{8}-[0-9A-F]{4}-[4][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
+const UUID_V4_REGEX =
+  /^[0-9A-F]{8}-[0-9A-F]{4}-[4][0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i
 
-describe('ToastService', () => {
+describe('useToastContextValues', () => {
   it('leftToasts', () => {
     const { result } = renderHook(() => useToastContextValues())
 
@@ -34,12 +28,10 @@ describe('ToastService', () => {
 
     expect(result.current.leftToasts).toStrictEqual([
       expect.objectContaining({
-        id: expect.stringMatching(UUID_V4_REGEX),
-        content: '0',
-        icon: InfoFilledIcon,
-        appearance: ToastAppearance.Info,
         autoDismiss: false,
         rightSide: false,
+        id: expect.stringMatching(UUID_V4_REGEX),
+        content: '0',
         version: 0,
       }),
     ])
@@ -67,7 +59,9 @@ describe('ToastService', () => {
         content: 'New Toast',
       }
       act(() => {
-        expect(result.current.update(updateTargetToast.id, updateTargetToast.content)).toBe(updateTargetToast.id)
+        expect(
+          result.current.update(updateTargetToast.id, updateTargetToast.content)
+        ).toBe(updateTargetToast.id)
       })
       expect(result.current.leftToasts[targetIndex]).toStrictEqual({
         ...updateTargetToast,
@@ -80,18 +74,16 @@ describe('ToastService', () => {
   it('remove()', () => {
     const { result } = renderHook(() => useToastContextValues())
 
-    let toastId
+    let toastId: string
     act(() => {
       toastId = result.current.add('0')
     })
     expect(result.current.leftToasts).toStrictEqual([
       expect.objectContaining({
-        id: expect.stringMatching(UUID_V4_REGEX),
-        content: '0',
-        icon: InfoFilledIcon,
-        appearance: ToastAppearance.Info,
         autoDismiss: false,
         rightSide: false,
+        id: expect.stringMatching(UUID_V4_REGEX),
+        content: '0',
         version: 0,
       }),
     ])
@@ -111,12 +103,10 @@ describe('ToastService', () => {
 
     expect(result.current.leftToasts).toStrictEqual([
       expect.objectContaining({
-        id: expect.stringMatching(UUID_V4_REGEX),
-        content: '0',
-        icon: InfoFilledIcon,
-        appearance: ToastAppearance.Info,
         autoDismiss: false,
         rightSide: false,
+        id: expect.stringMatching(UUID_V4_REGEX),
+        content: '0',
         version: 0,
       }),
     ])
@@ -132,25 +122,23 @@ describe('ToastService', () => {
     const onDismiss = jest.fn()
     const { result } = renderHook(() => useToastContextValues())
 
-    let toastId
+    let toastId: string
     act(() => {
       toastId = result.current.add('0')
     })
     expect(result.current.leftToasts).toStrictEqual([
       expect.objectContaining({
-        id: expect.stringMatching(UUID_V4_REGEX),
-        content: '0',
-        icon: InfoFilledIcon,
-        appearance: ToastAppearance.Info,
         autoDismiss: false,
         rightSide: false,
+        id: expect.stringMatching(UUID_V4_REGEX),
+        content: '0',
         version: 0,
       }),
     ])
     act(() => {
       result.current.dismiss(toastId, onDismiss)
     })
-    expect(onDismiss).toBeCalledTimes(1)
+    expect(onDismiss).toHaveBeenCalledTimes(1)
     expect(result.current.leftToasts).toStrictEqual([])
     expect(result.current.rightToasts).toStrictEqual([])
   })

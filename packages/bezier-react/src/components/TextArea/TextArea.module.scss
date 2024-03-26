@@ -1,0 +1,55 @@
+@use '../../styles/mixins/typography';
+
+.TextArea {
+  font: unset;
+
+  /* stylelint-disable-next-line order/order */
+  @include typography.size(14);
+  /* stylelint-disable-next-line order/properties-order */
+  resize: none;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 8px 12px;
+
+  color: var(--txt-black-darkest);
+  overflow-wrap: anywhere;
+
+  background-color: var(--bg-grey-lightest);
+  border: none;
+  border-radius: var(--radius-8);
+  outline: none;
+  box-shadow: var(--input-box-shadow);
+
+  transition:
+    border-color var(--transition-s),
+    box-shadow var(--transition-s);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:focus {
+    background-color: var(--bg-white-normal);
+    box-shadow: var(--input-box-shadow-focused);
+  }
+
+  &[aria-invalid='true'] {
+    background-color: var(--bg-white-normal);
+    box-shadow: var(--input-box-shadow-invalid);
+  }
+
+  &:read-only {
+    color: var(--txt-black-darker);
+    background-color: var(--bg-grey-lighter);
+  }
+}

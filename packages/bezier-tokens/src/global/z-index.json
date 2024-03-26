@@ -1,0 +1,28 @@
+{
+  "z-index": {
+    "hidden": {
+      "value": -1
+    },
+    "base": {
+      "value": 0
+    },
+    "floating": {
+      "value": 1
+    },
+    "overlay": {
+      "value": 1000
+    },
+    "modal": {
+      "value": 1100
+    },
+    "toast": {
+      "value": 1200
+    },
+    "tooltip": {
+      "value": 1300
+    },
+    "important": {
+      "value": 2000
+    }
+  }
+}

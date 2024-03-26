@@ -1,0 +1,29 @@
+import { Canvas, Meta } from '@storybook/blocks'
+
+import * as DialogPrimitive from './DialogPrimitive.stories'
+
+<Meta of={DialogPrimitive} />
+
+# DialogPrimitive
+
+`DialogPrimitive` is wrapper component for the radix-ui `Dialog` component. For more information, see [radix-ui documentation](https://www.radix-ui.com/primitives/docs/components/dialog).
+
+<Canvas of={DialogPrimitive.Primary} />
+
+## Anatomy
+
+`DialogPrimitive` is a composition of several components:
+
+```tsx
+<DialogPrimitive>
+  <DialogPrimitiveTrigger />
+  <DialogPrimitivePortal>
+    <DialogPrimitiveOverlay />
+    <DialogPrimitiveContent>
+      <DialogPrimitiveTitle />
+      <DialogPrimitiveDescription />
+      <DialogPrimitiveClose />
+    </DialogPrimitiveContent>
+  </DialogPrimitivePortal>
+</DialogPrimitive>
+```

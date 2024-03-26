@@ -1,8 +1,6 @@
-import { css } from '~/src/foundation'
-
 import {
   type ContainerRectAttr,
-  OverlayPosition,
+  type OverlayPosition,
   type TargetRectAttr,
 } from './Overlay.types'
 
@@ -51,79 +49,76 @@ export function getOverlayTranslation({
   keepInContainer,
 }: GetOverlayTranslatationArgs) {
   if (containerRect && targetRect && overlay) {
-    const {
-      containerWidth,
-      containerHeight,
-      containerTop,
-      containerLeft,
-    } = containerRect
+    const { containerWidth, containerHeight, containerTop, containerLeft } =
+      containerRect
     const { targetWidth, targetHeight, targetTop, targetLeft } = targetRect
-    const { width: overlayWidth, height: overlayHeight } = overlay.getBoundingClientRect()
+    const { width: overlayWidth, height: overlayHeight } =
+      overlay.getBoundingClientRect()
 
     let translateX = 0
     let translateY = 0
 
     // pre position
     switch (position) {
-      case OverlayPosition.TopCenter:
-      case OverlayPosition.TopLeft:
-      case OverlayPosition.TopRight:
-        translateY -= (overlayHeight + marginY)
+      case 'top-center':
+      case 'top-left':
+      case 'top-right':
+        translateY -= overlayHeight + marginY
         translateX += marginX
         break
-      case OverlayPosition.RightCenter:
-      case OverlayPosition.RightTop:
-      case OverlayPosition.RightBottom:
-        translateX += (targetWidth + marginX)
+      case 'right-center':
+      case 'right-top':
+      case 'right-bottom':
+        translateX += targetWidth + marginX
         translateY += marginY
         break
-      case OverlayPosition.BottomCenter:
-      case OverlayPosition.BottomLeft:
-      case OverlayPosition.BottomRight:
-        translateY += (targetHeight + marginY)
+      case 'bottom-center':
+      case 'bottom-left':
+      case 'bottom-right':
+        translateY += targetHeight + marginY
         translateX += marginX
         break
-      case OverlayPosition.LeftCenter:
-      case OverlayPosition.LeftTop:
-      case OverlayPosition.LeftBottom:
-        translateX -= (overlayWidth + marginX)
+      case 'left-center':
+      case 'left-top':
+      case 'left-bottom':
+        translateX -= overlayWidth + marginX
         translateY += marginY
         break
     }
 
     switch (position) {
       // post position
-      case OverlayPosition.TopCenter:
-      case OverlayPosition.BottomCenter:
-        translateX -= ((overlayWidth / 2) - (targetWidth / 2))
+      case 'top-center':
+      case 'bottom-center':
+        translateX -= overlayWidth / 2 - targetWidth / 2
         break
-      case OverlayPosition.TopRight:
-      case OverlayPosition.BottomRight:
-        translateX -= (overlayWidth - targetWidth)
+      case 'top-right':
+      case 'bottom-right':
+        translateX -= overlayWidth - targetWidth
         break
-      case OverlayPosition.RightCenter:
-      case OverlayPosition.LeftCenter:
-        translateY -= ((overlayHeight / 2) - (targetHeight / 2))
+      case 'right-center':
+      case 'left-center':
+        translateY -= overlayHeight / 2 - targetHeight / 2
         break
-      case OverlayPosition.RightBottom:
-      case OverlayPosition.LeftBottom:
-        translateY -= (overlayHeight - targetHeight)
+      case 'right-bottom':
+      case 'left-bottom':
+        translateY -= overlayHeight - targetHeight
         break
 
       // inner position
-      case OverlayPosition.InnerLeftTop:
+      case 'inner-left-top':
         translateX = marginX
         translateY = marginY
         break
-      case OverlayPosition.InnerLeftBottom:
+      case 'inner-left-bottom':
         translateX = marginX
         translateY = targetHeight - overlayHeight + marginY
         break
-      case OverlayPosition.InnerRightTop:
+      case 'inner-right-top':
         translateX = targetWidth - overlayWidth + marginX
         translateY = marginY
         break
-      case OverlayPosition.InnerRightBottom:
+      case 'inner-right-bottom':
         translateX = targetWidth - overlayWidth + marginX
         translateY = targetHeight - overlayHeight + marginY
         break
@@ -131,32 +126,40 @@ export function getOverlayTranslation({
 
     if (keepInContainer) {
       const isOverTop = targetTop + translateY < containerTop
-      const isOverBottom = targetTop + translateY + overlayHeight > containerTop + containerHeight
+      const isOverBottom =
+        targetTop + translateY + overlayHeight > containerTop + containerHeight
       const isOverLeft = targetLeft + translateX < containerLeft
-      const isOverRight = targetLeft + translateX + overlayWidth > containerLeft + containerWidth
+      const isOverRight =
+        targetLeft + translateX + overlayWidth > containerLeft + containerWidth
 
       const topSpace = targetTop - containerTop
-      const bottomSpace = (containerTop + containerHeight) - (targetTop + targetHeight)
+      const bottomSpace =
+        containerTop + containerHeight - (targetTop + targetHeight)
       const leftSpace = targetLeft - containerLeft
-      const rightSpace = (containerLeft + containerWidth) - (targetLeft + targetWidth)
+      const rightSpace =
+        containerLeft + containerWidth - (targetLeft + targetWidth)
 
       if (isOverTop) {
-        translateY = topSpace > bottomSpace
-          ? translateY
-          : targetHeight - translateY - overlayHeight
+        translateY =
+          topSpace > bottomSpace
+            ? translateY
+            : targetHeight - translateY - overlayHeight
       } else if (isOverBottom) {
-        translateY = bottomSpace > topSpace
-          ? translateY
-          : targetHeight - translateY - overlayHeight
+        translateY =
+          bottomSpace > topSpace
+            ? translateY
+            : targetHeight - translateY - overlayHeight
       }
       if (isOverLeft) {
-        translateX = leftSpace > rightSpace
-          ? translateX
-          : targetWidth - translateX - overlayWidth
+        translateX =
+          leftSpace > rightSpace
+            ? translateX
+            : targetWidth - translateX - overlayWidth
       } else if (isOverRight) {
-        translateX = rightSpace > leftSpace
-          ? translateX
-          : targetWidth - translateX - overlayWidth
+        translateX =
+          rightSpace > leftSpace
+            ? translateX
+            : targetWidth - translateX - overlayWidth
       }
     }
 
@@ -172,7 +175,7 @@ export function getOverlayTranslation({
 }
 
 interface GetOverlayStyleArgs {
-  containerRect: ContainerRectAttr
+  containerRect: ContainerRectAttr | null
   targetRect: TargetRectAttr | null
   overlay: HTMLElement | null
   position: OverlayPosition
@@ -193,7 +196,11 @@ export function getOverlayStyle({
   show,
 }: GetOverlayStyleArgs) {
   if (containerRect && targetRect) {
-    const { top, left } = getOverlayPosition({ containerRect, targetRect, show })
+    const { top, left } = getOverlayPosition({
+      containerRect,
+      targetRect,
+      show,
+    })
     const { translateX, translateY } = getOverlayTranslation({
       containerRect,
       targetRect,
@@ -204,11 +211,12 @@ export function getOverlayStyle({
       keepInContainer,
     })
 
-    return css`
-      top: ${top}px;
-      left: ${left}px;
-      transform: translateX(${translateX}px) translateY(${translateY}px);
-    `
+    return {
+      top: `${top}px`,
+      left: `${left}px`,
+      transform: `translateX(${translateX}px) translateY(${translateY}px)`,
+    }
   }
-  return css``
+
+  return {}
 }

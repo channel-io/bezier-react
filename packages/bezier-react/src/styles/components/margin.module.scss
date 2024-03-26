@@ -1,0 +1,12 @@
+.margin {
+  --b-margin: 0;
+  --b-margin-horizontal: var(--b-margin);
+  --b-margin-vertical: var(--b-margin);
+  --b-margin-top: var(--b-margin-vertical);
+  --b-margin-right: var(--b-margin-horizontal);
+  --b-margin-bottom: var(--b-margin-vertical);
+  --b-margin-left: var(--b-margin-horizontal);
+
+  margin: var(--b-margin-top) var(--b-margin-right) var(--b-margin-bottom)
+    var(--b-margin-left);
+}

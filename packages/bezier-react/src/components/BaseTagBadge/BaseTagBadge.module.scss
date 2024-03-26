@@ -1,0 +1,91 @@
+.BaseTagBadge {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  color: var(--b-tag-badge-color);
+
+  background-color: var(--b-tag-badge-background-color);
+
+  &:where(.size-xs) {
+    padding: 1px 2px;
+    border-radius: var(--radius-4);
+  }
+
+  &:where(.size-s, .size-m, .size-l) {
+    padding: 1px 4px;
+    border-radius: var(--radius-6);
+  }
+
+  &:where(.variant-default) {
+    --b-tag-badge-background-color: var(--bg-black-lighter);
+    --b-tag-badge-color: var(--txt-black-darkest);
+  }
+
+  &:where(.variant-monochrome-light) {
+    --b-tag-badge-background-color: var(--bg-black-lighter);
+    --b-tag-badge-color: var(--txt-black-dark);
+  }
+
+  &:where(.variant-monochrome-dark) {
+    --b-tag-badge-background-color: var(--bg-black-darker);
+    --b-tag-badge-color: var(--bgtxt-absolute-white-dark);
+  }
+
+  &:where(.variant-blue) {
+    --b-tag-badge-background-color: var(--bgtxt-blue-lighter);
+    --b-tag-badge-color: var(--bgtxt-blue-normal);
+  }
+
+  &:where(.variant-cobalt) {
+    --b-tag-badge-background-color: var(--bgtxt-cobalt-lighter);
+    --b-tag-badge-color: var(--bgtxt-cobalt-normal);
+  }
+
+  &:where(.variant-teal) {
+    --b-tag-badge-background-color: var(--bgtxt-teal-lighter);
+    --b-tag-badge-color: var(--bgtxt-teal-normal);
+  }
+
+  &:where(.variant-green) {
+    --b-tag-badge-background-color: var(--bgtxt-green-lighter);
+    --b-tag-badge-color: var(--bgtxt-green-normal);
+  }
+
+  &:where(.variant-olive) {
+    --b-tag-badge-background-color: var(--bgtxt-olive-lighter);
+    --b-tag-badge-color: var(--bgtxt-olive-normal);
+  }
+
+  &:where(.variant-pink) {
+    --b-tag-badge-background-color: var(--bgtxt-pink-lighter);
+    --b-tag-badge-color: var(--bgtxt-pink-normal);
+  }
+
+  &:where(.variant-navy) {
+    --b-tag-badge-background-color: var(--bgtxt-navy-lighter);
+    --b-tag-badge-color: var(--bgtxt-navy-normal);
+  }
+
+  &:where(.variant-yellow) {
+    --b-tag-badge-background-color: var(--bgtxt-yellow-lighter);
+    --b-tag-badge-color: var(--bgtxt-yellow-normal);
+  }
+
+  &:where(.variant-orange) {
+    --b-tag-badge-background-color: var(--bgtxt-orange-lighter);
+    --b-tag-badge-color: var(--bgtxt-orange-normal);
+  }
+
+  &:where(.variant-red) {
+    --b-tag-badge-background-color: var(--bgtxt-red-lighter);
+    --b-tag-badge-color: var(--bgtxt-red-normal);
+  }
+
+  &:where(.variant-purple) {
+    --b-tag-badge-background-color: var(--bgtxt-purple-lighter);
+    --b-tag-badge-color: var(--bgtxt-purple-normal);
+  }
+}

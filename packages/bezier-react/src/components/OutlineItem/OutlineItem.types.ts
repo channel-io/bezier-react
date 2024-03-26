@@ -2,49 +2,30 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   ActivatableProps,
-  AdditionalColorProps,
-  AdditionalStylableProps,
-  AdditionalTestIdProps,
   BezierComponentProps,
   ChildrenProps,
   ContentProps,
   LinkProps,
-  OptionItemProps,
+  PolymorphicProps,
   SideContentProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
-export enum ChevronIconType {
-  Normal = 'chevron',
-  Small = 'chevron-small',
+export interface OutlineItemContextProps {
+  indent: number
 }
 
-interface OutlineItemOptions {
+interface OutlineItemOwnProps {
   open?: boolean
-  active?: boolean
   focused?: boolean
-  leftIcon?: BezierIcon
-  hide?: boolean
-  disableIconActive?: boolean
   disableChevron?: boolean
-  paddingLeft?: number
-  name?: string
-  onOpen?: (name?: string) => void
-  onClick?: (e?: React.MouseEvent, name?: string) => void
-  onClickArrow?: (name?: string) => void
-  /* OptionItemHost for Sidebar Menu - nullable selectedOutlineItemIndex */
-  selectedOutlineItemIndex?: number | null
-  onChangeOption?: (name?: string, optionKey?: string, optionIndex?: number) => void
 }
 
-export default interface OutlineItemProps extends
-  BezierComponentProps,
-  ChildrenProps,
-  LinkProps,
-  ContentProps,
-  SideContentProps,
-  AdditionalStylableProps<['content', 'icon']>,
-  AdditionalColorProps<'leftIcon'>,
-  AdditionalTestIdProps<'leftIcon'>,
-  Pick<ActivatableProps, 'active'>,
-  OptionItemProps,
-  OutlineItemOptions {}
+export interface OutlineItemProps
+  extends Omit<BezierComponentProps, keyof ContentProps>,
+    PolymorphicProps,
+    ChildrenProps,
+    ContentProps,
+    SideContentProps<BezierIcon | React.ReactNode, React.ReactNode>,
+    ActivatableProps,
+    LinkProps,
+    OutlineItemOwnProps {}

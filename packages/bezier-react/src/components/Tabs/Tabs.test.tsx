@@ -5,18 +5,16 @@ import userEvent, { PointerEventsCheckLevel } from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
 
-import { TabAction } from './TabAction'
-import { TabActions } from './TabActions'
-import { TabContent } from './TabContent'
-import { TabItem } from './TabItem'
-import { TabItems } from './TabItems'
-import { TabList } from './TabList'
-import { Tabs } from './Tabs'
 import {
-  type TabListProps,
-  TabSize,
-  type TabsProps,
-} from './Tabs.types'
+  TabAction,
+  TabActions,
+  TabContent,
+  TabItem,
+  TabItems,
+  TabList,
+  Tabs,
+} from './Tabs'
+import { type TabListProps, type TabsProps } from './Tabs.types'
 
 const VALUE1 = 'One'
 const VALUE2 = 'Two'
@@ -36,44 +34,37 @@ type RenderTabsProps = {
 }
 
 describe('Tabs', () => {
-  const renderTabs = ({
-    tabsProps,
-    tabListProps,
-  }: RenderTabsProps = {
-    tabListProps: {
-      size: TabSize.M,
-    },
-  }) => render(
-    <Tabs {...tabsProps} defaultValue={VALUE1}>
-      <TabList {...tabListProps}>
-        <TabItems>
-          <TabItem value={VALUE1}>
-            { TAB1 }
-          </TabItem>
-          <TabItem value={VALUE2}>
-            { TAB2 }
-          </TabItem>
-        </TabItems>
+  const renderTabs = (
+    { tabsProps, tabListProps }: RenderTabsProps = {
+      tabListProps: {
+        size: 'm',
+      },
+    }
+  ) =>
+    render(
+      <Tabs
+        {...tabsProps}
+        defaultValue={VALUE1}
+      >
+        <TabList {...tabListProps}>
+          <TabItems>
+            <TabItem value={VALUE1}>{TAB1}</TabItem>
+            <TabItem value={VALUE2}>{TAB2}</TabItem>
+          </TabItems>
 
-        <TabActions>
-          <TabAction href="https://github.com/channel-io/bezier-react">
-            { ACTION1 }
-          </TabAction>
-          <TabAction>
-            { ACTION2 }
-          </TabAction>
-        </TabActions>
-      </TabList>
+          <TabActions>
+            <TabAction href="https://github.com/channel-io/bezier-react">
+              {ACTION1}
+            </TabAction>
+            <TabAction>{ACTION2}</TabAction>
+          </TabActions>
+        </TabList>
 
-      <TabContent value={VALUE1}>
-        { CONTENT1 }
-      </TabContent>
+        <TabContent value={VALUE1}>{CONTENT1}</TabContent>
 
-      <TabContent value={VALUE2}>
-        { CONTENT2 }
-      </TabContent>
-    </Tabs>,
-  )
+        <TabContent value={VALUE2}>{CONTENT2}</TabContent>
+      </Tabs>
+    )
 
   let user: ReturnType<typeof userEvent.setup>
 
@@ -99,14 +90,20 @@ describe('Tabs', () => {
 
       it('should have \'aria-orientation="horizontal"\' attribute.', () => {
         const { getByRole } = renderTabs()
-        expect(getByRole('tablist')).toHaveAttribute('aria-orientation', 'horizontal')
+        expect(getByRole('tablist')).toHaveAttribute(
+          'aria-orientation',
+          'horizontal'
+        )
       })
     })
 
     describe('Data Attributes', () => {
       it('should have \'data-orientation="horizontal"\' attribute.', () => {
         const { getByRole } = renderTabs()
-        expect(getByRole('tablist')).toHaveAttribute('data-orientation', 'horizontal')
+        expect(getByRole('tablist')).toHaveAttribute(
+          'data-orientation',
+          'horizontal'
+        )
       })
     })
 
@@ -122,11 +119,11 @@ describe('Tabs', () => {
       const tab2 = getByRole('tab', { name: TAB2 })
 
       await user.click(tab2)
-      expect(onValueChange).toBeCalledTimes(1)
+      expect(onValueChange).toHaveBeenCalledTimes(1)
       await user.click(tab1)
-      expect(onValueChange).toBeCalledTimes(2)
+      expect(onValueChange).toHaveBeenCalledTimes(2)
       await user.click(tab1)
-      expect(onValueChange).toBeCalledTimes(2)
+      expect(onValueChange).toHaveBeenCalledTimes(2)
     })
   })
 
@@ -139,39 +136,76 @@ describe('Tabs', () => {
 
       it('should have \'aria-selected="true"\' attribute if selected.', () => {
         const { getByRole } = renderTabs()
-        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('aria-selected', 'true')
+        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute(
+          'aria-selected',
+          'true'
+        )
       })
 
       it('should have \'aria-selected="false"\' attribute if not selected.', () => {
         const { getByRole } = renderTabs()
-        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('aria-selected', 'false')
+        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute(
+          'aria-selected',
+          'false'
+        )
       })
 
-      it('should have \'aria-controls\' attribute the same as its associated tab content\'s id', () => {
+      it("should have 'aria-controls' attribute the same as its associated tab content's id", () => {
         const { getByRole } = renderTabs()
-        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('aria-controls', getByRole('tabpanel', { name: TAB1 }).id)
+        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute(
+          'aria-controls',
+          getByRole('tabpanel', { name: TAB1 }).id
+        )
       })
     })
 
     describe('Data Attributes', () => {
-      it('should have proper \'data-state\' attribute.', () => {
+      it("should have proper 'data-state' attribute.", () => {
         const { getByRole } = renderTabs()
-        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('data-state', 'active')
-        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('data-state', 'inactive')
+        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute(
+          'data-state',
+          'active'
+        )
+        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute(
+          'data-state',
+          'inactive'
+        )
       })
     })
 
     describe('Keyboard Navigation', () => {
-      const assertTab1IsActive = (getByRole) => {
-        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('data-state', 'active')
-        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('data-state', 'inactive')
-        expect(getByRole('tabpanel', { name: TAB1 })).toHaveAttribute('data-state', 'active')
+      const assertTab1IsActive = (
+        getByRole: ReturnType<typeof renderTabs>['getByRole']
+      ) => {
+        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute(
+          'data-state',
+          'active'
+        )
+        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute(
+          'data-state',
+          'inactive'
+        )
+        expect(getByRole('tabpanel', { name: TAB1 })).toHaveAttribute(
+          'data-state',
+          'active'
+        )
       }
 
-      const assertTab2IsActive = (getByRole) => {
-        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute('data-state', 'inactive')
-        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute('data-state', 'active')
-        expect(getByRole('tabpanel', { name: TAB2 })).toHaveAttribute('data-state', 'active')
+      const assertTab2IsActive = (
+        getByRole: ReturnType<typeof renderTabs>['getByRole']
+      ) => {
+        expect(getByRole('tab', { name: TAB1 })).toHaveAttribute(
+          'data-state',
+          'inactive'
+        )
+        expect(getByRole('tab', { name: TAB2 })).toHaveAttribute(
+          'data-state',
+          'active'
+        )
+        expect(getByRole('tabpanel', { name: TAB2 })).toHaveAttribute(
+          'data-state',
+          'active'
+        )
       }
 
       it('can control by arrow right and left key (on automatic activation mode)', async () => {
@@ -194,7 +228,9 @@ describe('Tabs', () => {
       })
 
       it('can control by arrow right and left key with space or enter key (on manual activation mode)', async () => {
-        const { getByRole } = renderTabs({ tabsProps: { activationMode: 'manual' } })
+        const { getByRole } = renderTabs({
+          tabsProps: { activationMode: 'manual' },
+        })
 
         await user.click(getByRole('tab', { name: TAB1 }))
         assertTab1IsActive(getByRole)
@@ -247,7 +283,9 @@ describe('Tabs', () => {
     describe('ARIA', () => {
       it('should have \'role="toolbar"\' attribute.', () => {
         const { getByRole } = renderTabs()
-        expect(getByRole('toolbar', { name: 'More actions' })).toBeInTheDocument()
+        expect(
+          getByRole('toolbar', { name: 'More actions' })
+        ).toBeInTheDocument()
       })
     })
 
@@ -280,7 +318,10 @@ describe('Tabs', () => {
     describe('Data Attributes', () => {
       it('should have \'data-state\'="active" when associated tab is selected.', () => {
         const { getByRole } = renderTabs()
-        expect(getByRole('tabpanel', { name: TAB1 })).toHaveAttribute('data-state', 'active')
+        expect(getByRole('tabpanel', { name: TAB1 })).toHaveAttribute(
+          'data-state',
+          'active'
+        )
       })
     })
   })

@@ -11,26 +11,15 @@ import {
   InfoIcon,
   LightbulbIcon,
 } from '@channel.io/bezier-icons'
-import type {
-  Meta,
-  StoryFn,
-  StoryObj,
-} from '@storybook/react'
+import type { Meta, StoryFn, StoryObj } from '@storybook/react'
 
 import { noop } from '~/src/utils/function'
-import { getObjectFromEnum } from '~/src/utils/story'
 
-import {
-  StackItem,
-  VStack,
-} from '~/src/components/Stack'
+import { LegacyStackItem, LegacyVStack } from '~/src/components/LegacyStack'
 
 import { Banner } from './Banner'
 import mdx from './Banner.mdx'
-import {
-  type BannerProps,
-  BannerVariant,
-} from './Banner.types'
+import { type BannerProps } from './Banner.types'
 
 const meta: Meta<typeof Banner> = {
   component: Banner,
@@ -40,12 +29,6 @@ const meta: Meta<typeof Banner> = {
     },
   },
   argTypes: {
-    variant: {
-      control: {
-        type: 'radio',
-      },
-      options: getObjectFromEnum(BannerVariant),
-    },
     hasLink: {
       control: {
         type: 'boolean',
@@ -67,7 +50,7 @@ export default meta
 
 export const Playground: StoryObj<BannerProps> = {
   args: {
-    variant: BannerVariant.Default,
+    variant: 'default',
     icon: LightbulbIcon,
     content: 'Information here.',
     actionIcon: CancelSmallIcon,
@@ -76,71 +59,77 @@ export const Playground: StoryObj<BannerProps> = {
 }
 
 export const Overview: StoryFn<{}> = () => (
-  <VStack spacing={6} align="stretch">
-    <StackItem>
+  <LegacyVStack
+    spacing={6}
+    align="stretch"
+  >
+    <LegacyStackItem>
       <Banner
-        variant={BannerVariant.Default}
+        variant="default"
         icon={LightbulbIcon}
         content="Information here."
         actionIcon={CancelIcon}
       />
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Banner
-        variant={BannerVariant.Blue}
+        variant="blue"
         icon={LightbulbIcon}
         content="Information here."
       />
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Banner
-        variant={BannerVariant.Cobalt}
+        variant="cobalt"
         icon={InfoIcon}
         content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
       />
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Banner
-        variant={BannerVariant.Green}
+        variant="green"
         icon={CheckCircleFilledIcon}
         content="Now Running..."
       />
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Banner
-        variant={BannerVariant.Orange}
+        variant="orange"
         icon={ErrorTriangleFilledIcon}
         content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
       />
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Banner
-        variant={BannerVariant.Red}
+        variant="red"
         icon={BlockIcon}
         content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
       />
-    </StackItem>
-    <StackItem>
+    </LegacyStackItem>
+    <LegacyStackItem>
       <Banner
-        variant={BannerVariant.Alt}
+        variant="alt"
         icon={Hourglass3Icon}
         content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
       />
-    </StackItem>
-  </VStack>
+    </LegacyStackItem>
+  </LegacyVStack>
 )
 
 export const UsageMinWidth: StoryObj<{}> = {
   render: () => (
-    <VStack spacing={6} align="start">
-      <StackItem>
+    <LegacyVStack
+      spacing={6}
+      align="start"
+    >
+      <LegacyStackItem>
         <Banner
-          variant={BannerVariant.Orange}
+          variant="orange"
           icon={ErrorTriangleFilledIcon}
           content="네."
         />
-      </StackItem>
-    </VStack>
+      </LegacyStackItem>
+    </LegacyVStack>
   ),
 
   name: 'Usage (min width)',
@@ -148,29 +137,32 @@ export const UsageMinWidth: StoryObj<{}> = {
 
 export const UsageFullWidth: StoryObj<{}> = {
   render: () => (
-    <VStack spacing={6} align="start">
-      <StackItem style={{ width: 360, border: '1px solid red' }}>
+    <LegacyVStack
+      spacing={6}
+      align="start"
+    >
+      <LegacyStackItem style={{ width: 360, border: '1px solid red' }}>
         <Banner
-          variant={BannerVariant.Orange}
+          variant="orange"
           icon={ErrorTriangleFilledIcon}
           content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
         />
-      </StackItem>
-      <StackItem style={{ width: 480, border: '1px solid red' }}>
+      </LegacyStackItem>
+      <LegacyStackItem style={{ width: 480, border: '1px solid red' }}>
         <Banner
-          variant={BannerVariant.Orange}
+          variant="orange"
           icon={ErrorTriangleFilledIcon}
           content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
         />
-      </StackItem>
-      <StackItem style={{ width: 720, border: '1px solid red' }}>
+      </LegacyStackItem>
+      <LegacyStackItem style={{ width: 720, border: '1px solid red' }}>
         <Banner
-          variant={BannerVariant.Orange}
+          variant="orange"
           icon={ErrorTriangleFilledIcon}
           content="This chat has not been assigned to anyone yet. Try to assign a member and proceed the conversation!"
         />
-      </StackItem>
-    </VStack>
+      </LegacyStackItem>
+    </LegacyVStack>
   ),
 
   name: 'Usage (full width)',
@@ -178,18 +170,21 @@ export const UsageFullWidth: StoryObj<{}> = {
 
 export const UsageMaxWidth: StoryObj<{}> = {
   render: () => (
-    <VStack spacing={6} align="start">
-      <StackItem>
+    <LegacyVStack
+      spacing={6}
+      align="start"
+    >
+      <LegacyStackItem>
         <Banner
-          variant={BannerVariant.Cobalt}
+          variant="cobalt"
           icon={InfoIcon}
           // eslint-disable-next-line max-len
           content={
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis laoreet felis. Fusce sit amet blandit sem. Aliquam erat volutpat. Pellentesque tempor arcu non scelerisque rutrum. Proin placerat imperdiet gravida. In efficitur augue ut maximus placerat. Quisque vitae pellentesque urna. Sed sagittis enim quis laoreet dictum. Morbi fringilla, justo sit amet dapibus bibendum, nisl nisl suscipit dolor, eget venenatis urna velit in dolor.\n\nNunc accumsan ligula sit amet interdum accumsan. Etiam gravida est risus, in interdum elit egestas ut. Aliquam sit amet lorem malesuada, commodo tortor eu, semper dui. Integer ultricies porta ex sed tincidunt. Sed accumsan orci eu arcu facilisis congue ac hendrerit lacus. Etiam erat velit, interdum auctor cursus at, interdum vel augue. Integer gravida, nibh vel lacinia blandit, ex quam dapibus lectus, at sollicitudin lorem purus vel nulla. Suspendisse ac tellus eget risus condimentum facilisis sed vitae turpis. Fusce fringilla commodo aliquam. Quisque eget justo purus. Suspendisse ut lobortis turpis, vitae fermentum augue. Donec viverra, orci ut lobortis euismod, est nibh iaculis metus, sit amet mattis ex elit eget tellus.'
           }
         />
-      </StackItem>
-    </VStack>
+      </LegacyStackItem>
+    </LegacyVStack>
   ),
 
   name: 'Usage (max width)',
@@ -197,34 +192,37 @@ export const UsageMaxWidth: StoryObj<{}> = {
 
 export const UsageConsecutive: StoryObj<{}> = {
   render: () => (
-    <VStack spacing={6} align="stretch">
-      <StackItem>
+    <LegacyVStack
+      spacing={6}
+      align="stretch"
+    >
+      <LegacyStackItem>
         <Banner
-          variant={BannerVariant.Cobalt}
+          variant="cobalt"
           icon={InfoIcon}
           content="전화번호 설정하는 게 좋아요."
           hasLink
           linkText="설정하기"
         />
-      </StackItem>
-      <StackItem>
+      </LegacyStackItem>
+      <LegacyStackItem>
         <Banner
-          variant={BannerVariant.Orange}
+          variant="orange"
           icon={ErrorTriangleFilledIcon}
           content="빠진 내용을 모두 입력해주세요."
         />
-      </StackItem>
-      <StackItem>
+      </LegacyStackItem>
+      <LegacyStackItem>
         <Banner
-          variant={BannerVariant.Default}
+          variant="default"
           icon={InfoIcon}
           content="아래 내용을 입력해주세요."
           hasLink
           linkText="사용안내"
           actionIcon={CancelIcon}
         />
-      </StackItem>
-    </VStack>
+      </LegacyStackItem>
+    </LegacyVStack>
   ),
 
   name: 'Usage (consecutive)',
@@ -234,7 +232,7 @@ export const UsageNoIcon: StoryObj<{}> = {
   render: () => (
     <Banner
       icon={null}
-      variant={BannerVariant.Green}
+      variant="green"
       content="이제는 모든 기능을 사용할 수 있습니다."
       hasLink
       linkText="바로가기"
@@ -247,7 +245,7 @@ export const UsageNoIcon: StoryObj<{}> = {
 export const UsageLink: StoryObj<{}> = {
   render: () => (
     <Banner
-      variant={BannerVariant.Default}
+      variant="default"
       icon={InfoIcon}
       content="아래 내용을 입력해주세요."
       hasLink
@@ -262,7 +260,7 @@ export const UsageLink: StoryObj<{}> = {
 export const UsageLinkTo: StoryObj<{}> = {
   render: () => (
     <Banner
-      variant={BannerVariant.Cobalt}
+      variant="cobalt"
       icon={ChannelIcon}
       content="채널톡 정말 좋은 서비스에요."
       hasLink

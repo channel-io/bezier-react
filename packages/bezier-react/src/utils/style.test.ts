@@ -1,137 +1,65 @@
-import {
-  BoxSizingUnit,
-  ExplicitDefaulting,
-} from '~/src/types/CSS'
+import { cssDimension, cssUrl, cssVar, px, tokenCssVar } from './style'
 
-import {
-  isBoxSizingUnit,
-  isExplicitDefaulting,
-  toLength,
-} from './style'
+describe('style', () => {
+  describe('px', () => {
+    it('returns undefined for undefined input', () => {
+      expect(px(undefined)).toBeUndefined()
+    })
 
-const ExplicitDefaultingValues = Object.values(ExplicitDefaulting)
-const BoxSizingUnitValues = Object.values(BoxSizingUnit)
+    it('returns "0" for 0 input', () => {
+      expect(px(0)).toBe(0)
+    })
 
-describe('isExplicitDefaulting()', () => {
-  test('should return true when given value is one of ExplicitDefaulting values', () => {
-    ExplicitDefaultingValues.forEach(v => {
-      expect(isExplicitDefaulting(v)).toBe(true)
+    it('appends "px" to a non-zero number', () => {
+      expect(px(10)).toBe('10px')
     })
   })
 
-  test('should return false when given value is not one of ExplicitDefaulting values', () => {
-    expect(isExplicitDefaulting('foo')).toBe(false)
-    expect(isExplicitDefaulting('bar')).toBe(false)
-  })
-})
+  describe('cssDimension', () => {
+    it('returns undefined for undefined input', () => {
+      expect(cssDimension(undefined)).toBeUndefined()
+    })
 
-describe('isBoxSizingUnit()', () => {
-  test('should return true when given value is one of ExplicitDefaulting values', () => {
-    BoxSizingUnitValues.forEach(v => {
-      expect(isBoxSizingUnit(v)).toBe(true)
+    it('returns the input string as is', () => {
+      expect(cssDimension('50%')).toBe('50%')
+    })
+
+    it('appends "px" to a non-zero number input', () => {
+      expect(cssDimension(100)).toBe('100px')
+    })
+
+    it('returns "0" for 0 input', () => {
+      expect(cssDimension(0)).toBe(0)
     })
   })
 
-  test('should return false when given value is not one of ExplicitDefaulting values', () => {
-    expect(isBoxSizingUnit('foo')).toBe(false)
-    expect(isBoxSizingUnit('bar')).toBe(false)
-  })
-})
-
-describe('toLength()', () => {
-  describe('Case type of value argument is string', () => {
-    test('should returns string consists of value and implicit default unit(px) when given argument has no any unit', () => {
-      expect(toLength('100')).toBe('100px')
+  describe('cssVar', () => {
+    it('returns undefined for undefined input', () => {
+      expect(cssVar(undefined)).toBeUndefined()
     })
 
-    test('should returns argument when given argument has proper unit', () => {
-      expect(toLength('100px')).toBe('100px')
-    })
-
-    test('should returns 0px when given argument is empty string', () => {
-      expect(toLength('')).toBe('0px')
-    })
-
-    test('should returns defaultValue when given argument is empty string and defaultValue has given', () => {
-      expect(toLength('', '100%')).toBe('100%')
-    })
-
-    test('should returns argument when given argument has unit which is included in option.allowUnits', () => {
-      expect(toLength('100px', { allowUnits: ['px'] })).toBe('100px')
-    })
-
-    test('should returns undefined when given argument has unit which is not included in option.allowUnits', () => {
-      expect(toLength('100pt', { allowUnits: ['px'] })).toBe(undefined)
+    it('formats input as CSS variable', () => {
+      expect(cssVar('padding')).toBe('var(--padding)')
     })
   })
 
-  describe('Case value argument is one of ExplicitDefaulting', () => {
-    test('should returns value itself when given argument is one of ExplicitDefaulting', () => {
-      expect(toLength('initial')).toBe('initial')
-      expect(toLength('inherit')).toBe('inherit')
-      expect(toLength('unset')).toBe('unset')
-      expect(toLength('revert')).toBe('revert')
+  // Assuming tokenCssVar fundamentally calls cssVar, this test might seem redundant.
+  // However, it's good practice to ensure that wrapper functions behave as expected.
+  describe('tokenCssVar', () => {
+    it('formats input as CSS variable', () => {
+      expect(tokenCssVar('padding' as any)).toBe('var(--padding)')
     })
   })
 
-  describe('Case value argument is one of BoxSizingUnit', () => {
-    test('should returns value itself when given argument is one of BoxSizingUnit', () => {
-      expect(toLength('auto')).toBe('auto')
-      expect(toLength('min-content')).toBe('min-content')
-      expect(toLength('max-content')).toBe('max-content')
-      expect(toLength('fit-content')).toBe('fit-content')
-    })
-  })
-
-  describe('Case type of value argument is number', () => {
-    test('should returns string consists of value and implicit default unit(px)', () => {
-      expect(toLength(100)).toBe('100px')
-      expect(toLength(100.5)).toBe('100.5px')
-      expect(toLength(-100)).toBe('-100px')
-      expect(toLength(-100.5)).toBe('-100.5px')
+  describe('cssUrl', () => {
+    it('formats a given URL string into CSS url() format', () => {
+      const url = 'https://example.com/image.png'
+      const expectedOutput = `url(${url})`
+      expect(cssUrl(url)).toBe(expectedOutput)
     })
 
-    test('should returns string consists of value and explicit defaultUnit', () => {
-      expect(toLength(100, { defaultUnit: 'em' })).toBe('100em')
-      expect(toLength(100.5, { defaultUnit: 'em' })).toBe('100.5em')
-      expect(toLength(-100, { defaultUnit: 'em' })).toBe('-100em')
-      expect(toLength(-100.5, { defaultUnit: 'em' })).toBe('-100.5em')
-    })
-
-    test('should returns 0px when given argument is NaN or Infinity', () => {
-      expect(toLength(NaN)).toBe('0px')
-      expect(toLength(Infinity)).toBe('0px')
-    })
-
-    test('should returns defaultValue when given argument is NaN or Infinity and defaultValue has given', () => {
-      expect(toLength(NaN, '100%')).toBe('100%')
-      expect(toLength(Infinity, '100%')).toBe('100%')
-    })
-  })
-
-  describe('Case type of value argument is neither string nor number', () => {
-    test('should returns undefined when type of given argument is neither string nor number', () => {
-      expect(toLength({})).toBeUndefined()
-      expect(toLength([])).toBeUndefined()
-      expect(toLength(true)).toBeUndefined()
-    })
-
-    test(`
-    should returns defaultValue when type of given argument is neither string nor number and defaultValue has given
-    `, () => {
-      expect(toLength({}, '100%')).toBe('100%')
-      expect(toLength([], '100%')).toBe('100%')
-      expect(toLength(true, '100%')).toBe('100%')
-    })
-
-    test('should returns undefined when given argument is nil value and defaultValue has given', () => {
-      expect(toLength(null)).toBeUndefined()
-      expect(toLength(undefined)).toBeUndefined()
-    })
-
-    test('should returns defaultValue when given argument is nil value', () => {
-      expect(toLength(null, '100%')).toBe('100%')
-      expect(toLength(undefined, '100%')).toBe('100%')
+    it('returns undefined for undefined input', () => {
+      expect(cssUrl()).toBeUndefined()
     })
   })
 })

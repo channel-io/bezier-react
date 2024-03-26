@@ -1,0 +1,12 @@
+{
+  "name": "eslint-config-bezier",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Common ESLint configuration.",
+  "main": "index.js",
+  "dependencies": {
+    "@channel.io/eslint-config": "^2.0.4",
+    "@channel.io/eslint-plugin": "^1.2.3",
+    "eslint-plugin-jest": "^22.21.0"
+  }
+}

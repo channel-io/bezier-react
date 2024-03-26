@@ -1,15 +1,11 @@
 import React from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-} from '@storybook/react'
+import { type Meta, type StoryFn } from '@storybook/react'
 
-import { styled } from '~/src/foundation'
+import { Center } from '~/src/components/Center'
 
 import { LegacyTooltip } from './LegacyTooltip'
 import { type LegacyTooltipProps } from './LegacyTooltip.types'
-import { LegacyTooltipPosition } from './LegacyTooltip.types'
 
 const meta: Meta<typeof LegacyTooltip> = {
   component: LegacyTooltip,
@@ -18,25 +14,6 @@ const meta: Meta<typeof LegacyTooltip> = {
       control: {
         type: 'text',
       },
-    },
-    placement: {
-      control: {
-        type: 'radio',
-      },
-      options: [
-        LegacyTooltipPosition.TopCenter,
-        LegacyTooltipPosition.TopLeft,
-        LegacyTooltipPosition.TopRight,
-        LegacyTooltipPosition.RightCenter,
-        LegacyTooltipPosition.RightTop,
-        LegacyTooltipPosition.RightBottom,
-        LegacyTooltipPosition.BottomCenter,
-        LegacyTooltipPosition.BottomLeft,
-        LegacyTooltipPosition.BottomRight,
-        LegacyTooltipPosition.LeftCenter,
-        LegacyTooltipPosition.LeftTop,
-        LegacyTooltipPosition.LeftBottom,
-      ],
     },
     offset: {
       control: {
@@ -66,19 +43,16 @@ const meta: Meta<typeof LegacyTooltip> = {
 }
 export default meta
 
-const Target = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 40px;
-  background-color: ${props => props.foundation?.theme?.['bg-black-dark']};
-  border-radius: 4px;
-`
-
 const Template: StoryFn<LegacyTooltipProps> = (props) => (
   <LegacyTooltip {...props}>
-    <Target>Target</Target>
+    <Center
+      width={100}
+      height={40}
+      backgroundColor="bg-black-dark"
+      borderRadius="4"
+    >
+      Target
+    </Center>
   </LegacyTooltip>
 )
 
@@ -90,7 +64,7 @@ export const Primary = {
     content:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     lazy: true,
-    placement: LegacyTooltipPosition.BottomCenter,
+    placement: 'bottom-center',
     offset: 4,
     disabled: false,
     keepInContainer: false,

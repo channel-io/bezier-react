@@ -1,0 +1,73 @@
+.Stack {
+  --b-stack-spacing: initial;
+
+  gap: var(--b-stack-spacing);
+
+  &:where(.display-flex) {
+    display: flex;
+  }
+
+  &:where(.display-inline-flex) {
+    display: inline-flex;
+  }
+
+  &:where(.direction-horizontal) {
+    flex-direction: row;
+
+    &:where(.reverse) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &:where(.direction-vertical) {
+    flex-direction: column;
+
+    &:where(.reverse) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  &:where(.justify-start) {
+    justify-content: flex-start;
+  }
+
+  &:where(.justify-end) {
+    justify-content: flex-end;
+  }
+
+  &:where(.justify-center) {
+    justify-content: center;
+  }
+
+  &:where(.justify-stretch) {
+    justify-content: stretch;
+  }
+
+  &:where(.justify-between) {
+    justify-content: space-between;
+  }
+
+  &:where(.align-start) {
+    align-items: flex-start;
+  }
+
+  &:where(.align-end) {
+    align-items: flex-end;
+  }
+
+  &:where(.align-center) {
+    align-items: center;
+  }
+
+  &:where(.align-stretch) {
+    align-items: stretch;
+  }
+
+  &:where(.align-baseline) {
+    align-items: baseline;
+  }
+
+  &:where(.wrap) {
+    flex-wrap: wrap;
+  }
+}

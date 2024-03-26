@@ -1,61 +1,61 @@
+/**
+ * @type {import('eslint').Linter.Config}
+ */
 module.exports = {
   root: true,
-  extends: ['bezier'],
+  plugins: ['jsdoc', 'sort-export-all', 'storybook'],
+  extends: ['bezier', 'plugin:jsdoc/recommended-typescript-error'],
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: './tsconfig.eslint.json',
   },
   rules: {
-    'sort-imports': [
-      'error',
-      {
-        ignoreDeclarationSort: true,
-      },
-    ],
     'import/order': [
       'error',
       {
         'newlines-between': 'always',
         alphabetize: { order: 'asc' },
-        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+        ],
         pathGroupsExcludedImportTypes: ['react', 'react-dom'],
         pathGroups: [
           {
-            pattern: 'react',
+            pattern: '{react,react-dom}',
             group: 'external',
             position: 'before',
           },
           {
-            pattern: 'react-dom',
-            group: 'external',
-            position: 'before',
-          },
-          {
-            pattern: '~/src/foundation',
-            group: 'internal',
-            position: 'before',
-          },
-          {
-            pattern: '~/src/foundation/**',
-            group: 'internal',
-            position: 'before',
-          },
-          {
-            pattern: '~/src/components/**',
+            pattern: '~/src/{alpha-components,components}/**',
             group: 'internal',
             position: 'after',
           },
           {
-            pattern: './**/*.styled',
+            pattern: './**/*.scss',
             group: 'sibling',
             position: 'after',
           },
         ],
       },
     ],
-    'max-classes-per-file': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'react/no-array-index-key': 'warn',
-    '@typescript-eslint/naming-convention': 'off',
+    'sort-export-all/sort-export-all': 'error',
+    'jsdoc/require-jsdoc': 'off',
+    'jsdoc/require-returns': 'off',
+    'jsdoc/require-param': 'off',
+    'jsdoc/check-param-names': 'off',
+    /**
+     * NOTE: To allow @type tag in configuration files
+     */
+    'jsdoc/check-tag-names': [
+      'error',
+      {
+        typed: false,
+      },
+    ],
   },
 }

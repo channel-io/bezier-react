@@ -1,0 +1,88 @@
+.Slider {
+  --b-slider-width: initial;
+  --b-slider-thumb-size: 20px;
+
+  touch-action: none;
+  cursor: pointer;
+  user-select: none;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: var(--b-slider-width);
+  height: var(--b-slider-thumb-size);
+
+  transition: opacity var(--transition-s);
+
+  &[data-disabled] {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+}
+
+.SliderPrimitiveTrack {
+  position: relative;
+
+  flex: 1;
+
+  height: 6px;
+
+  background-color: var(--bg-black-dark);
+  border-radius: var(--radius-3);
+  border-radius: 3px;
+}
+
+.SliderPrimitiveRange {
+  position: absolute;
+  height: 100%;
+  background-color: var(--bgtxt-green-normal);
+  border-radius: var(--radius-3);
+}
+
+.GuideContainer {
+  --b-slider-guide-height: 8px;
+
+  position: absolute;
+  top: calc(-1 * (var(--b-slider-guide-height) + 3px));
+  left: calc(var(--b-slider-thumb-size) / 2);
+  width: calc(100% - var(--b-slider-thumb-size));
+}
+
+.SliderGuide {
+  --b-slider-guide-left: 0;
+
+  position: absolute;
+  top: 0;
+  left: var(--b-slider-guide-left);
+  transform: translateX(-50%);
+
+  width: 2px;
+  height: var(--b-slider-guide-height);
+
+  background-color: var(--bg-black-light);
+  border-radius: 1px;
+}
+
+.SliderThumb {
+  display: block;
+
+  width: var(--b-slider-thumb-size);
+  height: var(--b-slider-thumb-size);
+
+  background-color: var(--bgtxt-absolute-white-dark);
+  border-radius: var(--radius-12);
+  box-shadow: var(--ev-2);
+
+  transition: box-shadow var(--transition-s);
+
+  &:hover {
+    box-shadow: var(--ev-3);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--input-box-shadow-focused);
+  }
+}

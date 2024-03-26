@@ -1,0 +1,116 @@
+{
+  "ev": {
+    "inner": {
+      "value": {
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "2px",
+        "spread": "0px",
+        "color": "{shdw.inner.base}",
+        "type": "innerShadow"
+      },
+      "type": "shadow"
+    },
+    "base": {
+      "value": {
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "2px",
+        "spread": "0px",
+        "color": "{shdw.base}",
+        "type": "dropShadow"
+      },
+      "type": "shadow"
+    },
+    "1": {
+      "value": [
+        "{ev.inner}",
+        "{ev.base}",
+        {
+          "offsetX": "0px",
+          "offsetY": "1px",
+          "blur": "2px",
+          "spread": "0px",
+          "color": "{shdw.small}",
+          "type": "dropShadow"
+        }
+      ],
+      "type": "shadow"
+    },
+    "2": {
+      "value": [
+        "{ev.inner}",
+        "{ev.base}",
+        {
+          "offsetX": "0px",
+          "offsetY": "2px",
+          "blur": "6px",
+          "spread": "0px",
+          "color": "{shdw.small}",
+          "type": "dropShadow"
+        }
+      ],
+      "type": "shadow"
+    },
+    "3": {
+      "value": [
+        "{ev.inner}",
+        "{ev.base}",
+        {
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "12px",
+          "spread": "0px",
+          "color": "{shdw.medium}",
+          "type": "dropShadow"
+        }
+      ],
+      "type": "shadow"
+    },
+    "4": {
+      "value": [
+        "{ev.inner}",
+        "{ev.base}",
+        {
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "20px",
+          "spread": "0px",
+          "color": "{shdw.large}",
+          "type": "dropShadow"
+        }
+      ],
+      "type": "shadow"
+    },
+    "5": {
+      "value": [
+        "{ev.inner}",
+        "{ev.base}",
+        {
+          "offsetX": "0px",
+          "offsetY": "6px",
+          "blur": "40px",
+          "spread": "0px",
+          "color": "{shdw.xlarge}",
+          "type": "dropShadow"
+        }
+      ],
+      "type": "shadow"
+    },
+    "6": {
+      "value": [
+        "{ev.inner}",
+        "{ev.base}",
+        {
+          "offsetX": "0px",
+          "offsetY": "12px",
+          "blur": "60px",
+          "spread": "0px",
+          "color": "{shdw.xlarge}",
+          "type": "dropShadow"
+        }
+      ],
+      "type": "shadow"
+    }
+  }
+}

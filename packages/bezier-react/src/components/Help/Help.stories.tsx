@@ -1,9 +1,6 @@
-import type {
-  Meta,
-  StoryObj,
-} from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
-import Help from './Help'
+import { Help } from './Help'
 
 const meta: Meta<typeof Help> = {
   component: Help,

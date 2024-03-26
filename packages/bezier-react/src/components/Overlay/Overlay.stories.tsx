@@ -1,24 +1,15 @@
-import React, {
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-} from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
-import { styled } from '~/src/foundation'
+import { isBoolean } from '~/src/utils/type'
 
-import Overlay from './Overlay'
-import type OverlayProps from './Overlay.types'
-import { OverlayPosition } from './Overlay.types'
+import { Button } from '~/src/components/Button'
 
-const meta: Meta<OverlayProps & {
-  containerWidth: number
-  containerHeight: number
-}> = {
+import { Overlay } from './Overlay'
+import type { OverlayProps } from './Overlay.types'
+
+const meta: Meta<OverlayProps> = {
   component: Overlay,
   argTypes: {
     position: {
@@ -26,22 +17,22 @@ const meta: Meta<OverlayProps & {
         type: 'radio',
       },
       options: [
-        OverlayPosition.TopCenter,
-        OverlayPosition.TopLeft,
-        OverlayPosition.TopRight,
-        OverlayPosition.RightCenter,
-        OverlayPosition.RightTop,
-        OverlayPosition.RightBottom,
-        OverlayPosition.BottomCenter,
-        OverlayPosition.BottomLeft,
-        OverlayPosition.BottomRight,
-        OverlayPosition.LeftCenter,
-        OverlayPosition.LeftTop,
-        OverlayPosition.LeftBottom,
-        OverlayPosition.InnerLeftTop,
-        OverlayPosition.InnerLeftBottom,
-        OverlayPosition.InnerRightTop,
-        OverlayPosition.InnerRightBottom,
+        'top-center',
+        'top-left',
+        'top-right',
+        'right-center',
+        'right-top',
+        'right-bottom',
+        'bottom-center',
+        'bottom-left',
+        'bottom-right',
+        'left-center',
+        'left-top',
+        'left-bottom',
+        'inner-left-top',
+        'inner-left-bottom',
+        'inner-right-top',
+        'inner-right-bottom',
       ],
     },
     marginX: {
@@ -60,219 +51,72 @@ const meta: Meta<OverlayProps & {
         step: 1,
       },
     },
-    containerWidth: {
-      control: {
-        type: 'range',
-        min: 100,
-        max: 1000,
-        step: 20,
-      },
-    },
-    containerHeight: {
-      control: {
-        type: 'range',
-        min: 100,
-        max: 1000,
-        step: 20,
-      },
-    },
   },
 }
-export default meta
 
-interface ContainerProps {
-  width?: number
-  height?: number
-}
-
-const Container = styled.div<ContainerProps>`
-  position: relative;
-  width: ${({ width }) => width ?? 600}px;
-  height: ${({ height }) => height ?? 500}px;
-  overflow: hidden;
-  border: 1px solid ${props => props.foundation?.theme?.['bg-black-dark']};
-`
-
-const Wrapper = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100%;
-`
-
-const Target = styled.div`
-  position: absolute;
-  top: 200px;
-  left: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 70px;
-  height: 40px;
-  background-color: ${props => props.foundation?.theme?.['bg-black-dark']};
-  border-radius: 4px;
-`
-
-const Children = styled.div`
-  width: 250px;
-  height: 150px;
-  overflow-y: scroll;
-  background-color: ${props => props.foundation?.theme?.['bg-black-dark']};
-  border-radius: 4px;
-`
-
-const ScrollContent = styled.div`
-  box-sizing: border-box;
-  width: 250px;
-  height: 350px;
-  padding: 5px;
-  color: white;
-`
-
-const OverlayTemplate: React.FC<OverlayProps & ContainerProps> = ({
+const Template: StoryFn<OverlayProps> = ({
+  show: showProp,
   children,
-  width: containerWidth,
-  height: containerHeight,
-  ...rests
+  ...rest
 }) => {
-  const containerRef = useRef<any>(null)
-  const targetRef = useRef<any>(null)
+  const [show, setShow] = useState(false)
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const targetRef = useRef<HTMLButtonElement | null>(null)
+
+  useEffect(
+    function syncShow() {
+      if (isBoolean(showProp)) {
+        setShow(showProp)
+      }
+    },
+    [showProp]
+  )
 
   return (
-    <Container
-      width={containerWidth}
-      height={containerHeight}
+    <div
       ref={containerRef}
+      style={{
+        position: 'relative',
+        width: 300,
+        height: 300,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
     >
-      <Wrapper>
-        <Target ref={targetRef}>
-          target
-        </Target>
-        <Overlay
-          {...rests}
-          target={targetRef.current}
-          container={containerRef.current}
-        >
-          { children }
-        </Overlay>
-      </Wrapper>
-    </Container>
+      <Button
+        ref={targetRef}
+        text="Click me!"
+        onClick={() => setShow(true)}
+      />
+
+      <Overlay
+        show={show}
+        style={{
+          width: 200,
+          height: 200,
+          backgroundColor: 'var(--bg-white-high)',
+          borderRadius: 'var(--radius-8)',
+          boxShadow: 'var(--ev-3)',
+        }}
+        target={targetRef.current}
+        container={containerRef.current}
+        onHide={() => setShow(false)}
+        {...rest}
+      >
+        {children}
+      </Overlay>
+    </div>
   )
 }
 
-const Template: StoryFn = (props) => (
-  <OverlayTemplate {...props}>
-    <Children>
-      <ScrollContent>
-        {
-          `Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text
-          ever since the 1500s, when an unknown printer took a galley of type
-          and scrambled it to make a type specimen book. It has survived not
-          only five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s
-          with the release of Letraset sheets containing Lorem Ipsum passages,
-          and more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.`
-        }
-      </ScrollContent>
-    </Children>
-  </OverlayTemplate>
-)
-
-export const Primary = {
+export const Primary: StoryObj<OverlayProps> = {
   render: Template,
-
   args: {
     show: false,
-    position: OverlayPosition.BottomCenter,
-    marginX: 0,
-    marginY: 0,
-    keepInContainer: false,
-    withTransition: false,
+    position: 'bottom-center',
+    marginY: 6,
   },
 }
 
-const StressTestTemplate: StoryFn<OverlayProps> = (props) => {
-  const targetRef = useRef<any>()
-  const containerRef = useRef<any>()
-  const [, reload] = useState(0)
-
-  useEffect(() => {
-    setInterval(() => {
-      reload((prev) => prev + 1)
-    }, 100)
-  }, [])
-
-  return (
-    <OverlayTemplate
-      {...props}
-      // 실제 값은 변하지 않지만, 100ms의 매 렌더링마다 참조가 변하고 있다.
-      containerStyle={{ opacity: 1 }}
-      target={targetRef.current}
-      container={containerRef.current}
-    >
-      <Children>
-        <ScrollContent>
-          {
-            `Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus PageMaker
-            including versions of Lorem Ipsum.`
-          }
-        </ScrollContent>
-      </Children>
-    </OverlayTemplate>
-  )
-}
-
-export const StressTest = {
-  render: StressTestTemplate,
-
-  args: {
-    enableClickOutside: false,
-  },
-}
-
-const ChangeableChildrenTemplate: StoryFn<OverlayProps> = (props) => {
-  const [items, setItems] = useState<number[]>([])
-
-  const addItem = React.useCallback(() => {
-    setItems([...items, Math.random()])
-  }, [items])
-
-  return (
-    <>
-      <button type="button" onClick={addItem}>Add</button>
-      <div>
-        <OverlayTemplate {...props}>
-          <Children>
-            { items.map((item) => (
-              <div key={item}>
-                { item }
-              </div>
-            )) }
-          </Children>
-        </OverlayTemplate>
-      </div>
-    </>
-  )
-}
-
-export const ChangeableChildren = {
-  render: ChangeableChildrenTemplate,
-
-  args: {
-    show: false,
-    position: OverlayPosition.BottomCenter,
-    marginX: 0,
-    marginY: 0,
-    keepInContainer: false,
-    withTransition: false,
-    enableClickOutside: true,
-  },
-}
+export default meta

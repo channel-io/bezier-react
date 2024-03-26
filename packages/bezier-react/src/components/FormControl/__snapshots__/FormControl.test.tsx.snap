@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormControl > Snapshot > With multiple field 1`] = `
+<div>
+  <div
+    class="Stack display-flex direction-vertical margin layout"
+    data-testid="bezier-form-control"
+  >
+    <label
+      class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top size-m"
+      data-testid="bezier-form-label"
+      id="form-label"
+      style="--b-text-color: var(--txt-black-darkest);"
+    >
+      Label
+    </label>
+    <div
+      aria-describedby="form-help-text"
+      aria-labelledby="form-label"
+      class="Stack display-flex direction-vertical justify-start align-stretch wrap margin layout"
+      data-testid="bezier-form-group"
+      id="form-group"
+      role="group"
+      style="--b-stack-spacing: 6px;"
+    >
+      <div
+        class="Stack display-flex direction-vertical margin layout"
+        data-testid="bezier-form-control"
+      >
+        <label
+          class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top size-m"
+          data-testid="bezier-form-label"
+          for="field-:r3:"
+          id="field-:r3:-label"
+          style="--b-text-color: var(--txt-black-darkest);"
+        >
+          First Inner Label
+        </label>
+        <div
+          class="TextFieldWrapper variant-primary size-m size-m"
+          data-testid="bezier-text-input"
+        >
+          <input
+            autocomplete="off"
+            class="TextFieldInput"
+            id="field-:r3:"
+            size="36"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="Stack display-flex direction-vertical margin layout"
+        data-testid="bezier-form-control"
+      >
+        <label
+          class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top size-m"
+          data-testid="bezier-form-label"
+          for="field-:r4:"
+          id="field-:r4:-label"
+          style="--b-text-color: var(--txt-black-darkest);"
+        >
+          Second Inner Label
+        </label>
+        <div
+          class="TextFieldWrapper variant-primary size-m size-m"
+          data-testid="bezier-text-input"
+        >
+          <input
+            aria-invalid="true"
+            autocomplete="off"
+            class="TextFieldInput"
+            id="field-:r4:"
+            size="36"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <p
+      class="Text typo-13 align-left margin FormHelperText FormHelperTextWrapper"
+      data-testid="bezier-form-helper-text"
+      id="form-help-text"
+      style="--b-text-color: var(--txt-black-dark);"
+    >
+      Description
+    </p>
+  </div>
+</div>
+`;
+
+exports[`FormControl > Snapshot > With multiple field and left label position 1`] = `
+<div>
+  <div
+    class="Grid"
+    data-testid="bezier-form-control"
+  >
+    <label
+      class="Text typo-14 bold align-left margin LabelText FormLabelWrapper position-left size-m"
+      data-testid="bezier-form-label"
+      id="form-label"
+      style="--b-text-color: var(--txt-black-darkest);"
+    >
+      Label
+    </label>
+    <div
+      aria-describedby="form-help-text"
+      aria-labelledby="form-label"
+      class="Stack display-flex direction-vertical justify-start align-stretch wrap margin layout"
+      data-testid="bezier-form-group"
+      id="form-group"
+      role="group"
+      style="--b-stack-spacing: 6px;"
+    >
+      <div
+        class="Stack display-flex direction-vertical margin layout"
+        data-testid="bezier-form-control"
+      >
+        <label
+          class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top size-m"
+          data-testid="bezier-form-label"
+          for="field-:r6:"
+          id="field-:r6:-label"
+          style="--b-text-color: var(--txt-black-darkest);"
+        >
+          First Inner Label
+        </label>
+        <div
+          class="TextFieldWrapper variant-primary size-m size-m"
+          data-testid="bezier-text-input"
+        >
+          <input
+            autocomplete="off"
+            class="TextFieldInput"
+            id="field-:r6:"
+            size="36"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        class="Stack display-flex direction-vertical margin layout"
+        data-testid="bezier-form-control"
+      >
+        <label
+          class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top size-m"
+          data-testid="bezier-form-label"
+          for="field-:r7:"
+          id="field-:r7:-label"
+          style="--b-text-color: var(--txt-black-darkest);"
+        >
+          Second Inner Label
+        </label>
+        <div
+          class="TextFieldWrapper variant-primary size-m size-m"
+          data-testid="bezier-text-input"
+        >
+          <input
+            aria-invalid="true"
+            autocomplete="off"
+            class="TextFieldInput"
+            id="field-:r7:"
+            size="36"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <p
+      class="Text typo-13 align-left margin FormHelperText FormHelperTextWrapper position-left"
+      data-testid="bezier-form-helper-text"
+      id="form-help-text"
+      style="--b-text-color: var(--txt-black-dark);"
+    >
+      Description
+    </p>
+  </div>
+</div>
+`;
+
+exports[`FormControl > Snapshot > With single field 1`] = `
+<div
+  class="Stack display-flex direction-vertical margin layout"
+  data-testid="bezier-form-control"
+>
+  <label
+    class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top size-m"
+    data-testid="bezier-form-label"
+    for="form"
+    id="form-label"
+    style="--b-text-color: var(--txt-black-darkest);"
+  >
+    Label
+  </label>
+  <div
+    class="TextFieldWrapper variant-primary size-m size-m"
+    data-testid="bezier-text-input"
+  >
+    <input
+      aria-describedby="form-help-text"
+      autocomplete="off"
+      class="TextFieldInput"
+      id="form"
+      size="36"
+      value=""
+    />
+  </div>
+  <p
+    class="Text typo-13 align-left margin FormHelperText FormHelperTextWrapper"
+    data-testid="bezier-form-helper-text"
+    id="form-help-text"
+    style="--b-text-color: var(--txt-black-dark);"
+  >
+    Description
+  </p>
+</div>
+`;
+
+exports[`FormControl > Snapshot > With single field and left label position 1`] = `
+<div
+  class="Grid"
+  data-testid="bezier-form-control"
+>
+  <label
+    class="Text typo-14 bold align-left margin LabelText FormLabelWrapper position-left size-m"
+    data-testid="bezier-form-label"
+    for="form"
+    id="form-label"
+    style="--b-text-color: var(--txt-black-darkest);"
+  >
+    Label
+  </label>
+  <div
+    class="TextFieldWrapper variant-primary size-m size-m"
+    data-testid="bezier-text-input"
+  >
+    <input
+      aria-describedby="form-help-text"
+      autocomplete="off"
+      class="TextFieldInput"
+      id="form"
+      size="36"
+      value=""
+    />
+  </div>
+  <p
+    class="Text typo-13 align-left margin FormHelperText FormHelperTextWrapper position-left"
+    data-testid="bezier-form-helper-text"
+    id="form-help-text"
+    style="--b-text-color: var(--txt-black-dark);"
+  >
+    Description
+  </p>
+</div>
+`;

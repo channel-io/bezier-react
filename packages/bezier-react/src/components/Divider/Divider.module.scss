@@ -1,0 +1,55 @@
+.Divider {
+  --b-divider-indent-size: 6px;
+
+  background-color: var(--bdr-black-light);
+  border-radius: var(--b-divider-thickness);
+
+  &:where(.horizontal) {
+    width: calc(100% - 2 * var(--b-divider-indent-size));
+    height: var(--b-divider-thickness);
+    margin: var(--b-divider-indent-size);
+
+    &:where(.without-indent) {
+      width: 100%;
+      margin: 0;
+    }
+
+    &:where(.without-side-indent) {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    &:where(.without-parallel-indent) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &:where(.vertical) {
+    width: var(--b-divider-thickness);
+    height: calc(100% - 2 * var(--b-divider-indent-size));
+    margin: var(--b-divider-indent-size);
+
+    &:where(.without-indent) {
+      height: 100%;
+      margin: 0;
+    }
+
+    &:where(.without-side-indent) {
+      height: 100%;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    &:where(.without-parallel-indent) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+}
+
+/* NOTE: For access from outside the component */
+.variables {
+  --b-divider-thickness: 1px;
+}

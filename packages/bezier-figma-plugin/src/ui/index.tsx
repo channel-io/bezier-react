@@ -1,32 +1,35 @@
 import React from 'react'
 
+import { AppProvider } from '@channel.io/bezier-react'
 import { createRoot } from 'react-dom/client'
-import {
-  MemoryRouter,
-  Route,
-  Routes,
-} from 'react-router-dom'
-
-import {
-  BezierProvider,
-  LightFoundation,
-} from '@channel.io/bezier-react'
+import { MemoryRouter, Route, Routes } from 'react-router-dom'
 
 import ExtractSuccess from './components/ExtractSuccess'
 import Home from './components/Home'
 import IconExtract from './components/IconExtract'
 
+import '@channel.io/bezier-react/styles.css'
+
 const container = document.getElementById('root') as HTMLElement
 const root = createRoot(container)
 
 root.render(
-  <BezierProvider foundation={LightFoundation}>
+  <AppProvider>
     <MemoryRouter>
       <Routes>
-        <Route index element={(<Home />)} />
-        <Route path="extract" element={(<IconExtract />)} />
-        <Route path="extract_success" element={(<ExtractSuccess />)} />
+        <Route
+          index
+          element={<Home />}
+        />
+        <Route
+          path="extract"
+          element={<IconExtract />}
+        />
+        <Route
+          path="extract_success"
+          element={<ExtractSuccess />}
+        />
       </Routes>
     </MemoryRouter>
-  </BezierProvider>,
+  </AppProvider>
 )

@@ -1,9 +1,4 @@
-import {
-  AssertionException,
-  assert,
-  isDev,
-  warn,
-} from './assert'
+import { AssertionException, assert, isDev, warn } from './assert'
 
 describe('isDev', () => {
   const ORIGINAL_ENV = process.env
@@ -55,7 +50,9 @@ describe('assert', () => {
   it('should throw an "failed" with a error in development environment when the predicate is false', () => {
     process.env.NODE_ENV = 'development'
 
-    expect(() => assert(false, 'failed')).toThrow(new AssertionException('failed'))
+    expect(() => assert(false, 'failed')).toThrow(
+      new AssertionException('failed')
+    )
   })
 
   it('should not throw in production environment when the predicate is true', () => {

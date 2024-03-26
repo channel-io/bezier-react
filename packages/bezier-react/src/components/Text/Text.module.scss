@@ -1,0 +1,68 @@
+@use '../../styles/mixins/typography';
+
+$typo-sizes: 11, 12, 13, 14, 15, 16, 17, 18, 22, 24, 30, 36;
+
+.Text {
+  --b-text-color: initial;
+  --b-text-line-clamp: 1;
+  --b-text-line-height: initial;
+  --b-text-font-size: initial;
+  --b-text-letter-spacing: initial;
+
+  font-size: var(--b-text-font-size);
+  font-weight: var(--font-weight-400);
+  font-style: normal;
+  line-height: var(--b-text-line-height);
+  color: var(--b-text-color);
+  letter-spacing: var(--b-text-letter-spacing);
+
+  &:where(.bold) {
+    font-weight: var(--font-weight-700);
+  }
+
+  &:where(.italic) {
+    font-style: italic;
+  }
+
+  &:where(.truncated) {
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &:where(.multi-line-truncated) {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+    max-height: calc(var(--b-text-line-clamp) * var(--b-text-line-height));
+
+    text-overflow: ellipsis;
+
+    -webkit-line-clamp: var(--b-text-line-clamp);
+  }
+
+  &:where(.align-left) {
+    text-align: left;
+  }
+
+  &:where(.align-center) {
+    text-align: center;
+  }
+
+  &:where(.align-right) {
+    text-align: right;
+  }
+
+  @each $size in $typo-sizes {
+    &:where(.typo-#{$size}) {
+      @include typography.size(
+        $size,
+        'b-text-font-size',
+        'b-text-line-height',
+        'b-text-letter-spacing'
+      );
+    }
+  }
+}

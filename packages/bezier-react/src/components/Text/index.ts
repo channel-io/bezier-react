@@ -1,10 +1,2 @@
-import Text from './Text'
-import type TextProps from './Text.types'
-
-export type {
-  TextProps,
-}
-
-export {
-  Text,
-}
+export { Text } from './Text'
+export type { TextProps } from './Text.types'

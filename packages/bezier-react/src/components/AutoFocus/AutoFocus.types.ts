@@ -1,4 +1,4 @@
-import { type ChildrenProps } from '~/src/types/ComponentProps'
+import { type ChildrenProps } from '~/src/types/props'
 
 interface AutoFocusOptions {
   /**
@@ -8,7 +8,7 @@ interface AutoFocusOptions {
   when?: boolean
 }
 
-export interface AutoFocusProps extends
-  ChildrenProps,
-  React.HTMLAttributes<HTMLElement>,
-  AutoFocusOptions {}
+export interface AutoFocusProps
+  extends ChildrenProps,
+    React.HTMLAttributes<HTMLElement>,
+    AutoFocusOptions {}

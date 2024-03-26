@@ -1,0 +1,7 @@
+.Icon {
+  --b-icon-color: initial;
+
+  flex: 0 0 auto;
+  color: var(--b-icon-color);
+  transition: color var(--transition-s);
+}

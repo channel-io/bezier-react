@@ -1,9 +1,8 @@
 import '@testing-library/jest-dom'
-import 'jest-styled-components'
 
 Object.defineProperty(window, 'requestAnimationFrame', {
   writable: true,
-  value: callback => callback(),
+  value: (callback: (...args: any[]) => void) => callback(),
 })
 
 /**

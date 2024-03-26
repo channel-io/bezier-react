@@ -1,0 +1,43 @@
+$divider-thickness: 1px;
+$divider-margin: 6px;
+
+.SectionLabel {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 28px;
+}
+
+.LeftContent {
+  display: flex;
+  align-items: center;
+  padding-left: 6px;
+}
+
+.Content {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-left: 6px;
+}
+
+.RightContent {
+  display: flex;
+  align-items: center;
+  margin: 0 6px 0 auto;
+  padding-left: 6px;
+}
+
+.RightItem {
+  cursor: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Help {
+  margin-left: 8px;
+}

@@ -32,7 +32,7 @@ function Component() {
     <div>
       <Icon source={AllIcon} />
     </div>
-  );
+  )
 }
 ```
 
@@ -46,7 +46,7 @@ function Component() {
     <div>
       <AllIcon />
     </div>
-  );
+  )
 }
 ```
 
@@ -55,13 +55,17 @@ If you need to validate the icon source component, use the utility function `isB
 ```tsx
 import { isBezierIcon, AllIcon } from '@channel.io/bezier-icons'
 
+function FooIcon() {
+  return <svg />
+}
+
 console.log(isBezierIcon(AllIcon)) // true
-console.log(isBezierIcon(<svg />)) // false
+console.log(isBezierIcon(FooIcon)) // false
 ```
 
 ## Contributing
 
-See [contribution guide](../../CONTRIBUTING.md).
+See [contribution guide](https://github.com/channel-io/bezier-react/wiki/Contribute).
 
 ## Maintainers
 

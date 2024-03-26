@@ -1,0 +1,91 @@
+@use '../../styles/mixins/dimension';
+@use '../../styles/mixins/interaction';
+
+.CheckIcon {
+  transition: none;
+
+  &:where([data-state='unchecked']) {
+    visibility: hidden;
+  }
+}
+
+.Checkbox {
+  cursor: inherit;
+
+  /* stylelint-disable-next-line order/order */
+  @include dimension.square(18px);
+
+  @include interaction.touchable-hover {
+    &:where(:not([data-disabled], [data-state='unchecked'])) {
+      background-color: var(--bgtxt-green-dark);
+    }
+
+    &:where(:not([data-disabled])[data-state='unchecked']) .CheckIcon {
+      visibility: visible;
+    }
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 1px;
+
+  background-color: var(--bg-white-normal);
+  border-radius: 7px;
+  box-shadow: inset 0 0 0 2px var(--bdr-black-dark);
+
+  &:where([data-disabled]) {
+    background-color: var(--bg-black-dark);
+    box-shadow: none;
+  }
+
+  &[data-invalid] {
+    box-shadow: var(--input-box-shadow-invalid);
+  }
+
+  &:where([data-state='checked'], [data-state='indeterminate']) {
+    background-color: var(--bgtxt-green-normal);
+
+    &:where(:not([data-invalid])) {
+      box-shadow: none;
+    }
+  }
+
+  &:where(:focus-visible) {
+    outline: none;
+    box-shadow: var(--input-box-shadow-focused);
+
+    &:where(:not([data-disabled])[data-state='unchecked']) .CheckIcon {
+      visibility: visible;
+    }
+  }
+}
+
+.Container {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+
+  &:where(:has(.Checkbox[data-disabled])) {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:where(:has(.Label)) {
+    height: var(--b-form-field-size);
+  }
+}
+
+.Label {
+  cursor: inherit;
+
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+  padding-left: 12px;
+
+  color: var(--txt-black-darkest);
+}

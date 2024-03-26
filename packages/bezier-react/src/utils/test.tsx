@@ -5,25 +5,20 @@ import {
   renderHook as baseRenderHook,
 } from '@testing-library/react'
 
-import { LightFoundation } from '~/src/foundation'
+import { type ChildrenProps } from '~/src/types/props'
 
-import BezierProvider from '~/src/providers/BezierProvider'
-import { type ChildrenProps } from '~/src/types/ComponentProps'
+import { AppProvider } from '~/src/components/AppProvider'
 
-function TestProviders({ children }: ChildrenProps) {
-  return (
-    <BezierProvider foundation={LightFoundation}>
-      { children }
-    </BezierProvider>
-  )
+function TestProvider({ children }: ChildrenProps) {
+  return <AppProvider>{children}</AppProvider>
 }
 
 export function render(
   ui: Parameters<typeof baseRender>[0],
-  options?: Parameters<typeof baseRender>[1],
+  options?: Parameters<typeof baseRender>[1]
 ) {
   return baseRender(ui, {
-    wrapper: TestProviders,
+    wrapper: TestProvider,
     ...options,
     legacyRoot: false,
   })
@@ -31,15 +26,15 @@ export function render(
 
 interface RenderHookOptions<Props> {
   initialProps?: Props
-  wrapper?: React.JSXElementConstructor<{ children: React.ReactElement }>
+  wrapper?: React.JSXElementConstructor<{ children: React.ReactNode }>
 }
 
 export function renderHook<Result, Props>(
   hook: (initialProps: Props) => Result,
-  options?: RenderHookOptions<Props>,
+  options?: RenderHookOptions<Props>
 ) {
   return baseRenderHook(hook, {
-    wrapper: TestProviders,
+    wrapper: TestProvider,
     ...options,
   })
 }

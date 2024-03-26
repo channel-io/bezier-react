@@ -1,15 +1,16 @@
 import { useMemo } from 'react'
 
-type ReactRef<Node> = React.RefCallback<Node> | React.MutableRefObject<Node | null>
+type ReactRef<Node> =
+  | React.RefCallback<Node>
+  | React.MutableRefObject<Node | null>
 
 type Ref<Node> = ReactRef<Node> | null | undefined
 type Refs<Node> = Array<Ref<Node>>
 
-function assignRef<Node>(
-  ref: Ref<Node>,
-  value: Node | null,
-) {
-  if (ref === null || ref === undefined) { return }
+function assignRef<Node>(ref: Ref<Node>, value: Node | null) {
+  if (ref === null || ref === undefined) {
+    return
+  }
 
   if (typeof ref === 'function') {
     ref(value)

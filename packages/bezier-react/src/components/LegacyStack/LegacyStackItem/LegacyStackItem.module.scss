@@ -1,0 +1,49 @@
+.LegacyStackItem {
+  flex-basis: var(--b-main-axis-size);
+  flex-grow: var(--b-grow-weight);
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  flex-shrink: var(--b-shrink-weight);
+
+  /* NOTE: You may think it's unnecessary, but there are application styles that are leaning on that default style default (incorrectly). */
+  margin: var(--b-margin-before) 0 var(--b-margin-after) 0;
+
+  &:where(.direction-horizontal) {
+    margin: 0 var(--b-margin-after) 0 var(--b-margin-before);
+  }
+
+  &:where(.direction-vertical) {
+    margin: var(--b-margin-before) 0 var(--b-margin-after) 0;
+  }
+
+  &:where(.justify-start) {
+    justify-self: flex-start;
+  }
+
+  &:where(.justify-end) {
+    justify-self: flex-end;
+  }
+
+  &:where(.justify-center) {
+    justify-self: center;
+  }
+
+  &:where(.justify-stretch) {
+    justify-self: stretch;
+  }
+
+  &:where(.align-start) {
+    align-self: flex-start;
+  }
+
+  &:where(.align-end) {
+    align-self: flex-end;
+  }
+
+  &:where(.align-center) {
+    align-self: center;
+  }
+
+  &:where(.align-stretch) {
+    align-self: stretch;
+  }
+}

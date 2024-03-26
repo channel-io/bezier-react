@@ -1,56 +1,61 @@
-import React, {
-  type Ref,
-  forwardRef,
-  memo,
-} from 'react'
+import React, { forwardRef } from 'react'
+
+import classNames from 'classnames'
 
 import { clamp } from '~/src/utils/number'
+import { cssDimension } from '~/src/utils/style'
 
-import type ProgressBarProps from './ProgressBar.types'
+import { useThemeName } from '~/src/components/ThemeProvider'
 
-import {
-  StyledProgressBarActive,
-  StyledProgressBarWrapper,
-} from './ProgressBar.styled'
+import type { ProgressBarProps } from './ProgressBar.types'
 
-export const PROGRESS_BAR_ACTIVE_TEST_ID = 'bezier-react-progress-bar-active'
+import styles from './ProgressBar.module.scss'
 
-export const ProgressBar = memo(forwardRef(function ProgressBar(
-  {
-    size = 'm',
-    variant = 'green',
-    width = 36,
-    value = 0,
-    activeClassName,
-    activeInterpolation,
-    activeStyle,
-    activeTestId = PROGRESS_BAR_ACTIVE_TEST_ID,
-    ...rest
-  }: ProgressBarProps,
-  forwardedRef: Ref<HTMLDivElement>,
-) {
-  const clampedValue = clamp(value, 0, 1)
+export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
+  function ProgressBar(
+    {
+      style,
+      className,
+      size = 'm',
+      variant = 'green',
+      width = 36,
+      value = 0,
+      ...rest
+    },
+    forwardedRef
+  ) {
+    const clampedValue = clamp(value, 0, 1)
 
-  return (
-    <StyledProgressBarWrapper
-      ref={forwardedRef}
-      size={size}
-      width={width}
-      variant={variant}
-      role="progressbar"
-      aria-valuemin="0"
-      aria-valuemax="1"
-      aria-valuenow={clampedValue}
-      {...rest}
-    >
-      <StyledProgressBarActive
-        variant={variant}
-        value={clampedValue}
-        className={activeClassName}
-        interpolation={activeInterpolation}
-        style={activeStyle}
-        data-testid={activeTestId}
-      />
-    </StyledProgressBarWrapper>
-  )
-}))
+    return (
+      <div
+        style={
+          {
+            '--b-progress-bar-width': cssDimension(width),
+            '--b-progress-bar-value': clampedValue,
+            ...style,
+          } as React.CSSProperties
+        }
+        className={classNames(
+          styles.ProgressBar,
+          styles[`size-${size}`],
+          styles[`variant-${variant}`],
+          className
+        )}
+        ref={forwardedRef}
+        role="progressbar"
+        aria-valuemin={0}
+        aria-valuemax={1}
+        aria-valuenow={clampedValue}
+        data-testid="bezier-progress-bar"
+        {...rest}
+      >
+        <div
+          className={classNames(
+            styles.ProgressBarActive,
+            useThemeName() === 'dark' && styles['dark-theme']
+          )}
+        />
+      </div>
+    )
+  }
+)

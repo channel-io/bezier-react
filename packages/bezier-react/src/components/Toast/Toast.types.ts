@@ -1,113 +1,62 @@
-import {
-  type ComponentType,
-  type ReactNode,
-} from 'react'
 import type React from 'react'
 
-import {
-  type BezierIcon,
-  InfoFilledIcon,
-} from '@channel.io/bezier-icons'
+import { type BezierIcon } from '@channel.io/bezier-icons'
 
-import { type TransitionDuration } from '~/src/foundation'
+import { type ChildrenProps, type ContentProps } from '~/src/types/props'
+import { type ZIndex } from '~/src/types/tokens'
 
-import {
-  type BezierComponentProps,
-  type ContentProps,
-} from '~/src/types/ComponentProps'
-import { type InjectedInterpolation } from '~/src/types/Foundation'
-import { noop } from '~/src/utils/function'
+export type ToastPlacement = 'bottom-left' | 'bottom-right'
 
-export enum ToastPlacement {
-  BottomLeft = 'bottomLeft',
-  BottomRight = 'bottomRight',
-}
+export type ToastAppearance = 'success' | 'warning' | 'error' | 'info'
 
-export enum ToastAppearance {
-  Success = 'success',
-  Warning = 'warning',
-  Error = 'error',
-  Info = 'info',
-}
+export type ToastPreset = 'default' | 'success' | 'error' | 'offline' | 'online'
 
-export enum ToastIconColor {
-  Success = 'bgtxt-green-normal',
-  Warning = 'bgtxt-orange-normal',
-  Error = 'bgtxt-red-normal',
-  Info = 'txt-black-darkest',
-}
-
-export enum ToastPreset {
-  Default = 'Default',
-  Success = 'Success',
-  Error = 'Error',
-  Offline = 'Offline',
-  Online = 'Online',
-}
-
-export interface ToastPresetType {
-  appearance: ToastAppearance
-  icon: BezierIcon
-}
-
-interface ToastElementOptions {
-  preset?: ToastPreset
+interface ToastOwnProps {
+  placement?: ToastPlacement
   appearance?: ToastAppearance
+  preset?: ToastPreset
   icon?: BezierIcon
+  zIndex?: ZIndex
+  autoDismiss?: boolean
+  autoDismissTimeout?: number
   /**
-   * @deprecated use React.ReactNode content props instead.
+   * Updated toast version
+   * @default 0
    */
-  actionContent?: string
-  transitionDuration: TransitionDuration
-  transform: InjectedInterpolation
-  placement: ToastPlacement
-  zIndex?: number
-  onClick?: React.MouseEventHandler
-  onDismiss: React.MouseEventHandler<HTMLDivElement>
+  version?: number
+  onDismiss?: () => void
 }
 
 export type ToastContent = NonNullable<React.ReactNode>
 
-export default interface ToastElementProps extends
-  BezierComponentProps,
-  Required<ContentProps<ToastContent>>,
-  ToastElementOptions {}
+export interface ToastProps extends ContentProps<ToastContent>, ToastOwnProps {}
 
-export type Offset = {
+type Offset = {
   left?: number
   right?: number
   bottom?: number
 }
 
-export interface ToastProviderProps {
-  autoDismissTimeout?: number
+interface ToastProviderOwnProps {
   offset?: Offset
   container?: HTMLElement | null
-  children?: ReactNode[] | ReactNode
 }
+
+export interface ToastProviderProps
+  extends ChildrenProps,
+    Pick<ToastProps, 'autoDismissTimeout'>,
+    ToastProviderOwnProps {}
 
 export type ToastId = string
 
 export type OnDismissCallback = (id: ToastId) => void
 
-export type ToastOptions = {
-  preset?: ToastPreset
-  icon?: BezierIcon
-  appearance?: ToastAppearance
-  actionContent?: string
-  autoDismiss?: boolean
+export type ToastOptions = Pick<
+  ToastProps,
+  'preset' | 'icon' | 'appearance' | 'autoDismiss' | 'zIndex'
+> & {
   rightSide?: boolean
-  zIndex?: number
-  onClick?: React.MouseEventHandler
   onDismiss?: OnDismissCallback
-}
-
-export const defaultOptions: ToastOptions = {
-  icon: InfoFilledIcon,
-  appearance: ToastAppearance.Info,
-  autoDismiss: false,
-  onDismiss: noop,
-  rightSide: false,
 }
 
 export type ToastType = ToastOptions & {
@@ -120,28 +69,15 @@ export type ToastType = ToastOptions & {
   version?: number
 }
 
-export interface ToastContextType {
+export interface ToastContextValue {
   add: (content: ToastContent, options?: ToastOptions) => ToastId
-  update: (toastId: ToastId, content: ToastContent, options?: ToastOptions) => ToastId
+  update: (
+    toastId: ToastId,
+    content: ToastContent,
+    options?: ToastOptions
+  ) => ToastId
   remove: (id: ToastId) => void
   removeAll: () => void
   leftToasts: ToastType[]
   rightToasts: ToastType[]
-}
-
-export type ToastContainerProps = {
-  children?: ReactNode[]
-  placement: ToastPlacement
-  offset?: Offset
-}
-
-export interface ToastControllerProps extends ToastElementProps {
-  autoDismiss: boolean
-  autoDismissTimeout: number
-  component: ComponentType<ToastElementProps>
-  /**
-   * Updated toast version
-   * @default 0
-   */
-  version?: number
 }

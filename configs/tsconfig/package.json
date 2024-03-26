@@ -1,0 +1,9 @@
+{
+  "name": "tsconfig",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Common Typescript configuration.",
+  "dependencies": {
+    "@channel.io/typescript-config": "^0.0.1"
+  }
+}

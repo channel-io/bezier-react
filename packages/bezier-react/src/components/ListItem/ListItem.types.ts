@@ -4,58 +4,34 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   ActivatableProps,
-  AdditionalStylableProps,
   BezierComponentProps,
   ContentProps,
   DisableProps,
   LinkProps,
-  OptionItemProps,
+  PolymorphicProps,
   SideContentProps,
   SizeProps,
   VariantProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
-export enum ListItemSize {
-  S = 's',
-  M = 'm',
-  L = 'l',
-  XL = 'xl',
-}
+export type ListItemSize = 'xs' | 's' | 'm' | 'l'
 
-export enum ListItemVariant {
-  Blue = 'blue',
-  Red = 'red',
-  Green = 'green',
-  Cobalt = 'cobalt',
-  Monochrome = 'monochrome',
-}
+export type ListItemVariant = 'blue' | 'red' | 'green' | 'cobalt' | 'monochrome'
 
-type MouseEventHandler = React.MouseEventHandler
-
-interface ListItemOptions {
-  name?: string
-  hide?: boolean
-  nested?: boolean
-  leftIcon?: BezierIcon
+interface ListItemOwnProps {
   focused?: boolean
-  disableIconActive?: boolean
-  descriptionMaxLines?: number
   description?: React.ReactNode
-  onClick?: (e: React.MouseEvent, name?: string) => void
-  onMouseDown?: MouseEventHandler
-  onMouseEnter?: MouseEventHandler
-  onMouseLeave?: MouseEventHandler
+  descriptionMaxLines?: number
 }
 
-export default interface ListItemProps extends
-  BezierComponentProps,
-  SizeProps<ListItemSize>,
-  VariantProps<ListItemVariant>,
-  ContentProps,
-  SideContentProps,
-  LinkProps,
-  DisableProps,
-  ActivatableProps,
-  OptionItemProps,
-  AdditionalStylableProps<['icon', 'content']>,
-  ListItemOptions {}
+export interface ListItemProps
+  extends Omit<BezierComponentProps, keyof ContentProps>,
+    ContentProps,
+    PolymorphicProps,
+    SizeProps<ListItemSize>,
+    VariantProps<ListItemVariant>,
+    SideContentProps<React.ReactNode | BezierIcon, React.ReactNode>,
+    LinkProps,
+    DisableProps,
+    ActivatableProps,
+    ListItemOwnProps {}

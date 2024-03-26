@@ -1,156 +1,146 @@
 import React, { forwardRef } from 'react'
 
 import { isBezierIcon } from '@channel.io/bezier-icons'
-
-import { Typography } from '~/src/foundation'
+import classNames from 'classnames'
 
 import { warn } from '~/src/utils/assert'
-import {
-  isNil,
-  isString,
-} from '~/src/utils/type'
+import { isNil } from '~/src/utils/type'
 
-import {
-  Button,
-  ButtonSize,
-  ButtonStyleVariant,
-} from '~/src/components/Button'
-import { IconSize } from '~/src/components/Icon'
-import { isIconName } from '~/src/components/LegacyIcon'
-import { StackItem } from '~/src/components/Stack'
+import { Button } from '~/src/components/Button'
+import { Icon } from '~/src/components/Icon'
+import { LegacyIcon, isIconName } from '~/src/components/LegacyIcon'
 import { Text } from '~/src/components/Text'
 
 import {
-  ACTION_BUTTON_COLOR_VARIANTS,
-  DEFAULT_ICON_COLORS,
-  TEXT_COLORS,
-} from './Banner.const'
-import {
   type BannerProps,
-  BannerVariant,
+  type BannerVariant,
   type RenderLinkFunc,
 } from './Banner.types'
 
-import Styled from './Banner.styled'
+import styles from './Banner.module.scss'
 
-const BANNER_TEST_ID = 'bezier-react-banner'
-export const BANNER_LINK_TEST_ID = 'bezier-react-banner-link'
+const BANNER_TEST_ID = 'bezier-banner'
 
-const externalLinkRenderer: RenderLinkFunc = ({
-  content,
-  linkTo,
-}) => (
+function getActionButtonColorVariant(variant: BannerVariant) {
+  return (
+    {
+      default: 'monochrome-dark',
+      blue: 'blue',
+      cobalt: 'cobalt',
+      green: 'green',
+      orange: 'orange',
+      red: 'red',
+      alt: 'monochrome-dark',
+    } as const
+  )[variant]
+}
+
+const externalLinkRenderer: RenderLinkFunc = ({ content, linkTo }) => (
   <a
     href={linkTo}
     target="_blank"
     rel="noopener noreferrer"
-    data-testid={BANNER_LINK_TEST_ID}
   >
-    { content }
+    {content}
   </a>
 )
 
-function Link({
-  variant = BannerVariant.Default,
-  hasLink = false,
-  linkText,
-  linkTo,
-  renderLink = externalLinkRenderer,
-}: BannerProps) {
-  if (!hasLink) { return null }
-
-  return renderLink({
-    content: (
-      <Styled.Link
-        typo={Typography.Size14}
-        color={TEXT_COLORS[variant]}
-        bold
-      >
-        { linkText }
-      </Styled.Link>
-    ),
-    linkTo,
-  })
-}
-
-export const Banner = forwardRef(function Banner(
-  props: BannerProps,
-  forwardedRef: React.Ref<HTMLDivElement>,
-) {
-  const {
+/**
+ * `Banner` is a component you use when you want to communicate instructions, warnings, recommendations, and other information well.
+ * @example
+ * ```tsx
+ * <Banner
+ *   variant="blue"
+ *   icon={LightbulbIcon}
+ *   content="Information here."
+ * />
+ * ```
+ */
+export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(
+  {
     className,
-    interpolation,
-    variant = BannerVariant.Default,
+    variant = 'default',
     icon,
     iconColor,
     content,
+    hasLink = false,
+    linkText,
+    linkTo,
+    renderLink = externalLinkRenderer,
     actionIcon,
     onClickAction,
-    testId = BANNER_TEST_ID,
-  } = props
-
+    ...rest
+  },
+  forwardedRef
+) {
   if (isIconName(icon)) {
-    warn('Deprecation: IconName as a value for the icon property of Banner has been deprecated. Use the Icon of bezier-icons instead.')
+    warn(
+      'Deprecation: IconName as a value for the icon property of Banner has been deprecated. Use the Icon of bezier-icons instead.'
+    )
   }
 
   return (
-    <Styled.Stack
+    <div
       ref={forwardedRef}
-      data-testid={testId}
-      className={className}
-      interpolation={interpolation}
-      variant={variant}
-      spacing={6}
-      align="start"
+      className={classNames(
+        styles.Banner,
+        styles[`variant-${variant}`],
+        className
+      )}
+      data-testid={BANNER_TEST_ID}
+      {...rest}
     >
-      { !isNil(icon) && (
-        <Styled.StackItem>
-          { isBezierIcon(icon) ? (
-            <Styled.BannerIcon
+      {!isNil(icon) && (
+        <div className={styles.Center}>
+          {isBezierIcon(icon) ? (
+            <Icon
+              className={styles.Icon}
               source={icon}
-              color={iconColor ?? DEFAULT_ICON_COLORS[variant]}
-              size={IconSize.S}
+              color={iconColor}
+              size="s"
             />
           ) : (
-            <Styled.BannerLegacyIcon
+            <LegacyIcon
+              className={styles.Icon}
               name={icon}
-              color={iconColor ?? DEFAULT_ICON_COLORS[variant]}
-              size={IconSize.S}
+              color={iconColor}
+              size="s"
             />
-          ) }
-        </Styled.StackItem>
-      ) }
+          )}
+        </div>
+      )}
 
-      <StackItem
-        grow
-        shrink
-        weight={1}
-        align="center"
-      >
-        <Styled.ContentWrapper variant={variant}>
-          { isString(content) ? (
-            <Text
-              typo={Typography.Size14}
-              color={TEXT_COLORS[variant]}
-            >
-              { content }
-              <Link {...props} />
-            </Text>
-          ) : content }
-        </Styled.ContentWrapper>
-      </StackItem>
+      <div className={styles.Content}>
+        <Text typo="14">
+          {content}
 
-      { !isNil(actionIcon) && (
-        <Styled.StackItem>
+          {hasLink &&
+            renderLink({
+              content: (
+                <Text
+                  className={styles.Link}
+                  typo="14"
+                  bold
+                >
+                  {linkText}
+                </Text>
+              ),
+              linkTo,
+            })}
+        </Text>
+      </div>
+
+      {!isNil(actionIcon) && (
+        <div className={styles.Center}>
           <Button
-            size={ButtonSize.XS}
-            colorVariant={ACTION_BUTTON_COLOR_VARIANTS[variant]}
-            styleVariant={ButtonStyleVariant.Tertiary}
+            size="xs"
+            colorVariant={getActionButtonColorVariant(variant)}
+            styleVariant="tertiary"
             leftContent={actionIcon}
             onClick={onClickAction}
           />
-        </Styled.StackItem>
-      ) }
-    </Styled.Stack>
+        </div>
+      )}
+    </div>
   )
 })

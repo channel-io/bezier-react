@@ -1,7 +1,2 @@
-export * from './HStack'
-export * from './Spacer'
-export * from './Stack'
-export * from './StackItem'
-export * from './VStack'
-
-export type { AxisAlignment } from './types'
+export { HStack, Stack, VStack } from './Stack'
+export type { HStackProps, StackProps, VStackProps } from './Stack.types'

@@ -3,8 +3,6 @@ import React from 'react'
 import { fireEvent } from '@testing-library/dom'
 import { act } from '@testing-library/react'
 
-import { css } from '~/src/foundation'
-
 import { render } from '~/src/utils/test'
 
 import {
@@ -15,9 +13,7 @@ import {
 import { type LegacyTooltipProps } from './LegacyTooltip.types'
 
 const RootTooltip: React.FC<LegacyTooltipProps> = ({ children, ...rests }) => (
-  <LegacyTooltip {...rests}>
-    { children }
-  </LegacyTooltip>
+  <LegacyTooltip {...rests}>{children}</LegacyTooltip>
 )
 
 describe('Tooltip test >', () => {
@@ -38,26 +34,16 @@ describe('Tooltip test >', () => {
     jest.useRealTimers()
   })
 
-  const renderTooltip = (optionProps?: LegacyTooltipProps) => render(
-    <RootTooltip {...props} {...optionProps} />,
-  )
+  const renderTooltip = (optionProps?: LegacyTooltipProps) =>
+    render(
+      <RootTooltip
+        {...props}
+        {...optionProps}
+      />
+    )
 
   it('Tooltip with default props', () => {
     const { baseElement, getByTestId } = renderTooltip()
-
-    act(() => {
-      fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
-
-      jest.runAllTimers()
-    })
-
-    expect(baseElement).toMatchSnapshot()
-  })
-
-  it('Tooltip with contentInterpolation prop', async () => {
-    const { baseElement, getByTestId } = renderTooltip({
-      contentInterpolation: css`background-color: black;`,
-    })
 
     act(() => {
       fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))

@@ -19,37 +19,26 @@ import {
   TriangleDownIcon,
   VideocamIcon,
 } from '@channel.io/bezier-icons'
-import {
-  type Meta,
-  type StoryObj,
-} from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 
-import {
-  Typography,
-  styled,
-} from '~/src/foundation'
-
-import { Avatar } from '~/src/components/Avatars/Avatar'
+import { Avatar } from '~/src/components/Avatar'
+import { Box } from '~/src/components/Box'
 import { ButtonGroup } from '~/src/components/ButtonGroup'
+import { Center } from '~/src/components/Center'
+import {
+  LegacyHStack,
+  LegacyStackItem,
+  LegacyVStack,
+} from '~/src/components/LegacyStack'
 import { ListItem } from '~/src/components/ListItem'
-import {
-  Overlay,
-  OverlayPosition,
-} from '~/src/components/Overlay'
+import { Overlay } from '~/src/components/Overlay'
 import { SectionLabel } from '~/src/components/SectionLabel'
-import {
-  HStack,
-  StackItem,
-  VStack,
-} from '~/src/components/Stack'
-import { StatusType } from '~/src/components/Status'
 import { Text } from '~/src/components/Text'
 
 import { Button } from './Button'
 import mdx from './Button.mdx'
-import type ButtonProps from './Button.types'
-import {
-  ButtonColorVariant,
+import type {
+  ButtonProps,
   ButtonSize,
   ButtonStyleVariant,
 } from './Button.types'
@@ -63,24 +52,6 @@ const meta: Meta<typeof Button> = {
   },
   argTypes: {
     onClick: { action: 'onClick' },
-    size: {
-      control: {
-        type: 'radio',
-      },
-      options: Object.values(ButtonSize),
-    },
-    styleVariant: {
-      control: {
-        type: 'radio',
-      },
-      options: Object.values(ButtonStyleVariant),
-    },
-    colorVariant: {
-      control: {
-        type: 'radio',
-      },
-      options: Object.values(ButtonColorVariant),
-    },
   },
 }
 export default meta
@@ -93,9 +64,9 @@ export const Playground: StoryObj<ButtonProps> = {
     loading: false,
     leftContent: PlusIcon,
     rightContent: ArrowRightIcon,
-    size: ButtonSize.M,
-    styleVariant: ButtonStyleVariant.Primary,
-    colorVariant: ButtonColorVariant.Blue,
+    size: 'm',
+    styleVariant: 'primary',
+    colorVariant: 'blue',
   },
 }
 
@@ -103,42 +74,48 @@ export const WithCustomComponent: StoryObj<ButtonProps> = {
   args: {
     text: 'Set Manager',
     leftContent: (
-      <Avatar name="test" avatarUrl="https://source.unsplash.com/random" />
+      <Avatar
+        name="test"
+        avatarUrl="https://source.unsplash.com/random"
+      />
     ),
-    size: ButtonSize.M,
-    styleVariant: ButtonStyleVariant.Primary,
-    colorVariant: ButtonColorVariant.Blue,
+    size: 'm',
+    styleVariant: 'primary',
+    colorVariant: 'blue',
   },
 }
 
 export const OverviewCTA: StoryObj<{}> = {
   render: () => (
-    <HStack justify="center" spacing={6}>
-      <StackItem>
+    <LegacyHStack
+      justify="center"
+      spacing={6}
+    >
+      <LegacyStackItem>
         <Button
           disabled
           text="Cancel"
-          colorVariant={ButtonColorVariant.MonochromeLight}
-          styleVariant={ButtonStyleVariant.Secondary}
+          colorVariant="monochrome-light"
+          styleVariant="secondary"
         />
-      </StackItem>
-      <StackItem>
+      </LegacyStackItem>
+      <LegacyStackItem>
         <Button
           leftContent={OpenInNewIcon}
           text="Open link"
-          colorVariant={ButtonColorVariant.Blue}
-          styleVariant={ButtonStyleVariant.Secondary}
+          colorVariant="blue"
+          styleVariant="secondary"
         />
-      </StackItem>
-      <StackItem>
+      </LegacyStackItem>
+      <LegacyStackItem>
         <Button
           leftContent={CheckIcon}
           text="Publish"
-          colorVariant={ButtonColorVariant.Green}
-          styleVariant={ButtonStyleVariant.Primary}
+          colorVariant="green"
+          styleVariant="primary"
         />
-      </StackItem>
-    </HStack>
+      </LegacyStackItem>
+    </LegacyHStack>
   ),
 
   name: 'Overview (as CTA)',
@@ -146,16 +123,16 @@ export const OverviewCTA: StoryObj<{}> = {
 
 export const OverviewFloating: StoryObj<{}> = {
   render: () => (
-    <HStack justify="center">
-      <StackItem>
+    <LegacyHStack justify="center">
+      <LegacyStackItem>
         <Button
           leftContent={ChevronDownIcon}
           text="New messages"
-          colorVariant={ButtonColorVariant.Cobalt}
-          styleVariant={ButtonStyleVariant.Floating}
+          colorVariant="cobalt"
+          styleVariant="floating"
         />
-      </StackItem>
-    </HStack>
+      </LegacyStackItem>
+    </LegacyHStack>
   ),
 
   name: 'Overview (as floating button)',
@@ -166,14 +143,14 @@ export const UsageCTA: StoryObj<{}> = {
     <ButtonGroup>
       <Button
         text="취소"
-        colorVariant={ButtonColorVariant.MonochromeLight}
-        styleVariant={ButtonStyleVariant.Secondary}
+        colorVariant="monochrome-light"
+        styleVariant="secondary"
       />
       <Button
         leftContent={PlayIcon}
         text="퍼블리시"
-        colorVariant={ButtonColorVariant.Green}
-        styleVariant={ButtonStyleVariant.Primary}
+        colorVariant="green"
+        styleVariant="primary"
       />
     </ButtonGroup>
   ),
@@ -187,24 +164,24 @@ export const UsageCTA2: StoryObj<{}> = {
       <Button
         text="임시 저장 삭제"
         disabled
-        colorVariant={ButtonColorVariant.MonochromeLight}
-        styleVariant={ButtonStyleVariant.Secondary}
+        colorVariant="monochrome-light"
+        styleVariant="secondary"
       />
       <Button
         text="임시 저장"
-        colorVariant={ButtonColorVariant.Blue}
-        styleVariant={ButtonStyleVariant.Secondary}
+        colorVariant="blue"
+        styleVariant="secondary"
       />
       <Button
         leftContent={PlayIcon}
         text="퍼블리시"
-        colorVariant={ButtonColorVariant.Green}
-        styleVariant={ButtonStyleVariant.Primary}
+        colorVariant="green"
+        styleVariant="primary"
       />
       <Button
         leftContent={CancelIcon}
-        colorVariant={ButtonColorVariant.MonochromeLight}
-        styleVariant={ButtonStyleVariant.Tertiary}
+        colorVariant="monochrome-light"
+        styleVariant="tertiary"
       />
     </ButtonGroup>
   ),
@@ -214,118 +191,119 @@ export const UsageCTA2: StoryObj<{}> = {
 
 export const UsageWebLinks: StoryObj<{}> = {
   render: () => (
-    <HStack justify="center" spacing={6}>
-      <StackItem>
+    <LegacyHStack
+      justify="center"
+      spacing={6}
+    >
+      <LegacyStackItem>
         <Button
           leftContent={OpenInNewIcon}
           text="See guide"
           rightContent={ArrowRightIcon}
-          styleVariant={ButtonStyleVariant.Tertiary}
+          styleVariant="tertiary"
         />
-      </StackItem>
-      <StackItem>
+      </LegacyStackItem>
+      <LegacyStackItem>
         <Button
           text="See guide"
           rightContent={ArrowRightIcon}
-          styleVariant={ButtonStyleVariant.Tertiary}
+          styleVariant="tertiary"
         />
-      </StackItem>
-      <StackItem>
+      </LegacyStackItem>
+      <LegacyStackItem>
         <Button
           leftContent={OpenInNewIcon}
           text="See guide"
-          styleVariant={ButtonStyleVariant.Tertiary}
+          styleVariant="tertiary"
         />
-      </StackItem>
-    </HStack>
+      </LegacyStackItem>
+    </LegacyHStack>
   ),
 
   name: 'Usage (as web link)',
 }
 
-const Card = styled.div`
-  width: 360px;
-  padding: 6px;
-  ${({ foundation }) => foundation?.elevation.ev3()}
-  ${({ foundation }) => foundation?.rounding.round12}
-`
-
 export const UsageComposite: StoryObj<{}> = {
   render: () => (
-    <HStack justify="center">
-      <StackItem>
-        <Card>
-          <VStack align="stretch">
-            <StackItem>
+    <LegacyHStack justify="center">
+      <LegacyStackItem>
+        <Box
+          width={360}
+          padding={6}
+          elevation="3"
+          borderRadius="12"
+        >
+          <LegacyVStack align="stretch">
+            <LegacyStackItem>
               <SectionLabel
-                leftContent={{ icon: PeopleIcon }}
+                leftContent={PeopleIcon}
                 content="태그 ∙ 2"
-                rightContent={(
+                rightContent={
                   <Button
-                    size={ButtonSize.XS}
+                    size="xs"
                     leftContent={ChevronDownIcon}
-                    styleVariant={ButtonStyleVariant.Tertiary}
-                    colorVariant={ButtonColorVariant.MonochromeLight}
+                    styleVariant="tertiary"
+                    colorVariant="monochrome-light"
                   />
-                )}
+                }
               />
-            </StackItem>
-            <StackItem>
+            </LegacyStackItem>
+            <LegacyStackItem>
               <ListItem
-                leftIcon={TagIcon}
+                leftContent={TagIcon}
                 content="KR/Product"
-                rightContent={(
-                  <HStack>
-                    <StackItem>
+                rightContent={
+                  <LegacyHStack>
+                    <LegacyStackItem>
                       <Button
-                        size={ButtonSize.XS}
+                        size="xs"
                         leftContent={EditIcon}
-                        styleVariant={ButtonStyleVariant.Tertiary}
-                        colorVariant={ButtonColorVariant.MonochromeLight}
+                        styleVariant="tertiary"
+                        colorVariant="monochrome-light"
                       />
-                    </StackItem>
-                    <StackItem>
+                    </LegacyStackItem>
+                    <LegacyStackItem>
                       <Button
-                        size={ButtonSize.XS}
+                        size="xs"
                         leftContent={CancelIcon}
-                        styleVariant={ButtonStyleVariant.Tertiary}
-                        colorVariant={ButtonColorVariant.MonochromeLight}
+                        styleVariant="tertiary"
+                        colorVariant="monochrome-light"
                       />
-                    </StackItem>
-                  </HStack>
-                )}
+                    </LegacyStackItem>
+                  </LegacyHStack>
+                }
               />
-            </StackItem>
-            <StackItem>
+            </LegacyStackItem>
+            <LegacyStackItem>
               <ListItem
-                leftIcon={TagIcon}
+                leftContent={TagIcon}
                 content="KR/Design"
-                rightContent={(
-                  <HStack>
-                    <StackItem>
+                rightContent={
+                  <LegacyHStack>
+                    <LegacyStackItem>
                       <Button
-                        size={ButtonSize.XS}
+                        size="xs"
                         leftContent={EditIcon}
-                        styleVariant={ButtonStyleVariant.Tertiary}
-                        colorVariant={ButtonColorVariant.MonochromeLight}
+                        styleVariant="tertiary"
+                        colorVariant="monochrome-light"
                       />
-                    </StackItem>
-                    <StackItem>
+                    </LegacyStackItem>
+                    <LegacyStackItem>
                       <Button
-                        size={ButtonSize.XS}
+                        size="xs"
                         leftContent={CancelIcon}
-                        styleVariant={ButtonStyleVariant.Tertiary}
-                        colorVariant={ButtonColorVariant.MonochromeLight}
+                        styleVariant="tertiary"
+                        colorVariant="monochrome-light"
                       />
-                    </StackItem>
-                  </HStack>
-                )}
+                    </LegacyStackItem>
+                  </LegacyHStack>
+                }
               />
-            </StackItem>
-          </VStack>
-        </Card>
-      </StackItem>
-    </HStack>
+            </LegacyStackItem>
+          </LegacyVStack>
+        </Box>
+      </LegacyStackItem>
+    </LegacyHStack>
   ),
 
   name: 'Usage (in composite components)',
@@ -333,16 +311,16 @@ export const UsageComposite: StoryObj<{}> = {
 
 export const UsageVariousContentsComposite: StoryObj<{}> = {
   render: () => (
-    <HStack justify="center">
-      <StackItem>
+    <LegacyHStack justify="center">
+      <LegacyStackItem>
         <Button
           leftContent={PlayIcon}
           text="퍼블리시"
           rightContent={ArrowRightIcon}
-          colorVariant={ButtonColorVariant.Green}
+          colorVariant="green"
         />
-      </StackItem>
-    </HStack>
+      </LegacyStackItem>
+    </LegacyHStack>
   ),
 
   name: 'Usage (with left/right contents)',
@@ -350,55 +328,53 @@ export const UsageVariousContentsComposite: StoryObj<{}> = {
 
 export const UsageVariousContentsIconOnly: StoryObj<{}> = {
   render: () => (
-    <HStack justify="center">
-      <StackItem>
+    <LegacyHStack justify="center">
+      <LegacyStackItem>
         <Button
           leftContent={PlusIcon}
-          colorVariant={ButtonColorVariant.MonochromeLight}
-          styleVariant={ButtonStyleVariant.Secondary}
+          colorVariant="monochrome-light"
+          styleVariant="secondary"
         />
-      </StackItem>
-    </HStack>
+      </LegacyStackItem>
+    </LegacyHStack>
   ),
 
   name: 'Usage (icon only button)',
 }
 
-const AlertBadge = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-  background-color: var(--bgtxt-red-dark);
-  border-radius: 50%;
-`
-
 export const UsageVariousContentsCustom: StoryObj<{}> = {
   render: () => (
-    <HStack justify="center">
-      <StackItem>
+    <LegacyHStack justify="center">
+      <LegacyStackItem>
         <Button
-          leftContent={(
+          leftContent={
             <Avatar
               name="channel"
-              avatarUrl="https://cf.channel.io/thumb/200x200/pub-file/1/606d87d059a6093594c0/ch-symbol-filled-smiley-bg.png"
-              status={StatusType.Online}
+              avatarUrl="https://cf.channel.io/thumb/200x200/pub-file/1/65fc43ee585607b276f6/tmp-3329819395"
+              status="online"
             />
-          )}
+          }
           text="New messages"
-          rightContent={(
-            <AlertBadge>
-              <Text typo={Typography.Size13} color="txt-white-normal">
+          rightContent={
+            <Center
+              style={{ borderRadius: '50%' }}
+              width={20}
+              height={20}
+              backgroundColor="bgtxt-red-dark"
+            >
+              <Text
+                typo="13"
+                color="txt-white-normal"
+              >
                 1
               </Text>
-            </AlertBadge>
-          )}
-          colorVariant={ButtonColorVariant.Red}
-          styleVariant={ButtonStyleVariant.Floating}
+            </Center>
+          }
+          colorVariant="red"
+          styleVariant="floating"
         />
-      </StackItem>
-    </HStack>
+      </LegacyStackItem>
+    </LegacyHStack>
   ),
 
   name: 'Usage (with custom contents)',
@@ -416,8 +392,8 @@ const AsyncActionButton = () => {
     <Button
       leftContent={PlayIcon}
       text="Click Me!"
-      colorVariant={ButtonColorVariant.Cobalt}
-      styleVariant={ButtonStyleVariant.Primary}
+      colorVariant="cobalt"
+      styleVariant="primary"
       loading={isFetching}
       disabled={isFetching}
       onClick={handleClick}
@@ -427,36 +403,32 @@ const AsyncActionButton = () => {
 
 export const UsageAsync: StoryObj<{}> = {
   render: () => (
-    <HStack justify="center">
-      <StackItem>
+    <LegacyHStack justify="center">
+      <LegacyStackItem>
         <AsyncActionButton />
-      </StackItem>
-    </HStack>
+      </LegacyStackItem>
+    </LegacyHStack>
   ),
 
   name: 'Usage (with asyncrhonous actions)',
 }
-
-const Dropdown = styled.div`
-  width: 200px;
-  padding: 6px;
-  ${({ foundation }) => foundation?.elevation.ev2()}
-  ${({ foundation }) => foundation?.rounding.round8}
-`
 
 const OpenDropdownButton = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [target, setTarget] = useState<HTMLElement | null>(null)
   const [container, setContainer] = useState<HTMLElement | null>(null)
   return (
-    <div style={{ position: 'relative' }} ref={setContainer}>
+    <div
+      style={{ position: 'relative' }}
+      ref={setContainer}
+    >
       <Button
         ref={setTarget}
         text="Select"
         rightContent={TriangleDownIcon}
         active={isOpen}
-        colorVariant={ButtonColorVariant.MonochromeLight}
-        styleVariant={ButtonStyleVariant.Tertiary}
+        colorVariant="monochrome-light"
+        styleVariant="tertiary"
         onClick={() => setIsOpen(true)}
       />
       <Overlay
@@ -464,12 +436,22 @@ const OpenDropdownButton = () => {
         onHide={() => setIsOpen(false)}
         target={target}
         container={container}
-        position={OverlayPosition.BottomLeft}
+        position="bottom-left"
         marginY={6}
       >
-        <Dropdown>
-          <Text typo={Typography.Size13} marginLeft={6}>Dropdown content</Text>
-        </Dropdown>
+        <Box
+          width={200}
+          padding={6}
+          elevation="2"
+          borderRadius="8"
+        >
+          <Text
+            typo="13"
+            marginLeft={6}
+          >
+            Dropdown content
+          </Text>
+        </Box>
       </Overlay>
     </div>
   )
@@ -477,11 +459,11 @@ const OpenDropdownButton = () => {
 
 export const UsageDropdown: StoryObj<{}> = {
   render: () => (
-    <HStack justify="center">
-      <StackItem>
+    <LegacyHStack justify="center">
+      <LegacyStackItem>
         <OpenDropdownButton />
-      </StackItem>
-    </HStack>
+      </LegacyStackItem>
+    </LegacyHStack>
   ),
 
   name: 'Usage (with dropdown)',
@@ -489,188 +471,240 @@ export const UsageDropdown: StoryObj<{}> = {
 
 export const VariantsColor: StoryObj<{}> = {
   render: () => (
-    <VStack spacing={16} align="start">
-      <StackItem>
-        <HStack spacing={24} align="center">
-          <StackItem size={80}>
-            <Text typo={Typography.Size13}>Blue</Text>
-          </StackItem>
-          <StackItem>
+    <LegacyVStack
+      spacing={16}
+      align="start"
+    >
+      <LegacyStackItem>
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
+          <LegacyStackItem size={80}>
+            <Text typo="13">Blue</Text>
+          </LegacyStackItem>
+          <LegacyStackItem>
             <Button
               leftContent={PlusIcon}
               text="Invite"
-              colorVariant={ButtonColorVariant.Blue}
+              colorVariant="blue"
             />
-          </StackItem>
-        </HStack>
-      </StackItem>
-      <StackItem>
-        <HStack spacing={24} align="center">
-          <StackItem size={80}>
-            <Text typo={Typography.Size13}>Red</Text>
-          </StackItem>
-          <StackItem>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
+          <LegacyStackItem size={80}>
+            <Text typo="13">Red</Text>
+          </LegacyStackItem>
+          <LegacyStackItem>
             <Button
               leftContent={TrashIcon}
               text="Remove"
-              colorVariant={ButtonColorVariant.Red}
+              colorVariant="red"
             />
-          </StackItem>
-        </HStack>
-      </StackItem>
-      <StackItem>
-        <HStack spacing={24} align="center">
-          <StackItem size={80}>
-            <Text typo={Typography.Size13}>Green</Text>
-          </StackItem>
-          <StackItem>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
+          <LegacyStackItem size={80}>
+            <Text typo="13">Green</Text>
+          </LegacyStackItem>
+          <LegacyStackItem>
             <Button
               leftContent={PlayIcon}
               text="Publish"
-              colorVariant={ButtonColorVariant.Green}
+              colorVariant="green"
             />
-          </StackItem>
-        </HStack>
-      </StackItem>
-      <StackItem>
-        <HStack spacing={24} align="center">
-          <StackItem size={80}>
-            <Text typo={Typography.Size13}>Cobalt</Text>
-          </StackItem>
-          <StackItem>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
+          <LegacyStackItem size={80}>
+            <Text typo="13">Cobalt</Text>
+          </LegacyStackItem>
+          <LegacyStackItem>
             <Button
               leftContent={VideocamIcon}
               text="Join"
-              colorVariant={ButtonColorVariant.Cobalt}
+              colorVariant="cobalt"
             />
-          </StackItem>
-        </HStack>
-      </StackItem>
-      <StackItem>
-        <HStack spacing={24} align="center">
-          <StackItem size={80}>
-            <Text typo={Typography.Size13}>Orange</Text>
-          </StackItem>
-          <StackItem>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
+          <LegacyStackItem size={80}>
+            <Text typo="13">Orange</Text>
+          </LegacyStackItem>
+          <LegacyStackItem>
             <Button
               leftContent={HeartFilledIcon}
               text="Warn"
-              colorVariant={ButtonColorVariant.Orange}
+              colorVariant="orange"
             />
-          </StackItem>
-        </HStack>
-      </StackItem>
-      <StackItem>
-        <HStack spacing={24} align="center">
-          <StackItem size={80}>
-            <Text typo={Typography.Size13}>Pink</Text>
-          </StackItem>
-          <StackItem>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
+          <LegacyStackItem size={80}>
+            <Text typo="13">Pink</Text>
+          </LegacyStackItem>
+          <LegacyStackItem>
             <Button
               leftContent={VideocamIcon}
               text="Pink"
-              colorVariant={ButtonColorVariant.Pink}
+              colorVariant="pink"
             />
-          </StackItem>
-        </HStack>
-      </StackItem>
-      <StackItem>
-        <HStack spacing={24} align="center">
-          <StackItem size={80}>
-            <Text typo={Typography.Size13}>Purple</Text>
-          </StackItem>
-          <StackItem>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
+          <LegacyStackItem size={80}>
+            <Text typo="13">Purple</Text>
+          </LegacyStackItem>
+          <LegacyStackItem>
             <Button
               leftContent={VideocamIcon}
               text="Purple"
-              colorVariant={ButtonColorVariant.Purple}
+              colorVariant="purple"
             />
-          </StackItem>
-        </HStack>
-      </StackItem>
-      <StackItem>
-        <HStack spacing={24} align="center">
-          <StackItem size={80}>
-            <Text typo={Typography.Size13}>Monochrome Dark</Text>
-          </StackItem>
-          <StackItem>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
+          <LegacyStackItem size={80}>
+            <Text typo="13">Monochrome Dark</Text>
+          </LegacyStackItem>
+          <LegacyStackItem>
             <Button
               leftContent={LightningIcon}
               text="Dark"
-              colorVariant={ButtonColorVariant.MonochromeDark}
+              colorVariant="monochrome-dark"
             />
-          </StackItem>
-        </HStack>
-      </StackItem>
-      <StackItem>
-        <HStack spacing={24} align="center">
-          <StackItem size={80}>
-            <Text typo={Typography.Size13}>Monochrome Light</Text>
-          </StackItem>
-          <StackItem>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+      <LegacyStackItem>
+        <LegacyHStack
+          spacing={24}
+          align="center"
+        >
+          <LegacyStackItem size={80}>
+            <Text typo="13">Monochrome Light</Text>
+          </LegacyStackItem>
+          <LegacyStackItem>
             <Button
               leftContent={LightningIcon}
               text="Light alpha"
-              colorVariant={ButtonColorVariant.MonochromeLight}
+              colorVariant="monochrome-light"
             />
-          </StackItem>
-        </HStack>
-      </StackItem>
-    </VStack>
+          </LegacyStackItem>
+        </LegacyHStack>
+      </LegacyStackItem>
+    </LegacyVStack>
   ),
 
   name: 'Color variants',
 }
 
+const buttonStyleVariants: ButtonStyleVariant[] = [
+  'primary',
+  'secondary',
+  'tertiary',
+  'floating',
+  'floating-alt',
+]
+
 export const VariantsStyle: StoryObj<{}> = {
   render: () => (
-    <VStack spacing={16} align="start">
-      { Object.entries(ButtonStyleVariant).map(([key, styleVariant]) => (
-        <StackItem key={styleVariant}>
-          <HStack spacing={24} align="center">
-            <StackItem size={80}>
-              <Text typo={Typography.Size13}>{ key }</Text>
-            </StackItem>
-            <StackItem>
+    <LegacyVStack
+      spacing={16}
+      align="start"
+    >
+      {buttonStyleVariants.map((styleVariant) => (
+        <LegacyStackItem key={styleVariant}>
+          <LegacyHStack
+            spacing={24}
+            align="center"
+          >
+            <LegacyStackItem size={80}>
+              <Text typo="13">{styleVariant}</Text>
+            </LegacyStackItem>
+            <LegacyStackItem>
               <Button
                 leftContent={PlusIcon}
                 rightContent={ChevronRightIcon}
                 text="Invite"
-                colorVariant={ButtonColorVariant.Blue}
+                colorVariant="blue"
                 styleVariant={styleVariant}
               />
-            </StackItem>
-          </HStack>
-        </StackItem>
-      )) }
-    </VStack>
+            </LegacyStackItem>
+          </LegacyHStack>
+        </LegacyStackItem>
+      ))}
+    </LegacyVStack>
   ),
 
   name: 'Style variants',
 }
 
+const buttonSizes: ButtonSize[] = ['xs', 's', 'm', 'l', 'xl']
+
 export const VariantsSize: StoryObj<{}> = {
   render: () => (
-    <VStack spacing={16} align="start">
-      { Object.entries(ButtonSize).map(([key, size]) => (
-        <StackItem key={key}>
-          <HStack spacing={24} align="center">
-            <StackItem size={80}>
-              <Text typo={Typography.Size13}>{ key }</Text>
-            </StackItem>
-            <StackItem>
+    <LegacyVStack
+      spacing={16}
+      align="start"
+    >
+      {buttonSizes.map((size) => (
+        <LegacyStackItem key={size}>
+          <LegacyHStack
+            spacing={24}
+            align="center"
+          >
+            <LegacyStackItem size={80}>
+              <Text typo="13">{size}</Text>
+            </LegacyStackItem>
+            <LegacyStackItem>
               <Button
                 leftContent={CalendarIcon}
                 rightContent={TriangleDownIcon}
                 text="Join"
                 size={size}
-                colorVariant={ButtonColorVariant.Blue}
+                colorVariant="blue"
               />
-            </StackItem>
-          </HStack>
-        </StackItem>
-      )) }
-    </VStack>
+            </LegacyStackItem>
+          </LegacyHStack>
+        </LegacyStackItem>
+      ))}
+    </LegacyVStack>
   ),
 
   name: 'Size variants',

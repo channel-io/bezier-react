@@ -1,0 +1,13 @@
+.Box {
+  &:where(.display-block) {
+    display: block;
+  }
+
+  &:where(.display-inline-block) {
+    display: inline-block;
+  }
+
+  &:where(.display-inline) {
+    display: inline;
+  }
+}

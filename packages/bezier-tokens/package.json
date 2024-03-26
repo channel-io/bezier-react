@@ -1,0 +1,59 @@
+{
+  "name": "@channel.io/bezier-tokens",
+  "version": "0.1.0-alpha.5",
+  "description": "Design tokens for Bezier design system.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/channel-io/bezier-react",
+    "directory": "packages/bezier-tokens"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/types/cjs/index.d.ts",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/types/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      },
+      "import": {
+        "types": "./dist/types/esm/index.d.mts",
+        "default": "./dist/esm/index.mjs"
+      }
+    },
+    "./css/*": "./dist/css/*"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "run-s clean:build build:tokens build:web build:types",
+    "build:tokens": "ts-node-esm scripts/build-tokens.ts",
+    "build:web": "run-p 'build:web:*'",
+    "build:web:index-js": "ts-node-esm scripts/build-js-index.ts",
+    "build:web:index-css": "ts-node-esm scripts/build-css-index.ts",
+    "build:types": "tsc -p tsconfig.build.json",
+    "lint": "TIMING=1 eslint --cache .",
+    "typecheck": "tsc --noEmit",
+    "clean": "run-s 'clean:*'",
+    "clean:build": "rm -rf dist",
+    "clean:cache": "rm -rf node_modules .turbo .eslintcache"
+  },
+  "keywords": [
+    "channel",
+    "design",
+    "tokens",
+    "design tokens"
+  ],
+  "author": "Channel Corp.",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "eslint-config-bezier": "workspace:*",
+    "minimatch": "^9.0.3",
+    "style-dictionary": "^3.9.2",
+    "tsconfig": "workspace:*"
+  }
+}

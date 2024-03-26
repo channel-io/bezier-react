@@ -1,38 +1,44 @@
-import { dirname, join } from "path"
+import { dirname, join } from 'path'
 
-import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 import { type StorybookConfig } from '@storybook/react-webpack5'
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 
-function getAbsolutePath(value) {
-  return dirname(require.resolve(join(value, "package.json")))
+function getAbsolutePath(value: string) {
+  return dirname(require.resolve(join(value, 'package.json')))
 }
 
-const config: StorybookConfig = {
-  stories: [
-    '../src/**/*.stories.(tsx|mdx)',
-  ],
+export default {
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.tsx'],
 
   addons: [
-    getAbsolutePath("@storybook/addon-controls"),
-    getAbsolutePath("@storybook/addon-actions"),
-    getAbsolutePath("@storybook/addon-a11y"),
-    getAbsolutePath("@storybook/addon-toolbars"),
-    getAbsolutePath("@storybook/addon-docs"),
-    getAbsolutePath("@storybook/addon-backgrounds"),
+    getAbsolutePath('@storybook/addon-controls'),
+    getAbsolutePath('@storybook/addon-actions'),
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/addon-docs'),
+    getAbsolutePath('@storybook/addon-measure'),
+    getAbsolutePath('@storybook/addon-outline'),
+    {
+      name: '@storybook/addon-styling',
+      options: {
+        sass: {
+          implementation: require('sass'),
+        },
+      },
+    },
   ],
 
   typescript: {
     /**
-     * @note
-     *
      * `react-docgen-typescript-plugin` introduces significant overhead
      * when HMR is enabled, so we enable it only in production.
      */
-    reactDocgen: process.env.NODE_ENV === 'production' && 'react-docgen-typescript',
+    reactDocgen:
+      process.env.NODE_ENV === 'production' && 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldRemoveUndefinedFromOptional: true,
       shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+      propFilter: (prop) =>
+        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
 
@@ -41,27 +47,24 @@ const config: StorybookConfig = {
       ...config.resolve,
       // Apply tsconfig alias path
       plugins: [
-      ...(config?.resolve?.plugins ?? []),
-      new TsconfigPathsPlugin({}),
+        ...(config?.resolve?.plugins ?? []),
+        new TsconfigPathsPlugin({}),
       ],
-      extensions: [
-        ...(config.resolve?.extensions ?? []),
-        '.ts',
-        '.tsx',
-      ]
+      extensions: [...(config.resolve?.extensions ?? []), '.ts', '.tsx'],
     }
 
     config.module = {
       ...config.module,
       rules: [
-        ...(config.module?.rules ?? []), {
-        test: /\.(ts|tsx)$/,
-        loader: require.resolve('babel-loader'),
-        options: {
-          presets: [['react-app', { flow: false, typescript: true }]],
-          }
-        }
-      ]
+        ...(config.module?.rules ?? []),
+        {
+          test: /\.(ts|tsx)$/,
+          loader: require.resolve('babel-loader'),
+          options: {
+            presets: [['react-app', { flow: false, typescript: true }]],
+          },
+        },
+      ],
     }
 
     return config
@@ -69,12 +72,10 @@ const config: StorybookConfig = {
 
   framework: {
     name: '@storybook/react-webpack5',
-    options: {}
+    options: {},
   },
 
   docs: {
-    autodocs: true
-  }
-}
-
-export default config
+    autodocs: true,
+  },
+} as StorybookConfig

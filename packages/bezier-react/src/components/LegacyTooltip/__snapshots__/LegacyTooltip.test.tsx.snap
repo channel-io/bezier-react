@@ -1,181 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tooltip test > Tooltip with contentInterpolation prop 1`] = `
-.c4 {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: inherit;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c0 {
-  position: relative;
-}
-
-.c1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1300;
-}
-
-.c2 {
-  box-sizing: border-box;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  max-width: 260px;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  padding: 8px 14px;
-  color: #FFFFFFCC;
-  word-break: normal;
-  word-wrap: break-word;
-  background-color: #313234;
-  box-shadow: inset 0 0 2px 0 #FFFFFF14, 0 0 2px 1px #00000014, 0 2px 6px #00000026;
-  overflow: hidden;
-  border-radius: 8px;
-  background-color: black;
-}
-
-.c3 {
-  display: -webkit-box;
-  max-height: 36rem;
-  overflow: hidden;
-  line-height: 1.8rem;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 20;
-}
-
-<body>
-  <div>
-    <div
-      class="c0"
-      data-testid="bezier-react-tooltip"
-    >
-      Text
-    </div>
-  </div>
-  <div
-    class="c1"
-    style="position: fixed; top: 4px; left: 0px; transform: translate(-50%, 0%);"
-  >
-    <div
-      class="c2"
-      data-testid="bezier-react-tooltip-content"
-    >
-      <div
-        class="c3"
-      >
-        <span
-          class="c4"
-          data-testid="bezier-react-text"
-        >
-          Hovered
-        </span>
-      </div>
-    </div>
-  </div>
-</body>
-`;
-
 exports[`Tooltip test > Tooltip with default props 1`] = `
-.c4 {
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  margin: 0px 0px 0px 0px;
-  font-style: normal;
-  font-weight: normal;
-  color: inherit;
-  -webkit-transition-delay: 0ms;
-  transition-delay: 0ms;
-  -webkit-transition-timing-function: cubic-bezier(.3,0,0,1);
-  transition-timing-function: cubic-bezier(.3,0,0,1);
-  -webkit-transition-duration: 150ms;
-  transition-duration: 150ms;
-  -webkit-transition-property: color;
-  transition-property: color;
-}
-
-.c0 {
-  position: relative;
-}
-
-.c1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1300;
-}
-
-.c2 {
-  box-sizing: border-box;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  max-width: 260px;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  padding: 8px 14px;
-  color: #FFFFFFCC;
-  word-break: normal;
-  word-wrap: break-word;
-  background-color: #313234;
-  box-shadow: inset 0 0 2px 0 #FFFFFF14, 0 0 2px 1px #00000014, 0 2px 6px #00000026;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.c3 {
-  display: -webkit-box;
-  max-height: 36rem;
-  overflow: hidden;
-  line-height: 1.8rem;
-  text-overflow: ellipsis;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 20;
-}
-
 <body>
   <div>
     <div
-      class="c0"
-      data-testid="bezier-react-tooltip"
+      class="LegacyTooltip"
+      data-testid="bezier-tooltip"
     >
       Text
     </div>
   </div>
   <div
-    class="c1"
+    class="LegacyTooltipContentWrapper"
+    data-bezier-theme="dark"
     style="position: fixed; top: 4px; left: 0px; transform: translate(-50%, 0%);"
   >
     <div
-      class="c2"
-      data-testid="bezier-react-tooltip-content"
+      class="LegacyTooltipContent"
+      data-testid="bezier-tooltip-content"
     >
-      <div
-        class="c3"
+      <span
+        class="Text typo-13 multi-line-truncated margin"
+        data-testid="bezier-text"
+        style="--b-text-color: var(--txt-black-darkest); --b-text-line-clamp: 20;"
       >
         <span
-          class="c4"
-          data-testid="bezier-react-text"
+          class="Text typo-14 margin"
+          data-testid="bezier-text"
         >
           Hovered
         </span>
-      </div>
+      </span>
     </div>
   </div>
 </body>

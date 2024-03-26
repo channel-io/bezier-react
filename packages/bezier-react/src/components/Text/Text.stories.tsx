@@ -1,83 +1,53 @@
 import React from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-} from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
-import Text from './Text'
-import type TextProps from './Text.types'
+import { Box } from '~/src/components/Box'
+
+import { Text } from './Text'
+import { type TextProps } from './Text.types'
 
 const meta: Meta<typeof Text> = {
   component: Text,
-  argTypes: {
-    /**
-     * FIXME:
-     * storybook controls 에서 styled-components 의 css ReturnType 를
-     * select options 의 entity 로 지원하지 않는 듯 함.
-     * 임시로 typo 를 controls 에서 제거하였음.
-     */
-    typo: { table: { disable: true } },
-    as: {
-      control: {
-        type: 'select',
-      },
-      options: [
-        undefined,
-        'h1',
-        'h2',
-        'button',
-      ],
-    },
-
-    style: { control: 'object' },
-  },
 }
-export default meta
 
-const Template: StoryFn<TextProps> = ({ children, ...otherTextProps }) => (
-  <Text {...otherTextProps}>{ children }</Text>
+const Template: StoryFn<TextProps> = ({ children, ...rest }) => (
+  <Box width={200}>
+    <Text {...rest}>{children}</Text>
+  </Box>
 )
 
-export const Primary = {
+export const Primary: StoryObj<typeof Text> = {
   render: Template,
-
   args: {
-    as: undefined,
     bold: false,
     italic: false,
     truncated: false,
-    style: { color: 'gray' },
-    children: 'hello',
-    marginTop: 0,
-    marginRight: 0,
-    marginBottom: 0,
-    marginLeft: 0,
-    marginVertical: 0,
-    marginHorizontal: 0,
-    marginAll: 0,
+    color: 'txt-black-darkest',
+    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    typo: '15',
   },
 }
 
-const Truncated: StoryFn<TextProps & { width: string }> = ({
-  children,
-  width,
-  ...otherTextProps
-}) => (
-  <div style={{ width }}>
-    <Text {...otherTextProps}>{ children }</Text>
-  </div>
+const MultiLineTruncated: StoryFn<TextProps> = ({ children, ...rest }) => (
+  <Box width={200}>
+    <Text
+      {...rest}
+      color="txt-black-darkest"
+    >
+      {children}
+    </Text>
+  </Box>
 )
 
-export const Secondary = {
-  render: Truncated,
-
+export const Secondary: StoryObj<typeof Text> = {
+  render: MultiLineTruncated,
   args: {
-    width: '100px',
-    truncated: true,
-    style: { color: 'gray' },
-    children: 'test truncated long text',
+    truncated: 4,
+    children:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dolor nunc, bibendum vel neque eget, facilisis ornare justo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In laoreet ipsum in commodo eleifend. Duis vestibulum, nulla ut tincidunt molestie, eros massa commodo risus, non sollicitudin turpis diam vitae elit.',
   },
-
-  name: 'Usage (truncated)',
+  name: 'Multi-line truncated',
 }
+
+export default meta

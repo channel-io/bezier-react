@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Badge test > Snapshot > 1`] = `
+<div
+  class="BaseTagBadge size-m variant-default"
+  data-testid="bezier-badge"
+/>
+`;

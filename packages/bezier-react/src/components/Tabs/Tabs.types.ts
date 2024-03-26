@@ -5,19 +5,15 @@ import {
   type ChildrenProps,
   type DisableProps,
   type SizeProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
-export enum TabSize {
-  L = 'L',
-  M = 'M',
-  S = 'S',
-}
+export type TabSize = 'l' | 'm' | 's'
 
 export interface TabListContextValue {
   size: TabSize
 }
 
-interface TabsOptions {
+interface TabsOwnProps {
   /**
    * When automatic, tabs are activated when receiving focus.
    * When manual, tabs are activated when clicked.
@@ -38,7 +34,7 @@ interface TabsOptions {
   onValueChange?: (value: string) => void
 }
 
-interface TabActionOptions<Link extends string | undefined> {
+interface TabActionOwnProps<Link extends string | undefined> {
   /**
    * TabAction acts as a link when href is given, otherwise as a button.
    */
@@ -46,59 +42,60 @@ interface TabActionOptions<Link extends string | undefined> {
   /**
    * Event handler called when tab action is clicked.
    */
-  onClick?: Link extends string ? never : React.MouseEventHandler<HTMLButtonElement>
+  onClick?: Link extends string
+    ? never
+    : React.MouseEventHandler<HTMLButtonElement>
 }
 
-interface TabItemOptions {
+interface TabItemOwnProps {
   /**
    * A unique value that associates the trigger with a content.
    */
   value: string
 }
 
-interface TabContentOptions {
+interface TabContentOwnProps {
   /**
    * A unique value that associates the trigger with a content.
    */
   value: string
 }
 
-export interface TabsProps extends
-  ChildrenProps,
-  BezierComponentProps,
-  TabsOptions {}
+export interface TabsProps
+  extends Omit<BezierComponentProps<'div'>, keyof TabsOwnProps>,
+    ChildrenProps,
+    TabsOwnProps {}
 
-export interface TabListProps extends
-  ChildrenProps,
-  BezierComponentProps,
-  SizeProps<TabSize>,
-  React.HTMLAttributes<HTMLDivElement> {}
+export interface TabListProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    SizeProps<TabSize> {}
 
-export interface TabItemsProps extends
-  ChildrenProps,
-  BezierComponentProps,
-  React.HTMLAttributes<HTMLDivElement> {}
+export interface TabItemsProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps {}
 
-export interface TabItemProps extends
-  ChildrenProps,
-  BezierComponentProps,
-  DisableProps,
-  React.HTMLAttributes<HTMLButtonElement>,
-  TabItemOptions {}
+export interface TabItemProps
+  extends Omit<BezierComponentProps<'button'>, keyof TabItemOwnProps>,
+    ChildrenProps,
+    DisableProps,
+    TabItemOwnProps {}
 
-export interface TabActionsProps extends
-  BezierComponentProps,
-  ChildrenProps {}
+export interface TabActionsProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps {}
 
-export type TabActionElement<Link> = [Link] extends [string] ? HTMLAnchorElement : HTMLButtonElement
+export type TabActionElement<Link> = [Link] extends [string]
+  ? HTMLAnchorElement
+  : HTMLButtonElement
 
-export interface TabActionProps<Link extends string | undefined> extends
-  ChildrenProps,
-  BezierComponentProps,
-  TabActionOptions<Link>,
-  Omit<React.HTMLAttributes<TabActionElement<Link>>, 'onClick'> {}
+export interface TabActionProps<Link extends string | undefined>
+  extends Omit<BezierComponentProps, keyof React.HTMLAttributes<HTMLElement>>,
+    ChildrenProps,
+    TabActionOwnProps<Link>,
+    Omit<React.HTMLAttributes<TabActionElement<Link>>, 'onClick'> {}
 
-export interface TabContentProps extends
-  ChildrenProps,
-  BezierComponentProps,
-  TabContentOptions {}
+export interface TabContentProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    TabContentOwnProps {}

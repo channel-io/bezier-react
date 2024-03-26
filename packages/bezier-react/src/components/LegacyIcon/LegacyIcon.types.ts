@@ -20,6 +20,6 @@ interface LegacyIconOptions {
  * import { LegacyIcon, type LegacyIconProps } from '@channel.io/bezier-react'
  * <LegacyIcon name="all" color="bg-black-dark" />
  */
-export default interface LegacyIconProps extends
-  Omit<IconProps, 'source'>,
-  LegacyIconOptions {}
+export interface LegacyIconProps
+  extends Omit<IconProps, 'source' | keyof LegacyIconOptions>,
+    LegacyIconOptions {}

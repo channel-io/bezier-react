@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavItem Test > Snapshot > Active 1`] = `
+<a
+  class="Item active"
+  data-testid="bezier-nav-item"
+  role="menuitem"
+  target="_self"
+>
+  <div
+    class="LeftIconWrapper"
+  >
+    <svg
+      class="Icon margin"
+      data-testid="bezier-nav-item-left-icon"
+      fill="none"
+      height="20"
+      style="--b-icon-color: var(--bgtxt-blue-normal);"
+      viewBox="0 0 24 24"
+      width="20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </div>
+  <span
+    class="Text typo-14 truncated margin"
+    data-testid="bezier-text"
+  >
+    test-content
+  </span>
+</a>
+`;
+
+exports[`NavItem Test > Snapshot > Not active 1`] = `
+<a
+  class="Item"
+  data-testid="bezier-nav-item"
+  role="menuitem"
+  target="_self"
+>
+  <div
+    class="LeftIconWrapper"
+  >
+    <svg
+      class="Icon margin"
+      data-testid="bezier-nav-item-left-icon"
+      fill="none"
+      height="20"
+      style="--b-icon-color: var(--txt-black-dark);"
+      viewBox="0 0 24 24"
+      width="20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+  </div>
+  <span
+    class="Text typo-14 truncated margin"
+    data-testid="bezier-text"
+  >
+    test-content
+  </span>
+</a>
+`;

@@ -1,0 +1,38 @@
+.Grid {
+  position: relative;
+
+  display: grid;
+  grid-column-gap: 12px;
+  grid-template-columns: 150px 1fr;
+  grid-template-rows: repeat(2, auto);
+  align-items: center;
+}
+
+.FormLabelWrapper {
+  &.position-top {
+    box-sizing: border-box;
+    margin-bottom: 4px;
+    padding: 0 2px;
+  }
+
+  &.position-left {
+    display: flex;
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    align-items: center;
+    align-self: start;
+
+    height: var(--b-form-field-size);
+  }
+}
+
+.FormHelperTextWrapper {
+  box-sizing: border-box;
+  margin-top: 4px;
+  padding: 0 2px;
+
+  &.position-left {
+    grid-column: 2;
+    grid-row: 2 / 2;
+  }
+}

@@ -1,0 +1,321 @@
+$chromatic-color-variants: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink',
+  'purple';
+$active-selector: ':where(.active, :hover):where(:not(:disabled))';
+
+.Button {
+  position: relative;
+  box-sizing: border-box;
+  transition:
+    background-color var(--transition-s),
+    box-shadow var(--transition-s);
+
+  /* Size */
+  &:where(.size-xs) {
+    min-width: 20px;
+    height: 20px;
+    padding: 0 2px;
+
+    &:where(.style-floating, .style-floating-alt) {
+      padding: 0 7px;
+    }
+  }
+
+  &:where(.size-s) {
+    min-width: 24px;
+    height: 24px;
+    padding: 0 4px;
+
+    &:where(.style-floating, .style-floating-alt) {
+      padding: 0 9px;
+    }
+  }
+
+  &:where(.size-m) {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 10px;
+
+    &:where(.style-floating, .style-floating-alt) {
+      padding: 0 14px;
+    }
+  }
+
+  &:where(.size-l) {
+    min-width: 44px;
+    height: 44px;
+    padding: 0 12px;
+
+    &:where(.style-floating, .style-floating-alt) {
+      padding: 0 18px;
+    }
+  }
+
+  &:where(.size-xl) {
+    min-width: 54px;
+    height: 54px;
+    padding: 0 20px;
+
+    &:where(.style-floating, .style-floating-alt) {
+      padding: 0 23px;
+    }
+  }
+
+  &:where(.size-xs, .size-s) {
+    & :where(.ButtonText) {
+      padding: 0 3px;
+    }
+  }
+
+  &:where(.size-m, .size-l, .size-xl) {
+    & :where(.ButtonContent) {
+      gap: 2px;
+    }
+
+    & :where(.ButtonText) {
+      padding: 0 4px;
+    }
+  }
+
+  /* Color variants */
+  &:where(.style-primary) {
+    @each $color-variant in $chromatic-color-variants {
+      &:where(.color-#{$color-variant}) {
+        color: var(--bgtxt-absolute-white-dark);
+        background-color: var(--bgtxt-#{$color-variant}-normal);
+
+        &#{$active-selector} {
+          background-color: var(--bgtxt-#{$color-variant}-dark);
+        }
+      }
+    }
+
+    &:where(.color-monochrome) {
+      color: var(--bgtxt-absolute-white-dark);
+      background-color: var(--bgtxt-absolute-black-lightest);
+
+      &#{$active-selector} {
+        background-color: var(--bgtxt-absolute-black-lighter);
+      }
+    }
+
+    &:where(.color-monochrome-light) {
+      color: var(--bgtxt-absolute-white-dark);
+      background-color: var(--bg-black-darker);
+    }
+
+    &:where(.color-monochrome-dark) {
+      color: var(--txt-white-normal);
+      background-color: var(--bg-grey-darkest);
+    }
+  }
+
+  &:where(.style-secondary) {
+    @each $color-variant in $chromatic-color-variants {
+      &:where(.color-#{$color-variant}) {
+        color: var(--bgtxt-#{$color-variant}-normal);
+        background-color: var(--bgtxt-#{$color-variant}-lightest);
+
+        &#{$active-selector} {
+          background-color: var(--bgtxt-#{$color-variant}-lighter);
+        }
+      }
+    }
+
+    &:where(.color-monochrome) {
+      color: var(--txt-black-darkest);
+      background-color: var(--bg-black-lighter);
+
+      &#{$active-selector} {
+        background-color: var(--bg-black-light);
+      }
+    }
+
+    &:where(.color-monochrome-light) {
+      color: var(--txt-black-darker);
+      background-color: var(--bg-black-lighter);
+
+      &#{$active-selector} {
+        background-color: var(--bg-black-light);
+      }
+    }
+
+    &:where(.color-monochrome-dark) {
+      color: var(--txt-black-darkest);
+      background-color: var(--bg-black-lighter);
+
+      &#{$active-selector} {
+        background-color: var(--bg-black-light);
+      }
+    }
+  }
+
+  &:where(.style-tertiary) {
+    background-color: transparent;
+
+    @each $color-variant in $chromatic-color-variants {
+      &:where(.color-#{$color-variant}) {
+        color: var(--bgtxt-#{$color-variant}-normal);
+
+        &#{$active-selector} {
+          color: var(--bgtxt-#{$color-variant}-dark);
+          background-color: var(--bgtxt-#{$color-variant}-lightest);
+        }
+      }
+    }
+
+    &:where(.color-monochrome) {
+      color: var(--txt-black-darkest);
+
+      &#{$active-selector} {
+        background-color: var(--bg-black-lightest);
+      }
+    }
+
+    &:where(.color-monochrome-light) {
+      color: var(--txt-black-darker);
+
+      &#{$active-selector} {
+        background-color: var(--bg-black-lighter);
+      }
+    }
+
+    &:where(.color-monochrome-dark) {
+      color: var(--txt-black-darkest);
+
+      &#{$active-selector} {
+        background-color: var(--bg-black-lighter);
+      }
+    }
+  }
+
+  &:where(.style-floating, .style-floating-alt) {
+    @each $color-variant in $chromatic-color-variants {
+      &:where(.color-#{$color-variant}) {
+        color: var(--bgtxt-absolute-white-dark);
+        background-color: var(--bgtxt-#{$color-variant}-normal);
+
+        &#{$active-selector} {
+          background-color: var(--bgtxt-#{$color-variant}-dark);
+        }
+      }
+    }
+
+    &:where(.color-monochrome) {
+      color: var(--txt-black-darkest);
+      background-color: var(--bg-white-low);
+    }
+
+    &:where(.color-monochrome-light) {
+      color: var(--txt-black-darker);
+      background-color: var(--bg-white-high);
+    }
+
+    &:where(.color-monochrome-dark) {
+      color: var(--txt-black-darkest);
+      background-color: var(--bg-white-high);
+    }
+  }
+
+  /* Effect */
+  &:where(.style-primary, .style-secondary, .style-tertiary) {
+    &:where(.size-xs) {
+      border-radius: var(--radius-6);
+    }
+
+    &:where(.size-s, .size-m) {
+      border-radius: var(--radius-8);
+    }
+
+    &:where(.size-l) {
+      border-radius: var(--radius-12);
+    }
+
+    &:where(.size-xl) {
+      border-radius: var(--radius-16);
+    }
+  }
+
+  &:where(.style-floating) {
+    overflow: hidden;
+    border-radius: 9999px;
+  }
+
+  &:where(.style-floating-alt) {
+    border-radius: var(--radius-8);
+  }
+
+  /* Hover styles for text, icon, and loader */
+  &:where(.color-monochrome):where(.style-secondary, .style-tertiary):where(
+      :not(.active, :hover)
+    ) {
+    &:where(.size-s, .size-xs) .ButtonText {
+      color: var(--txt-black-darker);
+    }
+
+    &:where(.size-s, .size-xs) :is(.ButtonIcon, .ButtonLoader) {
+      color: var(--txt-black-dark);
+    }
+
+    &:where(.size-m, .size-l, .size-xl) :is(.ButtonIcon, .ButtonLoader) {
+      color: var(--txt-black-darker);
+    }
+  }
+
+  &:where(.color-monochrome-light):where(
+      .style-secondary,
+      .style-tertiary,
+      .style-floating
+    ):where(:not(.active, :hover)) {
+    & :is(.ButtonIcon, .ButtonLoader) {
+      color: var(--txt-black-dark);
+    }
+  }
+
+  &:where(.color-monochrome-dark):where(
+      .style-secondary,
+      .style-tertiary,
+      .style-floating
+    ):where(:not(.active, :hover)) {
+    & :is(.ButtonIcon, .ButtonLoader) {
+      color: var(--txt-black-darker);
+    }
+  }
+
+  /* NOTE: If there is no text, button is square, so padding is 0 */
+  &:not(:has(.ButtonText)) {
+    padding: 0;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:is(.style-floating, .style-floating-alt) {
+    box-shadow: var(--ev-2);
+
+    &:where(:hover) {
+      box-shadow: var(--ev-3);
+    }
+  }
+}
+
+.ButtonContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* NOTE: Using the visibility property to preserve content area while loading */
+  &:where(.loading) {
+    visibility: hidden;
+  }
+}
+
+.ButtonLoader {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

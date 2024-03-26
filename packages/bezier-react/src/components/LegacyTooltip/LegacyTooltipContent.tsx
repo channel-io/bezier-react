@@ -1,67 +1,46 @@
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react'
-
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import ReactDOM from 'react-dom'
 
-import { Typography } from '~/src/foundation'
+import classNames from 'classnames'
 
 import useEventHandler from '~/src/hooks/useEventHandler'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { useWindow } from '~/src/providers/WindowProvider'
-import {
-  isArray,
-  isEmpty,
-  isString,
-} from '~/src/utils/type'
+import { isArray, isEmpty, isString } from '~/src/utils/type'
 
 import { Text } from '~/src/components/Text'
+import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
+import { useRootElement } from '~/src/components/WindowProvider'
 
-import {
-  type LegacyTooltipContentProps,
-  LegacyTooltipPosition,
-} from './LegacyTooltip.types'
-import {
-  getReplacement,
-  getTooltipStyle,
-} from './utils'
+import { type LegacyTooltipContentProps } from './LegacyTooltip.types'
+import { getReplacement, getTooltipStyle } from './utils'
 
-import {
-  Content,
-  ContentWrapper,
-  EllipsisableContent,
-} from './LegacyTooltip.styled'
+import styles from './LegacyTooltip.module.scss'
 
 function getNewLineComponent(strContent: string) {
-  return (
-    strContent.split('\n').map((str, index) => {
-      if (index === 0) {
-        return (
-          <Text key={str} typo={Typography.Size14}>
-            { str }
-          </Text>
-        )
-      }
-
+  return strContent.split('\n').map((str, index) => {
+    if (index === 0) {
       return (
-        <React.Fragment key={str}>
-          <br />
-          <Text typo={Typography.Size14}>
-            { str }
-          </Text>
-        </React.Fragment>
+        <Text
+          key={str}
+          typo="14"
+        >
+          {str}
+        </Text>
       )
-    })
-  )
+    }
+
+    return (
+      <React.Fragment key={str}>
+        <br />
+        <Text typo="14">{str}</Text>
+      </React.Fragment>
+    )
+  })
 }
 
 function getContentComponent(content?: React.ReactNode) {
   if (isArray(content)) {
-    return content.map(item => {
+    return content.map((item) => {
       if (isString(item)) {
         return getNewLineComponent(item)
       }
@@ -80,33 +59,39 @@ function getContentComponent(content?: React.ReactNode) {
 export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
   as,
   content,
+  contentStyle,
   contentClassName,
-  contentInterpolation,
+  contentWrapperClassName,
   contentWrapperStyle: givenContentWrapperStyle,
   disabled = false,
   keepInContainer = false,
-  placement = LegacyTooltipPosition.BottomCenter,
+  placement = 'bottom-center',
   tooltipContainer,
   offset = 4,
   allowHover = false,
-  testId,
   forwardedRef,
+  ...rest
 }) => {
-  const { rootElement } = useWindow()
+  const rootElement = useRootElement()
 
   const tooltipRef = useRef<HTMLDivElement>(null)
   const tooltipWrapperRef = useRef<HTMLDivElement>(null)
   const mergedRef = useMergeRefs<HTMLDivElement>(tooltipRef, forwardedRef)
   const [replacement, setReplacement] = useState(placement)
 
-  const handleClickTooltip = useCallback((event: HTMLElementEventMap['click']) => {
-    event.stopPropagation()
-  }, [])
+  const handleClickTooltip = useCallback(
+    (event: HTMLElementEventMap['click']) => {
+      event.stopPropagation()
+    },
+    []
+  )
 
   useEventHandler(tooltipRef.current, 'click', handleClickTooltip)
 
   useEffect(() => {
-    if (!tooltipRef.current) { return }
+    if (!tooltipRef.current) {
+      return
+    }
     const newPlacement = getReplacement({
       tooltip: tooltipRef.current,
       keepInContainer,
@@ -114,13 +99,12 @@ export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
       rootElement,
     })
     setReplacement(newPlacement)
-  }, [
-    rootElement,
-    keepInContainer,
-    placement,
-  ])
+  }, [rootElement, keepInContainer, placement])
 
-  const ContentComponent = useMemo(() => getContentComponent(content), [content])
+  const ContentComponent = useMemo(
+    () => getContentComponent(content),
+    [content]
+  )
 
   const contentWrapperStyle = useMemo(() => {
     if (tooltipContainer) {
@@ -144,27 +128,35 @@ export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
     allowHover,
   ])
 
-  return (
-    ReactDOM.createPortal(
-      <ContentWrapper
-        ref={tooltipWrapperRef}
-        disabled={disabled || isEmpty(content)}
+  const Comp = as ?? 'div'
+
+  return ReactDOM.createPortal(
+    <InvertedThemeProvider>
+      <div
         style={contentWrapperStyle}
+        className={classNames(
+          styles.LegacyTooltipContentWrapper,
+          (disabled || isEmpty(content)) && styles.disabled,
+          contentWrapperClassName
+        )}
+        ref={tooltipWrapperRef}
       >
-        <Content
-          as={as}
-          data-testid={testId}
-          className={contentClassName}
-          interpolation={contentInterpolation}
+        <Comp
+          style={contentStyle}
+          className={classNames(styles.LegacyTooltipContent, contentClassName)}
           ref={mergedRef}
+          {...rest}
         >
-          <EllipsisableContent>
-            { ContentComponent }
-          </EllipsisableContent>
-        </Content>
-      </ContentWrapper>,
-      rootElement,
-    )
+          <Text
+            color="txt-black-darkest"
+            truncated={20}
+            typo="13"
+          >
+            {ContentComponent}
+          </Text>
+        </Comp>
+      </div>
+    </InvertedThemeProvider>,
+    rootElement
   )
 }
-

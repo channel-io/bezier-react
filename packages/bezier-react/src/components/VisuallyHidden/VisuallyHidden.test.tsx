@@ -8,14 +8,15 @@ const INPUT_ID = 'foo'
 const TEXT = 'This is a visually hidden text.'
 
 describe('VisuallyHidden', () => {
-  const renderVisuallyHidden = () => render(
-    <div>
-      <VisuallyHidden>
-        <label htmlFor={INPUT_ID}>{ TEXT }</label>
-      </VisuallyHidden>
-      <input id={INPUT_ID} />
-    </div>,
-  )
+  const renderVisuallyHidden = () =>
+    render(
+      <div>
+        <VisuallyHidden>
+          <label htmlFor={INPUT_ID}>{TEXT}</label>
+        </VisuallyHidden>
+        <input id={INPUT_ID} />
+      </div>
+    )
 
   it('should hide the content visually', () => {
     const { getByText } = renderVisuallyHidden()

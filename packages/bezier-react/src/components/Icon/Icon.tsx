@@ -1,43 +1,59 @@
-import React, {
-  forwardRef,
-  memo,
-} from 'react'
+import React, { forwardRef, memo } from 'react'
 
-import {
-  type IconProps,
-  IconSize,
-} from './Icon.types'
+import classNames from 'classnames'
 
-import Styled from './Icon.styled'
+import { getMarginStyles, splitByMarginProps } from '~/src/types/props-helpers'
+import { tokenCssVar } from '~/src/utils/style'
 
-export const ICON_TEST_ID = 'bezier-react-icon'
+import { type IconProps, type IconSize } from './Icon.types'
 
-export const Icon = memo(forwardRef<SVGSVGElement, IconProps>(function Icon({
-  source,
-  className,
-  color,
-  testId = ICON_TEST_ID,
-  size = IconSize.Normal,
-  marginTop = 0,
-  marginRight = 0,
-  marginBottom = 0,
-  marginLeft = 0,
-  ...rest
-}, forwardedRef) {
-  return (
-    <Styled
-      ref={forwardedRef}
-      as={source}
-      className={className}
-      data-testid={testId}
-      color={color}
-      width={size}
-      height={size}
-      margintop={marginTop}
-      marginright={marginRight}
-      marginbottom={marginBottom}
-      marginleft={marginLeft}
-      {...rest}
-    />
-  )
-}))
+import styles from './Icon.module.scss'
+
+export const ICON_TEST_ID = 'bezier-icon'
+
+const getSizeValue = (size: IconSize) =>
+  (
+    ({
+      xl: 44,
+      l: 36,
+      m: 24,
+      s: 20,
+      xs: 16,
+      xxs: 12,
+      xxxs: 10,
+    }) satisfies Record<IconSize, number>
+  )[size]
+
+export const Icon = memo(
+  forwardRef<SVGSVGElement, IconProps>(function Icon(props, forwardedRef) {
+    const [marginProps, marginRest] = splitByMarginProps(props)
+    const marginStyles = getMarginStyles(marginProps)
+
+    const {
+      className,
+      size = 'm',
+      color,
+      source: SourceElement,
+      style,
+      ...rest
+    } = marginRest
+
+    return (
+      <SourceElement
+        ref={forwardedRef}
+        style={
+          {
+            '--b-icon-color': tokenCssVar(color),
+            ...marginStyles.style,
+            ...style,
+          } as React.CSSProperties
+        }
+        className={classNames(styles.Icon, marginStyles.className, className)}
+        width={getSizeValue(size)}
+        height={getSizeValue(size)}
+        data-testid={ICON_TEST_ID}
+        {...rest}
+      />
+    )
+  })
+)

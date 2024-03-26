@@ -1,35 +1,31 @@
 import type { ReactNode } from 'react'
 
-import {
-  type BezierIcon,
-  type IconName,
-} from '@channel.io/bezier-icons'
+import { type BezierIcon, type IconName } from '@channel.io/bezier-icons'
 
 import type {
   AdditionalColorProps,
   BezierComponentProps,
   ContentProps,
   VariantProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 import type { ButtonProps } from '~/src/components/Button'
 
-export enum BannerVariant {
-  Default = 'default',
-  Blue = 'blue',
-  Cobalt = 'cobalt',
-  Green = 'green',
-  Orange = 'orange',
-  Red = 'red',
-  Alt = 'alt',
-}
+export type BannerVariant =
+  | 'default'
+  | 'blue'
+  | 'cobalt'
+  | 'green'
+  | 'orange'
+  | 'red'
+  | 'alt'
 
 export type RenderLinkFunc = (props: {
   content: ReactNode
   linkTo?: string
 }) => JSX.Element
 
-interface BannerOptions {
+interface BannerOwnProps {
   /**
    * The name of icon to display at the top left of the banner.
    *
@@ -39,7 +35,6 @@ interface BannerOptions {
 
   /**
    * Whether to display link at the end of banner content.
-   *
    * @default false
    */
   hasLink?: boolean
@@ -49,7 +44,6 @@ interface BannerOptions {
    *
    * This will be displayed as bold, underline text at the end of content.
    *
-   * @remarks
    * `hasLink` props should be given `true` to enable the link.
    */
   linkText?: string
@@ -60,14 +54,12 @@ interface BannerOptions {
    * By default, the link will be opened in a new tab. (`target="_blank"`)
    * To specify a different behavior, use `renderLink` prop to render the link as a custom component.
    *
-   * @remarks
    * `hasLink` props should be given `true` to enable the link.
    */
   linkTo?: string
 
   /**
    * Specifies how to render the link.
-   *
    * @default
    * renders link as an `<a>` tag with `target="_blank"` attribute.
    */
@@ -84,9 +76,9 @@ interface BannerOptions {
   onClickAction?: ButtonProps['onClick']
 }
 
-export interface BannerProps extends
-  BezierComponentProps,
-  VariantProps<BannerVariant>,
-  ContentProps<string | ReactNode>,
-  AdditionalColorProps<'icon'>,
-  BannerOptions {}
+export interface BannerProps
+  extends Omit<BezierComponentProps<'div'>, keyof ContentProps>,
+    ContentProps,
+    VariantProps<BannerVariant>,
+    AdditionalColorProps<'icon'>,
+    BannerOwnProps {}

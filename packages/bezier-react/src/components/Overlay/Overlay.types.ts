@@ -1,11 +1,8 @@
-import type React from 'react'
-
 import {
-  type AdditionalStylableProps,
-  type AdditionalTestIdProps,
+  type AdditionalOverridableStyleProps,
   type BezierComponentProps,
   type ChildrenProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
 export interface ContainerRectAttr {
   containerWidth: number
@@ -25,30 +22,29 @@ export interface TargetRectAttr {
   clientLeft: number
 }
 
-export enum OverlayPosition {
-  TopCenter = 'topCenter',
-  TopLeft = 'topLeft',
-  TopRight = 'topRight',
-  RightCenter = 'rightCenter',
-  RightTop = 'rightTop',
-  RightBottom = 'rightBottom',
-  BottomCenter = 'bottomCenter',
-  BottomLeft = 'bottomLeft',
-  BottomRight = 'bottomRight',
-  LeftCenter = 'leftCenter',
-  LeftTop = 'leftTop',
-  LeftBottom = 'leftBottom',
-  InnerLeftTop = 'innerLeftTop',
-  InnerLeftBottom = 'innerLeftBottom',
-  InnerRightTop = 'innerRightTop',
-  InnerRightBottom = 'innerRightBottom',
-}
+export type OverlayPosition =
+  | 'top-center'
+  | 'top-left'
+  | 'top-right'
+  | 'right-center'
+  | 'right-top'
+  | 'right-bottom'
+  | 'bottom-center'
+  | 'bottom-left'
+  | 'bottom-right'
+  | 'left-center'
+  | 'left-top'
+  | 'left-bottom'
+  | 'inner-left-top'
+  | 'inner-left-bottom'
+  | 'inner-right-top'
+  | 'inner-right-bottom'
 
-interface OverlayOptions {
+interface OverlayOwnProps {
   show?: boolean
   /**
    * Specify a container element to portal the content into.
-   * @note When placed inside a `Modal`, default value is the container element of `Modal`.
+   * When placed inside a `Modal`, default value is the container element of `Modal`.
    * @default document.body
    */
   container?: HTMLElement | null
@@ -62,10 +58,8 @@ interface OverlayOptions {
   onHide?: () => void
 }
 
-export default interface OverlayProps extends
-  BezierComponentProps,
-  ChildrenProps,
-  React.HTMLAttributes<HTMLDivElement>,
-  AdditionalStylableProps<'container'>,
-  AdditionalTestIdProps<['container', 'wrapper']>,
-  OverlayOptions {}
+export interface OverlayProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    AdditionalOverridableStyleProps<'container'>,
+    OverlayOwnProps {}

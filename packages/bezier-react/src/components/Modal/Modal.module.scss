@@ -1,0 +1,154 @@
+$modal-padding: 24;
+$header-body-gap: 12;
+$footer-top-gap: 16;
+$close-icon-button-margin-x: -6;
+$close-icon-button-margin-y: -6;
+
+@keyframes overlay-show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes content-show {
+  from {
+    transform: translate(0, -2%) scale(0.95);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+.ModalOverlay {
+  position: fixed;
+  inset: 0;
+
+  overflow-y: auto;
+  display: grid;
+  place-items: center;
+
+  box-sizing: border-box;
+  padding: var(--b-modal-collision-padding);
+
+  background-color: var(--bgtxt-absolute-black-lighter);
+
+  &:where([data-state='open']) {
+    animation: overlay-show var(--transition-m);
+  }
+}
+
+.ModalHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: #{$modal-padding}px #{$modal-padding}px 0 #{$modal-padding}px;
+}
+
+.ModalBody {
+  flex: 1;
+  padding: #{$modal-padding}px;
+}
+
+.ModalFooter {
+  display: flex;
+  padding: #{$footer-top-gap}px #{$modal-padding}px #{$modal-padding}px;
+}
+
+.ModalContent {
+  position: relative;
+
+  overflow: visible;
+
+  box-sizing: border-box;
+  width: var(--b-modal-width);
+  min-width: 360px;
+  max-width: 100vw;
+  height: var(--b-modal-height);
+  max-height: 100%;
+
+  color: var(--bg-grey-darkest);
+  word-break: break-word;
+
+  background-color: var(--bg-white-high);
+  border-radius: var(--radius-20);
+  box-shadow: var(--ev-4);
+
+  &:where([data-state='open']) {
+    animation: content-show var(--transition-m);
+  }
+
+  /* NOTE(@ed): Support when ModalFooter is used without ModalBody */
+  /* stylelint-disable-next-line selector-max-specificity */
+  &:has(.ModalBody) .ModalFooter {
+    margin-top: #{$footer-top-gap - $modal-padding}px;
+    padding-top: 0;
+  }
+
+  /* NOTE(@ed): Support when ModalBody is used without ModalHeader */
+  /* stylelint-disable-next-line selector-max-specificity */
+  &:has(.ModalHeader:not(.hidden)) .ModalBody {
+    padding-top: #{$header-body-gap}px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  /* NOTE(@ed): to show a focus ring when the modal is mounted */
+  & [data-bezier-component='Button']:where(:focus) {
+    outline: 3px solid var(--bgtxt-cobalt-light);
+  }
+}
+
+.ModalSection {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.TitleContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  width: 100%;
+}
+
+.HeadingGroup {
+  display: flex;
+  flex: 1;
+  flex-direction: column-reverse;
+  gap: 4px;
+}
+
+.Title {
+  width: 100%;
+}
+
+.CloseIconButton {
+  position: absolute;
+  top: #{$modal-padding + $close-icon-button-margin-y}px;
+  right: #{$modal-padding + $close-icon-button-margin-x}px;
+}
+
+.CloseIconButtonSpacer {
+  pointer-events: none;
+  margin-top: #{$close-icon-button-margin-y}px;
+  margin-right: #{$close-icon-button-margin-x}px;
+  visibility: hidden;
+}
+
+.FooterLeftContent {
+  margin-right: auto;
+}
+
+.FooterRightContent {
+  margin-left: auto;
+}

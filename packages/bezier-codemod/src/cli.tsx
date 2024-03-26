@@ -21,7 +21,7 @@ meow(
         type: 'string',
       },
     },
-  },
+  }
 )
 
 render(<App />)

@@ -4,21 +4,23 @@ import { HelpFilledIcon } from '@channel.io/bezier-icons'
 
 import { isEmpty } from '~/src/utils/type'
 
-import { IconSize } from '~/src/components/Icon'
+import { Icon } from '~/src/components/Icon'
 import { Tooltip } from '~/src/components/Tooltip'
 
-import type HelpProps from './Help.types'
+import { type HelpProps } from './Help.types'
 
-import * as Styled from './Help.styled'
+import styles from './Help.module.scss'
 
-export const HELP_TEST_ID = 'bezier-react-help'
+export const HELP_TEST_ID = 'bezier-help'
 export const HELP_DISPLAY_NAME = 'Help'
 
-const Help = forwardRef<HTMLDivElement, HelpProps>(function Help({
-  children,
-  ...rest
-}, forwardedRef) {
-  if (isEmpty(children)) { return null }
+export const Help = forwardRef<HTMLDivElement, HelpProps>(function Help(
+  { children, ...rest },
+  forwardedRef
+) {
+  if (isEmpty(children)) {
+    return null
+  }
 
   return (
     <Tooltip
@@ -26,18 +28,17 @@ const Help = forwardRef<HTMLDivElement, HelpProps>(function Help({
       ref={forwardedRef}
       content={children}
     >
-      <Styled.Trigger>
-        <Styled.Icon
-          testId={HELP_TEST_ID}
+      <div className={styles.Help}>
+        <Icon
+          className={styles.Icon}
           source={HelpFilledIcon}
-          size={IconSize.XS}
+          size="xs"
           color="txt-black-dark"
+          data-testid={HELP_TEST_ID}
         />
-      </Styled.Trigger>
+      </div>
     </Tooltip>
   )
 })
 
 Help.displayName = HELP_DISPLAY_NAME
-
-export default Help

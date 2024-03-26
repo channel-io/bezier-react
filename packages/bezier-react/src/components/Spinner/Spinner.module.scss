@@ -1,0 +1,57 @@
+@use '../../styles/mixins/dimension';
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Spinner {
+  --b-spinner-color: initial;
+
+  display: inline-block;
+
+  border-style: solid;
+  border-top-color: transparent;
+  border-right-color: var(--b-spinner-color);
+  border-bottom-color: var(--b-spinner-color);
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  border-left-color: var(--b-spinner-color);
+  border-radius: 50%;
+
+  animation: spin 1s linear infinite;
+
+  &:where(.size-xl) {
+    @include dimension.square(50px);
+
+    border-width: 4px;
+  }
+
+  &:where(.size-l, .size-m) {
+    border-width: 3px;
+  }
+
+  &:where(.size-l) {
+    @include dimension.square(24px);
+  }
+
+  &:where(.size-m) {
+    @include dimension.square(20px);
+  }
+
+  &:where(.size-s, .size-xs) {
+    border-width: 2px;
+  }
+
+  &:where(.size-s) {
+    @include dimension.square(16px);
+  }
+
+  &:where(.size-xs) {
+    @include dimension.square(12px);
+  }
+}

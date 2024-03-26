@@ -1,0 +1,121 @@
+@use 'sass:math';
+
+$tab-item-indicator-height: 3px;
+
+.Tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.TabList {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: 0 -1px 0 0 var(--bg-black-light) inset;
+
+  &:where(.size-l) {
+    height: 53px;
+  }
+
+  &:where(.size-m) {
+    height: 45px;
+  }
+
+  &:where(.size-s) {
+    height: 33px;
+  }
+}
+
+.TabItems {
+  overflow: hidden;
+  display: flex;
+}
+
+.TabItem {
+  top: 4px;
+  overflow: visible;
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    right: 1px;
+    bottom: -8px;
+    left: 1px;
+
+    height: $tab-item-indicator-height;
+
+    background-color: var(--bgtxt-blue-normal);
+    border-radius: math.div($tab-item-indicator-height, 2);
+
+    transition: transform var(--transition-s);
+  }
+
+  &:where([data-state='active']) {
+    color: var(--bgtxt-blue-normal);
+
+    &::after {
+      transform: translateY(-#{$tab-item-indicator-height});
+    }
+
+    &:hover {
+      background-color: inherit;
+    }
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  &:where([data-state='inactive']) {
+    color: var(--txt-black-dark);
+
+    &:hover {
+      color: var(--txt-black-darker);
+    }
+  }
+}
+
+.TabActions {
+  display: flex;
+}
+
+.TabAction {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  margin: 4px 0 5px;
+
+  color: var(--bgtxt-blue-normal);
+  text-decoration: none;
+
+  transition: background-color var(--transition-s);
+
+  &:where(.size-l, .size-m) {
+    padding: 0 14px;
+  }
+
+  &:where(.size-l) {
+    border-radius: var(--radius-12);
+  }
+
+  &:where(.size-m) {
+    border-radius: var(--radius-8);
+  }
+
+  &:where(.size-s) {
+    padding: 0 7px;
+    border-radius: var(--radius-6);
+  }
+
+  &:where(:focus-visible) {
+    outline: 3px solid var(--bgtxt-cobalt-light);
+  }
+
+  &:hover {
+    background-color: var(--bgtxt-blue-lightest);
+  }
+}

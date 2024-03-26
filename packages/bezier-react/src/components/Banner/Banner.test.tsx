@@ -1,20 +1,14 @@
 import React from 'react'
 
-import {
-  AllIcon,
-  InfoIcon,
-} from '@channel.io/bezier-icons'
+import { AllIcon, InfoIcon } from '@channel.io/bezier-icons'
 import { fireEvent } from '@testing-library/react'
 
 import { render } from '~/src/utils/test'
 
-import {
-  BANNER_LINK_TEST_ID,
-  Banner,
-} from './Banner'
+import { Banner } from './Banner'
 import type { BannerProps } from './Banner.types'
 
-describe('Banner >', () => {
+describe('Banner', () => {
   let props: BannerProps
 
   beforeEach(() => {
@@ -25,21 +19,26 @@ describe('Banner >', () => {
     }
   })
 
-  const renderBanner = (otherProps?: Partial<BannerProps>) => render(<Banner {...props} {...otherProps} />)
+  const renderBanner = (otherProps?: Partial<BannerProps>) =>
+    render(
+      <Banner
+        {...props}
+        {...otherProps}
+      />
+    )
 
   it('does not render link if hasLink = false', () => {
-    const { queryByTestId } = renderBanner()
-    expect(queryByTestId(BANNER_LINK_TEST_ID)).toBeNull()
+    const { queryByRole } = renderBanner()
+    expect(queryByRole('link')).toBeNull()
   })
 
-  it('renders link with correct style', () => {
-    const { getByTestId } = renderBanner({ hasLink: true, linkText: 'foo', linkTo: 'https://google.com' })
-    const bannerLink = getByTestId(BANNER_LINK_TEST_ID)
-
-    expect(bannerLink.tagName).toBe('A')
-    expect(bannerLink.children.item(0)).toHaveStyle('text-decoration: underline;')
-    expect(bannerLink.children.item(0)).toHaveStyle('font-weight: bold;')
-    expect(bannerLink.children.item(0)).toHaveStyle('font-size: 1.4rem;')
+  it('renders link if hasLink = true', () => {
+    const { queryByRole } = renderBanner({
+      hasLink: true,
+      linkText: 'foo',
+      linkTo: 'https://google.com',
+    })
+    expect(queryByRole('link')).toBeInTheDocument()
   })
 
   it('renders action button if actionIcon is correct value', () => {

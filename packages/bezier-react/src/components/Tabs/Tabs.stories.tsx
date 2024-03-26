@@ -1,54 +1,33 @@
 /* eslint-disable no-alert */
 
-import React, {
-  useCallback,
-  useState,
-} from 'react'
+import React, { useCallback, useState } from 'react'
 
-import {
-  type Meta,
-  type StoryFn,
-  type StoryObj,
-} from '@storybook/react'
-
-import { styled } from '~/src/foundation'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { noop } from '~/src/utils/function'
 import { isFunction } from '~/src/utils/type'
 
+import { Center } from '~/src/components/Center'
 import { Text } from '~/src/components/Text'
 
-import { TabAction } from './TabAction'
-import { TabActions } from './TabActions'
-import { TabContent } from './TabContent'
-import { TabItem } from './TabItem'
-import { TabItems } from './TabItems'
-import { TabList } from './TabList'
-import { Tabs } from './Tabs'
+import {
+  TabAction,
+  TabActions,
+  TabContent,
+  TabItem,
+  TabItems,
+  TabList,
+  Tabs,
+} from './Tabs'
 import {
   type TabActionProps,
   type TabListProps,
-  TabSize,
   type TabsProps,
 } from './Tabs.types'
 
 type TabsCompositionProps = TabsProps &
-TabListProps &
-TabActionProps<string | undefined>
-
-const Wrapper = styled.div`
-  display: flex;
-  width: 400px;
-  height: 200px;
-`
-
-const Content = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  font-size: 2rem;
-`
+  TabListProps &
+  TabActionProps<string | undefined>
 
 function TabsComposition({
   activationMode,
@@ -59,15 +38,24 @@ function TabsComposition({
 }: TabsCompositionProps) {
   const [currentValue, setCurrentValue] = useState(value ?? defaultValue)
 
-  const handleValueChange = useCallback((_value) => {
-    setCurrentValue(_value)
-    if (isFunction(onValueChange)) {
-      onValueChange(_value)
-    }
-  }, [onValueChange])
+  const handleValueChange = useCallback(
+    (_value: typeof value) => {
+      setCurrentValue(_value)
+      if (isFunction(onValueChange)) {
+        onValueChange(_value as string)
+      }
+    },
+    [onValueChange]
+  )
 
   return (
-    <Wrapper>
+    <div
+      style={{
+        display: 'flex',
+        width: 400,
+        height: 200,
+      }}
+    >
       <Tabs
         activationMode={activationMode}
         onValueChange={handleValueChange}
@@ -85,35 +73,33 @@ function TabsComposition({
             <TabAction href="https://github.com/channel-io/bezier-react">
               Sub1
             </TabAction>
-            <TabAction onClick={() => { window.alert('Hi!') }}>
+            <TabAction
+              onClick={() => {
+                window.alert('Hi!')
+              }}
+            >
               Sub2
             </TabAction>
           </TabActions>
         </TabList>
 
         <TabContent value="One">
-          <Content>
-            <Text>
-              Tab1 content
-            </Text>
-          </Content>
+          <Center height={100}>
+            <Text color="txt-black-darkest">Tab1 content</Text>
+          </Center>
         </TabContent>
         <TabContent value="Two">
-          <Content>
-            <Text>
-              Tab2 content
-            </Text>
-          </Content>
+          <Center height={100}>
+            <Text color="txt-black-darkest">Tab2 content</Text>
+          </Center>
         </TabContent>
         <TabContent value="Three">
-          <Content>
-            <Text>
-              Tab3 content
-            </Text>
-          </Content>
+          <Center height={100}>
+            <Text color="txt-black-darkest">Tab3 content</Text>
+          </Center>
         </TabContent>
       </Tabs>
-    </Wrapper>
+    </div>
   )
 }
 
@@ -124,7 +110,7 @@ const meta: Meta<TabsCompositionProps> = {
       control: {
         type: 'radio',
       },
-      options: [TabSize.S, TabSize.M, TabSize.L],
+      options: ['s', 'm', 'l'],
     },
     onValueChange: {
       action: 'clicked',
@@ -139,7 +125,7 @@ export const Composition: StoryObj<TabsCompositionProps> = {
   render: Template,
 
   args: {
-    size: TabSize.M,
+    size: 'm',
     onValueChange: noop,
     defaultValue: undefined,
     activationMode: 'automatic',
@@ -151,7 +137,7 @@ export const UnControlled: StoryObj<TabsCompositionProps> = {
   render: Template,
 
   args: {
-    size: TabSize.M,
+    size: 'm',
     onValueChange: noop,
     defaultValue: 'One',
     activationMode: 'automatic',

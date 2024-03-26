@@ -1,0 +1,29 @@
+:where(:root, :host) {
+  font-family: var(--font-family-sans-kr);
+  font-size: 62.5%; // 10/16 = 0.625. Make REM calculations easier.
+  color: var(--txt-black-darkest);
+  color-scheme: light;
+}
+
+// TODO: Change data attribute constant to import from bezier-tokens
+[data-bezier-theme='light'] {
+  color-scheme: light;
+}
+
+// TODO: Change data attribute constant to import from bezier-tokens
+[data-bezier-theme='dark'] {
+  color-scheme: dark;
+}
+
+:lang(ja) {
+  font-family: var(--font-family-sans-jp);
+}
+
+code {
+  font-family: var(--font-family-mono);
+}
+
+::placeholder {
+  color: var(--txt-black-dark);
+  opacity: 1;
+}

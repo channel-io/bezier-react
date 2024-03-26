@@ -3,24 +3,16 @@ import type React from 'react'
 import {
   type BezierComponentProps,
   type ColorProps,
+  type MarginProps,
   type SizeProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
-export enum IconSize {
-  XL = 44,
-  L = 36,
-  Normal = 24,
-  S = 20,
-  XS = 16,
-  XXS = 12,
-  XXXS = 10,
-}
+export type IconSize = 'xl' | 'l' | 'm' | 's' | 'xs' | 'xxs' | 'xxxs'
 
-interface IconOptions {
+interface IconOwnProps {
   /**
    * Controls which icon should be rendered.
    * Inject the icon component from the @channel.io/bezier-icons package into this prop.
-   *
    * @example
    * ```tsx
    * import { HeartFilledIcon } from '@channel.io/bezier-icons'
@@ -30,39 +22,11 @@ interface IconOptions {
    * ```
    */
   source: React.ElementType<React.SVGProps<SVGSVGElement>>
-
-  /**
-   * Top margin.
-   *
-   * @default 0
-   */
-  marginTop?: number
-
-  /**
-   * Right margin.
-   *
-   * @default 0
-   */
-  marginRight?: number
-
-  /**
-   * Bottom margin.
-   *
-   * @default 0
-   */
-  marginBottom?: number
-
-  /**
-   * Left margin.
-   *
-   * @default 0
-   */
-  marginLeft?: number
 }
 
-export interface IconProps extends
-  Omit<BezierComponentProps, 'as'>,
-  SizeProps<IconSize>,
-  ColorProps,
-  Omit<React.HTMLAttributes<SVGSVGElement>, keyof ColorProps>,
-  IconOptions {}
+export interface IconProps
+  extends Omit<BezierComponentProps<'svg'>, keyof ColorProps>,
+    MarginProps,
+    SizeProps<IconSize>,
+    ColorProps,
+    IconOwnProps {}

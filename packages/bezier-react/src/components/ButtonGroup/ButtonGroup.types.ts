@@ -1,11 +1,12 @@
 import {
   type BezierComponentProps,
   type ChildrenProps,
-} from '~/src/types/ComponentProps'
+  type MarginProps,
+} from '~/src/types/props'
 
-import { type HStackProps } from '~/src/components/Stack'
+import { type StackProps } from '~/src/components/Stack'
 
-interface ButtonGroupOptions {
+interface ButtonGroupOwnProps {
   /**
    * Determines whether there is a 6px gap between the buttons.
    * @default false
@@ -13,8 +14,9 @@ interface ButtonGroupOptions {
   withoutSpacing?: boolean
 }
 
-export default interface ButtonGroupProps extends
-  BezierComponentProps,
-  ChildrenProps,
-  Pick<HStackProps, 'justify'>,
-  ButtonGroupOptions {}
+export interface ButtonGroupProps
+  extends Omit<BezierComponentProps<'div'>, 'role'>,
+    ChildrenProps,
+    MarginProps,
+    Pick<StackProps, 'justify'>,
+    ButtonGroupOwnProps {}

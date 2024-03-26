@@ -1,0 +1,25 @@
+// Override the default styles for the Storybook docs
+:where(*:not(code, pre)) {
+  font-family: var(--font-family-sans-kr) !important;
+}
+
+:where(code, pre),
+:where(code, pre) * {
+  font-family: var(--font-family-mono) !important;
+}
+
+.Wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.Story {
+  height: 100%;
+  padding: 40px;
+  background-color: var(--bg-white-normal);
+}

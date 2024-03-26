@@ -1,5 +1,55 @@
 # bezier-figma-plugin
 
+## 0.5.0-alpha.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@2.0.0-alpha.21
+
+## 0.5.0-alpha.8
+
+### Patch Changes
+
+- Enhance icon extract logic by catching error ([#2073](https://github.com/channel-io/bezier-react/pull/2073)) by @yangwooseong
+
+- Updated dependencies
+  - @channel.io/bezier-react@2.0.0-alpha.20
+
+## 0.5.0-alpha.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@2.0.0-alpha.19
+
+## 0.5.0-alpha.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@2.0.0-alpha.18
+
+## 0.5.0-alpha.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@2.0.0-alpha.17
+
+## 0.5.0-alpha.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@2.0.0-alpha.16
+
+## 0.5.0-alpha.3
+
+### Minor Changes
+
+- Upgrade to use @channel.io/bezier-react@2.0.0 ([#2001](https://github.com/channel-io/bezier-react/pull/2001)) by @sungik-choi
+
 ## 0.4.21
 
 ### Patch Changes
@@ -76,6 +126,27 @@
 
 - Updated dependencies
   - @channel.io/bezier-react@1.18.0
+
+## 0.4.11-alpha.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@2.0.0-alpha.3
+
+## 0.4.11-alpha.1
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@2.0.0-alpha.2
+
+## 0.4.11-alpha.0
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@2.0.0-alpha.1
 
 ## 0.4.11
 

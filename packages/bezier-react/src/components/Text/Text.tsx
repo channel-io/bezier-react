@@ -1,64 +1,74 @@
-import React, { forwardRef } from 'react'
+import { createElement, forwardRef } from 'react'
 
-import { Typography } from '~/src/foundation'
+import classNames from 'classnames'
 
-import { noop } from '~/src/utils/function'
+import { getMarginStyles, splitByMarginProps } from '~/src/types/props-helpers'
+import { tokenCssVar } from '~/src/utils/style'
+import { isNumber } from '~/src/utils/type'
 
-import type TextProps from './Text.types'
+import { type TextProps } from './Text.types'
 
-import TextView from './Text.styled'
+import styles from './Text.module.scss'
 
-export const TEXT_TEST_ID = 'bezier-react-text'
+/**
+ * `Text` is a component for representing the typography of a design system.
+ * @example
+ *
+ * ```tsx
+ * <Text
+ *   typo="15"
+ *   color="txt-black-darkest"
+ * >
+ *   Hello, Channel!
+ * </Text>
+ * ```
+ */
+export const Text = forwardRef<HTMLElement, TextProps>(
+  function Text(props, forwardedRef) {
+    const [marginProps, marginRest] = splitByMarginProps(props)
+    const marginStyles = getMarginStyles(marginProps)
 
-function Text(
-  {
-    as,
-    testId = TEXT_TEST_ID,
-    bold = false,
-    italic = false,
-    color,
-    typo = Typography.Size15,
-    truncated = false,
-    marginTop = 0,
-    marginRight = 0,
-    marginBottom = 0,
-    marginLeft = 0,
-    marginVertical = 0,
-    marginHorizontal = 0,
-    marginAll = 0,
-    style,
-    id,
-    className,
-    children,
-    onClick = noop,
-    /** To receive various HTMLElement attributes */
-    ...rest
-  }: TextProps,
-  forwardedRef: React.Ref<HTMLElement>,
-) {
-  return (
-    <TextView
-      {...rest}
-      as={as}
-      id={id}
-      style={style}
-      ref={forwardedRef}
-      className={className}
-      bold={bold}
-      italic={italic}
-      color={color}
-      typo={typo}
-      truncated={truncated}
-      data-testid={testId}
-      margintop={marginTop || marginVertical || marginAll}
-      marginright={marginRight || marginHorizontal || marginAll}
-      marginbottom={marginBottom || marginVertical || marginAll}
-      marginleft={marginLeft || marginHorizontal || marginAll}
-      onClick={onClick}
-    >
-      { children }
-    </TextView>
-  )
-}
+    const {
+      children,
+      style,
+      className,
+      as = 'span',
+      typo = '15',
+      color,
+      bold,
+      italic,
+      truncated,
+      align,
+      ...rest
+    } = marginRest
+    const isMultiLineTruncated = isNumber(truncated) && truncated >= 1
 
-export default forwardRef(Text)
+    return createElement(
+      as,
+      {
+        ref: forwardedRef,
+        style: {
+          '--b-text-color': tokenCssVar(color),
+          '--b-text-line-clamp': isMultiLineTruncated ? truncated : undefined,
+          ...marginStyles.style,
+          ...style,
+        },
+        className: classNames(
+          styles.Text,
+          styles[`typo-${typo}`],
+          bold && styles.bold,
+          italic && styles.italic,
+          truncated === true
+            ? styles.truncated
+            : isMultiLineTruncated && styles['multi-line-truncated'],
+          align && styles[`align-${align}`],
+          marginStyles.className,
+          className
+        ),
+        'data-testid': 'bezier-text',
+        ...rest,
+      },
+      children
+    )
+  }
+)

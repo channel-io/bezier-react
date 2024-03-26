@@ -1,11 +1,7 @@
-import {
-  type BezierComponentProps,
-  type ChildrenProps,
-} from '~/src/types/ComponentProps'
+import { type ChildrenProps } from '~/src/types/props'
 
 import { type TooltipProps } from '~/src/components/Tooltip'
 
-export default interface HelpProps extends
-  BezierComponentProps,
-  ChildrenProps,
-  Omit<TooltipProps, 'content' | 'children'> {}
+export interface HelpProps
+  extends Omit<TooltipProps, 'content' | 'children'>,
+    ChildrenProps {}

@@ -1,0 +1,67 @@
+{
+  "input": {
+    "box-shadow": {
+      "value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "1px",
+          "blur": "2px",
+          "spread": "0px",
+          "color": "{bg.black.lighter}",
+          "type": "dropShadow"
+        },
+        {
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "0px",
+          "spread": "1px",
+          "color": "{bg.black.dark}",
+          "type": "innerShadow"
+        }
+      ],
+      "type": "shadow"
+    },
+    "box-shadow-focused": {
+      "value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "0px",
+          "spread": "3px",
+          "color": "{bgtxt.blue.light}",
+          "type": "dropShadow"
+        },
+        {
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "0px",
+          "spread": "1px",
+          "color": "{bgtxt.blue.normal}",
+          "type": "innerShadow"
+        }
+      ],
+      "type": "shadow"
+    },
+    "box-shadow-invalid": {
+      "value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "0px",
+          "spread": "3px",
+          "color": "{bgtxt.orange.light}",
+          "type": "dropShadow"
+        },
+        {
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "0px",
+          "spread": "1px",
+          "color": "{bgtxt.orange.normal}",
+          "type": "innerShadow"
+        }
+      ],
+      "type": "shadow"
+    }
+  }
+}

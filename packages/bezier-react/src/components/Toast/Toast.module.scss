@@ -1,0 +1,151 @@
+@use '../../styles/mixins/dimension';
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-120%);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(120%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(120%);
+  }
+}
+
+.ToastContainer {
+  pointer-events: none;
+
+  position: absolute;
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100vh;
+  padding: 16px;
+}
+
+.ToastElement {
+  pointer-events: auto;
+
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+
+  width: 288px;
+  margin-top: 6px;
+  padding: 16px;
+
+  background-color: var(--bg-grey-lighter);
+  border-radius: var(--radius-12);
+  box-shadow: var(--ev-3);
+
+  &:where(.placement-bottom-left) {
+    animation: var(--transition-m) slide-in-left forwards;
+
+    &:where(.slide-out) {
+      animation: var(--transition-m) slide-out-left forwards;
+    }
+  }
+
+  &:where(.placement-bottom-right) {
+    animation: var(--transition-m) slide-in-right forwards;
+
+    &:where(.slide-out) {
+      animation: var(--transition-m) slide-out-right forwards;
+    }
+  }
+}
+
+.IconWrapper {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 24px;
+
+  &:where(.appearance-success) {
+    color: var(--bgtxt-green-normal);
+  }
+
+  &:where(.appearance-warning) {
+    color: var(--bgtxt-orange-normal);
+  }
+
+  &:where(.appearance-error) {
+    color: var(--bgtxt-red-normal);
+  }
+
+  &:where(.appearance-info) {
+    color: var(--txt-black-darkest);
+  }
+}
+
+.Content {
+  overflow: hidden;
+  display: flex;
+  flex: 1;
+
+  margin: 3px 6px;
+
+  color: var(--txt-black-darkest);
+}
+
+.EllipsisableContent {
+  flex: 1;
+  word-break: break-word;
+}
+
+.Close {
+  @include dimension.square(24px);
+
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: auto;
+
+  color: var(--txt-black-darker);
+
+  background-color: var(--bg-black-lighter);
+  border-radius: var(--radius-12);
+
+  &:hover {
+    color: var(--txt-black-darkest);
+    background-color: var(--bg-black-light);
+  }
+}

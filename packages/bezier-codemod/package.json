@@ -1,45 +1,45 @@
 {
-	"name": "@channel.io/bezier-codemod",
-	"version": "0.4.0",
-	"description": "Codemod transformations to help upgrade app using Bezier design system.",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/channel-io/bezier-react",
-		"directory": "packages/bezier-codemod"
-	},
-	"author": "Channel Corp.",
-	"license": "Apache-2.0",
-	"bin": "dist/cli.js",
-	"type": "module",
-	"engines": {
-		"node": ">=16"
-	},
-	"scripts": {
-		"build": "tsc --build --verbose",
-		"dev": "tsc --watch",
-		"lint": "TIMING=1 eslint --cache .",
-		"typecheck": "tsc --noEmit",
-		"test": "jest",
-		"clean": "rm -rf dist node_modules .turbo .eslintcache .jestcache"
-	},
-	"files": [
-		"dist"
-	],
-	"dependencies": {
-		"@inkjs/ui": "^1.0.0",
-		"ink": "^4.4.1",
-		"meow": "^12.1.1",
-		"react": "^18.2.0",
-		"ts-morph": "^19.0.0"
-	},
-	"devDependencies": {
-		"@types/node": "^20.6.0",
-		"@types/react": "^18.2.21",
-		"eslint-config-bezier": "workspace:*",
-		"tsconfig": "workspace:*"
-	},
-	"keywords": [
-		"codemod",
-		"channel"
-	]
+  "name": "@channel.io/bezier-codemod",
+  "version": "0.5.0-alpha.8",
+  "description": "Codemod transformations to help upgrade app using Bezier design system.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/channel-io/bezier-react",
+    "directory": "packages/bezier-codemod"
+  },
+  "author": "Channel Corp.",
+  "license": "Apache-2.0",
+  "bin": "dist/cli.js",
+  "type": "module",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "build": "tsc --build --verbose",
+    "dev": "tsc --watch",
+    "lint": "TIMING=1 eslint --cache .",
+    "typecheck": "tsc --noEmit",
+    "test": "jest",
+    "clean": "rm -rf dist node_modules .turbo .eslintcache .jestcache"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@inkjs/ui": "^1.0.0",
+    "ink": "^4.4.1",
+    "meow": "^13.2.0",
+    "react": "^18.2.0",
+    "ts-morph": "^21.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.20",
+    "@types/react": "^18.2.59",
+    "eslint-config-bezier": "workspace:*",
+    "tsconfig": "workspace:*"
+  },
+  "keywords": [
+    "codemod",
+    "channel"
+  ]
 }

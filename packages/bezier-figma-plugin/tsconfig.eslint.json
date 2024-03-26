@@ -1,13 +1,7 @@
 {
-  "extends": "tsconfig/eslint.json",
-  "include": [
-    ".*.js",
-    "src/**/*",
-    "*.js",
-    "*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-  ]
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": ["src", ".*.js", "*.js", "*.ts"]
 }

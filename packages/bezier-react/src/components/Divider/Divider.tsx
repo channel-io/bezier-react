@@ -1,41 +1,58 @@
 import React, { forwardRef } from 'react'
 
 import * as SeparatorPrimitive from '@radix-ui/react-separator'
+import classNames from 'classnames'
 
-import type DividerProps from './Divider.types'
+import { type DividerProps } from './Divider.types'
 
-import * as Styled from './Divider.styled'
+import styles from './Divider.module.scss'
 
-export const DIVIDER_TEST_ID = 'bezier-react-divider'
+export const DIVIDER_TEST_ID = 'bezier-divider'
 
-const Divider = forwardRef((
-  {
-    testId = DIVIDER_TEST_ID,
-    orientation = 'horizontal',
-    decorative,
-    withoutSideIndent = false,
-    withoutParallelIndent = false,
-    withoutIndent = false,
-    ...rest
-  }: DividerProps,
-  forwardedRef: React.Ref<HTMLElement>,
-) => (
-  <SeparatorPrimitive.Root
-    asChild
-    orientation={orientation}
-    decorative={decorative}
-  >
-    <Styled.Divider
-      ref={forwardedRef}
-      data-testid={testId}
+/**
+ * `Divider` is a component to visually or semantically separate content.
+ * @example
+ *
+ * ```tsx
+ * <Divider
+ *   withoutSideIndent
+ * />
+ * ```
+ */
+export const Divider = forwardRef<HTMLDivElement, DividerProps>(
+  (
+    {
+      orientation = 'horizontal',
+      decorative,
+      withoutSideIndent = false,
+      withoutParallelIndent = false,
+      withoutIndent = false,
+      style,
+      className,
+      ...rest
+    },
+    forwardedRef
+  ) => (
+    <SeparatorPrimitive.Root
+      asChild
       orientation={orientation}
       decorative={decorative}
-      withoutSideIndent={withoutSideIndent}
-      withoutParallelIndent={withoutParallelIndent}
-      withoutIndent={withoutIndent}
-      {...rest}
-    />
-  </SeparatorPrimitive.Root>
-))
-
-export default Divider
+    >
+      <div
+        ref={forwardedRef}
+        style={style}
+        className={classNames(
+          styles.Divider,
+          styles.variables,
+          styles[orientation],
+          withoutIndent && styles['without-indent'],
+          withoutParallelIndent && styles['without-parallel-indent'],
+          withoutSideIndent && styles['without-side-indent'],
+          className
+        )}
+        data-testid={DIVIDER_TEST_ID}
+        {...rest}
+      />
+    </SeparatorPrimitive.Root>
+  )
+)

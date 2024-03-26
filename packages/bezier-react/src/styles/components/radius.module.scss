@@ -1,0 +1,18 @@
+$radiuses:
+  2,
+  3,
+  4,
+  6,
+  8,
+  12,
+  16,
+  20,
+  32,
+  44,
+  42-p;
+
+@each $radius in $radiuses {
+  :where(.radius-#{$radius}) {
+    border-radius: var(--radius-#{$radius});
+  }
+}

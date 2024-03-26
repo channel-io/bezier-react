@@ -2,35 +2,19 @@
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "build": {
-      "outputs": [
-        "dist/**"
-      ],
-      "dependsOn": [
-        "^build"
-      ]
+      "outputs": ["dist/**"],
+      "dependsOn": ["^build"]
     },
     "lint": {
-      "outputs": [
-        ".eslintcache",
-        ".stylelintcache"
-      ]
+      "outputs": [".eslintcache", ".stylelintcache"]
     },
     "typecheck": {
       "outputs": [],
-      "inputs": [
-        "src/**/*.tsx",
-        "src/**/*.ts"
-      ]
+      "inputs": ["src/**/*.tsx", "src/**/*.ts"]
     },
     "test": {
-      "outputs": [
-        ".jestcache/**"
-      ],
-      "inputs": [
-        "src/**/*.tsx",
-        "src/**/*.ts",
-        "src/**/*.js"
-      ]
+      "outputs": [".jestcache/**"],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", "src/**/*.js"]
     },
     "dev": {
       "cache": false,

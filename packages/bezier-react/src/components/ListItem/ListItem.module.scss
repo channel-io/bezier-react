@@ -1,0 +1,160 @@
+.ListItemLeftIcon {
+  transition: color var(--transition-m);
+}
+
+.ListItem {
+  cursor: pointer;
+
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  text-decoration: none;
+
+  transition: background-color var(--transition-s);
+
+  &:where(.variant-monochrome) {
+    color: var(--txt-black-darkest);
+
+    & :where(.ListItemLeftIcon) {
+      color: var(--txt-black-dark);
+    }
+  }
+
+  &:where(.size-xs) {
+    padding: 4px 6px;
+    border-radius: var(--radius-6);
+  }
+
+  &:where(.size-s) {
+    padding: 6px;
+    border-radius: var(--radius-6);
+  }
+
+  &:where(.size-m) {
+    padding: 8px 6px;
+    border-radius: var(--radius-8);
+  }
+
+  &:where(.size-l) {
+    padding: 10px 6px;
+    border-radius: var(--radius-12);
+  }
+
+  &:where(.disabled) {
+    cursor: default;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:where(:not(.disabled, .active)) {
+    &:where(.focused, :focus-visible) {
+      background-color: var(--bg-black-lighter);
+    }
+
+    &:where(:hover) {
+      background-color: var(--bg-black-lighter);
+    }
+  }
+
+  &:where(.active) {
+    color: var(--bgtxt-blue-normal);
+    background-color: var(--bgtxt-blue-lightest);
+
+    &:where(.focused, :focus-visible) {
+      background-color: var(--bgtxt-blue-lighter);
+    }
+
+    & :where(.ListItemLeftIcon) {
+      color: var(--bgtxt-blue-normal);
+    }
+
+    /* NOTE: When multiple adjacent elements are active, it naturally stitches the border together. */
+    /* stylelint-disable selector-max-specificity */
+    &:has(+ .ListItem.active) {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    & + .ListItem.active {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+    /* stylelint-enable selector-max-specificity */
+  }
+
+  &.variant-blue {
+    color: var(--bgtxt-blue-normal);
+
+    & :where(.ListItemLeftIcon) {
+      color: var(--bgtxt-blue-normal);
+    }
+  }
+
+  &.variant-red {
+    color: var(--bgtxt-red-normal);
+
+    & :where(.ListItemLeftIcon) {
+      color: var(--bgtxt-red-normal);
+    }
+  }
+
+  &.variant-green {
+    color: var(--bgtxt-green-normal);
+
+    & :where(.ListItemLeftIcon) {
+      color: var(--bgtxt-green-normal);
+    }
+  }
+
+  &.variant-cobalt {
+    color: var(--bgtxt-cobalt-normal);
+
+    & :where(.ListItemLeftIcon) {
+      color: var(--bgtxt-cobalt-normal);
+    }
+  }
+}
+
+.ListItemContent {
+  display: grid;
+  grid-template-columns: fit-content(100%) minmax(0, 1fr);
+  width: 100%;
+}
+
+.ListItemRightContent {
+  display: flex;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+
+.ListItemTitle {
+  display: flex;
+  grid-column: 2;
+  grid-row: 1;
+  align-items: center;
+
+  & * {
+    transition: color var(--transition-s);
+  }
+}
+
+.ListItemDescription {
+  display: flex;
+  grid-column: 2;
+  grid-row: 2;
+  align-items: center;
+
+  width: 100%;
+  margin-top: 2px;
+}
+
+.ListItemLeftContent {
+  display: flex;
+  grid-column: 1;
+  grid-row: 1;
+  align-items: center;
+
+  margin-right: 8px;
+}

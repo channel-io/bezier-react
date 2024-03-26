@@ -3,57 +3,46 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 import {
   type BezierComponentProps,
   type DisableProps,
+  type PolymorphicProps,
   type SideContentProps,
   type SizeProps,
-} from '~/src/types/ComponentProps'
+} from '~/src/types/props'
 
-export enum ButtonStyleVariant {
-  Primary = 'primary',
-  Secondary = 'secondary',
-  Tertiary = 'tertiary',
-  Floating = 'floating',
-  FloatingAlt = 'floating-alt',
-}
+export type ButtonStyleVariant =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'floating'
+  | 'floating-alt'
 
-export enum ButtonColorVariant {
-  Blue = 'blue',
-  Red = 'red',
-  Green = 'green',
-  Cobalt = 'cobalt',
-  Orange = 'orange',
-  Pink = 'pink',
-  Purple = 'purple',
+export type ButtonColorVariant =
+  | 'blue'
+  | 'red'
+  | 'green'
+  | 'cobalt'
+  | 'orange'
+  | 'pink'
+  | 'purple'
   /**
-   * @deprecated use `ButtonColorVariant.MonochromeLight` or `ButtonColorVariant.MonochromeDark`
+   * @deprecated use `monochrome-light` or `monochrome-dark`
    */
-  Monochrome = 'monochrome',
-  MonochromeLight = 'monochromeLight',
-  MonochromeDark = 'monochromeDark',
-}
+  | 'monochrome'
+  | 'monochrome-light'
+  | 'monochrome-dark'
 
-export enum ButtonSize {
-  XS = 'XS',
-  S = 'S',
-  M = 'M',
-  L = 'L',
-  XL = 'XL',
-}
+export type ButtonSize = 'xs' | 's' | 'm' | 'l' | 'xl'
 
 export type SideContent = React.ReactNode | BezierIcon
 
-export type MouseEventHandler = React.MouseEventHandler<HTMLButtonElement>
-type FocusEventHandler = React.FocusEventHandler<HTMLButtonElement>
-
-interface ButtonOptions {
+interface ButtonOwnProps {
   /**
    * `type` attribute of typical HTML button.
    *
    * You may want to set `type` to `submit` to the button
    * which is used as a submit button in `<form>` component.
-   *
    * @default 'button'
    */
-  type?: HTMLButtonElement['type']
+  type?: 'button' | 'reset' | 'submit'
 
   /**
    * The text content in the button.
@@ -64,7 +53,6 @@ interface ButtonOptions {
 
   /**
    * If `loading` is true, spinner will be shown, replacing the content.
-   *
    * @default false
    */
   loading?: boolean
@@ -73,50 +61,27 @@ interface ButtonOptions {
    * If `active` is true, the button will be styled as if it is hovered.
    *
    * You may want to use this prop for a button which opens dropdown, etc.
-   *
    * @default false
    */
   active?: boolean
 
   /**
    * The style variant.
-   *
-   * @default ButtonStyleVariant.Primary
+   * @default 'primary'
    */
   styleVariant?: ButtonStyleVariant
 
   /**
    * The color variant.
-   *
    * @default ButtonColorVariant.Blue
    */
   colorVariant?: ButtonColorVariant
-
-  /**
-   * The handler to be executed when the button is clicked.
-   */
-  onClick?: MouseEventHandler
-
-  /**
-   * The handler to be executed when the mouse enters the button.
-   */
-  onMouseEnter?: MouseEventHandler
-
-  /**
-   * The handler to be executed when the mouse leaves the button.
-   */
-  onMouseLeave?: MouseEventHandler
-
-  /**
-   * The handler to be executed when the button is unfocused.
-   */
-  onBlur?: FocusEventHandler
 }
 
-export default interface ButtonProps extends
-  BezierComponentProps,
-  SizeProps<ButtonSize>,
-  DisableProps,
-  SideContentProps<SideContent, SideContent>,
-  React.HTMLAttributes<HTMLButtonElement>,
-  ButtonOptions {}
+export interface ButtonProps
+  extends BezierComponentProps<'button'>,
+    PolymorphicProps,
+    SizeProps<ButtonSize>,
+    DisableProps,
+    SideContentProps<SideContent, SideContent>,
+    ButtonOwnProps {}

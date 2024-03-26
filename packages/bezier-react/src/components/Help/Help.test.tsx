@@ -2,8 +2,8 @@ import React from 'react'
 
 import { render } from '~/src/utils/test'
 
-import Help, { HELP_TEST_ID } from './Help'
-import type HelpProps from './Help.types'
+import { HELP_TEST_ID, Help } from './Help'
+import { type HelpProps } from './Help.types'
 
 describe('Help >', () => {
   let props: HelpProps
@@ -15,7 +15,12 @@ describe('Help >', () => {
   })
 
   const renderComponent = (otherProps?: Partial<HelpProps>) =>
-    render(<Help {...props} {...otherProps} />)
+    render(
+      <Help
+        {...props}
+        {...otherProps}
+      />
+    )
 
   it('Snapshot >', () => {
     const { getByTestId } = renderComponent()
