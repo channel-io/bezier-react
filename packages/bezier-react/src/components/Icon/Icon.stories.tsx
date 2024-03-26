@@ -4,7 +4,7 @@ import {
   ArrowLeftIcon,
   BookmarkFilledIcon,
   CallInProgressIcon,
-  ChannelBtnSmileFilledIcon,
+  ChannelBtnFilledIcon,
   ChannelIcon,
   CheckCircleIcon,
   ChevronDownDoubleIcon,
@@ -108,7 +108,7 @@ export const Overview: StoryFn<{}> = () => (
     <LegacyStackItem>
       <LegacyHStack spacing={8}>
         {[
-          ChannelBtnSmileFilledIcon,
+          ChannelBtnFilledIcon,
           CheckCircleIcon,
           InfoFilledIcon,
           ErrorTriangleFilledIcon,
@@ -153,7 +153,7 @@ export const Overview: StoryFn<{}> = () => (
         ].map((semanticName) => (
           <LegacyStackItem key={semanticName}>
             <Icon
-              source={ChannelBtnSmileFilledIcon}
+              source={ChannelBtnFilledIcon}
               color={semanticName}
               size="l"
             />
@@ -166,7 +166,7 @@ export const Overview: StoryFn<{}> = () => (
         {(['xxxs', 'xxs', 'xs', 's', 'm', 'l', 'xl'] as const).map((size) => (
           <LegacyStackItem key={size}>
             <Icon
-              source={ChannelBtnSmileFilledIcon}
+              source={ChannelBtnFilledIcon}
               color="txt-black-darkest"
               size={size}
             />
@@ -184,7 +184,7 @@ function ColorIcon() {
     <LegacyVStack spacing={16}>
       <LegacyStackItem>
         <Icon
-          source={ChannelBtnSmileFilledIcon}
+          source={ChannelBtnFilledIcon}
           color={color}
           size="l"
         />
@@ -229,7 +229,7 @@ export const UsageSize: StoryFn<{}> = () => (
           </LegacyStackItem>
           <LegacyStackItem>
             <Icon
-              source={ChannelBtnSmileFilledIcon}
+              source={ChannelBtnFilledIcon}
               color="txt-black-darkest"
               size={size}
             />
@@ -244,7 +244,7 @@ export const TipsMargin: StoryObj<{}> = {
   render: () => (
     <div style={{ border: '1px solid red' }}>
       <Icon
-        source={ChannelBtnSmileFilledIcon}
+        source={ChannelBtnFilledIcon}
         color="bgtxt-blue-normal"
         marginTop={16}
         marginRight={24}

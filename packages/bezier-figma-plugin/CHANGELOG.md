@@ -43,6 +43,14 @@
 
 - Upgrade to use @channel.io/bezier-react@2.0.0 ([#2001](https://github.com/channel-io/bezier-react/pull/2001)) by @sungik-choi
 
+## 0.4.21
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-icons@0.23.0
+  - @channel.io/bezier-react@1.20.0
+
 ## 0.4.20
 
 ### Patch Changes
