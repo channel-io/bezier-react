@@ -184,17 +184,11 @@ const [ToastContextProvider, useToastContext] =
     rightToasts: [],
   })
 
-/**
- * @deprecated
- * FIXME: Styling dependent on specific applications.
- */
-const GNB_WIDTH = 68
-
 export function ToastProvider({
   autoDismissTimeout = 3000,
   container: givenContainer,
   offset = {
-    left: GNB_WIDTH,
+    left: 0,
     right: 0,
     bottom: 0,
   },
