@@ -1,5 +1,18 @@
 # bezier-figma-plugin
 
+## 0.5.0
+
+### Minor Changes
+
+- Upgrade to use @channel.io/bezier-react@2.0.0 ([#2001](https://github.com/channel-io/bezier-react/pull/2001)) by @sungik-choi
+
+### Patch Changes
+
+- Enhance icon extract logic by catching error ([#2073](https://github.com/channel-io/bezier-react/pull/2073)) by @yangwooseong
+
+- Updated dependencies
+  - @channel.io/bezier-react@2.0.0
+
 ## 0.5.0-alpha.9
 
 ### Patch Changes

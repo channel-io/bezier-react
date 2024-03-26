@@ -1,5 +1,543 @@
 # @channel.io/bezier-react
 
+## 2.0.0
+
+### Major Changes
+
+- **Breaking Changes: Property updates in `Avatar` component** ([#1871](https://github.com/channel-io/bezier-react/pull/1871)) by @yangwooseong
+
+  No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking changes: Remove TagBadge-related types** ([#2114](https://github.com/channel-io/bezier-react/pull/2114)) by @sungik-choi
+
+  - Remove `color` prop of `TagProps` and `TagBadgeBgColorPreset`.
+  - Remove `TagBadgeSize`. Please change it to `TagSize` and `BadgeSize`.
+  - Remove `TagBadgeVariant`. Please change it to `TagVariant` and `BadgeVariant`.
+
+- **Breaking Changes: Property updates in `SegmentedControl` component** ([#1866](https://github.com/channel-io/bezier-react/pull/1866)) by @sungik-choi
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Property updates in `ListItem` component** ([#1925](https://github.com/channel-io/bezier-react/pull/1925)) by @sungik-choi
+
+  - No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support `iconStyle`, `iconClassName`, `iconInterpolation`, `contentStyle`, `contentClassName` and `contentInterpolation`. This decision was made to reduce excessive flexibility in the interface.
+  - No longer support `leftIcon` property. Removed for consistency with other component interfaces. Replace it to `leftContent`.
+  - No longer support `name` property. The second argument (name) of `onClick` is also removed. If you need an identifier, combine functions outside of the component.
+  - No longer support `hide`, `nested`, `optionKey` and `disableIconActive` property. Removed because it is a legacy property. Replace `hide` property with conditional rendering.
+  - The size changes according to the `ListItemSize`. This is a change to unify the design. Please change it like below.
+    - `ListItemSize.S` -> `ListItemSize.XS`
+    - `ListItemSize.M` -> `ListItemSize.S`
+    - `ListItemSize.L` -> `ListItemSize.M`
+    - `ListItemSize.XL` -> `ListItemSize.L`
+
+  **Minor Changes:**
+
+  - Fix incorrect text size for `XL`(now `L`) size.
+
+- **Breaking Changes: Property updates in `Overlay` component** ([#1949](https://github.com/channel-io/bezier-react/pull/1949)) by @sungik-choi
+
+  - No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support `containerInterpolation` property. Replace any usage of `containerInterpolation` property with appropriate `containerStyle` or `containerClassName` implementations.
+  - No longer support `wrapperTestId` property.
+
+- **Breaking Changes: Remove `TooltipProvider` and Property updates in `Tooltip` component** ([#1974](https://github.com/channel-io/bezier-react/pull/1974)) by @sungik-choi
+
+  - No longer support `TooltipProvider` and `TooltipProviderProps`. `Tooltip` component was implemented via radix-ui's Tooltip, which required the use of a `TooltipProvider`, which caused all subcomponents to be re-rendered and caused a performance hit. We decided that the ability to share hover delay time between `Tooltip` components via `TooltipProvider` was not a feature we needed, even with the performance penalty. Also, by providing `TooltipProvider` built-in to `AppProvider`, we were unnecessarily importing modules from our library usage that didn't require `Tooltip`.
+  - `Tooltip` component now contains a `TooltipProvider` inside it.
+
+  **Minor Changes:**
+
+  - Change the default value of `delayShow` prop from `300` to `0`.
+
+- **Breaking Changes: Property updates in `Tag` and `Badge` component** ([#1872](https://github.com/channel-io/bezier-react/pull/1872)) by @yangwooseong
+
+  No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Property updates in `CheckableAvatar` component** ([#1921](https://github.com/channel-io/bezier-react/pull/1921)) by @sungik-choi
+
+  No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: `AlphaSmoothCornersBox` component is now `SmoothCornersBox` component.** ([#2079](https://github.com/channel-io/bezier-react/pull/2079)) by @sungik-choi
+
+- **Breaking Changes: Property updates in `LegacyTooltip` component** ([#1945](https://github.com/channel-io/bezier-react/pull/1945)) by @sungik-choi
+
+  - No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support `contentInterpolation` property. Replace any usage of `contentInterpolation` property with appropriate `contentStyle` or `contentClassName` implementations.
+  - No longer support `contentWrapperInterpolation` property. Replace any usage of `contentWrapperInterpolation` property with appropriate `contentWrapperStyle` or `contentWrapperClassName` implementations.
+
+- **Breaking Changes: `AlphaCenter` component is now `Center` component. Property updates in `Center` component** ([#1854](https://github.com/channel-io/bezier-react/pull/1854)) by @sungik-choi
+
+  - No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - Now supports margin props, layout props and `display` prop.
+
+- **Breaking Changes: Property updates in `FormLabel`, `FormHelperText`, and `FormErrorMessage` component** ([#1893](https://github.com/channel-io/bezier-react/pull/1893)) by @yangwooseong
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Property updates in `NavGroup` and `NavItem` component** ([#1931](https://github.com/channel-io/bezier-react/pull/1931)) by @sungik-choi
+
+  `leftIcon` renamed to `leftContent`. Changed to improve consistency of interface property names across libraries.
+
+- **Breaking Changes: The enum type that the component receives as props is changed to a string (or number) literal type** ([#2059](https://github.com/channel-io/bezier-react/pull/2059)) by @yangwooseong
+
+  The properties that change are:
+
+  - `AvatarGroupEllipsisType`
+  - `IconSize`
+  - `LegacyTooltipPosition`
+  - `ModalTitleSize`
+  - `OverlayPosition`
+  - `ProgressBarSize`, `ProgressBarVariant`
+  - `SpinnerSize`
+  - `SwitchSize`
+  - `TagBadgeSize`, `TagBadgeVariant`
+  - `TextAreaHeight`
+  - `TextFieldSize`, `TextFieldVariant`
+  - `ToastPlacement`, `ToastAppearance`, `ToastPreset`
+  - `TooltipPosition`
+
+  Also, `SpinnerThickness` props of `Spinner` is not supported any more.
+
+  When changed to string literal type, it is changed to the kebab-cased value of enum. e.g. `TooltipPosition.TopCenter` -> `top-center`. Among the above enums, `TextAreaHeight` is converted to number literal type. e.g. `TextAreaHeight.Row16` -> `16`, and `IconSize.normal` is converted to `m` for consistency
+
+- **Breaking Changes: Property updates in `FormControl`, `Select`, and `TextField` component** ([#1948](https://github.com/channel-io/bezier-react/pull/1948)) by @yangwooseong
+
+  - `FormControl` component no longer supports `leftLabelWrapperHeight` props.
+  - `FormControl` component now supports `size` props, which is passed as context to the child component such as `TextField` and `Select` and specified as the size property.
+  - The size property of `Select` and `TextField` component changes from enum to string literal union type. Also, `SelectSize` and `TextFieldSize` enum are deprecated.
+
+- **Breaking changes: Remove `testId` and related properties** ([#1971](https://github.com/channel-io/bezier-react/pull/1971)) by @sungik-choi
+
+  No longer supports `testId` and related properties(e.g. `wrapperTestId`). `testId` is a property used internally by the library for testing with testing-library (`getByTestId`). We don't see a need to expose this as a public API, so we remove it.
+
+  If you were using it, please replace it with the `data-testid` property. See <https://testing-library.com/docs/queries/bytestid/>.
+
+- **Breaking Changes: Property updates in `FormControl` component** ([#1935](https://github.com/channel-io/bezier-react/pull/1935)) by @yangwooseong
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Property updates in `Select` component** ([#1913](https://github.com/channel-io/bezier-react/pull/1913)) by @sungik-choi
+
+  - No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support `dropdownInterpolation` property. Replace any usage of `dropdownInterpolation` property with appropriate `dropdownStyle` or `dropdownClassName` implementations.
+  - The type of `zIndex` property is changed to a z-index token. (e.g. `"modal"`)
+
+- **Breaking Changes: Reorganizing `SectionLabel` component** ([#1936](https://github.com/channel-io/bezier-react/pull/1936)) by @sungik-choi
+
+  `SectionLabel` is a complex component that can be used both in the form of an accordion and as a simple heading. To better meet the needs of both, we've changed the internal implementation of the component.
+
+  We've also made changes to make styling overrides as predictable as they are for other components. The style override property, which was unnecessarily open, is now removed.
+
+  - Remove the internal div wrapper. `style`, `className` properties are now injected into the component instead of the old `wrapperStyle`, `wrapperClassName`.
+  - No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support additional style properties of `wrapper`, `contentWrapper`, `leftWrapper` and `rightWrapper`.
+  - No longer support `divider` property. Replace it by adding `Divider` component to the component's before.
+  - The side content property is changed. It is no longer possible to override `iconColor`.
+  - When injecting `onClick` handler, the root element now behaves as a `button` element. This change is to better support keyboard focus control.
+
+- **Breaking Changes: Property updates in `Emoji` component** ([#1881](https://github.com/channel-io/bezier-react/pull/1881)) by @yangwooseong
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Property updates in `Radio` component** ([#1923](https://github.com/channel-io/bezier-react/pull/1923)) by @sungik-choi
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Deprecated modules for internal use** ([#1963](https://github.com/channel-io/bezier-react/pull/1963)) by @sungik-choi
+
+  - No longer provides `useEventHandler` and `useMergeRefs` hook.
+  - No longer provides `useId` hook. Use `useId` hook of `react` instead.
+  - No longer provides `getRootElement` hook. Use `useWindow` hook instead.
+  - No longer provides `StyleUtils` and `StringUtils` utils.
+
+- **Breaking Changes: Property updates in `ProgressBar` component** ([#1947](https://github.com/channel-io/bezier-react/pull/1947)) by @sungik-choi
+
+  - No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support `activeStyle`, `activeClassName` and `activeInterpolation` property.
+  - No longer support `activeTestId` property.
+
+- **Breaking Changes: Property updates in `Tabs`-related components** ([#1960](https://github.com/channel-io/bezier-react/pull/1960)) by @sungik-choi
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Property updates in `Text` component** ([#1820](https://github.com/channel-io/bezier-react/pull/1820)) by @sungik-choi
+
+  `typo` prop in the `Text` component has been changed to accept only string literals in order to simplify the API and improve the predictability of text styling, particularly in the context of the removal of `styled-components` from `bezier-react`, which has led to the unavailability of CSS Interpolation.
+
+  **Migration Instructions:**
+
+  Use [`v2-text-component-interface`](https://github.com/channel-io/bezier-react/tree/alpha/packages/bezier-codemod#change-interface-of-text) transformer from `bezier-codemod` for automated migration.
+
+- **Breaking Changes: Reorganizing `KeyValueListItem` component** ([#1941](https://github.com/channel-io/bezier-react/pull/1941)) by @sungik-choi
+
+  - **Renamed to `KeyValueItem`.**
+  - - No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support `valueWrapperStyle`, `valueWrapperClassName`, `valueWrapperInterpolation`, `keyWrapperStyle`, `keyWrapperClassName` and `keyWrapperInterpolation`. This decision was made to reduce excessive flexibility in the interface.
+  - No longer support `AdditionalColorProps` and `show` property of ItemAction.
+  - The icon inside ItemAction is now implemented through `Button` component.
+  - The Value Container will now always have 100% of the parent's width.
+
+- Add new margin properties to `Icon` component ([#1863](https://github.com/channel-io/bezier-react/pull/1863)) by @yangwooseong
+
+  - `margin`
+  - `marginHorizontal`
+  - `marginVertical`
+
+- **Breaking Changes: Property updates in `NavItem` and `NavGroup` component** ([#1905](https://github.com/channel-io/bezier-react/pull/1905)) by @yangwooseong
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: The enum type that the component receives as props is changed to a string literal type** ([#2059](https://github.com/channel-io/bezier-react/pull/2059)) by @yangwooseong
+
+  The properties that change are:
+
+  - `AvatarSize`
+  - `BannerVariant`
+  - `ButtonColorVariant`, `ButtonStyleVariant`, `ButtonSize`
+  - `EmojiSize`
+  - `SegmentedControlSize`
+  - `TabSize`
+  - `ListItemVariant`, `ListItemSize`
+  - `StatusType`, `StatusSize`
+
+  When changed to string literal type, it is changed to the kebab-cased value of enum. e.g. `ButtonStyleVariant.MonoChromeDark` -> `monochrome-dark`, `StatusType.OnlineCrescent` -> `online-crescent`
+
+- **Breaking Changes: Property updates in `Modal`-related components** ([#1903](https://github.com/channel-io/bezier-react/pull/1903)) by @sungik-choi
+
+  - No longer supports `as` and `interpolation` props.
+  - The type of `zIndex` property is changed to a z-index token. (e.g. `"modal"`)
+
+- **Breaking Change: Removal of `LegacySegmentedControl` Component** ([#1786](https://github.com/channel-io/bezier-react/pull/1786)) by @sungik-choi
+
+  We have removed the `LegacySegmentedControl` component from our library. This change follows its deprecation in `next-v1.204`.
+
+  **Reasons for Removal:**
+
+  - To enhance web accessibility and improve keyboard navigation.
+  - To align with our goals of design modernization and consistent user experience.
+
+  **Impact:**
+
+  `LegacySegmentedControl` component is no longer available and cannot be used in your projects. Replace all instances of `LegacySegmentedControl` with `SegmentedControl` component.
+
+- **Breaking Changes: Property updates in `LegacyStack` components** ([#1944](https://github.com/channel-io/bezier-react/pull/1944)) by @sungik-choi
+
+  - No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer export `AxisAlignment` type.
+
+- **Breaking Changes: Property updates in `TextField` component** ([#1904](https://github.com/channel-io/bezier-react/pull/1904)) by @sungik-choi
+
+  - No longer support `interpolation`-related properties. Replace any usage of `interpolation` -related properties with appropriate `***style` or `***className` implementations.
+  - No longer support `inputStyle` and `inputClassName` properties. Replace any usage of `inputStyle` and `inputClassName` with appropriate `style` or `className` implementations.
+  - Change the value of `TextFieldVariant` enum value to string.
+
+- **Breaking Changes: Remove the default offset(`GNB_WIDTH`) in `Toast`** ([#2117](https://github.com/channel-io/bezier-react/pull/2117)) by @sungik-choi
+
+  Remove the style because it was dependent on a specific application. Use `{ left: 68 }` instead.
+
+- **Breaking Changes: Property updates in `Banner` component** ([#1891](https://github.com/channel-io/bezier-react/pull/1891)) by @sungik-choi
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+  **Other changes in `Banner` component**
+
+  - now supports HTML attributes.
+  - now supports style props.
+
+- **Breaking Change: Removal of `LegacyRadio` Component** ([#1943](https://github.com/channel-io/bezier-react/pull/1943)) by @sungik-choi
+
+  - `LegacyRadio` component has been removed from the library. Please use `RadioGroup` and `Radio` component instead.
+  - Now if `Radio` has no label, its size is reduced by an indicator.
+
+- **Breaking Changes: Property updates in `Checkbox` component** ([#1918](https://github.com/channel-io/bezier-react/pull/1918)) by @sungik-choi
+
+  No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- **Breaking Changes: Property updates in `Switch` component** ([#1885](https://github.com/channel-io/bezier-react/pull/1885)) by @yangwooseong
+
+  No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+
+- Export the css style sheet for the new design system. ([#1492](https://github.com/channel-io/bezier-react/pull/1492)) by @sungik-choi
+
+- **Breaking Changes: Reorganizing `OutlineItem` component** ([#1930](https://github.com/channel-io/bezier-react/pull/1930)) by @sungik-choi
+
+  `OutlineItem` component was originally designed as a component to draw a tree-like view, _but it was not used as intended in production_. We simplified the component's responsibilities by removing unused properties while retaining the component's ability to apply indentation to subcomponents.
+
+  - No longer support `paddingLeft` property. **By default, 6px of left padding has been added.** If you need to make changes, override the style.
+  - No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support `iconStyle`, `iconClassName`, `iconInterpolation`, `contentStyle`, `contentClassName` and `contentInterpolation`. This decision was made to reduce excessive flexibility in the interface.
+  - No longer support `leftIcon` property. Removed for consistency with other component interfaces. Replace it to `leftContent`.
+  - No longer support `leftIconColor` and `leftIconTestId` property.
+  - No longer support `name` property. The second argument (name) of `onClick` is also removed. If you need an identifier, combine functions outside of the component.
+  - No longer support `hide`, `optionKey` and `disableIconActive` property. Replace `hide` property with conditional rendering.
+  - No longer support `onOpen`, `onClickArrow`, `selectedOutlineItemIndex` and `onChangeOption` property.
+
+- **Breaking Changes: Property updates in `Slider` component** ([#1883](https://github.com/channel-io/bezier-react/pull/1883)) by @yangwooseong
+
+  - No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - `dir` type is narrowed from `string | undefined` to `ltr | rtl | undefined`
+
+- **Breaking Changes: Property updates in `Button` component** ([#1882](https://github.com/channel-io/bezier-react/pull/1882)) by @sungik-choi
+
+  - No longer support `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - `ButtonSize` and `ButtonColorVariant` enums have been updated to use kebab case.
+
+- **Breaking Change: No longer supports `smoothCorners` mixin. Use `AlphaSmoothCornersBox` components instead.** ([#1892](https://github.com/channel-io/bezier-react/pull/1892)) by @sungik-choi
+
+  ```tsx
+  // Before
+  const Box = styled.div`
+    ${smoothCorners({
+      borderRadius: 10,
+      shadow: '0 5px 15px 0 var(--shdw-large)',
+      shadowBlur: 15,
+      backgroundColor: 'var(--bgtxt-absolute-white-dark)',
+      hasBackgroundImage: true,
+    })}
+  `
+
+  <Box>...</Box>
+
+  // After
+  <AlphaSmoothCornersBox
+    borderRadius={10}
+    shadow={{
+      offsetX: 0,
+      offsetY: 5,
+      blurRadius: 15,
+      spreadRadius: 0,
+      color: 'shdw-large',
+    }}
+    backgroundColor="bgtxt-absolute-white-dark"
+    backgroundImage="..."
+  >...</AlphaSmoothCornersBox>
+  ```
+
+- **Breaking Changes: `Toast`-related modules** ([#1950](https://github.com/channel-io/bezier-react/pull/1950)) by @sungik-choi
+
+  - No longer support `actionContent` and `onClick` properties in `ToastOptions`.
+  - Value type of `zIndex` property in `ToastOptions` is changed from `number` to `ZIndex` token.
+  - No longer export `ToastIconColor` enum.
+
+- **Breaking Changes: Property updates in `TextArea` component** ([#1914](https://github.com/channel-io/bezier-react/pull/1914)) by @sungik-choi
+
+  - No longer support `as` and `interpolation` property. Replace any usage of `interpolation` property with appropriate `style` or `className` implementations.
+  - No longer support `wrapperStyle`, `wrapperClassName` and `wrapperInterpolation` property. It was never properly implemented before, and the Wrapper element inside was also removed.
+
+- **Breaking Changes: Deprecate support for `styled-components` related modules** ([#1962](https://github.com/channel-io/bezier-react/pull/1962)) by @sungik-choi
+
+  - No longer support legacy foundation modules. Use the `useToken` hook and components to replace it
+    - `LightFoundation` and `DarkFoundation`
+    - `Spacing`
+    - `ev1`, `ev2`, `ev3`, `ev4`, `ev5` and `ev6`
+    - `createThemes`, `Theme`, `SemanticNames`, `LightTheme` and `DarkTheme`
+    - `TransitionDuration` and `Transition`
+    - `Border`
+    - `Typography`, `TypoAbsoluteNumber`, `LineHeightAbsoluteNumber` and `TypographyType`
+    - `absoluteCenter`, `disableAutoMinimum`, `hideScrollbars` and `ellipsis`
+    - `ThemeVarsAdditionalType` and `ThemeVars`
+    - `GlobalStyle`
+    - `Foundation`
+    - `GlobalStyleProp`
+    - `createGlobalStyle`, `styled`, `css`, `FoundationProvider`, `useFoundation`, `keyframes`, `StyleSheetManager` and `ServerStyleSheet`
+  - No longer support `BezierProvider`. Use the `AppProvider` instead
+  - No longer support `gap` and `touchableHover` mixins. Please implement and use your own
+
+  ```tsx
+  function gap(spacing: number): InjectedInterpolation {
+    return css`
+      gap: ${spacing}px;
+
+      @supports not (gap: ${spacing}px) {
+        margin-top: ${-spacing}px;
+        margin-left: ${-spacing}px;
+
+        > * {
+          margin-top: ${spacing}px;
+          margin-left: ${spacing}px;
+        }
+      }
+    `;
+  }
+
+  function touchableHover(
+    interpolation: InjectedInterpolation,
+  ): InjectedInterpolation {
+    return css`
+      @media (hover: hover) {
+        &:hover {
+          ${interpolation}
+        }
+      }
+
+      @media (hover: none) {
+        &:active {
+          ${interpolation}
+        }
+      }
+    `;
+  }
+  ```
+
+  - No longer support `inputTextStyle`, `inputPlaceholderStyle`, `inputWrapperStyle`, `focusedInputWrapperStyle` and `erroredInputWrapperStyle`. Please migrate using `@channel.io/bezier-codemod`'s `v2-interpolation-to-css-variable` transformer.
+
+- **Breaking Changes: `AlphaStack` component has been changed to a `Stack` component, and `Stack` component has been changed to `LegacyStack` component.** ([#1837](https://github.com/channel-io/bezier-react/pull/1837)) by @sungik-choi
+
+  Changes to remove the dependency of `Stack` and `StackItem` to allow stack layouts to be configured without additional DOM elements. And improved the existing `AlphaStack` to support more Flex layout related properties like reverse, wrap, and more align options, etc. See StackProps for more information.
+
+  We also added new `HStack` and `VStack` components, which are shorthand components that fix the direction prop of `AlphaStack`. As mentioned above, the existing components become `LegacyHStack`, `LegacyVStack`.
+
+  The layout implemented by `StackItem` can be partially replaced by the Layout component's `grow`, `shrink` common properties and margin common properties. Note that the `align`, `justify` (align-self, justify-self in CSS flex) properties provided by `StackItem` are not provided by the Layout component.
+
+  ```jsx
+  /* AS-IS */
+  return (
+    <Stack
+      direction="horizontal"
+      spacing={8}
+      style={{ width: 300, height: 50 }}
+    >
+      <StackItem grow shrink weight={1} />
+      <StackItem weight={0} size={10} marginBefore={20}>
+        <Stack direction="vertical" />
+      </StackItem>
+    </Stack>
+  );
+
+  /* TO-BE */
+  return (
+    <Stack direction="horizontal" spacing={8} width={300} height={50}>
+      <Box grow={1} shrink={1} />
+      <Stack direction="vertical" shrink={0} width={10} ml={12} />
+    </Stack>
+  );
+  ```
+
+  The changes also apply to other components that use `Stack` internally, and there are a few breaking changes.
+
+  - `RadioGroup`, `ButtonGroup`, `FormGroup` no longer support `as` prop.
+
+- **Breaking Change: Removal of `ListMenuTitle` Component** ([#1900](https://github.com/channel-io/bezier-react/pull/1900)) by @yangwooseong
+
+  - It was no longer being managed or utilized by our designers.
+  - If you are currently using `ListMenuTitle` in your application, please replace it with the `SectionLabel` component for similar functionality.
+
+### Minor Changes
+
+- Implement multi theme feature based on data attributes ([#1756](https://github.com/channel-io/bezier-react/pull/1756)) by @sungik-choi
+
+- Move `@channel.io/bezier-tokens` from dev depdency to dependency ([#1985](https://github.com/channel-io/bezier-react/pull/1985)) by @sungik-choi
+
+- Add the `TooltipPrimitive` component, which is the same as the [`Tooltip` component in radix-ui](https://www.radix-ui.com/primitives/docs/components/tooltip). You can use it by importing it from the `/alpha` path. ([#2049](https://github.com/channel-io/bezier-react/pull/2049)) by @sungik-choi
+
+  ```tsx
+  import {
+    TooltipPrimitive,
+    TooltipPrimitiveArrow,
+    TooltipPrimitiveContent,
+    TooltipPrimitivePortal,
+    TooltipPrimitiveProvider,
+    TooltipPrimitiveTrigger,
+  } from "@channel.io/bezier-react/alpha";
+  ```
+
+- When you pass a value of number type to the dimension-related properties of margin prop and layout prop, they implicitly add px units as a suffix. See: <https://react.dev/reference/react-dom/components/common#common> ([#1823](https://github.com/channel-io/bezier-react/pull/1823)) by @sungik-choi
+
+- Add `Box` component. `Box` component is responsible for the primitive layout and provides easy access to the design tokens in the design system ([#1785](https://github.com/channel-io/bezier-react/pull/1785)) by @sungik-choi
+
+  ```tsx
+  <Box width="100px" height="100px" p="6px" m="6px" bgColor="bg-black-light" />
+  ```
+
+- Fixes style inheritance issues by explicitly giving CSS custom properties an initial value ([#1846](https://github.com/channel-io/bezier-react/pull/1846)) by @sungik-choi
+
+- Apply bezier-tokens to bezier-react's style sheet and fix some invalid css selector ([#1495](https://github.com/channel-io/bezier-react/pull/1495)) by @sungik-choi
+
+- Add the `DialogPrimitive` component, which is the same as the [`Dialog` component in radix-ui](https://www.radix-ui.com/primitives/docs/components/dialog). You can use it by importing it from the `/alpha` path. ([#2049](https://github.com/channel-io/bezier-react/pull/2049)) by @sungik-choi
+
+  ```tsx
+  import {
+    DialogPrimitive,
+    DialogPrimitiveClose,
+    DialogPrimitiveContent,
+    DialogPrimitiveDescription,
+    DialogPrimitiveOverlay,
+    DialogPrimitivePortal,
+    DialogPrimitiveTitle,
+    DialogPrimitiveTrigger,
+  } from "@channel.io/bezier-react/alpha";
+  ```
+
+- `ButtonGroup` now supports HTML attributes ([#1890](https://github.com/channel-io/bezier-react/pull/1890)) by @sungik-choi
+
+- `Banner` will now render content even if the `content` prop is not a string. The same applies to link-related props. ([#1972](https://github.com/channel-io/bezier-react/pull/1972)) by @sungik-choi
+
+- Rename `AlphaAppProvider` to `AppProvider` ([#1834](https://github.com/channel-io/bezier-react/pull/1834)) by @sungik-choi
+
+- Rename the `style.css` file to `styles.css` ([#1791](https://github.com/channel-io/bezier-react/pull/1791)) by @sungik-choi
+
+- Add `align` prop to `Text` component. This prop is used to set horizontal alignment of text ([#1820](https://github.com/channel-io/bezier-react/pull/1820)) by @sungik-choi
+
+  ```tsx
+  <Text align="left" />
+  <Text align="center" />
+  <Text align="right" />
+  ```
+
+- Remove `borderStyle` prop from Layout props ([#1848](https://github.com/channel-io/bezier-react/pull/1848)) by @sungik-choi
+
+- Add `useRootElement` hook. It is only available to `WindowProvider` children, and provides easy access to the root element of window context value. ([#1981](https://github.com/channel-io/bezier-react/pull/1981)) by @sungik-choi
+
+  ```tsx
+  const { window, document, rootElement } = useWindow();
+  // Same as useWindow().rootElement
+  const rootElement = useRootElement();
+  ```
+
+### Patch Changes
+
+- Fixes an issue with color inheritance across components. ([#2009](https://github.com/channel-io/bezier-react/pull/2009)) by @sungik-choi
+
+- Add missing default margin styles of `LegacyStackItem` ([#2004](https://github.com/channel-io/bezier-react/pull/2004)) by @sungik-choi
+
+- Fixes issue with `ModalBody`, `ModalFooter` not applying styling correctly when wrapped in other elements. ([#2017](https://github.com/channel-io/bezier-react/pull/2017)) by @sungik-choi
+
+- Add `overflow: hidden` to `ListItem` component ([#2013](https://github.com/channel-io/bezier-react/pull/2013)) by @yangwooseong
+
+- Fix invalid `aria-modal` value in Modal Content. ([#2052](https://github.com/channel-io/bezier-react/pull/2052)) by @sungik-choi
+
+- Fix `TabAction` typography style for size M. ([#2035](https://github.com/channel-io/bezier-react/pull/2035)) by @sungik-choi
+
+- Minify the CSS output ([#1791](https://github.com/channel-io/bezier-react/pull/1791)) by @sungik-choi
+
+- Update background color of `TextField`'s secondary variant. ([#2016](https://github.com/channel-io/bezier-react/pull/2016)) by @sungik-choi
+
+- Mute the error of `smoothCornerScript` when called twice. ([#2010](https://github.com/channel-io/bezier-react/pull/2010)) by @chaejunlee
+
+- Now exports the `tokens` object from `@channel.io/bezier-tokens`. ([#1992](https://github.com/channel-io/bezier-react/pull/1992)) by @sungik-choi
+
+- Adds icon and typo size for avatar size `"72"`, which were missing from `AvatarGroup`. ([#2071](https://github.com/channel-io/bezier-react/pull/2071)) by @sungik-choi
+
+- Add missing `overflow: hidden` style to item wrapper of `KeyValueItem` component. ([#2036](https://github.com/channel-io/bezier-react/pull/2036)) by @sungik-choi
+
+- Fixes `Overlay` not closing in other windows. ([#2037](https://github.com/channel-io/bezier-react/pull/2037)) by @sungik-choi
+
+- Fixes a bug where onHide is called when clicking inside the overlay, causing the overlay to close. ([#1977](https://github.com/channel-io/bezier-react/pull/1977)) by @yangwooseong
+
+- Fix invalid style migrations of `Tabs` component. ([#2014](https://github.com/channel-io/bezier-react/pull/2014)) by @sungik-choi
+
+- Add missing spreading props to `ThemeProvider` and related components. ([#1986](https://github.com/channel-io/bezier-react/pull/1986)) by @sungik-choi
+
+- Fix `ListItem`'s left icon color specificity issue. ([#2018](https://github.com/channel-io/bezier-react/pull/2018)) by @sungik-choi
+
+- Fix `Badge` component style issue ([#2068](https://github.com/channel-io/bezier-react/pull/2068)) by @yangwooseong
+
+- Fixes an issue where multi line truncated in `Text` was not being applied. ([#1994](https://github.com/channel-io/bezier-react/pull/1994)) by @sungik-choi
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.1.0
+
 ## 2.0.0-alpha.21
 
 ### Major Changes
