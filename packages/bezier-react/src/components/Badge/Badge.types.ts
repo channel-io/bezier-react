@@ -8,9 +8,13 @@ import {
 } from '~/src/types/props'
 
 import {
-  type TagBadgeSize,
-  type TagBadgeVariant,
-} from '~/src/components/TagBadgeCommon'
+  type BaseTagBadgeSize,
+  type BaseTagBadgeVariant,
+} from '~/src/components/BaseTagBadge'
+
+export type BadgeSize = BaseTagBadgeSize
+
+export type BadgeVariant = BaseTagBadgeVariant
 
 interface BadgeOwnProps {
   /**
@@ -22,6 +26,6 @@ interface BadgeOwnProps {
 export interface BadgeProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,
-    SizeProps<TagBadgeSize>,
-    VariantProps<TagBadgeVariant>,
+    SizeProps<BadgeSize>,
+    VariantProps<BadgeVariant>,
     BadgeOwnProps {}

@@ -1,6 +1,23 @@
-.Badge {
+.BaseTagBadge {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+
   color: var(--b-tag-badge-color);
+
   background-color: var(--b-tag-badge-background-color);
+
+  &:where(.size-xs) {
+    padding: 1px 2px;
+    border-radius: var(--radius-4);
+  }
+
+  &:where(.size-s, .size-m, .size-l) {
+    padding: 1px 4px;
+    border-radius: var(--radius-6);
+  }
 
   &:where(.variant-default) {
     --b-tag-badge-background-color: var(--bg-black-lighter);
