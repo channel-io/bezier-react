@@ -37,7 +37,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "npm-run-all2": "^6.1.2",
     "prettier": "^3.2.5",
-    "stylelint": "^16.2.1",
+    "stylelint": "^16.3.0",
     "stylelint-config-clean-order": "^5.4.1",
     "stylelint-config-prettier-scss": "^1.0.0",
     "stylelint-config-standard-scss": "^13.0.0",
