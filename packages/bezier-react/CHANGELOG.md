@@ -1,5 +1,19 @@
 # @channel.io/bezier-react
 
+## 2.0.0-alpha.21
+
+### Major Changes
+
+- **Breaking changes: Remove TagBadge-related types** ([#2114](https://github.com/channel-io/bezier-react/pull/2114)) by @sungik-choi
+
+  - Remove `color` prop of `TagProps` and `TagBadgeBgColorPreset`.
+  - Remove `TagBadgeSize`. Please change it to `TagSize` and `BadgeSize`.
+  - Remove `TagBadgeVariant`. Please change it to `TagVariant` and `BadgeVariant`.
+
+- **Breaking Changes: Remove the default offset(`GNB_WIDTH`) in `Toast`** ([#2117](https://github.com/channel-io/bezier-react/pull/2117)) by @sungik-choi
+
+  Remove the style because it was dependent on a specific application. Use `{ left: 68 }` instead.
+
 ## 2.0.0-alpha.20
 
 ### Major Changes
@@ -215,7 +229,7 @@
   }
 
   function touchableHover(
-    interpolation: InjectedInterpolation
+    interpolation: InjectedInterpolation,
   ): InjectedInterpolation {
     return css`
       @media (hover: hover) {
@@ -1121,7 +1135,7 @@
       <BezierProvider>
         <App />
       </BezierProvider>
-    </FeatureProvider>
+    </FeatureProvider>,
   );
   ```
 
@@ -1511,7 +1525,7 @@
       <BezierProvider>
         <App />
       </BezierProvider>
-    </FeatureProvider>
+    </FeatureProvider>,
   );
   ```
 
