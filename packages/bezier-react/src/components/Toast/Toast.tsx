@@ -184,14 +184,16 @@ const [ToastContextProvider, useToastContext] =
     rightToasts: [],
   })
 
+const DEFAULT_OFFSET = {
+  left: 0,
+  right: 0,
+  bottom: 0,
+}
+
 export function ToastProvider({
   autoDismissTimeout = 3000,
   container: givenContainer,
-  offset = {
-    left: 0,
-    right: 0,
-    bottom: 0,
-  },
+  offset = DEFAULT_OFFSET,
   children = [],
 }: ToastProviderProps) {
   const rootElement = useRootElement()
@@ -207,10 +209,10 @@ export function ToastProvider({
         <div
           key={placement}
           style={{
-            bottom: px(offset?.bottom),
+            bottom: px(offset?.bottom ?? DEFAULT_OFFSET.bottom),
             ...(placement === 'bottom-right'
-              ? { right: px(offset?.right) }
-              : { left: px(offset?.left) }),
+              ? { right: px(offset?.right ?? DEFAULT_OFFSET.right) }
+              : { left: px(offset?.left ?? DEFAULT_OFFSET.left) }),
           }}
           className={styles.ToastContainer}
         >
