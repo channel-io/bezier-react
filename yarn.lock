@@ -2038,6 +2038,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-tokens@workspace:packages/bezier-tokens"
   dependencies:
+    chalk: "npm:^5.3.0"
     eslint-config-bezier: "workspace:*"
     minimatch: "npm:^9.0.3"
     style-dictionary: "npm:^3.9.2"

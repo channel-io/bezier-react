@@ -36,6 +36,7 @@ function defineWebPlatform({ options, ...rest }: Platform): Platform {
 interface DefineConfigOptions {
   source: string[]
   reference?: string[]
+  basePath: string
   destination: string
   options?: Options & {
     cssSelector: string
@@ -45,6 +46,7 @@ interface DefineConfigOptions {
 function defineConfig({
   source,
   reference = [],
+  basePath,
   destination,
   options,
 }: DefineConfigOptions): Config {
@@ -52,7 +54,7 @@ function defineConfig({
     source: [...source, ...reference],
     platforms: {
       'web/cjs': defineWebPlatform({
-        buildPath: 'dist/cjs/',
+        buildPath: `${basePath}/cjs/`,
         files: [
           {
             destination: `${destination}.js`,
@@ -63,7 +65,7 @@ function defineConfig({
         ],
       }),
       'web/esm': defineWebPlatform({
-        buildPath: 'dist/esm/',
+        buildPath: `${basePath}/esm/`,
         files: [
           {
             destination: `${destination}.mjs`,
@@ -74,7 +76,7 @@ function defineConfig({
         ],
       }),
       'web/css': defineWebPlatform({
-        buildPath: 'dist/css/',
+        buildPath: `${basePath}/css/`,
         files: [
           {
             destination: `${destination}.css`,
@@ -97,6 +99,7 @@ function main() {
     TokenBuilder.extend(
       defineConfig({
         source: ['src/global/*.json'],
+        basePath: 'dist',
         destination: 'global',
         options: { cssSelector: ':where(:root, :host)' },
       })
@@ -105,6 +108,7 @@ function main() {
       defineConfig({
         source: ['src/semantic/*.json', 'src/semantic/light-theme/*.json'],
         reference: ['src/global/*.json'],
+        basePath: 'dist',
         destination: 'lightTheme',
         options: {
           cssSelector: ':where(:root, :host), [data-bezier-theme="light"]',
@@ -115,8 +119,17 @@ function main() {
       defineConfig({
         source: ['src/semantic/*.json', 'src/semantic/dark-theme/*.json'],
         reference: ['src/global/*.json'],
+        basePath: 'dist',
         destination: 'darkTheme',
         options: { cssSelector: '[data-bezier-theme="dark"]' },
+      })
+    ),
+    TokenBuilder.extend(
+      defineConfig({
+        source: ['src/alpha/global/*.json'],
+        basePath: 'dist/alpha',
+        destination: 'global',
+        options: { cssSelector: ':where(:root, :host)' },
       })
     ),
   ].forEach((builder) => builder.buildAllPlatforms())
