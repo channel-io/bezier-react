@@ -1,6 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
+import chalk from 'chalk'
+
 const destination = 'styles.css'
 
 function concatenateStylesheet(buildPath: string) {
@@ -12,7 +14,7 @@ function concatenateStylesheet(buildPath: string) {
 
   fs.writeFileSync(path.join(buildPath, destination), outputData)
   // eslint-disable-next-line no-console
-  console.log(`\n✔︎ Created ${buildPath}/${destination}`)
+  console.log(chalk.green.bold(`\n✔︎ Created ${buildPath}/${destination}`))
 
   files.forEach((file) => {
     if (file !== destination) {

@@ -1,6 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
+import chalk from 'chalk'
+
 interface BuildJsIndexFileOptions {
   buildPath: string
   isCjs: boolean
@@ -16,7 +18,7 @@ function buildJsIndexFile({ buildPath, isCjs }: BuildJsIndexFileOptions) {
 
   if (!fs.existsSync(buildPath)) {
     // eslint-disable-next-line no-console
-    console.log(`Directory not found: ${buildPath}`)
+    console.log(chalk.red.bold(`Directory not found: ${buildPath}`))
     return
   }
 
@@ -52,7 +54,7 @@ function buildJsIndexFile({ buildPath, isCjs }: BuildJsIndexFileOptions) {
 
   fs.writeFileSync(path.join(buildPath, destination), exportStatements)
   // eslint-disable-next-line no-console
-  console.log(`\n✔︎ Created ${buildPath}/${destination}`)
+  console.log(chalk.green.bold(`\n✔︎ Created ${buildPath}/${destination}`))
 }
 
 function main() {
