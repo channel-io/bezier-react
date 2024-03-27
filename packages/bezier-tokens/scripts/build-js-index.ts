@@ -62,7 +62,15 @@ function main() {
       isCjs: true,
     },
     {
+      buildPath: 'dist/alpha/cjs',
+      isCjs: true,
+    },
+    {
       buildPath: 'dist/esm',
+      isCjs: false,
+    },
+    {
+      buildPath: 'dist/alpha/esm',
       isCjs: false,
     },
   ].forEach(buildJsIndexFile)

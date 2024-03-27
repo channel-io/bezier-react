@@ -6,6 +6,12 @@ type CustomTransform = Named<Transform<unknown>>
 type Transforms = Record<string, CustomTransform>
 
 export const CSSTransforms = {
+  __V2__namespace: {
+    name: 'custom/v2/namespace',
+    type: 'name',
+    matcher: (token) => token.filePath.startsWith('src/alpha'),
+    transformer: ({ name }) => `v2-${name}`,
+  },
   fontRem: {
     name: 'custom/css/font/rem',
     type: 'value',
