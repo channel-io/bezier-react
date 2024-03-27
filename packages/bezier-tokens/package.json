@@ -21,7 +21,18 @@
         "default": "./dist/esm/index.mjs"
       }
     },
-    "./css/*": "./dist/css/*"
+    "./alpha": {
+      "require": {
+        "types": "./dist/types/alpha/cjs/index.d.ts",
+        "default": "./dist/alpha/cjs/index.js"
+      },
+      "import": {
+        "types": "./dist/types/alpha/esm/index.d.mts",
+        "default": "./dist/alpha/esm/index.mjs"
+      }
+    },
+    "./css/*": "./dist/css/*",
+    "./alpha/css/*": "./dist/alpha/css/*"
   },
   "sideEffects": [
     "**/*.css"
