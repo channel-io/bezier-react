@@ -124,7 +124,6 @@ function main() {
         options: { cssSelector: '[data-bezier-theme="dark"]' },
       })
     ),
-    // NOTE: Design tokens for version 2 design system
     TokenBuilder.extend(
       defineConfig({
         source: ['src/alpha/global/*.json'],
