@@ -1,5 +1,6 @@
 {
   "shadow": {
+    "_comment": "TODO: Reference the shadow color from the theme and Separate inner/base shadow to reuse ",
     "1": {
       "value": [
         {
@@ -27,8 +28,7 @@
           "spread": "0px"
         }
       ],
-      "type": "shadow",
-      "description": "shadow/S"
+      "type": "shadow"
     },
     "2": {
       "value": [

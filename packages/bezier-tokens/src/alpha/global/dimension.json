@@ -94,9 +94,7 @@
     },
     "60": {
       "value": "60px",
-      "type": "dimension",
-
-      "description": "backdrop"
+      "type": "dimension"
     },
     "72": {
       "value": "72px",
@@ -136,9 +134,7 @@
     },
     "640": {
       "value": "640px",
-      "type": "dimension",
-
-      "description": "drawer"
+      "type": "dimension"
     },
     "720": {
       "value": "720px",
@@ -207,13 +203,11 @@
       }
     },
     "42-p": {
-      "value": "42px",
-      "type": "dimension",
-
-      "description": "avatar radius"
+      "value": "42%",
+      "type": "dimension"
     },
     "100-p": {
-      "value": "100px",
+      "value": "100%",
       "type": "dimension"
     },
     "m-1": {
