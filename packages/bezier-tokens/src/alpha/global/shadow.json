@@ -1,0 +1,179 @@
+{
+  "shadow": {
+    "1": {
+      "value": [
+        {
+          "color": "#ffffff1f",
+          "type": "innerShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "0px"
+        },
+        {
+          "color": "#0000000d",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "1px"
+        },
+        {
+          "color": "#00000014",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "1px",
+          "blur": "2px",
+          "spread": "0px"
+        }
+      ],
+      "type": "shadow",
+      "description": "shadow/S"
+    },
+    "2": {
+      "value": [
+        {
+          "color": "#ffffff1f",
+          "type": "innerShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "0px"
+        },
+        {
+          "color": "#0000000d",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "1px"
+        },
+        {
+          "color": "#00000014",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "2px",
+          "blur": "6px",
+          "spread": "0px"
+        }
+      ],
+      "type": "shadow"
+    },
+    "3": {
+      "value": [
+        {
+          "color": "#ffffff1f",
+          "type": "innerShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "0px"
+        },
+        {
+          "color": "#0000000d",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "1px"
+        },
+        {
+          "color": "#00000026",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "16px",
+          "spread": "0px"
+        }
+      ],
+      "type": "shadow"
+    },
+    "4": {
+      "value": [
+        {
+          "color": "#ffffff1f",
+          "type": "innerShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "0px"
+        },
+        {
+          "color": "#0000000d",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "1px"
+        },
+        {
+          "color": "#00000038",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "24px",
+          "spread": "0px"
+        }
+      ],
+      "type": "shadow"
+    },
+    "5": {
+      "value": [
+        {
+          "color": "#ffffff1f",
+          "type": "innerShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "0px"
+        },
+        {
+          "color": "#0000000d",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "1px"
+        },
+        {
+          "color": "#0000004d",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "6px",
+          "blur": "40px",
+          "spread": "0px"
+        }
+      ],
+      "type": "shadow"
+    },
+    "6": {
+      "value": [
+        {
+          "color": "#ffffff1f",
+          "type": "innerShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "0px"
+        },
+        {
+          "color": "#0000000d",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "1px"
+        },
+        {
+          "color": "#0000004d",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "12px",
+          "blur": "60px",
+          "spread": "4px"
+        }
+      ],
+      "type": "shadow"
+    }
+  }
+}
