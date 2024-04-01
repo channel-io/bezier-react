@@ -1,0 +1,128 @@
+{
+  "font": {
+    "size": {
+      "11": {
+        "value": "11",
+        "type": "dimension"
+      },
+      "12": {
+        "value": "12",
+        "type": "dimension"
+      },
+      "13": {
+        "value": "13",
+        "type": "dimension"
+      },
+      "14": {
+        "value": "14",
+        "type": "dimension"
+      },
+      "15": {
+        "value": "15",
+        "type": "dimension"
+      },
+      "15-5": {
+        "value": "15.5",
+        "type": "dimension"
+      },
+      "16": {
+        "value": "16",
+        "type": "dimension"
+      },
+      "17": {
+        "value": "17",
+        "type": "dimension"
+      },
+      "18": {
+        "value": "18",
+        "type": "dimension"
+      },
+      "22": {
+        "value": "22",
+        "type": "dimension"
+      },
+      "24": {
+        "value": "24",
+        "type": "dimension"
+      },
+      "30": {
+        "value": "30",
+        "type": "dimension"
+      },
+      "36": {
+        "value": "36",
+        "type": "dimension"
+      }
+    },
+    "weight": {
+      "regular": {
+        "value": 400,
+        "type": "fontWeight"
+      },
+      "semi-bold": {
+        "value": 600,
+        "type": "fontWeight"
+      },
+      "bold": {
+        "value": 700,
+        "type": "fontWeight"
+      }
+    }
+  },
+  "line-height": {
+    "16": {
+      "value": "16px",
+      "type": "dimension"
+    },
+    "18": {
+      "value": "18px",
+      "type": "dimension"
+    },
+    "22": {
+      "value": "22px",
+      "type": "dimension"
+    },
+    "23": {
+      "value": "23px",
+      "type": "dimension"
+    },
+    "24": {
+      "value": "24px",
+      "type": "dimension"
+    },
+    "28": {
+      "value": "28px",
+      "type": "dimension"
+    },
+    "32": {
+      "value": "32px",
+      "type": "dimension"
+    },
+    "36": {
+      "value": "36px",
+      "type": "dimension"
+    },
+    "44": {
+      "value": "44px",
+      "type": "dimension"
+    }
+  },
+  "letter-spacing": {
+    "0": {
+      "value": "0px",
+      "type": "dimension"
+    },
+    "1": {
+      "value": "0.1px",
+      "type": "dimension"
+    },
+    "2": {
+      "value": "0.2px",
+      "type": "dimension"
+    },
+    "3": {
+      "value": "0.3px",
+      "type": "dimension"
+    }
+  }
+}

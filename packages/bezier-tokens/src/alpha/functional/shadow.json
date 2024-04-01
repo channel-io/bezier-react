@@ -1,10 +1,9 @@
 {
   "shadow": {
-    "_comment": "TODO: Reference the shadow color from the theme and Separate inner/base shadow to reuse ",
     "1": {
       "value": [
         {
-          "color": "#ffffff1f",
+          "color": "{shadow.base-inner}",
           "type": "innerShadow",
           "offsetX": "0px",
           "offsetY": "0px",
@@ -12,7 +11,7 @@
           "spread": "0px"
         },
         {
-          "color": "#0000000d",
+          "color": "{shadow.base}",
           "type": "dropShadow",
           "offsetX": "0px",
           "offsetY": "0px",
@@ -20,7 +19,7 @@
           "spread": "1px"
         },
         {
-          "color": "#00000014",
+          "color": "{shadow.small}",
           "type": "dropShadow",
           "offsetX": "0px",
           "offsetY": "1px",
@@ -33,7 +32,7 @@
     "2": {
       "value": [
         {
-          "color": "#ffffff1f",
+          "color": "{shadow.base-inner}",
           "type": "innerShadow",
           "offsetX": "0px",
           "offsetY": "0px",
@@ -41,7 +40,7 @@
           "spread": "0px"
         },
         {
-          "color": "#0000000d",
+          "color": "{shadow.base}",
           "type": "dropShadow",
           "offsetX": "0px",
           "offsetY": "0px",
@@ -49,7 +48,7 @@
           "spread": "1px"
         },
         {
-          "color": "#00000014",
+          "color": "{shadow.small}",
           "type": "dropShadow",
           "offsetX": "0px",
           "offsetY": "2px",
@@ -62,7 +61,7 @@
     "3": {
       "value": [
         {
-          "color": "#ffffff1f",
+          "color": "{shadow.base-inner}",
           "type": "innerShadow",
           "offsetX": "0px",
           "offsetY": "0px",
@@ -70,7 +69,7 @@
           "spread": "0px"
         },
         {
-          "color": "#0000000d",
+          "color": "{shadow.base}",
           "type": "dropShadow",
           "offsetX": "0px",
           "offsetY": "0px",
@@ -78,7 +77,7 @@
           "spread": "1px"
         },
         {
-          "color": "#00000026",
+          "color": "{shadow.medium}",
           "type": "dropShadow",
           "offsetX": "0px",
           "offsetY": "4px",
@@ -91,7 +90,7 @@
     "4": {
       "value": [
         {
-          "color": "#ffffff1f",
+          "color": "{shadow.base-inner}",
           "type": "innerShadow",
           "offsetX": "0px",
           "offsetY": "0px",
@@ -99,7 +98,7 @@
           "spread": "0px"
         },
         {
-          "color": "#0000000d",
+          "color": "{shadow.base}",
           "type": "dropShadow",
           "offsetX": "0px",
           "offsetY": "0px",
@@ -107,7 +106,7 @@
           "spread": "1px"
         },
         {
-          "color": "#00000038",
+          "color": "{shadow.large}",
           "type": "dropShadow",
           "offsetX": "0px",
           "offsetY": "4px",
@@ -120,7 +119,7 @@
     "5": {
       "value": [
         {
-          "color": "#ffffff1f",
+          "color": "{shadow.base-inner}",
           "type": "innerShadow",
           "offsetX": "0px",
           "offsetY": "0px",
@@ -128,7 +127,7 @@
           "spread": "0px"
         },
         {
-          "color": "#0000000d",
+          "color": "{shadow.base}",
           "type": "dropShadow",
           "offsetX": "0px",
           "offsetY": "0px",
@@ -136,7 +135,7 @@
           "spread": "1px"
         },
         {
-          "color": "#0000004d",
+          "color": "{shadow.xlarge}",
           "type": "dropShadow",
           "offsetX": "0px",
           "offsetY": "6px",
@@ -149,7 +148,7 @@
     "6": {
       "value": [
         {
-          "color": "#ffffff1f",
+          "color": "{shadow.base-inner}",
           "type": "innerShadow",
           "offsetX": "0px",
           "offsetY": "0px",
@@ -157,7 +156,7 @@
           "spread": "0px"
         },
         {
-          "color": "#0000000d",
+          "color": "{shadow.base}",
           "type": "dropShadow",
           "offsetX": "0px",
           "offsetY": "0px",
@@ -165,7 +164,7 @@
           "spread": "1px"
         },
         {
-          "color": "#0000004d",
+          "color": "{shadow.xlarge}",
           "type": "dropShadow",
           "offsetX": "0px",
           "offsetY": "12px",
