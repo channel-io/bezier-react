@@ -1,0 +1,36 @@
+{
+  "gradient": {
+    "fg": {
+      "green": {
+        "description": "progress",
+        "value": "linear-gradient(90deg, #40ad67 0%, #7ad890 100%)",
+        "type": "color"
+      }
+    },
+    "bg": {
+      "black": {
+        "value": "linear-gradient(90deg, #00000014 0%, #00000026 100%)",
+        "type": "color"
+      },
+      "purple": {
+        "description": "subscription",
+        "value": "linear-gradient(90deg, #b184ff 50%, #f896e5 100%)",
+        "type": "color"
+      },
+      "orange": {
+        "description": "negative info",
+        "value": "linear-gradient(90deg, #ffa15e 50%, #fed968 100%)",
+        "type": "color"
+      },
+      "green": {
+        "description": "positive info",
+        "value": "linear-gradient(90deg, #7ad890 50%, #72e0d5 100%)",
+        "type": "color"
+      },
+      "blue": {
+        "value": "linear-gradient(90deg, #84a5ff 50%, #a4ecb3 100%)",
+        "type": "color"
+      }
+    }
+  }
+}
