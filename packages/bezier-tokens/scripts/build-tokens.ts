@@ -132,6 +132,34 @@ function main() {
         options: { cssSelector: ':where(:root, :host)' },
       })
     ),
+    TokenBuilder.extend(
+      defineConfig({
+        source: [
+          'src/alpha/functional/*.json',
+          'src/alpha/functional/light-theme/*.json',
+          'src/alpha/semantic/*.json',
+        ],
+        reference: ['src/alpha/global/*.json'],
+        basePath: 'dist/alpha',
+        destination: 'lightTheme',
+        options: {
+          cssSelector: ':where(:root, :host), [data-bezier-theme="light"]',
+        },
+      })
+    ),
+    TokenBuilder.extend(
+      defineConfig({
+        source: [
+          'src/alpha/functional/*.json',
+          'src/alpha/functional/dark-theme/*.json',
+          'src/alpha/semantic/*.json',
+        ],
+        reference: ['src/alpha/global/*.json'],
+        basePath: 'dist/alpha',
+        destination: 'darkTheme',
+        options: { cssSelector: '[data-bezier-theme="dark"]' },
+      })
+    ),
   ].forEach((builder) => builder.buildAllPlatforms())
 }
 
