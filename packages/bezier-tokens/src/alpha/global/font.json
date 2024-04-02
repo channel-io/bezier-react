@@ -2,55 +2,55 @@
   "font": {
     "size": {
       "11": {
-        "value": "11",
+        "value": "11px",
         "type": "dimension"
       },
       "12": {
-        "value": "12",
+        "value": "12px",
         "type": "dimension"
       },
       "13": {
-        "value": "13",
+        "value": "13px",
         "type": "dimension"
       },
       "14": {
-        "value": "14",
+        "value": "14px",
         "type": "dimension"
       },
       "15": {
-        "value": "15",
+        "value": "15px",
         "type": "dimension"
       },
       "15-5": {
-        "value": "15.5",
+        "value": "15.5px",
         "type": "dimension"
       },
       "16": {
-        "value": "16",
+        "value": "16px",
         "type": "dimension"
       },
       "17": {
-        "value": "17",
+        "value": "17px",
         "type": "dimension"
       },
       "18": {
-        "value": "18",
+        "value": "18px",
         "type": "dimension"
       },
       "22": {
-        "value": "22",
+        "value": "22px",
         "type": "dimension"
       },
       "24": {
-        "value": "24",
+        "value": "24px",
         "type": "dimension"
       },
       "30": {
-        "value": "30",
+        "value": "30px",
         "type": "dimension"
       },
       "36": {
-        "value": "36",
+        "value": "36px",
         "type": "dimension"
       }
     },
