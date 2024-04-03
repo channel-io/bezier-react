@@ -1,0 +1,147 @@
+{
+  "font": {
+    "family": {
+      "_comment": "WIP",
+      "sans": {
+        "value": ["Pretendard", "NotoSansJP", "system-ui", "sans-serif"],
+        "type": "fontFamily"
+      },
+      "mono": {
+        "value": [
+          "ui-monospace",
+          "Cascadia Code",
+          "Source Code Pro",
+          "Menlo",
+          "Consolas",
+          "DejaVu Sans Mono",
+          "monospace"
+        ],
+        "type": "fontFamily"
+      }
+    },
+    "size": {
+      "11": {
+        "value": "11px",
+        "type": "dimension"
+      },
+      "12": {
+        "value": "12px",
+        "type": "dimension"
+      },
+      "13": {
+        "value": "13px",
+        "type": "dimension"
+      },
+      "14": {
+        "value": "14px",
+        "type": "dimension"
+      },
+      "15": {
+        "value": "15px",
+        "type": "dimension"
+      },
+      "15-5": {
+        "value": "15.5px",
+        "type": "dimension"
+      },
+      "16": {
+        "value": "16px",
+        "type": "dimension"
+      },
+      "17": {
+        "value": "17px",
+        "type": "dimension"
+      },
+      "18": {
+        "value": "18px",
+        "type": "dimension"
+      },
+      "22": {
+        "value": "22px",
+        "type": "dimension"
+      },
+      "24": {
+        "value": "24px",
+        "type": "dimension"
+      },
+      "30": {
+        "value": "30px",
+        "type": "dimension"
+      },
+      "36": {
+        "value": "36px",
+        "type": "dimension"
+      }
+    },
+    "weight": {
+      "regular": {
+        "value": 400,
+        "type": "fontWeight"
+      },
+      "semibold": {
+        "value": 600,
+        "type": "fontWeight"
+      },
+      "bold": {
+        "value": 700,
+        "type": "fontWeight"
+      }
+    }
+  },
+  "line-height": {
+    "16": {
+      "value": "16px",
+      "type": "dimension"
+    },
+    "18": {
+      "value": "18px",
+      "type": "dimension"
+    },
+    "22": {
+      "value": "22px",
+      "type": "dimension"
+    },
+    "23": {
+      "value": "23px",
+      "type": "dimension"
+    },
+    "24": {
+      "value": "24px",
+      "type": "dimension"
+    },
+    "28": {
+      "value": "28px",
+      "type": "dimension"
+    },
+    "32": {
+      "value": "32px",
+      "type": "dimension"
+    },
+    "36": {
+      "value": "36px",
+      "type": "dimension"
+    },
+    "44": {
+      "value": "44px",
+      "type": "dimension"
+    }
+  },
+  "letter-spacing": {
+    "0": {
+      "value": "0px",
+      "type": "dimension"
+    },
+    "1": {
+      "value": "0.1px",
+      "type": "dimension"
+    },
+    "2": {
+      "value": "0.2px",
+      "type": "dimension"
+    },
+    "3": {
+      "value": "0.3px",
+      "type": "dimension"
+    }
+  }
+}

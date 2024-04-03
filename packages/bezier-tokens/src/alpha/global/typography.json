@@ -1,0 +1,342 @@
+{
+  "typography": {
+    "message": {
+      "font-weight": {
+        "value": "{font.weight.regular}"
+      },
+      "font-size": {
+        "value": "{font.size.15-5.value}"
+      },
+      "line-height": {
+        "value": "{line-height.23.value}"
+      },
+      "letter-spacing": {
+        "value": "{letter-spacing.2.value}"
+      }
+    },
+    "h1": {
+      "bold": {
+        "font-weight": {
+          "value": "{font.weight.bold}"
+        },
+        "font-size": {
+          "value": "{font.size.36.value}"
+        },
+        "line-height": {
+          "value": "{line-height.44.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.0.value}"
+        }
+      }
+    },
+    "h2": {
+      "bold": {
+        "font-weight": {
+          "value": "{font.weight.bold}"
+        },
+        "font-size": {
+          "value": "{font.size.30.value}"
+        },
+        "line-height": {
+          "value": "{line-height.36.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.0.value}"
+        }
+      },
+      "regular": {
+        "font-weight": {
+          "value": "{font.weight.regular}"
+        },
+        "font-size": {
+          "value": "{font.size.30.value}"
+        },
+        "line-height": {
+          "value": "{line-height.36.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.0.value}"
+        }
+      }
+    },
+    "h3": {
+      "bold": {
+        "font-weight": {
+          "value": "{font.weight.bold}"
+        },
+        "font-size": {
+          "value": "{font.size.24.value}"
+        },
+        "line-height": {
+          "value": "{line-height.32.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.0.value}"
+        }
+      },
+      "regular": {
+        "font-weight": {
+          "value": "{font.weight.regular}"
+        },
+        "font-size": {
+          "value": "{font.size.24.value}"
+        },
+        "line-height": {
+          "value": "{line-height.32.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.0.value}"
+        }
+      }
+    }
+  },
+  "title": {
+    "1": {
+      "bold": {
+        "font-weight": {
+          "value": "{font.weight.bold}"
+        },
+        "font-size": {
+          "value": "{font.size.22.value}"
+        },
+        "line-height": {
+          "value": "{line-height.28.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.2.value}"
+        }
+      }
+    },
+    "2": {
+      "bold": {
+        "font-weight": {
+          "value": "{font.weight.bold}"
+        },
+        "font-size": {
+          "value": "{font.size.18.value}"
+        },
+        "line-height": {
+          "value": "{line-height.24.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.2.value}"
+        }
+      },
+      "semibold": {
+        "font-weight": {
+          "value": "{font.weight.semibold}"
+        },
+        "font-size": {
+          "value": "{font.size.18.value}"
+        },
+        "line-height": {
+          "value": "{line-height.24.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.2.value}"
+        }
+      }
+    },
+    "3": {
+      "semibold": {
+        "font-weight": {
+          "value": "{font.weight.semibold}"
+        },
+        "font-size": {
+          "value": "{font.size.16.value}"
+        },
+        "line-height": {
+          "value": "{line-height.24.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.3.value}"
+        }
+      }
+    }
+  },
+  "body": {
+    "1": {
+      "semibold": {
+        "font-weight": {
+          "value": "{font.weight.semibold}"
+        },
+        "font-size": {
+          "value": "{font.size.16.value}"
+        },
+        "line-height": {
+          "value": "{line-height.24.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.2.value}"
+        }
+      },
+      "regular": {
+        "font-weight": {
+          "value": "{font.weight.regular}"
+        },
+        "font-size": {
+          "value": "{font.size.16.value}"
+        },
+        "line-height": {
+          "value": "{line-height.24.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.1.value}"
+        }
+      }
+    },
+    "2": {
+      "semibold": {
+        "font-weight": {
+          "value": "{font.weight.semibold}"
+        },
+        "font-size": {
+          "value": "{font.size.15.value}"
+        },
+        "line-height": {
+          "value": "{line-height.22.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.2.value}"
+        }
+      },
+      "regular": {
+        "font-weight": {
+          "value": "{font.weight.regular}"
+        },
+        "font-size": {
+          "value": "{font.size.15.value}"
+        },
+        "line-height": {
+          "value": "{line-height.22.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.1.value}"
+        }
+      }
+    }
+  },
+  "caption": {
+    "1": {
+      "semibold": {
+        "font-weight": {
+          "value": "{font.weight.semibold}"
+        },
+        "font-size": {
+          "value": "{font.size.14.value}"
+        },
+        "line-height": {
+          "value": "{line-height.18.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.2.value}"
+        }
+      },
+      "regular": {
+        "font-weight": {
+          "value": "{font.weight.regular}"
+        },
+        "font-size": {
+          "value": "{font.size.14.value}"
+        },
+        "line-height": {
+          "value": "{line-height.18.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.2.value}"
+        }
+      }
+    },
+    "2": {
+      "semibold": {
+        "font-weight": {
+          "value": "{font.weight.semibold}"
+        },
+        "font-size": {
+          "value": "{font.size.13.value}"
+        },
+        "line-height": {
+          "value": "{line-height.18.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.2.value}"
+        }
+      },
+      "regular": {
+        "font-weight": {
+          "value": "{font.weight.regular}"
+        },
+        "font-size": {
+          "value": "{font.size.13.value}"
+        },
+        "line-height": {
+          "value": "{line-height.18.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.2.value}"
+        }
+      }
+    },
+    "3": {
+      "semibold": {
+        "font-weight": {
+          "value": "{font.weight.semibold}"
+        },
+        "font-size": {
+          "value": "{font.size.12.value}"
+        },
+        "line-height": {
+          "value": "{line-height.16.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.2.value}"
+        }
+      },
+      "regular": {
+        "font-weight": {
+          "value": "{font.weight.regular}"
+        },
+        "font-size": {
+          "value": "{font.size.12.value}"
+        },
+        "line-height": {
+          "value": "{line-height.16.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.2.value}"
+        }
+      }
+    },
+    "4": {
+      "semibold": {
+        "font-weight": {
+          "value": "{font.weight.semibold}"
+        },
+        "font-size": {
+          "value": "{font.size.11.value}"
+        },
+        "line-height": {
+          "value": "{line-height.16.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.1.value}"
+        }
+      },
+      "regular": {
+        "font-weight": {
+          "value": "{font.weight.regular}"
+        },
+        "font-size": {
+          "value": "{font.size.11.value}"
+        },
+        "line-height": {
+          "value": "{line-height.16.value}"
+        },
+        "letter-spacing": {
+          "value": "{letter-spacing.1.value}"
+        }
+      }
+    }
+  }
+}

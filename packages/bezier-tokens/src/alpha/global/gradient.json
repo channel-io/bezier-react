@@ -1,0 +1,58 @@
+{
+  "gradient": {
+    "bg": {
+      "purple": {
+        "value": [
+          {
+            "color": "{purple.300}",
+            "position": "50%"
+          },
+          {
+            "color": "{pink.200}",
+            "position": "100%"
+          }
+        ],
+        "type": "gradient"
+      },
+      "orange": {
+        "value": [
+          {
+            "color": "{orange.300}",
+            "position": "50%"
+          },
+          {
+            "color": "{yellow.200}",
+            "position": "100%"
+          }
+        ],
+        "type": "gradient"
+      },
+      "green": {
+        "value": [
+          {
+            "color": "{green.300}",
+            "position": "50%"
+          },
+          {
+            "color": "{teal.200}",
+            "position": "100%"
+          }
+        ],
+        "type": "gradient"
+      },
+      "blue": {
+        "value": [
+          {
+            "color": "{blue.300}",
+            "position": "50%"
+          },
+          {
+            "color": "{green.200}",
+            "position": "100%"
+          }
+        ],
+        "type": "gradient"
+      }
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "shadow": {
+    "1": {
+      "value": [
+        {
+          "color": "{shadow.base-inner}",
+          "type": "innerShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "0px"
+        },
+        {
+          "color": "{shadow.base}",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "1px"
+        },
+        {
+          "color": "{shadow.small}",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "1px",
+          "blur": "2px",
+          "spread": "0px"
+        }
+      ],
+      "type": "shadow"
+    },
+    "2": {
+      "value": [
+        {
+          "color": "{shadow.base-inner}",
+          "type": "innerShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "0px"
+        },
+        {
+          "color": "{shadow.base}",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "1px"
+        },
+        {
+          "color": "{shadow.small}",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "2px",
+          "blur": "6px",
+          "spread": "0px"
+        }
+      ],
+      "type": "shadow"
+    },
+    "3": {
+      "value": [
+        {
+          "color": "{shadow.base-inner}",
+          "type": "innerShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "0px"
+        },
+        {
+          "color": "{shadow.base}",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "1px"
+        },
+        {
+          "color": "{shadow.medium}",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "16px",
+          "spread": "0px"
+        }
+      ],
+      "type": "shadow"
+    },
+    "4": {
+      "value": [
+        {
+          "color": "{shadow.base-inner}",
+          "type": "innerShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "0px"
+        },
+        {
+          "color": "{shadow.base}",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "1px"
+        },
+        {
+          "color": "{shadow.large}",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "24px",
+          "spread": "0px"
+        }
+      ],
+      "type": "shadow"
+    },
+    "5": {
+      "value": [
+        {
+          "color": "{shadow.base-inner}",
+          "type": "innerShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "0px"
+        },
+        {
+          "color": "{shadow.base}",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "1px"
+        },
+        {
+          "color": "{shadow.xlarge}",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "6px",
+          "blur": "40px",
+          "spread": "0px"
+        }
+      ],
+      "type": "shadow"
+    },
+    "6": {
+      "value": [
+        {
+          "color": "{shadow.base-inner}",
+          "type": "innerShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "0px"
+        },
+        {
+          "color": "{shadow.base}",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "2px",
+          "spread": "1px"
+        },
+        {
+          "color": "{shadow.xlarge}",
+          "type": "dropShadow",
+          "offsetX": "0px",
+          "offsetY": "12px",
+          "blur": "60px",
+          "spread": "4px"
+        }
+      ],
+      "type": "shadow"
+    }
+  }
+}

@@ -90,4 +90,18 @@ export const CSSTransforms = {
       }
     }) => `${duration} ${timingFunction || ''}${delay || ''}`.trim(),
   },
+  gradient: {
+    name: 'custom/css/gradient',
+    type: 'value',
+    transitive: true,
+    matcher: (token) => token.type === 'gradient',
+    transformer: ({
+      value,
+    }: {
+      value: Array<{ color: string; position: string }>
+    }) =>
+      `linear-gradient(90deg, ${value
+        .map(({ color, position }) => `${color} ${position}`)
+        .join(', ')})`,
+  },
 } satisfies Transforms
