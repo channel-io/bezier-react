@@ -123,9 +123,9 @@
           "value": "{letter-spacing.2.value}"
         }
       },
-      "semi-bold": {
+      "semibold": {
         "font-weight": {
-          "value": "{font.weight.semi-bold}"
+          "value": "{font.weight.semibold}"
         },
         "font-size": {
           "value": "{font.size.18.value}"
@@ -139,9 +139,9 @@
       }
     },
     "3": {
-      "semi-bold": {
+      "semibold": {
         "font-weight": {
-          "value": "{font.weight.semi-bold}"
+          "value": "{font.weight.semibold}"
         },
         "font-size": {
           "value": "{font.size.16.value}"
@@ -157,9 +157,9 @@
   },
   "body": {
     "1": {
-      "semi-bold": {
+      "semibold": {
         "font-weight": {
-          "value": "{font.weight.semi-bold}"
+          "value": "{font.weight.semibold}"
         },
         "font-size": {
           "value": "{font.size.16.value}"
@@ -187,9 +187,9 @@
       }
     },
     "2": {
-      "semi-bold": {
+      "semibold": {
         "font-weight": {
-          "value": "{font.weight.semi-bold}"
+          "value": "{font.weight.semibold}"
         },
         "font-size": {
           "value": "{font.size.15.value}"
@@ -219,9 +219,9 @@
   },
   "caption": {
     "1": {
-      "semi-bold": {
+      "semibold": {
         "font-weight": {
-          "value": "{font.weight.semi-bold}"
+          "value": "{font.weight.semibold}"
         },
         "font-size": {
           "value": "{font.size.14.value}"
@@ -249,9 +249,9 @@
       }
     },
     "2": {
-      "semi-bold": {
+      "semibold": {
         "font-weight": {
-          "value": "{font.weight.semi-bold}"
+          "value": "{font.weight.semibold}"
         },
         "font-size": {
           "value": "{font.size.13.value}"
@@ -279,9 +279,9 @@
       }
     },
     "3": {
-      "semi-bold": {
+      "semibold": {
         "font-weight": {
-          "value": "{font.weight.semi-bold}"
+          "value": "{font.weight.semibold}"
         },
         "font-size": {
           "value": "{font.size.12.value}"
@@ -309,9 +309,9 @@
       }
     },
     "4": {
-      "semi-bold": {
+      "semibold": {
         "font-weight": {
-          "value": "{font.weight.semi-bold}"
+          "value": "{font.weight.semibold}"
         },
         "font-size": {
           "value": "{font.size.11.value}"

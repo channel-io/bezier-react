@@ -77,7 +77,7 @@
         "value": 400,
         "type": "fontWeight"
       },
-      "semi-bold": {
+      "semibold": {
         "value": 600,
         "type": "fontWeight"
       },
