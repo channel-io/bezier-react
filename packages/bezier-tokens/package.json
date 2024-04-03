@@ -32,9 +32,7 @@
       }
     },
     "./css/*": "./dist/css/*",
-    "./json/*": "./dist/json/*",
-    "./alpha/css/*": "./dist/alpha/css/*",
-    "./alpha/json/*": "./dist/alpha/json/*"
+    "./alpha/css/*": "./dist/alpha/css/*"
   },
   "typesVersions": {
     "*": {

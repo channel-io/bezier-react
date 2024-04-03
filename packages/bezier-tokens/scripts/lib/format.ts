@@ -70,49 +70,116 @@ export const customJsEsm: CustomFormat = {
   },
 }
 
-export const customJson: CustomFormat = {
-  name: 'custom/json',
-  formatter({ dictionary }) {
-    return JSON.stringify(
-      dictionary.allTokens.reduce(
-        (acc, token) => {
-          const fileNameWithoutExtension = token.filePath
-            .split('/')
-            .pop()!
-            .split('.')
-            .shift()!
+/**
+ * A custom formatter for adding ref information to tokens without breaking changes in the stable version.
+ * TODO: Remove this formatter in the next major release.
+ */
+export const alphaCustomJsCjs: CustomFormat = {
+  name: 'alpha/custom/js/cjs',
+  formatter({ dictionary, file }) {
+    const categorizedTokens = dictionary.allTokens.reduce(
+      (acc, token) => {
+        const fileNameWithoutExtension = token.filePath
+          .split('/')
+          .pop()!
+          .split('.')
+          .shift()!
+        acc[fileNameWithoutExtension] = acc[fileNameWithoutExtension] || []
+        acc[fileNameWithoutExtension].push(token)
+        return acc
+      },
+      {} as Record<string, typeof dictionary.allTokens>
+    )
 
-          acc[fileNameWithoutExtension] = acc[fileNameWithoutExtension] || {}
+    return (
+      `${fileHeader({ file })}module.exports = Object.freeze({` +
+      `${Object.keys(categorizedTokens).map(
+        (category) =>
+          `\n  "${category}": Object.freeze({\n` +
+          `${categorizedTokens[category]
+            .map((token) => {
+              const ref = (() => {
+                if (!dictionary.usesReference(token.original.value)) {
+                  return null
+                }
 
-          const ref = (() => {
-            if (!dictionary.usesReference(token.original.value)) {
-              return null
-            }
+                let value = token.value as string | number | null
 
-            let value = token.value as string | number | null
+                // NOTE: make sure to use `token.original.value` because
+                // `token.value` is already resolved at this point.
+                dictionary
+                  .getReferences(token.original.value)
+                  .forEach((ref) => {
+                    value = value
+                      ?.toString()
+                      .replace(ref.value, ref.name) as string
+                  })
 
-            // NOTE: make sure to use `token.original.value` because
-            // `token.value` is already resolved at this point.
-            dictionary.getReferences(token.original.value).forEach((ref) => {
-              value =
-                typeof value === 'string'
-                  ? value.replace(ref.value, ref.name)
-                  : null
+                return value
+              })()
+
+              return `    "${token.name}": Object.freeze(${JSON.stringify({ value: token.value, ref })}),`
             })
+            .join('\n')}\n  })`
+      )}\n` +
+      '})\n'
+    )
+  },
+}
 
-            return value
-          })()
+/**
+ * A custom formatter for adding ref information to tokens without breaking changes in the stable version.
+ * TODO: Remove this formatter in the next major release.
+ */
+export const alphaCustomJsEsm: CustomFormat = {
+  name: 'alpha/custom/js/esm',
+  formatter({ dictionary, file }) {
+    const categorizedTokens = dictionary.allTokens.reduce(
+      (acc, token) => {
+        const fileNameWithoutExtension = token.filePath
+          .split('/')
+          .pop()!
+          .split('.')
+          .shift()!
+        acc[fileNameWithoutExtension] = acc[fileNameWithoutExtension] || []
+        acc[fileNameWithoutExtension].push(token)
+        return acc
+      },
+      {} as Record<string, typeof dictionary.allTokens>
+    )
 
-          acc[fileNameWithoutExtension][token.name] = {
-            value: token.value,
-            ref,
-          }
-          return acc
-        },
-        {} as Record<string, Record<string, unknown>>
-      ),
-      undefined,
-      2
+    return (
+      `${fileHeader({ file })}export default Object.freeze({` +
+      `${Object.keys(categorizedTokens).map(
+        (category) =>
+          `\n  "${category}": Object.freeze({\n` +
+          `${categorizedTokens[category]
+            .map((token) => {
+              const ref = (() => {
+                if (!dictionary.usesReference(token.original.value)) {
+                  return null
+                }
+
+                let value = token.value as string | number | null
+
+                // NOTE: make sure to use `token.original.value` because
+                // `token.value` is already resolved at this point.
+                dictionary
+                  .getReferences(token.original.value)
+                  .forEach((ref) => {
+                    value = value
+                      ?.toString()
+                      .replace(ref.value, ref.name) as string
+                  })
+
+                return value
+              })()
+
+              return `    "${token.name}": Object.freeze(${JSON.stringify({ value: token.value, ref })}),`
+            })
+            .join('\n')}\n  })`
+      )}\n` +
+      '})\n'
     )
   },
 }

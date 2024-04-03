@@ -6,10 +6,14 @@ import StyleDictionary, {
 } from 'style-dictionary'
 
 import { buildJsIndex } from './build-js-index'
-import { customJsCjs, customJsEsm, customJson } from './lib/format'
+import {
+  alphaCustomJsCjs,
+  alphaCustomJsEsm,
+  customJsCjs,
+  customJsEsm,
+} from './lib/format'
 import { CSSTransforms } from './lib/transform'
 import { mergeCss } from './merge-css'
-import { mergeJson } from './merge-json'
 
 const CustomTransforms = [...Object.values(CSSTransforms)]
 
@@ -17,9 +21,15 @@ const TokenBuilder = CustomTransforms.reduce(
   (builder, transform) => builder.registerTransform(transform),
   StyleDictionary
 )
-  .registerFormat(customJson)
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)
+
+const AlphaTokenBuilder = CustomTransforms.reduce(
+  (builder, transform) => builder.registerTransform(transform),
+  StyleDictionary
+)
+  .registerFormat(alphaCustomJsCjs)
+  .registerFormat(alphaCustomJsEsm)
 
 function defineWebPlatform({ options, ...rest }: Platform): Platform {
   return {
@@ -38,6 +48,11 @@ function defineWebPlatform({ options, ...rest }: Platform): Platform {
 }
 
 interface DefineConfigOptions {
+  /**
+   * Whether to use the alpha version of the custom formatter
+   * TODO: Remove this option in the next major release.
+   */
+  useAlpha?: boolean
   source: string[]
   reference?: string[]
   basePath: string
@@ -48,6 +63,7 @@ interface DefineConfigOptions {
 }
 
 function defineConfig({
+  useAlpha = false,
   source,
   reference = [],
   basePath,
@@ -57,26 +73,12 @@ function defineConfig({
   return {
     source: [...source, ...reference],
     platforms: {
-      json: defineWebPlatform({
-        buildPath: `${basePath}/json/`,
-        files: [
-          {
-            destination: `${destination}.json`,
-            format: customJson.name,
-            filter: ({ filePath }) =>
-              source.some((src) => minimatch(filePath, src)),
-            options: {
-              outputReferences: true,
-            },
-          },
-        ],
-      }),
       'web/cjs': defineWebPlatform({
         buildPath: `${basePath}/cjs/`,
         files: [
           {
             destination: `${destination}.js`,
-            format: customJsCjs.name,
+            format: useAlpha ? alphaCustomJsCjs.name : customJsCjs.name,
             filter: ({ filePath }) =>
               source.some((src) => minimatch(filePath, src)),
           },
@@ -87,7 +89,7 @@ function defineConfig({
         files: [
           {
             destination: `${destination}.mjs`,
-            format: customJsEsm.name,
+            format: useAlpha ? alphaCustomJsEsm.name : customJsEsm.name,
             filter: ({ filePath }) =>
               source.some((src) => minimatch(filePath, src)),
           },
@@ -142,16 +144,18 @@ async function main() {
         options: { cssSelector: '[data-bezier-theme="dark"]' },
       })
     ),
-    TokenBuilder.extend(
+    AlphaTokenBuilder.extend(
       defineConfig({
+        useAlpha: true,
         source: ['src/alpha/global/*.json'],
         basePath: 'dist/alpha',
         destination: 'global',
         options: { cssSelector: ':where(:root, :host)' },
       })
     ),
-    TokenBuilder.extend(
+    AlphaTokenBuilder.extend(
       defineConfig({
+        useAlpha: true,
         source: [
           'src/alpha/functional/*.json',
           'src/alpha/functional/light-theme/*.json',
@@ -165,8 +169,9 @@ async function main() {
         },
       })
     ),
-    TokenBuilder.extend(
+    AlphaTokenBuilder.extend(
       defineConfig({
+        useAlpha: true,
         source: [
           'src/alpha/functional/*.json',
           'src/alpha/functional/dark-theme/*.json',
@@ -179,10 +184,6 @@ async function main() {
       })
     ),
   ].forEach((builder) => builder.buildAllPlatforms())
-
-  for (const buildPath of ['dist/json', 'dist/alpha/json']) {
-    await mergeJson(buildPath)
-  }
 
   for (const buildPath of ['dist/css', 'dist/alpha/css']) {
     await mergeCss(buildPath)
