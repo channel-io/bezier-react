@@ -1,42 +1,14 @@
 {
   "gradient": {
-    "fg": {
-      "green": {
-        "value": [
-          {
-            "color": "#40ad67",
-            "position": "0%"
-          },
-          {
-            "color": "#7ad890",
-            "position": "100%"
-          }
-        ],
-        "type": "gradient"
-      },
-      "black": {
-        "value": [
-          {
-            "color": "#00000014",
-            "position": "0%"
-          },
-          {
-            "color": "#00000026",
-            "position": "100%"
-          }
-        ],
-        "type": "gradient"
-      }
-    },
     "bg": {
       "purple": {
         "value": [
           {
-            "color": "#b184ff",
+            "color": "{purple.300}",
             "position": "50%"
           },
           {
-            "color": "#f896e5",
+            "color": "{pink.200}",
             "position": "100%"
           }
         ],
@@ -45,11 +17,11 @@
       "orange": {
         "value": [
           {
-            "color": "#ffa15e",
+            "color": "{orange.300}",
             "position": "50%"
           },
           {
-            "color": "#fed968",
+            "color": "{yellow.200}",
             "position": "100%"
           }
         ],
@@ -58,11 +30,11 @@
       "green": {
         "value": [
           {
-            "color": "#7ad890",
+            "color": "{green.300}",
             "position": "50%"
           },
           {
-            "color": "#72e0d5",
+            "color": "{teal.200}",
             "position": "100%"
           }
         ],
@@ -71,11 +43,11 @@
       "blue": {
         "value": [
           {
-            "color": "#84a5ff",
+            "color": "{blue.300}",
             "position": "50%"
           },
           {
-            "color": "#a4ecb3",
+            "color": "{green.200}",
             "position": "100%"
           }
         ],
