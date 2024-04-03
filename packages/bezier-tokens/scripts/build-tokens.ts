@@ -5,7 +5,7 @@ import StyleDictionary, {
   type Platform,
 } from 'style-dictionary'
 
-import { customJsCjs, customJsEsm } from './lib/format'
+import { customJsCjs, customJsEsm, customJson } from './lib/format'
 import { CSSTransforms } from './lib/transform'
 
 const CustomTransforms = [...Object.values(CSSTransforms)]
@@ -14,6 +14,7 @@ const TokenBuilder = CustomTransforms.reduce(
   (builder, transform) => builder.registerTransform(transform),
   StyleDictionary
 )
+  .registerFormat(customJson)
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)
 
@@ -53,6 +54,20 @@ function defineConfig({
   return {
     source: [...source, ...reference],
     platforms: {
+      json: defineWebPlatform({
+        buildPath: `${basePath}/json/`,
+        files: [
+          {
+            destination: `${destination}.json`,
+            format: customJson.name,
+            filter: ({ filePath }) =>
+              source.some((src) => minimatch(filePath, src)),
+            options: {
+              outputReferences: true,
+            },
+          },
+        ],
+      }),
       'web/cjs': defineWebPlatform({
         buildPath: `${basePath}/cjs/`,
         files: [
