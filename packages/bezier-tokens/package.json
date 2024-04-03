@@ -33,6 +33,12 @@
     },
     "./css/*": "./dist/css/*",
     "./alpha/css/*": "./dist/alpha/css/*"
+  "typesVersions": {
+    "*": {
+      "alpha": [
+        "./dist/types/alpha/cjs/index.d.ts"
+      ]
+    }
   },
   "sideEffects": [
     "**/*.css"
