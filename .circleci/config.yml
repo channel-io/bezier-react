@@ -85,6 +85,7 @@ jobs:
     executor: node_executor
     steps:
       - *attach_workspace
+      - run: yarn typecheck --dry-run=json
       - run: yarn typecheck
       - run: yarn typecheck --dry-run=json
 
@@ -96,8 +97,8 @@ jobs:
           keys:
             - test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
             - test-{{ .Environment.CACHE_VERSION }}-
-      - run: yarn test
-      - run: yarn test
+      - run: yarn test --dry-run=json
+      - run: yarn test --dry-run=json
       - codecov/upload:
           file: './packages/bezier-react/coverage/lcov.info'
       - save_cache:
