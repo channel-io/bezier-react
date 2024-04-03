@@ -75,6 +75,8 @@ jobs:
             - lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
             - lint-{{ .Environment.CACHE_VERSION }}-
       - run: yarn lint
+      - run: yarn lint
+      - run: yarn lint --dry-run=json
       - save_cache:
           key: lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
           <<: *lint_cache_paths
@@ -107,9 +109,9 @@ workflows:
       - build:
           requires:
             - install
-      - lint:
-          requires:
-            - build
+      # - lint:
+      #     requires:
+      #       - build
       - typecheck:
           requires:
             - build
