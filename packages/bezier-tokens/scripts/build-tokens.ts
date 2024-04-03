@@ -5,8 +5,11 @@ import StyleDictionary, {
   type Platform,
 } from 'style-dictionary'
 
+import { buildJsIndex } from './build-js-index'
 import { customJsCjs, customJsEsm, customJson } from './lib/format'
 import { CSSTransforms } from './lib/transform'
+import { mergeCss } from './merge-css'
+import { mergeJson } from './merge-json'
 
 const CustomTransforms = [...Object.values(CSSTransforms)]
 
@@ -109,7 +112,7 @@ function defineConfig({
   }
 }
 
-function main() {
+async function main() {
   ;[
     TokenBuilder.extend(
       defineConfig({
@@ -176,6 +179,23 @@ function main() {
       })
     ),
   ].forEach((builder) => builder.buildAllPlatforms())
+
+  for (const buildPath of ['dist/json', 'dist/alpha/json']) {
+    await mergeJson(buildPath)
+  }
+
+  for (const buildPath of ['dist/css', 'dist/alpha/css']) {
+    await mergeCss(buildPath)
+  }
+
+  for (const options of [
+    { buildPath: 'dist/cjs', isCjs: true },
+    { buildPath: 'dist/alpha/cjs', isCjs: true },
+    { buildPath: 'dist/esm', isCjs: false },
+    { buildPath: 'dist/alpha/esm', isCjs: false },
+  ]) {
+    await buildJsIndex(options)
+  }
 }
 
 main()
