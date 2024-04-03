@@ -18,7 +18,11 @@
         "type": "color"
       },
       "light": {
-        "value": "{white.40}",
+        "value": "{white.20}",
+        "type": "color"
+      },
+      "lightest": {
+        "value": "{white.12}",
         "type": "color"
       }
     },

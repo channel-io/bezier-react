@@ -20,6 +20,10 @@
       "light": {
         "value": "{black.15}",
         "type": "color"
+      },
+      "lightest": {
+        "value": "{black.8}",
+        "type": "color"
       }
     },
     "white": {
