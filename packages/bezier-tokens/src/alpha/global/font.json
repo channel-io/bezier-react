@@ -1,6 +1,7 @@
 {
   "font": {
     "family": {
+      "_comment": "WIP",
       "sans": {
         "value": ["Pretendard", "NotoSansJP", "system-ui", "sans-serif"],
         "type": "fontFamily"
