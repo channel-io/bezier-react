@@ -1,5 +1,23 @@
 {
   "font": {
+    "family": {
+      "sans": {
+        "value": ["Pretendard", "NotoSansJP", "system-ui", "sans-serif"],
+        "type": "fontFamily"
+      },
+      "mono": {
+        "value": [
+          "ui-monospace",
+          "Cascadia Code",
+          "Source Code Pro",
+          "Menlo",
+          "Consolas",
+          "DejaVu Sans Mono",
+          "monospace"
+        ],
+        "type": "fontFamily"
+      }
+    },
     "size": {
       "11": {
         "value": "11px",
