@@ -1,32 +1,85 @@
 {
   "gradient": {
-    "_comment": "Should we improve to use DTCG format? See: https://second-editors-draft.tr.designtokens.org/format/#gradient",
     "fg": {
       "green": {
-        "value": "linear-gradient(90deg, #40ad67 0%, #7ad890 100%)",
-        "type": "color"
+        "value": [
+          {
+            "color": "#40ad67",
+            "position": "0%"
+          },
+          {
+            "color": "#7ad890",
+            "position": "100%"
+          }
+        ],
+        "type": "gradient"
+      },
+      "black": {
+        "value": [
+          {
+            "color": "#00000014",
+            "position": "0%"
+          },
+          {
+            "color": "#00000026",
+            "position": "100%"
+          }
+        ],
+        "type": "gradient"
       }
     },
     "bg": {
-      "black": {
-        "value": "linear-gradient(90deg, #00000014 0%, #00000026 100%)",
-        "type": "color"
-      },
       "purple": {
-        "value": "linear-gradient(90deg, #b184ff 50%, #f896e5 100%)",
-        "type": "color"
+        "value": [
+          {
+            "color": "#b184ff",
+            "position": "50%"
+          },
+          {
+            "color": "#f896e5",
+            "position": "100%"
+          }
+        ],
+        "type": "gradient"
       },
       "orange": {
-        "value": "linear-gradient(90deg, #ffa15e 50%, #fed968 100%)",
-        "type": "color"
+        "value": [
+          {
+            "color": "#ffa15e",
+            "position": "50%"
+          },
+          {
+            "color": "#fed968",
+            "position": "100%"
+          }
+        ],
+        "type": "gradient"
       },
       "green": {
-        "value": "linear-gradient(90deg, #7ad890 50%, #72e0d5 100%)",
-        "type": "color"
+        "value": [
+          {
+            "color": "#7ad890",
+            "position": "50%"
+          },
+          {
+            "color": "#72e0d5",
+            "position": "100%"
+          }
+        ],
+        "type": "gradient"
       },
       "blue": {
-        "value": "linear-gradient(90deg, #84a5ff 50%, #a4ecb3 100%)",
-        "type": "color"
+        "value": [
+          {
+            "color": "#84a5ff",
+            "position": "50%"
+          },
+          {
+            "color": "#a4ecb3",
+            "position": "100%"
+          }
+        ],
+        "type": "gradient"
       }
     }
   }
