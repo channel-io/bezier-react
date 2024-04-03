@@ -1,8 +1,6 @@
 import fs from 'fs/promises'
 import path from 'path'
 
-import chalk from 'chalk'
-
 export async function mergeCss(buildPath: string) {
   try {
     const destination = path.join(buildPath, 'styles.css')
@@ -21,7 +19,7 @@ export async function mergeCss(buildPath: string) {
 
     await fs.writeFile(destination, result.join('\n'))
 
-    console.log(chalk.green.bold(`\n✔︎ Merged CSS saved to ${destination}`))
+    console.log(`\n✔︎ Merged CSS saved to ${destination}`)
   } catch (error) {
     throw error
   }

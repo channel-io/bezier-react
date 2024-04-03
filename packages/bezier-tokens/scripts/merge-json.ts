@@ -1,8 +1,6 @@
 import fs from 'fs/promises'
 import path from 'path'
 
-import chalk from 'chalk'
-
 export async function mergeJson(buildPath: string) {
   try {
     const destination = path.join(buildPath, 'tokens.json')
@@ -28,7 +26,7 @@ export async function mergeJson(buildPath: string) {
 
     await fs.writeFile(destination, JSON.stringify(result, null, 2))
 
-    console.log(chalk.green.bold(`\n✔︎ Merged JSON saved to ${destination}`))
+    console.log(`\n✔︎ Merged JSON saved to ${destination}`)
   } catch (error) {
     throw error
   }

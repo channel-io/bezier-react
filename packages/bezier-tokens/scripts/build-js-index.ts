@@ -1,8 +1,6 @@
 import fs from 'fs/promises'
 import path from 'path'
 
-import chalk from 'chalk'
-
 interface BuildJsIndexFileOptions {
   buildPath: string
   isCjs: boolean
@@ -47,7 +45,7 @@ export async function buildJsIndex({
 
     await fs.writeFile(destination, result)
 
-    console.log(chalk.green.bold(`\n✔︎ Created ${destination}`))
+    console.log(`\n✔︎ Created ${destination}`)
   } catch (error) {
     throw error
   }

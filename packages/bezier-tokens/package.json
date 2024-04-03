@@ -68,7 +68,6 @@
   "author": "Channel Corp.",
   "license": "Apache-2.0",
   "devDependencies": {
-    "chalk": "^5.3.0",
     "eslint-config-bezier": "workspace:*",
     "minimatch": "^9.0.3",
     "style-dictionary": "^3.9.2",
