@@ -124,7 +124,7 @@
         "type": "color"
       },
       "light": {
-        "value": "{teal.300-40}",
+        "value": "{teal.300-45}",
         "type": "color"
       },
       "darkest": {
@@ -275,19 +275,19 @@
       },
       "grey-alpha": {
         "darkest": {
-          "value": "{grey-alpha.700_80}",
+          "value": "{grey-alpha.700-80}",
           "type": "color"
         },
         "darker": {
-          "value": "{grey-alpha.800_90}",
+          "value": "{grey-alpha.800-90}",
           "type": "color"
         },
         "dark": {
-          "value": "{grey-alpha.800_80}",
+          "value": "{grey-alpha.800-80}",
           "type": "color"
         },
         "light": {
-          "value": "{grey-alpha.850_80}",
+          "value": "{grey-alpha.850-80}",
           "type": "color"
         }
       }
@@ -343,19 +343,19 @@
       },
       "grey-alpha": {
         "dark": {
-          "value": "{grey-alpha.800_80}",
+          "value": "{grey-alpha.800-80}",
           "type": "color"
         },
         "darkest": {
-          "value": "{grey-alpha.700_80}",
+          "value": "{grey-alpha.700-80}",
           "type": "color"
         },
         "darker": {
-          "value": "{grey-alpha.800_90}",
+          "value": "{grey-alpha.800-90}",
           "type": "color"
         },
         "light": {
-          "value": "{grey-alpha.850_80}",
+          "value": "{grey-alpha.850-80}",
           "type": "color"
         }
       },
@@ -379,7 +379,7 @@
       },
       "white-alpha": {
         "lightest": {
-          "value": "{grey-alpha.800_80}",
+          "value": "{grey-alpha.800-80}",
           "type": "color"
         },
         "lighter": {
@@ -548,7 +548,7 @@
         "type": "color"
       },
       "light": {
-        "value": "{teal.300-40}",
+        "value": "{teal.300-45}",
         "type": "color"
       },
       "lighter": {
@@ -556,7 +556,7 @@
         "type": "color"
       },
       "lightest": {
-        "value": "{teal.300-20}",
+        "value": "{teal.300-15}",
         "type": "color"
       },
       "dark": {
