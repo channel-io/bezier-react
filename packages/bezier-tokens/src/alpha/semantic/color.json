@@ -31,8 +31,8 @@
         "value": "{fg.blue.light}",
         "type": "color"
       },
-      "darkest": {
-        "value": "{fg.blue.darkest}",
+      "dark": {
+        "value": "{fg.blue.dark}",
         "type": "color"
       }
     }
@@ -69,8 +69,8 @@
         "value": "{fg.red.light}",
         "type": "color"
       },
-      "darkest": {
-        "value": "{fg.red.darkest}",
+      "dark": {
+        "value": "{fg.red.dark}",
         "type": "color"
       }
     }
@@ -107,8 +107,8 @@
         "value": "{fg.orange.light}",
         "type": "color"
       },
-      "darkest": {
-        "value": "{fg.orange.darkest}",
+      "dark": {
+        "value": "{fg.orange.dark}",
         "type": "color"
       }
     }
@@ -145,8 +145,8 @@
         "value": "{fg.cobalt.light}",
         "type": "color"
       },
-      "darkest": {
-        "value": "{fg.cobalt.darkest}",
+      "dark": {
+        "value": "{fg.cobalt.dark}",
         "type": "color"
       }
     }
@@ -183,8 +183,8 @@
         "value": "{fg.green.light}",
         "type": "color"
       },
-      "darkest": {
-        "value": "{fg.green.darkest}",
+      "dark": {
+        "value": "{fg.green.dark}",
         "type": "color"
       }
     }
