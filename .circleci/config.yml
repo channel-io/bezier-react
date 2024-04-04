@@ -78,10 +78,9 @@ jobs:
             - lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
             - lint-{{ .Environment.CACHE_VERSION }}-
       - run: ls node_modules/.cache/turbo
-      - run: yarn lint --dry-run=json
       - run: yarn lint
       - run: ls node_modules/.cache/turbo
-      - run: yarn lint --dry-run=json
+      - run: yarn lint
       - save_cache:
           key: lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
           <<: *lint_cache_paths
@@ -90,18 +89,25 @@ jobs:
     executor: node_executor
     steps:
       - *attach_workspace
+      - restore_cache:
+          keys:
+            - typecheck-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
+            - typecheck-{{ .Environment.CACHE_VERSION }}-
       - run: yarn typecheck --dry-run=json
       - run: yarn typecheck
       - run: yarn typecheck --dry-run=json
+      - save_cache:
+          key: typecheck-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
+          <<: *test_cache_paths
 
   test:
     executor: node_executor
     steps:
       - *attach_workspace
-      # - restore_cache:
-      #     keys:
-      #       - test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
-      #       - test-{{ .Environment.CACHE_VERSION }}-
+      - restore_cache:
+          keys:
+            - test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
+            - test-{{ .Environment.CACHE_VERSION }}-
       - run: ls node_modules/.cache/turbo
       - run: yarn test --dry-run=json
       - run: yarn test
@@ -109,9 +115,9 @@ jobs:
       - run: yarn test --dry-run=json
       - codecov/upload:
           file: './packages/bezier-react/coverage/lcov.info'
-      # - save_cache:
-      #     key: test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-      #     <<: *test_cache_paths
+      - save_cache:
+          key: test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
+          <<: *test_cache_paths
 
 workflows:
   ci:
