@@ -17,6 +17,14 @@ import { mergeCss } from './merge-css'
 
 const CustomTransforms = [...Object.values(CSSTransforms)]
 
+const BUILD_PATH = {
+  BASE: 'dist',
+  BASE_ALPHA: 'dist/alpha',
+  CJS: 'cjs',
+  ESM: 'esm',
+  CSS: 'css',
+}
+
 const TokenBuilder = CustomTransforms.reduce(
   (builder, transform) => builder.registerTransform(transform),
   StyleDictionary
@@ -74,7 +82,7 @@ function defineConfig({
     source: [...source, ...reference],
     platforms: {
       'web/cjs': defineWebPlatform({
-        buildPath: `${basePath}/cjs/`,
+        buildPath: `${basePath}/${BUILD_PATH.CJS}/`,
         files: [
           {
             destination: `${destination}.js`,
@@ -85,7 +93,7 @@ function defineConfig({
         ],
       }),
       'web/esm': defineWebPlatform({
-        buildPath: `${basePath}/esm/`,
+        buildPath: `${basePath}/${BUILD_PATH.ESM}/`,
         files: [
           {
             destination: `${destination}.mjs`,
@@ -96,7 +104,7 @@ function defineConfig({
         ],
       }),
       'web/css': defineWebPlatform({
-        buildPath: `${basePath}/css/`,
+        buildPath: `${basePath}/${BUILD_PATH.CSS}/`,
         files: [
           {
             destination: `${destination}.css`,
@@ -119,7 +127,7 @@ async function main() {
     TokenBuilder.extend(
       defineConfig({
         source: ['src/global/*.json'],
-        basePath: 'dist',
+        basePath: BUILD_PATH.BASE,
         destination: 'global',
         options: { cssSelector: ':where(:root, :host)' },
       })
@@ -128,7 +136,7 @@ async function main() {
       defineConfig({
         source: ['src/semantic/*.json', 'src/semantic/light-theme/*.json'],
         reference: ['src/global/*.json'],
-        basePath: 'dist',
+        basePath: BUILD_PATH.BASE,
         destination: 'lightTheme',
         options: {
           cssSelector: ':where(:root, :host), [data-bezier-theme="light"]',
@@ -139,7 +147,7 @@ async function main() {
       defineConfig({
         source: ['src/semantic/*.json', 'src/semantic/dark-theme/*.json'],
         reference: ['src/global/*.json'],
-        basePath: 'dist',
+        basePath: BUILD_PATH.BASE,
         destination: 'darkTheme',
         options: { cssSelector: '[data-bezier-theme="dark"]' },
       })
@@ -148,7 +156,7 @@ async function main() {
       defineConfig({
         useAlpha: true,
         source: ['src/alpha/global/*.json'],
-        basePath: 'dist/alpha',
+        basePath: BUILD_PATH.BASE_ALPHA,
         destination: 'global',
         options: { cssSelector: ':where(:root, :host)' },
       })
@@ -162,7 +170,7 @@ async function main() {
           'src/alpha/semantic/*.json',
         ],
         reference: ['src/alpha/global/*.json'],
-        basePath: 'dist/alpha',
+        basePath: BUILD_PATH.BASE_ALPHA,
         destination: 'lightTheme',
         options: {
           cssSelector: ':where(:root, :host), [data-bezier-theme="light"]',
@@ -178,22 +186,25 @@ async function main() {
           'src/alpha/semantic/*.json',
         ],
         reference: ['src/alpha/global/*.json'],
-        basePath: 'dist/alpha',
+        basePath: BUILD_PATH.BASE_ALPHA,
         destination: 'darkTheme',
         options: { cssSelector: '[data-bezier-theme="dark"]' },
       })
     ),
   ].forEach((builder) => builder.buildAllPlatforms())
 
-  for (const buildPath of ['dist/css', 'dist/alpha/css']) {
+  for (const buildPath of [
+    `${BUILD_PATH.BASE}/${BUILD_PATH.CSS}`,
+    `${BUILD_PATH.BASE_ALPHA}/${BUILD_PATH.CSS}`,
+  ]) {
     await mergeCss(buildPath)
   }
 
   for (const options of [
-    { buildPath: 'dist/cjs', isCjs: true },
-    { buildPath: 'dist/alpha/cjs', isCjs: true },
-    { buildPath: 'dist/esm', isCjs: false },
-    { buildPath: 'dist/alpha/esm', isCjs: false },
+    { buildPath: `${BUILD_PATH.BASE}/${BUILD_PATH.CJS}`, isCjs: true },
+    { buildPath: `${BUILD_PATH.BASE_ALPHA}/${BUILD_PATH.CJS}`, isCjs: true },
+    { buildPath: `${BUILD_PATH.BASE}/${BUILD_PATH.ESM}`, isCjs: false },
+    { buildPath: `${BUILD_PATH.BASE_ALPHA}/${BUILD_PATH.ESM}`, isCjs: false },
   ]) {
     await buildJsIndex(options)
   }
