@@ -59,6 +59,7 @@ jobs:
           keys:
             - build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
             - build-{{ .Environment.CACHE_VERSION }}-
+      - run: ls node_modules/.cache/turbo
       - run: yarn build
       - save_cache:
           key: build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
@@ -76,8 +77,10 @@ jobs:
           keys:
             - lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
             - lint-{{ .Environment.CACHE_VERSION }}-
+      - run: ls node_modules/.cache/turbo
       - run: yarn lint --dry-run=json
       - run: yarn lint
+      - run: ls node_modules/.cache/turbo
       - run: yarn lint --dry-run=json
       - save_cache:
           key: lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
@@ -99,7 +102,10 @@ jobs:
       #     keys:
       #       - test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
       #       - test-{{ .Environment.CACHE_VERSION }}-
+      - run: ls node_modules/.cache/turbo
       - run: yarn test --dry-run=json
+      - run: yarn test
+      - run: ls node_modules/.cache/turbo
       - run: yarn test --dry-run=json
       - codecov/upload:
           file: './packages/bezier-react/coverage/lcov.info'
@@ -114,9 +120,9 @@ workflows:
       - build:
           requires:
             - install
-      # - lint:
-      #     requires:
-      #       - build
+      - lint:
+          requires:
+            - build
       - typecheck:
           requires:
             - build
