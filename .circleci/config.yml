@@ -80,7 +80,7 @@ jobs:
       - run: ls node_modules/.cache/turbo
       - run: yarn lint
       - run: ls node_modules/.cache/turbo
-      - run: yarn lint
+      # - run: yarn lint
       - save_cache:
           key: lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
           <<: *lint_cache_paths
@@ -94,10 +94,10 @@ jobs:
             - typecheck-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
             - typecheck-{{ .Environment.CACHE_VERSION }}-
       - run: ls node_modules/.cache/turbo
-      - run: yarn typecheck --dry-run=json
+      # - run: yarn typecheck --dry-run=json
       - run: yarn typecheck
       - run: ls node_modules/.cache/turbo
-      - run: yarn typecheck --dry-run=json
+      # - run: yarn typecheck --dry-run=json
       - save_cache:
           key: typecheck-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
           <<: *test_cache_paths
@@ -111,10 +111,10 @@ jobs:
             - test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
             - test-{{ .Environment.CACHE_VERSION }}-
       - run: ls node_modules/.cache/turbo
-      - run: yarn test --dry-run=json
+      # - run: yarn test --dry-run=json
       - run: yarn test
       - run: ls node_modules/.cache/turbo
-      - run: yarn test --dry-run=json
+      # - run: yarn test --dry-run=json
       - codecov/upload:
           file: './packages/bezier-react/coverage/lcov.info'
       - save_cache:
