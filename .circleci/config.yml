@@ -17,18 +17,20 @@ references:
 
   lint_cache_paths: &lint_cache_paths
     paths:
-      - packages/bezier-react/.stylelintcache
-      - packages/bezier-react/.eslintcache
-      - packages/bezier-icons/.eslintcache
-      - packages/bezier-figma-plugin/.eslintcache
-      - packages/bezier-codemod/.eslintcache
+      - node_modules/.cache/turbo
+      # - packages/bezier-react/.stylelintcache
+      # - packages/bezier-react/.eslintcache
+      # - packages/bezier-icons/.eslintcache
+      # - packages/bezier-figma-plugin/.eslintcache
+      # - packages/bezier-codemod/.eslintcache
 
   test_cache_paths: &test_cache_paths
     paths:
-      - packages/bezier-react/.jestcache
-      - packages/bezier-icons/.jestcache
-      - packages/bezier-figma-plugin/.jestcache
-      - packages/bezier-codemod/.jestcache
+      - node_modules/.cache/turbo
+      # - packages/bezier-react/.jestcache
+      # - packages/bezier-icons/.jestcache
+      # - packages/bezier-figma-plugin/.jestcache
+      # - packages/bezier-codemod/.jestcache
 
 executors:
   node_executor:
@@ -53,14 +55,14 @@ jobs:
     executor: node_executor
     steps:
       - *attach_workspace
-      # - restore_cache:
-      #     keys:
-      #       - build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
-      #       - build-{{ .Environment.CACHE_VERSION }}-
+      - restore_cache:
+          keys:
+            - build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
+            - build-{{ .Environment.CACHE_VERSION }}-
       - run: yarn build
-      # - save_cache:
-      #     key: build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-      #     <<: *build_cache_paths
+      - save_cache:
+          key: build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
+          <<: *build_cache_paths
       - persist_to_workspace:
           root: *workspace_root
           paths:
@@ -70,16 +72,16 @@ jobs:
     executor: node_executor
     steps:
       - *attach_workspace
-      # - restore_cache:
-      #     keys:
-      #       - lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
-      #       - lint-{{ .Environment.CACHE_VERSION }}-
-      - run: yarn lint
+      - restore_cache:
+          keys:
+            - lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
+            - lint-{{ .Environment.CACHE_VERSION }}-
+      - run: yarn lint --dry-run=json
       - run: yarn lint
       - run: yarn lint --dry-run=json
-      # - save_cache:
-      #     key: lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-      #     <<: *lint_cache_paths
+      - save_cache:
+          key: lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
+          <<: *lint_cache_paths
 
   typecheck:
     executor: node_executor
