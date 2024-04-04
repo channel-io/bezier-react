@@ -93,8 +93,10 @@ jobs:
           keys:
             - typecheck-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
             - typecheck-{{ .Environment.CACHE_VERSION }}-
+      - run: ls node_modules/.cache/turbo
       - run: yarn typecheck --dry-run=json
       - run: yarn typecheck
+      - run: ls node_modules/.cache/turbo
       - run: yarn typecheck --dry-run=json
       - save_cache:
           key: typecheck-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
