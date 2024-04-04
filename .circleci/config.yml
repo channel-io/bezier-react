@@ -11,7 +11,7 @@ references:
     attach_workspace:
       at: *workspace_root
 
-  cache_paths: &cache_paths
+  cache_path: &cache_path
     paths:
       - node_modules/.cache/turbo
 
@@ -45,7 +45,7 @@ jobs:
       - run: yarn build
       - save_cache:
           key: build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-          <<: *cache_paths
+          <<: *cache_path
       - persist_to_workspace:
           root: *workspace_root
           paths:
@@ -62,7 +62,7 @@ jobs:
       - run: yarn lint
       - save_cache:
           key: lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-          <<: *cache_paths
+          <<: *cache_path
 
   typecheck:
     executor: node_executor
@@ -75,7 +75,7 @@ jobs:
       - run: yarn typecheck
       - save_cache:
           key: typecheck-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-          <<: *cache_paths
+          <<: *cache_path
 
   test:
     executor: node_executor
@@ -90,7 +90,7 @@ jobs:
           file: './packages/bezier-react/coverage/lcov.info'
       - save_cache:
           key: test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-          <<: *cache_paths
+          <<: *cache_path
 
 workflows:
   ci:
