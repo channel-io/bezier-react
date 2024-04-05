@@ -10,16 +10,16 @@ import { cssDimension } from '~/src/utils/style'
 import { isNil, isNumber } from '~/src/utils/type'
 
 import {
-  DialogPrimitive,
-  DialogPrimitiveClose,
-  DialogPrimitiveContent,
-  DialogPrimitiveDescription,
-  DialogPrimitiveOverlay,
-  DialogPrimitivePortal,
-  type DialogPrimitiveProps,
-  DialogPrimitiveTitle,
-  DialogPrimitiveTrigger,
-} from '~/src/alpha-components/DialogPrimitive'
+  AlphaDialogPrimitive,
+  AlphaDialogPrimitiveClose,
+  AlphaDialogPrimitiveContent,
+  AlphaDialogPrimitiveDescription,
+  AlphaDialogPrimitiveOverlay,
+  AlphaDialogPrimitivePortal,
+  type AlphaDialogPrimitiveProps,
+  AlphaDialogPrimitiveTitle,
+  AlphaDialogPrimitiveTrigger,
+} from '~/src/components/AlphaDialogPrimitive'
 import { Button } from '~/src/components/Button'
 import { Text } from '~/src/components/Text'
 import { ThemeProvider, useThemeName } from '~/src/components/ThemeProvider'
@@ -79,7 +79,7 @@ export function Modal({
   onHide,
 }: ModalProps) {
   const onOpenChange = useCallback<
-    NonNullable<DialogPrimitiveProps['onOpenChange']>
+    NonNullable<AlphaDialogPrimitiveProps['onOpenChange']>
   >(
     (open) => {
       const callback = open ? onShow : onHide
@@ -89,13 +89,13 @@ export function Modal({
   )
 
   return (
-    <DialogPrimitive
+    <AlphaDialogPrimitive
       open={show}
       defaultOpen={defaultShow}
       onOpenChange={onOpenChange}
     >
       {children}
-    </DialogPrimitive>
+    </AlphaDialogPrimitive>
   )
 }
 
@@ -162,16 +162,16 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
     )
 
     return (
-      <DialogPrimitivePortal container={container}>
+      <AlphaDialogPrimitivePortal container={container}>
         <ThemeProvider themeName={useThemeName()}>
-          <DialogPrimitiveOverlay
+          <AlphaDialogPrimitiveOverlay
             style={overlayStyle}
             className={classNames(
               styles.ModalOverlay,
               getZIndexClassName(zIndex)
             )}
           >
-            <DialogPrimitiveContent
+            <AlphaDialogPrimitiveContent
               asChild
               onPointerDownOutside={(e) => {
                 if (preventHideOnOutsideClick) {
@@ -219,10 +219,10 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
                   )}
                 </section>
               </div>
-            </DialogPrimitiveContent>
-          </DialogPrimitiveOverlay>
+            </AlphaDialogPrimitiveContent>
+          </AlphaDialogPrimitiveOverlay>
         </ThemeProvider>
-      </DialogPrimitivePortal>
+      </AlphaDialogPrimitivePortal>
     )
   }
 )
@@ -258,7 +258,7 @@ function ModalHeaderTitle({
   )
 
   return (
-    <DialogPrimitiveTitle asChild>
+    <AlphaDialogPrimitiveTitle asChild>
       {!isNil(subtitle) ? (
         <hgroup
           className={styles.HeadingGroup}
@@ -280,7 +280,7 @@ function ModalHeaderTitle({
       ) : (
         Title
       )}
-    </DialogPrimitiveTitle>
+    </AlphaDialogPrimitiveTitle>
   )
 }
 
@@ -339,7 +339,7 @@ export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(
           )}
 
           {description && (
-            <DialogPrimitiveDescription asChild>
+            <AlphaDialogPrimitiveDescription asChild>
               <Text
                 as="p"
                 color="txt-black-darkest"
@@ -347,7 +347,7 @@ export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(
               >
                 {description}
               </Text>
-            </DialogPrimitiveDescription>
+            </AlphaDialogPrimitiveDescription>
           )}
         </header>
       </Hidden>
@@ -407,7 +407,7 @@ export const ModalFooter = forwardRef<HTMLElement, ModalFooterProps>(
  * It **must** be placed outside of the `ModalContent`.
  */
 export function ModalTrigger({ children }: ModalTriggerProps) {
-  return <DialogPrimitiveTrigger asChild>{children}</DialogPrimitiveTrigger>
+  return <AlphaDialogPrimitiveTrigger asChild>{children}</AlphaDialogPrimitiveTrigger>
 }
 
 /**
@@ -415,5 +415,5 @@ export function ModalTrigger({ children }: ModalTriggerProps) {
  * It passes the handler that closes the modal to the children.
  */
 export function ModalClose({ children }: ModalCloseProps) {
-  return <DialogPrimitiveClose asChild>{children}</DialogPrimitiveClose>
+  return <AlphaDialogPrimitiveClose asChild>{children}</AlphaDialogPrimitiveClose>
 }

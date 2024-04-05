@@ -10,13 +10,13 @@ import React, {
 import { isEmpty } from '~/src/utils/type'
 
 import {
-  TooltipPrimitive,
-  TooltipPrimitiveContent,
-  type TooltipPrimitiveContentProps,
-  TooltipPrimitivePortal,
-  TooltipPrimitiveProvider,
-  TooltipPrimitiveTrigger,
-} from '~/src/alpha-components/TooltipPrimitive'
+  AlphaTooltipPrimitive,
+  AlphaTooltipPrimitiveContent,
+  type AlphaTooltipPrimitiveContentProps,
+  AlphaTooltipPrimitivePortal,
+  AlphaTooltipPrimitiveProvider,
+  AlphaTooltipPrimitiveTrigger,
+} from '~/src/components/AlphaTooltipPrimitive'
 import { Icon } from '~/src/components/Icon'
 import { HStack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
@@ -29,7 +29,7 @@ import styles from './Tooltip.module.scss'
 
 function getSideAndAlign(
   placement: TooltipPosition
-): Pick<TooltipPrimitiveContentProps, 'side' | 'align'> {
+): Pick<AlphaTooltipPrimitiveContentProps, 'side' | 'align'> {
   switch (placement) {
     case 'top-center':
       return {
@@ -207,19 +207,19 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     )
 
     return (
-      <TooltipPrimitiveProvider skipDelayDuration={0}>
-        <TooltipPrimitive
+      <AlphaTooltipPrimitiveProvider skipDelayDuration={0}>
+        <AlphaTooltipPrimitive
           open={show}
           defaultOpen={defaultShow}
           delayDuration={delayShow}
           disableHoverableContent={!allowHover}
           onOpenChange={onOpenChange}
         >
-          <TooltipPrimitiveTrigger asChild>{children}</TooltipPrimitiveTrigger>
+          <AlphaTooltipPrimitiveTrigger asChild>{children}</AlphaTooltipPrimitiveTrigger>
 
-          <TooltipPrimitivePortal container={container}>
+          <AlphaTooltipPrimitivePortal container={container}>
             <InvertedThemeProvider>
-              <TooltipPrimitiveContent
+              <AlphaTooltipPrimitiveContent
                 {...rest}
                 {...getSideAndAlign(placement)}
                 asChild
@@ -273,11 +273,11 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
                     />
                   )}
                 </HStack>
-              </TooltipPrimitiveContent>
+              </AlphaTooltipPrimitiveContent>
             </InvertedThemeProvider>
-          </TooltipPrimitivePortal>
-        </TooltipPrimitive>
-      </TooltipPrimitiveProvider>
+          </AlphaTooltipPrimitivePortal>
+        </AlphaTooltipPrimitive>
+      </AlphaTooltipPrimitiveProvider>
     )
   }
 )
