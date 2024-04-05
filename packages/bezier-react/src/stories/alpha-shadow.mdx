@@ -1,0 +1,100 @@
+import { Markdown, Meta } from '@storybook/blocks'
+import { tokens } from '@channel.io/bezier-tokens/alpha'
+
+import {
+  LightThemeProvider,
+  DarkThemeProvider,
+} from '~/src/components/ThemeProvider'
+import { HStack, VStack } from '~/src/components/Stack'
+
+<Meta title="alpha-foundation/Shadow" />
+
+export const Shadow = ({ name, value, reference }) => {
+  return (
+    <HStack spacing={20}>
+      <div
+        style={{
+          flex: 1,
+          boxShadow: value,
+          backgroundColor: 'var(--alpha-surface-normal)',
+          height: 60,
+        }}
+      />
+      <VStack
+        style={{
+          flex: 1,
+          color: 'var(--alpha-fg-black-darkest)',
+        }}
+        spacing={4}
+        justify="center"
+      >
+        <span style={{ fontSize: 11 }}>{name}</span>
+        <pre
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 3,
+            fontSize: 9,
+            lineHeight: 1,
+            color: 'var(--alpha-fg-black-dark)',
+          }}
+        >
+          {reference ? 'var' : ''}
+          <pre
+            style={{
+              display: 'inline-flex',
+              fontSize: 'inherit',
+              lineHeight: 'inherit',
+              padding: '1px 2px',
+              backgroundColor: 'var(--alpha-bg-grey-lighter)',
+              borderRadius: 3,
+              border: '1px solid var(--alpha-bg-black-lightest)',
+            }}
+          >
+            {reference ? reference : value}
+          </pre>
+        </pre>
+      </VStack>
+    </HStack>
+  )
+}
+
+export const Primary = () => (
+  <HStack>
+
+    <LightThemeProvider>
+      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-surface-normal)' }} padding={40}>
+        <VStack spacing={40}>
+          {Object.entries(tokens.lightTheme.shadow).map(([key, { value, ref }]) => (
+            <Shadow
+              key={key}
+              name={key}
+              value={value}
+              reference={ref}
+            />
+          ))}
+        </VStack>
+      </VStack>
+    </LightThemeProvider>
+
+    <DarkThemeProvider>
+      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-surface-normal)' }} padding={40}>
+        <VStack spacing={40}>
+          {Object.entries(tokens.darkTheme.shadow).map(([key, { value, ref }]) => (
+            <Shadow
+              key={key}
+              name={key}
+              value={value}
+              reference={ref}
+            />
+          ))}
+        </VStack>
+      </VStack>
+    </DarkThemeProvider>
+
+  </HStack>
+)
+
+# Shadow
+
+<Primary />

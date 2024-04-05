@@ -5,21 +5,26 @@ import {
   LightThemeProvider,
   DarkThemeProvider,
 } from '~/src/components/ThemeProvider'
-import { Box } from '~/src/components/Box'
 import { HStack, VStack } from '~/src/components/Stack'
 
 <Meta title="alpha-foundation/Color" />
 
-export const ColorSwatch = ({ name, value, reference }) => {
+export const Color = ({ name, value, reference }) => {
   return (
-    <HStack spacing={8}>
-      <Box
-        style={{ flex: 1 }}
-        height={60}
-        backgroundColor={name}
+    <HStack spacing={20}>
+      <div
+        style={{
+          flex: 1,
+          boxShadow: value,
+          backgroundColor: `var(--${name})`,
+          height: 60,
+        }}
       />
       <VStack
-        style={{ flex: 1 }}
+        style={{
+          flex: 1,
+          color: 'var(--alpha-fg-black-darkest)',
+        }}
         spacing={4}
         justify="center"
       >
@@ -31,7 +36,7 @@ export const ColorSwatch = ({ name, value, reference }) => {
             gap: 3,
             fontSize: 9,
             lineHeight: 1,
-            color: 'rgba(0, 0, 0, 0.4)',
+            color: 'var(--alpha-fg-black-dark)',
           }}
         >
           {reference ? 'var' : ''}
@@ -41,9 +46,9 @@ export const ColorSwatch = ({ name, value, reference }) => {
               fontSize: 'inherit',
               lineHeight: 'inherit',
               padding: '1px 2px',
-              backgroundColor: '#F7F7F8',
+              backgroundColor: 'var(--alpha-bg-grey-lighter)',
               borderRadius: 3,
-              border: '1px solid rgba(0, 0, 0, 0.03)',
+              border: '1px solid var(--alpha-bg-black-lightest)',
             }}
           >
             {reference ? reference : value}
@@ -51,17 +56,15 @@ export const ColorSwatch = ({ name, value, reference }) => {
         </pre>
       </VStack>
     </HStack>
-
-)
+  )
 }
 
-export const ColorSwatches = () => (
-  <HStack spacing={20}>
+export const Primary = () => (
+  <HStack>
 
-    <VStack style={{ flex: 1 }}>
-      <h2>Global</h2>
+    <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-surface-normal)' }} padding={20}>
       {Object.entries(tokens.global.color).map(([key, { value, ref }]) => (
-        <ColorSwatch
+        <Color
           key={key}
           name={key}
           value={value}
@@ -71,10 +74,9 @@ export const ColorSwatches = () => (
     </VStack>
 
     <LightThemeProvider>
-      <VStack style={{ flex: 1 }}>
-        <h2>Light Theme</h2>
+      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-surface-normal)' }} padding={20}>
         {Object.entries(tokens.lightTheme.color).map(([key, { value, ref }]) => (
-          <ColorSwatch
+          <Color
             key={key}
             name={key}
             value={value}
@@ -85,10 +87,9 @@ export const ColorSwatches = () => (
     </LightThemeProvider>
 
     <DarkThemeProvider>
-      <VStack style={{ flex: 1 }}>
-        <h2>Dark Theme</h2>
+      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-surface-normal)' }} padding={20}>
         {Object.entries(tokens.darkTheme.color).map(([key, { value, ref }]) => (
-          <ColorSwatch
+          <Color
             key={key}
             name={key}
             value={value}
@@ -103,6 +104,4 @@ export const ColorSwatches = () => (
 
 # Color
 
-This is the alpha version of the color palette. LightTheme and DarkTheme contain both Functional/Semantic tokens, respectively.
-
-<ColorSwatches />
+<Primary />
