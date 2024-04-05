@@ -9,6 +9,7 @@
     "directory": "packages/bezier-vscode"
   },
   "author": "Channel Corp.",
+  "publisher": "Channel Corp.",
   "license": "Apache-2.0",
   "keywords": [
     "channel",
