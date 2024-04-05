@@ -34,6 +34,13 @@
     "./css/*": "./dist/css/*",
     "./alpha/css/*": "./dist/alpha/css/*"
   },
+  "typesVersions": {
+    "*": {
+      "alpha": [
+        "./dist/types/alpha/cjs/index.d.ts"
+      ]
+    }
+  },
   "sideEffects": [
     "**/*.css"
   ],
@@ -41,11 +48,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "run-s clean:build build:tokens build:web build:types",
+    "build": "run-s clean:build build:tokens build:types",
     "build:tokens": "ts-node-esm scripts/build-tokens.ts",
-    "build:web": "run-p 'build:web:*'",
-    "build:web:index-js": "ts-node-esm scripts/build-js-index.mts",
-    "build:web:index-css": "ts-node-esm scripts/build-css-index.mts",
     "build:types": "tsc -p tsconfig.build.json",
     "lint": "TIMING=1 eslint --cache .",
     "typecheck": "tsc --noEmit",
@@ -62,7 +66,6 @@
   "author": "Channel Corp.",
   "license": "Apache-2.0",
   "devDependencies": {
-    "chalk": "^5.3.0",
     "eslint-config-bezier": "workspace:*",
     "minimatch": "^9.0.3",
     "style-dictionary": "^3.9.2",
