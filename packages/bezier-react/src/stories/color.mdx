@@ -1,0 +1,108 @@
+import { Markdown, Meta } from '@storybook/blocks'
+import { tokens } from '@channel.io/bezier-tokens/alpha'
+
+import {
+  LightThemeProvider,
+  DarkThemeProvider,
+} from '~/src/components/ThemeProvider'
+import { Box } from '~/src/components/Box'
+import { HStack, VStack } from '~/src/components/Stack'
+
+<Meta title="alpha-foundation/Color" />
+
+export const ColorSwatch = ({ name, value, reference }) => {
+  return (
+    <HStack spacing={8}>
+      <Box
+        style={{ flex: 1 }}
+        height={60}
+        backgroundColor={name}
+      />
+      <VStack
+        style={{ flex: 1 }}
+        spacing={4}
+        justify="center"
+      >
+        <span style={{ fontSize: 11 }}>{name}</span>
+        <pre
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 3,
+            fontSize: 9,
+            lineHeight: 1,
+            color: 'rgba(0, 0, 0, 0.4)',
+          }}
+        >
+          {reference ? 'var' : ''}
+          <pre
+            style={{
+              display: 'inline-flex',
+              fontSize: 'inherit',
+              lineHeight: 'inherit',
+              padding: '1px 2px',
+              backgroundColor: '#F7F7F8',
+              borderRadius: 3,
+              border: '1px solid rgba(0, 0, 0, 0.03)',
+            }}
+          >
+            {reference ? reference : value}
+          </pre>
+        </pre>
+      </VStack>
+    </HStack>
+
+)
+}
+
+export const ColorSwatches = () => (
+  <HStack spacing={20}>
+
+    <VStack style={{ flex: 1 }}>
+      <h2>Global</h2>
+      {Object.entries(tokens.global.color).map(([key, { value, ref }]) => (
+        <ColorSwatch
+          key={key}
+          name={key}
+          value={value}
+          reference={ref}
+        />
+      ))}
+    </VStack>
+
+    <LightThemeProvider>
+      <VStack style={{ flex: 1 }}>
+        <h2>Light Theme</h2>
+        {Object.entries(tokens.lightTheme.color).map(([key, { value, ref }]) => (
+          <ColorSwatch
+            key={key}
+            name={key}
+            value={value}
+            reference={ref}
+          />
+        ))}
+      </VStack>
+    </LightThemeProvider>
+
+    <DarkThemeProvider>
+      <VStack style={{ flex: 1 }}>
+        <h2>Dark Theme</h2>
+        {Object.entries(tokens.darkTheme.color).map(([key, { value, ref }]) => (
+          <ColorSwatch
+            key={key}
+            name={key}
+            value={value}
+            reference={ref}
+          />
+        ))}
+      </VStack>
+    </DarkThemeProvider>
+
+  </HStack>
+)
+
+# Color
+
+This is the alpha version of the color palette. LightTheme and DarkTheme contain both Functional/Semantic tokens, respectively.
+
+<ColorSwatches />
