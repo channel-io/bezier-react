@@ -18,12 +18,18 @@ references:
   lint_cache_path: &lint_cache_path
     paths:
       - node_modules/.cache/turbo
-      - packages/*/.eslintcache
+      - packages/bezier-react/.stylelintcache
+      - packages/bezier-react/.eslintcache
+      - packages/bezier-icons/.eslintcache
+      - packages/bezier-figma-plugin/.eslintcache
+      - packages/bezier-codemod/.eslintcache
+      - packages/bezier-vscode/.eslintcache
 
   test_cache_path: &test_cache_path
     paths:
       - node_modules/.cache/turbo
-      - packages/*/.jestcache
+      - packages/bezier-react/.jestcache
+      - packages/bezier-codemod/.jestcache
 
 executors:
   node_executor:
