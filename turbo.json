@@ -13,7 +13,7 @@
       "inputs": ["src/**/*.tsx", "src/**/*.ts"]
     },
     "test": {
-      "outputs": [".jestcache/**"],
+      "outputs": [".jestcache/**", "coverage/*"],
       "inputs": ["src/**/*.tsx", "src/**/*.ts", "src/**/*.js"]
     },
     "dev": {

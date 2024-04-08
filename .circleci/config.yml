@@ -11,23 +11,24 @@ references:
     attach_workspace:
       at: *workspace_root
 
-  build_cache_paths: &build_cache_paths
+  turbo_cache_path: &turbo_cache_path
     paths:
       - node_modules/.cache/turbo
 
-  lint_cache_paths: &lint_cache_paths
+  lint_cache_path: &lint_cache_path
     paths:
+      - node_modules/.cache/turbo
       - packages/bezier-react/.stylelintcache
       - packages/bezier-react/.eslintcache
       - packages/bezier-icons/.eslintcache
       - packages/bezier-figma-plugin/.eslintcache
       - packages/bezier-codemod/.eslintcache
+      - packages/bezier-vscode/.eslintcache
 
-  test_cache_paths: &test_cache_paths
+  test_cache_path: &test_cache_path
     paths:
+      - node_modules/.cache/turbo
       - packages/bezier-react/.jestcache
-      - packages/bezier-icons/.jestcache
-      - packages/bezier-figma-plugin/.jestcache
       - packages/bezier-codemod/.jestcache
 
 executors:
@@ -60,7 +61,7 @@ jobs:
       - run: yarn build
       - save_cache:
           key: build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-          <<: *build_cache_paths
+          <<: *turbo_cache_path
       - persist_to_workspace:
           root: *workspace_root
           paths:
@@ -77,13 +78,20 @@ jobs:
       - run: yarn lint
       - save_cache:
           key: lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-          <<: *lint_cache_paths
+          <<: *lint_cache_path
 
   typecheck:
     executor: node_executor
     steps:
       - *attach_workspace
+      - restore_cache:
+          keys:
+            - typecheck-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
+            - typecheck-{{ .Environment.CACHE_VERSION }}-
       - run: yarn typecheck
+      - save_cache:
+          key: typecheck-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
+          <<: *turbo_cache_path
 
   test:
     executor: node_executor
@@ -98,7 +106,7 @@ jobs:
           file: './packages/bezier-react/coverage/lcov.info'
       - save_cache:
           key: test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-          <<: *test_cache_paths
+          <<: *test_cache_path
 
 workflows:
   ci:
