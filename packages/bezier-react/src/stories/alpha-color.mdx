@@ -1,0 +1,107 @@
+import { Markdown, Meta } from '@storybook/blocks'
+import { tokens } from '@channel.io/bezier-tokens/alpha'
+
+import {
+  LightThemeProvider,
+  DarkThemeProvider,
+} from '~/src/components/ThemeProvider'
+import { HStack, VStack } from '~/src/components/Stack'
+
+<Meta title="alpha-foundation/Color" />
+
+export const Color = ({ name, value, reference }) => {
+  return (
+    <HStack spacing={20}>
+      <div
+        style={{
+          flex: 1,
+          boxShadow: value,
+          backgroundColor: `var(--${name})`,
+          height: 60,
+        }}
+      />
+      <VStack
+        style={{
+          flex: 1,
+          color: 'var(--alpha-fg-black-darkest)',
+        }}
+        spacing={4}
+        justify="center"
+      >
+        <span style={{ fontSize: 11 }}>{name}</span>
+        <pre
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 3,
+            fontSize: 9,
+            lineHeight: 1,
+            color: 'var(--alpha-fg-black-dark)',
+          }}
+        >
+          {reference ? 'var' : ''}
+          <pre
+            style={{
+              display: 'inline-flex',
+              fontSize: 'inherit',
+              lineHeight: 'inherit',
+              padding: '1px 2px',
+              backgroundColor: 'var(--alpha-bg-grey-lighter)',
+              borderRadius: 3,
+              border: '1px solid var(--alpha-bg-black-lightest)',
+            }}
+          >
+            {reference ? reference : value}
+          </pre>
+        </pre>
+      </VStack>
+    </HStack>
+  )
+}
+
+export const Primary = () => (
+  <HStack>
+
+    <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-surface-normal)' }} padding={20}>
+      {Object.entries(tokens.global.color).map(([key, { value, ref }]) => (
+        <Color
+          key={key}
+          name={key}
+          value={value}
+          reference={ref}
+        />
+      ))}
+    </VStack>
+
+    <LightThemeProvider>
+      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-surface-normal)' }} padding={20}>
+        {Object.entries(tokens.lightTheme.color).map(([key, { value, ref }]) => (
+          <Color
+            key={key}
+            name={key}
+            value={value}
+            reference={ref}
+          />
+        ))}
+      </VStack>
+    </LightThemeProvider>
+
+    <DarkThemeProvider>
+      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-surface-normal)' }} padding={20}>
+        {Object.entries(tokens.darkTheme.color).map(([key, { value, ref }]) => (
+          <Color
+            key={key}
+            name={key}
+            value={value}
+            reference={ref}
+          />
+        ))}
+      </VStack>
+    </DarkThemeProvider>
+
+  </HStack>
+)
+
+# Color
+
+<Primary />
