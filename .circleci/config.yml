@@ -18,12 +18,12 @@ references:
   lint_cache_path: &lint_cache_path
     paths:
       - node_modules/.cache/turbo
-      - packages/*/*/.eslintcache
+      - packages/*/.eslintcache
 
   test_cache_path: &test_cache_path
     paths:
       - node_modules/.cache/turbo
-      - packages/*/*/.jestcache
+      - packages/*/.jestcache
 
 executors:
   node_executor:
