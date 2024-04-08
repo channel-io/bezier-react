@@ -12,7 +12,7 @@
     "lint": "turbo run lint && syncpack lint",
     "format": "prettier . --write",
     "typecheck": "turbo run typecheck",
-    "test": "turbo run test",
+    "test": "turbo run test --force",
     "clean": "turbo run clean && rm -rf node_modules .turbo",
     "version-packages": "changeset version && yarn --mode=\"update-lockfile\"",
     "release": "turbo run build --filter='@channel.io/*' && changeset publish",
