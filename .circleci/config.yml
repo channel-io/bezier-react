@@ -17,7 +17,7 @@ references:
 
   test_cache_path: &test_cache_path
     paths:
-      - *turbo_cache_path
+      - node_modules/.cache/turbo
       - packages/bezier-react/.jestcache
       - packages/bezier-codemod/.jestcache
 
