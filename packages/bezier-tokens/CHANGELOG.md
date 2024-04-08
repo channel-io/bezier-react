@@ -1,5 +1,17 @@
 # @channel.io/bezier-tokens
 
+## 0.2.0
+
+### Minor Changes
+
+- Add `ref` value to design tokens of alpha version. ([#2135](https://github.com/channel-io/bezier-react/pull/2135)) by @sungik-choi
+
+- Add design tokens for next(alpha) version. ([#2132](https://github.com/channel-io/bezier-react/pull/2132)) by @sungik-choi
+
+### Patch Changes
+
+- Modify alpha design tokens according to figma design ([#2138](https://github.com/channel-io/bezier-react/pull/2138)) by @yangwooseong
+
 ## 0.1.0
 
 ### Minor Changes
