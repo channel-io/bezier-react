@@ -14,11 +14,11 @@ references:
   turbo_cache_path: &turbo_cache_path
     paths:
       - node_modules/.cache/turbo
-  jest_cache_path: &jest_cache_path
+
+  test_cache_path: &test_cache_path
     paths:
+      - *turbo_cache_path
       - packages/bezier-react/.jestcache
-      - packages/bezier-icons/.jestcache
-      - packages/bezier-figma-plugin/.jestcache
       - packages/bezier-codemod/.jestcache
 
 executors:
@@ -61,12 +61,12 @@ jobs:
     executor: node_executor
     steps:
       - *attach_workspace
-      - restore_turbo_cache:
+      - restore_cache:
           keys:
             - lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
             - lint-{{ .Environment.CACHE_VERSION }}-
       - run: yarn lint
-      - save_turbo_cache:
+      - save_cache:
           key: lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
           <<: *turbo_cache_path
 
@@ -74,12 +74,12 @@ jobs:
     executor: node_executor
     steps:
       - *attach_workspace
-      - restore_turbo_cache:
+      - restore_cache:
           keys:
             - typecheck-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
             - typecheck-{{ .Environment.CACHE_VERSION }}-
       - run: yarn typecheck
-      - save_turbo_cache:
+      - save_cache:
           key: typecheck-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
           <<: *turbo_cache_path
 
@@ -87,23 +87,16 @@ jobs:
     executor: node_executor
     steps:
       - *attach_workspace
-      - restore_turbo_cache:
+      - restore_cache:
           keys:
             - test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
             - test-{{ .Environment.CACHE_VERSION }}-
-      - restore_jest_cache:
-          keys:
-            - jest-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
-            - jest-{{ .Environment.CACHE_VERSION }}-
       - run: yarn test
       - codecov/upload:
           file: './packages/bezier-react/coverage/lcov.info'
-      - save_turbo_cache:
+      - save_cache:
           key: test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-          <<: *turbo_cache_path
-      - save_jest_cache:
-          key: jest-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-          <<: *jest_cache_path
+          <<: *test_cache_path
 
 workflows:
   ci:
