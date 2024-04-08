@@ -15,11 +15,15 @@ references:
     paths:
       - node_modules/.cache/turbo
 
+  lint_cache_path: &lint_cache_path
+    paths:
+      - node_modules/.cache/turbo
+      - packages/*/*/.eslintcache
+
   test_cache_path: &test_cache_path
     paths:
       - node_modules/.cache/turbo
-      - packages/bezier-react/.jestcache
-      - packages/bezier-codemod/.jestcache
+      - packages/*/*/.jestcache
 
 executors:
   node_executor:
@@ -68,7 +72,7 @@ jobs:
       - run: yarn lint
       - save_cache:
           key: lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-          <<: *turbo_cache_path
+          <<: *lint_cache_path
 
   typecheck:
     executor: node_executor
