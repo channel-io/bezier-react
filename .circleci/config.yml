@@ -51,6 +51,9 @@ jobs:
             - build-{{ .Environment.CACHE_VERSION }}-
       - run: yarn build
       - run:
+          name: report cache info
+          command: ls -l ./node_modules/.cache/turbo
+      - run:
           name: show total byte
           command: du -sh ./node_modules/.cache/turbo
       - run:
