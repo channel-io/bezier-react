@@ -8,10 +8,10 @@
         "value": "{font.size.15-5.value}"
       },
       "line-height": {
-        "value": "{line-height.23.value}"
+        "value": "{font.line-height.23.value}"
       },
       "letter-spacing": {
-        "value": "{letter-spacing.2.value}"
+        "value": "{font.letter-spacing.2.value}"
       }
     },
     "h1": {
@@ -23,10 +23,10 @@
           "value": "{font.size.36.value}"
         },
         "line-height": {
-          "value": "{line-height.44.value}"
+          "value": "{font.line-height.44.value}"
         },
         "letter-spacing": {
-          "value": "{letter-spacing.0.value}"
+          "value": "{font.letter-spacing.0.value}"
         }
       }
     },
@@ -39,10 +39,10 @@
           "value": "{font.size.30.value}"
         },
         "line-height": {
-          "value": "{line-height.36.value}"
+          "value": "{font.line-height.36.value}"
         },
         "letter-spacing": {
-          "value": "{letter-spacing.0.value}"
+          "value": "{font.letter-spacing.0.value}"
         }
       },
       "regular": {
@@ -53,10 +53,10 @@
           "value": "{font.size.30.value}"
         },
         "line-height": {
-          "value": "{line-height.36.value}"
+          "value": "{font.line-height.36.value}"
         },
         "letter-spacing": {
-          "value": "{letter-spacing.0.value}"
+          "value": "{font.letter-spacing.0.value}"
         }
       }
     },
@@ -69,10 +69,10 @@
           "value": "{font.size.24.value}"
         },
         "line-height": {
-          "value": "{line-height.32.value}"
+          "value": "{font.line-height.32.value}"
         },
         "letter-spacing": {
-          "value": "{letter-spacing.0.value}"
+          "value": "{font.letter-spacing.0.value}"
         }
       },
       "regular": {
@@ -83,10 +83,10 @@
           "value": "{font.size.24.value}"
         },
         "line-height": {
-          "value": "{line-height.32.value}"
+          "value": "{font.line-height.32.value}"
         },
         "letter-spacing": {
-          "value": "{letter-spacing.0.value}"
+          "value": "{font.letter-spacing.0.value}"
         }
       }
     },
@@ -100,10 +100,10 @@
             "value": "{font.size.22.value}"
           },
           "line-height": {
-            "value": "{line-height.28.value}"
+            "value": "{font.line-height.28.value}"
           },
           "letter-spacing": {
-            "value": "{letter-spacing.2.value}"
+            "value": "{font.letter-spacing.2.value}"
           }
         }
       },
@@ -116,10 +116,10 @@
             "value": "{font.size.18.value}"
           },
           "line-height": {
-            "value": "{line-height.24.value}"
+            "value": "{font.line-height.24.value}"
           },
           "letter-spacing": {
-            "value": "{letter-spacing.2.value}"
+            "value": "{font.letter-spacing.2.value}"
           }
         },
         "semibold": {
@@ -130,10 +130,10 @@
             "value": "{font.size.18.value}"
           },
           "line-height": {
-            "value": "{line-height.24.value}"
+            "value": "{font.line-height.24.value}"
           },
           "letter-spacing": {
-            "value": "{letter-spacing.2.value}"
+            "value": "{font.letter-spacing.2.value}"
           }
         }
       },
@@ -146,10 +146,10 @@
             "value": "{font.size.16.value}"
           },
           "line-height": {
-            "value": "{line-height.24.value}"
+            "value": "{font.line-height.24.value}"
           },
           "letter-spacing": {
-            "value": "{letter-spacing.3.value}"
+            "value": "{font.letter-spacing.3.value}"
           }
         }
       }
@@ -164,10 +164,10 @@
             "value": "{font.size.16.value}"
           },
           "line-height": {
-            "value": "{line-height.24.value}"
+            "value": "{font.line-height.24.value}"
           },
           "letter-spacing": {
-            "value": "{letter-spacing.2.value}"
+            "value": "{font.letter-spacing.2.value}"
           }
         },
         "regular": {
@@ -178,10 +178,10 @@
             "value": "{font.size.16.value}"
           },
           "line-height": {
-            "value": "{line-height.24.value}"
+            "value": "{font.line-height.24.value}"
           },
           "letter-spacing": {
-            "value": "{letter-spacing.1.value}"
+            "value": "{font.letter-spacing.1.value}"
           }
         }
       },
@@ -194,10 +194,10 @@
             "value": "{font.size.15.value}"
           },
           "line-height": {
-            "value": "{line-height.22.value}"
+            "value": "{font.line-height.22.value}"
           },
           "letter-spacing": {
-            "value": "{letter-spacing.2.value}"
+            "value": "{font.letter-spacing.2.value}"
           }
         },
         "regular": {
@@ -208,10 +208,10 @@
             "value": "{font.size.15.value}"
           },
           "line-height": {
-            "value": "{line-height.22.value}"
+            "value": "{font.line-height.22.value}"
           },
           "letter-spacing": {
-            "value": "{letter-spacing.1.value}"
+            "value": "{font.letter-spacing.1.value}"
           }
         }
       }
@@ -226,10 +226,10 @@
             "value": "{font.size.14.value}"
           },
           "line-height": {
-            "value": "{line-height.18.value}"
+            "value": "{font.line-height.18.value}"
           },
           "letter-spacing": {
-            "value": "{letter-spacing.2.value}"
+            "value": "{font.letter-spacing.2.value}"
           }
         },
         "regular": {
@@ -240,10 +240,10 @@
             "value": "{font.size.14.value}"
           },
           "line-height": {
-            "value": "{line-height.18.value}"
+            "value": "{font.line-height.18.value}"
           },
           "letter-spacing": {
-            "value": "{letter-spacing.2.value}"
+            "value": "{font.letter-spacing.2.value}"
           }
         }
       },
@@ -256,10 +256,10 @@
             "value": "{font.size.13.value}"
           },
           "line-height": {
-            "value": "{line-height.18.value}"
+            "value": "{font.line-height.18.value}"
           },
           "letter-spacing": {
-            "value": "{letter-spacing.2.value}"
+            "value": "{font.letter-spacing.2.value}"
           }
         },
         "regular": {
@@ -270,10 +270,10 @@
             "value": "{font.size.13.value}"
           },
           "line-height": {
-            "value": "{line-height.18.value}"
+            "value": "{font.line-height.18.value}"
           },
           "letter-spacing": {
-            "value": "{letter-spacing.2.value}"
+            "value": "{font.letter-spacing.2.value}"
           }
         }
       },
@@ -286,10 +286,10 @@
             "value": "{font.size.12.value}"
           },
           "line-height": {
-            "value": "{line-height.16.value}"
+            "value": "{font.line-height.16.value}"
           },
           "letter-spacing": {
-            "value": "{letter-spacing.2.value}"
+            "value": "{font.letter-spacing.2.value}"
           }
         },
         "regular": {
@@ -300,10 +300,10 @@
             "value": "{font.size.12.value}"
           },
           "line-height": {
-            "value": "{line-height.16.value}"
+            "value": "{font.line-height.16.value}"
           },
           "letter-spacing": {
-            "value": "{letter-spacing.2.value}"
+            "value": "{font.letter-spacing.2.value}"
           }
         }
       },
@@ -316,10 +316,10 @@
             "value": "{font.size.11.value}"
           },
           "line-height": {
-            "value": "{line-height.16.value}"
+            "value": "{font.line-height.16.value}"
           },
           "letter-spacing": {
-            "value": "{letter-spacing.1.value}"
+            "value": "{font.letter-spacing.1.value}"
           }
         },
         "regular": {
@@ -330,10 +330,10 @@
             "value": "{font.size.11.value}"
           },
           "line-height": {
-            "value": "{line-height.16.value}"
+            "value": "{font.line-height.16.value}"
           },
           "letter-spacing": {
-            "value": "{letter-spacing.1.value}"
+            "value": "{font.letter-spacing.1.value}"
           }
         }
       }
