@@ -407,7 +407,11 @@ export const ModalFooter = forwardRef<HTMLElement, ModalFooterProps>(
  * It **must** be placed outside of the `ModalContent`.
  */
 export function ModalTrigger({ children }: ModalTriggerProps) {
-  return <AlphaDialogPrimitiveTrigger asChild>{children}</AlphaDialogPrimitiveTrigger>
+  return (
+    <AlphaDialogPrimitiveTrigger asChild>
+      {children}
+    </AlphaDialogPrimitiveTrigger>
+  )
 }
 
 /**
@@ -415,5 +419,7 @@ export function ModalTrigger({ children }: ModalTriggerProps) {
  * It passes the handler that closes the modal to the children.
  */
 export function ModalClose({ children }: ModalCloseProps) {
-  return <AlphaDialogPrimitiveClose asChild>{children}</AlphaDialogPrimitiveClose>
+  return (
+    <AlphaDialogPrimitiveClose asChild>{children}</AlphaDialogPrimitiveClose>
+  )
 }

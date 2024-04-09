@@ -215,7 +215,9 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
           disableHoverableContent={!allowHover}
           onOpenChange={onOpenChange}
         >
-          <AlphaTooltipPrimitiveTrigger asChild>{children}</AlphaTooltipPrimitiveTrigger>
+          <AlphaTooltipPrimitiveTrigger asChild>
+            {children}
+          </AlphaTooltipPrimitiveTrigger>
 
           <AlphaTooltipPrimitivePortal container={container}>
             <InvertedThemeProvider>
