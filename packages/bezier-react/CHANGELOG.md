@@ -1,5 +1,19 @@
 # @channel.io/bezier-react
 
+## 2.0.1
+
+### Patch Changes
+
+- The style sheet(styles.css) now includes the alpha version of the design token. ([#2141](https://github.com/channel-io/bezier-react/pull/2141)) by @sungik-choi
+
+- Remove the `/alpha` directory and add the `Alpha` prefix to alpha components. ([#2140](https://github.com/channel-io/bezier-react/pull/2140)) by @sungik-choi
+
+  - `TooltipPrimitive` -> `AlphaTooltipPrimitive`
+  - `DialogPrimitive` -> `AlphaDialogPrimitive`
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.2.0
+
 ## 2.0.0
 
 ### Major Changes
