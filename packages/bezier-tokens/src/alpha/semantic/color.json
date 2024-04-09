@@ -3,37 +3,37 @@
     "primary": {
       "bg": {
         "normal": {
-          "value": "{bg.blue.normal}",
+          "value": "{color.bg.blue.normal}",
           "type": "color"
         },
         "light": {
-          "value": "{bg.blue.light}",
+          "value": "{color.bg.blue.light}",
           "type": "color"
         },
         "lighter": {
-          "value": "{bg.blue.lighter}",
+          "value": "{color.bg.blue.lighter}",
           "type": "color"
         },
         "lightest": {
-          "value": "{bg.blue.lightest}",
+          "value": "{color.bg.blue.lightest}",
           "type": "color"
         },
         "dark": {
-          "value": "{bg.blue.dark}",
+          "value": "{color.bg.blue.dark}",
           "type": "color"
         }
       },
       "fg": {
         "normal": {
-          "value": "{fg.blue.normal}",
+          "value": "{color.fg.blue.normal}",
           "type": "color"
         },
         "light": {
-          "value": "{fg.blue.light}",
+          "value": "{color.fg.blue.light}",
           "type": "color"
         },
         "dark": {
-          "value": "{fg.blue.dark}",
+          "value": "{color.fg.blue.dark}",
           "type": "color"
         }
       }
@@ -41,37 +41,37 @@
     "critical": {
       "bg": {
         "dark": {
-          "value": "{bg.red.dark}",
+          "value": "{color.bg.red.dark}",
           "type": "color"
         },
         "normal": {
-          "value": "{fg.red.normal}",
+          "value": "{color.fg.red.normal}",
           "type": "color"
         },
         "light": {
-          "value": "{bg.red.light}",
+          "value": "{color.bg.red.light}",
           "type": "color"
         },
         "lighter": {
-          "value": "{bg.red.lighter}",
+          "value": "{color.bg.red.lighter}",
           "type": "color"
         },
         "lightest": {
-          "value": "{bg.red.lightest}",
+          "value": "{color.bg.red.lightest}",
           "type": "color"
         }
       },
       "fg": {
         "normal": {
-          "value": "{fg.red.normal}",
+          "value": "{color.fg.red.normal}",
           "type": "color"
         },
         "light": {
-          "value": "{fg.red.light}",
+          "value": "{color.fg.red.light}",
           "type": "color"
         },
         "dark": {
-          "value": "{fg.red.dark}",
+          "value": "{color.fg.red.dark}",
           "type": "color"
         }
       }
@@ -79,37 +79,37 @@
     "warning": {
       "bg": {
         "dark": {
-          "value": "{bg.orange.dark}",
+          "value": "{color.bg.orange.dark}",
           "type": "color"
         },
         "normal": {
-          "value": "{bg.orange.normal}",
+          "value": "{color.bg.orange.normal}",
           "type": "color"
         },
         "light": {
-          "value": "{bg.orange.light}",
+          "value": "{color.bg.orange.light}",
           "type": "color"
         },
         "lighter": {
-          "value": "{bg.orange.lighter}",
+          "value": "{color.bg.orange.lighter}",
           "type": "color"
         },
         "lightest": {
-          "value": "{bg.orange.lightest}",
+          "value": "{color.bg.orange.lightest}",
           "type": "color"
         }
       },
       "fg": {
         "normal": {
-          "value": "{fg.orange.normal}",
+          "value": "{color.fg.orange.normal}",
           "type": "color"
         },
         "light": {
-          "value": "{fg.orange.light}",
+          "value": "{color.fg.orange.light}",
           "type": "color"
         },
         "dark": {
-          "value": "{fg.orange.dark}",
+          "value": "{color.fg.orange.dark}",
           "type": "color"
         }
       }
@@ -117,37 +117,37 @@
     "accent": {
       "bg": {
         "dark": {
-          "value": "{bg.cobalt.dark}",
+          "value": "{color.bg.cobalt.dark}",
           "type": "color"
         },
         "normal": {
-          "value": "{bg.cobalt.normal}",
+          "value": "{color.bg.cobalt.normal}",
           "type": "color"
         },
         "light": {
-          "value": "{bg.cobalt.light}",
+          "value": "{color.bg.cobalt.light}",
           "type": "color"
         },
         "lighter": {
-          "value": "{bg.cobalt.lighter}",
+          "value": "{color.bg.cobalt.lighter}",
           "type": "color"
         },
         "lightest": {
-          "value": "{bg.cobalt.lightest}",
+          "value": "{color.bg.cobalt.lightest}",
           "type": "color"
         }
       },
       "fg": {
         "normal": {
-          "value": "{fg.cobalt.normal}",
+          "value": "{color.fg.cobalt.normal}",
           "type": "color"
         },
         "light": {
-          "value": "{fg.cobalt.light}",
+          "value": "{color.fg.cobalt.light}",
           "type": "color"
         },
         "dark": {
-          "value": "{fg.cobalt.dark}",
+          "value": "{color.fg.cobalt.dark}",
           "type": "color"
         }
       }
@@ -155,37 +155,37 @@
     "success": {
       "bg": {
         "dark": {
-          "value": "{bg.green.dark}",
+          "value": "{color.bg.green.dark}",
           "type": "color"
         },
         "normal": {
-          "value": "{bg.green.normal}",
+          "value": "{color.bg.green.normal}",
           "type": "color"
         },
         "light": {
-          "value": "{bg.green.light}",
+          "value": "{color.bg.green.light}",
           "type": "color"
         },
         "lighter": {
-          "value": "{bg.green.lighter}",
+          "value": "{color.bg.green.lighter}",
           "type": "color"
         },
         "lightest": {
-          "value": "{bg.green.lightest}",
+          "value": "{color.bg.green.lightest}",
           "type": "color"
         }
       },
       "fg": {
         "normal": {
-          "value": "{fg.green.normal}",
+          "value": "{color.fg.green.normal}",
           "type": "color"
         },
         "light": {
-          "value": "{fg.green.light}",
+          "value": "{color.fg.green.light}",
           "type": "color"
         },
         "dark": {
-          "value": "{fg.green.dark}",
+          "value": "{color.fg.green.dark}",
           "type": "color"
         }
       }

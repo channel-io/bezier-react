@@ -5,7 +5,7 @@
       "green": {
         "value": [
           {
-            "color": "{fg.green.normal}",
+            "color": "{color.fg.green.normal}",
             "position": "0%"
           },
           {
@@ -18,11 +18,11 @@
       "black": {
         "value": [
           {
-            "color": "{bg.black.light}",
+            "color": "{color.bg.black.light}",
             "position": "0%"
           },
           {
-            "color": "{bg.black.dark}",
+            "color": "{color.bg.black.dark}",
             "position": "100%"
           }
         ],
