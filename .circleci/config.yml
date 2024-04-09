@@ -60,6 +60,9 @@ jobs:
             - build-{{ .Environment.CACHE_VERSION }}-
       - run: yarn build
       - run:
+          name: show total byte
+          command: du -sh ./node_modules/.cache/turbo
+      - run:
           name: clean old turbo cache
           command: find ./node_modules/.cache/turbo -mtime +30 -exec rm {} +
       - save_cache:
