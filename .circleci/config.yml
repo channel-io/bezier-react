@@ -51,12 +51,6 @@ jobs:
             - build-{{ .Environment.CACHE_VERSION }}-
       - run: yarn build
       - run:
-          name: report cache info
-          command: ls -l ./node_modules/.cache/turbo
-      - run:
-          name: show total byte
-          command: du -sh ./node_modules/.cache/turbo
-      - run:
           name: clean old turbo cache
           command: find ./node_modules/.cache/turbo -mtime +30 -exec rm {} +
       - save_cache:
@@ -66,29 +60,6 @@ jobs:
           root: *workspace_root
           paths:
             - .
-
-  # build:
-  #   executor: node_executor
-  #   steps:
-  #     - *attach_workspace
-  #     - restore_cache:
-  #         keys:
-  #           - build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
-  #           - build-{{ .Environment.CACHE_VERSION }}-
-  #     - run: yarn build
-  #     - run:
-  #         name: show total byte
-  #         command: du -sh ./node_modules/.cache/turbo
-  #     - run:
-  #         name: clean old turbo cache
-  #         command: find ./node_modules/.cache/turbo -mtime +30 -exec rm {} +
-  #     - save_cache:
-  #         key: build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-  #         <<: *turbo_cache_path
-  #     - persist_to_workspace:
-  #         root: *workspace_root
-  #         paths:
-  #           - .
 
   lint:
     executor: node_executor
@@ -135,9 +106,6 @@ workflows:
   ci:
     jobs:
       - install-and-build
-      # - build:
-      #     requires:
-      #       - install
       - lint:
           requires:
             - install-and-build
