@@ -39,21 +39,12 @@ executors:
     working_directory: *workspace_root
 
 jobs:
-  install:
+  install-and-build:
     executor: node_executor
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
-      - persist_to_workspace:
-          root: *workspace_root
-          paths:
-            - .
-
-  build:
-    executor: node_executor
-    steps:
-      - *attach_workspace
       - restore_cache:
           keys:
             - build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
@@ -72,6 +63,29 @@ jobs:
           root: *workspace_root
           paths:
             - .
+
+  # build:
+  #   executor: node_executor
+  #   steps:
+  #     - *attach_workspace
+  #     - restore_cache:
+  #         keys:
+  #           - build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
+  #           - build-{{ .Environment.CACHE_VERSION }}-
+  #     - run: yarn build
+  #     - run:
+  #         name: show total byte
+  #         command: du -sh ./node_modules/.cache/turbo
+  #     - run:
+  #         name: clean old turbo cache
+  #         command: find ./node_modules/.cache/turbo -mtime +30 -exec rm {} +
+  #     - save_cache:
+  #         key: build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
+  #         <<: *turbo_cache_path
+  #     - persist_to_workspace:
+  #         root: *workspace_root
+  #         paths:
+  #           - .
 
   lint:
     executor: node_executor
@@ -117,16 +131,16 @@ jobs:
 workflows:
   ci:
     jobs:
-      - install
-      - build:
-          requires:
-            - install
+      - install-and-build
+      # - build:
+      #     requires:
+      #       - install
       - lint:
           requires:
-            - build
+            - install-and-build
       - typecheck:
           requires:
-            - build
+            - install-and-build
       - test:
           requires:
-            - build
+            - install-and-build
