@@ -59,6 +59,9 @@ jobs:
             - build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
             - build-{{ .Environment.CACHE_VERSION }}-
       - run: yarn build
+      - run:
+          name: clean old turbo cache
+          command: find ./node_modules/.cache/turbo -mtime +30 -exec rm {} +
       - save_cache:
           key: build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
           <<: *turbo_cache_path
