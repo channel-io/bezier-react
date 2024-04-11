@@ -22,7 +22,7 @@ export const FORM_ERROR_MESSAGE_TEST_ID = 'bezier-form-error-message'
 
 const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(
   function BaseHelperText(props, forwardedRef) {
-    const { type, typo = '13', children, ...rest } = props
+    const { type, typo = '13', children, className, ...rest } = props
 
     const contextValue = useFormControlContext()
     const getProps =
@@ -52,7 +52,11 @@ const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(
       <Text
         ref={mergedRef}
         as="p"
-        className={classNames(styles.FormHelperText, formControlClassName)}
+        className={classNames(
+          styles.FormHelperText,
+          formControlClassName,
+          className
+        )}
         typo={typo}
         align="left"
         {...ownProps}
