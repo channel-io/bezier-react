@@ -16,14 +16,14 @@ export const Shadow = ({ name, value, reference }) => {
         style={{
           flex: 1,
           boxShadow: value,
-          backgroundColor: 'var(--alpha-surface-normal)',
+          backgroundColor: 'var(--alpha-color-surface-normal)',
           height: 60,
         }}
       />
       <VStack
         style={{
           flex: 1,
-          color: 'var(--alpha-fg-black-darkest)',
+          color: 'var(--alpha-color-fg-black-darkest)',
         }}
         spacing={4}
         justify="center"
@@ -36,7 +36,7 @@ export const Shadow = ({ name, value, reference }) => {
             gap: 3,
             fontSize: 9,
             lineHeight: 1,
-            color: 'var(--alpha-fg-black-dark)',
+            color: 'var(--alpha-color-fg-black-dark)',
           }}
         >
           {reference ? 'var' : ''}
@@ -46,9 +46,9 @@ export const Shadow = ({ name, value, reference }) => {
               fontSize: 'inherit',
               lineHeight: 'inherit',
               padding: '1px 2px',
-              backgroundColor: 'var(--alpha-bg-grey-lighter)',
+              backgroundColor: 'var(--alpha-color-bg-grey-lighter)',
               borderRadius: 3,
-              border: '1px solid var(--alpha-bg-black-lightest)',
+              border: '1px solid var(--alpha-color-bg-black-lightest)',
             }}
           >
             {reference ? reference : value}
@@ -63,7 +63,7 @@ export const Primary = () => (
   <HStack>
 
     <LightThemeProvider>
-      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-surface-normal)' }} padding={40}>
+      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-color-surface-normal)' }} padding={40}>
         <VStack spacing={40}>
           {Object.entries(tokens.lightTheme.shadow).map(([key, { value, ref }]) => (
             <Shadow
@@ -78,7 +78,7 @@ export const Primary = () => (
     </LightThemeProvider>
 
     <DarkThemeProvider>
-      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-surface-normal)' }} padding={40}>
+      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-color-surface-normal)' }} padding={40}>
         <VStack spacing={40}>
           {Object.entries(tokens.darkTheme.shadow).map(([key, { value, ref }]) => (
             <Shadow

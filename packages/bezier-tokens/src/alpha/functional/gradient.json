@@ -1,28 +1,14 @@
 {
   "gradient": {
-    "_comment": "WIP, not yet implemented",
     "fg": {
-      "green": {
-        "value": [
-          {
-            "color": "{fg.green.normal}",
-            "position": "0%"
-          },
-          {
-            "color": "#7ad890",
-            "position": "100%"
-          }
-        ],
-        "type": "gradient"
-      },
       "black": {
         "value": [
           {
-            "color": "{bg.black.light}",
+            "color": "{color.bg.black.light}",
             "position": "0%"
           },
           {
-            "color": "{bg.black.dark}",
+            "color": "{color.bg.black.dark}",
             "position": "100%"
           }
         ],
