@@ -35,6 +35,7 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(
       help,
       bold = true,
       color = 'txt-black-darkest',
+      className,
       children,
       ...rest
     } = props
@@ -67,7 +68,8 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(
       <Text
         className={classNames(
           styles.LabelText,
-          !HelpComponent && formControlClassName
+          !HelpComponent && formControlClassName,
+          className
         )}
         ref={forwardedRef}
         as="label"
@@ -91,7 +93,7 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(
       <LegacyHStack
         align="center"
         spacing={6}
-        className={HelpComponent && formControlClassName}
+        className={formControlClassName}
       >
         <LegacyStackItem
           shrink
