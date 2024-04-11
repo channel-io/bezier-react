@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.2.1
+
+### Patch Changes
+
+- Add "color" prefix to alpha color tokens and fix misnaming of alpha font/typography tokens. ([#2152](https://github.com/channel-io/bezier-react/pull/2152)) by @sungik-choi
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,5 +1,14 @@
 # @channel.io/bezier-react
 
+## 2.0.2
+
+### Patch Changes
+
+- Fixes an issue where injecting `className` into `FormLabel`, `FormHelperText` inside a `FormControl` does not apply styles correctly. ([#2156](https://github.com/channel-io/bezier-react/pull/2156)) by @sungik-choi
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.2.1
+
 ## 2.0.1
 
 ### Patch Changes
