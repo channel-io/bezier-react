@@ -74,7 +74,7 @@ jobs:
       - run: yarn lint
       - run:
           name: log eslint cache
-          command: ls -lh packages/bezier-react/.stylelintcache packages/bezier-react/.eslintcache packages/bezier-icons/.eslintcache packages/bezier-figma-plugin/.eslintcache packages/bezier-codemod/.eslintcache packages/bezier-vscode/.eslintcache
+          command: ls -lh /home/circleci/bezier-react/packages/bezier-react/.stylelintcache /home/circleci/bezier-react/packages/bezier-react/.eslintcache /home/circleci/bezier-react/packages/bezier-icons/.eslintcache /home/circleci/bezier-react/packages/bezier-figma-plugin/.eslintcache /home/circleci/bezier-react/packages/bezier-codemod/.eslintcache /home/circleci/bezier-react/packages/bezier-vscode/.eslintcache
       - save_cache:
           key: lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
           <<: *lint_cache_path
@@ -104,7 +104,10 @@ jobs:
       - codecov/upload:
           file: './packages/bezier-react/coverage/lcov.info'
       - run:
-          name: log jest cache
+          name: log cached jest cache
+          command: ls -lh /home/circleci/bezier-react/packages/bezier-react/.jestcache /home/circleci/bezier-react/packages/bezier-codemod/.jestcache /home/circleci/bezier-react/node_modules/.cache/turbo
+      - run:
+          name: log local jest cache
           command: ls -lh packages/bezier-react/.jestcache packages/bezier-codemod/.jestcache
       - save_cache:
           key: test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
