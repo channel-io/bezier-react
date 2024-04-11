@@ -50,10 +50,10 @@ jobs:
           keys:
             - build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
             - build-{{ .Environment.CACHE_VERSION }}-
-      - run: yarn build
       - run:
           name: Clean old turbo cache
-          command: find ./node_modules/.cache/turbo -mtime +30 -exec rm {} +
+          command: find ./node_modules/.cache/turbo -mtime +7 -exec rm {} +
+      - run: yarn build
       - save_cache:
           name: Save turbo cache
           key: build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
@@ -71,6 +71,9 @@ jobs:
           keys:
             - lint-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
             - lint-{{ .Environment.CACHE_VERSION }}-
+      - run:
+          name: Clean old turbo cache
+          command: find ./node_modules/.cache/turbo -mtime +7 -exec rm {} +
       - run: yarn lint
       - run:
           name: log eslint cache
@@ -100,6 +103,9 @@ jobs:
           keys:
             - test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
             - test-{{ .Environment.CACHE_VERSION }}-
+      - run:
+          name: Clean old turbo cache
+          command: find ./node_modules/.cache/turbo -mtime +7 -exec rm {} +
       - run: yarn test
       - codecov/upload:
           file: './packages/bezier-react/coverage/lcov.info'
