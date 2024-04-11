@@ -57,7 +57,7 @@
           "type": "color"
         },
         "dark": {
-          "value": "{color.cobalt.200}",
+          "value": "{color.cobalt.300}",
           "type": "color"
         }
       },
@@ -71,7 +71,7 @@
           "type": "color"
         },
         "dark": {
-          "value": "{color.red.200}",
+          "value": "{color.red.300}",
           "type": "color"
         }
       },
@@ -85,7 +85,7 @@
           "type": "color"
         },
         "dark": {
-          "value": "{color.orange.200}",
+          "value": "{color.orange.300}",
           "type": "color"
         }
       },
@@ -99,7 +99,7 @@
           "type": "color"
         },
         "dark": {
-          "value": "{color.green.200}",
+          "value": "{color.green.300}",
           "type": "color"
         }
       },
