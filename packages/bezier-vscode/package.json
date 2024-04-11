@@ -1,5 +1,5 @@
 {
-  "name": "@channel.io/bezier-vscode",
+  "name": "bezier-vscode",
   "version": "0.1.0",
   "private": true,
   "description": "VS Code extension for Bezier Design System",

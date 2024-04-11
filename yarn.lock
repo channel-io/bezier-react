@@ -2045,19 +2045,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@channel.io/bezier-vscode@workspace:packages/bezier-vscode":
-  version: 0.0.0-use.local
-  resolution: "@channel.io/bezier-vscode@workspace:packages/bezier-vscode"
-  dependencies:
-    "@channel.io/bezier-tokens": "npm:0.2.1"
-    "@types/node": "npm:^20.11.20"
-    "@types/vscode": "npm:^1.64.0"
-    vscode-languageclient: "npm:^9.0.1"
-    vscode-languageserver: "npm:^9.0.1"
-    vscode-languageserver-textdocument: "npm:^1.0.11"
-  languageName: unknown
-  linkType: soft
-
 "@channel.io/eslint-config@npm:^2.0.4":
   version: 2.0.4
   resolution: "@channel.io/eslint-config@npm:2.0.4"
@@ -8409,6 +8396,19 @@ __metadata:
     ts-node: "npm:^10.9.2"
     turbo: "npm:^1.12.4"
     typescript: "npm:^5.4.2"
+  languageName: unknown
+  linkType: soft
+
+"bezier-vscode@workspace:packages/bezier-vscode":
+  version: 0.0.0-use.local
+  resolution: "bezier-vscode@workspace:packages/bezier-vscode"
+  dependencies:
+    "@channel.io/bezier-tokens": "npm:0.2.1"
+    "@types/node": "npm:^20.11.20"
+    "@types/vscode": "npm:^1.64.0"
+    vscode-languageclient: "npm:^9.0.1"
+    vscode-languageserver: "npm:^9.0.1"
+    vscode-languageserver-textdocument: "npm:^1.0.11"
   languageName: unknown
   linkType: soft
 
