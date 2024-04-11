@@ -53,6 +53,21 @@
         ],
         "type": "gradient"
       }
+    },
+    "fg": {
+      "green": {
+        "value": [
+          {
+            "color": "{color.green.400}",
+            "position": "0%"
+          },
+          {
+            "color": "{color.green.300}",
+            "position": "100%"
+          }
+        ],
+        "type": "gradient"
+      }
     }
   }
 }
