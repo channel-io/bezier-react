@@ -2,16 +2,20 @@
   "color": {
     "fg": {
       "black": {
+        "pure": {
+          "value": "{color.black.100}",
+          "type": "color"
+        },
+        "darkest": {
+          "value": "{color.black.85}",
+          "type": "color"
+        },
         "darker": {
           "value": "{color.black.60}",
           "type": "color"
         },
         "dark": {
           "value": "{color.black.40}",
-          "type": "color"
-        },
-        "pure": {
-          "value": "{color.black.100}",
           "type": "color"
         },
         "light": {
@@ -291,16 +295,16 @@
           "type": "color"
         },
         "grey-alpha": {
-          "dark": {
-            "value": "{color.grey-alpha.100-80}",
-            "type": "color"
-          },
           "darkest": {
             "value": "{color.grey-alpha.200-80}",
             "type": "color"
           },
           "darker": {
-            "value": "{color.grey-alpha.200-80}",
+            "value": "{color.grey-alpha.100-90}",
+            "type": "color"
+          },
+          "dark": {
+            "value": "{color.grey-alpha.100-80}",
             "type": "color"
           },
           "light": {
