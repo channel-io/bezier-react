@@ -1,0 +1,16 @@
+.turbo
+.eslintcache
+**/tsconfig.json
+**/*.map
+**/*.ts
+*.vsix
+CONTRIBUTING.md
+scripts
+src
+rollup.config.js
+tsconfig.tsbuildinfo
+node_modules
+
+# Ignore parent directories
+../bezier-*/**
+../../**

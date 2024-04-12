@@ -1,15 +1,18 @@
 {
-  "name": "@channel.io/bezier-vscode",
-  "version": "0.1.0",
+  "name": "bezier-vscode",
+  "version": "0.0.0",
   "private": true,
   "description": "VS Code extension for Bezier Design System",
+  "icon": "assets/channel-icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/channel-io/bezier-react",
     "directory": "packages/bezier-vscode"
   },
-  "author": "Channel Corp.",
-  "publisher": "Channel Corp.",
+  "homepage": "https://github.com/channel-io/bezier-react/blob/main/packages/bezier-vscode/README.md",
+  "author": "Channel Corp",
+  "publisher": "ChannelCorp",
+  "displayName": "Bezier for VS Code",
   "license": "Apache-2.0",
   "keywords": [
     "channel",
@@ -55,7 +58,8 @@
     "dev": "tsc -b -w",
     "lint": "TIMING=1 eslint --cache .",
     "typecheck": "tsc --noEmit",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "vscode:prepublish": "yarn build"
   },
   "dependencies": {
     "vscode-languageclient": "^9.0.1",
