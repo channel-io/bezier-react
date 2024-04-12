@@ -2,4 +2,4 @@
 "bezier-vscode": minor
 ---
 
-Modify `bezier-vscode` package.json for displayName and icon
+Set up information about the package for initial publishing
