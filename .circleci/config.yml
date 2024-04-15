@@ -54,14 +54,17 @@ jobs:
           name: Clean old turbo cache
           command: find ./node_modules/.cache/turbo -mtime +7 -exec rm {} +
       - run: yarn build
-      - save_cache:
-          name: Save turbo cache
-          key: build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
-          <<: *turbo_cache_path
-      - persist_to_workspace:
-          root: *workspace_root
-          paths:
-            - .
+      - run: yarn lint
+      - run: yarn typecheck
+      - run: yarn test
+      # - save_cache:
+      #     name: Save turbo cache
+      #     key: build-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
+      #     <<: *turbo_cache_path
+      # - persist_to_workspace:
+      #     root: *workspace_root
+      #     paths:
+      #       - .
 
   lint:
     executor: node_executor
@@ -123,12 +126,12 @@ workflows:
   ci:
     jobs:
       - install-and-build
-      - lint:
-          requires:
-            - install-and-build
-      - typecheck:
-          requires:
-            - install-and-build
-      - test:
-          requires:
-            - install-and-build
+      # - lint:
+      #     requires:
+      #       - install-and-build
+      # - typecheck:
+      #     requires:
+      #       - install-and-build
+      # - test:
+      #     requires:
+      #       - install-and-build
