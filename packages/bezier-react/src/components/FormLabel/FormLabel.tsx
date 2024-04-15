@@ -30,7 +30,7 @@ export const FORM_LABEL_TEST_ID = 'bezier-form-label'
  * ```
  */
 export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(
-  function FormLabel(props, forwardedRef) {
+  function FormLabel(_props, forwardedRef) {
     const {
       help,
       bold = true,
@@ -38,7 +38,7 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(
       className,
       children,
       ...rest
-    } = props
+    } = _props
 
     const contextValue = useFormControlContext()
     const { className: formControlClassName, ...ownProps } =
