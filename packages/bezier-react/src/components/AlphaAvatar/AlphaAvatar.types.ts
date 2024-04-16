@@ -5,9 +5,11 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
+// TODO: Replace this with AlphaStatusBadgeType
 import { type StatusType } from '~/src/components/Status'
 
 export type AlphaAvatarSize =
+  | '16'
   | '20'
   | '24'
   | '30'
