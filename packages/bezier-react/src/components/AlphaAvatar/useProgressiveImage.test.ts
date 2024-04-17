@@ -1,74 +1,96 @@
+import { type RenderHookResult, waitFor } from '@testing-library/react'
+
 import { renderHook } from '~/src/utils/test'
 
-import useProgressiveImage, { type CachedImage } from './useProgressiveImage'
+import useProgressiveImage from './useProgressiveImage'
 
-describe('useProgressiveImage >', () => {
-  const mockValidImageUrlFoo = 'valid_foo'
-  const mockValidImageUrlBar = 'valid_bar'
-  const mockInvalidImageUrl = 'invalid'
-  const mockFallbackImageUrl = 'fallback'
+const DELAY = 300
+const TIME_OUT = DELAY + 1000
+const IMAGE_URL_1 = 'image-url-1'
+const IMAGE_URL_2 = 'image-url-2'
+const IMAGE_URL_3 = 'image-url-3'
+const FALLBACK_URL = 'fallback-url'
 
-  const mockImageCache = new Map<string, CachedImage>()
+describe('useProgressiveImage ', () => {
+  let rendered: RenderHookResult<
+    string,
+    { imageUrl: string; fallbackUrl: string }
+  >
+  const originalGlobalImage = window.Image
 
-  mockImageCache.set(mockValidImageUrlFoo, {
-    src: mockValidImageUrlFoo,
-    isLoaded: true,
-  })
-  mockImageCache.set(mockInvalidImageUrl, {
-    src: mockInvalidImageUrl,
-    isLoaded: false,
-  })
-
-  it('should return giving url when imageCache.get(givingUrl).isLoaded is "true"', () => {
-    const { result } = renderHook(() =>
-      useProgressiveImage(
-        mockValidImageUrlFoo,
-        mockFallbackImageUrl,
-        mockImageCache
-      )
-    )
-
-    expect(result.current).toStrictEqual(mockValidImageUrlFoo)
+  beforeAll(() => {
+    ;(window.Image as any) = class MockImage {
+      onload = () => {}
+      src = ''
+      constructor() {
+        setTimeout(() => {
+          this.onload()
+        }, DELAY)
+        return this
+      }
+    }
   })
 
-  it('should return fallback url when imageCache.get(givingUrl).isLoaded is "false"', () => {
-    const { result } = renderHook(() =>
-      useProgressiveImage(
-        mockInvalidImageUrl,
-        mockFallbackImageUrl,
-        mockImageCache
-      )
-    )
-
-    expect(result.current).toStrictEqual(mockFallbackImageUrl)
+  afterAll(() => {
+    window.Image = originalGlobalImage
   })
 
-  it('should update url when imageCache.get(url).isLoaded is "true"', () => {
-    const { result, rerender } = renderHook(
-      ({ src, defaultSrc, imageCache }) =>
-        useProgressiveImage(src, defaultSrc, imageCache),
+  beforeEach(() => {
+    rendered = renderHook(
+      ({ imageUrl, fallbackUrl }) => useProgressiveImage(imageUrl, fallbackUrl),
       {
         initialProps: {
-          src: mockValidImageUrlFoo,
-          defaultSrc: mockFallbackImageUrl,
-          imageCache: mockImageCache,
+          imageUrl: IMAGE_URL_1,
+          fallbackUrl: FALLBACK_URL,
         },
       }
     )
+  })
 
-    expect(result.current).toStrictEqual(mockValidImageUrlFoo)
+  it('should return fallback url at first', () => {
+    const { result } = rendered
 
-    mockImageCache.set(mockValidImageUrlBar, {
-      src: mockValidImageUrlBar,
-      isLoaded: true,
+    expect(result.current).toStrictEqual(FALLBACK_URL)
+  })
+
+  it('should return image url after it loads', async () => {
+    const { result } = rendered
+
+    await waitFor(() => expect(result.current).toStrictEqual(IMAGE_URL_1), {
+      timeout: TIME_OUT,
+    })
+  })
+
+  it('should update image url when hook is rendered with different url', async () => {
+    const { result, rerender } = rendered
+
+    rerender({
+      imageUrl: IMAGE_URL_2,
+      fallbackUrl: FALLBACK_URL,
+    })
+
+    await waitFor(() => expect(result.current).toStrictEqual(IMAGE_URL_2), {
+      timeout: TIME_OUT,
+    })
+  })
+
+  it('should loads image url immediately when rerendered', async () => {
+    const { rerender, result } = rendered
+
+    rerender({
+      imageUrl: IMAGE_URL_3,
+      fallbackUrl: FALLBACK_URL,
+    })
+
+    await waitFor(() => expect(result.current).toStrictEqual(IMAGE_URL_3), {
+      timeout: TIME_OUT,
     })
 
     rerender({
-      src: mockValidImageUrlBar,
-      defaultSrc: mockFallbackImageUrl,
-      imageCache: mockImageCache,
+      imageUrl: IMAGE_URL_3,
+      fallbackUrl: FALLBACK_URL,
     })
 
-    expect(result.current).toStrictEqual(mockValidImageUrlBar)
+    expect(result.current).toStrictEqual(IMAGE_URL_3)
   })
 })

@@ -1,20 +1,13 @@
 import { useEffect, useState } from 'react'
 
-enum ImageEventType {
-  Load = 'load',
-  Error = 'error',
-}
-
-export interface CachedImage {
+interface CachedImage {
   src: string
   isLoaded: boolean
 }
 
-type ImageCacheMap = Map<string, CachedImage>
+const imageCache = new Map<string, CachedImage>()
 
-const defaultImageCache = new Map<string, CachedImage>()
-
-function getCachedImage(src: string, imageCache: ImageCacheMap) {
+function getCachedImage(src: string) {
   const cachedImage = imageCache.get(src)
   if (!cachedImage) {
     return null
@@ -22,13 +15,9 @@ function getCachedImage(src: string, imageCache: ImageCacheMap) {
   return cachedImage
 }
 
-export default function useProgressiveImage(
-  src: string,
-  defaultSrc: string,
-  imageCache: ImageCacheMap = defaultImageCache
-) {
+export default function useProgressiveImage(src: string, defaultSrc: string) {
   const [source, setSource] = useState<CachedImage | null>(() =>
-    getCachedImage(src, imageCache)
+    getCachedImage(src)
   )
 
   useEffect(
@@ -37,7 +26,7 @@ export default function useProgressiveImage(
         return undefined
       }
 
-      const cachedImage = getCachedImage(src, imageCache)
+      const cachedImage = getCachedImage(src)
 
       if (cachedImage?.isLoaded) {
         setSource(cachedImage)
@@ -46,25 +35,21 @@ export default function useProgressiveImage(
 
       const image = new Image()
       image.src = src
+      image.onload = loadImage(true)
+      image.onerror = loadImage(false)
 
-      function loadImage(event: Event) {
-        const loadedImage = {
-          src,
-          isLoaded: event.type === ImageEventType.Load,
+      function loadImage(isLoaded: boolean) {
+        return () => {
+          const loadedImage = {
+            src,
+            isLoaded,
+          }
+          setSource(loadedImage)
+          imageCache.set(src, loadedImage)
         }
-        setSource(loadedImage)
-        imageCache.set(src, loadedImage)
-      }
-
-      image.addEventListener(ImageEventType.Load, loadImage)
-      image.addEventListener(ImageEventType.Error, loadImage)
-
-      return function cleanup() {
-        image.removeEventListener(ImageEventType.Load, loadImage)
-        image.removeEventListener(ImageEventType.Error, loadImage)
       }
     },
-    [src, source, imageCache]
+    [src, source]
   )
 
   if (!source || !source.isLoaded) {
