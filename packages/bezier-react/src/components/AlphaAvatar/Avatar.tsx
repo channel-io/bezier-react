@@ -23,6 +23,7 @@ const shadow: SmoothCornersBoxProps['shadow'] = {
 }
 
 export function useAvatarRadiusToken() {
+  // TODO: Replace this with useAlphaTokens
   return useTokens().global.radius['radius-42-p']
 }
 
