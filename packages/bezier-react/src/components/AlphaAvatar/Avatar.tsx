@@ -11,11 +11,11 @@ import {
 import { Status, type StatusSize } from '~/src/components/Status'
 import { useTokens } from '~/src/components/ThemeProvider'
 
-import type { AvatarProps } from './AlphaAvatar.types'
+import type { AvatarProps } from './Avatar.types'
 import defaultAvatarUrl from './assets/default-avatar.svg'
 import useProgressiveImage from './useProgressiveImage'
 
-import styles from './AlphaAvatar.module.scss'
+import styles from './Avatar.module.scss'
 
 const shadow: SmoothCornersBoxProps['shadow'] = {
   spreadRadius: 2,
@@ -111,7 +111,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
   return (
     <div
       className={classNames(
-        styles.AlphaAvatar,
+        styles.Avatar,
         styles[`size-${size}`],
         disabled && styles.disabled,
         className

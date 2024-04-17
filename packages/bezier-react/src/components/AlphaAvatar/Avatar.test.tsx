@@ -7,10 +7,10 @@ import {
   AVATAR_WRAPPER_TEST_ID,
   Avatar,
   STATUS_WRAPPER_TEST_ID,
-} from './AlphaAvatar'
-import type { AvatarProps } from './AlphaAvatar.types'
+} from './Avatar'
+import type { AvatarProps } from './Avatar.types'
 
-describe('AlphaAvatar >', () => {
+describe('Avatar >', () => {
   let props: AvatarProps
 
   const mockAvatarUrl = 'https://bit.ly/dan-abramov'

@@ -8,7 +8,7 @@ import {
 // TODO: Replace this with AlphaStatusBadgeType
 import { type StatusType } from '~/src/components/Status'
 
-export type AlphaAvatarSize =
+export type AvatarSize =
   | '16'
   | '20'
   | '24'
@@ -20,7 +20,7 @@ export type AlphaAvatarSize =
   | '90'
   | '120'
 
-interface AlphaAvatarOwnProps {
+interface AvatarOwnProps {
   /**
    * Semantic name of the avatar.
    */
@@ -58,7 +58,7 @@ interface AlphaAvatarOwnProps {
 
 export interface AvatarProps
   extends BezierComponentProps<'div'>,
-    SizeProps<AlphaAvatarSize>,
+    SizeProps<AvatarSize>,
     DisableProps,
     ChildrenProps,
-    AlphaAvatarOwnProps {}
+    AvatarOwnProps {}
