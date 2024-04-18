@@ -1,0 +1,39 @@
+name: ci
+on: [pull_request]
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    env:
+      TURBO_API: http://127.0.0.1:9080
+      TURBO_TOKEN: ${{ secrets.TURBO_SERVER_TOKEN }}
+      TURBO_TEAM: bezier-react
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: 'yarn'
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: TurboRepo Local Server
+        uses: felixmosh/turborepo-gh-artifacts@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          server-token: ${{ secrets.TURBO_SERVER_TOKEN }}
+
+      - name: Build
+        run: yarn build
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Typecheck
+        run: yarn typecheck
+
+      - name: Test
+        run: yarn test
