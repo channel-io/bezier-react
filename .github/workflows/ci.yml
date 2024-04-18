@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TURBO_API: http://127.0.0.1:9080
-      TURBO_TOKEN: ${{ secrets.TURBO_SERVER_TOKEN }}
+      TURBO_TOKEN: 61613e87-4749-493b-a569-9a5e15e168cd
       TURBO_TEAM: bezier-react
     steps:
       - name: Checkout
@@ -24,7 +24,7 @@ jobs:
         uses: felixmosh/turborepo-gh-artifacts@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          server-token: ${{ secrets.TURBO_SERVER_TOKEN }}
+          server-token: 61613e87-4749-493b-a569-9a5e15e168cd
 
       - name: Build
         run: yarn build
