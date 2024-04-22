@@ -1,0 +1,54 @@
+@use '../../styles/mixins/dimension';
+
+$avatar-sizes: 16, 20, 24, 30, 36, 42, 48, 72, 90, 120;
+
+.Avatar {
+  position: relative;
+  display: block;
+
+  &:where(.disabled) {
+    pointer-events: none;
+    opacity: var(--alpha-opacity-disabled);
+  }
+
+  @each $size in $avatar-sizes {
+    &:where(.size-#{$size}) {
+      @include dimension.square(#{$size}px);
+    }
+  }
+}
+
+.AvatarImage {
+  --b-avatar-status-gap: -2px;
+  --b-avatar-computed-status-gap: var(--b-avatar-status-gap);
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
+
+  outline: none;
+
+  &:where(.big-size) {
+    --b-avatar-status-gap: 4px;
+  }
+
+  &:where(.bordered[data-state='enabled']) {
+    --b-avatar-computed-status-gap: calc(
+      var(--b-avatar-status-gap) +
+        (2 * var(--b-smooth-corners-box-shadow-spread-radius))
+    );
+  }
+}
+
+.StatusWrapper {
+  position: absolute;
+  right: var(--b-avatar-computed-status-gap);
+  bottom: var(--b-avatar-computed-status-gap);
+  display: flex;
+}

@@ -5,6 +5,7 @@ import '~/src/styles/index.scss'
 export { tokens } from '@channel.io/bezier-tokens'
 
 /* ------------------------------- COMPONENTS ------------------------------- */
+export * from '~/src/components/AlphaAvatar'
 export * from '~/src/components/AlphaDialogPrimitive'
 export * from '~/src/components/AlphaTooltipPrimitive'
 export * from '~/src/components/AppProvider'
