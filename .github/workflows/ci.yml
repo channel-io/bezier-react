@@ -43,5 +43,8 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
-          file: ./packages/bezier-react/coverage/lcov.info
+          directory: ./packages/bezier-react/coverage/
+          fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
+          files: clover.xml, lcov.info, coverage-final.json
+          verbose: true
