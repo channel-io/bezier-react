@@ -46,5 +46,4 @@ jobs:
           directory: ./packages/bezier-react/coverage/
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./clover.xml, ./lcov.info, ./coverage-final.json
           verbose: true
