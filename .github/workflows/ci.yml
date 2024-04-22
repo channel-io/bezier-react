@@ -1,6 +1,6 @@
 name: CI
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   CI:
@@ -40,8 +40,9 @@ jobs:
       - name: Test
         run: yarn test
 
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
         with:
           fail_ci_if_error: true
         env:
