@@ -24,7 +24,7 @@ jobs:
         uses: felixmosh/turborepo-gh-artifacts@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          server-token: 61613e87-4749-493b-a569-9a5e15e168cd
+          server-token: ${{ env.TURBO_TOKEN }}
 
       - name: Build
         run: yarn build
