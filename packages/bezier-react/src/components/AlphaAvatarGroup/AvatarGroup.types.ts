@@ -9,13 +9,11 @@ import { type AvatarSize } from '~/src/components/Avatar'
 
 export type AvatarGroupEllipsisType = 'icon' | 'count'
 
-type MouseEventHandler = React.MouseEventHandler<HTMLDivElement>
-
 interface AvatarGroupOwnProps {
   /**
    * Maximum number of avatars to display.
-   *
    * If the number of avatars exceeds this number, ellipsis will be displayed.
+   * @default 5
    */
   max: number
 
@@ -31,21 +29,10 @@ interface AvatarGroupOwnProps {
    * @default 'icon'
    */
   ellipsisType?: AvatarGroupEllipsisType
-
-  /**
-   * Handler to be called when the mouse enters the ellipsis area.
-   */
-  onMouseEnterEllipsis?: MouseEventHandler
-
-  /**
-   * Handler to be called when the mouse leaves the ellipsis area.
-   */
-  onMouseLeaveEllipsis?: MouseEventHandler
 }
 
 export interface AvatarGroupProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,
     SizeProps<AvatarSize>,
-    AdditionalOverridableStyleProps<'ellipsis'>,
     AvatarGroupOwnProps {}

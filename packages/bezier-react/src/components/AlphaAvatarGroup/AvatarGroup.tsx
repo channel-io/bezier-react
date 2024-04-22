@@ -82,12 +82,10 @@ function getProperTypoSize(avatarSize: AvatarSize) {
 export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
   function AvatarGroup(
     {
-      max,
+      max = 5,
       size = '24',
       spacing = AVATAR_GROUP_DEFAULT_SPACING,
       ellipsisType = 'icon',
-      onMouseEnterEllipsis,
-      onMouseLeaveEllipsis,
       style,
       className,
       children,
@@ -148,8 +146,6 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
             <div
               key="ellipsis"
               className={styles.AvatarEllipsisIconWrapper}
-              onMouseEnter={onMouseEnterEllipsis}
-              onMouseLeave={onMouseLeaveEllipsis}
               data-testid={AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID}
             >
               <SmoothCornersBox
@@ -184,8 +180,6 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
                   styles.AvatarEllipsisCountWrapper,
                   styles[`size-${size}`]
                 )}
-                onMouseEnter={onMouseEnterEllipsis}
-                onMouseLeave={onMouseLeaveEllipsis}
               >
                 <Text
                   typo={getProperTypoSize(size)}
@@ -207,8 +201,6 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
       children,
       renderAvatarElement,
       ellipsisType,
-      onMouseEnterEllipsis,
-      onMouseLeaveEllipsis,
       AVATAR_BORDER_RADIUS,
       size,
       spacing,

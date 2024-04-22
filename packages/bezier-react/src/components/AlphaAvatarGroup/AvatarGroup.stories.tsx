@@ -27,12 +27,6 @@ const meta: Meta<typeof AvatarGroup> = {
         step: 1,
       },
     },
-    onMouseEnterEllipsis: {
-      action: 'mouseEnter',
-    },
-    onMouseLeaveEllipsis: {
-      action: 'mouseLeave',
-    },
   },
 }
 export default meta
