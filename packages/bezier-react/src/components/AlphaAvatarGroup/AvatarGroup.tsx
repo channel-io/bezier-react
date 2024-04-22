@@ -156,10 +156,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
                     ),
                   } as React.CSSProperties
                 }
-                className={classNames(
-                  styles.AvatarEllipsisCountWrapper,
-                  styles[`size-${size}`]
-                )}
+                className={classNames(styles.AvatarEllipsisCountWrapper)}
               >
                 <Text
                   typo={getProperTypoSize(size)}

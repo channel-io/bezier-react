@@ -1,3 +1,4 @@
+// TODO: import from AlphaAvatar
 $avatar-sizes: 20, 24, 30, 36, 42, 48, 72, 90, 120;
 
 .AvatarGroup {
@@ -9,7 +10,7 @@ $avatar-sizes: 20, 24, 30, 36, 42, 48, 72, 90, 120;
   display: flex;
 
   @each $size in $avatar-sizes {
-    :where(.size-#{$size}) {
+    &:where(.size-#{$size}) {
       --b-avatar-group-size: #{$size}px;
     }
   }
@@ -40,31 +41,9 @@ $avatar-sizes: 20, 24, 30, 36, 42, 48, 72, 90, 120;
 }
 
 .AvatarEllipsisCountWrapper {
-  --b-avatar-group-ellipsis-pr: 0;
   --b-avatar-group-ellipsis-ml: 0;
 
   margin-left: var(--b-avatar-group-ellipsis-ml);
-  padding-right: var(--b-avatar-group-ellipsis-pr);
-
-  &:where(.size-20) {
-    --b-avatar-group-ellipsis-pr: 4px;
-  }
-
-  &:where(.size-24) {
-    --b-avatar-group-ellipsis-pr: 5px;
-  }
-
-  &:where(
-      .size-30,
-      .size-36,
-      .size-42,
-      .size-48,
-      .size-72,
-      .size-90,
-      .size-120
-    ) {
-    --b-avatar-group-ellipsis-pr: 6px;
-  }
 }
 
 .AvatarEllipsisCount {
