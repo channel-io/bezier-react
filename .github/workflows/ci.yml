@@ -1,7 +1,9 @@
-name: ci
-on: [pull_request]
+name: CI
+
+on: push
+
 jobs:
-  ci:
+  CI:
     runs-on: ubuntu-latest
     env:
       TURBO_API: http://127.0.0.1:9080
