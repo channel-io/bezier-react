@@ -94,48 +94,28 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
     forwardedRef
   ) {
     const AVATAR_BORDER_RADIUS = useAvatarRadiusToken()
+    const avatarListCount = React.Children.count(children)
 
     const renderAvatarElement = useCallback(
-      (avatar: React.ReactElement<AvatarProps>, avatarListCount: number) => {
+      (avatar: React.ReactElement<AvatarProps>) => {
         const key =
           avatar.key ?? `${avatar.props.name}-${avatar.props.avatarUrl}`
-        const shouldShowBorder = avatarListCount > 1 && spacing < 0
+        const shouldShowBorder = max > 1 && avatarListCount > 1 && spacing < 0
         const showBorder = avatar.props.showBorder || shouldShowBorder
         return React.cloneElement(avatar, { key, size, showBorder })
       },
-      [size, spacing]
-    )
-
-    const avatarListCount = useMemo(
-      () => React.Children.count(children),
-      [children]
+      [avatarListCount, max, size, spacing]
     )
 
     const AvatarListComponent = useMemo(() => {
-      if (avatarListCount <= max) {
-        return React.Children.map(
-          children,
-          (avatar) =>
-            React.isValidElement<AvatarProps>(avatar) &&
-            renderAvatarElement(avatar, avatarListCount)
-        )
-      }
-
-      const sliceEndIndex = max - avatarListCount
-      const slicedAvatarList = React.Children.toArray(children).slice(
-        0,
-        sliceEndIndex
-      )
+      const slicedAvatarList = React.Children.toArray(children).slice(0, max)
 
       return slicedAvatarList.map((avatar, index, arr) => {
         if (!React.isValidElement<AvatarProps>(avatar)) {
           return null
         }
 
-        const AvatarElement = renderAvatarElement(
-          avatar,
-          slicedAvatarList.length
-        )
+        const AvatarElement = renderAvatarElement(avatar)
 
         if (!isLastIndex(arr, index)) {
           return AvatarElement
