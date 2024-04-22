@@ -98,6 +98,8 @@ jobs:
             - test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-
             - test-{{ .Environment.CACHE_VERSION }}-
       - run: yarn test
+      # - codecov/upload:
+      #     file: './packages/bezier-react/coverage/lcov.info'
       - save_cache:
           key: test-{{ .Environment.CACHE_VERSION }}-{{ .Branch }}-{{ epoch }}
           <<: *test_cache_path
