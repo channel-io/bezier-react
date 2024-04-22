@@ -45,7 +45,9 @@ jobs:
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
-        with:
-          fail_ci_if_error: true
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          fail_ci_if_error: true
+          directory: ./packages/bezier-react/coverage
+          token: ${{ secrets.CODECOV_TOKEN }}
