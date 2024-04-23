@@ -44,7 +44,7 @@ jobs:
         run: ls ./packages/bezier-react/coverage/
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         env:
           CODECOV_TOKEN: 0a48be00-2768-42b0-b528-7ab854c3db46
         with:
