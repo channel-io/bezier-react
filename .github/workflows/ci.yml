@@ -47,4 +47,4 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
-          files: packages/bezier-react/coverage/clover.xml
+          files: ./packages/bezier-react/coverage/clover.xml
