@@ -41,8 +41,8 @@ jobs:
       - name: Test
         run: yarn test
 
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: log
+        run: ls ./packages/bezier-react/coverage/
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
