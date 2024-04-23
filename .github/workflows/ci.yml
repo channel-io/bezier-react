@@ -48,4 +48,4 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
-          files: ./packages/bezier-react/coverage/clover.xml
+          files: ./packages/bezier-react/coverage/clover.xml,./packages/bezier-react/coverage/coverage-final.json,./packages/bezier-react/coverage/lcov.info
