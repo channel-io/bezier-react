@@ -38,9 +38,9 @@ jobs:
         run: yarn typecheck
 
       - name: Test
-        uses: codecov/codecov-action@v3
         run: yarn test
-        env:
-          CODECOV_TOKEN: 0a48be00-2768-42b0-b528-7ab854c3db46
+
+      - name: Upload Code Coverage Report
+        uses: codecov/codecov-action@v3
         with:
           files: ./packages/bezier-react/coverage/clover.xml,./packages/bezier-react/coverage/coverage-final.json,./packages/bezier-react/coverage/lcov.info
