@@ -4,6 +4,7 @@ import { MoreIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import { isLastIndex } from '~/src/utils/array'
+import { createContext } from '~/src/utils/react'
 import { px } from '~/src/utils/style'
 
 import {
@@ -15,9 +16,18 @@ import { Icon } from '~/src/components/Icon'
 import { SmoothCornersBox } from '~/src/components/SmoothCornersBox'
 import { Text } from '~/src/components/Text'
 
-import { type AvatarGroupProps } from './AvatarGroup.types'
+import {
+  type AvatarGroupContextValue,
+  type AvatarGroupProps,
+} from './AvatarGroup.types'
 
 import styles from './AvatarGroup.module.scss'
+
+const [AvatarGroupContextProvider, useAvatarGroupContext] = createContext<
+  AvatarGroupContextValue | undefined
+>(undefined)
+
+export { useAvatarGroupContext }
 
 const MAX_AVATAR_LIST_COUNT = 99
 const AVATAR_GROUP_DEFAULT_SPACING = 4
@@ -102,9 +112,9 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
           avatar.key ?? `${avatar.props.name}-${avatar.props.avatarUrl}`
         const shouldShowBorder = max > 1 && avatarListCount > 1 && spacing < 0
         const showBorder = avatar.props.showBorder || shouldShowBorder
-        return React.cloneElement(avatar, { key, size, showBorder })
+        return React.cloneElement(avatar, { key, showBorder })
       },
-      [avatarListCount, max, size, spacing]
+      [avatarListCount, max, spacing]
     )
 
     const AvatarListComponent = useMemo(() => {
@@ -184,24 +194,33 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
     ])
 
     return (
-      <div
-        role="group"
-        ref={forwardedRef}
-        className={classNames(
-          styles.AvatarGroup,
-          styles[`size-${size}`],
-          className
+      <AvatarGroupContextProvider
+        value={useMemo(
+          () => ({
+            size,
+          }),
+          [size]
         )}
-        style={
-          {
-            '--b-avatar-group-spacing': px(spacing),
-            ...style,
-          } as React.CSSProperties
-        }
-        {...rest}
       >
-        {AvatarListComponent}
-      </div>
+        <div
+          role="group"
+          ref={forwardedRef}
+          className={classNames(
+            styles.AvatarGroup,
+            styles[`size-${size}`],
+            className
+          )}
+          style={
+            {
+              '--b-avatar-group-spacing': px(spacing),
+              ...style,
+            } as React.CSSProperties
+          }
+          {...rest}
+        >
+          {AvatarListComponent}
+        </div>
+      </AvatarGroupContextProvider>
     )
   }
 )

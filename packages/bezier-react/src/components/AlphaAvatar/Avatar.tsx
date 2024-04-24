@@ -4,6 +4,8 @@ import classNames from 'classnames'
 
 import { isEmpty } from '~/src/utils/type'
 
+import { type AlphaAvatarSize } from '~/src/components/AlphaAvatar'
+import { useAvatarGroupContext } from '~/src/components/AlphaAvatarGroup/AvatarGroup'
 import {
   SmoothCornersBox,
   type SmoothCornersBoxProps,
@@ -17,9 +19,24 @@ import useProgressiveImage from './useProgressiveImage'
 
 import styles from './Avatar.module.scss'
 
-const shadow: SmoothCornersBoxProps['shadow'] = {
-  spreadRadius: 2,
-  color: 'bg-white-high',
+function getShadow(
+  avatarSize: AlphaAvatarSize
+): SmoothCornersBoxProps['shadow'] {
+  return {
+    spreadRadius: getSpreadRadius(avatarSize),
+    color: 'bg-white-high',
+  }
+}
+
+function getSpreadRadius(avatarSize: AlphaAvatarSize) {
+  switch (avatarSize) {
+    case '90':
+      return 3
+    case '120':
+      return 4
+    default:
+      return 2
+  }
 }
 
 export function useAvatarRadiusToken() {
@@ -49,7 +66,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
   {
     avatarUrl = '',
     fallbackUrl = defaultAvatarUrl,
-    size = '24',
+    size: sizeProps = '24',
     name,
     disabled = false,
     showBorder = false,
@@ -61,6 +78,8 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
   },
   forwardedRef
 ) {
+  const avatarGroupContext = useAvatarGroupContext()
+  const size = avatarGroupContext?.size ?? sizeProps
   const loadedAvatarUrl = useProgressiveImage(avatarUrl, fallbackUrl)
   const AVATAR_BORDER_RADIUS = useAvatarRadiusToken()
 
@@ -131,7 +150,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
         )}
         disabled={!smoothCorners}
         borderRadius={AVATAR_BORDER_RADIUS}
-        shadow={showBorder ? shadow : undefined}
+        shadow={showBorder ? getShadow(size) : undefined}
         backgroundColor="bg-white-normal"
         backgroundImage={loadedAvatarUrl}
         data-testid={AVATAR_TEST_ID}

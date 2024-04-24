@@ -5,6 +5,7 @@ import type {
   SizeProps,
 } from '~/src/types/props'
 
+import { type AlphaAvatarProps } from '~/src/components/AlphaAvatar'
 import { type AvatarSize } from '~/src/components/Avatar'
 
 export type AvatarGroupEllipsisType = 'icon' | 'count'
@@ -30,6 +31,9 @@ interface AvatarGroupOwnProps {
    */
   ellipsisType?: AvatarGroupEllipsisType
 }
+
+export interface AvatarGroupContextValue
+  extends Pick<AlphaAvatarProps, 'size'> {}
 
 export interface AvatarGroupProps
   extends BezierComponentProps<'div'>,
