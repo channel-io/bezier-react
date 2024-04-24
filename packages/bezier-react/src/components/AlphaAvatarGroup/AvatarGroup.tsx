@@ -8,10 +8,10 @@ import { createContext } from '~/src/utils/react'
 import { px } from '~/src/utils/style'
 
 import {
-  type AvatarProps,
-  type AvatarSize,
-  useAvatarRadiusToken,
-} from '~/src/components/Avatar'
+  type AlphaAvatarProps,
+  type AlphaAvatarSize,
+  useAlphaAvatarRadiusToken,
+} from '~/src/components/AlphaAvatar'
 import { Icon } from '~/src/components/Icon'
 import { SmoothCornersBox } from '~/src/components/SmoothCornersBox'
 import { Text } from '~/src/components/Text'
@@ -40,9 +40,10 @@ function getRestAvatarListCountText(count: number, max: number) {
 }
 
 // TODO: Not specified
-function getProperIconSize(avatarSize: AvatarSize) {
+function getProperIconSize(size: AlphaAvatarSize) {
   return (
     {
+      16: 'xxs',
       20: 'xxs',
       24: 'xs',
       30: 's',
@@ -53,13 +54,14 @@ function getProperIconSize(avatarSize: AvatarSize) {
       90: 'l',
       120: 'l',
     } as const
-  )[avatarSize]
+  )[size]
 }
 
 // TODO: Not specified
-function getProperTypoSize(avatarSize: AvatarSize) {
+function getProperTypoSize(size: AlphaAvatarSize) {
   return (
     {
+      16: '12',
       20: '12',
       24: '13',
       30: '15',
@@ -70,7 +72,7 @@ function getProperTypoSize(avatarSize: AvatarSize) {
       90: '24',
       120: '24',
     } as const
-  )[avatarSize]
+  )[size]
 }
 
 /**
@@ -104,11 +106,11 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
     },
     forwardedRef
   ) {
-    const AVATAR_BORDER_RADIUS = useAvatarRadiusToken()
+    const AVATAR_BORDER_RADIUS = useAlphaAvatarRadiusToken()
     const avatarListCount = React.Children.count(children)
 
     const renderAvatarElement = useCallback(
-      (avatar: React.ReactElement<AvatarProps>) => {
+      (avatar: React.ReactElement<AlphaAvatarProps>) => {
         const key =
           avatar.key ?? `${avatar.props.name}-${avatar.props.avatarUrl}`
         const shouldShowBorder = max > 1 && avatarListCount > 1 && spacing < 0
@@ -122,7 +124,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
       return React.Children.toArray(children)
         .slice(0, max)
         .map((avatar, index, arr) => {
-          if (!React.isValidElement<AvatarProps>(avatar)) {
+          if (!React.isValidElement<AlphaAvatarProps>(avatar)) {
             return null
           }
 

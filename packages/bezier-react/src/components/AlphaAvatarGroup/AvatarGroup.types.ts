@@ -1,14 +1,15 @@
 import type {
-  AdditionalOverridableStyleProps,
   BezierComponentProps,
   ChildrenProps,
   SizeProps,
 } from '~/src/types/props'
 
-import { type AlphaAvatarProps } from '~/src/components/AlphaAvatar'
-import { type AvatarSize } from '~/src/components/Avatar'
+import {
+  type AlphaAvatarProps,
+  type AlphaAvatarSize,
+} from '~/src/components/AlphaAvatar'
 
-export type AvatarGroupEllipsisType = 'icon' | 'count'
+type AvatarGroupEllipsisType = 'icon' | 'count'
 
 interface AvatarGroupOwnProps {
   /**
@@ -38,5 +39,5 @@ export interface AvatarGroupContextValue
 export interface AvatarGroupProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,
-    SizeProps<AvatarSize>,
+    SizeProps<AlphaAvatarSize>,
     AvatarGroupOwnProps {}
