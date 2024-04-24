@@ -4,7 +4,6 @@ import classNames from 'classnames'
 
 import { isEmpty } from '~/src/utils/type'
 
-import { type AlphaAvatarSize } from '~/src/components/AlphaAvatar'
 import { useAvatarGroupContext } from '~/src/components/AlphaAvatarGroup/AvatarGroup'
 import {
   SmoothCornersBox,
@@ -13,13 +12,13 @@ import {
 import { Status, type StatusSize } from '~/src/components/Status'
 import { useTokens } from '~/src/components/ThemeProvider'
 
-import type { AvatarProps } from './Avatar.types'
+import type { AvatarProps, AvatarSize } from './Avatar.types'
 import defaultAvatarUrl from './assets/default-avatar.svg'
 import useProgressiveImage from './useProgressiveImage'
 
 import styles from './Avatar.module.scss'
 
-function getStatusSize(size: AlphaAvatarSize): StatusSize {
+function getStatusSize(size: AvatarSize): StatusSize {
   switch (size) {
     case '90':
     case '120':
@@ -29,14 +28,14 @@ function getStatusSize(size: AlphaAvatarSize): StatusSize {
   }
 }
 
-function getShadow(size: AlphaAvatarSize): SmoothCornersBoxProps['shadow'] {
+function getShadow(size: AvatarSize): SmoothCornersBoxProps['shadow'] {
   return {
     spreadRadius: getSpreadRadius(size),
     color: 'bg-white-high',
   }
 }
 
-function getSpreadRadius(size: AlphaAvatarSize) {
+function getSpreadRadius(size: AvatarSize) {
   switch (size) {
     case '90':
       return 3
