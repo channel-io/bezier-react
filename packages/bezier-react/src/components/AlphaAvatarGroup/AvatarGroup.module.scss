@@ -1,5 +1,4 @@
-// TODO: import from AlphaAvatar
-$avatar-sizes: 16, 20, 24, 30, 36, 42, 48, 72, 90, 120;
+@import '../AlphaAvatar/Avatar.module.scss';
 
 .AvatarGroup {
   --b-avatar-group-spacing: 0;
