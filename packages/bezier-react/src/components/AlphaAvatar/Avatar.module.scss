@@ -2,10 +2,6 @@
 
 $avatar-sizes: 16, 20, 24, 30, 36, 42, 48, 72, 90, 120;
 
-:export {
-  avatar-sizes: $avatar-sizes;
-}
-
 .Avatar {
   position: relative;
   display: block;
