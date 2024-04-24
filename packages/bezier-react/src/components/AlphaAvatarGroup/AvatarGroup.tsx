@@ -119,70 +119,70 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
     )
 
     const AvatarListComponent = useMemo(() => {
-      const slicedAvatarList = React.Children.toArray(children).slice(0, max)
+      return React.Children.toArray(children)
+        .slice(0, max)
+        .map((avatar, index, arr) => {
+          if (!React.isValidElement<AvatarProps>(avatar)) {
+            return null
+          }
 
-      return slicedAvatarList.map((avatar, index, arr) => {
-        if (!React.isValidElement<AvatarProps>(avatar)) {
-          return null
-        }
+          const AvatarElement = renderAvatarElement(avatar)
 
-        const AvatarElement = renderAvatarElement(avatar)
+          if (!isLastIndex(arr, index)) {
+            return AvatarElement
+          }
 
-        if (!isLastIndex(arr, index)) {
-          return AvatarElement
-        }
-
-        if (ellipsisType === 'icon') {
-          return (
-            <div
-              key="ellipsis"
-              className={styles.AvatarEllipsisIconWrapper}
-              data-testid={AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID}
-            >
-              <SmoothCornersBox
-                borderRadius={AVATAR_BORDER_RADIUS}
-                backgroundColor="bgtxt-absolute-black-lightest"
-                className={styles.AvatarEllipsisIcon}
-              >
-                <Icon
-                  source={MoreIcon}
-                  size={getProperIconSize(size)}
-                  color="bgtxt-absolute-white-dark"
-                />
-              </SmoothCornersBox>
-              {AvatarElement}
-            </div>
-          )
-        }
-
-        if (ellipsisType === 'count') {
-          return (
-            <React.Fragment key="ellipsis">
-              {AvatarElement}
+          if (ellipsisType === 'icon') {
+            return (
               <div
-                style={
-                  {
-                    '--b-avatar-group-ellipsis-ml': px(
-                      Math.max(spacing, AVATAR_GROUP_DEFAULT_SPACING)
-                    ),
-                  } as React.CSSProperties
-                }
-                className={classNames(styles.AvatarEllipsisCountWrapper)}
+                key="ellipsis"
+                className={styles.AvatarEllipsisIconWrapper}
+                data-testid={AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID}
               >
-                <Text
-                  typo={getProperTypoSize(size)}
-                  color="txt-black-dark"
-                  className={styles.AvatarEllipsisCount}
+                <SmoothCornersBox
+                  borderRadius={AVATAR_BORDER_RADIUS}
+                  backgroundColor="bgtxt-absolute-black-lightest"
+                  className={styles.AvatarEllipsisIcon}
                 >
-                  {getRestAvatarListCountText(avatarListCount, max)}
-                </Text>
+                  <Icon
+                    source={MoreIcon}
+                    size={getProperIconSize(size)}
+                    color="bgtxt-absolute-white-dark"
+                  />
+                </SmoothCornersBox>
+                {AvatarElement}
               </div>
-            </React.Fragment>
-          )
-        }
+            )
+          }
 
-        return null
-      })
+          if (ellipsisType === 'count') {
+            return (
+              <React.Fragment key="ellipsis">
+                {AvatarElement}
+                <div
+                  style={
+                    {
+                      '--b-avatar-group-ellipsis-ml': px(
+                        Math.max(spacing, AVATAR_GROUP_DEFAULT_SPACING)
+                      ),
+                    } as React.CSSProperties
+                  }
+                  className={classNames(styles.AvatarEllipsisCountWrapper)}
+                >
+                  <Text
+                    typo={getProperTypoSize(size)}
+                    color="txt-black-dark"
+                    className={styles.AvatarEllipsisCount}
+                  >
+                    {getRestAvatarListCountText(avatarListCount, max)}
+                  </Text>
+                </div>
+              </React.Fragment>
+            )
+          }
+
+          return null
+        })
     }, [
       avatarListCount,
       max,
