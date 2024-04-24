@@ -85,7 +85,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
     />
   </div>
   <div
-    class="AvatarEllipsisCountWrapper size-24"
+    class="AvatarEllipsisCountWrapper"
     style="--b-avatar-group-ellipsis-ml: 4px;"
   >
     <span

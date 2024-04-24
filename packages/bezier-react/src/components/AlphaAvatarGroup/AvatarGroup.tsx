@@ -130,7 +130,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
 
           const AvatarElement = renderAvatarElement(avatar)
 
-          if (!isLastIndex(arr, index)) {
+          if (!isLastIndex(arr, index) || avatarListCount <= max) {
             return AvatarElement
           }
 
