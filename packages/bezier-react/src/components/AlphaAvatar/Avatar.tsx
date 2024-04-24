@@ -19,17 +19,25 @@ import useProgressiveImage from './useProgressiveImage'
 
 import styles from './Avatar.module.scss'
 
-function getShadow(
-  avatarSize: AlphaAvatarSize
-): SmoothCornersBoxProps['shadow'] {
+function getStatusSize(size: AlphaAvatarSize): StatusSize {
+  switch (size) {
+    case '90':
+    case '120':
+      return 'l'
+    default:
+      return 'm'
+  }
+}
+
+function getShadow(size: AlphaAvatarSize): SmoothCornersBoxProps['shadow'] {
   return {
-    spreadRadius: getSpreadRadius(avatarSize),
+    spreadRadius: getSpreadRadius(size),
     color: 'bg-white-high',
   }
 }
 
-function getSpreadRadius(avatarSize: AlphaAvatarSize) {
-  switch (avatarSize) {
+function getSpreadRadius(size: AlphaAvatarSize) {
+  switch (size) {
     case '90':
       return 3
     case '120':
@@ -91,16 +99,6 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
       return null
     }
 
-    const statusSize: StatusSize = (() => {
-      switch (size) {
-        case '90':
-        case '120':
-          return 'l'
-        default:
-          return 'm'
-      }
-    })()
-
     const Contents = (() => {
       if (children) {
         return children
@@ -109,7 +107,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
         return (
           <Status
             type={status}
-            size={statusSize}
+            size={getStatusSize(size)}
           />
         )
       }

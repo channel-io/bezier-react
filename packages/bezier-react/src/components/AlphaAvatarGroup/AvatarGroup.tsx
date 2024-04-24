@@ -80,6 +80,7 @@ function getProperTypoSize(avatarSize: AvatarSize) {
  * ```tsx
  * <AvatarGroup
  *  max={2}
+ *  size="24"
  *  spacing={4}
  *  ellipsisType="icon"
  * >
