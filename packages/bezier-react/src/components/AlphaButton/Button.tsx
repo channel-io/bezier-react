@@ -6,6 +6,7 @@ import { type ButtonProps } from '~/src/components/AlphaButton/Button.types'
 import { BaseButton } from '~/src/components/BaseButton'
 import { type ButtonSize } from '~/src/components/Button'
 import { Icon } from '~/src/components/Icon'
+import { Spinner } from '~/src/components/Spinner'
 import { Text } from '~/src/components/Text'
 
 import styles from './Button.module.scss'
@@ -18,6 +19,18 @@ function getIconSize(size: ButtonSize) {
       m: 's',
       l: 's',
       xl: 'm',
+    } as const
+  )[size]
+}
+
+function getSpinnerSize(size: ButtonSize) {
+  return (
+    {
+      xs: 'xs',
+      s: 'xs',
+      m: 's',
+      l: 's',
+      xl: 's',
     } as const
   )[size]
 }
@@ -35,6 +48,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       size = 'm',
       disabled,
       className,
+      loading,
       ...rest
     },
     forwardedRef
@@ -55,7 +69,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         {...rest}
       >
-        <div className={classNames(styles.ButtonContent)}>
+        <div
+          className={classNames(
+            styles.ButtonContent,
+            loading && styles.loading
+          )}
+        >
           {prefixIcon && (
             <Icon
               size={getIconSize(size)}
@@ -82,6 +101,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             />
           )}
         </div>
+
+        {/* TODO: use AlphaSpinner */}
+        {loading && (
+          <div className={styles.ButtonLoader}>
+            <Spinner size={getSpinnerSize(size)} />
+          </div>
+        )}
       </Comp>
     )
   }

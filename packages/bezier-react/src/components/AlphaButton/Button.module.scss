@@ -1,4 +1,7 @@
 .Button {
+  position: relative;
+  box-sizing: border-box;
+
   /* dimension */
   &:where(.size-xs) {
     height: 20px;
@@ -182,6 +185,19 @@
   }
 
   .ButtonContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:where(.loading) {
+      visibility: hidden;
+    }
+  }
+
+  .ButtonLoader {
+    position: absolute;
+    inset: 0;
+
     display: flex;
     align-items: center;
     justify-content: center;
