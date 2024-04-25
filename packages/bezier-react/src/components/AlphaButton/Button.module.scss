@@ -134,7 +134,7 @@
   }
 
   &:where(.variant-secondary, .variant-tertiary) {
-    $text-color-map: (
+    $color-map: (
       blue: var(--alpha-color-primary-fg-normal),
       cobalt: var(--alpha-color-accent-fg-normal),
       red: var(--alpha-color-critical-fg-normal),
@@ -146,9 +146,9 @@
       light-grey: var(--alpha-color-fg-black-darker),
     );
 
-    @each $button-color, $text-color in $text-color-map {
-      &:where(.color-#{$button-color}) :where(.ButtonText) {
-        color: $text-color;
+    @each $button-color, $color in $color-map {
+      &:where(.color-#{$button-color}) {
+        color: $color;
       }
     }
 
