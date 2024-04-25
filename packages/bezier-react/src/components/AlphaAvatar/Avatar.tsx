@@ -29,20 +29,20 @@ function getStatusSize(size: AvatarSize): StatusSize {
 }
 
 function getShadow(size: AvatarSize): SmoothCornersBoxProps['shadow'] {
-  return {
-    spreadRadius: getSpreadRadius(size),
-    color: 'bg-white-high',
-  }
-}
+  const spreadRadius = (() => {
+    switch (size) {
+      case '90':
+        return 3
+      case '120':
+        return 4
+      default:
+        return 2
+    }
+  })()
 
-function getSpreadRadius(size: AvatarSize) {
-  switch (size) {
-    case '90':
-      return 3
-    case '120':
-      return 4
-    default:
-      return 2
+  return {
+    spreadRadius,
+    color: 'bg-white-high',
   }
 }
 
