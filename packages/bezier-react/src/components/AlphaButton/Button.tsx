@@ -35,6 +35,18 @@ function getSpinnerSize(size: ButtonSize) {
   )[size]
 }
 
+function getTypography(size: ButtonSize) {
+  return (
+    {
+      xs: '13',
+      s: '13',
+      m: '14',
+      l: '15',
+      xl: '18',
+    } as const
+  )[size]
+}
+
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(
     {
@@ -87,6 +99,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           {text && (
             <Text
               className={styles.ButtonText}
+              typo={getTypography(size)}
               bold
             >
               {text}
