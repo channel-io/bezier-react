@@ -23,6 +23,7 @@ export type ButtonColorVariant =
   | 'purple'
   | 'dark-grey'
   | 'light-grey'
+  | 'white'
 
 export type ButtonSize = 'xs' | 's' | 'm' | 'l' | 'xl'
 

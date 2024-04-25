@@ -1,0 +1,95 @@
+.Button {
+  &:where(.size-xs) {
+    height: 20px;
+    padding: 0 4px;
+  }
+
+  &:where(.size-s) {
+    height: 24px;
+    padding: 0 6px;
+  }
+
+  &:where(.size-m) {
+    height: 36px;
+    padding: 0 10px;
+  }
+
+  &:where(.size-l) {
+    height: 44px;
+    padding: 0 14px;
+  }
+
+  &:where(.size-xl) {
+    height: 54px;
+    padding: 0 18px;
+  }
+
+  &:where(.variant-primary) {
+    $background-color-by-color: (
+      blue: var(--alpha-color-primary-bg-normal),
+      cobalt: var(--alpha-color-accent-bg-normal),
+      red: var(--alpha-color-critical-bg-normal),
+      orange: var(--alpha-color-warning-bg-normal),
+      green: var(--alpha-color-success-bg-normal),
+      pink: var(--alpha-color-bg-pink-normal),
+      purple: var(--alpha-color-bg-purple-normal),
+      dark-grey: var(--alpha-color-bg-grey-darkest),
+      light-grey: var(--alpha-color-bg-black-dark),
+    );
+
+    @each $color, $background-color in $background-color-by-color {
+      &:where(.color-#{$color}) {
+        background-color: $background-color;
+      }
+    }
+  }
+
+  &:where(.variant-secondary) {
+    $background-color-by-color: (
+      blue: var(--alpha-color-primary-bg-lightest),
+      cobalt: var(--alpha-color-accent-bg-lightest),
+      red: var(--alpha-color-critical-bg-lightest),
+      orange: var(--alpha-color-warning-bg-lightest),
+      green: var(--alpha-color-success-bg-lightest),
+      pink: var(--alpha-color-bg-pink-lightest),
+      purple: var(--alpha-color-bg-purple-lightest),
+      dark-grey: var(--alpha-color-bg-grey-lighter),
+      light-grey: var(--alpha-color-bg-black-lighter),
+    );
+
+    @each $color, $background-color in $background-color-by-color {
+      &:where(.color-#{$color}) {
+        background-color: $background-color;
+      }
+    }
+  }
+
+  &:where(.variant-tertiary, .variant-floating) {
+    background-color: initial;
+  }
+
+  &:where(.variant-tertiary):where(.color-white) {
+    background-color: initial;
+  }
+
+  &:where(.variant-primary, .variant-secondary, .variant-tertiary) {
+    $border-radius-by-size: (
+      xs: var(--alpha-dimension-6),
+      s: var(--alpha-dimension-7),
+      m: var(--alpha-dimension-10),
+      l: var(--alpha-dimension-12),
+      xl: var(--alpha-dimension-14),
+    );
+
+    @each $size, $border-radius in $border-radius-by-size {
+      &:where(.size-#{$size}) {
+        border-radius: $border-radius;
+      }
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--alpha-opacity-disabled);
+  }
+}
