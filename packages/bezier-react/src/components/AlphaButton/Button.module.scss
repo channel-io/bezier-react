@@ -1,4 +1,5 @@
 .Button {
+  /* dimension */
   &:where(.size-xs) {
     height: 20px;
     padding: 0 4px;
@@ -44,6 +45,7 @@
     }
   }
 
+  /*  background-color */
   &:where(.variant-primary) {
     $background-color-by-color: (
       blue: var(--alpha-color-primary-bg-normal),
@@ -92,6 +94,7 @@
     background-color: initial;
   }
 
+  /* border-radius */
   &:where(.variant-primary, .variant-secondary, .variant-tertiary) {
     $border-radius-by-size: (
       xs: var(--alpha-dimension-6),
@@ -104,6 +107,71 @@
     @each $size, $border-radius in $border-radius-by-size {
       &:where(.size-#{$size}) {
         border-radius: $border-radius;
+      }
+    }
+  }
+
+  /* color */
+  &:where(.variant-primary) {
+    &:where(:not(.color-dark-grey), :not(.color-light-grey)) {
+      color: var(--alpha-color-fg-absolute-white-dark);
+    }
+
+    &:where(.color-dark-grey) {
+      color: var(--alpha-color-fg-white-normal);
+    }
+
+    &:where(.color-light-grey) {
+      color: var(--alpha-color-fg-absolute-white-normal);
+    }
+  }
+
+  &:where(.variant-secondary, .variant-tertiary) {
+    $text-color-map: (
+      blue: var(--alpha-color-primary-fg-normal),
+      cobalt: var(--alpha-color-accent-fg-normal),
+      red: var(--alpha-color-critical-fg-normal),
+      orange: var(--alpha-color-warning-fg-normal),
+      green: var(--alpha-color-success-fg-normal),
+      pink: var(--alpha-color-fg-pink-normal),
+      purple: var(--alpha-color-fg-purple-normal),
+      dark-grey: var(--alpha-color-fg-black-darkest),
+      light-grey: var(--alpha-color-fg-black-darker),
+    );
+
+    @each $button-color, $text-color in $text-color-map {
+      &:where(.color-#{$button-color}) :where(.ButtonText) {
+        color: $text-color;
+      }
+    }
+
+    $icon-color-map: (
+      blue: var(--alpha-color-primary-fg-normal),
+      cobalt: var(--alpha-color-accent-fg-normal),
+      red: var(--alpha-color-critical-fg-normal),
+      orange: var(--alpha-color-warning-fg-normal),
+      green: var(--alpha-color-success-fg-normal),
+      pink: var(--alpha-color-fg-pink-normal),
+      purple: var(--alpha-color-fg-purple-normal),
+      dark-grey: var(--alpha-color-fg-black-darker),
+      light-grey: var(--alpha-color-fg-black-dark),
+    );
+
+    @each $button-color, $icon-color in $icon-color-map {
+      &:where(.color-#{$button-color}) :where(.ButtonIcon) {
+        color: $icon-color;
+      }
+    }
+  }
+
+  &:where(.variant-tertiary) {
+    &:where(.color-white) {
+      :where(.ButtonIcon) {
+        color: var(--alpha-color-fg-absolute-white-light);
+      }
+
+      :where(.ButtonText) {
+        color: var(--alpha-color-fg-absolute-white-normal);
       }
     }
   }

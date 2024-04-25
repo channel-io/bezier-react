@@ -60,14 +60,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             <Icon
               size={getIconSize(size)}
               source={prefixIcon}
+              className={styles.ButtonIcon}
             />
           )}
 
-          {/* TODO: use AlphaText later*/}
+          {/* TODO: use AlphaText later, add typo */}
           {text && (
             <Text
-            // className={styles.ButtonText}
-            // typo={getTypography(size)}
+              className={styles.ButtonText}
+              bold
             >
               {text}
             </Text>
@@ -77,6 +78,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             <Icon
               size={getIconSize(size)}
               source={suffixIcon}
+              className={styles.ButtonIcon}
             />
           )}
         </div>
