@@ -7,8 +7,8 @@
     height: 20px;
     padding: 0 4px;
 
-    :where(.ButtonContent) {
-      gap: 3px;
+    :where(.ButtonText) {
+      padding: 0 3px;
     }
   }
 
@@ -16,8 +16,12 @@
     height: 24px;
     padding: 0 6px;
 
+    :where(.ButtonText) {
+      padding: 0 3px;
+    }
+
     :where(.ButtonContent) {
-      gap: 3px;
+      gap: 1px;
     }
   }
 
@@ -25,8 +29,8 @@
     height: 36px;
     padding: 0 10px;
 
-    :where(.ButtonContent) {
-      gap: 4px;
+    :where(.ButtonText) {
+      padding: 0 4px;
     }
   }
 
@@ -34,8 +38,8 @@
     height: 44px;
     padding: 0 14px;
 
-    :where(.ButtonContent) {
-      gap: 6px;
+    :where(.ButtonText) {
+      padding: 0 6px;
     }
   }
 
@@ -43,8 +47,8 @@
     height: 54px;
     padding: 0 18px;
 
-    :where(.ButtonContent) {
-      gap: 6px;
+    :where(.ButtonText) {
+      padding: 0 6px;
     }
   }
 
