@@ -4,9 +4,23 @@ import classNames from 'classnames'
 
 import { type ButtonProps } from '~/src/components/AlphaButton/Button.types'
 import { BaseButton } from '~/src/components/BaseButton'
+import { type ButtonSize } from '~/src/components/Button'
+import { Icon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
 import styles from './Button.module.scss'
+
+function getIconSize(size: ButtonSize) {
+  return (
+    {
+      xs: 'xxs',
+      s: 'xs',
+      m: 's',
+      l: 's',
+      xl: 'm',
+    } as const
+  )[size]
+}
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   function Button(
@@ -14,6 +28,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       as = BaseButton,
       text,
       type,
+      prefixIcon,
+      suffixIcon,
       color = 'blue',
       variant = 'primary',
       size = 'm',
@@ -39,15 +55,31 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         {...rest}
       >
-        {/* TODO: use AlphaText later*/}
-        {text && (
-          <Text
-          // className={styles.ButtonText}
-          // typo={getTypography(size)}
-          >
-            {text}
-          </Text>
-        )}
+        <div className={classNames(styles.ButtonContent)}>
+          {prefixIcon && (
+            <Icon
+              size={getIconSize(size)}
+              source={prefixIcon}
+            />
+          )}
+
+          {/* TODO: use AlphaText later*/}
+          {text && (
+            <Text
+            // className={styles.ButtonText}
+            // typo={getTypography(size)}
+            >
+              {text}
+            </Text>
+          )}
+
+          {suffixIcon && (
+            <Icon
+              size={getIconSize(size)}
+              source={suffixIcon}
+            />
+          )}
+        </div>
       </Comp>
     )
   }

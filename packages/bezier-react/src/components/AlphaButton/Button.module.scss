@@ -2,26 +2,46 @@
   &:where(.size-xs) {
     height: 20px;
     padding: 0 4px;
+
+    :where(.ButtonContent) {
+      gap: 3px;
+    }
   }
 
   &:where(.size-s) {
     height: 24px;
     padding: 0 6px;
+
+    :where(.ButtonContent) {
+      gap: 3px;
+    }
   }
 
   &:where(.size-m) {
     height: 36px;
     padding: 0 10px;
+
+    :where(.ButtonContent) {
+      gap: 4px;
+    }
   }
 
   &:where(.size-l) {
     height: 44px;
     padding: 0 14px;
+
+    :where(.ButtonContent) {
+      gap: 6px;
+    }
   }
 
   &:where(.size-xl) {
     height: 54px;
     padding: 0 18px;
+
+    :where(.ButtonContent) {
+      gap: 6px;
+    }
   }
 
   &:where(.variant-primary) {
@@ -91,5 +111,11 @@
   &:disabled {
     cursor: not-allowed;
     opacity: var(--alpha-opacity-disabled);
+  }
+
+  .ButtonContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
