@@ -4,6 +4,7 @@ import classNames from 'classnames'
 
 import { isEmpty } from '~/src/utils/type'
 
+import { useAvatarGroupContext } from '~/src/components/AlphaAvatarGroup/AvatarGroup'
 import {
   SmoothCornersBox,
   type SmoothCornersBoxProps,
@@ -11,15 +12,38 @@ import {
 import { Status, type StatusSize } from '~/src/components/Status'
 import { useTokens } from '~/src/components/ThemeProvider'
 
-import type { AvatarProps } from './Avatar.types'
+import type { AvatarProps, AvatarSize } from './Avatar.types'
 import defaultAvatarUrl from './assets/default-avatar.svg'
 import useProgressiveImage from './useProgressiveImage'
 
 import styles from './Avatar.module.scss'
 
-const shadow: SmoothCornersBoxProps['shadow'] = {
-  spreadRadius: 2,
-  color: 'bg-white-high',
+function getStatusSize(size: AvatarSize): StatusSize {
+  switch (size) {
+    case '90':
+    case '120':
+      return 'l'
+    default:
+      return 'm'
+  }
+}
+
+function getShadow(size: AvatarSize): SmoothCornersBoxProps['shadow'] {
+  const spreadRadius = (() => {
+    switch (size) {
+      case '90':
+        return 3
+      case '120':
+        return 4
+      default:
+        return 2
+    }
+  })()
+
+  return {
+    spreadRadius,
+    color: 'bg-white-high',
+  }
 }
 
 export function useAvatarRadiusToken() {
@@ -49,7 +73,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
   {
     avatarUrl = '',
     fallbackUrl = defaultAvatarUrl,
-    size = '24',
+    size: sizeProps = '24',
     name,
     disabled = false,
     showBorder = false,
@@ -61,6 +85,8 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
   },
   forwardedRef
 ) {
+  const avatarGroupContext = useAvatarGroupContext()
+  const size = avatarGroupContext?.size ?? sizeProps
   const loadedAvatarUrl = useProgressiveImage(avatarUrl, fallbackUrl)
   const AVATAR_BORDER_RADIUS = useAvatarRadiusToken()
 
@@ -72,16 +98,6 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
       return null
     }
 
-    const statusSize: StatusSize = (() => {
-      switch (size) {
-        case '90':
-        case '120':
-          return 'l'
-        default:
-          return 'm'
-      }
-    })()
-
     const Contents = (() => {
       if (children) {
         return children
@@ -90,7 +106,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
         return (
           <Status
             type={status}
-            size={statusSize}
+            size={getStatusSize(size)}
           />
         )
       }
@@ -131,7 +147,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
         )}
         disabled={!smoothCorners}
         borderRadius={AVATAR_BORDER_RADIUS}
-        shadow={showBorder ? shadow : undefined}
+        shadow={showBorder ? getShadow(size) : undefined}
         backgroundColor="bg-white-normal"
         backgroundImage={loadedAvatarUrl}
         data-testid={AVATAR_TEST_ID}

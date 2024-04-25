@@ -1,0 +1,53 @@
+@import '../AlphaAvatar/Avatar.module';
+
+.AvatarGroup {
+  --b-avatar-group-spacing: 0;
+  --b-avatar-group-size: 0;
+
+  position: relative;
+  z-index: var(--z-index-base);
+  display: flex;
+
+  @each $size in $avatar-sizes {
+    &:where(.size-#{$size}) {
+      --b-avatar-group-size: #{$size}px;
+    }
+  }
+
+  & > * + * {
+    margin-left: var(--b-avatar-group-spacing);
+  }
+}
+
+.AvatarEllipsisIconWrapper {
+  position: relative;
+}
+
+.AvatarEllipsisIcon {
+  position: absolute;
+  z-index: var(--z-index-floating);
+  top: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  outline: none;
+}
+
+.AvatarEllipsisCountWrapper {
+  --b-avatar-group-ellipsis-ml: 0;
+
+  margin-left: var(--b-avatar-group-ellipsis-ml);
+}
+
+.AvatarEllipsisCount {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--b-avatar-group-size);
+}
