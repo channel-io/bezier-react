@@ -1,5 +1,13 @@
 # @channel.io/bezier-tokens
 
+## 0.2.2
+
+### Patch Changes
+
+- Add `opacity-disabled` to alpha token. ([#2162](https://github.com/channel-io/bezier-react/pull/2162)) by @yangwooseong
+
+- Fix the value of alpha color.cobalt.300 ([#2160](https://github.com/channel-io/bezier-react/pull/2160)) by @sungik-choi
+
 ## 0.2.1
 
 ### Patch Changes

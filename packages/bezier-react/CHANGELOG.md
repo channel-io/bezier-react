@@ -1,5 +1,16 @@
 # @channel.io/bezier-react
 
+## 2.0.3
+
+### Patch Changes
+
+- Implement `AlphaAvatar` component. ([#2162](https://github.com/channel-io/bezier-react/pull/2162)) by @yangwooseong
+
+- Add `AlphaAvatarGroup` component ([#2177](https://github.com/channel-io/bezier-react/pull/2177)) by @yangwooseong
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.2.2
+
 ## 2.0.2
 
 ### Patch Changes
