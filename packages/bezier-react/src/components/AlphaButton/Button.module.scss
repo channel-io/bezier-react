@@ -103,23 +103,6 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     background-color: initial;
   }
 
-  /* border-radius */
-  &:where(.variant-primary, .variant-secondary, .variant-tertiary) {
-    $border-radius-by-size: (
-      xs: var(--alpha-dimension-6),
-      s: var(--alpha-dimension-7),
-      m: var(--alpha-dimension-10),
-      l: var(--alpha-dimension-12),
-      xl: var(--alpha-dimension-14),
-    );
-
-    @each $size, $border-radius in $border-radius-by-size {
-      &:where(.size-#{$size}) {
-        border-radius: $border-radius;
-      }
-    }
-  }
-
   /* color */
   &:where(.variant-primary) {
     &:where(:not(.color-dark-grey), :not(.color-light-grey)) {
@@ -181,6 +164,23 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
       :where(.ButtonText) {
         color: var(--alpha-color-fg-absolute-white-normal);
+      }
+    }
+  }
+
+  /* border-radius */
+  &:where(.variant-primary, .variant-secondary, .variant-tertiary) {
+    $border-radius-by-size: (
+      xs: var(--alpha-dimension-6),
+      s: var(--alpha-dimension-7),
+      m: var(--alpha-dimension-10),
+      l: var(--alpha-dimension-12),
+      xl: var(--alpha-dimension-14),
+    );
+
+    @each $size, $border-radius in $border-radius-by-size {
+      &:where(.size-#{$size}) {
+        border-radius: $border-radius;
       }
     }
   }
