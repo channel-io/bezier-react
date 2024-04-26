@@ -1,3 +1,5 @@
+$chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
+
 .Button {
   position: relative;
   box-sizing: border-box;
@@ -52,7 +54,7 @@
     }
   }
 
-  /*  background-color */
+  /* background-color */
   &:where(.variant-primary) {
     $background-color-by-color: (
       blue: var(--alpha-color-primary-bg-normal),
@@ -183,9 +185,78 @@
     }
   }
 
+  /* visual effect on interaction */
   &:disabled {
     cursor: not-allowed;
     opacity: var(--alpha-opacity-disabled);
+  }
+
+  &:where(.active, :hover):where(:not(:disabled)) {
+    &:where(.variant-primary) {
+      @each $color in $chromatic-colors {
+        &:where(.color-#{$color}) {
+          background-color: var(--bgtxt-#{$color}-dark);
+        }
+      }
+
+      &:where(.color-dark-grey) {
+        background-color: var(--bg-grey-darkest);
+      }
+
+      &:where(.color-light-grey) {
+        background-color: var(--bg-black-darker);
+      }
+    }
+
+    &:where(.variant-secondary) {
+      @each $color in $chromatic-colors {
+        &:where(.color-#{$color}) {
+          background-color: var(--bgtxt-#{$color}-lighter);
+        }
+      }
+
+      &:where(.color-dark-grey) {
+        background-color: var(--bg-black-light);
+      }
+
+      &:where(.color-light-grey) {
+        background-color: var(--bg-black-light);
+      }
+    }
+
+    &:where(.variant-tertiary) {
+      @each $color in $chromatic-colors {
+        &:where(.color-#{$color}) {
+          background-color: var(--bgtxt-#{$color}-lightest);
+        }
+      }
+
+      &:where(.color-dark-grey) {
+        background-color: var(--bg-black-lighter);
+      }
+
+      &:where(.color-light-grey) {
+        background-color: var(--bg-black-lighter);
+      }
+    }
+
+    &:where(.color-dark-grey):where(
+        .variant-secondary,
+        .variant-tertiary
+      ):where(.active, :hover) {
+      :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--txt-black-darkest);
+      }
+    }
+
+    &:where(.color-light-grey):where(
+        .variant-secondary,
+        .variant-tertiary
+      ):where(.active, :hover) {
+      :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--txt-black-darker);
+      }
+    }
   }
 
   .ButtonContent {

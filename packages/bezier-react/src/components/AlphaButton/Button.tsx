@@ -59,6 +59,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       variant = 'primary',
       size = 'm',
       disabled,
+      active,
       className,
       loading,
       ...rest
@@ -77,6 +78,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           styles[`size-${size}`],
           styles[`variant-${variant}`],
           styles[`color-${color}`],
+          active && styles.active,
           className
         )}
         {...rest}
