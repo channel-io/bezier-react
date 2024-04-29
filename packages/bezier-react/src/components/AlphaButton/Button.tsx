@@ -95,15 +95,13 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           )}
 
           {/* TODO: use AlphaText later, add typo */}
-          {text && (
-            <Text
-              className={styles.ButtonText}
-              typo={getTypography(size)}
-              bold
-            >
-              {text}
-            </Text>
-          )}
+          <Text
+            className={styles.ButtonText}
+            typo={getTypography(size)}
+            bold
+          >
+            {text}
+          </Text>
 
           {suffixIcon && (
             <Icon

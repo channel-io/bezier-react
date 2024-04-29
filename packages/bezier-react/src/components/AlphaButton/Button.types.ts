@@ -26,9 +26,8 @@ export type ButtonSize = 'xs' | 's' | 'm' | 'l' | 'xl'
 interface ButtonOwnProps {
   /**
    * The text content in the button.
-   * Do not pass `text` prop if it is an icon-only button.
    */
-  text?: string
+  text: string
 
   /**
    * If `loading` is true, spinner will be shown, replacing the content.
