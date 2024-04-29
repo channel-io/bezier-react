@@ -3,6 +3,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 .Button {
   position: relative;
   box-sizing: border-box;
+  transition: background-color var(--transition-l);
 
   /* dimension */
   &:where(.size-xs) {
@@ -183,6 +184,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   }
 
   /* TODO: use v2 token when design is specified */
+
   /* visual effect on interaction */
   &:where(.active, :hover):where(:not(:disabled)) {
     &:where(.variant-primary) {
