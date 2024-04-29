@@ -85,7 +85,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       green: var(--alpha-color-success-bg-lightest),
       pink: var(--alpha-color-bg-pink-lightest),
       purple: var(--alpha-color-bg-purple-lightest),
-      dark-grey: var(--alpha-color-bg-grey-lighter),
+      dark-grey: var(--alpha-color-bg-black-lighter),
       light-grey: var(--alpha-color-bg-black-lighter),
     );
 
@@ -103,9 +103,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   /* color */
   /* stylelint-disable-next-line no-duplicate-selectors */
   &:where(.variant-primary) {
-    &:where(:not(.color-dark-grey, .color-light-grey)) {
-      color: var(--alpha-color-fg-absolute-white-dark);
-    }
+    color: var(--alpha-color-fg-absolute-white-dark);
 
     &:where(.color-dark-grey) {
       color: var(--alpha-color-fg-white-normal);
@@ -202,11 +200,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
         }
       }
 
-      &:where(.color-dark-grey) {
-        background-color: var(--bg-black-light);
-      }
-
-      &:where(.color-light-grey) {
+      &:where(.color-dark-grey, .color-light-grey) {
         background-color: var(--bg-black-light);
       }
     }
