@@ -10,7 +10,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     height: 20px;
     padding: 0 4px;
 
-    :where(.ButtonText) {
+    & :where(.ButtonText) {
       padding: 0 3px;
     }
   }
@@ -19,11 +19,11 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     height: 24px;
     padding: 0 6px;
 
-    :where(.ButtonText) {
+    & :where(.ButtonText) {
       padding: 0 3px;
     }
 
-    :where(.ButtonContent) {
+    & :where(.ButtonContent) {
       gap: 1px;
     }
   }
@@ -32,7 +32,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     height: 36px;
     padding: 0 10px;
 
-    :where(.ButtonText) {
+    & :where(.ButtonText) {
       padding: 0 4px;
     }
   }
@@ -41,7 +41,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     height: 44px;
     padding: 0 14px;
 
-    :where(.ButtonText) {
+    & :where(.ButtonText) {
       padding: 0 6px;
     }
   }
@@ -50,7 +50,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     height: 54px;
     padding: 0 18px;
 
-    :where(.ButtonText) {
+    & :where(.ButtonText) {
       padding: 0 6px;
     }
   }
@@ -134,24 +134,24 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     }
 
     &:where(.color-dark-grey) {
-      .ButtonIcon {
+      & :where(.ButtonIcon) {
         color: var(--alpha-color-fg-black-darker);
       }
     }
 
     &:where(.color-light-grey) {
-      .ButtonIcon {
+      & :where(.ButtonIcon) {
         color: var(--alpha-color-fg-black-dark);
       }
     }
   }
 
   &:where(.variant-tertiary.color-white) {
-    :where(.ButtonIcon) {
+    & :where(.ButtonIcon) {
       color: var(--alpha-color-fg-absolute-white-light);
     }
 
-    :where(.ButtonText) {
+    & :where(.ButtonText) {
       color: var(--alpha-color-fg-absolute-white-normal);
     }
   }
@@ -218,19 +218,19 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     }
 
     &:where(.color-dark-grey):where(.variant-secondary, .variant-tertiary) {
-      :is(.ButtonIcon, .ButtonLoader) {
+      & :is(.ButtonIcon, .ButtonLoader) {
         color: var(--txt-black-darkest);
       }
     }
 
     &:where(.color-light-grey):where(.variant-secondary, .variant-tertiary) {
-      :is(.ButtonIcon, .ButtonLoader) {
+      & :is(.ButtonIcon, .ButtonLoader) {
         color: var(--txt-black-darker);
       }
     }
 
     &:where(.color-white.variant-tertiary) {
-      :where(.ButtonIcon) {
+      & :where(.ButtonIcon) {
         color: var(--alpha-color-fg-absolute-white-normal);
       }
     }
