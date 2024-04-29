@@ -52,7 +52,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     {
       as = BaseButton,
       text,
-      type,
       prefixIcon,
       suffixIcon,
       color = 'blue',
@@ -70,7 +69,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp
-        type={type ?? 'button'}
         ref={forwardedRef}
         disabled={disabled}
         className={classNames(
