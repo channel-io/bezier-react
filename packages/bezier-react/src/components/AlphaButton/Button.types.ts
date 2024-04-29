@@ -7,9 +7,9 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
-export type ButtonStyleVariant = 'primary' | 'secondary' | 'tertiary'
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary'
 
-export type ButtonColorVariant =
+export type ButtonColor =
   | 'blue'
   | 'cobalt'
   | 'red'
@@ -22,8 +22,6 @@ export type ButtonColorVariant =
   | 'white'
 
 export type ButtonSize = 'xs' | 's' | 'm' | 'l' | 'xl'
-
-export type SideContent = BezierIcon
 
 interface ButtonOwnProps {
   /**
@@ -46,16 +44,16 @@ interface ButtonOwnProps {
   active?: boolean
 
   /**
-   * The style variant.
+   * Types of visual styles for button.
    * @default 'primary'
    */
-  variant?: ButtonStyleVariant
+  variant?: ButtonVariant
 
   /**
-   * The color variant.
-   * @default ButtonColorVariant.Blue
+   * Color of the button.
+   * @default 'blue'
    */
-  color?: ButtonColorVariant
+  color?: ButtonColor
 
   /**
    * Icon on the left.
@@ -63,7 +61,7 @@ interface ButtonOwnProps {
   prefixIcon?: BezierIcon
 
   /**
-   * Icon on the left.
+   * Icon on the right.
    */
   suffixIcon?: BezierIcon
 }

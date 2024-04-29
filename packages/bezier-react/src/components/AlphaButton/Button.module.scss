@@ -100,8 +100,9 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   }
 
   /* color */
+  /* stylelint-disable-next-line no-duplicate-selectors */
   &:where(.variant-primary) {
-    &:where(:not(.color-dark-grey):not(.color-light-grey)) {
+    &:where(:not(.color-dark-grey, .color-light-grey)) {
       color: var(--alpha-color-fg-absolute-white-dark);
     }
 
@@ -182,11 +183,6 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   }
 
   /* visual effect on interaction */
-  &:disabled {
-    cursor: not-allowed;
-    opacity: var(--alpha-opacity-disabled);
-  }
-
   &:where(.active, :hover):where(:not(:disabled)) {
     &:where(.variant-primary) {
       @each $color in $chromatic-colors {
@@ -253,6 +249,11 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
   &:where(.variant-primary.color-blue:focus-visible) {
     outline: 3px solid var(--bgtxt-blue-light);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--alpha-opacity-disabled);
   }
 
   /* internal components */
