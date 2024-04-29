@@ -182,6 +182,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     }
   }
 
+  /* TODO: use v2 token when design is specified */
   /* visual effect on interaction */
   &:where(.active, :hover):where(:not(:disabled)) {
     &:where(.variant-primary) {
