@@ -3,7 +3,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 .Button {
   position: relative;
   box-sizing: border-box;
-  transition: background-color var(--transition-l);
+  transition: background-color var(--transition-s);
 
   /* dimension */
   &:where(.size-xs) {
