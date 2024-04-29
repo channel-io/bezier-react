@@ -135,23 +135,15 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       }
     }
 
-    $icon-color-map: (
-      blue: var(--alpha-color-primary-fg-normal),
-      cobalt: var(--alpha-color-accent-fg-normal),
-      red: var(--alpha-color-critical-fg-normal),
-      orange: var(--alpha-color-warning-fg-normal),
-      green: var(--alpha-color-success-fg-normal),
-      pink: var(--alpha-color-fg-pink-normal),
-      purple: var(--alpha-color-fg-purple-normal),
-      dark-grey: var(--alpha-color-fg-black-darker),
-      light-grey: var(--alpha-color-fg-black-dark),
-    );
+    &:where(.color-dark-grey) {
+      .ButtonIcon {
+        color: var(--alpha-color-fg-black-darker);
+      }
+    }
 
-    @each $button-color, $icon-color in $icon-color-map {
-      &:where(.color-#{$button-color}) {
-        :where(.ButtonIcon) {
-          color: $icon-color;
-        }
+    &:where(.color-light-grey) {
+      .ButtonIcon {
+        color: var(--alpha-color-fg-black-dark);
       }
     }
   }
