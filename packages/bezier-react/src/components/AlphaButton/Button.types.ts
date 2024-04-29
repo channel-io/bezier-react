@@ -7,11 +7,7 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
-export type ButtonStyleVariant =
-  | 'primary'
-  | 'secondary'
-  | 'tertiary'
-  | 'floating'
+export type ButtonStyleVariant = 'primary' | 'secondary' | 'tertiary'
 
 export type ButtonColorVariant =
   | 'blue'

@@ -95,17 +95,13 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     }
   }
 
-  &:where(.variant-tertiary, .variant-floating) {
-    background-color: initial;
-  }
-
-  &:where(.variant-tertiary):where(.color-white) {
+  &:where(.variant-tertiary) {
     background-color: initial;
   }
 
   /* color */
   &:where(.variant-primary) {
-    &:where(:not(.color-dark-grey), :not(.color-light-grey)) {
+    &:where(:not(.color-dark-grey):not(.color-light-grey)) {
       color: var(--alpha-color-fg-absolute-white-dark);
     }
 
@@ -150,21 +146,21 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     );
 
     @each $button-color, $icon-color in $icon-color-map {
-      &:where(.color-#{$button-color}) :where(.ButtonIcon) {
-        color: $icon-color;
+      &:where(.color-#{$button-color}) {
+        :where(.ButtonIcon) {
+          color: $icon-color;
+        }
       }
     }
   }
 
-  &:where(.variant-tertiary) {
-    &:where(.color-white) {
-      :where(.ButtonIcon) {
-        color: var(--alpha-color-fg-absolute-white-light);
-      }
+  &:where(.variant-tertiary.color-white) {
+    :where(.ButtonIcon) {
+      color: var(--alpha-color-fg-absolute-white-light);
+    }
 
-      :where(.ButtonText) {
-        color: var(--alpha-color-fg-absolute-white-normal);
-      }
+    :where(.ButtonText) {
+      color: var(--alpha-color-fg-absolute-white-normal);
     }
   }
 
@@ -231,30 +227,26 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
         }
       }
 
-      &:where(.color-dark-grey) {
-        background-color: var(--bg-black-lighter);
-      }
-
-      &:where(.color-light-grey) {
+      &:where(.color-dark-grey, .color-light-grey, .color-white) {
         background-color: var(--bg-black-lighter);
       }
     }
 
-    &:where(.color-dark-grey):where(
-        .variant-secondary,
-        .variant-tertiary
-      ):where(.active, :hover) {
+    &:where(.color-dark-grey):where(.variant-secondary, .variant-tertiary) {
       :is(.ButtonIcon, .ButtonLoader) {
         color: var(--txt-black-darkest);
       }
     }
 
-    &:where(.color-light-grey):where(
-        .variant-secondary,
-        .variant-tertiary
-      ):where(.active, :hover) {
+    &:where(.color-light-grey):where(.variant-secondary, .variant-tertiary) {
       :is(.ButtonIcon, .ButtonLoader) {
         color: var(--txt-black-darker);
+      }
+    }
+
+    &:where(.color-white.variant-tertiary) {
+      :where(.ButtonIcon) {
+        color: var(--alpha-color-fg-absolute-white-normal);
       }
     }
   }
