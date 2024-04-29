@@ -259,6 +259,11 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     }
   }
 
+  &:where(.variant-primary.color-blue:focus-visible) {
+    outline: 3px solid var(--bgtxt-blue-light);
+  }
+
+  /* internal components */
   .ButtonContent {
     display: flex;
     align-items: center;

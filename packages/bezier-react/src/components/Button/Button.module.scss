@@ -244,6 +244,10 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     border-radius: var(--radius-8);
   }
 
+  &:where(.style-primary.color-blue:focus-visible) {
+    outline: 3px solid var(--bgtxt-blue-light);
+  }
+
   /* Hover styles for text, icon, and loader */
   &:where(.color-monochrome):where(.style-secondary, .style-tertiary):where(
       :not(.active, :hover)
