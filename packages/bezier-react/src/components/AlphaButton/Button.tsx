@@ -70,7 +70,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp
         ref={forwardedRef}
-        disabled={disabled}
         className={classNames(
           styles.Button,
           styles[`size-${size}`],
