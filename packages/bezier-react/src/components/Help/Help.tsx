@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 
-import { HelpFilledIcon } from '@channel.io/bezier-icons'
+import { HelpIcon } from '@channel.io/bezier-icons'
 
 import { isEmpty } from '~/src/utils/type'
 
@@ -31,7 +31,7 @@ export const Help = forwardRef<HTMLDivElement, HelpProps>(function Help(
       <div className={styles.Help}>
         <Icon
           className={styles.Icon}
-          source={HelpFilledIcon}
+          source={HelpIcon}
           size="xs"
           color="txt-black-dark"
           data-testid={HELP_TEST_ID}
