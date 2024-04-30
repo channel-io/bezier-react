@@ -117,7 +117,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       [onClick, disabled]
     )
 
-    
     return (
       <Comp
         // eslint-disable-next-line react/button-has-type
