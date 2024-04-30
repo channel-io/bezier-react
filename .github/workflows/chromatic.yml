@@ -50,6 +50,7 @@ jobs:
           exitZeroOnChanges: true
           skip: dependabot/**
           projectToken: 06157a6fbe6f
+          onlyChanged: true
 
       - name: Save PR number and Chromatic build outputs
         run: |
