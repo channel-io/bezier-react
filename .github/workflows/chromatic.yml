@@ -2,10 +2,9 @@ name: Chromatic
 
 on:
   push:
-    branches:
-      - main
-      - alpha
-  pull_request:
+    # branches:
+    #   - main
+    #   - alpha
     paths:
       - packages/bezier-react/**
 
