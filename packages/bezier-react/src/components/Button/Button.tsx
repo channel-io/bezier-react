@@ -91,7 +91,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     {
       as = BaseButton,
       className,
-      type = 'button',
       text,
       disabled = false,
       loading = false,
@@ -119,8 +118,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <Comp
-        // eslint-disable-next-line react/button-has-type
-        type={type}
         ref={forwardedRef}
         className={classNames(
           styles.Button,
