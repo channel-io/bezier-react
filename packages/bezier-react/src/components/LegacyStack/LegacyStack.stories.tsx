@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import type { Meta, StoryFn, StoryObj } from '@storybook/react'
-
-import { range } from '~/src/utils/number'
 
 import { Button } from '~/src/components/Button'
 import { Text } from '~/src/components/Text'
@@ -65,22 +63,20 @@ const meta: Meta<
 }
 export default meta
 
-const randomSize = (): number => Math.floor(Math.random() * 240 + 120)
-
 const Item = ({
+  size,
   fixedSize,
   direction,
 }: {
+  size: number
   fixedSize: boolean
   direction: 'horizontal' | 'vertical'
 }) => {
-  const [alignSize] = useState(() => randomSize())
-
   return (
     <div
       style={{
-        width: fixedSize && direction === 'vertical' ? alignSize : '100%',
-        height: fixedSize && direction === 'horizontal' ? alignSize : '100%',
+        width: fixedSize && direction === 'vertical' ? size : '100%',
+        height: fixedSize && direction === 'horizontal' ? size : '100%',
         backgroundColor: 'var(--bg-black-light)',
         borderRadius: '4px',
         boxShadow: 'inset 0 0 1px #c0c0c0',
@@ -142,7 +138,7 @@ const Template: StoryFn<StackPreviewProps> = ({
         align={align}
         spacing={spacing}
       >
-        {range(4).map((i) => (
+        {[200, 400, 300, 100].map((size, i) => (
           <LegacyStackItem
             key={`item-${i}`}
             justify={itemJustifies[i]}
@@ -157,6 +153,7 @@ const Template: StoryFn<StackPreviewProps> = ({
             <Item
               direction={direction}
               fixedSize={(align ?? itemAligns[i]) !== 'stretch'}
+              size={size}
             />
           </LegacyStackItem>
         ))}
