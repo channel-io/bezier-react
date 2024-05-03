@@ -2,10 +2,6 @@ name: Chromatic
 
 on:
   push:
-    branches:
-      - main
-      - alpha
-  pull_request:
     paths:
       - packages/bezier-react/**
 
@@ -49,6 +45,7 @@ jobs:
           workingDir: packages/bezier-react
           exitZeroOnChanges: true
           autoAcceptChanges: true
+          onlyChanged: true
           skip: dependabot/**
           projectToken: 06157a6fbe6f
 
