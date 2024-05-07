@@ -1,58 +1,36 @@
+@use '../../styles/mixins/dimension';
+
 $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
-.Button {
+.IconButton {
   position: relative;
   box-sizing: border-box;
   transition: background-color var(--transition-s);
 
   /* dimension */
   &:where(.size-xs) {
-    height: 20px;
-    padding: 0 4px;
-
-    & :where(.ButtonText) {
-      padding: 0 3px;
-    }
+    @include dimension.square(20px);
+    padding: 4px;
   }
 
   &:where(.size-s) {
-    height: 24px;
-    padding: 0 6px;
-
-    & :where(.ButtonText) {
-      padding: 0 3px;
-    }
-
-    & :where(.ButtonContent) {
-      gap: 1px;
-    }
+    @include dimension.square(24px);
+    padding: 4px;
   }
 
   &:where(.size-m) {
-    height: 36px;
-    padding: 0 10px;
-
-    & :where(.ButtonText) {
-      padding: 0 4px;
-    }
+    @include dimension.square(36px);
+    padding: 8px;
   }
 
   &:where(.size-l) {
-    height: 44px;
-    padding: 0 14px;
-
-    & :where(.ButtonText) {
-      padding: 0 6px;
-    }
+    @include dimension.square(44px);
+    padding: 12px;
   }
 
   &:where(.size-xl) {
-    height: 54px;
-    padding: 0 18px;
-
-    & :where(.ButtonText) {
-      padding: 0 6px;
-    }
+    @include dimension.square(54px);
+    padding: 15px;
   }
 
   /* background-color */
@@ -148,29 +126,27 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
   &:where(.variant-tertiary.color-white) {
     & :where(.ButtonIcon) {
-      color: var(--alpha-color-fg-absolute-white-light);
-    }
-
-    & :where(.ButtonText) {
       color: var(--alpha-color-fg-absolute-white-normal);
     }
   }
 
   /* border-radius */
-  &:where(.variant-primary, .variant-secondary, .variant-tertiary) {
-    $border-radius-by-size: (
-      xs: var(--alpha-dimension-6),
-      s: var(--alpha-dimension-7),
-      m: var(--alpha-dimension-10),
-      l: var(--alpha-dimension-12),
-      xl: var(--alpha-dimension-14),
-    );
+  $border-radius-by-size: (
+    xs: var(--alpha-dimension-6),
+    s: var(--alpha-dimension-7),
+    m: var(--alpha-dimension-10),
+    l: var(--alpha-dimension-12),
+    xl: var(--alpha-dimension-14),
+  );
 
-    @each $size, $border-radius in $border-radius-by-size {
-      &:where(.size-#{$size}) {
-        border-radius: $border-radius;
-      }
+  @each $size, $border-radius in $border-radius-by-size {
+    &:where(.size-#{$size}) {
+      border-radius: $border-radius;
     }
+  }
+
+  &:where(.shape-circle) {
+    border-radius: 9999px;
   }
 
   /* TODO: use v2 token when design is specified */
