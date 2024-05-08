@@ -10,26 +10,31 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   /* dimension */
   &:where(.size-xs) {
     @include dimension.square(20px);
+
     padding: 4px;
   }
 
   &:where(.size-s) {
     @include dimension.square(24px);
+
     padding: 4px;
   }
 
   &:where(.size-m) {
     @include dimension.square(36px);
+
     padding: 8px;
   }
 
   &:where(.size-l) {
     @include dimension.square(44px);
+
     padding: 12px;
   }
 
   &:where(.size-xl) {
     @include dimension.square(54px);
+
     padding: 15px;
   }
 
@@ -131,6 +136,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   }
 
   /* border-radius */
+  /* stylelint-disable-next-line order/order */
   $border-radius-by-size: (
     xs: var(--alpha-dimension-6),
     s: var(--alpha-dimension-7),
