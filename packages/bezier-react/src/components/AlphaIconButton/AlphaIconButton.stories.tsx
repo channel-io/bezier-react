@@ -16,12 +16,12 @@ export default meta
 
 export const Playground: StoryObj<AlphaIconButtonProps> = {
   args: {
-    text: 'Invite',
     disabled: false,
     active: false,
     loading: false,
     icon: PlusIcon,
     shape: 'rectangle',
+    'aria-label': 'invite',
     size: 'm',
     variant: 'primary',
     color: 'blue',

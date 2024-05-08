@@ -25,11 +25,6 @@ type IconButtonSize = 'xs' | 's' | 'm' | 'l' | 'xl'
 
 interface IconButtonOwnProps {
   /**
-   * The text content in the button.
-   */
-  text: string
-
-  /**
    * If `loading` is true, spinner will be shown, replacing the content.
    * @default false
    */
