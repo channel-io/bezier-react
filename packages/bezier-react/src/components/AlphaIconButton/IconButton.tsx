@@ -38,7 +38,6 @@ export const IconButton = forwardRef<HTMLButtonElement, AlphaIconButtonProps>(
   function IconButton(
     {
       as = BaseButton,
-      text,
       color = 'blue',
       variant = 'primary',
       size = 'm',

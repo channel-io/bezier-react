@@ -136,18 +136,19 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   }
 
   /* border-radius */
-  /* stylelint-disable-next-line order/order */
-  $border-radius-by-size: (
-    xs: var(--alpha-dimension-6),
-    s: var(--alpha-dimension-7),
-    m: var(--alpha-dimension-10),
-    l: var(--alpha-dimension-12),
-    xl: var(--alpha-dimension-14),
-  );
+  &:where(.shape-rectangle) {
+    $border-radius-by-size: (
+      xs: var(--alpha-dimension-6),
+      s: var(--alpha-dimension-7),
+      m: var(--alpha-dimension-10),
+      l: var(--alpha-dimension-12),
+      xl: var(--alpha-dimension-14),
+    );
 
-  @each $size, $border-radius in $border-radius-by-size {
-    &:where(.size-#{$size}) {
-      border-radius: $border-radius;
+    @each $size, $border-radius in $border-radius-by-size {
+      &:where(.size-#{$size}) {
+        border-radius: $border-radius;
+      }
     }
   }
 
