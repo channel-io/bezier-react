@@ -37,6 +37,8 @@ jobs:
         if: ${{ steps.generate-svg-files.outputs.icon_not_changed == 0}}
         run: echo "pull_request_number=$(gh pr view --json number -q .number || echo "")" >> $GITHUB_OUTPUT
         env:
+          # use PAT for CI trigger
+          # https://github.com/orgs/community/discussions/25702
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Add pr description
