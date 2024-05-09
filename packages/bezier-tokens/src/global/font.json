@@ -102,7 +102,9 @@
           "value": [
             "Inter",
             "NotoSansKR",
+            "Noto Sans KR",
             "NotoSansJP",
+            "Noto Sans JP",
             "-apple-system",
             "BlinkMacSystemFont",
             "Helvetica Neue",
@@ -117,7 +119,9 @@
           "value": [
             "Inter",
             "NotoSansJP",
+            "Noto Sans JP",
             "NotoSansKR",
+            "Noto Sans KR",
             "-apple-system",
             "BlinkMacSystemFont",
             "Helvetica Neue",
