@@ -37,12 +37,14 @@ jobs:
         if: ${{ steps.generate-svg-files.outputs.icon_not_changed == 0}}
         run: echo "pull_request_number=$(gh pr view --json number -q .number || echo "")" >> $GITHUB_OUTPUT
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # use PAT for CI trigger
+          # https://github.com/orgs/community/discussions/25702
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Add pr description
         if: ${{ steps.generate-svg-files.outputs.icon_not_changed == 0}}
         run: |
-          node packages/bezier-icons/scripts/add-pr-description.js ${{ secrets.GITHUB_TOKEN }} ${{ steps.pr.outputs.pull_request_number }}
+          node packages/bezier-icons/scripts/add-pr-description.js ${{ secrets.PERSONAL_ACCESS_TOKEN }} ${{ steps.pr.outputs.pull_request_number }}
 
       - name: Add changeset
         if: ${{ steps.generate-svg-files.outputs.icon_not_changed == 0}}
