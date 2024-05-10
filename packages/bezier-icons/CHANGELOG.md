@@ -1,5 +1,39 @@
 # @channel.io/bezier-icons
 
+## 0.24.0
+
+### Minor Changes
+
+- Update icons ([#2204](https://github.com/channel-io/bezier-react/pull/2204)) by @kimminkyung94
+
+  Added
+
+  - center-focus.svg
+  - group-remove-filled.svg
+  - shipping-filled.svg
+  - snooze-filled.svg
+  - star-circle-filled.svg
+  - untag-filled.svg
+  - workflow.svg
+
+  Modified
+
+  - chat-check-filled.svg
+  - chat-check.svg
+  - chat-progress-filled.svg
+  - chat-progress.svg
+  - check-circle-filled.svg
+  - check-circle.svg
+  - check-verification-filled.svg
+  - clock-filled.svg
+  - contract.svg
+  - expand.svg
+  - goal.svg
+  - limit.svg
+  - people.svg
+  - tag.svg
+  - untag.svg
+
 ## 0.23.0
 
 ### Minor Changes

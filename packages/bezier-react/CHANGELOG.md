@@ -1,5 +1,18 @@
 # @channel.io/bezier-react
 
+## 2.0.4
+
+### Patch Changes
+
+- Change outline color of primary and blue `Button` component when focused. ([#2182](https://github.com/channel-io/bezier-react/pull/2182)) by @yangwooseong
+
+- Add `AlphaButton` component. ([#2182](https://github.com/channel-io/bezier-react/pull/2182)) by @yangwooseong
+
+- Add `AlphaFloatingButton` component. ([#2193](https://github.com/channel-io/bezier-react/pull/2193)) by @yangwooseong
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.2.3
+
 ## 2.0.3
 
 ### Patch Changes
