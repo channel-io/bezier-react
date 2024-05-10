@@ -11,11 +11,13 @@ jobs:
   generate-svg:
     name: Generate icon files from icons.json file
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.PAT }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          token: ${{ secrets.PAT }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -38,10 +40,6 @@ jobs:
         id: pr
         if: ${{ steps.generate-svg-files.outputs.icon_not_changed == 0}}
         run: echo "pull_request_number=$(gh pr view --json number -q .number || echo "")" >> $GITHUB_OUTPUT
-        env:
-          # use PAT for CI trigger
-          # https://github.com/orgs/community/discussions/25702
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Add pr description
         if: ${{ steps.generate-svg-files.outputs.icon_not_changed == 0}}
