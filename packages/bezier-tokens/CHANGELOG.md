@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.2.3
+
+### Patch Changes
+
+- Add the font-family format supported by Google Web Font ([#2209](https://github.com/channel-io/bezier-react/pull/2209)) by @leejiwoo2002
+
 ## 0.2.2
 
 ### Patch Changes
