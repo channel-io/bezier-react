@@ -29,7 +29,7 @@ export const Emoji = forwardRef<HTMLDivElement, EmojiProps>(function Emoji(
     <div
       ref={forwardedRef}
       role="img"
-      aria-label={name}
+      aria-description={name}
       style={
         {
           '--b-emoji-background-image': cssUrl(imageUrl),
