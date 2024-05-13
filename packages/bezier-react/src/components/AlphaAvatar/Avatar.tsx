@@ -139,7 +139,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
     >
       <SmoothCornersBox
         ref={forwardedRef}
-        aria-label={name}
+        aria-description={name}
         className={classNames(
           styles.AvatarImage,
           Number(size) >= 72 && styles['big-size'],
