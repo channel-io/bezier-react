@@ -12,7 +12,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
     data-testid="bezier-avatar-wrapper"
   >
     <div
-      aria-label="Christian Nwamba"
+      aria-description="Christian Nwamba"
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-avatar"
@@ -25,7 +25,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
     data-testid="bezier-avatar-wrapper"
   >
     <div
-      aria-label="Kola Tioluwani"
+      aria-description="Kola Tioluwani"
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-avatar"
@@ -38,7 +38,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
     data-testid="bezier-avatar-wrapper"
   >
     <div
-      aria-label="Kent Dodds"
+      aria-description="Kent Dodds"
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-avatar"
@@ -51,7 +51,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
     data-testid="bezier-avatar-wrapper"
   >
     <div
-      aria-label="Ryan Florence"
+      aria-description="Ryan Florence"
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-avatar"
@@ -64,7 +64,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
     data-testid="bezier-avatar-wrapper"
   >
     <div
-      aria-label="Dan Abrahmov"
+      aria-description="Dan Abrahmov"
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-avatar"
@@ -77,7 +77,7 @@ exports[`AvatarGroup Ellipsis type - Count Snapshot 1`] = `
     data-testid="bezier-avatar-wrapper"
   >
     <div
-      aria-label="Prosper Otemuyiwa"
+      aria-description="Prosper Otemuyiwa"
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-avatar"
@@ -111,7 +111,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
     data-testid="bezier-avatar-wrapper"
   >
     <div
-      aria-label="Christian Nwamba"
+      aria-description="Christian Nwamba"
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-avatar"
@@ -124,7 +124,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
     data-testid="bezier-avatar-wrapper"
   >
     <div
-      aria-label="Kola Tioluwani"
+      aria-description="Kola Tioluwani"
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-avatar"
@@ -137,7 +137,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
     data-testid="bezier-avatar-wrapper"
   >
     <div
-      aria-label="Kent Dodds"
+      aria-description="Kent Dodds"
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-avatar"
@@ -150,7 +150,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
     data-testid="bezier-avatar-wrapper"
   >
     <div
-      aria-label="Ryan Florence"
+      aria-description="Ryan Florence"
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-avatar"
@@ -163,7 +163,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
     data-testid="bezier-avatar-wrapper"
   >
     <div
-      aria-label="Dan Abrahmov"
+      aria-description="Dan Abrahmov"
       class="SmoothCornersBox AvatarImage"
       data-state="disabled"
       data-testid="bezier-avatar"
@@ -203,7 +203,7 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       data-testid="bezier-avatar-wrapper"
     >
       <div
-        aria-label="Prosper Otemuyiwa"
+        aria-description="Prosper Otemuyiwa"
         class="SmoothCornersBox AvatarImage"
         data-state="disabled"
         data-testid="bezier-avatar"
