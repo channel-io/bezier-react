@@ -41,7 +41,6 @@ export const IconButton = forwardRef<HTMLButtonElement, AlphaIconButtonProps>(
       color = 'blue',
       variant = 'primary',
       size = 'm',
-      disabled,
       active,
       shape = 'rectangle',
       icon,

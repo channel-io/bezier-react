@@ -57,7 +57,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       color = 'blue',
       variant = 'primary',
       size = 'm',
-      disabled,
       active,
       className,
       loading,
