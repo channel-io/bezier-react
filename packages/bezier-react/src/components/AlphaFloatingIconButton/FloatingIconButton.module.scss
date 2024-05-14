@@ -1,0 +1,174 @@
+@use '../../styles/mixins/dimension';
+
+$chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
+
+.FloatingIconButton {
+  position: relative;
+
+  box-sizing: border-box;
+
+  border-radius: 9999px;
+  box-shadow: var(--alpha-shadow-2);
+
+  transition: background-color var(--transition-s);
+
+  /* dimension */
+  &:where(.size-xs) {
+    @include dimension.square(20px);
+
+    padding: 4px;
+  }
+
+  &:where(.size-s) {
+    @include dimension.square(24px);
+
+    padding: 4px;
+  }
+
+  &:where(.size-m) {
+    @include dimension.square(36px);
+
+    padding: 8px;
+  }
+
+  &:where(.size-l) {
+    @include dimension.square(44px);
+
+    padding: 12px;
+  }
+
+  &:where(.size-xl) {
+    @include dimension.square(54px);
+
+    padding: 15px;
+  }
+
+  /* background-color */
+  &:where(.variant-primary) {
+    $background-color-by-color: (
+      blue: var(--alpha-color-primary-bg-normal),
+      cobalt: var(--alpha-color-accent-bg-normal),
+      red: var(--alpha-color-critical-bg-normal),
+      orange: var(--alpha-color-warning-bg-normal),
+      green: var(--alpha-color-success-bg-normal),
+      pink: var(--alpha-color-bg-pink-normal),
+      purple: var(--alpha-color-bg-purple-normal),
+      dark-grey: var(--alpha-color-bg-grey-darkest),
+      light-grey: var(--alpha-color-bg-grey-dark),
+    );
+
+    @each $color, $background-color in $background-color-by-color {
+      &:where(.color-#{$color}) {
+        background-color: $background-color;
+      }
+    }
+  }
+
+  &:where(.variant-secondary) {
+    background-color: var(--alpha-color-bg-white-higher);
+  }
+
+  /* color */
+  /* stylelint-disable-next-line no-duplicate-selectors */
+  &:where(.variant-primary) {
+    color: var(--alpha-color-fg-absolute-white-dark);
+
+    &:where(.color-dark-grey) {
+      color: var(--alpha-color-fg-white-normal);
+    }
+
+    &:where(.color-light-grey) {
+      color: var(--alpha-color-fg-absolute-white-dark);
+    }
+  }
+
+  &:where(.variant-secondary) {
+    $color-map: (
+      blue: var(--alpha-color-primary-fg-normal),
+      cobalt: var(--alpha-color-accent-fg-normal),
+      red: var(--alpha-color-critical-fg-normal),
+      orange: var(--alpha-color-warning-fg-normal),
+      green: var(--alpha-color-success-fg-normal),
+      pink: var(--alpha-color-fg-pink-normal),
+      purple: var(--alpha-color-fg-purple-normal),
+      dark-grey: var(--alpha-color-fg-black-darker),
+      light-grey: var(--alpha-color-fg-black-dark),
+    );
+
+    @each $button-color, $color in $color-map {
+      &:where(.color-#{$button-color}) {
+        color: $color;
+      }
+    }
+  }
+
+  /* TODO: use v2 token when design is specified */
+
+  /* visual effect on interaction */
+  &:where(.active, :hover):where(:not(:disabled)) {
+    &:where(.variant-primary) {
+      @each $color in $chromatic-colors {
+        &:where(.color-#{$color}) {
+          background-color: var(--bgtxt-#{$color}-dark);
+        }
+      }
+
+      &:where(.color-dark-grey) {
+        background-color: var(--bg-grey-darkest);
+      }
+
+      &:where(.color-light-grey) {
+        background-color: var(--bg-black-darker);
+      }
+    }
+
+    &:where(.variant-secondary) {
+      @each $color in $chromatic-colors {
+        &:where(.color-#{$color}) {
+          background-color: var(--bgtxt-#{$color}-lighter);
+        }
+      }
+
+      &:where(.color-dark-grey, .color-light-grey) {
+        background-color: var(--bg-black-light);
+      }
+    }
+  }
+
+  &:where(.color-dark-grey):where(.variant-secondary) {
+    & :is(.ButtonLoader) {
+      color: var(--txt-black-darkest);
+    }
+  }
+
+  &:where(.color-light-grey):where(.variant-secondary) {
+    & :is(.ButtonLoader) {
+      color: var(--txt-black-darker);
+    }
+  }
+
+  &:where(.variant-primary.color-blue:focus-visible) {
+    outline: 3px solid var(--bgtxt-blue-light);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--alpha-opacity-disabled);
+  }
+
+  /* internal components */
+  & :where(.ButtonContent) {
+    &:where(.loading) {
+      visibility: hidden;
+    }
+  }
+
+  & :where(.ButtonLoader) {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
