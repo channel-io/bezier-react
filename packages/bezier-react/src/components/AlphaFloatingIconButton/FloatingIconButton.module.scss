@@ -82,6 +82,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     }
   }
 
+  /* stylelint-disable-next-line no-duplicate-selectors */
   &:where(.variant-secondary) {
     $color-map: (
       blue: var(--alpha-color-primary-fg-normal),
