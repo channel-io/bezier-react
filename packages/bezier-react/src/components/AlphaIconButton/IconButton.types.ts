@@ -54,7 +54,7 @@ interface IconButtonOwnProps {
   /**
    * Icon in the button.
    */
-  icon?: BezierIcon | ReactNode
+  icon: BezierIcon | ReactNode
 
   /**
    * Shape of the button.

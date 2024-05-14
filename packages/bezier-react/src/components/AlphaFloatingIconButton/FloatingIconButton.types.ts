@@ -53,7 +53,7 @@ interface FloatingIconButtonOwnProps {
   /**
    * Icon in the button.
    */
-  icon?: BezierIcon | ReactNode
+  icon: BezierIcon | ReactNode
 }
 
 export interface FloatingIconButtonProps

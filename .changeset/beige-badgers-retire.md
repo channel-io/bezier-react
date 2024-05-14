@@ -2,5 +2,6 @@
 "@channel.io/bezier-react": patch
 ---
 
-Add `AlphaFloatingIconButton` component.
-Fix disabled style is not applied with `AlphaButton` and `AlphaIconButton`
+- Add `AlphaFloatingIconButton` component.
+- Fix disabled style bug with `AlphaButton` and `AlphaIconButton`.
+- Change `icon` type of `AlphaIconButton` to be required.
