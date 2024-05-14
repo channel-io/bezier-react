@@ -61,7 +61,7 @@ interface IconButtonOwnProps {
   shape?: 'rectangle' | 'circle'
 }
 
-export interface ButtonProps
+export interface IconButtonProps
   extends Omit<BezierComponentProps<'button'>, 'color'>,
     PolymorphicProps,
     SizeProps<IconButtonSize>,

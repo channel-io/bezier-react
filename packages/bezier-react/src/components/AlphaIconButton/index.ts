@@ -1,2 +1,2 @@
 export { IconButton as AlphaIconButton } from './IconButton'
-export type { ButtonProps as AlphaIconButtonProps } from './IconButton.types'
+export type { IconButtonProps as AlphaIconButtonProps } from './IconButton.types'
