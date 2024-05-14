@@ -1,15 +1,36 @@
 import React, { forwardRef } from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import { type ButtonProps } from '~/src/components/AlphaButton/Button.types'
+import {
+  type ButtonProps,
+  type ButtonSize,
+} from '~/src/components/AlphaButton/Button.types'
 import { BaseButton } from '~/src/components/BaseButton'
-import { type ButtonSize } from '~/src/components/Button'
-import { Icon } from '~/src/components/Icon'
+import { Icon, type IconSize } from '~/src/components/Icon'
 import { Spinner } from '~/src/components/Spinner'
 import { Text } from '~/src/components/Text'
 
 import styles from './Button.module.scss'
+
+function SideIcon({
+  size,
+  icon,
+}: {
+  size: IconSize
+  icon?: ButtonProps['prefixIcon']
+}) {
+  return isBezierIcon(icon) ? (
+    <Icon
+      source={icon}
+      size={size}
+      className={styles.ButtonIcon}
+    />
+  ) : (
+    icon
+  )
+}
 
 function getIconSize(size: ButtonSize) {
   return (
@@ -85,13 +106,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             loading && styles.loading
           )}
         >
-          {prefixIcon && (
-            <Icon
-              size={getIconSize(size)}
-              source={prefixIcon}
-              className={styles.ButtonIcon}
-            />
-          )}
+          <SideIcon
+            size={getIconSize(size)}
+            icon={prefixIcon}
+          />
 
           {/* TODO: use AlphaText later, add typo */}
           <Text
@@ -102,13 +120,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             {text}
           </Text>
 
-          {suffixIcon && (
-            <Icon
-              size={getIconSize(size)}
-              source={suffixIcon}
-              className={styles.ButtonIcon}
-            />
-          )}
+          <SideIcon
+            size={getIconSize(size)}
+            icon={suffixIcon}
+          />
         </div>
 
         {/* TODO: use AlphaSpinner */}

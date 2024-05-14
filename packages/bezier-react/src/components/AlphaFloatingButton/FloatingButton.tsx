@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import {
@@ -7,11 +8,29 @@ import {
   type FloatingButtonSize,
 } from '~/src/components/AlphaFloatingButton/FloatingButton.types'
 import { BaseButton } from '~/src/components/BaseButton'
-import { Icon } from '~/src/components/Icon'
+import { Icon, type IconSize } from '~/src/components/Icon'
 import { Spinner } from '~/src/components/Spinner'
 import { Text } from '~/src/components/Text'
 
 import styles from './FloatingButton.module.scss'
+
+function SideIcon({
+  size,
+  icon,
+}: {
+  size: IconSize
+  icon?: FloatingButtonProps['prefixIcon']
+}) {
+  return isBezierIcon(icon) ? (
+    <Icon
+      source={icon}
+      size={size}
+      className={styles.ButtonIcon}
+    />
+  ) : (
+    icon
+  )
+}
 
 function getIconSize(size: FloatingButtonSize) {
   return (
@@ -86,13 +105,10 @@ export const FloatingButton = forwardRef<
       <div
         className={classNames(styles.ButtonContent, loading && styles.loading)}
       >
-        {prefixIcon && (
-          <Icon
-            size={getIconSize(size)}
-            source={prefixIcon}
-            className={styles.ButtonIcon}
-          />
-        )}
+        <SideIcon
+          size={getIconSize(size)}
+          icon={prefixIcon}
+        />
 
         {/* TODO: use AlphaText later, add typo */}
         <Text
@@ -103,13 +119,10 @@ export const FloatingButton = forwardRef<
           {text}
         </Text>
 
-        {suffixIcon && (
-          <Icon
-            size={getIconSize(size)}
-            source={suffixIcon}
-            className={styles.ButtonIcon}
-          />
-        )}
+        <SideIcon
+          size={getIconSize(size)}
+          icon={suffixIcon}
+        />
       </div>
 
       {/* TODO: use AlphaSpinner */}

@@ -1,3 +1,5 @@
+import { type ReactNode } from 'react'
+
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import {
@@ -55,12 +57,12 @@ interface FloatingButtonOwnProps {
   /**
    * Icon on the left.
    */
-  prefixIcon?: BezierIcon
+  prefixIcon?: BezierIcon | ReactNode
 
   /**
    * Icon on the right.
    */
-  suffixIcon?: BezierIcon
+  suffixIcon?: BezierIcon | ReactNode
 }
 
 export interface FloatingButtonProps

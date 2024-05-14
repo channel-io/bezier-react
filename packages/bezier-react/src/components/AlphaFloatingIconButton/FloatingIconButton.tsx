@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import { type AlphaFloatingIconButtonProps } from '~/src/components/AlphaFloatingIconButton'
@@ -69,11 +70,13 @@ export const FloatingIconButton = forwardRef<
       <div
         className={classNames(styles.ButtonContent, loading && styles.loading)}
       >
-        {icon && (
+        {isBezierIcon(icon) ? (
           <Icon
             size={getIconSize(size)}
             source={icon}
           />
+        ) : (
+          icon
         )}
       </div>
 
