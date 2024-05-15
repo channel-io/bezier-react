@@ -2,7 +2,7 @@
 
 exports[`Avatar > Snapshot 1`] = `
 <div
-  aria-label="Name"
+  aria-description="Name"
   class="SmoothCornersBox AvatarImage"
   data-state="disabled"
   data-testid="bezier-avatar"
@@ -12,7 +12,7 @@ exports[`Avatar > Snapshot 1`] = `
 
 exports[`Avatar > renders border style 1`] = `
 <div
-  aria-label="Name"
+  aria-description="Name"
   class="SmoothCornersBox AvatarImage bordered"
   data-state="disabled"
   data-testid="bezier-avatar"

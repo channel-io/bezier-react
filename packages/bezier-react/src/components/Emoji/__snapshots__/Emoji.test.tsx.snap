@@ -2,7 +2,7 @@
 
 exports[`Emoji Test > snapshot 1`] = `
 <div
-  aria-label="a"
+  aria-description="a"
   class="Emoji size-24"
   data-testid="bezier-emoji"
   role="img"
