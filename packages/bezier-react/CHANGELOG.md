@@ -1,5 +1,16 @@
 # @channel.io/bezier-react
 
+## 2.0.5
+
+### Patch Changes
+
+- Add `AlphaIconButton` component. ([#2200](https://github.com/channel-io/bezier-react/pull/2200)) by @yangwooseong
+
+- Replace `aria-label` of non-interactive elements ([#2217](https://github.com/channel-io/bezier-react/pull/2217)) by @Dogdriip
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.2.4
+
 ## 2.0.4
 
 ### Patch Changes
