@@ -2228,8 +2228,8 @@ __metadata:
   linkType: soft
 
 "@channel.io/eslint-config@npm:^2.0.4":
-  version: 2.0.4
-  resolution: "@channel.io/eslint-config@npm:2.0.4"
+  version: 2.0.7
+  resolution: "@channel.io/eslint-config@npm:2.0.7"
   dependencies:
     "@next/eslint-plugin-next": "npm:^14.1.1"
     "@typescript-eslint/eslint-plugin": "npm:^6.20.0"
@@ -2244,7 +2244,7 @@ __metadata:
   peerDependencies:
     eslint: ">=8.10"
     prettier: ">=3"
-  checksum: 10/fd63c25af29f37a8888c4de0f942fa97d5c7c1d5c258e5ce32ecba5b0b38f2c1b7a1e642ebcfcffb27c7541356228bfe34ac0ec72485a0c8f142c417ce00917d
+  checksum: 10/79113012225b375d56db2294adfbb7803e096499e90b6ba880f80a2fd6d624ff6850cb166be685f2a5bdc21e2a8baee0cdaa97b227f5603ec9c5a44ee161c50b
   languageName: node
   linkType: hard
 
