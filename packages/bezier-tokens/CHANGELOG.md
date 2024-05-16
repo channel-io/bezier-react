@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.2.4
+
+### Patch Changes
+
+- Add missing `fg-{color}-dark` alpha version color tokens. ([#2212](https://github.com/channel-io/bezier-react/pull/2212)) by @sungik-choi
+
 ## 0.2.3
 
 ### Patch Changes
