@@ -8,9 +8,30 @@ on:
       - packages/bezier-icons/icons.json
 
 jobs:
+  check-icons:
+    runs-on: ubuntu-latest
+    outputs:
+      icon_exists: ${{ steps.check-icons.outputs.icon_exists }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check if icons.json exists
+        id: check-icons
+        run: |
+          if [ -f "packages/bezier-icons/icons.json" ]; then
+            echo "icon_exists=0" >> $GITHUB_OUTPUT
+          else
+            echo "icon_exists=1" >> $GITHUB_OUTPUT
+          fi
+
   generate-svg:
     name: Generate icon files from icons.json file
+    needs: check-icons
+    if: ${{ needs.check-icons.outputs.icon_exists == 0 }}
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,10 +59,6 @@ jobs:
         id: pr
         if: ${{ steps.generate-svg-files.outputs.icon_not_changed == 0}}
         run: echo "pull_request_number=$(gh pr view --json number -q .number || echo "")" >> $GITHUB_OUTPUT
-        env:
-          # use PAT for CI trigger
-          # https://github.com/orgs/community/discussions/25702
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
       - name: Add pr description
         if: ${{ steps.generate-svg-files.outputs.icon_not_changed == 0}}
