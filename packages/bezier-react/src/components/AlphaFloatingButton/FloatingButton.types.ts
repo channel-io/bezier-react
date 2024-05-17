@@ -57,12 +57,12 @@ interface FloatingButtonOwnProps {
   /**
    * Icon on the left.
    */
-  prefixIcon?: BezierIcon | ReactNode
+  prefixContent?: BezierIcon | ReactNode
 
   /**
    * Icon on the right.
    */
-  suffixIcon?: BezierIcon | ReactNode
+  suffixContent?: BezierIcon | ReactNode
 }
 
 export interface FloatingButtonProps

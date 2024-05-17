@@ -14,12 +14,12 @@ import { Text } from '~/src/components/Text'
 
 import styles from './FloatingButton.module.scss'
 
-function SideIcon({
+function SideContent({
   size,
   icon,
 }: {
   size: IconSize
-  icon?: FloatingButtonProps['prefixIcon']
+  icon?: FloatingButtonProps['prefixContent']
 }) {
   return isBezierIcon(icon) ? (
     <Icon
@@ -75,8 +75,8 @@ export const FloatingButton = forwardRef<
   {
     as = BaseButton,
     text,
-    prefixIcon,
-    suffixIcon,
+    prefixContent,
+    suffixContent,
     color = 'blue',
     variant = 'primary',
     size = 'm',
@@ -105,9 +105,9 @@ export const FloatingButton = forwardRef<
       <div
         className={classNames(styles.ButtonContent, loading && styles.loading)}
       >
-        <SideIcon
+        <SideContent
           size={getIconSize(size)}
-          icon={prefixIcon}
+          icon={prefixContent}
         />
 
         {/* TODO: use AlphaText later, add typo */}
@@ -119,9 +119,9 @@ export const FloatingButton = forwardRef<
           {text}
         </Text>
 
-        <SideIcon
+        <SideContent
           size={getIconSize(size)}
-          icon={suffixIcon}
+          icon={suffixContent}
         />
       </div>
 

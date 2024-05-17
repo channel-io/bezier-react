@@ -14,12 +14,12 @@ import { Text } from '~/src/components/Text'
 
 import styles from './Button.module.scss'
 
-function SideIcon({
+function SideContent({
   size,
   icon,
 }: {
   size: IconSize
-  icon?: ButtonProps['prefixIcon']
+  icon?: ButtonProps['prefixContent']
 }) {
   return isBezierIcon(icon) ? (
     <Icon
@@ -73,8 +73,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     {
       as = BaseButton,
       text,
-      prefixIcon,
-      suffixIcon,
+      prefixContent,
+      suffixContent,
       color = 'blue',
       variant = 'primary',
       size = 'm',
@@ -106,9 +106,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             loading && styles.loading
           )}
         >
-          <SideIcon
+          <SideContent
             size={getIconSize(size)}
-            icon={prefixIcon}
+            icon={prefixContent}
           />
 
           {/* TODO: use AlphaText later, add typo */}
@@ -120,9 +120,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             {text}
           </Text>
 
-          <SideIcon
+          <SideContent
             size={getIconSize(size)}
-            icon={suffixIcon}
+            icon={suffixContent}
           />
         </div>
 
