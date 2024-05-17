@@ -8812,9 +8812,6 @@ __metadata:
     npm-run-all2: "npm:^6.1.2"
     prettier: "npm:^3.2.5"
     stylelint: "npm:^16.3.0"
-    stylelint-config-clean-order: "npm:^5.4.1"
-    stylelint-config-prettier-scss: "npm:^1.0.0"
-    stylelint-config-standard-scss: "npm:^13.0.0"
     syncpack: "npm:^12.3.0"
     ts-node: "npm:^10.9.2"
     turbo: "npm:^1.12.4"
@@ -20028,7 +20025,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-clean-order@npm:^5.4.1, stylelint-config-clean-order@npm:^5.4.2":
+"stylelint-config-clean-order@npm:^5.4.2":
   version: 5.4.2
   resolution: "stylelint-config-clean-order@npm:5.4.2"
   dependencies:
