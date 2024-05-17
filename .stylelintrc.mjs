@@ -1,10 +1,6 @@
 /** @type {import('stylelint').Config} */
 export default {
-  extends: [
-    'stylelint-config-standard-scss',
-    'stylelint-config-clean-order/error',
-    'stylelint-config-prettier-scss',
-  ],
+  extends: ['@channel.io/stylelint-config'],
   rules: {
     'selector-class-pattern': [
       // NOTE: Allows Pascal case(components) and Kebab case(states, variants, etc.).

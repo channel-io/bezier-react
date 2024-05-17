@@ -2368,6 +2368,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@channel.io/stylelint-config@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@channel.io/stylelint-config@npm:2.0.0"
+  dependencies:
+    postcss-styled-syntax: "npm:^0.6.4"
+    stylelint-config-clean-order: "npm:^5.4.2"
+    stylelint-config-prettier-scss: "npm:^1.0.0"
+    stylelint-config-standard-scss: "npm:^13.0.0"
+  peerDependencies:
+    stylelint: ">=16.3.0"
+  checksum: 10/d296cebaa5072133a6c1bd87230bea22a4b62c2d2aa4b661d49a856264e8bc7ede9a52eb22c40a27890b53afb88d670cfb7cfa4777aff29073c6ff7ed0285c5c
+  languageName: node
+  linkType: hard
+
 "@channel.io/typescript-config@npm:^0.0.1":
   version: 0.0.1
   resolution: "@channel.io/typescript-config@npm:0.0.1"
@@ -8784,6 +8798,7 @@ __metadata:
     "@changesets/get-github-info": "npm:^0.6.0"
     "@changesets/types": "npm:^6.0.0"
     "@channel.io/prettier-config": "npm:^0.0.1"
+    "@channel.io/stylelint-config": "npm:^2.0.0"
     "@commitlint/cli": "npm:^19.0.0"
     "@commitlint/config-conventional": "npm:^19.0.0"
     "@swc/core": "npm:^1.4.2"
@@ -17753,6 +17768,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-styled-syntax@npm:^0.6.4":
+  version: 0.6.4
+  resolution: "postcss-styled-syntax@npm:0.6.4"
+  dependencies:
+    typescript: "npm:^5.3.3"
+  peerDependencies:
+    postcss: ^8.4.21
+  checksum: 10/435bc414cc68d2d2297bb6354230226f554b88efb38610c0c35575eefc241edbabf12a4d4662957204e92091443fa25c85cb943916b61023c222e30a1127b1ff
+  languageName: node
+  linkType: hard
+
 "postcss-svgo@npm:^5.1.0":
   version: 5.1.0
   resolution: "postcss-svgo@npm:5.1.0"
@@ -20002,7 +20028,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-clean-order@npm:^5.4.1":
+"stylelint-config-clean-order@npm:^5.4.1, stylelint-config-clean-order@npm:^5.4.2":
   version: 5.4.2
   resolution: "stylelint-config-clean-order@npm:5.4.2"
   dependencies:
@@ -21091,7 +21117,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.4.2":
+"typescript@npm:^5.3.3, typescript@npm:^5.4.2":
   version: 5.4.5
   resolution: "typescript@npm:5.4.5"
   bin:
@@ -21101,7 +21127,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.4.2#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.4.2#optional!builtin<compat/typescript>":
   version: 5.4.5
   resolution: "typescript@patch:typescript@npm%3A5.4.5#optional!builtin<compat/typescript>::version=5.4.5&hash=5adc0c"
   bin:
