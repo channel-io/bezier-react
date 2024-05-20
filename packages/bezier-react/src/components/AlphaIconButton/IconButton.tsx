@@ -44,7 +44,7 @@ export const IconButton = forwardRef<HTMLButtonElement, AlphaIconButtonProps>(
       size = 'm',
       active,
       shape = 'rectangle',
-      icon,
+      content,
       loading,
       className,
       ...rest
@@ -73,14 +73,14 @@ export const IconButton = forwardRef<HTMLButtonElement, AlphaIconButtonProps>(
             loading && styles.loading
           )}
         >
-          {isBezierIcon(icon) ? (
+          {isBezierIcon(content) ? (
             <Icon
               size={getIconSize(size)}
-              source={icon}
+              source={content}
               className={styles.ButtonIcon}
             />
           ) : (
-            icon
+            content
           )}
         </div>
 

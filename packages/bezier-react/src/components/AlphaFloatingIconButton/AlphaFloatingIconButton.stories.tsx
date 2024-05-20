@@ -19,7 +19,7 @@ export const Playground: StoryObj<AlphaFloatingIconButtonProps> = {
     disabled: false,
     active: false,
     loading: false,
-    icon: PlusIcon,
+    content: PlusIcon,
     'aria-label': 'invite',
     size: 'm',
     variant: 'primary',

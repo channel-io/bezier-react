@@ -45,7 +45,7 @@ export const FloatingIconButton = forwardRef<
     variant = 'primary',
     size = 'm',
     active,
-    icon,
+    content,
     loading,
     className,
     ...rest
@@ -70,13 +70,13 @@ export const FloatingIconButton = forwardRef<
       <div
         className={classNames(styles.ButtonContent, loading && styles.loading)}
       >
-        {isBezierIcon(icon) ? (
+        {isBezierIcon(content) ? (
           <Icon
             size={getIconSize(size)}
-            source={icon}
+            source={content}
           />
         ) : (
-          icon
+          content
         )}
       </div>
 

@@ -19,7 +19,7 @@ export const Playground: StoryObj<AlphaIconButtonProps> = {
     disabled: false,
     active: false,
     loading: false,
-    icon: PlusIcon,
+    content: PlusIcon,
     shape: 'rectangle',
     'aria-label': 'invite',
     size: 'm',

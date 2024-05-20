@@ -53,11 +53,11 @@ interface FloatingIconButtonOwnProps {
   /**
    * Icon in the button.
    */
-  icon: BezierIcon | ReactNode
+  content: BezierIcon | ReactNode
 }
 
 export interface FloatingIconButtonProps
-  extends Omit<BezierComponentProps<'button'>, 'color'>,
+  extends Omit<BezierComponentProps<'button'>, 'color' | 'content'>,
     PolymorphicProps,
     SizeProps<FloatingIconButtonSize>,
     DisableProps,

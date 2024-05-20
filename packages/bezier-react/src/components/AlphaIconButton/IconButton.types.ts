@@ -54,7 +54,7 @@ interface IconButtonOwnProps {
   /**
    * Icon in the button.
    */
-  icon: BezierIcon | ReactNode
+  content: BezierIcon | ReactNode
 
   /**
    * Shape of the button.
@@ -64,7 +64,7 @@ interface IconButtonOwnProps {
 }
 
 export interface IconButtonProps
-  extends Omit<BezierComponentProps<'button'>, 'color'>,
+  extends Omit<BezierComponentProps<'button'>, 'color' | 'content'>,
     PolymorphicProps,
     SizeProps<IconButtonSize>,
     DisableProps,
