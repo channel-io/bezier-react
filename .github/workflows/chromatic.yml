@@ -1,10 +1,6 @@
 name: Chromatic
 
 on:
-  push:
-    branches:
-      - main
-      - alpha
   pull_request:
     paths:
       - packages/bezier-react/**
@@ -19,6 +15,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          # By default checkout action checkouts to merge commit on pull_request event
+          # checkout to the HEAD commit of PR here, because chromatic checkouts to HEAD commit of PR
+          # https://www.chromatic.com/docs/turbosnap#github-pullrequest-triggers
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -49,6 +49,7 @@ jobs:
           workingDir: packages/bezier-react
           exitZeroOnChanges: true
           autoAcceptChanges: true
+          onlyChanged: true
           skip: dependabot/**
           projectToken: 06157a6fbe6f
 
