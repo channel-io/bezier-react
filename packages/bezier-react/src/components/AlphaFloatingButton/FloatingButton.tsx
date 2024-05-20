@@ -16,19 +16,19 @@ import styles from './FloatingButton.module.scss'
 
 function SideContent({
   size,
-  icon,
+  content,
 }: {
   size: IconSize
-  icon?: FloatingButtonProps['prefixContent']
+  content?: FloatingButtonProps['prefixContent']
 }) {
-  return isBezierIcon(icon) ? (
+  return isBezierIcon(content) ? (
     <Icon
-      source={icon}
+      source={content}
       size={size}
       className={styles.ButtonIcon}
     />
   ) : (
-    icon
+    content
   )
 }
 
@@ -107,7 +107,7 @@ export const FloatingButton = forwardRef<
       >
         <SideContent
           size={getIconSize(size)}
-          icon={prefixContent}
+          content={prefixContent}
         />
 
         {/* TODO: use AlphaText later, add typo */}
@@ -121,7 +121,7 @@ export const FloatingButton = forwardRef<
 
         <SideContent
           size={getIconSize(size)}
-          icon={suffixContent}
+          content={suffixContent}
         />
       </div>
 

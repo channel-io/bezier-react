@@ -16,19 +16,19 @@ import styles from './Button.module.scss'
 
 function SideContent({
   size,
-  icon,
+  content,
 }: {
   size: IconSize
-  icon?: ButtonProps['prefixContent']
+  content?: ButtonProps['prefixContent']
 }) {
-  return isBezierIcon(icon) ? (
+  return isBezierIcon(content) ? (
     <Icon
-      source={icon}
+      source={content}
       size={size}
       className={styles.ButtonIcon}
     />
   ) : (
-    icon
+    content
   )
 }
 
@@ -108,7 +108,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         >
           <SideContent
             size={getIconSize(size)}
-            icon={prefixContent}
+            content={prefixContent}
           />
 
           {/* TODO: use AlphaText later, add typo */}
@@ -122,7 +122,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
           <SideContent
             size={getIconSize(size)}
-            icon={suffixContent}
+            content={suffixContent}
           />
         </div>
 
