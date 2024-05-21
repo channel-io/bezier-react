@@ -12,7 +12,7 @@ export type IconSize = 'xl' | 'l' | 'm' | 's' | 'xs' | 'xxs' | 'xxxs'
 interface IconOwnProps {
   /**
    * Controls which icon should be rendered.
-   * Inject the icon component from the @channel.io/bezier-icons package into this prop.
+   * Inject the icon component from the `@channel.io/bezier-icons` package into this prop.
    * @example
    * ```tsx
    * import { HeartFilledIcon } from '@channel.io/bezier-icons'
