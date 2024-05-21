@@ -1,3 +1,5 @@
+import { type ReactNode } from 'react'
+
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import {
@@ -52,7 +54,7 @@ interface IconButtonOwnProps {
   /**
    * Icon in the button.
    */
-  icon?: BezierIcon
+  content: BezierIcon | ReactNode
 
   /**
    * Shape of the button.
@@ -61,8 +63,8 @@ interface IconButtonOwnProps {
   shape?: 'rectangle' | 'circle'
 }
 
-export interface ButtonProps
-  extends Omit<BezierComponentProps<'button'>, 'color'>,
+export interface IconButtonProps
+  extends Omit<BezierComponentProps<'button'>, 'color' | 'content'>,
     PolymorphicProps,
     SizeProps<IconButtonSize>,
     DisableProps,

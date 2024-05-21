@@ -9,9 +9,9 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
-export type FloatingButtonVariant = 'primary' | 'secondary'
+type FloatingIconButtonVariant = 'primary' | 'secondary'
 
-export type FloatingButtonColor =
+type FloatingIconButtonColor =
   | 'blue'
   | 'cobalt'
   | 'red'
@@ -22,14 +22,9 @@ export type FloatingButtonColor =
   | 'dark-grey'
   | 'light-grey'
 
-export type FloatingButtonSize = 'xs' | 's' | 'm' | 'l' | 'xl'
+type FloatingIconButtonSize = 'xs' | 's' | 'm' | 'l' | 'xl'
 
-interface FloatingButtonOwnProps {
-  /**
-   * The text content in the button.
-   */
-  text: string
-
+interface FloatingIconButtonOwnProps {
   /**
    * If `loading` is true, spinner will be shown, replacing the content.
    * @default false
@@ -38,6 +33,7 @@ interface FloatingButtonOwnProps {
 
   /**
    * If `active` is true, the button will be styled as if it is hovered.
+   * You may want to use this prop for a button which opens dropdown, etc.
    * @default false
    */
   active?: boolean
@@ -46,28 +42,23 @@ interface FloatingButtonOwnProps {
    * Types of visual styles for button.
    * @default 'primary'
    */
-  variant?: FloatingButtonVariant
+  variant?: FloatingIconButtonVariant
 
   /**
    * Color of the button.
    * @default 'blue'
    */
-  color?: FloatingButtonColor
+  color?: FloatingIconButtonColor
 
   /**
-   * Icon on the left.
+   * Icon in the button.
    */
-  prefixContent?: BezierIcon | ReactNode
-
-  /**
-   * Icon on the right.
-   */
-  suffixContent?: BezierIcon | ReactNode
+  content: BezierIcon | ReactNode
 }
 
-export interface FloatingButtonProps
-  extends Omit<BezierComponentProps<'button'>, 'color'>,
+export interface FloatingIconButtonProps
+  extends Omit<BezierComponentProps<'button'>, 'color' | 'content'>,
     PolymorphicProps,
-    SizeProps<FloatingButtonSize>,
+    SizeProps<FloatingIconButtonSize>,
     DisableProps,
-    FloatingButtonOwnProps {}
+    FloatingIconButtonOwnProps {}

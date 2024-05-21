@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import { type AlphaIconButtonProps } from '~/src/components/AlphaIconButton'
@@ -41,10 +42,9 @@ export const IconButton = forwardRef<HTMLButtonElement, AlphaIconButtonProps>(
       color = 'blue',
       variant = 'primary',
       size = 'm',
-      disabled,
       active,
       shape = 'rectangle',
-      icon,
+      content,
       loading,
       className,
       ...rest
@@ -73,12 +73,14 @@ export const IconButton = forwardRef<HTMLButtonElement, AlphaIconButtonProps>(
             loading && styles.loading
           )}
         >
-          {icon && (
+          {isBezierIcon(content) ? (
             <Icon
               size={getIconSize(size)}
-              source={icon}
+              source={content}
               className={styles.ButtonIcon}
             />
+          ) : (
+            content
           )}
         </div>
 

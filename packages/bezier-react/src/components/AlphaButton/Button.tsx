@@ -1,15 +1,36 @@
 import React, { forwardRef } from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import { type ButtonProps } from '~/src/components/AlphaButton/Button.types'
+import {
+  type ButtonProps,
+  type ButtonSize,
+} from '~/src/components/AlphaButton/Button.types'
 import { BaseButton } from '~/src/components/BaseButton'
-import { type ButtonSize } from '~/src/components/Button'
-import { Icon } from '~/src/components/Icon'
+import { Icon, type IconSize } from '~/src/components/Icon'
 import { Spinner } from '~/src/components/Spinner'
 import { Text } from '~/src/components/Text'
 
 import styles from './Button.module.scss'
+
+function SideContent({
+  size,
+  content,
+}: {
+  size: IconSize
+  content?: ButtonProps['prefixContent']
+}) {
+  return isBezierIcon(content) ? (
+    <Icon
+      source={content}
+      size={size}
+      className={styles.ButtonIcon}
+    />
+  ) : (
+    content
+  )
+}
 
 function getIconSize(size: ButtonSize) {
   return (
@@ -52,12 +73,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     {
       as = BaseButton,
       text,
-      prefixIcon,
-      suffixIcon,
+      prefixContent,
+      suffixContent,
       color = 'blue',
       variant = 'primary',
       size = 'm',
-      disabled,
       active,
       className,
       loading,
@@ -86,13 +106,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             loading && styles.loading
           )}
         >
-          {prefixIcon && (
-            <Icon
-              size={getIconSize(size)}
-              source={prefixIcon}
-              className={styles.ButtonIcon}
-            />
-          )}
+          <SideContent
+            size={getIconSize(size)}
+            content={prefixContent}
+          />
 
           {/* TODO: use AlphaText later, add typo */}
           <Text
@@ -103,13 +120,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             {text}
           </Text>
 
-          {suffixIcon && (
-            <Icon
-              size={getIconSize(size)}
-              source={suffixIcon}
-              className={styles.ButtonIcon}
-            />
-          )}
+          <SideContent
+            size={getIconSize(size)}
+            content={suffixContent}
+          />
         </div>
 
         {/* TODO: use AlphaSpinner */}

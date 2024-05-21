@@ -2,25 +2,24 @@ import { PlusIcon } from '@channel.io/bezier-icons'
 import { type Meta, type StoryObj } from '@storybook/react'
 
 import {
-  AlphaIconButton,
-  type AlphaIconButtonProps,
-} from '~/src/components/AlphaIconButton'
+  AlphaFloatingIconButton,
+  type AlphaFloatingIconButtonProps,
+} from '~/src/components/AlphaFloatingIconButton'
 
-const meta: Meta<typeof AlphaIconButton> = {
-  component: AlphaIconButton,
+const meta: Meta<typeof AlphaFloatingIconButton> = {
+  component: AlphaFloatingIconButton,
   argTypes: {
     onClick: { action: 'onClick' },
   },
 }
 export default meta
 
-export const Playground: StoryObj<AlphaIconButtonProps> = {
+export const Playground: StoryObj<AlphaFloatingIconButtonProps> = {
   args: {
     disabled: false,
     active: false,
     loading: false,
     content: PlusIcon,
-    shape: 'rectangle',
     'aria-label': 'invite',
     size: 'm',
     variant: 'primary',

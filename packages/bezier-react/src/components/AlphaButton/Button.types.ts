@@ -1,3 +1,5 @@
+import { type ReactNode } from 'react'
+
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import {
@@ -57,12 +59,12 @@ interface ButtonOwnProps {
   /**
    * Icon on the left.
    */
-  prefixIcon?: BezierIcon
+  prefixContent?: BezierIcon | ReactNode
 
   /**
    * Icon on the right.
    */
-  suffixIcon?: BezierIcon
+  suffixContent?: BezierIcon | ReactNode
 }
 
 export interface ButtonProps
