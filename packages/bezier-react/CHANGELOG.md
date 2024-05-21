@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 2.0.6
+
+### Patch Changes
+
+- - Add `AlphaFloatingIconButton` component. ([#2223](https://github.com/channel-io/bezier-react/pull/2223)) by @yangwooseong
+  - Fix disabled style bug with `AlphaButton` and `AlphaIconButton`.
+  - Change `icon` type of `AlphaIconButton` to be required.
+
 ## 2.0.5
 
 ### Patch Changes
