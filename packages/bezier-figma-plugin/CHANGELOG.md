@@ -1,5 +1,14 @@
 # bezier-figma-plugin
 
+## 0.5.6
+
+### Patch Changes
+
+- Fix type error in development mode ([#2231](https://github.com/channel-io/bezier-react/pull/2231)) by @yangwooseong
+
+- Updated dependencies
+  - @channel.io/bezier-react@2.0.6
+
 ## 0.5.5
 
 ### Patch Changes
