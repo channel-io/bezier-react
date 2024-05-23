@@ -29,7 +29,7 @@
     stroke-width: var(--b-spinner-stroke-width);
   }
 
-  & .fill {
+  & .indicator {
     fill: none;
     stroke: var(--b-spinner-fill-color);
     stroke-dasharray: var(--b-spinner-stroke-dasharray);

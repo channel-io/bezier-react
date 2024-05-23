@@ -40,7 +40,7 @@ export const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(
             cx="8"
             cy="8"
             r="7"
-            className={styles.fill}
+            className={styles.indicator}
             vectorEffect="non-scaling-stroke"
           />
         </svg>
