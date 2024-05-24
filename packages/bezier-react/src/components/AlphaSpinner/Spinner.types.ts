@@ -9,6 +9,7 @@ type SpinnerSize = 's' | 'm'
 interface SpinnerOwnProps {
   /**
    * The style variant of Spinner.
+   * @default 'secondary'
    */
   variant?: 'primary' | 'secondary' | 'on-overlay'
 }

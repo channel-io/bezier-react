@@ -10,14 +10,14 @@ export const SPINNER_TEST_ID = 'bezier-spinner'
 
 export const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(
   function Spinner(
-    { className, size = 'm', variant = 'secondary', ...rest },
+    { className, size, variant = 'secondary', ...rest },
     forwardedRef
   ) {
     return (
       <span
         className={classNames(
           styles.Spinner,
-          styles[`size-${size}`],
+          size && styles[`size-${size}`],
           styles[`variant-${variant}`]
         )}
         ref={forwardedRef}
