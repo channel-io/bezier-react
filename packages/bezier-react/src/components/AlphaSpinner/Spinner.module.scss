@@ -13,7 +13,7 @@
 .Spinner {
   --b-spinner-size: initial;
   --b-spinner-track-color: initial;
-  --b-spinner-fill-color: initial;
+  --b-spinner-indicator-color: initial;
   --b-spinner-stroke-width: initial;
   --b-spinner-stroke-dasharray: initial;
 
@@ -31,7 +31,7 @@
 
   & .indicator {
     fill: none;
-    stroke: var(--b-spinner-fill-color);
+    stroke: var(--b-spinner-indicator-color);
     stroke-dasharray: var(--b-spinner-stroke-dasharray);
     stroke-linecap: round;
     stroke-width: var(--b-spinner-stroke-width);
@@ -51,16 +51,16 @@
 
   &:where(.variant-primary) {
     --b-spinner-track-color: var(--alpha-color-primary-bg-lightest);
-    --b-spinner-fill-color: var(--alpha-color-fg-blue-normal);
+    --b-spinner-indicator-color: var(--alpha-color-fg-blue-normal);
   }
 
   &:where(.variant-secondary) {
     --b-spinner-track-color: var(--alpha-color-bg-black-light);
-    --b-spinner-fill-color: var(--alpha-color-fg-black-light);
+    --b-spinner-indicator-color: var(--alpha-color-fg-black-light);
   }
 
   &:where(.variant-on-overlay) {
     --b-spinner-track-color: var(--alpha-color-bg-absolute-white-lightest);
-    --b-spinner-fill-color: var(--alpha-color-fg-absolute-white-light);
+    --b-spinner-indicator-color: var(--alpha-color-fg-absolute-white-light);
   }
 }
