@@ -1,5 +1,6 @@
-import React, { useLayoutEffect, useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 
+import { useIsomorphicLayoutEffect } from '~/src/hooks/useIsomorphicLayoutEffect'
 import { createContext } from '~/src/utils/react'
 import { isEmpty } from '~/src/utils/type'
 
@@ -30,7 +31,7 @@ export function FeatureProvider({ children, features }: FeatureProviderProps) {
   const [featureFlag, setFeatureFlag] =
     useState<FeatureFlag>(initialFeatureFlag)
 
-  useLayoutEffect(
+  useIsomorphicLayoutEffect(
     function activateFeatures() {
       if (isEmpty(features)) {
         return

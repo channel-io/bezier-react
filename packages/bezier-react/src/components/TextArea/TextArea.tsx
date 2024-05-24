@@ -1,8 +1,9 @@
-import React, { forwardRef, useLayoutEffect, useRef } from 'react'
+import React, { forwardRef, useRef } from 'react'
 
 import classNames from 'classnames'
 import TextareaAutosize from 'react-textarea-autosize'
 
+import { useIsomorphicLayoutEffect } from '~/src/hooks/useIsomorphicLayoutEffect'
 import {
   COMMON_IME_CONTROL_KEYS,
   useKeyboardActionLockerWhileComposing,
@@ -43,7 +44,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         onKeyUp,
       })
 
-    useLayoutEffect(function initialAutoFocus() {
+    useIsomorphicLayoutEffect(function initialAutoFocus() {
       function setSelectionToEnd() {
         inputRef.current?.setSelectionRange(
           inputRef.current?.value.length,

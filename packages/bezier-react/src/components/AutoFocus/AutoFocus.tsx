@@ -1,7 +1,8 @@
-import React, { forwardRef, useLayoutEffect, useState } from 'react'
+import React, { forwardRef, useState } from 'react'
 
 import { Slot } from '@radix-ui/react-slot'
 
+import { useIsomorphicLayoutEffect } from '~/src/hooks/useIsomorphicLayoutEffect'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 
 import { type AutoFocusProps } from './AutoFocus.types'
@@ -27,7 +28,7 @@ export const AutoFocus = forwardRef<HTMLElement, AutoFocusProps>(
   function AutoFocus({ children, when = true, ...rest }, forwardedRef) {
     const [target, setTarget] = useState<HTMLElement | null>(null)
 
-    useLayoutEffect(
+    useIsomorphicLayoutEffect(
       function focus() {
         if (target && when) {
           target.focus()
