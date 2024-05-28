@@ -43,7 +43,7 @@
 .ToastContainer {
   pointer-events: none;
 
-  position: absolute;
+  position: fixed;
 
   overflow: hidden;
   display: flex;
