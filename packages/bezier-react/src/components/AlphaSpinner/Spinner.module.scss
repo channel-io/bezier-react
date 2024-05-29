@@ -1,0 +1,66 @@
+@use '../../styles/mixins/dimension';
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Spinner {
+  --b-spinner-size: initial;
+  --b-spinner-track-color: initial;
+  --b-spinner-indicator-color: initial;
+  --b-spinner-stroke-width: initial;
+  --b-spinner-stroke-dasharray: initial;
+
+  @include dimension.square(var(--b-spinner-size));
+
+  display: inline-flex;
+  animation: rotate 1s linear infinite;
+
+  & .track {
+    fill: none;
+    stroke: var(--b-spinner-track-color);
+    stroke-linecap: round;
+    stroke-width: var(--b-spinner-stroke-width);
+  }
+
+  & .indicator {
+    fill: none;
+    stroke: var(--b-spinner-indicator-color);
+    stroke-dasharray: var(--b-spinner-stroke-dasharray);
+    stroke-linecap: round;
+    stroke-width: var(--b-spinner-stroke-width);
+  }
+
+  &:where(.size-s) {
+    --b-spinner-size: 28px;
+    --b-spinner-stroke-width: 4px;
+    --b-spinner-stroke-dasharray: 40 9999;
+  }
+
+  &:where(.size-m) {
+    --b-spinner-size: 50px;
+    --b-spinner-stroke-width: 6px;
+    --b-spinner-stroke-dasharray: 60 9999;
+  }
+
+  &:where(.variant-primary) {
+    --b-spinner-track-color: var(--alpha-color-primary-bg-lightest);
+    --b-spinner-indicator-color: var(--alpha-color-fg-blue-normal);
+  }
+
+  &:where(.variant-secondary) {
+    --b-spinner-track-color: var(--alpha-color-bg-black-light);
+    --b-spinner-indicator-color: var(--alpha-color-fg-black-light);
+  }
+
+  &:where(.variant-on-overlay) {
+    --b-spinner-track-color: var(--alpha-color-bg-absolute-white-lightest);
+    --b-spinner-indicator-color: var(--alpha-color-fg-absolute-white-light);
+  }
+}
