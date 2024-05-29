@@ -14,7 +14,7 @@ describe('Spinner >', () => {
     expect(renderedSpinner).toBeInTheDocument()
   })
 
-  it('should render as a div by default', () => {
+  it('should render as a span element by default', () => {
     const { getByTestId } = renderSpinner()
     const renderedSpinner = getByTestId(SPINNER_TEST_ID)
     expect(renderedSpinner.tagName).toBe('SPAN')
