@@ -2,4 +2,4 @@
 "@channel.io/bezier-react": patch
 ---
 
-Fix ReactJS Console Warnings
+Fix ReactJS console warnings
