@@ -1,5 +1,18 @@
 # @channel.io/bezier-react
 
+## 2.0.7
+
+### Patch Changes
+
+- Change `position` property of `ToastContainer` to `fixed` ([#2245](https://github.com/channel-io/bezier-react/pull/2245)) by @yangwooseong
+
+- Fix typo in `IconProps` jsdoc ([#2232](https://github.com/channel-io/bezier-react/pull/2232)) by @yangwooseong
+
+- - Fix ReactJS console warnings. ([#2238](https://github.com/channel-io/bezier-react/pull/2238)) by @nabi-chan
+  - Introduce `useIsomorphicLayoutEffect` hook to use `useLayoutEffect` in SSR environment.
+
+- Add `AlphaSpinner` component ([#2237](https://github.com/channel-io/bezier-react/pull/2237)) by @yangwooseong
+
 ## 2.0.6
 
 ### Patch Changes
@@ -424,11 +437,11 @@
           margin-left: ${spacing}px;
         }
       }
-    `;
+    `
   }
 
   function touchableHover(
-    interpolation: InjectedInterpolation,
+    interpolation: InjectedInterpolation
   ): InjectedInterpolation {
     return css`
       @media (hover: hover) {
@@ -442,7 +455,7 @@
           ${interpolation}
         }
       }
-    `;
+    `
   }
   ```
 
@@ -464,20 +477,41 @@
       spacing={8}
       style={{ width: 300, height: 50 }}
     >
-      <StackItem grow shrink weight={1} />
-      <StackItem weight={0} size={10} marginBefore={20}>
+      <StackItem
+        grow
+        shrink
+        weight={1}
+      />
+      <StackItem
+        weight={0}
+        size={10}
+        marginBefore={20}
+      >
         <Stack direction="vertical" />
       </StackItem>
     </Stack>
-  );
+  )
 
   /* TO-BE */
   return (
-    <Stack direction="horizontal" spacing={8} width={300} height={50}>
-      <Box grow={1} shrink={1} />
-      <Stack direction="vertical" shrink={0} width={10} ml={12} />
+    <Stack
+      direction="horizontal"
+      spacing={8}
+      width={300}
+      height={50}
+    >
+      <Box
+        grow={1}
+        shrink={1}
+      />
+      <Stack
+        direction="vertical"
+        shrink={0}
+        width={10}
+        ml={12}
+      />
     </Stack>
-  );
+  )
   ```
 
   The changes also apply to other components that use `Stack` internally, and there are a few breaking changes.
@@ -505,7 +539,7 @@
     TooltipPrimitivePortal,
     TooltipPrimitiveProvider,
     TooltipPrimitiveTrigger,
-  } from "@channel.io/bezier-react/alpha";
+  } from '@channel.io/bezier-react/alpha'
   ```
 
 - When you pass a value of number type to the dimension-related properties of margin prop and layout prop, they implicitly add px units as a suffix. See: <https://react.dev/reference/react-dom/components/common#common> ([#1823](https://github.com/channel-io/bezier-react/pull/1823)) by @sungik-choi
@@ -513,7 +547,13 @@
 - Add `Box` component. `Box` component is responsible for the primitive layout and provides easy access to the design tokens in the design system ([#1785](https://github.com/channel-io/bezier-react/pull/1785)) by @sungik-choi
 
   ```tsx
-  <Box width="100px" height="100px" p="6px" m="6px" bgColor="bg-black-light" />
+  <Box
+    width="100px"
+    height="100px"
+    p="6px"
+    m="6px"
+    bgColor="bg-black-light"
+  />
   ```
 
 - Fixes style inheritance issues by explicitly giving CSS custom properties an initial value ([#1846](https://github.com/channel-io/bezier-react/pull/1846)) by @sungik-choi
@@ -532,7 +572,7 @@
     DialogPrimitivePortal,
     DialogPrimitiveTitle,
     DialogPrimitiveTrigger,
-  } from "@channel.io/bezier-react/alpha";
+  } from '@channel.io/bezier-react/alpha'
   ```
 
 - `ButtonGroup` now supports HTML attributes ([#1890](https://github.com/channel-io/bezier-react/pull/1890)) by @sungik-choi
@@ -556,9 +596,9 @@
 - Add `useRootElement` hook. It is only available to `WindowProvider` children, and provides easy access to the root element of window context value. ([#1981](https://github.com/channel-io/bezier-react/pull/1981)) by @sungik-choi
 
   ```tsx
-  const { window, document, rootElement } = useWindow();
+  const { window, document, rootElement } = useWindow()
   // Same as useWindow().rootElement
-  const rootElement = useRootElement();
+  const rootElement = useRootElement()
   ```
 
 ### Patch Changes
@@ -636,7 +676,7 @@
     TooltipPrimitivePortal,
     TooltipPrimitiveProvider,
     TooltipPrimitiveTrigger,
-  } from "@channel.io/bezier-react/alpha";
+  } from '@channel.io/bezier-react/alpha'
   ```
 
 - Add the `DialogPrimitive` component, which is the same as the [`Dialog` component in radix-ui](https://www.radix-ui.com/primitives/docs/components/dialog). You can use it by importing it from the `/alpha` path. ([#2049](https://github.com/channel-io/bezier-react/pull/2049)) by @sungik-choi
@@ -651,7 +691,7 @@
     DialogPrimitivePortal,
     DialogPrimitiveTitle,
     DialogPrimitiveTrigger,
-  } from "@channel.io/bezier-react/alpha";
+  } from '@channel.io/bezier-react/alpha'
   ```
 
 ## 2.0.0-alpha.19
@@ -829,11 +869,11 @@
           margin-left: ${spacing}px;
         }
       }
-    `;
+    `
   }
 
   function touchableHover(
-    interpolation: InjectedInterpolation,
+    interpolation: InjectedInterpolation
   ): InjectedInterpolation {
     return css`
       @media (hover: hover) {
@@ -847,7 +887,7 @@
           ${interpolation}
         }
       }
-    `;
+    `
   }
   ```
 
@@ -860,9 +900,9 @@
 - Add `useRootElement` hook. It is only available to `WindowProvider` children, and provides easy access to the root element of window context value. ([#1981](https://github.com/channel-io/bezier-react/pull/1981)) by @sungik-choi
 
   ```tsx
-  const { window, document, rootElement } = useWindow();
+  const { window, document, rootElement } = useWindow()
   // Same as useWindow().rootElement
-  const rootElement = useRootElement();
+  const rootElement = useRootElement()
   ```
 
 ### Patch Changes
@@ -1175,20 +1215,41 @@
       spacing={8}
       style={{ width: 300, height: 50 }}
     >
-      <StackItem grow shrink weight={1} />
-      <StackItem weight={0} size={10} marginBefore={20}>
+      <StackItem
+        grow
+        shrink
+        weight={1}
+      />
+      <StackItem
+        weight={0}
+        size={10}
+        marginBefore={20}
+      >
         <Stack direction="vertical" />
       </StackItem>
     </Stack>
-  );
+  )
 
   /* TO-BE */
   return (
-    <Stack direction="horizontal" spacing={8} width={300} height={50}>
-      <Box grow={1} shrink={1} />
-      <Stack direction="vertical" shrink={0} width={10} ml={12} />
+    <Stack
+      direction="horizontal"
+      spacing={8}
+      width={300}
+      height={50}
+    >
+      <Box
+        grow={1}
+        shrink={1}
+      />
+      <Stack
+        direction="vertical"
+        shrink={0}
+        width={10}
+        ml={12}
+      />
     </Stack>
-  );
+  )
   ```
 
   The changes also apply to other components that use `Stack` internally, and there are a few changes.
@@ -1224,7 +1285,13 @@
 - Add `Box` component. `Box` component is responsible for the primitive layout and provides easy access to the design tokens in the design system. ([#1785](https://github.com/channel-io/bezier-react/pull/1785)) by @sungik-choi
 
   ```tsx
-  <Box width="100px" height="100px" p="6px" m="6px" bgColor="bg-black-light" />
+  <Box
+    width="100px"
+    height="100px"
+    p="6px"
+    m="6px"
+    bgColor="bg-black-light"
+  />
   ```
 
 - Rename `AlphaAppProvider` to `AppProvider`. ([#1834](https://github.com/channel-io/bezier-react/pull/1834)) by @sungik-choi
@@ -1337,7 +1404,7 @@
 - Implement the feature to add scripts by injecting a window object into the `activate` function of `SmoothCornersFeatures`, if needed. ([#1642](https://github.com/channel-io/bezier-react/pull/1642)) by @sungik-choi
 
   ```tsx
-  SmoothCornersFeature.activate(window);
+  SmoothCornersFeature.activate(window)
   ```
 
 ## 1.13.0
@@ -1700,15 +1767,18 @@
 - [#1254](https://github.com/channel-io/bezier-react/pull/1254) [`e4a0d68c`](https://github.com/channel-io/bezier-react/commit/e4a0d68c0808debb50a8316cad2680dbca057db4) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add `container` property to `Tooltip` component.
 
   ```tsx
-  const [container, setContainer] = useState<HTMLDivElement | null>(null);
+  const [container, setContainer] = useState<HTMLDivElement | null>(null)
 
   return (
     <div ref={setContainer}>
-      <Tooltip content="Lorem ipsum" container={container}>
+      <Tooltip
+        content="Lorem ipsum"
+        container={container}
+      >
         <div />
       </Tooltip>
     </div>
-  );
+  )
   ```
 
 - [#1359](https://github.com/channel-io/bezier-react/pull/1359) [`d52a2710`](https://github.com/channel-io/bezier-react/commit/d52a27103641e6c2908e4b7983e7ac9e33dc4e78) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fix `Avatar` not resizing under flex layout.
@@ -1732,15 +1802,15 @@
     FeatureProvider,
     SmoothCornersFeature,
     BezierProvider,
-  } from "@channel.io/bezier-react";
+  } from '@channel.io/bezier-react'
 
   root.render(
     <FeatureProvider features={[SmoothCornersFeature]}>
       <BezierProvider>
         <App />
       </BezierProvider>
-    </FeatureProvider>,
-  );
+    </FeatureProvider>
+  )
   ```
 
 - [#1279](https://github.com/channel-io/bezier-react/pull/1279) [`dc2e30cd`](https://github.com/channel-io/bezier-react/commit/dc2e30cdb198e2d74000a67f2147ddd6370d967c) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Fixes an issue that causes the focus to move whenever the state changes when using `AutoFocus` component.
@@ -2122,15 +2192,15 @@
     FeatureProvider,
     SmoothCornersFeature,
     BezierProvider,
-  } from "@channel.io/bezier-react";
+  } from '@channel.io/bezier-react'
 
   root.render(
     <FeatureProvider features={[SmoothCornersFeature]}>
       <BezierProvider>
         <App />
       </BezierProvider>
-    </FeatureProvider>,
-  );
+    </FeatureProvider>
+  )
   ```
 
 - [#1317](https://github.com/channel-io/bezier-react/pull/1317) [`b2629ece`](https://github.com/channel-io/bezier-react/commit/b2629ece4ffcee334fdb0554ed37ee29ed5fa9eb) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Implement `AlphaSmoothCornersBox`.
@@ -2266,15 +2336,18 @@
 - [#1254](https://github.com/channel-io/bezier-react/pull/1254) [`e4a0d68c`](https://github.com/channel-io/bezier-react/commit/e4a0d68c0808debb50a8316cad2680dbca057db4) Thanks [@sungik-choi](https://github.com/sungik-choi)! - Add `container` property to `Tooltip` component.
 
   ```tsx
-  const [container, setContainer] = useState<HTMLDivElement | null>(null);
+  const [container, setContainer] = useState<HTMLDivElement | null>(null)
 
   return (
     <div ref={setContainer}>
-      <Tooltip content="Lorem ipsum" container={container}>
+      <Tooltip
+        content="Lorem ipsum"
+        container={container}
+      >
         <div />
       </Tooltip>
     </div>
-  );
+  )
   ```
 
 ### Patch Changes
