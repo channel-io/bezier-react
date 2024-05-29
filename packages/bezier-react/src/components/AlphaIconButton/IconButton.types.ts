@@ -21,7 +21,7 @@ type IconButtonColor =
   | 'purple'
   | 'dark-grey'
   | 'light-grey'
-  | 'white'
+  | 'white-absolute'
 
 type IconButtonSize = 'xs' | 's' | 'm' | 'l' | 'xl'
 

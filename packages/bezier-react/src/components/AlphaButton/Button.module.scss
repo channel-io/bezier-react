@@ -67,6 +67,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       purple: var(--alpha-color-bg-purple-normal),
       dark-grey: var(--alpha-color-bg-grey-darkest),
       light-grey: var(--alpha-color-bg-black-dark),
+      white-absolute: var(--alpha-color-bg-absolute-white-dark),
     );
 
     @each $color, $background-color in $background-color-by-color {
@@ -87,6 +88,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       purple: var(--alpha-color-bg-purple-lightest),
       dark-grey: var(--alpha-color-bg-black-lighter),
       light-grey: var(--alpha-color-bg-black-lighter),
+      white-absolute: var(--alpha-color-bg-absolute-white-lightest),
     );
 
     @each $color, $background-color in $background-color-by-color {
@@ -146,7 +148,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     }
   }
 
-  &:where(.variant-tertiary.color-white) {
+  &:where(.variant-tertiary.color-white-absolute) {
     & :where(.ButtonIcon) {
       color: var(--alpha-color-fg-absolute-white-light);
     }
@@ -212,7 +214,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
         }
       }
 
-      &:where(.color-dark-grey, .color-light-grey, .color-white) {
+      &:where(.color-dark-grey, .color-light-grey, .color-white-absolute) {
         background-color: var(--bg-black-lighter);
       }
     }
@@ -229,7 +231,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       }
     }
 
-    &:where(.color-white.variant-tertiary) {
+    &:where(.color-white-absolute.variant-tertiary) {
       & :where(.ButtonIcon) {
         color: var(--alpha-color-fg-absolute-white-normal);
       }
