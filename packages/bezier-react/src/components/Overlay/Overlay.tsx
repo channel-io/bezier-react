@@ -2,7 +2,6 @@ import React, {
   forwardRef,
   useCallback,
   useEffect,
-  useLayoutEffect,
   useReducer,
   useRef,
   useState,
@@ -12,6 +11,7 @@ import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 
 import useEventHandler from '~/src/hooks/useEventHandler'
+import { useIsomorphicLayoutEffect } from '~/src/hooks/useIsomorphicLayoutEffect'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 
 import { useModalContainerContext } from '~/src/components/Modal'
@@ -94,7 +94,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       }
     }, [container, hasContainer])
 
-    useLayoutEffect(
+    useIsomorphicLayoutEffect(
       function initContainerRect() {
         if (show) {
           handleContainerRect()
@@ -125,7 +125,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       }
     }, [target])
 
-    useLayoutEffect(
+    useIsomorphicLayoutEffect(
       function initTargetRect() {
         if (show) {
           handleTargetRect()

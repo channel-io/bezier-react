@@ -51,10 +51,11 @@ export const BaseTagBadge = forwardRef<HTMLDivElement, BaseTagBadgeProps>(
 export const BaseTagBadgeText = forwardRef<
   HTMLDivElement,
   BaseTagBadgeTextProps
->(function BaseTagBadgeText({ size, children, ...rest }) {
+>(function BaseTagBadgeText({ size, children, ...rest }, forwardedRef) {
   return (
     <Text
       typo={getProperTypo(size)}
+      ref={forwardedRef}
       {...rest}
     >
       {children}

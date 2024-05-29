@@ -205,9 +205,8 @@ export function ToastProvider({
 
   const createContainer = useCallback(
     (placement: ToastPlacement, toasts: ToastType[]) => (
-      <InvertedThemeProvider>
+      <InvertedThemeProvider key={placement}>
         <div
-          key={placement}
           style={{
             bottom: px(offset?.bottom ?? DEFAULT_OFFSET.bottom),
             ...(placement === 'bottom-right'
