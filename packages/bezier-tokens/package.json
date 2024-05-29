@@ -49,7 +49,7 @@
   ],
   "scripts": {
     "build": "run-s clean:build build:tokens build:types",
-    "build:tokens": "ts-node-esm scripts/build-tokens.ts",
+    "build:tokens": "ts-node scripts/build-tokens.ts",
     "build:types": "tsc -p tsconfig.build.json",
     "lint": "TIMING=1 eslint --cache .",
     "typecheck": "tsc --noEmit",
