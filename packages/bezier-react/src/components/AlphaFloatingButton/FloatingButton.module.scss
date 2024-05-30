@@ -187,7 +187,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   }
 
   /* internal components */
-  .ButtonContent {
+  & :where(.ButtonContent) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -197,7 +197,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     }
   }
 
-  .ButtonLoader {
+  & :where(.ButtonLoader) {
     position: absolute;
     inset: 0;
 

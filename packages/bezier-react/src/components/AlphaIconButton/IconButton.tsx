@@ -80,9 +80,9 @@ export const IconButton = forwardRef<HTMLButtonElement, AlphaIconButtonProps>(
             )}
           >
             <AlphaSpinner
+              className={styles.Spinner}
               size="s"
               variant="on-overlay"
-              className={styles.Spinner}
             />
           </div>
         )}
