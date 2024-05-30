@@ -18,7 +18,8 @@ export const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(
         className={classNames(
           styles.Spinner,
           size && styles[`size-${size}`],
-          styles[`variant-${variant}`]
+          styles[`variant-${variant}`],
+          className
         )}
         ref={forwardedRef}
         data-testid={SPINNER_TEST_ID}
@@ -33,7 +34,6 @@ export const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(
             cy="8"
             r="7"
             className={styles.track}
-            vectorEffect="non-scaling-stroke"
           />
 
           <circle
@@ -41,7 +41,6 @@ export const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(
             cy="8"
             r="7"
             className={styles.indicator}
-            vectorEffect="non-scaling-stroke"
           />
         </svg>
       </span>

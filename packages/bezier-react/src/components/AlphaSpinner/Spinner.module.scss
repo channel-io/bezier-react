@@ -16,20 +16,22 @@
   --b-spinner-indicator-color: initial;
   --b-spinner-stroke-width: initial;
   --b-spinner-stroke-dasharray: initial;
+  --b-spinner-stroke-width: 2px;
+  --b-spinner-stroke-dasharray: 16 9999;
 
   @include dimension.square(var(--b-spinner-size));
 
   display: inline-flex;
   animation: rotate 1s linear infinite;
 
-  & .track {
+  & :where(.track) {
     fill: none;
     stroke: var(--b-spinner-track-color);
     stroke-linecap: round;
     stroke-width: var(--b-spinner-stroke-width);
   }
 
-  & .indicator {
+  & :where(.indicator) {
     fill: none;
     stroke: var(--b-spinner-indicator-color);
     stroke-dasharray: var(--b-spinner-stroke-dasharray);
@@ -39,14 +41,10 @@
 
   &:where(.size-s) {
     --b-spinner-size: 28px;
-    --b-spinner-stroke-width: 4px;
-    --b-spinner-stroke-dasharray: 40 9999;
   }
 
   &:where(.size-m) {
     --b-spinner-size: 50px;
-    --b-spinner-stroke-width: 6px;
-    --b-spinner-stroke-dasharray: 60 9999;
   }
 
   &:where(.variant-primary) {
