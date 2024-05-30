@@ -5,24 +5,11 @@ import classNames from 'classnames'
 import { getMarginStyles, splitByMarginProps } from '~/src/types/props-helpers'
 import { tokenCssVar } from '~/src/utils/style'
 
-import { type IconProps, type IconSize } from './Icon.types'
+import { type IconProps } from './Icon.types'
 
 import styles from './Icon.module.scss'
 
 export const ICON_TEST_ID = 'bezier-icon'
-
-const getSizeValue = (size: IconSize) =>
-  (
-    ({
-      xl: 44,
-      l: 36,
-      m: 24,
-      s: 20,
-      xs: 16,
-      xxs: 12,
-      xxxs: 10,
-    }) satisfies Record<IconSize, number>
-  )[size]
 
 export const Icon = memo(
   forwardRef<SVGSVGElement, IconProps>(function Icon(props, forwardedRef) {
@@ -48,9 +35,12 @@ export const Icon = memo(
             ...style,
           } as React.CSSProperties
         }
-        className={classNames(styles.Icon, marginStyles.className, className)}
-        width={getSizeValue(size)}
-        height={getSizeValue(size)}
+        className={classNames(
+          styles.Icon,
+          styles[`size-${size}`],
+          marginStyles.className,
+          className
+        )}
         data-testid={ICON_TEST_ID}
         {...rest}
       />
