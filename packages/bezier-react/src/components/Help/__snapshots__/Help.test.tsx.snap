@@ -2,13 +2,13 @@
 
 exports[`Help > Snapshot > 1`] = `
 <svg
-  class="Icon margin Icon"
+  class="Icon size-xs margin Icon"
   data-testid="bezier-help"
   fill="none"
-  height="16"
+  height="1em"
   style="--b-icon-color: var(--txt-black-dark);"
   viewBox="0 0 24 24"
-  width="16"
+  width="1em"
   xmlns="http://www.w3.org/2000/svg"
 >
   <path
