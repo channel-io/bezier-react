@@ -14,8 +14,8 @@
   --b-spinner-size: initial;
   --b-spinner-track-color: initial;
   --b-spinner-indicator-color: initial;
-  --b-spinner-stroke-width: initial;
-  --b-spinner-stroke-dasharray: initial;
+
+  /* NOTE: stroke-width is fixed for the exceptional case of use inside buttons */
   --b-spinner-stroke-width: 2px;
   --b-spinner-stroke-dasharray: 16 9999;
 
@@ -41,10 +41,12 @@
 
   &:where(.size-s) {
     --b-spinner-size: 28px;
+    --b-spinner-stroke-width: calc(16 * 4px / 28);
   }
 
   &:where(.size-m) {
     --b-spinner-size: 50px;
+    --b-spinner-stroke-width: calc(16 * 6px / 50);
   }
 
   &:where(.variant-primary) {
