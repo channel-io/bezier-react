@@ -4,12 +4,14 @@ const statusByKey = {
   M: 'modified',
   A: 'added',
   D: 'deleted',
+  R100: 'renamed',
 }
 
 const emojiByKey = {
   M: '✏️',
   A: '🆕',
   D: '🗑️',
+  R100: '✍️',
 }
 
 const getSummary = (iconsByStatus) => {
