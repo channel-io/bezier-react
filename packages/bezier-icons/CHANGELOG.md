@@ -1,5 +1,27 @@
 # @channel.io/bezier-icons
 
+## 0.25.0
+
+### Minor Changes
+
+- Update icons ([#2248](https://github.com/channel-io/bezier-react/pull/2248)) by @kimminkyung94
+
+  Added
+
+  - cloud-upload-complete.svg
+  - document.svg
+  - exclusive.svg
+  - no-sound-filled.svg
+  - office-phone.svg
+  - person-sleep.svg
+  - pointer.svg
+
+  Modified
+
+  - dragable-alt.svg
+  - flag-filled.svg
+  - videocam-filled.svg
+
 ## 0.24.0
 
 ### Minor Changes
