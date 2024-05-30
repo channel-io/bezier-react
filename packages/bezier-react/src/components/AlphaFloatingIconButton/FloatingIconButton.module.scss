@@ -1,5 +1,7 @@
 @use '../../styles/mixins/dimension';
 
+@import '../Icon/Icon.module.scss';
+
 $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
 .FloatingIconButton {
@@ -171,5 +173,13 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @each $size, $value in $size-map {
+      &:where(.size-#{$size}) {
+        & :is(.Spinner) {
+          @include dimension.square(#{$value}px);
+        }
+      }
+    }
   }
 }

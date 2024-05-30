@@ -7,9 +7,9 @@ import {
   type FloatingButtonProps,
   type FloatingButtonSize,
 } from '~/src/components/AlphaFloatingButton/FloatingButton.types'
+import { AlphaSpinner } from '~/src/components/AlphaSpinner'
 import { BaseButton } from '~/src/components/BaseButton'
 import { Icon, type IconSize } from '~/src/components/Icon'
-import { Spinner } from '~/src/components/Spinner'
 import { Text } from '~/src/components/Text'
 
 import styles from './FloatingButton.module.scss'
@@ -40,18 +40,6 @@ function getIconSize(size: FloatingButtonSize) {
       m: 's',
       l: 's',
       xl: 'm',
-    } as const
-  )[size]
-}
-
-function getSpinnerSize(size: FloatingButtonSize) {
-  return (
-    {
-      xs: 'xs',
-      s: 'xs',
-      m: 's',
-      l: 's',
-      xl: 's',
     } as const
   )[size]
 }
@@ -125,10 +113,18 @@ export const FloatingButton = forwardRef<
         />
       </div>
 
-      {/* TODO: use AlphaSpinner */}
       {loading && (
-        <div className={styles.ButtonLoader}>
-          <Spinner size={getSpinnerSize(size)} />
+        <div
+          className={classNames(
+            styles.ButtonLoader,
+            styles[`size-${getIconSize(size)}`]
+          )}
+        >
+          <AlphaSpinner
+            size="s"
+            variant="on-overlay"
+            className={styles.Spinner}
+          />
         </div>
       )}
     </Comp>
