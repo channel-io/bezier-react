@@ -124,8 +124,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             <AlphaSpinner
               className={styles.Spinner}
               variant="on-overlay"
-              // NOTE: Spinner size will be overridden by Icon size
-              size="s"
             />
           </div>
         )}

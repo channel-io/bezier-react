@@ -122,7 +122,6 @@ export const FloatingButton = forwardRef<
         >
           <AlphaSpinner
             className={styles.Spinner}
-            size="s"
             variant="on-overlay"
           />
         </div>
