@@ -6,7 +6,8 @@ describe('getChangeLog function', () => {
     const gitLog = `M\tpackages/bezier-icons/icons/all.svg
 D\tpackages/bezier-icons/icons/home.svg
 A\tpackages/bezier-icons/icons/people.svg
-A\tpackages/bezier-icons/icons/chevron-right.svg`
+A\tpackages/bezier-icons/icons/chevron-right.svg
+R100\tpackages/bezier-icons/icons/paused.svg\tpackages/bezier-icons/icons/paused-fill.svg`
 
     expect(getChangeLog(gitLog)).toBe(
       `---
@@ -26,7 +27,11 @@ Deleted
 Added
 
 - people.svg
-- chevron-right.svg`
+- chevron-right.svg
+
+Renamed
+
+- paused.svg -> paused-fill.svg`
     )
   })
 })
