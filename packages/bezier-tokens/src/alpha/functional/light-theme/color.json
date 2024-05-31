@@ -366,6 +366,10 @@
           "light": {
             "value": "{color.white.20}",
             "type": "color"
+          },
+          "transparent": {
+            "value": "{color.white.0}",
+            "type": "color"
           }
         }
       },
