@@ -32,14 +32,14 @@ export const Spinner = forwardRef<HTMLSpanElement, SpinnerProps>(
           <circle
             cx="8"
             cy="8"
-            r="7"
+            r="6.5"
             className={styles.track}
           />
 
           <circle
             cx="8"
             cy="8"
-            r="7"
+            r="6.5"
             className={styles.indicator}
           />
         </svg>
