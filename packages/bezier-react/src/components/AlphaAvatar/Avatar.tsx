@@ -2,9 +2,9 @@ import React, { forwardRef, useMemo } from 'react'
 
 import classNames from 'classnames'
 
+import { createContext } from '~/src/utils/react'
 import { isEmpty } from '~/src/utils/type'
 
-import { useAvatarGroupContext } from '~/src/components/AlphaAvatarGroup/AvatarGroup'
 import {
   SmoothCornersBox,
   type SmoothCornersBoxProps,
@@ -55,6 +55,12 @@ export const AVATAR_WRAPPER_TEST_ID = 'bezier-avatar-wrapper'
 export const AVATAR_TEST_ID = 'bezier-avatar'
 export const STATUS_WRAPPER_TEST_ID = 'bezier-status-wrapper'
 
+const [AvatarContextProvider, useAvatarContext] = createContext<
+  Pick<AvatarProps, 'size'> | undefined
+>(undefined)
+
+export { AvatarContextProvider }
+
 /**
  * `Avatar` is a component for representing some profile image.
  * @example
@@ -85,7 +91,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
   },
   forwardedRef
 ) {
-  const avatarGroupContext = useAvatarGroupContext()
+  const avatarGroupContext = useAvatarContext()
   const size = avatarGroupContext?.size ?? sizeProps
   const loadedAvatarUrl = useProgressiveImage(avatarUrl, fallbackUrl)
   const AVATAR_BORDER_RADIUS = useAvatarRadiusToken()
