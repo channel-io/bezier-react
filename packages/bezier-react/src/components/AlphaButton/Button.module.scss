@@ -1,3 +1,7 @@
+@use '../../styles/mixins/dimension';
+
+@import '../Icon/Icon.module';
+
 $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
 .Button {
@@ -258,12 +262,20 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     }
   }
 
-  .ButtonLoader {
+  & :where(.ButtonLoader) {
     position: absolute;
     inset: 0;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @each $size, $value in $size-map {
+      &:where(.size-#{$size}) {
+        & :is(.Spinner) {
+          @include dimension.square(#{$value}px);
+        }
+      }
+    }
   }
 }

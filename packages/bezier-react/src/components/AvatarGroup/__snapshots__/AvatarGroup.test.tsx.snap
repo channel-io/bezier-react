@@ -180,13 +180,13 @@ exports[`AvatarGroup Ellipsis type - Icon Snapshot 1`] = `
       style="--b-smooth-corners-box-border-radius: 42%; --b-smooth-corners-box-shadow-blur-radius: 0px; --b-smooth-corners-box-shadow-spread-radius: 0px; --b-smooth-corners-box-padding: 0px; --b-smooth-corners-box-margin: 0px; --b-smooth-corners-box-background-color: var(--bgtxt-absolute-black-lightest);"
     >
       <svg
-        class="Icon margin"
+        class="Icon size-xs margin"
         data-testid="bezier-icon"
         fill="none"
-        height="16"
+        height="1em"
         style="--b-icon-color: var(--bgtxt-absolute-white-dark);"
         viewBox="0 0 24 24"
-        width="16"
+        width="1em"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path

@@ -14,22 +14,26 @@
   --b-spinner-size: initial;
   --b-spinner-track-color: initial;
   --b-spinner-indicator-color: initial;
-  --b-spinner-stroke-width: initial;
-  --b-spinner-stroke-dasharray: initial;
+  --b-spinner-stroke-thickness: initial;
 
-  @include dimension.square(var(--b-spinner-size));
+  /* NOTE: stroke-width is fixed for the exceptional case of use inside buttons */
+  --b-spinner-stroke-width: 2px;
+  --b-spinner-view-box-size: 16;
+  --b-spinner-stroke-dasharray: 16 9999;
+
+  @include dimension.square(calc(1px * var(--b-spinner-size)));
 
   display: inline-flex;
   animation: rotate 1s linear infinite;
 
-  & .track {
+  & :where(.track) {
     fill: none;
     stroke: var(--b-spinner-track-color);
     stroke-linecap: round;
     stroke-width: var(--b-spinner-stroke-width);
   }
 
-  & .indicator {
+  & :where(.indicator) {
     fill: none;
     stroke: var(--b-spinner-indicator-color);
     stroke-dasharray: var(--b-spinner-stroke-dasharray);
@@ -37,16 +41,21 @@
     stroke-width: var(--b-spinner-stroke-width);
   }
 
+  &:where(.size-s, .size-m) {
+    --b-spinner-stroke-width: calc(
+      var(--b-spinner-stroke-thickness) * var(--b-spinner-view-box-size) /
+        var(--b-spinner-size)
+    );
+  }
+
   &:where(.size-s) {
-    --b-spinner-size: 28px;
-    --b-spinner-stroke-width: 4px;
-    --b-spinner-stroke-dasharray: 40 9999;
+    --b-spinner-size: 28;
+    --b-spinner-stroke-thickness: 4px;
   }
 
   &:where(.size-m) {
-    --b-spinner-size: 50px;
-    --b-spinner-stroke-width: 6px;
-    --b-spinner-stroke-dasharray: 60 9999;
+    --b-spinner-size: 50;
+    --b-spinner-stroke-thickness: 6px;
   }
 
   &:where(.variant-primary) {

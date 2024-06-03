@@ -4,10 +4,10 @@ import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import { type AlphaIconButtonProps } from '~/src/components/AlphaIconButton'
+import { AlphaSpinner } from '~/src/components/AlphaSpinner'
 import { BaseButton } from '~/src/components/BaseButton'
 import { type ButtonSize } from '~/src/components/Button'
 import { Icon } from '~/src/components/Icon'
-import { Spinner } from '~/src/components/Spinner'
 
 import styles from './IconButton.module.scss'
 
@@ -19,18 +19,6 @@ function getIconSize(size: ButtonSize) {
       m: 's',
       l: 's',
       xl: 'm',
-    } as const
-  )[size]
-}
-
-function getSpinnerSize(size: ButtonSize) {
-  return (
-    {
-      xs: 'xs',
-      s: 'xs',
-      m: 's',
-      l: 's',
-      xl: 's',
     } as const
   )[size]
 }
@@ -84,10 +72,17 @@ export const IconButton = forwardRef<HTMLButtonElement, AlphaIconButtonProps>(
           )}
         </div>
 
-        {/* TODO: use AlphaSpinner */}
         {loading && (
-          <div className={styles.ButtonLoader}>
-            <Spinner size={getSpinnerSize(size)} />
+          <div
+            className={classNames(
+              styles.ButtonLoader,
+              styles[`size-${getIconSize(size)}`]
+            )}
+          >
+            <AlphaSpinner
+              className={styles.Spinner}
+              variant="on-overlay"
+            />
           </div>
         )}
       </Comp>
