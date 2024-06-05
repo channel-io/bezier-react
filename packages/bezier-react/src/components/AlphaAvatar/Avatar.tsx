@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 import { isEmpty } from '~/src/utils/type'
 
-import { useAvatarGroupContext } from '~/src/components/AlphaAvatarGroup/AvatarGroup'
+import { useAvatarContext } from '~/src/components/AlphaAvatar/AvatarSizeContext'
 import {
   SmoothCornersBox,
   type SmoothCornersBoxProps,
@@ -85,7 +85,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
   },
   forwardedRef
 ) {
-  const avatarGroupContext = useAvatarGroupContext()
+  const avatarGroupContext = useAvatarContext()
   const size = avatarGroupContext?.size ?? sizeProps
   const loadedAvatarUrl = useProgressiveImage(avatarUrl, fallbackUrl)
   const AVATAR_BORDER_RADIUS = useAvatarRadiusToken()

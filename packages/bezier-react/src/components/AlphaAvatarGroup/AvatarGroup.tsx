@@ -4,7 +4,6 @@ import { MoreIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import { isLastIndex } from '~/src/utils/array'
-import { createContext } from '~/src/utils/react'
 import { px } from '~/src/utils/style'
 
 import {
@@ -12,22 +11,14 @@ import {
   type AlphaAvatarSize,
   useAlphaAvatarRadiusToken,
 } from '~/src/components/AlphaAvatar'
+import { AvatarContextProvider } from '~/src/components/AlphaAvatar/AvatarSizeContext'
 import { Icon } from '~/src/components/Icon'
 import { SmoothCornersBox } from '~/src/components/SmoothCornersBox'
 import { Text } from '~/src/components/Text'
 
-import {
-  type AvatarGroupContextValue,
-  type AvatarGroupProps,
-} from './AvatarGroup.types'
+import { type AvatarGroupProps } from './AvatarGroup.types'
 
 import styles from './AvatarGroup.module.scss'
-
-const [AvatarGroupContextProvider, useAvatarGroupContext] = createContext<
-  AvatarGroupContextValue | undefined
->(undefined)
-
-export { useAvatarGroupContext }
 
 const MAX_AVATAR_LIST_COUNT = 99
 const AVATAR_GROUP_DEFAULT_SPACING = 4
@@ -197,7 +188,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
     ])
 
     return (
-      <AvatarGroupContextProvider
+      <AvatarContextProvider
         value={useMemo(
           () => ({
             size,
@@ -223,7 +214,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
         >
           {AvatarListComponent}
         </div>
-      </AvatarGroupContextProvider>
+      </AvatarContextProvider>
     )
   }
 )

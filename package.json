@@ -45,7 +45,7 @@
     "typescript": "^5.4.2"
   },
   "engines": {
-    "node": "18.20.3",
+    "node": ">= 18.20.3",
     "yarn": "4.2.2"
   },
   "config": {

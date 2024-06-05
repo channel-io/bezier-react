@@ -60,7 +60,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     );
 
     @each $color, $background-color in $background-color-by-color {
-      &:where(.color-#{$color}) {
+      &:where(.color-#{'' + $color}) {
         background-color: $background-color;
       }
     }
@@ -99,7 +99,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     );
 
     @each $button-color, $color in $color-map {
-      &:where(.color-#{$button-color}) {
+      &:where(.color-#{'' + $button-color}) {
         color: $color;
       }
     }
@@ -111,7 +111,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   &:where(.active, :hover):where(:not(:disabled)) {
     &:where(.variant-primary) {
       @each $color in $chromatic-colors {
-        &:where(.color-#{$color}) {
+        &:where(.color-#{'' + $color}) {
           background-color: var(--bgtxt-#{$color}-dark);
         }
       }
@@ -127,7 +127,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
     &:where(.variant-secondary) {
       @each $color in $chromatic-colors {
-        &:where(.color-#{$color}) {
+        &:where(.color-#{'' + $color}) {
           background-color: var(--bgtxt-#{$color}-lighter);
         }
       }

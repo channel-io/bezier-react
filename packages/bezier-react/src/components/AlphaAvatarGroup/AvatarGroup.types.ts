@@ -33,9 +33,6 @@ interface AvatarGroupOwnProps {
   ellipsisType?: AvatarGroupEllipsisType
 }
 
-export interface AvatarGroupContextValue
-  extends Pick<AlphaAvatarProps, 'size'> {}
-
 export interface AvatarGroupProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,
