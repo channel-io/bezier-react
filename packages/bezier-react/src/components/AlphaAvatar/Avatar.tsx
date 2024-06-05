@@ -2,9 +2,9 @@ import React, { forwardRef, useMemo } from 'react'
 
 import classNames from 'classnames'
 
-import { createContext } from '~/src/utils/react'
 import { isEmpty } from '~/src/utils/type'
 
+import { useAvatarContext } from '~/src/components/AlphaAvatar/AvatarSizeContext'
 import {
   SmoothCornersBox,
   type SmoothCornersBoxProps,
@@ -54,12 +54,6 @@ export function useAvatarRadiusToken() {
 export const AVATAR_WRAPPER_TEST_ID = 'bezier-avatar-wrapper'
 export const AVATAR_TEST_ID = 'bezier-avatar'
 export const STATUS_WRAPPER_TEST_ID = 'bezier-status-wrapper'
-
-const [AvatarContextProvider, useAvatarContext] = createContext<
-  Pick<AvatarProps, 'size'> | undefined
->(undefined)
-
-export { AvatarContextProvider }
 
 /**
  * `Avatar` is a component for representing some profile image.

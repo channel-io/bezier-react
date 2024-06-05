@@ -11,7 +11,7 @@ import {
   type AlphaAvatarSize,
   useAlphaAvatarRadiusToken,
 } from '~/src/components/AlphaAvatar'
-import { AvatarContextProvider } from '~/src/components/AlphaAvatar/Avatar'
+import { AvatarContextProvider } from '~/src/components/AlphaAvatar/AvatarSizeContext'
 import { Icon } from '~/src/components/Icon'
 import { SmoothCornersBox } from '~/src/components/SmoothCornersBox'
 import { Text } from '~/src/components/Text'
