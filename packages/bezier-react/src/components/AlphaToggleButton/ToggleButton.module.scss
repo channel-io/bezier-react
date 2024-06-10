@@ -1,0 +1,105 @@
+@use '../../styles/mixins/dimension';
+
+@import '../Icon/Icon.module';
+
+.Button {
+  position: relative;
+  box-sizing: border-box;
+  transition: background-color var(--transition-s);
+
+  &:where(.size-m) {
+    height: 36px;
+    padding: 8px 12px;
+
+    & :where(.ButtonText) {
+      padding: 1px 4px;
+    }
+  }
+
+  &:where(.variant-primary) {
+    background-color: var(--alpha-color-bg-grey-lightest);
+    box-shadow: var(--alpha-shadow-input-default);
+    color: var(--alpha-color-fg-black-darkest);
+  }
+
+  &:where(.variant-secondary) {
+    background-color: var(--alpha-color-bg-black-lightest);
+  }
+
+  &:where(.shape-rectangle) {
+    border-radius: var(--alpha-dimension-10);
+  }
+
+  &:where(.shape-capsule) {
+    border-radius: 9999px;
+  }
+
+  &:where(:hover) {
+    &:where(.variant-primary) {
+      background-color: var(--alpha-color-bg-grey-lighter);
+    }
+
+    &:where(.variant-secondary) {
+      background-color: var(--alpha-color-bg-black-lighter);
+    }
+
+    &:where([data-state='off']) {
+      & :is(.ButtonIcon) {
+        color: var(--txt-black-darker);
+      }
+    }
+  }
+
+  &:where([data-state='on']) {
+    color: var(--alpha-color-fg-blue-normal);
+
+    &:where(.variant-primary) {
+      background-color: var(--alpha-color-bg-blue-lightest);
+      box-shadow: var(--alpha-shadow-input-hover);
+    }
+
+    &:where(.variant-secondary) {
+      background-color: var(--alpha-color-primary-bg-lighter);
+    }
+  }
+
+  &:where([data-state='off']) {
+    color: var(--txt-black-darkest);
+
+    & :where(.ButtonIcon) {
+      color: var(--alpha-color-fg-black-dark);
+    }
+  }
+
+  &:where(:focus-visible) {
+    box-shadow: var(--alpha-shadow-input-active);
+  }
+
+  /* internal components */
+  .ButtonContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:where(.loading) {
+      visibility: hidden;
+    }
+  }
+
+  & :where(.ButtonLoader) {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @each $size, $value in $size-map {
+      &:where(.size-#{$size}) {
+        & :is(.Spinner) {
+          @include dimension.square(#{$value}px);
+        }
+      }
+    }
+  }
+}
