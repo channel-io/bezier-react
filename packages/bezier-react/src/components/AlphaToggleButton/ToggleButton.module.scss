@@ -76,7 +76,7 @@
   }
 
   /* internal components */
-  .ButtonContent {
+  & :where(.ButtonContent) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -101,5 +101,16 @@
         }
       }
     }
+  }
+
+  /* NOTE: this fixes container width on toggle */
+  & :where(.ButtonText)::after {
+    display: block;
+    content: attr(data-text);
+    font-weight: bold;
+    height: 0px;
+    color: transparent;
+    overflow: hidden;
+    visibility: hidden;
   }
 }
