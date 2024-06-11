@@ -5,6 +5,7 @@ import * as TogglePrimitive from '@radix-ui/react-toggle'
 import classNames from 'classnames'
 
 import { AlphaSpinner } from '~/src/components/AlphaSpinner'
+import { useToggleButtonContext } from '~/src/components/AlphaToggleButton/ToggleButtonContext'
 import { BaseButton } from '~/src/components/BaseButton'
 import { Icon, type IconSize } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
@@ -39,7 +40,7 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
       prefixContent,
       suffixContent,
       variant = 'primary',
-      shape,
+      shape: shapeProps = 'capsule',
       size = 'm',
       className,
       loading,
@@ -48,6 +49,8 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
     },
     forwardedRef
   ) {
+    const { shape: shapeContext } = useToggleButtonContext()
+    const shape = shapeProps ?? shapeContext
     const Comp = as as typeof BaseButton
     const ICON_SIZE = 's'
 

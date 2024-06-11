@@ -20,17 +20,14 @@ const Template: StoryFn<
   return (
     <ToggleButtonGroup {...props}>
       <ToggleButton
-        shape="rectangle"
         value="react"
         text="react"
       />
       <ToggleButton
-        shape="rectangle"
         value="svelte"
         text="svelte"
       />
       <ToggleButton
-        shape="rectangle"
         value="vue"
         text="vue"
       />
@@ -42,6 +39,7 @@ export const Primary = {
   render: Template,
   args: {
     type: 'single',
+    shape: 'rectangle',
   },
 } satisfies StoryObj<typeof meta>
 

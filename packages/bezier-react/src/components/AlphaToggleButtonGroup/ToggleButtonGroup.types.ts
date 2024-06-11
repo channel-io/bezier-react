@@ -5,10 +5,23 @@ import {
   type PolymorphicProps,
 } from '~/src/types/props'
 
+import { type ToggleButtonProps } from '~/src/components/AlphaToggleButton/ToggleButton.types'
+
 type Value<T> = T extends 'single' ? string : string[]
 
 interface ToggleButtonGroupOwnProps<T extends string = 'single' | 'multiple'> {
+  /**
+   * Shape of `ToggleButtonComponent` rendered as children.
+   * @default 'capsule'
+   */
+  shape?: ToggleButtonProps['shape']
+
+  /**
+   * Determines whether a single or multiple buttons can be selected at a time.
+   * @default 'single'
+   */
   type: T
+
   /**
    * The controlled value of the selected button.
    */

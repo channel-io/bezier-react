@@ -4,6 +4,7 @@ import * as ToggleGroupPrimitive from '@radix-ui/react-toggle-group'
 import classNames from 'classnames'
 
 import { type ToggleButtonProps } from '~/src/components/AlphaToggleButton/ToggleButton.types'
+import { ToggleButtonProvider } from '~/src/components/AlphaToggleButton/ToggleButtonContext'
 import {
   type ToggleButtonMultipleGroupProps,
   type ToggleButtonSingleGroupProps,
@@ -39,7 +40,7 @@ export const ToggleButtonGroup = forwardRef<
   HTMLDivElement,
   ToggleButtonMultipleGroupProps | ToggleButtonSingleGroupProps
 >(function ToggleButtonGroup(props) {
-  const { type, children, className } = props
+  const { type, shape, children, className } = props
 
   const ToggleButtons = React.Children.map(children, (toggleButton) => {
     if (!React.isValidElement<ToggleButtonProps>(toggleButton)) {
@@ -47,13 +48,15 @@ export const ToggleButtonGroup = forwardRef<
     }
 
     return (
-      <ToggleGroupPrimitive.Item
-        asChild
-        value={toggleButton.props.value}
-        key={toggleButton.props.value}
-      >
-        {toggleButton}
-      </ToggleGroupPrimitive.Item>
+      <ToggleButtonProvider value={{ shape }}>
+        <ToggleGroupPrimitive.Item
+          asChild
+          value={toggleButton.props.value}
+          key={toggleButton.props.value}
+        >
+          {toggleButton}
+        </ToggleGroupPrimitive.Item>
+      </ToggleButtonProvider>
     )
   })
 

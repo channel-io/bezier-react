@@ -48,8 +48,9 @@ interface ToggleButtonOwnProps {
 
   /**
    * Shape of button.
+   * @default 'capsule'
    */
-  shape?: 'rectangle' | 'capsule'
+  shape?: 'capsule' | 'rectangle'
 
   /**
    * Icon on the left.
