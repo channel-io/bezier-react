@@ -14,7 +14,7 @@ const meta: Meta<typeof AlphaFloatingIconButton> = {
 }
 export default meta
 
-export const Playground: StoryObj<AlphaFloatingIconButtonProps> = {
+export const Primary: StoryObj<AlphaFloatingIconButtonProps> = {
   args: {
     disabled: false,
     active: false,
