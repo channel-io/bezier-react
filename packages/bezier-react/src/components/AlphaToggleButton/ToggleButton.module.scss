@@ -7,7 +7,9 @@
   position: relative;
   box-sizing: border-box;
   transition: background-color var(--transition-s);
+  color: var(--txt-black-darkest);
 
+  /* dimension, variant, and shape */
   &:where(.size-m) {
     height: 36px;
     padding: 8px 12px;
@@ -35,6 +37,7 @@
     border-radius: 9999px;
   }
 
+  /* visual effect on interaction */
   &:where(:hover) {
     &:where(.variant-primary) {
       background-color: var(--alpha-color-bg-grey-lighter);
@@ -64,19 +67,15 @@
     }
   }
 
-  &:where([data-state='off']) {
-    color: var(--txt-black-darkest);
-
-    & :where(.ButtonIcon) {
-      color: var(--alpha-color-fg-black-dark);
-    }
-  }
-
   &:where(:focus-visible) {
     box-shadow: var(--alpha-shadow-input-active);
   }
 
   /* internal components */
+  &:where([data-state='off']) :where(.ButtonIcon) {
+    color: var(--alpha-color-fg-black-dark);
+  }
+
   & :where(.ButtonContent) {
     display: flex;
     align-items: center;

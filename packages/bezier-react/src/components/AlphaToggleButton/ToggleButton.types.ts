@@ -9,8 +9,6 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
-type ToggleButtonVariant = 'primary' | 'secondary'
-
 type ToggleButtonSize = 'm'
 
 interface ToggleButtonOwnProps {
@@ -26,8 +24,7 @@ interface ToggleButtonOwnProps {
   loading?: boolean
 
   /**
-   * If `active` is true, the button will be styled as if it is hovered.
-   * You may want to use this prop for a button which opens dropdown, etc.
+   * Props that shows whether the button is selected.
    * @default false
    */
   selected?: boolean
@@ -36,7 +33,7 @@ interface ToggleButtonOwnProps {
    * Types of visual styles for button.
    * @default 'primary'
    */
-  variant?: ToggleButtonVariant
+  variant?: 'primary' | 'secondary'
 
   /**
    * Shape of button.
