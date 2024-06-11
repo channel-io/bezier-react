@@ -18,9 +18,9 @@
   }
 
   &:where(.variant-primary) {
+    color: var(--alpha-color-fg-black-darkest);
     background-color: var(--alpha-color-bg-grey-lightest);
     box-shadow: var(--alpha-shadow-input-default);
-    color: var(--alpha-color-fg-black-darkest);
   }
 
   &:where(.variant-secondary) {
@@ -104,12 +104,16 @@
 
   /* NOTE: this fixes container width when bold toggles */
   & :where(.ButtonText)::after {
-    display: block;
     content: attr(data-text);
-    font-weight: bold;
-    height: 0px;
-    color: transparent;
+
     overflow: hidden;
+    display: block;
+
+    height: 0;
+
+    font-weight: bold;
+    color: transparent;
+
     visibility: hidden;
   }
 }
