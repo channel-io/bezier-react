@@ -6,8 +6,8 @@
 .Button {
   position: relative;
   box-sizing: border-box;
-  transition: background-color var(--transition-s);
   color: var(--txt-black-darkest);
+  transition: background-color var(--transition-s);
 
   /* dimension, variant, and shape */
   &:where(.size-m) {
