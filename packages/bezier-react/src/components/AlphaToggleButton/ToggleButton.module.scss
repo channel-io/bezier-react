@@ -66,6 +66,10 @@
     &:where(.variant-secondary) {
       background-color: var(--alpha-color-primary-bg-lighter);
     }
+
+    & :where(.ButtonText) {
+      font-weight: var(--font-weight-700);
+    }
   }
 
   &:where(:focus-visible) {

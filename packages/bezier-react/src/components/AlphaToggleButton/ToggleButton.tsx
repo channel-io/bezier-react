@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useState } from 'react'
+import React, { forwardRef } from 'react'
 
 import { isBezierIcon } from '@channel.io/bezier-icons'
 import * as TogglePrimitive from '@radix-ui/react-toggle'
@@ -41,8 +41,6 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
       variant = 'primary',
       shape,
       size = 'm',
-      defaultSelected,
-      selected,
       className,
       loading,
       onSelectedChange,
@@ -50,35 +48,13 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
     },
     forwardedRef
   ) {
-    const [isSelected, setIsSelected] = useState(defaultSelected ?? false)
-    const isControlled = selected !== undefined
-
-    useEffect(
-      function synchronizeState() {
-        if (isControlled) {
-          setIsSelected(selected)
-        }
-      },
-      [selected, isControlled]
-    )
-
-    const handleSelectedChange = (selected: boolean) => {
-      if (!isControlled) {
-        setIsSelected(selected)
-      }
-
-      onSelectedChange?.(selected)
-    }
-
     const Comp = as as typeof BaseButton
     const ICON_SIZE = 's'
 
     return (
       <TogglePrimitive.Root
-        pressed={isSelected}
-        defaultPressed={defaultSelected}
         asChild
-        onPressedChange={handleSelectedChange}
+        onPressedChange={onSelectedChange}
         {...rest}
       >
         <Comp
@@ -105,7 +81,6 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
             {/* TODO: use AlphaText later, add typo */}
             <Text
               className={styles.ButtonText}
-              bold={isSelected}
               typo="14"
               data-text={text}
             >
