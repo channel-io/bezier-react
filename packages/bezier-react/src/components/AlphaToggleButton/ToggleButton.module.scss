@@ -59,7 +59,8 @@
 
     &:where(.variant-primary) {
       background-color: var(--alpha-color-bg-blue-lightest);
-      box-shadow: var(--alpha-shadow-input-hover);
+      box-shadow: var(--alpha-shadow-input-default);
+      box-shadow: 0 0 0 1px var(--alpha-color-primary-bg-normal) inset;
     }
 
     &:where(.variant-secondary) {
