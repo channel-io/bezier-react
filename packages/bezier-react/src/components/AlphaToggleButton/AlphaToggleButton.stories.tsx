@@ -1,20 +1,18 @@
 import { ArrowLeftIcon } from '@channel.io/bezier-icons'
 import { type Meta, type StoryObj } from '@storybook/react'
 
-import {
-  AlphaToggleButton,
-  type AlphaToggleButtonProps,
-} from '~/src/components/AlphaToggleButton'
+import { AlphaToggleButton } from '~/src/components/AlphaToggleButton'
 
-const meta: Meta<typeof AlphaToggleButton> = {
+const meta = {
   component: AlphaToggleButton,
   argTypes: {
     onClick: { action: 'onClick' },
   },
-}
+} satisfies Meta<typeof AlphaToggleButton>
+
 export default meta
 
-export const Playground: StoryObj<AlphaToggleButtonProps> = {
+export const Playground = {
   args: {
     text: 'Invite',
     selected: false,
@@ -24,4 +22,4 @@ export const Playground: StoryObj<AlphaToggleButtonProps> = {
     shape: 'capsule',
     variant: 'primary',
   },
-}
+} satisfies StoryObj<typeof meta>
