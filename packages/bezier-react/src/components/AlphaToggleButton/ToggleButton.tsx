@@ -103,7 +103,7 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
             >
               <AlphaSpinner
                 className={styles.Spinner}
-                variant={selected ? 'on-overlay' : 'secondary'}
+                variant="secondary"
               />
             </div>
           )}
