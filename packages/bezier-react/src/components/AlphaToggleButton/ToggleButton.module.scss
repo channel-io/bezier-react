@@ -5,8 +5,12 @@
 
 .Button {
   position: relative;
+
   box-sizing: border-box;
+  max-width: 200px;
+
   color: var(--txt-black-darkest);
+
   transition: background-color var(--transition-s);
 
   /* dimension, variant, and shape */

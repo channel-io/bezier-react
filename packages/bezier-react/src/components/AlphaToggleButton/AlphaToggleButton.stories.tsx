@@ -1,4 +1,4 @@
-import { ArrowLeftIcon } from '@channel.io/bezier-icons'
+import { ArrowRightIcon, GiftIcon } from '@channel.io/bezier-icons'
 import { type Meta, type StoryObj } from '@storybook/react'
 
 import { AlphaToggleButton } from '~/src/components/AlphaToggleButton'
@@ -17,7 +17,8 @@ export const Playground = {
     text: 'Invite',
     selected: false,
     loading: false,
-    prefixContent: ArrowLeftIcon,
+    prefixContent: GiftIcon,
+    suffixContent: ArrowRightIcon,
     size: 'm',
     shape: 'capsule',
     value: 'invite',

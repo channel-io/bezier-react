@@ -18,20 +18,22 @@ const Template: StoryFn<
   ToggleButtonSingleGroupProps | ToggleButtonMultipleGroupProps
 > = ({ value: valueProp, ...props }) => {
   return (
-    <ToggleButtonGroup {...props}>
-      <ToggleButton
-        value="react"
-        text="react"
-      />
-      <ToggleButton
-        value="svelte"
-        text="svelte"
-      />
-      <ToggleButton
-        value="vue"
-        text="vue"
-      />
-    </ToggleButtonGroup>
+    <div style={{ width: '800px' }}>
+      <ToggleButtonGroup {...props}>
+        <ToggleButton
+          value="react"
+          text="react"
+        />
+        <ToggleButton
+          value="svelte"
+          text="svelte"
+        />
+        <ToggleButton
+          value="vue"
+          text="vue"
+        />
+      </ToggleButtonGroup>
+    </div>
   )
 }
 
@@ -40,6 +42,7 @@ export const Primary = {
   args: {
     type: 'single',
     shape: 'rectangle',
+    fullWidth: false,
   },
 } satisfies StoryObj<typeof meta>
 

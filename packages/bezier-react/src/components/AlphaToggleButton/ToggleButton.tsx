@@ -86,6 +86,7 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
               className={styles.ButtonText}
               typo="14"
               data-text={text}
+              truncated
             >
               {text}
             </Text>

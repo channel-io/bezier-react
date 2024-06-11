@@ -17,6 +17,12 @@ interface ToggleButtonGroupOwnProps<T extends string = 'single' | 'multiple'> {
   shape?: ToggleButtonProps['shape']
 
   /**
+   * If true, the button group will take up the full width of its container.
+   * @default false
+   */
+  fullWidth?: boolean
+
+  /**
    * Determines whether a single or multiple buttons can be selected at a time.
    * @default 'single'
    */
