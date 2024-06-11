@@ -20,6 +20,7 @@ export const Playground = {
     prefixContent: ArrowLeftIcon,
     size: 'm',
     shape: 'capsule',
+    value: 'invite',
     variant: 'primary',
   },
 } satisfies StoryObj<typeof meta>

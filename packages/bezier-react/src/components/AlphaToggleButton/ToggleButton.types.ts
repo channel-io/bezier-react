@@ -36,6 +36,11 @@ interface ToggleButtonOwnProps {
   defaultSelected?: boolean
 
   /**
+   * The value to associate with the button when selected in a `ToggleButtonGroup` component.
+   */
+  value: string
+
+  /**
    * Types of visual styles for button.
    * @default 'primary'
    */
@@ -63,7 +68,7 @@ interface ToggleButtonOwnProps {
 }
 
 export interface ToggleButtonProps
-  extends Omit<BezierComponentProps<'button'>, 'color'>,
+  extends Omit<BezierComponentProps<'button'>, keyof ToggleButtonOwnProps>,
     PolymorphicProps,
     SizeProps<ToggleButtonSize>,
     DisableProps,
