@@ -1,4 +1,5 @@
 @use '../../styles/mixins/dimension';
+@use 'sass:map';
 
 @import '../Icon/Icon.module';
 
@@ -94,16 +95,14 @@
     align-items: center;
     justify-content: center;
 
-    @each $size, $value in $size-map {
-      &:where(.size-#{$size}) {
-        & :is(.Spinner) {
-          @include dimension.square(#{$value}px);
-        }
+    &:where(.size-s) {
+      & :is(.Spinner) {
+        @include dimension.square(#{map.get($size-map, 's')}px);
       }
     }
   }
 
-  /* NOTE: this fixes container width on toggle */
+  /* NOTE: this fixes container width when bold toggles */
   & :where(.ButtonText)::after {
     display: block;
     content: attr(data-text);
