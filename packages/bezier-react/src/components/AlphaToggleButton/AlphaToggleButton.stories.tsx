@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
-
 import { ArrowLeftIcon } from '@channel.io/bezier-icons'
-import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 
 import {
   AlphaToggleButton,
   type AlphaToggleButtonProps,
 } from '~/src/components/AlphaToggleButton'
-import { ToggleButton } from '~/src/components/AlphaToggleButton/ToggleButton'
 
 const meta: Meta<typeof AlphaToggleButton> = {
   component: AlphaToggleButton,
@@ -17,20 +14,7 @@ const meta: Meta<typeof AlphaToggleButton> = {
 }
 export default meta
 
-const Template: StoryFn<AlphaToggleButtonProps> = (props) => {
-  const [selected, setSelected] = useState(false)
-
-  return (
-    <ToggleButton
-      {...props}
-      selected={selected}
-      onClick={() => setSelected((prev) => !prev)}
-    />
-  )
-}
-
 export const Playground: StoryObj<AlphaToggleButtonProps> = {
-  render: Template,
   args: {
     text: 'Invite',
     selected: false,

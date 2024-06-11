@@ -30,6 +30,12 @@ interface ToggleButtonOwnProps {
   selected?: boolean
 
   /**
+   * The selected state of the button when it is initially rendered.
+   * Use when you **do not need to control** its selected state.
+   */
+  defaultSelected?: boolean
+
+  /**
    * Types of visual styles for button.
    * @default 'primary'
    */
@@ -49,6 +55,11 @@ interface ToggleButtonOwnProps {
    * Icon on the right.
    */
   suffixContent?: BezierIcon | ReactNode
+
+  /**
+   * Callback function to be called when the button toggles.
+   */
+  onSelectedChange?: (selected: boolean) => void
 }
 
 export interface ToggleButtonProps
