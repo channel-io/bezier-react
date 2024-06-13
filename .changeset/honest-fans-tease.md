@@ -2,4 +2,4 @@
 '@channel.io/bezier-react': patch
 ---
 
-Add `ToggleButtonGroup` component.
+Add `AlphaToggleButtonGroup` component.
