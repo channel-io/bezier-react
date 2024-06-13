@@ -1,5 +1,4 @@
 .Help {
-  background-color: red;
   line-height: 0;
 
   &:where(:not([data-state='closed'])) {
