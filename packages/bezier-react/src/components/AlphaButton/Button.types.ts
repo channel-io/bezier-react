@@ -21,7 +21,7 @@ export type ButtonColor =
   | 'purple'
   | 'dark-grey'
   | 'light-grey'
-  | 'white-absolute'
+  | 'white'
 
 export type ButtonSize = 'xs' | 's' | 'm' | 'l' | 'xl'
 
