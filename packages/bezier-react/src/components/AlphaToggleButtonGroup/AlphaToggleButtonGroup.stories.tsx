@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
+import { type Meta, type StoryFn } from '@storybook/react'
 
 import { ToggleButton } from '~/src/components/AlphaToggleButton/ToggleButton'
 import {
@@ -14,12 +14,20 @@ const meta = {
   component: ToggleButtonGroup,
 } satisfies Meta<typeof ToggleButtonGroup>
 
-const Template: StoryFn<
-  ToggleButtonSingleGroupProps | ToggleButtonMultipleGroupProps
-> = ({ value: valueProp, ...props }) => {
+const SingleTemplate: StoryFn<ToggleButtonSingleGroupProps> = ({
+  type,
+  ...props
+}) => {
+  const [value, setValue] = useState('react')
+
   return (
     <div style={{ width: '800px' }}>
-      <ToggleButtonGroup {...props}>
+      <ToggleButtonGroup
+        type="single"
+        value={value}
+        onValueChange={setValue}
+        {...props}
+      >
         <ToggleButton
           value="react"
           text="react"
@@ -37,13 +45,53 @@ const Template: StoryFn<
   )
 }
 
-export const Primary = {
-  render: Template,
+const MultipleTemplate: StoryFn<ToggleButtonMultipleGroupProps> = ({
+  type,
+  ...props
+}) => {
+  const [value, setValue] = useState(['react'])
+
+  return (
+    <div style={{ width: '800px' }}>
+      <ToggleButtonGroup
+        type="multiple"
+        value={value}
+        onValueChange={setValue}
+        {...props}
+      >
+        <ToggleButton
+          value="react"
+          text="react"
+        />
+        <ToggleButton
+          value="svelte"
+          text="svelte"
+        />
+        <ToggleButton
+          value="vue"
+          text="vue"
+        />
+      </ToggleButtonGroup>
+    </div>
+  )
+}
+
+export const SingleType = {
+  render: SingleTemplate,
   args: {
     type: 'single',
     shape: 'rectangle',
     fullWidth: false,
   },
-} satisfies StoryObj<typeof meta>
+}
+
+export const MultipleType = {
+  render: MultipleTemplate,
+  args: {
+    type: 'multiple',
+    shape: 'rectangle',
+    fullWidth: false,
+  },
+}
 
 export default meta

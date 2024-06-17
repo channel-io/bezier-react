@@ -19,7 +19,7 @@ import styles from './ToggleButtonGroup.module.scss'
  * ```tsx
  * <ToggleButtonGroup
  *   shape="rectangle"
- *   defaultValue="two"
+ *   value="two"
  * >
  *   <ToggleButton
  *     value="one"
@@ -40,7 +40,22 @@ export const ToggleButtonGroup = forwardRef<
   HTMLDivElement,
   ToggleButtonMultipleGroupProps | ToggleButtonSingleGroupProps
 >(function ToggleButtonGroup(props, forwardedRef) {
-  const { children, shape, className, fullWidth, ...rest } = props
+  const { children, shape, className, fullWidth, onValueChange, ...rest } =
+    props
+
+  const handleValueChange = (value: string | string[]) => {
+    if (props.type === 'single' && typeof value === 'string' && !value.length) {
+      props?.onValueChange?.(value)
+    }
+
+    if (
+      props.type === 'multiple' &&
+      typeof value === 'object' &&
+      !value.length
+    ) {
+      props?.onValueChange?.(value)
+    }
+  }
 
   const ToggleButtons = React.Children.map(children, (toggleButton) => {
     if (!React.isValidElement<ToggleButtonProps>(toggleButton)) {
@@ -67,6 +82,7 @@ export const ToggleButtonGroup = forwardRef<
         fullWidth && styles.fullWidth,
         className
       )}
+      onValueChange={handleValueChange}
       {...(rest as typeof props.type extends 'multiple'
         ? ToggleButtonMultipleGroupProps
         : ToggleButtonSingleGroupProps)}

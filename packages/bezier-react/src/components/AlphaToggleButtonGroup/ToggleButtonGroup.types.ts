@@ -34,12 +34,6 @@ interface ToggleButtonGroupOwnProps<T extends string = 'single' | 'multiple'> {
   value?: Value<T>
 
   /**
-   * The value of the selected button when initially rendered.
-   * Use when you **do not need to control** state of button group.
-   */
-  defaultValue?: Value<T>
-
-  /**
    * The reading direction of the button group.
    * @default 'ltr'
    */
@@ -54,13 +48,19 @@ interface ToggleButtonGroupOwnProps<T extends string = 'single' | 'multiple'> {
 }
 
 export interface ToggleButtonSingleGroupProps
-  extends Omit<BezierComponentProps<'div'>, keyof ToggleButtonGroupOwnProps>,
+  extends Omit<
+      BezierComponentProps<'div'>,
+      keyof ToggleButtonGroupOwnProps | 'defaultValue'
+    >,
     PropsWithChildren,
     PolymorphicProps,
     ToggleButtonGroupOwnProps<'single'> {}
 
 export interface ToggleButtonMultipleGroupProps
-  extends Omit<BezierComponentProps<'div'>, keyof ToggleButtonGroupOwnProps>,
+  extends Omit<
+      BezierComponentProps<'div'>,
+      keyof ToggleButtonGroupOwnProps | 'defaultValue'
+    >,
     PropsWithChildren,
     PolymorphicProps,
     ToggleButtonGroupOwnProps<'multiple'> {}
