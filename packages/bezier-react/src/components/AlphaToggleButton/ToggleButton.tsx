@@ -40,7 +40,7 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
       prefixContent,
       suffixContent,
       variant = 'primary',
-      shape: shapeProps = 'capsule',
+      shape: shapeProps,
       size = 'm',
       className,
       loading,
@@ -50,7 +50,7 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
     forwardedRef
   ) {
     const { shape: shapeContext } = useToggleButtonContext()
-    const shape = shapeProps ?? shapeContext
+    const shape = shapeProps ?? shapeContext ?? 'capsule'
     const Comp = as as typeof BaseButton
     const ICON_SIZE = 's'
 

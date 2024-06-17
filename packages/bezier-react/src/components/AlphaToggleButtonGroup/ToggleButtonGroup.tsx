@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, useMemo } from 'react'
 
 import * as ToggleGroupPrimitive from '@radix-ui/react-toggle-group'
 import classNames from 'classnames'
@@ -40,7 +40,7 @@ export const ToggleButtonGroup = forwardRef<
   HTMLDivElement,
   ToggleButtonMultipleGroupProps | ToggleButtonSingleGroupProps
 >(function ToggleButtonGroup(props, forwardedRef) {
-  const { children, className, fullWidth, ...rest } = props
+  const { children, shape, className, fullWidth, ...rest } = props
 
   const ToggleButtons = React.Children.map(children, (toggleButton) => {
     if (!React.isValidElement<ToggleButtonProps>(toggleButton)) {
@@ -48,16 +48,14 @@ export const ToggleButtonGroup = forwardRef<
     }
 
     return (
-      <ToggleButtonProvider value={{ shape: props.shape }}>
-        <ToggleGroupPrimitive.Item
-          asChild
-          value={toggleButton.props.value}
-          key={toggleButton.props.value}
-          className={styles.item}
-        >
-          {toggleButton}
-        </ToggleGroupPrimitive.Item>
-      </ToggleButtonProvider>
+      <ToggleGroupPrimitive.Item
+        asChild
+        value={toggleButton.props.value}
+        key={toggleButton.props.value}
+        className={styles.item}
+      >
+        {toggleButton}
+      </ToggleGroupPrimitive.Item>
     )
   })
 
@@ -73,7 +71,9 @@ export const ToggleButtonGroup = forwardRef<
         ? ToggleButtonMultipleGroupProps
         : ToggleButtonSingleGroupProps)}
     >
-      {ToggleButtons}
+      <ToggleButtonProvider value={useMemo(() => ({ shape }), [shape])}>
+        {ToggleButtons}
+      </ToggleButtonProvider>
     </ToggleGroupPrimitive.Root>
   )
 })
