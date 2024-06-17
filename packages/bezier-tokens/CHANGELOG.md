@@ -1,5 +1,13 @@
 # @channel.io/bezier-tokens
 
+## 0.2.5
+
+### Patch Changes
+
+- Add `white-alpha/transparent` token. ([#2253](https://github.com/channel-io/bezier-react/pull/2253)) by @yangwooseong
+
+- Change `innerShadow` value of `alpha-shadow-input-default` token to reference `color.shadow.medium` ([#2274](https://github.com/channel-io/bezier-react/pull/2274)) by @yangwooseong
+
 ## 0.2.4
 
 ### Patch Changes

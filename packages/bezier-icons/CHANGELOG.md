@@ -1,5 +1,35 @@
 # @channel.io/bezier-icons
 
+## 0.26.0
+
+### Minor Changes
+
+- Update icons ([#2256](https://github.com/channel-io/bezier-react/pull/2256)) by @yangwooseong
+
+  Added
+
+  - fast-forward-filled.svg
+  - fast-rewind-filled.svg
+  - paused.svg
+  - play-filled.svg
+  - skip-filled.svg
+  - split-left-filled.svg
+  - split-right-filled.svg
+
+  Modified
+
+  - fast-forward.svg
+  - fast-rewind.svg
+  - play.svg
+  - skip.svg
+  - split-left.svg
+  - split-right.svg
+  - view-off.svg
+
+  Renamed
+
+  - pause.svg -> paused-filled.svg
+
 ## 0.25.0
 
 ### Minor Changes
