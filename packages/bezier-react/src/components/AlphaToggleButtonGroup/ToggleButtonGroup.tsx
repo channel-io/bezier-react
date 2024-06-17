@@ -39,8 +39,8 @@ import styles from './ToggleButtonGroup.module.scss'
 export const ToggleButtonGroup = forwardRef<
   HTMLDivElement,
   ToggleButtonMultipleGroupProps | ToggleButtonSingleGroupProps
->(function ToggleButtonGroup(props) {
-  const { type, shape, children, className, fullWidth } = props
+>(function ToggleButtonGroup(props, forwardedRef) {
+  const { children, className, fullWidth, ...rest } = props
 
   const ToggleButtons = React.Children.map(children, (toggleButton) => {
     if (!React.isValidElement<ToggleButtonProps>(toggleButton)) {
@@ -48,7 +48,7 @@ export const ToggleButtonGroup = forwardRef<
     }
 
     return (
-      <ToggleButtonProvider value={{ shape }}>
+      <ToggleButtonProvider value={{ shape: props.shape }}>
         <ToggleGroupPrimitive.Item
           asChild
           value={toggleButton.props.value}
@@ -61,29 +61,17 @@ export const ToggleButtonGroup = forwardRef<
     )
   })
 
-  if (type === 'multiple') {
-    return (
-      <ToggleGroupPrimitive.Root
-        {...(props as ToggleButtonMultipleGroupProps)}
-        className={classNames(
-          styles.ToggleButtonGroup,
-          fullWidth && styles.fullWidth,
-          className
-        )}
-      >
-        {ToggleButtons}
-      </ToggleGroupPrimitive.Root>
-    )
-  }
-
   return (
     <ToggleGroupPrimitive.Root
-      {...(props as ToggleButtonSingleGroupProps)}
+      ref={forwardedRef}
       className={classNames(
         styles.ToggleButtonGroup,
         fullWidth && styles.fullWidth,
         className
       )}
+      {...(rest as typeof props.type extends 'multiple'
+        ? ToggleButtonMultipleGroupProps
+        : ToggleButtonSingleGroupProps)}
     >
       {ToggleButtons}
     </ToggleGroupPrimitive.Root>
