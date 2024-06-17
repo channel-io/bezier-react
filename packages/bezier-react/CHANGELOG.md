@@ -1,5 +1,24 @@
 # @channel.io/bezier-react
 
+## 2.0.8
+
+### Patch Changes
+
+- Changes in `Button` component set ([#2252](https://github.com/channel-io/bezier-react/pull/2252)) by @yangwooseong
+
+  - use `AlphaSpinner` instead of `Spinner` component for loading state.
+  - set size of `AlphaSpinner` to be `Icon` size.
+
+- Change `white-absolute` to `white` in `AlphaButton` and `AlphaIconButton` color. ([#2278](https://github.com/channel-io/bezier-react/pull/2278)) by @yangwooseong
+
+- Changes with `Button` component ([#2253](https://github.com/channel-io/bezier-react/pull/2253)) by @yangwooseong
+
+  - Change `white` to `white-absolute` in `color` props.
+  - Apply `white-alpha/transparent` token for `tertiary` button.
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.2.5
+
 ## 2.0.7
 
 ### Patch Changes
