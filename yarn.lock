@@ -20391,8 +20391,8 @@ __metadata:
   linkType: hard
 
 "ts-patch@npm:^3.1.2":
-  version: 3.1.2
-  resolution: "ts-patch@npm:3.1.2"
+  version: 3.2.0
+  resolution: "ts-patch@npm:3.2.0"
   dependencies:
     chalk: "npm:^4.1.2"
     global-prefix: "npm:^3.0.0"
@@ -20403,7 +20403,7 @@ __metadata:
   bin:
     ts-patch: bin/ts-patch.js
     tspc: bin/tspc.js
-  checksum: 10/d738f51f1a7d16249ef82212a8dec8391c02812dde0f1dfdcd6bfc22b96bf99efd89c560172544f6339ab05083ccc9be895168915e4c7c0a8f019496728137ce
+  checksum: 10/6280120d5132538a0d53588e5f9dc8e8310c03637e6b90bbde0c96873819760ee610dc49ec51c3ab740551f42b16f079de73444cc4178c5ff30c70baed561736
   languageName: node
   linkType: hard
 
