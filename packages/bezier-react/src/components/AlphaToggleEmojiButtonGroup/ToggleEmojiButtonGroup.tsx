@@ -12,6 +12,23 @@ import * as Toggle from '@radix-ui/react-toggle'
 import styles from './ToggleEmojiButtonGroup.module.scss'
 import { AlphaSpinner } from '~/src/components/AlphaSpinner'
 
+/**
+ * Toggle Button that contains `Emoji` component inside.
+ * It should be used with `ToggleEmojiButtonGroup` component.
+ *
+ * @example
+ * ```tsx
+ * <ToggleEmojiButtonSource
+ *   content={
+ *     <Emoji
+ *       size="30"
+ *       imageUrl="https://cf.exp.channel.io/asset/emoji/images/80/a.png"
+ *       name="A"
+ *    />
+ *   }
+ * />
+ * ```
+ */
 export const ToggleEmojiButtonSource = forwardRef<
   HTMLButtonElement,
   ToggleEmojiButtonSourceProps
@@ -53,6 +70,19 @@ export const ToggleEmojiButtonSource = forwardRef<
   )
 })
 
+/**
+ * Component for grouping `ToggleEmojiButtonSource`.
+ *
+ * @example
+ * ```tsx
+ * <ToggleEmojiButtonGroup
+ *   fillDirection="horizontal"
+ * >
+ *   <ToggleEmojiButtonSource content={<Emoji />} />
+ *   <ToggleEmojiButtonSource content={<Emoji />} />
+ * </ToggleEmojiButtonGroup>
+ * ```
+ */
 export const ToggleEmojiButtonGroup = forwardRef<
   HTMLDivElement,
   ToggleEmojiButtonGroupProps
