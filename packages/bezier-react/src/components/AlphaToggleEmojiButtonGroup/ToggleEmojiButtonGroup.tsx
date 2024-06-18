@@ -10,12 +10,13 @@ import {
 import * as Toggle from '@radix-ui/react-toggle'
 
 import styles from './ToggleEmojiButtonGroup.module.scss'
+import { AlphaSpinner } from '~/src/components/AlphaSpinner'
 
 export const ToggleEmojiButtonSource = forwardRef<
   HTMLButtonElement,
   ToggleEmojiButtonSourceProps
 >(function ToggleEmojiButtonSource(
-  { content, variant, className, selected, size = 'm', ...rest },
+  { content, variant, className, selected, size = 'm', loading, ...rest },
   forwardedRef
 ) {
   return (
@@ -30,7 +31,23 @@ export const ToggleEmojiButtonSource = forwardRef<
         )}
         {...rest}
       >
-        {content}
+        <div
+          className={classNames(
+            styles.ButtonContent,
+            loading && styles.loading
+          )}
+        >
+          {content}
+        </div>
+
+        {loading && (
+          <div className={classNames(styles.ButtonLoader)}>
+            <AlphaSpinner
+              className={styles.Spinner}
+              variant="secondary"
+            />
+          </div>
+        )}
       </BaseButton>
     </Toggle.Root>
   )

@@ -30,6 +30,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 
   padding: 12px;
   border-radius: var(--radius-12);
@@ -61,6 +62,30 @@
 
     &:where([data-state='on']) {
       background-color: var(--alpha-color-primary-bg-lighter);
+    }
+  }
+
+  & :where(.ButtonContent) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:where(.loading) {
+      visibility: hidden;
+    }
+  }
+
+  & :where(.ButtonLoader) {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & :is(.Spinner) {
+      --b-emoji-size: 30px;
+      @include dimension.square(var(--b-emoji-size));
     }
   }
 }
