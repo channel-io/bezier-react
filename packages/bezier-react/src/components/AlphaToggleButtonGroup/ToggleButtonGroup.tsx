@@ -44,14 +44,14 @@ export const ToggleButtonGroup = forwardRef<
     props
 
   const handleValueChange = (value: string | string[]) => {
-    if (props.type === 'single' && typeof value === 'string' && !value.length) {
-      props?.onValueChange?.(value)
-    } else if (
-      props.type === 'multiple' &&
-      typeof value === 'object' &&
-      !value.length
-    ) {
-      props?.onValueChange?.(value)
+    if (!props.onValueChange || !value.length) {
+      return
+    }
+
+    if (props.type === 'single' && typeof value === 'string') {
+      props.onValueChange(value)
+    } else if (props.type === 'multiple' && Array.isArray(value)) {
+      props.onValueChange(value)
     }
   }
 
