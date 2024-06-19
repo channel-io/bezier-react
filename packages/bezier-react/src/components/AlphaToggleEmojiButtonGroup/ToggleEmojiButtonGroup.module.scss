@@ -19,9 +19,8 @@
     height: 100%;
 
     & :is(.ToggleEmojiButtonSource) {
-      aspect-ratio: 1/1;
-      width: auto;
-      height: 100%;
+      max-width: 160px;
+      max-height: 160px;
     }
   }
 }
