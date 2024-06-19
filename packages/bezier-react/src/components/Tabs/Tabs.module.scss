@@ -28,7 +28,6 @@ $tab-item-indicator-height: 3px;
 }
 
 .TabItems {
-  overflow: hidden;
   display: flex;
 }
 
@@ -71,6 +70,7 @@ $tab-item-indicator-height: 3px;
     &:hover {
       color: var(--txt-black-darker);
     }
+    overflow: hidden;
   }
 }
 
