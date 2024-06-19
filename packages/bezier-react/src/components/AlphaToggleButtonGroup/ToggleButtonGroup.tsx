@@ -81,9 +81,7 @@ export const ToggleButtonGroup = forwardRef<
         className
       )}
       onValueChange={handleValueChange}
-      {...(rest as typeof props.type extends 'multiple'
-        ? ToggleButtonMultipleGroupProps
-        : ToggleButtonSingleGroupProps)}
+      {...rest}
     >
       <ToggleButtonProvider value={useMemo(() => ({ shape }), [shape])}>
         {ToggleButtons}
