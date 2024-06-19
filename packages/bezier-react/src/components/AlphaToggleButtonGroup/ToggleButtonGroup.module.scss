@@ -2,11 +2,8 @@
   display: flex;
   gap: 6px;
   justify-content: center;
-  width: fit-content;
 
   &:where(.fullWidth) {
-    width: 100%;
-
     & :is(.item) {
       flex-grow: 1;
     }

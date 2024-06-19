@@ -9,6 +9,7 @@ import {
 } from '~/src/components/AlphaToggleButtonGroup/ToggleButtonGroup.types'
 
 import { ToggleButtonGroup } from './ToggleButtonGroup'
+import { Box } from '~/src/components/Box'
 
 const meta = {
   component: ToggleButtonGroup,
@@ -21,7 +22,10 @@ const SingleTemplate: StoryFn<ToggleButtonSingleGroupProps> = ({
   const [value, setValue] = useState('react')
 
   return (
-    <div style={{ width: '800px' }}>
+    <Box
+      width={800}
+      backgroundColor="bg-lounge"
+    >
       <ToggleButtonGroup
         type="single"
         value={value}
@@ -41,7 +45,7 @@ const SingleTemplate: StoryFn<ToggleButtonSingleGroupProps> = ({
           text="vue"
         />
       </ToggleButtonGroup>
-    </div>
+    </Box>
   )
 }
 
@@ -52,7 +56,10 @@ const MultipleTemplate: StoryFn<ToggleButtonMultipleGroupProps> = ({
   const [value, setValue] = useState(['react'])
 
   return (
-    <div style={{ width: '800px' }}>
+    <Box
+      width={800}
+      backgroundColor="bg-lounge"
+    >
       <ToggleButtonGroup
         type="multiple"
         value={value}
@@ -72,14 +79,13 @@ const MultipleTemplate: StoryFn<ToggleButtonMultipleGroupProps> = ({
           text="vue"
         />
       </ToggleButtonGroup>
-    </div>
+    </Box>
   )
 }
 
 export const SingleType = {
   render: SingleTemplate,
   args: {
-    type: 'single',
     shape: 'rectangle',
     fullWidth: false,
   },
@@ -88,7 +94,6 @@ export const SingleType = {
 export const MultipleType = {
   render: MultipleTemplate,
   args: {
-    type: 'multiple',
     shape: 'rectangle',
     fullWidth: false,
   },
