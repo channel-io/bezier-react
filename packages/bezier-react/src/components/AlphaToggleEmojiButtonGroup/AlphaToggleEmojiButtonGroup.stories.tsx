@@ -2,6 +2,9 @@ import React from 'react'
 
 import type { Meta, StoryFn, StoryObj } from '@storybook/react'
 
+import { Center } from '~/src/components/Center'
+import { Emoji } from '~/src/components/Emoji'
+
 import {
   ToggleEmojiButtonGroup,
   ToggleEmojiButtonSource,
@@ -10,8 +13,6 @@ import type {
   ToggleEmojiButtonGroupProps,
   ToggleEmojiButtonSourceProps,
 } from './ToggleEmojiButtonGroup.types'
-import { Emoji } from '~/src/components/Emoji'
-import { Center } from '~/src/components/Center'
 
 const meta: Meta<typeof ToggleEmojiButtonGroup> = {
   component: ToggleEmojiButtonGroup,
@@ -27,8 +28,8 @@ const Template: StoryFn<ToggleButtonCompositionType> = ({
   loading,
 }) => (
   <Center
-    width={400}
-    height={100}
+    width="25vw"
+    height="15vh"
     backgroundColor="bg-lounge"
   >
     <ToggleEmojiButtonGroup fillDirection={fillDirection}>
