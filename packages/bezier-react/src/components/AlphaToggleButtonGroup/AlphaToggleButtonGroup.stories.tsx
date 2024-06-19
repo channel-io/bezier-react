@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { type Meta, type StoryFn } from '@storybook/react'
+import { StoryObj, type Meta, type StoryFn } from '@storybook/react'
 
 import { ToggleButton } from '~/src/components/AlphaToggleButton/ToggleButton'
 import {
@@ -15,19 +15,19 @@ const meta = {
   component: ToggleButtonGroup,
 } satisfies Meta<typeof ToggleButtonGroup>
 
-const SingleTemplate: StoryFn<ToggleButtonSingleGroupProps> = ({
-  type,
-  ...props
-}) => {
-  const [value, setValue] = useState('react')
+const Template: StoryFn<
+  ToggleButtonMultipleGroupProps | ToggleButtonSingleGroupProps
+> = ({ type, ...props }) => {
+  const [value, setValue] = useState(type === 'single' ? 'react' : ['react'])
 
   return (
     <Box
       width={800}
       backgroundColor="bg-lounge"
     >
+      {/* @ts-ignore */}
       <ToggleButtonGroup
-        type="single"
+        type={type}
         value={value}
         onValueChange={setValue}
         {...props}
@@ -49,54 +49,13 @@ const SingleTemplate: StoryFn<ToggleButtonSingleGroupProps> = ({
   )
 }
 
-const MultipleTemplate: StoryFn<ToggleButtonMultipleGroupProps> = ({
-  type,
-  ...props
-}) => {
-  const [value, setValue] = useState(['react'])
-
-  return (
-    <Box
-      width={800}
-      backgroundColor="bg-lounge"
-    >
-      <ToggleButtonGroup
-        type="multiple"
-        value={value}
-        onValueChange={setValue}
-        {...props}
-      >
-        <ToggleButton
-          value="react"
-          text="react"
-        />
-        <ToggleButton
-          value="svelte"
-          text="svelte"
-        />
-        <ToggleButton
-          value="vue"
-          text="vue"
-        />
-      </ToggleButtonGroup>
-    </Box>
-  )
-}
-
-export const SingleType = {
-  render: SingleTemplate,
+export const Primary = {
+  render: Template,
   args: {
+    type: 'single',
     shape: 'rectangle',
     fullWidth: false,
   },
-}
-
-export const MultipleType = {
-  render: MultipleTemplate,
-  args: {
-    shape: 'rectangle',
-    fullWidth: false,
-  },
-}
+} satisfies StoryObj<typeof meta>
 
 export default meta
