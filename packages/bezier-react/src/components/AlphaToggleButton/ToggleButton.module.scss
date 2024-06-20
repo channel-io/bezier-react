@@ -1,0 +1,127 @@
+@use '../../styles/mixins/dimension';
+@use 'sass:map';
+
+@import '../Icon/Icon.module';
+
+.Button {
+  position: relative;
+
+  box-sizing: border-box;
+  max-width: 200px;
+
+  color: var(--txt-black-darkest);
+
+  transition: background-color var(--transition-s);
+
+  /* dimension, variant, and shape */
+  &:where(.size-m) {
+    height: 36px;
+    padding: 8px 12px;
+
+    & :where(.ButtonText) {
+      padding: 1px 4px;
+    }
+  }
+
+  &:where(.variant-primary) {
+    color: var(--alpha-color-fg-black-darkest);
+    background-color: var(--alpha-color-bg-grey-lightest);
+    box-shadow: var(--alpha-shadow-input-default);
+  }
+
+  &:where(.variant-secondary) {
+    background-color: var(--alpha-color-bg-black-lightest);
+  }
+
+  &:where(.shape-rectangle) {
+    border-radius: var(--alpha-dimension-10);
+  }
+
+  &:where(.shape-capsule) {
+    border-radius: 9999px;
+  }
+
+  /* visual effect on interaction */
+  &:where(:hover) {
+    &:where(.variant-primary) {
+      background-color: var(--alpha-color-bg-grey-lighter);
+    }
+
+    &:where(.variant-secondary) {
+      background-color: var(--alpha-color-bg-black-lighter);
+    }
+
+    &:where([data-state='off']) {
+      & :is(.ButtonIcon) {
+        color: var(--txt-black-darker);
+      }
+    }
+  }
+
+  &:where([data-state='on']) {
+    color: var(--alpha-color-fg-blue-normal);
+
+    &:where(.variant-primary) {
+      background-color: var(--alpha-color-bg-blue-lightest);
+      box-shadow: var(--alpha-shadow-input-default);
+      box-shadow: 0 0 0 1px var(--alpha-color-primary-bg-normal) inset;
+    }
+
+    &:where(.variant-secondary) {
+      background-color: var(--alpha-color-primary-bg-lighter);
+    }
+
+    & :where(.ButtonText) {
+      font-weight: var(--font-weight-700);
+    }
+  }
+
+  &:where(:focus-visible) {
+    box-shadow: var(--alpha-shadow-input-active);
+  }
+
+  /* internal components */
+  &:where([data-state='off']) :where(.ButtonIcon) {
+    color: var(--alpha-color-fg-black-dark);
+  }
+
+  & :where(.ButtonContent) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:where(.loading) {
+      visibility: hidden;
+    }
+  }
+
+  & :where(.ButtonLoader) {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:where(.size-s) {
+      & :is(.Spinner) {
+        @include dimension.square(#{map.get($size-map, 's')}px);
+      }
+    }
+  }
+
+  /* NOTE: this fixes container width when bold toggles */
+  & :where(.ButtonText)::after {
+    content: attr(data-text);
+
+    overflow: hidden;
+    display: block;
+
+    height: 0;
+
+    font-weight: var(--font-weight-700);
+    color: transparent;
+
+    visibility: hidden;
+  }
+}

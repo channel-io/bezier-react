@@ -56,7 +56,7 @@ const meta: Meta<typeof Button> = {
 }
 export default meta
 
-export const Playground: StoryObj<ButtonProps> = {
+export const Primary: StoryObj<ButtonProps> = {
   args: {
     text: 'Invite',
     disabled: false,
