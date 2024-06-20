@@ -13,7 +13,8 @@ import {
 import styles from './ToggleButtonGroup.module.scss'
 
 /**
- * `ToggleButtonGroup` is a group of two-state buttons that can be toggled on or off.
+ * `ToggleButtonGroup` is a group of two-state buttons that can be toggled.
+ *  Notice that it keeps at least one button selected.
  *  @example
  *
  * ```tsx
