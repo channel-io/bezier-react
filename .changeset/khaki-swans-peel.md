@@ -2,4 +2,4 @@
 '@channel.io/bezier-react': patch
 ---
 
-Remove `overflow:hidden` from `TabItems` in the stylesheet
+Fixed a bug where the focus effect of the `TabItem` component was cut off.
