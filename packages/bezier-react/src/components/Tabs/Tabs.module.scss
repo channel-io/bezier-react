@@ -28,6 +28,7 @@ $tab-item-indicator-height: 3px;
 }
 
 .TabItems {
+  overflow: hidden;
   display: flex;
 }
 
@@ -43,19 +44,19 @@ $tab-item-indicator-height: 3px;
     bottom: -8px;
     left: 1px;
 
-    height: $tab-item-indicator-height;
+    height: 0;
 
     background-color: var(--bgtxt-blue-normal);
     border-radius: math.div($tab-item-indicator-height, 2);
 
-    transition: transform var(--transition-s);
+    transition: height var(--transition-s);
   }
 
   &:where([data-state='active']) {
     color: var(--bgtxt-blue-normal);
 
     &::after {
-      transform: translateY(-#{$tab-item-indicator-height});
+      height: $tab-item-indicator-height;
     }
 
     &:hover {
@@ -65,7 +66,7 @@ $tab-item-indicator-height: 3px;
 
   /* stylelint-disable-next-line no-descending-specificity */
   &:where([data-state='inactive']) {
-	overflow: hidden;
+    overflow: hidden;
     color: var(--txt-black-dark);
 
     &:hover {
