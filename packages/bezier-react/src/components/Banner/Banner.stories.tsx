@@ -48,7 +48,7 @@ const meta: Meta<typeof Banner> = {
 }
 export default meta
 
-export const Playground: StoryObj<BannerProps> = {
+export const Primary: StoryObj<BannerProps> = {
   args: {
     variant: 'default',
     icon: LightbulbIcon,

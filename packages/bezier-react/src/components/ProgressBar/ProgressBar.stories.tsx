@@ -50,7 +50,7 @@ const meta: Meta<typeof ProgressBar> = {
 }
 export default meta
 
-export const Playground: StoryObj<ProgressBarProps> = {
+export const Primary: StoryObj<ProgressBarProps> = {
   render: (props) => <ProgressBar {...props} />,
   args: {
     size: 'm',

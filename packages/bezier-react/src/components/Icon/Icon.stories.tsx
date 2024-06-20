@@ -51,7 +51,7 @@ const meta: Meta<typeof Icon> = {
 }
 export default meta
 
-export const Playground: StoryObj<IconProps> = {
+export const Primary: StoryObj<IconProps> = {
   args: {
     source: ChannelIcon,
     size: 'm',

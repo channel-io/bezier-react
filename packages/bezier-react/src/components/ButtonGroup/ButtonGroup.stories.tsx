@@ -42,7 +42,7 @@ const Template: StoryFn<ButtonGroupProps> = (props) => (
   </Center>
 )
 
-export const Playground: StoryObj<ButtonGroupProps> = {
+export const Primary: StoryObj<ButtonGroupProps> = {
   render: Template,
 
   args: {

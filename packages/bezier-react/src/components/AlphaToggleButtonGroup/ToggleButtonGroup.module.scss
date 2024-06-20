@@ -1,0 +1,12 @@
+.ToggleButtonGroup {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+
+  /* stylelint-disable-next-line selector-class-pattern */
+  &:where(.fullWidth) {
+    & :is(.item) {
+      flex-grow: 1;
+    }
+  }
+}
