@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
-import { StoryObj, type Meta, type StoryFn } from '@storybook/react'
+import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { ToggleButton } from '~/src/components/AlphaToggleButton/ToggleButton'
 import {
   type ToggleButtonMultipleGroupProps,
   type ToggleButtonSingleGroupProps,
 } from '~/src/components/AlphaToggleButtonGroup/ToggleButtonGroup.types'
+import { Box } from '~/src/components/Box'
 
 import { ToggleButtonGroup } from './ToggleButtonGroup'
-import { Box } from '~/src/components/Box'
 
 const meta = {
   component: ToggleButtonGroup,
@@ -18,7 +18,19 @@ const meta = {
 const Template: StoryFn<
   ToggleButtonMultipleGroupProps | ToggleButtonSingleGroupProps
 > = ({ type, ...props }) => {
-  const [value, setValue] = useState(type === 'single' ? 'react' : ['react'])
+  const initialValue = useMemo(
+    () => (type === 'single' ? 'react' : ['react']),
+    [type]
+  )
+
+  const [value, setValue] = useState(initialValue)
+
+  useEffect(
+    function initializeValue() {
+      setValue(initialValue)
+    },
+    [initialValue]
+  )
 
   return (
     <Box
