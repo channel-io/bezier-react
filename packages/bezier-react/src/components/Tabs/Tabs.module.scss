@@ -65,7 +65,6 @@ $tab-item-indicator-height: 3px;
 
   /* stylelint-disable-next-line no-descending-specificity */
   &:where([data-state='inactive']) {
-    overflow: hidden;
     color: var(--txt-black-dark);
 
     &:hover {
