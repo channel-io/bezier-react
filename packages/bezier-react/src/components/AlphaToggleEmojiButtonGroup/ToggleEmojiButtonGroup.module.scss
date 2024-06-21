@@ -2,7 +2,7 @@
 
 .ToggleEmojiButtonGroup {
   display: flex;
-  gap: 6px;
+  gap: var(--b-toggle-emoji-button-group-gap);
   align-items: center;
   justify-content: center;
 
@@ -39,7 +39,7 @@
   border-radius: var(--radius-12);
 
   &:where(.size-m) {
-    @include dimension.square(54px);
+    @include dimension.square(var(--b-toggle-emoji-button-size));
   }
 
   &:where(.variant-primary) {
