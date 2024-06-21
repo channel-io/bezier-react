@@ -1,8 +1,7 @@
 import React, {
   type CSSProperties,
+  type ReactEventHandler,
   forwardRef,
-  useCallback,
-  useEffect,
   useMemo,
   useRef,
   useState,
@@ -19,6 +18,11 @@ import {
   ToggleEmojiButtonProvider,
   useToggleEmojiButtonContext,
 } from '~/src/components/AlphaToggleEmojiButtonGroup/ToggleEmojiButtonGroupContext'
+import {
+  EMOJI_BUTTON_GROUP_GAP,
+  EMOJI_BUTTON_SIZE,
+  useResizeButton,
+} from '~/src/components/AlphaToggleEmojiButtonGroup/useResizeButton'
 import { BaseButton } from '~/src/components/BaseButton'
 
 import {
@@ -27,9 +31,6 @@ import {
 } from './ToggleEmojiButtonGroup.types'
 
 import styles from './ToggleEmojiButtonGroup.module.scss'
-
-const GAP = 6
-const SIZE = 54
 
 /**
  * Toggle Button that contains `Emoji` component inside.
@@ -59,63 +60,33 @@ export const ToggleEmojiButtonSource = forwardRef<
     size = 'm',
     loading,
     style,
+    onResize,
     ...rest
   },
   forwardedRef
 ) {
-  const { container, childrenSize } = useToggleEmojiButtonContext()
-
-  const ref = useRef<HTMLButtonElement | null>(null)
+  const ref = useRef<HTMLButtonElement>(null)
   const mergedRefs = useMergeRefs(ref, forwardedRef)
+  const { fillDirection } = useToggleEmojiButtonContext()
 
-  const adjustButtonSizes = useCallback(() => {
-    if (!container || !ref.current) {
-      return
+  const { adjustButtonSize } = useResizeButton({ button: ref.current })
+
+  const handleResize: ReactEventHandler<HTMLButtonElement> = (e) => {
+    onResize?.(e)
+
+    if (fillDirection === 'all') {
+      adjustButtonSize()
     }
-
-    const containerWidth = container.clientWidth
-    const containerHeight = container.clientHeight
-    const size = Math.max(
-      Math.min(
-        (containerWidth - GAP * (childrenSize - 1)) / childrenSize,
-        containerHeight - GAP
-      ),
-      SIZE
-    )
-
-    ref.current.style.width = `${size}px`
-    ref.current.style.height = `${size}px`
-  }, [childrenSize, container])
-
-  useEffect(
-    function setResizeObserver() {
-      const resizeObserver = new ResizeObserver(() => {
-        adjustButtonSizes()
-      })
-
-      if (container) {
-        resizeObserver.observe(container)
-        container.addEventListener('resize', adjustButtonSizes)
-      }
-
-      return () => {
-        if (container) {
-          resizeObserver.unobserve(container)
-          container.removeEventListener('resize', adjustButtonSizes)
-        }
-      }
-    },
-    [adjustButtonSizes, container]
-  )
+  }
 
   return (
     <Toggle.Root asChild>
       <BaseButton
         ref={mergedRefs}
-        onResize={adjustButtonSizes}
+        onResize={handleResize}
         style={
           {
-            '--b-toggle-emoji-button-size': cssDimension(SIZE),
+            '--b-toggle-emoji-button-size': cssDimension(EMOJI_BUTTON_SIZE),
             ...style,
           } as CSSProperties
         }
@@ -176,16 +147,19 @@ export const ToggleEmojiButtonGroup = forwardRef<
       value={useMemo(
         () => ({
           container: ref,
+          fillDirection,
           childrenSize: React.Children.count(children),
         }),
-        [children, ref]
+        [children, fillDirection, ref]
       )}
     >
       <div
         ref={mergedRefs}
         style={
           {
-            '--b-toggle-emoji-button-group-gap': cssDimension(GAP),
+            '--b-toggle-emoji-button-group-gap': cssDimension(
+              EMOJI_BUTTON_GROUP_GAP
+            ),
             ...style,
           } as CSSProperties
         }
