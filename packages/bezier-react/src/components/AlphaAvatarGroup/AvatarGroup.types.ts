@@ -4,10 +4,7 @@ import type {
   SizeProps,
 } from '~/src/types/props'
 
-import {
-  type AlphaAvatarProps,
-  type AlphaAvatarSize,
-} from '~/src/components/AlphaAvatar'
+import { type AlphaAvatarSize } from '~/src/components/AlphaAvatar'
 
 type AvatarGroupEllipsisType = 'icon' | 'count'
 
