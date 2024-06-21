@@ -63,7 +63,7 @@ export const Primary = {
   render: Template,
 
   args: {
-    fillDirection: 'all',
+    fillDirection: 'horizontal',
     variant: 'primary',
     loading: false,
   },
