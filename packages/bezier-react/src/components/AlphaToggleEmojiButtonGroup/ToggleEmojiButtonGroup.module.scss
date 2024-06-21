@@ -87,8 +87,7 @@
     justify-content: center;
 
     & :is(.Spinner) {
-      --b-emoji-size: 30px;
-      @include dimension.square(var(--b-emoji-size));
+      @include dimension.square(var(--b-toggle-emoji-button-emoji-size));
     }
   }
 }

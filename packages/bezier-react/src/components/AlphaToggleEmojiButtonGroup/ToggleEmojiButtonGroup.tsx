@@ -98,6 +98,7 @@ export const ToggleEmojiButtonSource = forwardRef<
         style={
           {
             '--b-toggle-emoji-button-size': cssDimension(EMOJI_BUTTON_SIZE),
+            '--b-toggle-emoji-button-emoji-size': cssDimension(EMOJI_SIZE),
             ...style,
           } as CSSProperties
         }
