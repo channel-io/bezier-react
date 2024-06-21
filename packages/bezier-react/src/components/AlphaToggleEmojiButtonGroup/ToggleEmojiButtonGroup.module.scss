@@ -2,10 +2,11 @@
 
 .ToggleEmojiButtonGroup {
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 6px;
+  align-items: center;
+  justify-content: center;
 
+  /* stylelint-disable-next-line selector-class-pattern */
   &:where(.fillDirection-horizontal) {
     width: 100%;
 
@@ -14,6 +15,7 @@
     }
   }
 
+  /* stylelint-disable-next-line selector-class-pattern */
   &:where(.fillDirection-all) {
     width: 100%;
     height: 100%;
@@ -26,12 +28,14 @@
 }
 
 .ToggleEmojiButtonSource {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   padding: 12px;
+
   border-radius: var(--radius-12);
 
   &:where(.size-m) {
@@ -39,8 +43,8 @@
   }
 
   &:where(.variant-primary) {
-    box-shadow: var(--alpha-shadow-input-default);
     background-color: var(--alpha-color-bg-grey-lightest);
+    box-shadow: var(--alpha-shadow-input-default);
 
     &:where(&:hover) {
       background-color: var(--alpha-color-bg-grey-lighter);
