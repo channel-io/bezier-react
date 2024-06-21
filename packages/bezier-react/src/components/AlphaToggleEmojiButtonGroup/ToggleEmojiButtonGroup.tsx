@@ -1,4 +1,5 @@
 import React, {
+  type CSSProperties,
   forwardRef,
   useCallback,
   useEffect,
@@ -12,6 +13,7 @@ import classNames from 'classnames'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { createContext } from '~/src/utils/react'
+import { cssDimension } from '~/src/utils/style'
 
 import { AlphaSpinner } from '~/src/components/AlphaSpinner'
 import { BaseButton } from '~/src/components/BaseButton'
@@ -22,6 +24,9 @@ import {
 } from './ToggleEmojiButtonGroup.types'
 
 import styles from './ToggleEmojiButtonGroup.module.scss'
+
+const GAP = 6
+const SIZE = 54
 
 const [ToggleEmojiButtonProvider, useToggleEmojiButtonContext] = createContext<{
   container: HTMLDivElement | null
@@ -51,7 +56,16 @@ export const ToggleEmojiButtonSource = forwardRef<
   HTMLButtonElement,
   ToggleEmojiButtonSourceProps
 >(function ToggleEmojiButtonSource(
-  { content, variant, className, selected, size = 'm', loading, ...rest },
+  {
+    content,
+    variant,
+    className,
+    selected,
+    size = 'm',
+    loading,
+    style,
+    ...rest
+  },
   forwardedRef
 ) {
   const { container, childrenSize } = useToggleEmojiButtonContext()
@@ -68,10 +82,10 @@ export const ToggleEmojiButtonSource = forwardRef<
     const containerHeight = container.clientHeight
     const size = Math.max(
       Math.min(
-        (containerWidth - 6 * (childrenSize - 1)) / childrenSize,
-        containerHeight - 6
+        (containerWidth - GAP * (childrenSize - 1)) / childrenSize,
+        containerHeight - GAP
       ),
-      54
+      SIZE
     )
 
     ref.current.style.width = `${size}px`
@@ -104,6 +118,12 @@ export const ToggleEmojiButtonSource = forwardRef<
       <BaseButton
         ref={mergedRefs}
         onResize={adjustButtonSizes}
+        style={
+          {
+            '--b-toggle-emoji-button-size': cssDimension(SIZE),
+            ...style,
+          } as CSSProperties
+        }
         className={classNames(
           styles.ToggleEmojiButtonSource,
           styles[`size-${size}`],
@@ -150,7 +170,7 @@ export const ToggleEmojiButtonGroup = forwardRef<
   HTMLDivElement,
   ToggleEmojiButtonGroupProps
 >(function ToggleEmojiButtonGroup(
-  { fillDirection, className, children, ...rest },
+  { fillDirection, className, children, style, ...rest },
   forwardedRef
 ) {
   const [ref, setRef] = useState<null | HTMLDivElement>(null)
@@ -168,7 +188,12 @@ export const ToggleEmojiButtonGroup = forwardRef<
     >
       <div
         ref={mergedRefs}
-        id="container"
+        style={
+          {
+            '--b-toggle-emoji-button-group-gap': cssDimension(GAP),
+            ...style,
+          } as CSSProperties
+        }
         className={classNames(
           styles.ToggleEmojiButtonGroup,
           fillDirection && styles[`fillDirection-${fillDirection}`],
