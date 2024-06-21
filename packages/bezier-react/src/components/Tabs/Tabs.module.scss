@@ -28,7 +28,6 @@ $tab-item-indicator-height: 3px;
 }
 
 .TabItems {
-  overflow: hidden;
   display: flex;
 }
 
@@ -41,22 +40,22 @@ $tab-item-indicator-height: 3px;
 
     position: absolute;
     right: 1px;
-    bottom: -8px;
+    bottom: calc(-8px + $tab-item-indicator-height);
     left: 1px;
 
-    height: $tab-item-indicator-height;
+    height: 0;
 
     background-color: var(--bgtxt-blue-normal);
     border-radius: math.div($tab-item-indicator-height, 2);
 
-    transition: transform var(--transition-s);
+    transition: height var(--transition-s);
   }
 
   &:where([data-state='active']) {
     color: var(--bgtxt-blue-normal);
 
     &::after {
-      transform: translateY(-#{$tab-item-indicator-height});
+      height: $tab-item-indicator-height;
     }
 
     &:hover {
