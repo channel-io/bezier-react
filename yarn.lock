@@ -18956,11 +18956,11 @@ __metadata:
   linkType: hard
 
 "rollup-plugin-node-externals@npm:^7.0.1":
-  version: 7.0.1
-  resolution: "rollup-plugin-node-externals@npm:7.0.1"
+  version: 7.1.2
+  resolution: "rollup-plugin-node-externals@npm:7.1.2"
   peerDependencies:
     rollup: ^3.0.0 || ^4.0.0
-  checksum: 10/1c4906cbffe85adb956d1a697f1a32ba3764622819397ad6959e9679244173ad6f110a2edd6687df9482848ed30203e998db5b81a2011e812e8c059bf5b02e25
+  checksum: 10/aaf99b409bac1549e530c72a7c40ddfc05e8663fb457f5fea93bb4a42326e22b2f4e3f34eb87033ffc62b1e72620ab6583b6f63587372bbb2be285557d98a782
   languageName: node
   linkType: hard
 
