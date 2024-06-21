@@ -12,10 +12,13 @@ import * as Toggle from '@radix-ui/react-toggle'
 import classNames from 'classnames'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
-import { createContext } from '~/src/utils/react'
 import { cssDimension } from '~/src/utils/style'
 
 import { AlphaSpinner } from '~/src/components/AlphaSpinner'
+import {
+  ToggleEmojiButtonProvider,
+  useToggleEmojiButtonContext,
+} from '~/src/components/AlphaToggleEmojiButtonGroup/ToggleEmojiButtonGroupContext'
 import { BaseButton } from '~/src/components/BaseButton'
 
 import {
@@ -27,14 +30,6 @@ import styles from './ToggleEmojiButtonGroup.module.scss'
 
 const GAP = 6
 const SIZE = 54
-
-const [ToggleEmojiButtonProvider, useToggleEmojiButtonContext] = createContext<{
-  container: HTMLDivElement | null
-  childrenSize: number
-}>({
-  container: null,
-  childrenSize: -1,
-})
 
 /**
  * Toggle Button that contains `Emoji` component inside.
