@@ -1,5 +1,15 @@
 # @channel.io/bezier-react
 
+## 2.0.9
+
+### Patch Changes
+
+- Add `AlphaToggleButton` component. ([#2276](https://github.com/channel-io/bezier-react/pull/2276)) by @yangwooseong
+
+- Add `AlphaToggleButtonGroup` component. ([#2276](https://github.com/channel-io/bezier-react/pull/2276)) by @yangwooseong
+
+- Fixed a bug where the focus effect of the `TabItem` component was cut off. ([#2295](https://github.com/channel-io/bezier-react/pull/2295)) by @theaniketnegi
+
 ## 2.0.8
 
 ### Patch Changes

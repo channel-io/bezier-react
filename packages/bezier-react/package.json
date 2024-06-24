@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/bezier-react",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "React components library that implements Bezier design system.",
   "repository": {
     "type": "git",
@@ -63,7 +63,7 @@
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
-    "@channel.io/bezier-icons": "0.26.0",
+    "@channel.io/bezier-icons": "0.27.0",
     "@rollup/plugin-alias": "^5.1.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.7",
