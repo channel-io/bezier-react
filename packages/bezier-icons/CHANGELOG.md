@@ -1,5 +1,33 @@
 # @channel.io/bezier-icons
 
+## 0.27.0
+
+### Minor Changes
+
+- Update icons ([#2300](https://github.com/channel-io/bezier-react/pull/2300)) by @kimminkyung94
+
+  Added
+
+  - breaktime-filled.svg
+  - type.svg
+
+  Modified
+
+  - button-route.svg
+  - dragable-alt.svg
+  - lightning-filled.svg
+  - lightning.svg
+  - play-filled.svg
+  - view-off.svg
+
+  Deleted
+
+  - exclusive.svg
+
+  Renamed
+
+  - workflow.svg -> flow.svg
+
 ## 0.26.0
 
 ### Minor Changes
