@@ -5,6 +5,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
 .Button {
   position: relative;
   box-sizing: border-box;
+  background-color: red;
   transition:
     background-color var(--transition-s),
     box-shadow var(--transition-s);
