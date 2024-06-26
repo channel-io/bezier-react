@@ -33,6 +33,7 @@ const preview: Preview = {
       },
     },
   },
+
   decorators: [
     (Story) => (
       <AppProvider
@@ -53,6 +54,8 @@ const preview: Preview = {
       </AppProvider>
     ),
   ],
+
+  tags: ['autodocs']
 }
 
 export default preview

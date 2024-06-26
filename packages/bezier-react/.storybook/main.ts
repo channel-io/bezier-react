@@ -25,6 +25,10 @@ export default {
         },
       },
     },
+    '@storybook/addon-mdx-gfm',
+    getAbsolutePath('@storybook/addon-mdx-gfm'),
+    '@storybook/addon-webpack5-compiler-babel',
+    '@chromatic-com/storybook'
   ],
 
   typescript: {
@@ -75,7 +79,5 @@ export default {
     options: {},
   },
 
-  docs: {
-    autodocs: true,
-  },
+  docs: {},
 } as StorybookConfig
