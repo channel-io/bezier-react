@@ -48,7 +48,9 @@ const meta: Meta<typeof Icon> = {
       page: mdx,
     },
   },
+  tags: ['!autodocs'],
 }
+
 export default meta
 
 export const Primary: StoryObj<IconProps> = {

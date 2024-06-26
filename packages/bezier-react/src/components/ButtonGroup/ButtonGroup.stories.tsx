@@ -17,7 +17,9 @@ const meta: Meta<typeof ButtonGroup> = {
       page: mdx,
     },
   },
+  tags: ['!autodocs'],
 }
+
 export default meta
 
 const Template: StoryFn<ButtonGroupProps> = (props) => (
