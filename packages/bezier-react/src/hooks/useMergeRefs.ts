@@ -19,6 +19,7 @@ function assignRef<Node>(ref: Ref<Node>, value: Node | null) {
 
   try {
     ref.current = value
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     throw new Error(`Cannot assign value '${value}' to ref '${ref}'`)
   }
