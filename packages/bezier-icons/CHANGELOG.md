@@ -1,5 +1,15 @@
 # @channel.io/bezier-icons
 
+## 0.28.0
+
+### Minor Changes
+
+- Update icons ([#2310](https://github.com/channel-io/bezier-react/pull/2310)) by @kimminkyung94
+
+  Added
+
+  - exclusive.svg
+
 ## 0.27.0
 
 ### Minor Changes
