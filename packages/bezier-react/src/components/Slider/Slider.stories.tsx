@@ -7,7 +7,7 @@ const meta: Meta<typeof Slider> = {
   argTypes: {
     value: {
       control: {
-        type: 'array',
+        type: 'object',
       },
     },
     minStepsBetweenThumbs: {
