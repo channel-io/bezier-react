@@ -54,6 +54,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select(
     dropdownMarginY = 6,
     dropdownZIndex = 'overlay',
     dropdownPosition = 'bottom-left',
+    dropdownKeepInContainer = false,
     onClickTrigger,
     onHideDropdown,
     ...rest
@@ -190,6 +191,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select(
         target={triggerRef.current}
         container={dropdownContainer || containerRef.current}
         position={dropdownPosition}
+        keepInContainer={dropdownKeepInContainer}
         data-testid={SELECT_DROPDOWN_TEST_ID}
         onHide={handleHideDropdown}
       >
