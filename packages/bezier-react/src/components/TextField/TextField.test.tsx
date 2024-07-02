@@ -314,7 +314,6 @@ describe('TextField', () => {
       const clearButtonWithFocus = within(rendered).getByTestId(
         TEXT_INPUT_CLEAR_ICON_TEST_ID
       )
-      getComputedStyle(clearButtonWithFocus)
       expect(clearButtonWithFocus).toBeVisible()
     })
   })
