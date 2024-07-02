@@ -30,6 +30,7 @@ interface SelectOwnProps {
   dropdownMarginY?: OverlayProps['marginY']
   dropdownZIndex?: ZIndex
   dropdownPosition?: OverlayProps['position']
+  dropdownKeepInContainer?: OverlayProps['keepInContainer']
   onClickTrigger?: React.MouseEventHandler
   onHideDropdown?: () => void
 }
