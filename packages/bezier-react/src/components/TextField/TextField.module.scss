@@ -75,6 +75,10 @@
     visibility: visible;
   }
 
+  &:where(:has(.CloseIconWrapper:focus)) .CloseIcon {
+    visibility: visible;
+  }
+
   &:where(.variant-primary):where(
       :has(.TextFieldInput[aria-invalid='true']),
       :has(.TextFieldInput:not(:disabled, :read-only):focus)

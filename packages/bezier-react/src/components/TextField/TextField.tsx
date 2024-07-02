@@ -409,7 +409,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(
         {activeClear && (
           <BaseButton
             className={styles.CloseIconWrapper}
-            tabIndex={-1}
+            tabIndex={0}
             onClick={handleClear}
           >
             <Icon
