@@ -1,6 +1,6 @@
-import { ArgsTable, Canvas, Story } from '@storybook/addon-docs'
+import { Story, ArgTypes, Canvas } from '@storybook/addon-docs'
 import { ChannelBtnSmileFilledIcon } from '@channel.io/bezier-icons'
-import { Icon } from './Icon'
+import * as IconStories from './Icon.stories'
 
 # Icon
 
@@ -10,7 +10,7 @@ import { Icon } from './Icon'
 
 아이콘 단독으로 사용되거나, `bezier-react`의 다른 컴포넌트를 구성하는 기본 요소입니다.
 
-<Story id="components-icon--overview" />
+<Canvas of={IconStories.Overview} />
 
 ### Naming
 
@@ -51,7 +51,7 @@ import {
 `Icon` 컴포넌트에 color variant는 따로 정해져 있지 않습니다.
 Semantic 색상을 `color` prop에 지정하여 아이콘이 어떤 색상으로 렌더링할지 결정합니다.
 
-<Story id="components-icon--usage-color" />
+<Canvas of={IconStories.UsageColor} />
 
 ```tsx
 <Icon
@@ -66,7 +66,7 @@ Semantic 색상을 `color` prop에 지정하여 아이콘이 어떤 색상으로
 
 아이콘의 크기를 지정할 때는 `IconSize` enum을 사용합니다.
 
-<Story id="components-icon--usage-size" />
+<Canvas of={IconStories.UsageSize} />
 
 ```tsx
 <Icon
@@ -131,7 +131,7 @@ Semantic 색상을 `color` prop에 지정하여 아이콘이 어떤 색상으로
 아이콘 주위에 margin이 필요한 경우, `styled(Icon)` 처럼 스타일을 overriding하여 margin을 작성할 수 있으나,
 `marginTop`, `marginRight` 등의 prop을 지원하기 때문에 overriding 없이 작성할 수 있습니다.
 
-<Story id="components-icon--tips-margin" />
+<Canvas of={IconStories.TipsMargin} />
 
 ```tsx
 <Icon
@@ -146,7 +146,7 @@ Semantic 색상을 `color` prop에 지정하여 아이콘이 어떤 색상으로
 
 ## API
 
-<ArgsTable of={Icon} />
+<ArgTypes of={IconStories} />
 
 ## Version
 

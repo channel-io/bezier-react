@@ -1,30 +1,38 @@
-import { dirname, join } from 'path'
-
 import { type StorybookConfig } from '@storybook/react-webpack5'
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
-
-function getAbsolutePath(value: string) {
-  return dirname(require.resolve(join(value, 'package.json')))
-}
 
 export default {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.tsx'],
 
   addons: [
-    getAbsolutePath('@storybook/addon-controls'),
-    getAbsolutePath('@storybook/addon-actions'),
-    getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath('@storybook/addon-docs'),
-    getAbsolutePath('@storybook/addon-measure'),
-    getAbsolutePath('@storybook/addon-outline'),
+    '@storybook/addon-controls',
+    '@storybook/addon-actions',
+    '@storybook/addon-a11y',
+    '@storybook/addon-docs',
+    '@storybook/addon-measure',
+    '@storybook/addon-outline',
     {
-      name: '@storybook/addon-styling',
+      name: '@storybook/addon-styling-webpack',
       options: {
-        sass: {
-          implementation: require('sass'),
-        },
+        rules: [
+          {
+            test: /\.scss$/,
+            use: [
+              'style-loader',
+              'css-loader',
+              {
+                loader: 'sass-loader',
+                options: {
+                  implementation: require.resolve('sass'),
+                },
+              },
+            ],
+          },
+        ],
       },
     },
+    '@storybook/addon-webpack5-compiler-babel',
+    '@chromatic-com/storybook',
   ],
 
   typescript: {
@@ -75,7 +83,5 @@ export default {
     options: {},
   },
 
-  docs: {
-    autodocs: true,
-  },
+  docs: {},
 } as StorybookConfig

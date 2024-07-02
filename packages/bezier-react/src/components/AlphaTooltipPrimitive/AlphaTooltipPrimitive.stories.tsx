@@ -29,6 +29,7 @@ function TooltipComposition() {
 
 const meta: Meta<typeof TooltipComposition> = {
   component: TooltipComposition,
+  tags: ['!autodocs'],
 }
 
 export const Primary: StoryObj = {}

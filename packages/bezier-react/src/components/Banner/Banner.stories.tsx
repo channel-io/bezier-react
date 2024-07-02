@@ -45,6 +45,7 @@ const meta: Meta<typeof Banner> = {
       },
     },
   },
+  tags: ['!autodocs'],
 }
 export default meta
 

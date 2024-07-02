@@ -1,4 +1,4 @@
-import { ArgsTable, Canvas, Story } from '@storybook/addon-docs'
+import { ArgTypes, Canvas, Story } from '@storybook/addon-docs'
 import {
   LegacyHStack,
   LegacyVStack,
@@ -6,6 +6,7 @@ import {
   LegacyStackItem,
   LegacySpacer,
 } from '~/src/components/LegacyStack'
+import * as LegacyStackStories from './LegacyStack.stories'
 
 # LegacyStack
 
@@ -21,9 +22,7 @@ Stack은 flex layout을 제공하는 컴포넌트입니다.
 
 Flexbox 내의 각 item을 `StackItem`으로 구성합니다. Flex layout 내에서 각 item의 weight, base size, item 간의 spacing을 컨트롤할 수 있습니다.
 
-<Canvas>
-  <Story id="components-legacystack--overview" />
-</Canvas>
+<Canvas of={LegacyStackStories.Overview} />
 
 ## Usage
 
@@ -46,13 +45,9 @@ Flexbox 내의 각 item을 `StackItem`으로 구성합니다. Flex layout 내에
 
 기본 컴포넌트인 `Stack`에 `direction` prop을 사용하여 방향을 결정할 수 있으나, 방향이 고정된 경우에는 `HStack`과 `VStack`을 바로 이용하는 것이 좋습니다.
 
-<Canvas>
-  <Story id="components-legacystack--direction-horizontal" />
-</Canvas>
+<Canvas of={LegacyStackStories.DirectionHorizontal} />
 
-<Canvas>
-  <Story id="components-legacystack--direction-vertical" />
-</Canvas>
+<Canvas of={LegacyStackStories.DirectionVertical} />
 
 ### Alignment
 
@@ -60,17 +55,15 @@ Flex container의 **주 방향** (`HStack`은 가로, `VStack`은 세로) 의 �
 
 기본적으로, `Stack` container에 지정하는 prop이 모든 child의 기본값이 됩니다. 각 `StackItem`에도 `justify`, `align` prop을 지정하여 parent `Stack`의 기본값을 overriding할 수 있습니다.
 
-<Story id="components-legacystack--alignment-justify" />
+<Canvas of={LegacyStackStories.AlignmentJustify} />
 
-<Story id="components-legacystack--alignment-align" />
+<Canvas of={LegacyStackStories.AlignmentAlign} />
 
 ### Spacing
 
 `Stack` 컴포넌트의 `spacing` prop으로 item 간의 기본 간격을 조정합니다. `StackItem`에 `marginBefore`, `marginAfter` prop으로 기본 간격을 오버라이딩할 수 있습니다.
 
-<Canvas>
-  <Story id="components-legacystack--spacing" />
-</Canvas>
+<Canvas of={LegacyStackStories.Spacing} />
 
 ### Weight
 
@@ -80,43 +73,37 @@ Flex layout의 특징은, container의 크기에 맞춰 item의 크기가 적절
 
 - Item 하나가 container의 여유 공간을 모두 차지하는 경우입니다. 이 경우, 해당 item에게 `grow shrink weight={1}` prop을 지정합니다.
 
-<Canvas>
-  <Story id="components-legacystack--expanded" />
-</Canvas>
+<Canvas of={LegacyStackStories.Expanded} />
 
 - CSS의 `justify-content: space-between`과 같이, item 사이에 공간을 두고자 하는 경우가 있습니다. 이 경우에는 `<Spacer />` 컴포넌트를 활용합니다. `Spacer`는 기본적으로 `grow shrink weight={1}` 을 가진 빈 `StackItem`입니다.
 
-<Canvas>
-  <Story id="components-legacystack--weight-spacer" />
-</Canvas>
+<Canvas of={LegacyStackStories.WeightSpacer} />
 
 - Item이 container의 크기와 무관하게 (특히, container 크기가 충분하지 않은 경우) 일정한 크기를 차지하고자 하는 경우, 기본값인 `grow={false} shrink={false} weight={0}` prop을 지정합니다. 그리고, 의도하는 크기를 `size` prop으로 지정합니다.
 
-<Canvas>
-  <Story id="components-legacystack--weight-fixed" />
-</Canvas>
+<Canvas of={LegacyStackStories.WeightFixed} />
 
 ## API
 
 ### Stack
 
-<ArgsTable of={LegacyStack} />
+<ArgTypes of={LegacyStack} />
 
 ### HStack
 
-<ArgsTable of={LegacyHStack} />
+<ArgTypes of={LegacyHStack} />
 
 ### VStack
 
-<ArgsTable of={LegacyVStack} />
+<ArgTypes of={LegacyVStack} />
 
 ### StackItem
 
-<ArgsTable of={LegacyStackItem} />
+<ArgTypes of={LegacyStackItem} />
 
 ### Spacer
 
-<ArgsTable of={LegacySpacer} />
+<ArgTypes of={LegacySpacer} />
 
 ## Version
 

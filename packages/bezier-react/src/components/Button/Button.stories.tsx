@@ -53,6 +53,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     onClick: { action: 'onClick' },
   },
+  tags: ['!autodocs'],
 }
 export default meta
 

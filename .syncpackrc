@@ -12,18 +12,6 @@
       "packages": ["@channel.io/*"],
       "dependencies": ["react-textarea-autosize"],
       "pinVersion": "8.3.4"
-    },
-    {
-      "label": "Ignore storybook related packages that have different version than other storybook packages",
-      "packages": ["@channel.io/*"],
-      "dependencies": ["@storybook/addon-styling"],
-      "isIgnored": true
-    },
-    {
-      "label": "Pin storybook version due to react-docgen dependency issue affecting build (#1997)",
-      "packages": ["@channel.io/*"],
-      "dependencies": ["storybook", "@storybook/*"],
-      "pinVersion": "7.5.3"
     }
   ],
   "lintFormatting": false

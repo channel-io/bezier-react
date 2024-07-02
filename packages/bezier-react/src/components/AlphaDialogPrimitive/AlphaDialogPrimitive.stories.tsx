@@ -46,6 +46,7 @@ function DialogComposition() {
 
 const meta: Meta<typeof DialogComposition> = {
   component: DialogComposition,
+  tags: ['!autodocs'],
 }
 
 export const Primary: StoryObj = {}

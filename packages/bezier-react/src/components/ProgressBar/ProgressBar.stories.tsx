@@ -47,7 +47,9 @@ const meta: Meta<typeof ProgressBar> = {
       },
     },
   },
+  tags: ['!autodocs'],
 }
+
 export default meta
 
 export const Primary: StoryObj<ProgressBarProps> = {
