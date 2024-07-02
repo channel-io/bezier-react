@@ -2,4 +2,4 @@
 '@channel.io/bezier-react': minor
 ---
 
-Focus on the clear button when tab is pressed
+Focus on the clear button in `TextField` component when tab is pressed.
