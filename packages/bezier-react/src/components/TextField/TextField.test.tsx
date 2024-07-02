@@ -296,5 +296,26 @@ describe('TextField', () => {
       )
       expect(clearButton).toBeVisible()
     })
+
+    it('should focus the clear button when Tab key is pressed', async () => {
+      const { getByTestId } = renderComponent({
+        value: 'test',
+        allowClear: true,
+      })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+
+      input.focus()
+      await user.tab()
+
+      const focusedElement = document.activeElement
+      expect(focusedElement).toHaveClass('CloseIconWrapper')
+      await user.unhover(input)
+      const clearButtonWithFocus = within(rendered).getByTestId(
+        TEXT_INPUT_CLEAR_ICON_TEST_ID
+      )
+      getComputedStyle(clearButtonWithFocus)
+      expect(clearButtonWithFocus).toBeVisible()
+    })
   })
 })
