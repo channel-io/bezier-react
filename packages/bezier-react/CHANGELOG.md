@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 2.1.0
+
+### Minor Changes
+
+- Add `dropdownKeepInContainer` prop in `Select` ([#2323](https://github.com/channel-io/bezier-react/pull/2323)) by @igy95
+
 ## 2.0.9
 
 ### Patch Changes
