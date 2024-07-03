@@ -14,8 +14,6 @@ import {
 } from './TextField'
 import { type TextFieldProps } from './TextField.types'
 
-import styles from './TextField.module.scss'
-
 describe('TextField', () => {
   const user = userEvent.setup()
   let props: TextFieldProps
@@ -239,7 +237,8 @@ describe('TextField', () => {
   describe('show remove button only when it is filled and focused/hovered', () => {
     /**
      * FIXME: This test is not working properly.
-     * @see https://github.com/testing-library/jest-dom/issues/444
+     * Jest-dom does not support css which is not inline.
+     * @see https://github.com/testing-library/jest-dom/issues/113#issuecomment-496971128
      */
     // it('disappear when empty & focused/hovered', async () => {
     //   const { getByTestId } = renderComponent({ value: '', allowClear: true })
