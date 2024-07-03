@@ -308,8 +308,7 @@ describe('TextField', () => {
       input.focus()
       await user.tab()
 
-      const focusedElement = document.activeElement
-      expect(focusedElement).toHaveClass('CloseIconWrapper')
+      expect(document.activeElement).toHaveClass('CloseIconWrapper')
       await user.unhover(input)
       const clearButtonWithFocus = within(rendered).getByTestId(
         TEXT_INPUT_CLEAR_ICON_TEST_ID
