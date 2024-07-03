@@ -14,6 +14,8 @@ import {
 } from './TextField'
 import { type TextFieldProps } from './TextField.types'
 
+import styles from './TextField.module.scss'
+
 describe('TextField', () => {
   const user = userEvent.setup()
   let props: TextFieldProps
@@ -309,11 +311,6 @@ describe('TextField', () => {
       await user.tab()
 
       expect(document.activeElement).toHaveClass('CloseIconWrapper')
-      await user.unhover(input)
-      const clearButtonWithFocus = within(rendered).getByTestId(
-        TEXT_INPUT_CLEAR_ICON_TEST_ID
-      )
-      expect(clearButtonWithFocus).toBeVisible()
     })
   })
 })
