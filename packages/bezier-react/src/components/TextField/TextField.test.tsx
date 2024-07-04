@@ -237,7 +237,8 @@ describe('TextField', () => {
   describe('show remove button only when it is filled and focused/hovered', () => {
     /**
      * FIXME: This test is not working properly.
-     * @see https://github.com/testing-library/jest-dom/issues/444
+     * Jest-dom does not support css which is not inline.
+     * @see https://github.com/testing-library/jest-dom/issues/113#issuecomment-496971128
      */
     // it('disappear when empty & focused/hovered', async () => {
     //   const { getByTestId } = renderComponent({ value: '', allowClear: true })
@@ -295,6 +296,20 @@ describe('TextField', () => {
         TEXT_INPUT_CLEAR_ICON_TEST_ID
       )
       expect(clearButton).toBeVisible()
+    })
+
+    it('should focus the clear button when Tab key is pressed', async () => {
+      const { getByTestId } = renderComponent({
+        value: 'test',
+        allowClear: true,
+      })
+      const rendered = getByTestId(TEXT_INPUT_TEST_ID)
+      const input = rendered.getElementsByTagName('input')[0]
+
+      input.focus()
+      await user.tab()
+
+      expect(document.activeElement).toHaveClass('CloseIconWrapper')
     })
   })
 })
