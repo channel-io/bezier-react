@@ -71,11 +71,8 @@
     box-shadow: var(--input-box-shadow-focused);
   }
 
-  &:where(:has(.TextFieldInput:focus, :hover)) .CloseIcon {
-    visibility: visible;
-  }
-
-  &:where(:has(.CloseIconWrapper:focus)) .CloseIcon {
+  &:where(:has(.TextFieldInput:focus, :hover, .CloseIconWrapper:focus))
+    .CloseIcon {
     visibility: visible;
   }
 
