@@ -1,5 +1,21 @@
 # @channel.io/bezier-icons
 
+## 0.29.0
+
+### Minor Changes
+
+- Update icons ([#2326](https://github.com/channel-io/bezier-react/pull/2326)) by @ClaireKimmm
+
+  Added
+
+  - ai-off.svg
+  - folder-off.svg
+
+  Modified
+
+  - document.svg
+  - flag-filled.svg
+
 ## 0.28.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/bezier-icons",
-  "version": "0.28.0",
+  "version": "0.29.0",
   "description": "Icon library that implements Bezier design system.",
   "repository": {
     "type": "git",
