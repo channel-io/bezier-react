@@ -9818,6 +9818,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"debug@npm:^4.3.5":
+  version: 4.3.5
+  resolution: "debug@npm:4.3.5"
+  dependencies:
+    ms: "npm:2.1.2"
+  peerDependenciesMeta:
+    supports-color:
+      optional: true
+  checksum: 10/cb6eab424c410e07813ca1392888589972ce9a32b8829c6508f5e1f25f3c3e70a76731610ae55b4bbe58d1a2fffa1424b30e97fa8d394e49cd2656a9643aedd2
+  languageName: node
+  linkType: hard
+
 "decimal.js@npm:^10.4.2":
   version: 10.4.3
   resolution: "decimal.js@npm:10.4.3"
@@ -10876,13 +10888,13 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-jsdoc@npm:^48.2.0":
-  version: 48.4.0
-  resolution: "eslint-plugin-jsdoc@npm:48.4.0"
+  version: 48.5.2
+  resolution: "eslint-plugin-jsdoc@npm:48.5.2"
   dependencies:
     "@es-joy/jsdoccomment": "npm:~0.43.1"
     are-docs-informative: "npm:^0.0.2"
     comment-parser: "npm:1.4.1"
-    debug: "npm:^4.3.4"
+    debug: "npm:^4.3.5"
     escape-string-regexp: "npm:^4.0.0"
     esquery: "npm:^1.5.0"
     parse-imports: "npm:^2.1.0"
@@ -10891,7 +10903,7 @@ __metadata:
     synckit: "npm:^0.9.0"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
-  checksum: 10/0f46f9f56ea20ff2f3d16ea81913fbfd43c2572b1f1e4fac1c22f76f79a6da9f00f2dd93df988922d512850507632f334a7069a1ca6711a51b840da386928118
+  checksum: 10/8e0d483184dc3080e448b40db4f9317d959b0a1bade782101a6bf0edec7f6fc0b2efee13ec82673b6802377cb034d02cf71d7d6e0920569fa22fe3841c53f221
   languageName: node
   linkType: hard
 
