@@ -272,7 +272,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
     @each $size, $value in $size-map {
       &:where(.size-#{$size}) {
-        & :is(.Spinner) {
+        & :is(.Loader) {
           @include dimension.square(#{$value}px);
         }
       }

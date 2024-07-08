@@ -104,7 +104,7 @@
     justify-content: center;
 
     &:where(.size-s) {
-      & :is(.Spinner) {
+      & :is(.Loader) {
         @include dimension.square(#{map.get($size-map, 's')}px);
       }
     }

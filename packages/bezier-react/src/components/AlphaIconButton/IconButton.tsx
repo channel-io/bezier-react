@@ -4,7 +4,7 @@ import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import { type AlphaIconButtonProps } from '~/src/components/AlphaIconButton'
-import { AlphaSpinner } from '~/src/components/AlphaSpinner'
+import { AlphaLoader } from '~/src/components/AlphaLoader'
 import { BaseButton } from '~/src/components/BaseButton'
 import { type ButtonSize } from '~/src/components/Button'
 import { Icon } from '~/src/components/Icon'
@@ -79,8 +79,8 @@ export const IconButton = forwardRef<HTMLButtonElement, AlphaIconButtonProps>(
               styles[`size-${getIconSize(size)}`]
             )}
           >
-            <AlphaSpinner
-              className={styles.Spinner}
+            <AlphaLoader
+              className={styles.Loader}
               variant="on-overlay"
             />
           </div>
