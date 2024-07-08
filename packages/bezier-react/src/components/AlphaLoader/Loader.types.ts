@@ -4,18 +4,18 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
-type SpinnerSize = 's' | 'm'
+type LoaderSize = 's' | 'm'
 
-interface SpinnerOwnProps {
+interface LoaderOwnProps {
   /**
-   * The style variant of Spinner.
+   * The style variant of Loader.
    * @default 'secondary'
    */
   variant?: 'primary' | 'secondary' | 'on-overlay'
 }
 
-export interface SpinnerProps
+export interface LoaderProps
   extends Omit<BezierComponentProps<'span'>, keyof ColorProps>,
-    SizeProps<SpinnerSize>,
+    SizeProps<LoaderSize>,
     ColorProps,
-    SpinnerOwnProps {}
+    LoaderOwnProps {}

@@ -1,0 +1,75 @@
+@use '../../styles/mixins/dimension';
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Loader {
+  --b-loader-size: initial;
+  --b-loader-track-color: initial;
+  --b-loader-indicator-color: initial;
+  --b-loader-stroke-thickness: initial;
+
+  /* NOTE: stroke-width is fixed for the exceptional case of use inside buttons */
+  --b-loader-stroke-width: 2px;
+  --b-loader-view-box-size: 16;
+  --b-loader-stroke-dasharray: 16 9999;
+
+  @include dimension.square(calc(1px * var(--b-loader-size)));
+
+  display: inline-flex;
+  animation: rotate 1s linear infinite;
+
+  & :where(.track) {
+    fill: none;
+    stroke: var(--b-loader-track-color);
+    stroke-linecap: round;
+    stroke-width: var(--b-loader-stroke-width);
+  }
+
+  & :where(.indicator) {
+    fill: none;
+    stroke: var(--b-loader-indicator-color);
+    stroke-dasharray: var(--b-loader-stroke-dasharray);
+    stroke-linecap: round;
+    stroke-width: var(--b-loader-stroke-width);
+  }
+
+  &:where(.size-s, .size-m) {
+    --b-loader-stroke-width: calc(
+      var(--b-loader-stroke-thickness) * var(--b-loader-view-box-size) /
+        var(--b-loader-size)
+    );
+  }
+
+  &:where(.size-s) {
+    --b-loader-size: 28;
+    --b-loader-stroke-thickness: 4px;
+  }
+
+  &:where(.size-m) {
+    --b-loader-size: 50;
+    --b-loader-stroke-thickness: 6px;
+  }
+
+  &:where(.variant-primary) {
+    --b-loader-track-color: var(--alpha-color-primary-bg-lightest);
+    --b-loader-indicator-color: var(--alpha-color-fg-blue-normal);
+  }
+
+  &:where(.variant-secondary) {
+    --b-loader-track-color: var(--alpha-color-bg-black-light);
+    --b-loader-indicator-color: var(--alpha-color-fg-black-light);
+  }
+
+  &:where(.variant-on-overlay) {
+    --b-loader-track-color: var(--alpha-color-bg-absolute-white-lightest);
+    --b-loader-indicator-color: var(--alpha-color-fg-absolute-white-light);
+  }
+}
