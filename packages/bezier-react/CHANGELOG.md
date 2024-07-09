@@ -1,5 +1,15 @@
 # @channel.io/bezier-react
 
+## 2.2.0
+
+### Minor Changes
+
+- Focus on the clear button in `TextField` component when tab is pressed. ([#2325](https://github.com/channel-io/bezier-react/pull/2325)) by @ehgmsdk20
+
+### Patch Changes
+
+- Rename `AlphaSpinner` component to `AlphaLoader`. ([#2336](https://github.com/channel-io/bezier-react/pull/2336)) by @yangwooseong
+
 ## 2.1.0
 
 ### Minor Changes

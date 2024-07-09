@@ -1,5 +1,11 @@
 # @channel.io/bezier-icons
 
+## 0.30.0
+
+### Minor Changes
+
+- Fix `reactIconTemplate` for ref forwarding. ([#2329](https://github.com/channel-io/bezier-react/pull/2329)) by @yangwooseong
+
 ## 0.29.0
 
 ### Minor Changes
