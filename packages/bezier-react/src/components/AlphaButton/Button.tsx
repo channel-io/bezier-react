@@ -7,7 +7,7 @@ import {
   type ButtonProps,
   type ButtonSize,
 } from '~/src/components/AlphaButton/Button.types'
-import { AlphaSpinner } from '~/src/components/AlphaSpinner'
+import { AlphaLoader } from '~/src/components/AlphaLoader'
 import { BaseButton } from '~/src/components/BaseButton'
 import { Icon, type IconSize } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
@@ -121,8 +121,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
               styles[`size-${getIconSize(size)}`]
             )}
           >
-            <AlphaSpinner
-              className={styles.Spinner}
+            <AlphaLoader
+              className={styles.Loader}
               variant="on-overlay"
             />
           </div>

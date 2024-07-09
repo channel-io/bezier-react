@@ -7,7 +7,7 @@ import {
   type FloatingButtonProps,
   type FloatingButtonSize,
 } from '~/src/components/AlphaFloatingButton/FloatingButton.types'
-import { AlphaSpinner } from '~/src/components/AlphaSpinner'
+import { AlphaLoader } from '~/src/components/AlphaLoader'
 import { BaseButton } from '~/src/components/BaseButton'
 import { Icon, type IconSize } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
@@ -120,8 +120,8 @@ export const FloatingButton = forwardRef<
             styles[`size-${getIconSize(size)}`]
           )}
         >
-          <AlphaSpinner
-            className={styles.Spinner}
+          <AlphaLoader
+            className={styles.Loader}
             variant="on-overlay"
           />
         </div>

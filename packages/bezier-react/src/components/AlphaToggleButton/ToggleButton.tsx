@@ -4,7 +4,7 @@ import { isBezierIcon } from '@channel.io/bezier-icons'
 import * as TogglePrimitive from '@radix-ui/react-toggle'
 import classNames from 'classnames'
 
-import { AlphaSpinner } from '~/src/components/AlphaSpinner'
+import { AlphaLoader } from '~/src/components/AlphaLoader'
 import { useToggleButtonContext } from '~/src/components/AlphaToggleButton/ToggleButtonContext'
 import { BaseButton } from '~/src/components/BaseButton'
 import { Icon, type IconSize } from '~/src/components/Icon'
@@ -104,8 +104,8 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
                 styles[`size-${ICON_SIZE}`]
               )}
             >
-              <AlphaSpinner
-                className={styles.Spinner}
+              <AlphaLoader
+                className={styles.Loader}
                 variant="secondary"
               />
             </div>
