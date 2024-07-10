@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 2.2.1
+
+### Patch Changes
+
+- Change `source` type of IconProps to `BezierIcon` ([#2344](https://github.com/channel-io/bezier-react/pull/2344)) by @yangwooseong
+
 ## 2.2.0
 
 ### Minor Changes
