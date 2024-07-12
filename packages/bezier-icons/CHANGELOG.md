@@ -1,5 +1,16 @@
 # @channel.io/bezier-icons
 
+## 0.31.0
+
+### Minor Changes
+
+- Update icons ([#2346](https://github.com/channel-io/bezier-react/pull/2346)) by @kimminkyung94
+
+  Modified
+
+  - lightning-filled.svg
+  - lightning.svg
+
 ## 0.30.0
 
 ### Minor Changes
