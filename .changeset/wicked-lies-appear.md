@@ -2,4 +2,4 @@
 '@channel.io/bezier-icons': patch
 ---
 
-check nullish in isBezierIcon to block NPE error
+Check if value is nullish in `isBezierIcon` function to block runtime error.
