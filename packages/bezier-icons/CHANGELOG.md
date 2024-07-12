@@ -1,5 +1,11 @@
 # @channel.io/bezier-icons
 
+## 0.31.1
+
+### Patch Changes
+
+- Check if value is nullish in `isBezierIcon` function to block runtime error. ([#2348](https://github.com/channel-io/bezier-react/pull/2348)) by @yangwooseong
+
 ## 0.31.0
 
 ### Minor Changes
