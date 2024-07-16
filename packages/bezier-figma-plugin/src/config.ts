@@ -1,7 +1,7 @@
 const config = {
   repository: {
     name: 'bezier-asset',
-    iconExtractPath: 'directory root',
+    iconExtractPath: 'asset/icons',
     baseBranchName: 'exp',
     owner: 'channel-io',
   },
