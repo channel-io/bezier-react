@@ -74,7 +74,7 @@ declare module '*.svg' {
   export default content
 }
 
-export declare type IconSource = React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement> & React.RefAttributes<SVGSVGElement>>
+export declare type IconSource = React.FunctionComponent<React.SVGProps<SVGSVGElement>>
 export declare type BezierIcon = IconSource & { __bezier__icon: true }
 
 export declare function isBezierIcon(arg: unknown): arg is BezierIcon
@@ -159,7 +159,7 @@ function svgBuild(options = {}) {
         )
       }
 
-      export default createBezierIcon(forwardRef(${componentName}))
+      export default createBezierIcon(${componentName})
     `
   }
 
@@ -193,7 +193,6 @@ function svgBuild(options = {}) {
           plugins: ['@svgr/plugin-jsx'],
           icon: true,
           jsxRuntime: 'classic',
-          ref: true,
           template: reactIconTemplate,
         },
         {

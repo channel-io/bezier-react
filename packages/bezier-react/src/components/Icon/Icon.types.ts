@@ -1,4 +1,4 @@
-import { type BezierIcon } from '@channel.io/bezier-icons'
+import type React from 'react'
 
 import {
   type BezierComponentProps,
@@ -21,7 +21,7 @@ interface IconOwnProps {
    * <Icon source={HeartFilledIcon} {...} />
    * ```
    */
-  source: BezierIcon
+  source: React.ElementType<React.SVGProps<SVGSVGElement>>
 }
 
 export interface IconProps
