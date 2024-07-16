@@ -1,4 +1,4 @@
-name: Generate icon files from icons.json file
+name: Generate changeset and PR description based on changed icons
 
 on:
   push:
