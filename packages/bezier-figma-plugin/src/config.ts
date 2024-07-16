@@ -1,8 +1,8 @@
 const config = {
   repository: {
-    name: 'bezier-react',
-    iconExtractPath: 'packages/bezier-icons/icons',
-    baseBranchName: 'main',
+    name: 'bezier-asset',
+    iconExtractPath: 'directory root',
+    baseBranchName: 'exp',
     owner: 'channel-io',
   },
   commit: {
