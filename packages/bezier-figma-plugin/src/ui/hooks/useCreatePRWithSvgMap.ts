@@ -32,7 +32,7 @@ export function useCreatePRWithSvgMap({
         tree: [
           {
             sha: blob.sha,
-            path: 'packages/bezier-icons/icons.json',
+            path: 'icons.json',
             type: 'blob',
             mode: '100644',
           },
@@ -84,14 +84,14 @@ export function useCreatePRWithSvgMap({
 
   const createPRWithSvgMap = useCallback(
     async (svgByName: SvgByName) => {
-      const mainBranch = await progress({
-        callback: getMainBranch('main'),
+      const baseBranch = await progress({
+        callback: getMainBranch(config.repository.baseBranchName),
         title: '📦 깃헙에서 정보를 가져오는 중...',
         successValueOffset: 0.3,
       })
 
       const commit = await progress({
-        callback: createCommit(svgByName, mainBranch.sha),
+        callback: createCommit(svgByName, baseBranch.sha),
         title: '🎨 베지어 아이콘 변경사항을 반영하는 중...',
         successValueOffset: 0.3,
       })
