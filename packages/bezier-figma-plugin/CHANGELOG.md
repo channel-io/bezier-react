@@ -1,5 +1,11 @@
 # bezier-figma-plugin
 
+## 0.6.0
+
+### Minor Changes
+
+- Change the repository where the figma plugin creates PR from `bezier-react` to `bezier-asset`. ([#2357](https://github.com/channel-io/bezier-react/pull/2357)) by @yangwooseong
+
 ## 0.5.17
 
 ### Patch Changes
