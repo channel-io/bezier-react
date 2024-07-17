@@ -1,0 +1,44 @@
+name: Generate changeset and PR description based on changed icons
+
+on:
+  push:
+    branches:
+      - icon-update-*
+    paths:
+      - packages/bezier-icons/icons/*
+
+jobs:
+  generate-svg:
+    name: Generate changeset and PR description
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Git Config
+        run: |
+          git config --global user.email "eng@channel.io"
+          git config --global user.name "ch-builder"
+
+      - name: Get PR number
+        id: pr
+        run: echo "pull_request_number=$(gh pr view --json number -q .number || echo "")" >> $GITHUB_OUTPUT
+
+      - name: Add pr description
+        run: |
+          node packages/bezier-icons/scripts/add-pr-description.js ${{ secrets.PERSONAL_ACCESS_TOKEN }} ${{ steps.pr.outputs.pull_request_number }}
+
+      - name: Add changeset
+        run: |
+          node packages/bezier-icons/scripts/generate-changeset.js
+          git add .
+          git commit -m "chore(bezier-icons): add changeset"
