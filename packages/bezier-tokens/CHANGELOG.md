@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.2.6
+
+### Patch Changes
+
+- Fix the value of alpha color.green.300(-15,30,45) ([#2362](https://github.com/channel-io/bezier-react/pull/2362)) by @yangwooseong
+
 ## 0.2.5
 
 ### Patch Changes
