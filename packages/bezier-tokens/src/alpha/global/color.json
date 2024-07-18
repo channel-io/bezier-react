@@ -110,7 +110,7 @@
         "type": "color"
       },
       "300": {
-        "value": "#7ad890",
+        "value": "#6ad081",
         "type": "color"
       },
       "400": {
@@ -138,15 +138,15 @@
         "type": "color"
       },
       "300-45": {
-        "value": "#7ad89073",
+        "value": "#6ad08173",
         "type": "color"
       },
       "300-30": {
-        "value": "#7ad8904d",
+        "value": "#6ad0814d",
         "type": "color"
       },
       "300-15": {
-        "value": "#7ad89026",
+        "value": "#6ad08126",
         "type": "color"
       }
     },
