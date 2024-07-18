@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/bezier-react",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "React components library that implements Bezier design system.",
   "repository": {
     "type": "git",
@@ -130,7 +130,7 @@
     }
   },
   "dependencies": {
-    "@channel.io/bezier-tokens": "0.2.5",
+    "@channel.io/bezier-tokens": "0.2.6",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-radio-group": "^1.1.3",

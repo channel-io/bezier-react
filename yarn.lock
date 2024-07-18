@@ -2124,7 +2124,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@channel.io/bezier-react@npm:2.2.1, @channel.io/bezier-react@workspace:packages/bezier-react":
+"@channel.io/bezier-react@npm:2.2.2, @channel.io/bezier-react@workspace:packages/bezier-react":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-react@workspace:packages/bezier-react"
   dependencies:
@@ -2133,7 +2133,7 @@ __metadata:
     "@babel/preset-react": "npm:^7.23.3"
     "@babel/preset-typescript": "npm:^7.23.3"
     "@channel.io/bezier-icons": "npm:0.31.1"
-    "@channel.io/bezier-tokens": "npm:0.2.5"
+    "@channel.io/bezier-tokens": "npm:0.2.6"
     "@chromatic-com/storybook": "npm:^1"
     "@radix-ui/react-checkbox": "npm:^1.0.4"
     "@radix-ui/react-dialog": "npm:^1.0.5"
@@ -2215,7 +2215,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@channel.io/bezier-tokens@npm:0.2.5, @channel.io/bezier-tokens@workspace:packages/bezier-tokens":
+"@channel.io/bezier-tokens@npm:0.2.6, @channel.io/bezier-tokens@workspace:packages/bezier-tokens":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-tokens@workspace:packages/bezier-tokens"
   dependencies:
@@ -7626,7 +7626,7 @@ __metadata:
   resolution: "bezier-figma-plugin@workspace:packages/bezier-figma-plugin"
   dependencies:
     "@channel.io/bezier-icons": "npm:0.31.1"
-    "@channel.io/bezier-react": "npm:2.2.1"
+    "@channel.io/bezier-react": "npm:2.2.2"
     "@figma/plugin-typings": "npm:^1.87.0"
     "@types/react": "npm:^18.2.59"
     "@types/react-dom": "npm:^18.2.19"
@@ -7681,7 +7681,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bezier-vscode@workspace:packages/bezier-vscode"
   dependencies:
-    "@channel.io/bezier-tokens": "npm:0.2.5"
+    "@channel.io/bezier-tokens": "npm:0.2.6"
     "@types/node": "npm:^20.11.20"
     "@types/vscode": "npm:^1.64.0"
     vscode-languageclient: "npm:^9.0.1"
