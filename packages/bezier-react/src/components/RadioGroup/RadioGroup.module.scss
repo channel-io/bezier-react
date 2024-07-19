@@ -19,11 +19,6 @@ $inner-indicator-size: 8px;
 }
 
 .RadioGroupItem {
-  @include interaction.touchable-hover {
-    @include outer-indicator-focus-styles;
-    @include inner-indicator-focus-styles;
-  }
-
   position: relative;
 
   display: flex;
@@ -32,6 +27,12 @@ $inner-indicator-size: 8px;
   width: 100%;
 
   outline: none;
+
+  /* stylelint-disable-next-line order/order */
+  @include interaction.touchable-hover {
+    @include outer-indicator-focus-styles;
+    @include inner-indicator-focus-styles;
+  }
 
   /* Outer Indicator */
   &::before {
