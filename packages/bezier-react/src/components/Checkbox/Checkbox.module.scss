@@ -11,7 +11,7 @@
 
 .Checkbox {
   cursor: inherit;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +34,6 @@
       visibility: visible;
     }
   }
-
 
   &:where([data-disabled]) {
     background-color: var(--bg-black-dark);
