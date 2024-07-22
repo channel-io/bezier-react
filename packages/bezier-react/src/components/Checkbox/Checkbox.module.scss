@@ -12,6 +12,16 @@
 .Checkbox {
   cursor: inherit;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 1px;
+
+  background-color: var(--bg-white-normal);
+  border-radius: 7px;
+  box-shadow: inset 0 0 0 2px var(--bdr-black-dark);
+
   /* stylelint-disable-next-line order/order */
   @include dimension.square(18px);
 
@@ -24,16 +34,6 @@
       visibility: visible;
     }
   }
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin: 1px;
-
-  background-color: var(--bg-white-normal);
-  border-radius: 7px;
-  box-shadow: inset 0 0 0 2px var(--bdr-black-dark);
 
   &:where([data-disabled]) {
     background-color: var(--bg-black-dark);
