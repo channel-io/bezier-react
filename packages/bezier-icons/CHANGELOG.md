@@ -1,5 +1,11 @@
 # @channel.io/bezier-icons
 
+## 0.31.2
+
+### Patch Changes
+
+- Revert `IconSource` type to `React.FunctionComponent` to remove breaking change caused by type change. ([#2359](https://github.com/channel-io/bezier-react/pull/2359)) by @yangwooseong
+
 ## 0.31.1
 
 ### Patch Changes
