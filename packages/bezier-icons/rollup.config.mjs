@@ -74,7 +74,12 @@ declare module '*.svg' {
   export default content
 }
 
-export declare type IconSource = React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement> & React.RefAttributes<SVGSVGElement>>
+/**
+ * Since IconSource created by svgr is forwarded ref,
+ * Its correct type is React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement> & React.RefAttributes<SVGSVGElement>>,
+ * however, we keep React.FunctionComponent type for backward compatibility.
+ */
+export declare type IconSource = React.FunctionComponent<React.SVGProps<SVGSVGElement>>
 export declare type BezierIcon = IconSource & { __bezier__icon: true }
 
 export declare function isBezierIcon(arg: unknown): arg is BezierIcon
