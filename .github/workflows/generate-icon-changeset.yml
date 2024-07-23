@@ -31,7 +31,9 @@ jobs:
 
       - name: Get PR number
         id: pr
-        run: echo "pull_request_number=$(gh pr view --json number -q .number || echo "")" >> $GITHUB_OUTPUT
+        run: |
+          echo "pull_request_number=$(gh pr view --json number -q .number || echo "")" >> $GITHUB_OUTPUT
+          echo $GITHUB_OUTPUT
 
       - name: Add pr description
         run: |

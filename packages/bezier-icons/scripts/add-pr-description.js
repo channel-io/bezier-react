@@ -33,6 +33,7 @@ const updateDescription = async (description) => {
 exec(
   'git log -1 --name-status --pretty="format:"',
   async (_undefined, stdout) => {
+    console.log("LOG: ', stdout")
     updateDescription(getDescription(stdout))
   }
 )
