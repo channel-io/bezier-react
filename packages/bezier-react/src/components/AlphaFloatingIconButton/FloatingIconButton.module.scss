@@ -161,6 +161,10 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
   /* internal components */
   & :where(.ButtonContent) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     &:where(.loading) {
       visibility: hidden;
     }
