@@ -1,5 +1,22 @@
 # @channel.io/bezier-icons
 
+## 0.32.0
+
+### Minor Changes
+
+- Optimize all icon assets with svgo. ([#2380](https://github.com/channel-io/bezier-react/pull/2380)) by @ch-builder
+
+- Update icons ([#2384](https://github.com/channel-io/bezier-react/pull/2384)) by @ch-builder
+
+  Modified
+
+  - apps-add.svg
+  - exclusive.svg
+
+  Added
+
+  - widget.svg
+
 ## 0.31.2
 
 ### Patch Changes
