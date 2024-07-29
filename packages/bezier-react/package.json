@@ -73,6 +73,7 @@
     "@storybook/addon-a11y": "^8.1.10",
     "@storybook/addon-actions": "^8.1.10",
     "@storybook/addon-controls": "^8.1.10",
+    "@storybook/addon-designs": "^8.0.3",
     "@storybook/addon-docs": "^8.1.10",
     "@storybook/addon-measure": "^8.1.10",
     "@storybook/addon-outline": "^8.1.10",
