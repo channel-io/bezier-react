@@ -68,6 +68,12 @@ export const Primary = {
     shape: 'rectangle',
     fullWidth: false,
   },
+  parameters: {
+    design: {
+      type: 'link',
+      url: 'https://www.figma.com/design/fPXP9zfjZU9NyARnhTWL6o/Input?node-id=426-1255&t=tGbZuTTPrTF5lobw-0',
+    },
+  },
 } satisfies StoryObj<typeof meta>
 
 export default meta

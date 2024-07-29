@@ -28,7 +28,6 @@ const Template: StoryFn<AvatarProps> = (args) => <Avatar {...args} />
 
 export const Primary: StoryObj<AvatarProps> = {
   render: Template,
-
   args: {
     avatarUrl: MOCK_AVATAR_URL,
     name: 'Channel',
@@ -36,6 +35,12 @@ export const Primary: StoryObj<AvatarProps> = {
     showBorder: false,
     disabled: false,
     smoothCorners: true,
+  },
+  parameters: {
+    design: {
+      type: 'link',
+      url: 'https://www.figma.com/design/aJJF4bU82uR0jAsmWp5wlE/Navigation?node-id=0-1&t=9HAqBVHxkd1tUwxF-1',
+    },
   },
 }
 
@@ -59,5 +64,11 @@ export const WithCustomStatus: StoryObj<AvatarProps> = {
     size: '48',
     showBorder: false,
     disabled: false,
+  },
+  parameters: {
+    design: {
+      type: 'link',
+      url: 'https://www.figma.com/design/aJJF4bU82uR0jAsmWp5wlE/Navigation?node-id=0-1&t=9HAqBVHxkd1tUwxF-1',
+    },
   },
 }

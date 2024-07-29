@@ -52,4 +52,10 @@ export const Primary: StoryObj<AvatarGroupProps> = {
     size: '30',
     spacing: 4,
   },
+  parameters: {
+    design: {
+      type: 'link',
+      url: 'https://www.figma.com/design/aJJF4bU82uR0jAsmWp5wlE/Navigation?node-id=1-1389&t=63YtY9eXtdx4ujrv-0',
+    },
+  },
 }

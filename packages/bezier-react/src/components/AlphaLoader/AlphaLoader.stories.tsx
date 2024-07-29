@@ -20,4 +20,10 @@ export const Primary = {
     size: 'm',
     variant: 'secondary',
   },
+  parameters: {
+    design: {
+      type: 'link',
+      url: 'https://www.figma.com/design/KyhPPZeeC0JBmTclJGe3nn/Status?node-id=6-69&t=aiOXLQegb05Jiqqg-1',
+    },
+  },
 }

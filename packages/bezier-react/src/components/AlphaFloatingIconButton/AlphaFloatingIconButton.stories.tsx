@@ -25,4 +25,10 @@ export const Primary: StoryObj<AlphaFloatingIconButtonProps> = {
     variant: 'primary',
     color: 'blue',
   },
+  parameters: {
+    design: {
+      type: 'link',
+      url: 'https://www.figma.com/design/8J76noM3T1Sp5cNPhnYQiG/Action?node-id=112-2766&t=7KmMal05dj8QL5kK-1',
+    },
+  },
 }

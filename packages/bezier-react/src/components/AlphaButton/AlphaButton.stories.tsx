@@ -26,4 +26,10 @@ export const Primary: StoryObj<AlphaButtonProps> = {
     variant: 'primary',
     color: 'blue',
   },
+  parameters: {
+    design: {
+      type: 'link',
+      url: 'https://www.figma.com/design/8J76noM3T1Sp5cNPhnYQiG/Action?node-id=0-1&t=WwfuBAWI872yYPf8-1',
+    },
+  },
 }

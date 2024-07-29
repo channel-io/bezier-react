@@ -9,6 +9,7 @@ export default {
     '@storybook/addon-actions',
     '@storybook/addon-a11y',
     '@storybook/addon-docs',
+    '@storybook/addon-designs',
     '@storybook/addon-measure',
     '@storybook/addon-outline',
     {
