@@ -8,6 +8,7 @@ on:
     paths:
       - packages/bezier-react/**
       - packages/bezier-tokens/**
+      - packages/bezier-icons/**
 
 jobs:
   chromatic-deployment:
