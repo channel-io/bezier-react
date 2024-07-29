@@ -7,6 +7,8 @@ on:
   pull_request:
     paths:
       - packages/bezier-react/**
+      - packages/bezier-tokens/**
+      - packages/bezier-icons/**
 
 jobs:
   chromatic-deployment:
