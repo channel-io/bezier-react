@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 2.2.3
+
+### Patch Changes
+
+- Fix vertical align bug with icon in `AlphaFloatingIconButton` component. ([#2383](https://github.com/channel-io/bezier-react/pull/2383)) by @yangwooseong
+
 ## 2.2.2
 
 ### Patch Changes
