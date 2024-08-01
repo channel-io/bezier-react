@@ -5,10 +5,8 @@ import { render } from '~/src/utils/test'
 import { EMOJI_TEST_ID, Emoji } from './Emoji'
 import { type EmojiProps } from './Emoji.types'
 
-const MOCK_EMOJI_URL = 'https://cf.exp.channel.io/asset/emoji/images/80/a.png'
-
 describe('Emoji Test >', () => {
-  const defaultProps: EmojiProps = { imageUrl: MOCK_EMOJI_URL, name: 'a' }
+  const defaultProps: EmojiProps = { size: '24', name: 'a' }
 
   const renderComponent = (props?: Partial<EmojiProps>) =>
     render(
