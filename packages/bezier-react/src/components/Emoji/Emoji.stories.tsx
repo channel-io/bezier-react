@@ -5,13 +5,6 @@ import { type EmojiProps } from './Emoji.types'
 
 const meta = {
   component: Emoji,
-  argTypes: {
-    name: {
-      control: {
-        type: 'text',
-      },
-    },
-  },
 } satisfies Meta<EmojiProps>
 
 export default meta
