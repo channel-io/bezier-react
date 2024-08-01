@@ -14,8 +14,15 @@ export type EmojiSize =
   | '120'
 
 interface EmojiOwnProps {
+  /**
+   * Name of the emoji. e.g. 'grinning', 'smiley', etc.
+   */
   name: string
-  imageUrl: string
+  /**
+   * @deprecated
+   * `imageUrl` is created in the component and will be removed in the next major version.
+   */
+  imageUrl?: string
 }
 
 export interface EmojiProps
