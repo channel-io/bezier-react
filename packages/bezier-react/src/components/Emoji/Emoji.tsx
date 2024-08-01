@@ -29,7 +29,7 @@ export const Emoji = forwardRef<HTMLDivElement, EmojiProps>(function Emoji(
   { style, imageUrl, className, name, size = '24', ...rest },
   forwardedRef
 ) {
-  const url = imageUrl ?? getEmojiUrl(name, Number(size) >= 60 ? '160' : '80')
+  const assetSize = Number(size) >= 60 ? '160' : '80'
 
   return (
     <div
@@ -38,7 +38,9 @@ export const Emoji = forwardRef<HTMLDivElement, EmojiProps>(function Emoji(
       aria-description={name}
       style={
         {
-          '--b-emoji-background-image': cssUrl(url),
+          '--b-emoji-background-image': cssUrl(
+            imageUrl ?? getEmojiUrl(name, assetSize)
+          ),
           ...style,
         } as CSSProperties
       }
