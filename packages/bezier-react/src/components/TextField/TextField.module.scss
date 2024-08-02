@@ -104,6 +104,7 @@
 
 .RightContentWrapper {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   padding-right: 2px;
 }
