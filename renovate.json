@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base", ":labels(chore:deps)"],
   "timezone": "Asia/Seoul",
-  "schedule": "on Monday after 10am before 7pm every month",
+  "schedule": "0 10-19 1-7 * MON",
   "packageRules": [
     {
       "groupName": "style",
