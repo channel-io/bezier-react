@@ -86,7 +86,7 @@ export const OutlineItem = forwardRef<
               <Icon
                 className={styles.Icon}
                 source={open ? ChevronSmallDownIcon : ChevronSmallRightIcon}
-                size="xs"
+                size="s"
                 color="txt-black-dark"
               />
             )}
