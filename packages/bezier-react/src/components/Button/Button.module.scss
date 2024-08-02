@@ -157,7 +157,6 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
         color: var(--bgtxt-#{$color-variant}-normal);
 
         &#{$active-selector} {
-          color: var(--bgtxt-#{$color-variant}-dark);
           background-color: var(--bgtxt-#{$color-variant}-lightest);
         }
       }
