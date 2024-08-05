@@ -1,5 +1,17 @@
 # @channel.io/bezier-react
 
+## 2.2.4
+
+### Patch Changes
+
+- Deprecate `imageUrl` props of `Emoji` component. ([#2400](https://github.com/channel-io/bezier-react/pull/2400)) by @yangwooseong
+
+- Fix `OutlineItem` component's icon size and gap between icon and leftContent. ([#2403](https://github.com/channel-io/bezier-react/pull/2403)) by @yangwooseong
+
+- Prevent right button of `TextField` from shrinking. ([#2375](https://github.com/channel-io/bezier-react/pull/2375)) by @yangwooseong
+
+- Keep the color of text when hovering over the tertiary `Button` component. ([#2381](https://github.com/channel-io/bezier-react/pull/2381)) by @yangwooseong
+
 ## 2.2.3
 
 ### Patch Changes
