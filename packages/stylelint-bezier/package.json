@@ -1,5 +1,5 @@
 {
-  "name": "stylelint-bezier",
+  "name": "@channel.io/stylelint-bezier",
   "version": "0.0.0",
   "description": "Stylelint plugin for Bezier design system.",
   "repository": {
@@ -7,10 +7,21 @@
     "url": "https://github.com/channel-io/bezier-react",
     "directory": "packages/stylelint-bezier"
   },
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsc --watch",
+    "build": "tsc --build --verbose"
   },
   "author": "Channel Corp.",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@channel.io/bezier-tokens": "0.1.0-alpha.5"
+  },
+  "devDependencies": {
+    "eslint-config-bezier": "workspace:*",
+    "tsconfig": "workspace:*"
+  },
+  "peerDependencies": {
+    "stylelint": ">=16.0.0"
+  }
 }

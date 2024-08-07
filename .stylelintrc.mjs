@@ -1,6 +1,6 @@
 /** @type {import('stylelint').Config} */
 export default {
-  extends: ['@channel.io/stylelint-config'],
+  extends: ['@channel.io/stylelint-config', './packages/stylelint-bezier'],
   rules: {
     'selector-class-pattern': [
       // NOTE: Allows Pascal case(components) and Kebab case(states, variants, etc.).
