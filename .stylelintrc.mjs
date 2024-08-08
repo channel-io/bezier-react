@@ -11,5 +11,12 @@ export default {
     ],
     // NOTE: Set to reduce difficulties caused by selector specificity between components.
     'selector-max-specificity': ['0,2,0'],
+    'bezier/validate-token': [
+      true,
+      {
+        ignorePrefix: ['b-'],
+        severity: 'warning',
+      },
+    ],
   },
 }
