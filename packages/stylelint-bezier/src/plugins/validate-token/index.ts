@@ -1,4 +1,5 @@
 import { tokens } from '@channel.io/bezier-tokens'
+import { tokens as alphaTokens } from '@channel.io/bezier-tokens/alpha'
 import stylelint, { Rule } from 'stylelint'
 
 const {
@@ -21,9 +22,33 @@ function flattenObject(obj: object, result: Record<string, unknown> = {}) {
   return result
 }
 
+function flattenAlphaToken(obj: object, result: Record<string, unknown> = {}) {
+  for (const [key, value] of Object.entries(obj)) {
+    if (
+      typeof value === 'object' &&
+      value !== null &&
+      value.value !== undefined &&
+      !Array.isArray(value)
+    ) {
+      result[key] = value.value
+    } else if (
+      typeof value === 'object' &&
+      value !== null &&
+      !Array.isArray(value)
+    ) {
+      flattenAlphaToken(value, result)
+    } else {
+      result[key] = value.value
+    }
+  }
+  return result
+}
+
 const allTokens = {
   ...flattenObject(tokens.global),
   ...flattenObject(tokens.lightTheme),
+  ...flattenAlphaToken(alphaTokens.global),
+  ...flattenAlphaToken(alphaTokens.lightTheme),
 }
 
 const ruleName = 'bezier/validate-token'
@@ -76,7 +101,7 @@ const pluginRule: Rule<boolean> = (primary, secondaryOptions = {}) => {
         return
       }
 
-      if (!allTokens[tokenName as keyof typeof allTokens]) {
+      if (allTokens[tokenName as keyof typeof allTokens] === undefined) {
         // Token not found in the design tokens
         report({
           message: messages.rejected(tokenName),
