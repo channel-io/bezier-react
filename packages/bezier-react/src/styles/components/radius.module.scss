@@ -13,6 +13,7 @@ $radiuses:
 
 @each $radius in $radiuses {
   :where(.radius-#{$radius}) {
+    /* stylelint-disable-next-line bezier/validate-token */
     border-radius: var(--radius-#{$radius});
   }
 }
