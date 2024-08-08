@@ -81,9 +81,11 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     @each $color-variant in $chromatic-color-variants {
       &:where(.color-#{$color-variant}) {
         color: var(--bgtxt-absolute-white-dark);
+        /* stylelint-disable-next-line bezier/validate-token */
         background-color: var(--bgtxt-#{$color-variant}-normal);
 
         &#{$active-selector} {
+          /* stylelint-disable-next-line bezier/validate-token */
           background-color: var(--bgtxt-#{$color-variant}-dark);
         }
       }
@@ -112,12 +114,14 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   &:where(.style-secondary) {
     @each $color-variant in $chromatic-color-variants {
       &:where(.color-#{$color-variant}) {
+        /* stylelint-disable bezier/validate-token */
         color: var(--bgtxt-#{$color-variant}-normal);
         background-color: var(--bgtxt-#{$color-variant}-lightest);
 
         &#{$active-selector} {
           background-color: var(--bgtxt-#{$color-variant}-lighter);
         }
+        /* stylelint-enable bezier/validate-token */
       }
     }
 
@@ -154,9 +158,11 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
 
     @each $color-variant in $chromatic-color-variants {
       &:where(.color-#{$color-variant}) {
+        /* stylelint-disable-next-line bezier/validate-token */
         color: var(--bgtxt-#{$color-variant}-normal);
 
         &#{$active-selector} {
+          /* stylelint-disable-next-line bezier/validate-token */
           background-color: var(--bgtxt-#{$color-variant}-lightest);
         }
       }
@@ -191,9 +197,11 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     @each $color-variant in $chromatic-color-variants {
       &:where(.color-#{$color-variant}) {
         color: var(--bgtxt-absolute-white-dark);
+        /* stylelint-disable-next-line bezier/validate-token */
         background-color: var(--bgtxt-#{$color-variant}-normal);
 
         &#{$active-selector} {
+          /* stylelint-disable-next-line bezier/validate-token */
           background-color: var(--bgtxt-#{$color-variant}-dark);
         }
       }
