@@ -2087,13 +2087,10 @@ __metadata:
     uuid: "npm:^9.0.1"
   peerDependencies:
     "@channel.io/bezier-icons": ">=0.2.0"
-    "@channel.io/stylelint-bezier": ">=0.1.0"
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   peerDependenciesMeta:
     "@channel.io/bezier-icons":
-      optional: true
-    "@channel.io/stylelint-bezier":
       optional: true
   languageName: unknown
   linkType: soft
