@@ -15,10 +15,11 @@
   "author": "Channel Corp.",
   "license": "Apache-2.0",
   "dependencies": {
-    "@channel.io/bezier-tokens": "0.1.0-alpha.5"
+    "@channel.io/bezier-tokens": "0.2.6"
   },
   "devDependencies": {
     "eslint-config-bezier": "workspace:*",
+    "postcss-styled-syntax": "^0.6.4",
     "tsconfig": "workspace:*"
   },
   "peerDependencies": {

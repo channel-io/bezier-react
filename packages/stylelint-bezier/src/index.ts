@@ -3,4 +3,10 @@ module.exports = {
   rules: {
     'bezier/validate-token': true,
   },
+  overrides: [
+    {
+      files: ['**/*.ts'],
+      customSyntax: 'postcss-styled-syntax',
+    },
+  ],
 }
