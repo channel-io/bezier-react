@@ -25,15 +25,9 @@ $emoji-sizes: '16', '20', '24', '30', '36', '42', '48', '60', '72', '90', '120';
 
   box-sizing: content-box;
 
-  color: var(--z-d);
-
   @each $size in $emoji-sizes {
     &:where(.size-#{$size}) {
       --b-emoji-size: #{$size}px;
     }
-  }
-
-  .foo {
-    background-attachment: red;
   }
 }
