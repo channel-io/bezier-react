@@ -5,7 +5,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.ts'],
+      files: ['**/*.{ts,tsx}'],
       customSyntax: 'postcss-styled-syntax',
     },
   ],
