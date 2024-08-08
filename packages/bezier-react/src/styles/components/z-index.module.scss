@@ -2,6 +2,7 @@ $z-indices: hidden, base, floating, overlay, modal, toast, tooltip, important;
 
 @each $z-index in $z-indices {
   :where(.z-index-#{$z-index}) {
+    /* stylelint-disable-next-line bezier/validate-token */
     z-index: var(--z-index-#{$z-index});
   }
 }

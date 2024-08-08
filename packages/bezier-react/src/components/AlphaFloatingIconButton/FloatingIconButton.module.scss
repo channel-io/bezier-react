@@ -112,6 +112,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     &:where(.variant-primary) {
       @each $color in $chromatic-colors {
         &:where(.color-#{'' + $color}) {
+          /* stylelint-disable-next-line bezier/validate-token */
           background-color: var(--bgtxt-#{$color}-dark);
         }
       }
@@ -128,6 +129,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     &:where(.variant-secondary) {
       @each $color in $chromatic-colors {
         &:where(.color-#{'' + $color}) {
+          /* stylelint-disable-next-line bezier/validate-token */
           background-color: var(--bgtxt-#{$color}-lighter);
         }
       }
