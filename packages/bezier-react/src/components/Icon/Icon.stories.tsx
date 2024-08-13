@@ -5,7 +5,6 @@ import {
   BookmarkFilledIcon,
   CallInProgressIcon,
   ChannelBtnFilledIcon,
-  ChannelIcon,
   CheckCircleIcon,
   ChevronDownDoubleIcon,
   ChevronRightIcon,
@@ -55,7 +54,7 @@ export default meta
 
 export const Primary: StoryObj<IconProps> = {
   args: {
-    source: ChannelIcon,
+    source: ChannelBtnFilledIcon,
     size: 'm',
     color: 'bg-black-darker',
   },
