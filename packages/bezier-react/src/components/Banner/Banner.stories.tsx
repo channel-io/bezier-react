@@ -4,7 +4,7 @@ import {
   BlockIcon,
   CancelIcon,
   CancelSmallIcon,
-  ChannelIcon,
+  ChannelBtnFilledIcon,
   CheckCircleFilledIcon,
   ErrorTriangleFilledIcon,
   Hourglass3Icon,
@@ -262,7 +262,7 @@ export const UsageLinkTo: StoryObj<{}> = {
   render: () => (
     <Banner
       variant="cobalt"
-      icon={ChannelIcon}
+      icon={ChannelBtnFilledIcon}
       content="채널톡 정말 좋은 서비스에요."
       hasLink
       linkText="사용안내"
