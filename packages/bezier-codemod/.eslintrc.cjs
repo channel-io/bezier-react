@@ -11,4 +11,5 @@ module.exports = {
   rules: {
     'no-restricted-imports': 'off',
   },
+  ignorePatterns: ['**/fixtures/*'],
 }
