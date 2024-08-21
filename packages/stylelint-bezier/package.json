@@ -9,8 +9,13 @@
   },
   "main": "dist/index.js",
   "scripts": {
+    "build": "tsc --build --verbose",
     "dev": "tsc --watch",
-    "build": "tsc --build --verbose"
+    "lint": "TIMING=1 eslint --cache .",
+    "typecheck": "tsc --noEmit",
+    "clean": "run-s 'clean:*'",
+    "clean:build": "rm -rf dist",
+    "clean:cache": "rm -rf node_modules .turbo .eslintcache stats.html"
   },
   "author": "Channel Corp.",
   "license": "Apache-2.0",
