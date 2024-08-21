@@ -8,8 +8,4 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: './tsconfig.eslint.json',
   },
-  rules: {
-    'no-restricted-imports': 'off',
-  },
-  ignorePatterns: ['**/fixtures/*'],
 }

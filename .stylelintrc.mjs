@@ -1,6 +1,6 @@
 /** @type {import('stylelint').Config} */
 export default {
-  extends: ['@channel.io/stylelint-config'],
+  extends: ['@channel.io/stylelint-config', './packages/stylelint-bezier'],
   rules: {
     'selector-class-pattern': [
       // NOTE: Allows Pascal case(components) and Kebab case(states, variants, etc.).
@@ -11,5 +11,12 @@ export default {
     ],
     // NOTE: Set to reduce difficulties caused by selector specificity between components.
     'selector-max-specificity': ['0,2,0'],
+    'bezier/validate-token': [
+      true,
+      {
+        ignorePrefix: ['b-'],
+        severity: 'warning',
+      },
+    ],
   },
 }

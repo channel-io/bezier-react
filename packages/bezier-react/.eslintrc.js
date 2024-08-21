@@ -9,6 +9,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: './tsconfig.eslint.json',
   },
+  ignorePatterns: ['coverage', '__mocks__', '!.storybook'],
   rules: {
     'import/order': [
       'error',

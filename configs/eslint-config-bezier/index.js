@@ -5,6 +5,7 @@ module.exports = {
   extends: ['@channel.io/eslint-config/web'],
   plugins: ['@channel.io/eslint-plugin', 'jest'],
   parser: '@typescript-eslint/parser',
+  ignorePatterns: ['dist', 'node_modules'],
   env: {
     node: true,
   },

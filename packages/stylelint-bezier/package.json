@@ -1,0 +1,33 @@
+{
+  "name": "@channel.io/stylelint-bezier",
+  "version": "0.0.0",
+  "description": "Stylelint configuration for Bezier design system.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/channel-io/bezier-react",
+    "directory": "packages/stylelint-bezier"
+  },
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --build --verbose",
+    "dev": "tsc --watch",
+    "lint": "TIMING=1 eslint --cache .",
+    "typecheck": "tsc --noEmit",
+    "clean": "run-s 'clean:*'",
+    "clean:build": "rm -rf dist",
+    "clean:cache": "rm -rf node_modules .turbo .eslintcache stats.html"
+  },
+  "author": "Channel Corp.",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@channel.io/bezier-tokens": "0.2.6"
+  },
+  "devDependencies": {
+    "eslint-config-bezier": "workspace:*",
+    "postcss-styled-syntax": "^0.6.4",
+    "tsconfig": "workspace:*"
+  },
+  "peerDependencies": {
+    "stylelint": ">=16.0.0"
+  }
+}
