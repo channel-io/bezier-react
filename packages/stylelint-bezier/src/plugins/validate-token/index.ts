@@ -1,6 +1,6 @@
 import { tokens } from '@channel.io/bezier-tokens'
 import { tokens as alphaTokens } from '@channel.io/bezier-tokens/alpha'
-import stylelint, { Rule } from 'stylelint'
+import stylelint, { type Rule } from 'stylelint'
 
 const {
   utils: { report, ruleMessages, validateOptions },
