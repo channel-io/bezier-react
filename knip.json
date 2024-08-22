@@ -1,0 +1,26 @@
+{
+  "workspaces": {
+    ".": {
+      "project": "src/**/*"
+    },
+    "packages/bezier-react": {
+      "entry": "src/index.ts",
+      "project": "src/**/*"
+    }
+  },
+  "rules": {
+    "files": "error",
+    "dependencies": "off",
+    "unlisted": "off",
+    "binaries": "off",
+    "unresolved": "off",
+    "exports": "error",
+    "types": "error",
+    "nsExports": "error",
+    "nsTypes": "error",
+    "enumMembers": "off",
+    "classMembers": "off",
+    "duplicates": "off"
+  },
+  "ignore": ["**/*.stories.tsx", ".storybook/**/*"]
+}
