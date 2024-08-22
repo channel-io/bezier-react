@@ -3,7 +3,7 @@
   "versionGroups": [
     {
       "label": "Use workspace protocol when developing local packages",
-      "dependencies": ["eslint-config-bezier", "tsconfig"],
+      "dependencies": ["eslint-config-bezier", "tsconfig", "@channel.io/stylelint-bezier"],
       "dependencyTypes": ["dev"],
       "pinVersion": "workspace:*"
     },
