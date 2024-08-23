@@ -1,5 +1,11 @@
 # @channel.io/stylelint-bezier
 
+## 0.2.0
+
+### Minor Changes
+
+- `validate-token` rule passes when template literal is used. ([#2420](https://github.com/channel-io/bezier-react/pull/2420)) by @yangwooseong
+
 ## 0.1.0
 
 ### Minor Changes
