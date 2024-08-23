@@ -97,7 +97,9 @@ const pluginRule: Rule<boolean> = (primary, secondaryOptions = {}) => {
 
       const [, tokenName] = matches
 
-      if (tokenName.includes('${')) {
+      const hasTemplateLiteral = tokenName.includes('${')
+
+      if (hasTemplateLiteral) {
         return
       }
 
