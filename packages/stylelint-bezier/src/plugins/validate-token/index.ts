@@ -97,6 +97,10 @@ const pluginRule: Rule<boolean> = (primary, secondaryOptions = {}) => {
 
       const [, tokenName] = matches
 
+      if (tokenName.includes('${')) {
+        return
+      }
+
       if (ignorePrefix.some((prefix: string) => tokenName.startsWith(prefix))) {
         return
       }
