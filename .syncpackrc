@@ -1,16 +1,28 @@
 {
-  "dependencyTypes": ["!peer"],
+  "dependencyTypes": [
+    "!peer"
+  ],
   "versionGroups": [
     {
       "label": "Use workspace protocol when developing local packages",
-      "dependencies": ["eslint-config-bezier", "tsconfig"],
-      "dependencyTypes": ["dev"],
+      "dependencies": [
+        "eslint-config-bezier",
+        "tsconfig",
+        "@channel.io/stylelint-bezier"
+      ],
+      "dependencyTypes": [
+        "dev"
+      ],
       "pinVersion": "workspace:*"
     },
     {
       "label": "Pin react-textarea-autosize version due to package.json config issue affecting build (#1688)",
-      "packages": ["@channel.io/*"],
-      "dependencies": ["react-textarea-autosize"],
+      "packages": [
+        "@channel.io/*"
+      ],
+      "dependencies": [
+        "react-textarea-autosize"
+      ],
       "pinVersion": "8.3.4"
     }
   ],

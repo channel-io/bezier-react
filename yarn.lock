@@ -2141,7 +2141,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@channel.io/stylelint-bezier@npm:0.0.0, @channel.io/stylelint-bezier@workspace:packages/stylelint-bezier":
+"@channel.io/stylelint-bezier@workspace:*, @channel.io/stylelint-bezier@workspace:packages/stylelint-bezier":
   version: 0.0.0-use.local
   resolution: "@channel.io/stylelint-bezier@workspace:packages/stylelint-bezier"
   dependencies:
@@ -7640,7 +7640,7 @@ __metadata:
     "@changesets/get-github-info": "npm:^0.6.0"
     "@changesets/types": "npm:^6.0.0"
     "@channel.io/prettier-config": "npm:^0.0.1"
-    "@channel.io/stylelint-bezier": "npm:0.0.0"
+    "@channel.io/stylelint-bezier": "workspace:*"
     "@channel.io/stylelint-config": "npm:^2.0.0"
     "@commitlint/cli": "npm:^19.0.0"
     "@commitlint/config-conventional": "npm:^19.0.0"
