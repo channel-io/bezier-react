@@ -97,6 +97,12 @@ const pluginRule: Rule<boolean> = (primary, secondaryOptions = {}) => {
 
       const [, tokenName] = matches
 
+      const hasTemplateLiteral = tokenName.includes('${')
+
+      if (hasTemplateLiteral) {
+        return
+      }
+
       if (ignorePrefix.some((prefix: string) => tokenName.startsWith(prefix))) {
         return
       }
