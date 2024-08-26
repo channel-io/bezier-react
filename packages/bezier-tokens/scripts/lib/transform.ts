@@ -1,4 +1,5 @@
 import type { Named, Transform } from 'style-dictionary'
+import tinycolor from 'tinycolor2'
 
 import { extractNumber, toCSSDimension } from './utils'
 
@@ -105,3 +106,79 @@ export const CSSTransforms = {
         .join(', ')})`,
   },
 } satisfies Transforms
+
+export const HoveredColorTransforms = {
+  nameTransform: {
+    name: 'custom/css/hovered',
+    type: 'name',
+    matcher: ({ type, filePath }) =>
+      filePath.startsWith('src/alpha') && type === 'color',
+    transformer: ({ name, filePath }) => {
+      return filePath.includes('functional')
+        ? `alpha-${name}-hovered`
+        : `alpha-${name}`
+    },
+  },
+  makeHoveredColor: {
+    name: 'custom/css/hovered-dark',
+    type: 'value',
+    /**
+     * NOTE: If transitive: true is set, the global token will be converted and the value referencing it will be converted once more
+     */
+    transitive: false,
+    matcher: ({ type }) => type === 'color',
+    transformer: ({ value, filePath }) => {
+      return filePath.includes('dark-theme')
+        ? getHoveredColor(value, 'dark')
+        : getHoveredColor(value, 'light')
+    },
+  },
+} satisfies Transforms
+
+const clip = (value: number) => Math.min(Math.max(value, 0), 1)
+
+function getHoveredColor(value: string, theme: 'dark' | 'light') {
+  const color = tinycolor(value)
+  const { h, s, l, a } = color.toHsl()
+
+  let alpha = a
+  let lightness = l
+  let saturation = s
+
+  if (a === 0) {
+    alpha = 0.1
+  } else if (a < 0.2) {
+    alpha = alpha * 1.5
+  }
+
+  if (theme === 'light') {
+    if (l <= 0.17) {
+      lightness = (l + 0.07) * 1.1
+      saturation += 0.05
+    } else {
+      lightness *= 0.93
+      saturation -= 0.03
+    }
+  } else {
+    if (l >= 0.83) {
+      lightness = (lightness - 0.2) * 0.98
+      saturation -= 0.03
+    } else {
+      lightness = (lightness + 0.04) * 1.005
+      saturation += 0.05
+    }
+  }
+
+  if (s <= 0.1 || s >= 0.9) {
+    saturation = s
+  }
+
+  const res = tinycolor.fromRatio({
+    h,
+    s: clip(saturation),
+    l: clip(lightness),
+    a: clip(alpha),
+  })
+
+  return res.toHex8String()
+}
