@@ -123,7 +123,7 @@ export const HoveredColorTransforms = {
     name: 'custom/css/hovered-dark',
     type: 'value',
     /**
-     * NOTE: If transitive: true is set, the global token will be converted and the value referencing it will be converted once more
+     * NOTE: If transitive is set to true, the global token will be converted and the value referencing it will be converted once more.
      */
     transitive: false,
     matcher: ({ type }) => type === 'color',
