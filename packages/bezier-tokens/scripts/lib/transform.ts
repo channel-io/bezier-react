@@ -122,11 +122,9 @@ export const HoveredColorTransforms = {
   makeHoveredColor: {
     name: 'custom/css/hovered-dark',
     type: 'value',
-    /**
-     * NOTE: If transitive is set to true, the global token will be converted and the value referencing it will be converted once more.
-     */
-    transitive: false,
-    matcher: ({ type }) => type === 'color',
+    transitive: true,
+    matcher: ({ type, filePath }) =>
+      type === 'color' && filePath.includes('functional'),
     transformer: ({ value, filePath }) => {
       return filePath.includes('dark-theme')
         ? getHoveredColor(value, 'dark')
