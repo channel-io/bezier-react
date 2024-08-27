@@ -1,5 +1,6 @@
 import { Markdown, Meta, DocsStory } from '@storybook/blocks'
 import { tokens } from '@channel.io/bezier-tokens/alpha'
+import { useLayoutEffect } from 'react'
 
 import {
   LightThemeProvider,
@@ -63,8 +64,12 @@ export const Color = ({ isHoveredColor, name, value, reference }) => {
   )
 }
 
-export const Primary = () => (
-  <HStack>
+export const Primary = () => {
+  useLayoutEffect(() => {
+    document.querySelector('.sbdocs-content').style.maxWidth = '1400px'
+}, [])
+
+return (<HStack>
 
     <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-color-surface-normal)' }} padding={0}>
       {Object.entries(tokens.global.color).map(([key, { value, ref }]) => (
@@ -131,8 +136,8 @@ export const Primary = () => (
       </VStack>
     </DarkThemeProvider>
 
-  </HStack>
-)
+  </HStack>)
+}
 
 # Color
 
