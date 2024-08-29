@@ -11,7 +11,7 @@
     "dev": "turbo run dev --filter=@channel.io/bezier-react",
     "lint": "turbo run lint && syncpack lint",
     "format": "prettier . --write",
-    "typecheck": "turbo run typecheck",
+    "typecheck": "turbo run typecheck && yarn knip --include exports,types,nsExports,nsTypes",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules .turbo",
     "version-packages": "changeset version && yarn --mode=\"update-lockfile\"",
