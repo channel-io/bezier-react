@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusBadge do not disturb (offline) status 1`] = `
+<div>
+  <div
+    class="Status size-m"
+    style="--b-status-bg-color: var(--bg-white-high);"
+  >
+    <svg
+      class="Icon size-xxxs margin Icon"
+      data-testid="bezier-icon"
+      fill="none"
+      height="1em"
+      style="--b-icon-color: var(--bgtxt-yellow-normal);"
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M20.64 17.037c.458-.782-.454-1.568-1.33-1.336A9 9 0 0 1 8.3 4.69c.231-.877-.555-1.789-1.337-1.332A10 10 0 0 0 2 12c0 5.523 4.477 10 10 10a10 10 0 0 0 8.64-4.963"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`StatusBadge do not disturb (online) status 1`] = `
+<div>
+  <div
+    class="Status size-m"
+    style="--b-status-bg-color: var(--bg-white-high);"
+  >
+    <svg
+      class="Icon size-xxxs margin Icon"
+      data-testid="bezier-icon"
+      fill="none"
+      height="1em"
+      style="--b-icon-color: var(--bgtxt-green-normal);"
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M20.64 17.037c.458-.782-.454-1.568-1.33-1.336A9 9 0 0 1 8.3 4.69c.231-.877-.555-1.789-1.337-1.332A10 10 0 0 0 2 12c0 5.523 4.477 10 10 10a10 10 0 0 0 8.64-4.963"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`StatusBadge large status badge 1`] = `
+<div>
+  <div
+    class="Status size-l"
+    style="--b-status-bg-color: var(--bg-black-dark);"
+  />
+</div>
+`;
+
+exports[`StatusBadge medium status badge 1`] = `
+<div>
+  <div
+    class="Status size-m"
+    style="--b-status-bg-color: var(--bg-black-dark);"
+  />
+</div>
+`;
+
+exports[`StatusBadge offline status 1`] = `
+<div>
+  <div
+    class="Status size-m"
+    style="--b-status-bg-color: var(--bg-black-dark);"
+  />
+</div>
+`;
+
+exports[`StatusBadge online status 1`] = `
+<div>
+  <div
+    class="Status size-m"
+    style="--b-status-bg-color: var(--bgtxt-green-normal);"
+  />
+</div>
+`;
+
+exports[`StatusBadge should match snapshot 1`] = `
+<div>
+  <div
+    class="Status size-m"
+    style="--b-status-bg-color: var(--bg-black-dark);"
+  />
+</div>
+`;
