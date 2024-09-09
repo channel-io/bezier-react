@@ -8,3 +8,5 @@ export const extractNumber = (str: string) =>
 
 export const toCSSDimension = (value: string) =>
   /^0[a-zA-Z]+$/.test(value) ? 0 : value
+
+export const clip = (value: number) => Math.min(Math.max(value, 0), 1)

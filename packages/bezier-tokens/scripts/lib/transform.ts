@@ -1,7 +1,7 @@
 import type { Named, Transform } from 'style-dictionary'
 import tinycolor from 'tinycolor2'
 
-import { extractNumber, toCSSDimension } from './utils'
+import { clip, extractNumber, toCSSDimension } from './utils'
 
 type CustomTransform = Named<Transform<unknown>>
 type Transforms = Record<string, CustomTransform>
@@ -126,57 +126,55 @@ export const HoveredColorTransforms = {
     matcher: ({ type, filePath }) =>
       type === 'color' && filePath.includes('functional'),
     transformer: ({ value, filePath }) => {
+      function getHoveredColor(value: string, theme: 'dark' | 'light') {
+        const color = tinycolor(value)
+        const { h, s, l, a } = color.toHsl()
+
+        let alpha = a
+        let lightness = l
+        let saturation = s
+
+        if (a === 0) {
+          alpha = 0.1
+        } else if (a < 0.2) {
+          alpha = alpha * 1.5
+        }
+
+        if (theme === 'light') {
+          if (l <= 0.17) {
+            lightness = (l + 0.07) * 1.1
+            saturation += 0.05
+          } else {
+            lightness *= 0.93
+            saturation -= 0.03
+          }
+        } else {
+          if (l >= 0.83) {
+            lightness = (lightness - 0.2) * 0.98
+            saturation -= 0.03
+          } else {
+            lightness = (lightness + 0.04) * 1.005
+            saturation += 0.05
+          }
+        }
+
+        if (s <= 0.1 || s >= 0.9) {
+          saturation = s
+        }
+
+        const res = tinycolor.fromRatio({
+          h,
+          s: clip(saturation),
+          l: clip(lightness),
+          a: clip(alpha),
+        })
+
+        return res.toHex8String()
+      }
+
       return filePath.includes('dark-theme')
         ? getHoveredColor(value, 'dark')
         : getHoveredColor(value, 'light')
     },
   },
 } satisfies Transforms
-
-const clip = (value: number) => Math.min(Math.max(value, 0), 1)
-
-function getHoveredColor(value: string, theme: 'dark' | 'light') {
-  const color = tinycolor(value)
-  const { h, s, l, a } = color.toHsl()
-
-  let alpha = a
-  let lightness = l
-  let saturation = s
-
-  if (a === 0) {
-    alpha = 0.1
-  } else if (a < 0.2) {
-    alpha = alpha * 1.5
-  }
-
-  if (theme === 'light') {
-    if (l <= 0.17) {
-      lightness = (l + 0.07) * 1.1
-      saturation += 0.05
-    } else {
-      lightness *= 0.93
-      saturation -= 0.03
-    }
-  } else {
-    if (l >= 0.83) {
-      lightness = (lightness - 0.2) * 0.98
-      saturation -= 0.03
-    } else {
-      lightness = (lightness + 0.04) * 1.005
-      saturation += 0.05
-    }
-  }
-
-  if (s <= 0.1 || s >= 0.9) {
-    saturation = s
-  }
-
-  const res = tinycolor.fromRatio({
-    h,
-    s: clip(saturation),
-    l: clip(lightness),
-    a: clip(alpha),
-  })
-
-  return res.toHex8String()
-}
