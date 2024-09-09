@@ -100,7 +100,6 @@ function defineConfig({
   const transforms = isForHovered
     ? HoveredTransforms.map(({ name }) => name)
     : CustomTransforms.map(({ name }) => name)
-  const outputReferences = !isForHovered
 
   return {
     source: [...source, ...reference],
@@ -139,7 +138,7 @@ function defineConfig({
               source.some((src) => minimatch(filePath, src)),
             options: {
               selector: options?.cssSelector,
-              outputReferences,
+              outputReferences: true,
             },
           },
         ],
