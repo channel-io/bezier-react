@@ -106,7 +106,7 @@ export const CSSTransforms = {
         .map(({ color, position }) => `${color} ${position}`)
         .join(', ')})`,
   },
-  nameTransform: {
+  hoveredSuffix: {
     name: `custom/css/${HOVERED}/namespace`,
     type: 'name',
     matcher: ({ type, filePath }) =>
