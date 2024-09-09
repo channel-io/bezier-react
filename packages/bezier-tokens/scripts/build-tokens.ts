@@ -12,11 +12,20 @@ import {
   customJsCjs,
   customJsEsm,
 } from './lib/format'
-import { CSSTransforms, HoveredColorTransforms } from './lib/transform'
+import { CSSTransforms } from './lib/transform'
+import { isHoveredTransformName } from './lib/utils'
 import { mergeCss } from './merge-css'
 
-const CustomTransforms = [...Object.values(CSSTransforms)]
-const HoveredTransforms = [...Object.values(HoveredColorTransforms)]
+const CustomTransforms = [
+  ...Object.values(CSSTransforms).filter(
+    ({ name }) => !isHoveredTransformName(name)
+  ),
+]
+const HoveredTransforms = [
+  ...Object.values(CSSTransforms).filter(({ name }) =>
+    isHoveredTransformName(name)
+  ),
+]
 
 const BUILD_PATH = {
   BASE: 'dist',

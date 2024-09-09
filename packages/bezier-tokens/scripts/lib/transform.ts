@@ -1,6 +1,7 @@
 import type { Named, Transform } from 'style-dictionary'
 import tinycolor from 'tinycolor2'
 
+import { HOVERED } from './constants'
 import { clip, extractNumber, toCSSDimension } from './utils'
 
 type CustomTransform = Named<Transform<unknown>>
@@ -105,11 +106,8 @@ export const CSSTransforms = {
         .map(({ color, position }) => `${color} ${position}`)
         .join(', ')})`,
   },
-} satisfies Transforms
-
-export const HoveredColorTransforms = {
   nameTransform: {
-    name: 'custom/css/hovered',
+    name: `custom/css/${HOVERED}/namespace`,
     type: 'name',
     matcher: ({ type, filePath }) =>
       filePath.startsWith('src/alpha') && type === 'color',
@@ -120,7 +118,7 @@ export const HoveredColorTransforms = {
     },
   },
   makeHoveredColor: {
-    name: 'custom/css/hovered-dark',
+    name: `custom/css/${HOVERED}/functional-color`,
     type: 'value',
     transitive: true,
     matcher: ({ type, filePath }) =>
