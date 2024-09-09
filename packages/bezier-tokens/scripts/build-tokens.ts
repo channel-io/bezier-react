@@ -224,7 +224,7 @@ async function main() {
         source: ['src/alpha/functional/dark-theme/*.json'],
         reference: ['src/alpha/global/*.json'],
         basePath: BUILD_PATH.BASE_ALPHA,
-        destination: 'darkTheme_hovered',
+        destination: 'darkThemeHovered',
         options: { cssSelector: '[data-bezier-theme="dark"]' },
         isForHovered: true,
       })
@@ -235,7 +235,7 @@ async function main() {
         source: ['src/alpha/functional/light-theme/*.json'],
         reference: ['src/alpha/global/*.json'],
         basePath: BUILD_PATH.BASE_ALPHA,
-        destination: 'lightTheme_hovered',
+        destination: 'lightThemeHovered',
         options: {
           cssSelector: ':where(:root, :host), [data-bezier-theme="light"]',
         },
