@@ -111,10 +111,8 @@ export const CSSTransforms = {
     type: 'name',
     matcher: ({ type, filePath }) =>
       filePath.startsWith('src/alpha') && type === 'color',
-    transformer: ({ name, filePath }) => {
-      return filePath.includes('functional')
-        ? `alpha-${name}-hovered`
-        : `alpha-${name}`
+    transformer: ({ name }) => {
+      return `alpha-${name}-hovered`
     },
   },
   makeHoveredColor: {
