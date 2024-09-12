@@ -1,5 +1,6 @@
-import { Markdown, Meta } from '@storybook/blocks'
+import { Markdown, Meta, DocsStory } from '@storybook/blocks'
 import { tokens } from '@channel.io/bezier-tokens/alpha'
+import { useLayoutEffect, useState } from 'react'
 
 import {
   LightThemeProvider,
@@ -9,60 +10,72 @@ import { HStack, VStack } from '~/src/components/Stack'
 
 <Meta title="alpha-foundation/Color" />
 
-export const Color = ({ name, value, reference }) => {
-  return (
-    <HStack spacing={20}>
-      <div
+export const Color = ({ isHoveredColor, name, value, reference }) => {
+  const [isHovered, setIsHovered] = useState(false)
+  const color = isHovered ? `var(--${name}-hovered, var(--${name}))` :  `var(--${name})`
+
+return (
+
+<HStack
+  spacing={10}
+  height={80}
+  align="center"
+>
+  <div
+    style={{
+      flex: 1,
+      boxShadow: value,
+      backgroundColor: color,
+      height: '100%',
+    }}
+    onMouseEnter={() => {
+      setIsHovered(true)
+    }}
+    onMouseLeave={() => {
+      setIsHovered(false)
+    }}
+  />
+  <VStack
+    style={{
+      flex: 1,
+      color: 'var(--alpha-color-fg-black-darkest)',
+    }}
+    spacing={4}
+    justify="center"
+  >
+    <span style={{ fontSize: 11 }}>{name}</span>
+    <pre
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 3,
+        fontSize: 9,
+        lineHeight: 1,
+        color: 'var(--alpha-color-fg-black-dark)',
+      }}
+    >
+      {isHoveredColor ? '' : reference ? 'var' : ''}
+      <pre
         style={{
-          flex: 1,
-          boxShadow: value,
-          backgroundColor: `var(--${name})`,
-          height: 60,
+          display: 'inline-flex',
+          fontSize: 'inherit',
+          lineHeight: 'inherit',
+          padding: '1px 2px',
+          backgroundColor: 'var(--alpha-color-bg-grey-lighter)',
+          borderRadius: 3,
+          border: '1px solid var(--alpha-color-bg-black-lightest)',
         }}
-      />
-      <VStack
-        style={{
-          flex: 1,
-          color: 'var(--alpha-color-fg-black-darkest)',
-        }}
-        spacing={4}
-        justify="center"
       >
-        <span style={{ fontSize: 11 }}>{name}</span>
-        <pre
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 3,
-            fontSize: 9,
-            lineHeight: 1,
-            color: 'var(--alpha-color-fg-black-dark)',
-          }}
-        >
-          {reference ? 'var' : ''}
-          <pre
-            style={{
-              display: 'inline-flex',
-              fontSize: 'inherit',
-              lineHeight: 'inherit',
-              padding: '1px 2px',
-              backgroundColor: 'var(--alpha-color-bg-grey-lighter)',
-              borderRadius: 3,
-              border: '1px solid var(--alpha-color-bg-black-lightest)',
-            }}
-          >
-            {reference ? reference : value}
-          </pre>
-        </pre>
-      </VStack>
-    </HStack>
-  )
-}
+        {isHoveredColor ? value : reference ? reference : value}
+      </pre>
+    </pre>
+  </VStack>
+</HStack>
+)}
 
 export const Primary = () => (
   <HStack>
-
-    <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-color-surface-normal)' }} padding={20}>
+    <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-color-surface-normal)' }} padding={0}>
       {Object.entries(tokens.global.color).map(([key, { value, ref }]) => (
         <Color
           key={key}
@@ -74,7 +87,7 @@ export const Primary = () => (
     </VStack>
 
     <LightThemeProvider>
-      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-color-surface-normal)' }} padding={20}>
+      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-color-surface-normal)' }} padding={0}>
         {Object.entries(tokens.lightTheme.color).map(([key, { value, ref }]) => (
           <Color
             key={key}
@@ -87,7 +100,7 @@ export const Primary = () => (
     </LightThemeProvider>
 
     <DarkThemeProvider>
-      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-color-surface-normal)' }} padding={20}>
+      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-color-surface-normal)' }} padding={0}>
         {Object.entries(tokens.darkTheme.color).map(([key, { value, ref }]) => (
           <Color
             key={key}

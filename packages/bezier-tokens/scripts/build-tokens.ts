@@ -13,9 +13,19 @@ import {
   customJsEsm,
 } from './lib/format'
 import { CSSTransforms } from './lib/transform'
+import { isHoveredTransformName } from './lib/utils'
 import { mergeCss } from './merge-css'
 
-const CustomTransforms = [...Object.values(CSSTransforms)]
+const CustomTransforms = [
+  ...Object.values(CSSTransforms).filter(
+    ({ name }) => !isHoveredTransformName(name)
+  ),
+]
+const HoveredTransforms = [
+  ...Object.values(CSSTransforms).filter(({ name }) =>
+    isHoveredTransformName(name)
+  ),
+]
 
 const BUILD_PATH = {
   BASE: 'dist',
@@ -39,13 +49,20 @@ const AlphaTokenBuilder = CustomTransforms.reduce(
   .registerFormat(alphaCustomJsCjs)
   .registerFormat(alphaCustomJsEsm)
 
-function defineWebPlatform({ options, ...rest }: Platform): Platform {
+const AlphaHoveredColorTokenBuilder = HoveredTransforms.reduce(
+  (builder, transform) => builder.registerTransform(transform),
+  StyleDictionary
+)
+  .registerFormat(alphaCustomJsCjs)
+  .registerFormat(alphaCustomJsCjs)
+
+function defineWebPlatform({
+  options,
+  transforms,
+  ...rest
+}: Platform): Platform {
   return {
-    transforms: [
-      'attribute/cti',
-      'name/cti/kebab',
-      ...CustomTransforms.map((transform) => transform.name),
-    ],
+    transforms: ['attribute/cti', 'name/cti/kebab', ...(transforms ?? [])],
     basePxFontSize: 10,
     options: {
       showFileHeader: false,
@@ -65,6 +82,7 @@ interface DefineConfigOptions {
   reference?: string[]
   basePath: string
   destination: string
+  isForHovered?: boolean
   options?: Options & {
     cssSelector: string
   }
@@ -72,12 +90,17 @@ interface DefineConfigOptions {
 
 function defineConfig({
   useAlpha = false,
+  isForHovered = false,
   source,
   reference = [],
   basePath,
   destination,
   options,
 }: DefineConfigOptions): Config {
+  const transforms = isForHovered
+    ? HoveredTransforms.map(({ name }) => name)
+    : CustomTransforms.map(({ name }) => name)
+
   return {
     source: [...source, ...reference],
     platforms: {
@@ -91,6 +114,7 @@ function defineConfig({
               source.some((src) => minimatch(filePath, src)),
           },
         ],
+        transforms,
       }),
       'web/esm': defineWebPlatform({
         buildPath: `${basePath}/${BUILD_PATH.ESM}/`,
@@ -102,6 +126,7 @@ function defineConfig({
               source.some((src) => minimatch(filePath, src)),
           },
         ],
+        transforms,
       }),
       'web/css': defineWebPlatform({
         buildPath: `${basePath}/${BUILD_PATH.CSS}/`,
@@ -117,6 +142,7 @@ function defineConfig({
             },
           },
         ],
+        transforms,
       }),
     },
   }
@@ -191,7 +217,33 @@ async function main() {
         options: { cssSelector: '[data-bezier-theme="dark"]' },
       })
     ),
-  ].forEach((builder) => builder.buildAllPlatforms())
+    AlphaHoveredColorTokenBuilder.extend(
+      defineConfig({
+        useAlpha: true,
+        source: ['src/alpha/functional/dark-theme/*.json'],
+        reference: ['src/alpha/global/*.json'],
+        basePath: BUILD_PATH.BASE_ALPHA,
+        destination: 'darkThemeHovered',
+        options: { cssSelector: '[data-bezier-theme="dark"]' },
+        isForHovered: true,
+      })
+    ),
+    AlphaHoveredColorTokenBuilder.extend(
+      defineConfig({
+        useAlpha: true,
+        source: ['src/alpha/functional/light-theme/*.json'],
+        reference: ['src/alpha/global/*.json'],
+        basePath: BUILD_PATH.BASE_ALPHA,
+        destination: 'lightThemeHovered',
+        options: {
+          cssSelector: ':where(:root, :host), [data-bezier-theme="light"]',
+        },
+        isForHovered: true,
+      })
+    ),
+  ].forEach((builder) => {
+    builder.buildAllPlatforms()
+  })
 
   for (const buildPath of [
     `${BUILD_PATH.BASE}/${BUILD_PATH.CSS}`,
