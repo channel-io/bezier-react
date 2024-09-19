@@ -1,11 +1,12 @@
 {
   "workspaces": {
     ".": {
-      "project": "src/**/*"
+      "project": "src/**/*!"
     },
     "packages/bezier-react": {
-      "entry": "src/index.ts",
-      "project": "src/**/*"
+      "entry": "src/index.ts!",
+      "project": "src/**/*!",
+      "ignore": ["**/__mocks__/**", "src/utils/test.tsx"]
     }
   },
   "rules": {
@@ -22,5 +23,5 @@
     "classMembers": "off",
     "duplicates": "off"
   },
-  "ignore": ["**/*.stories.tsx", ".storybook/**/*"]
+  "ignore": []
 }
