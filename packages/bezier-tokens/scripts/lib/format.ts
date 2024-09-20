@@ -1,5 +1,7 @@
 import { type Format, type Named, formatHelpers } from 'style-dictionary'
 
+import { getHoveredColorToken } from './utils'
+
 type CustomFormat = Named<Format>
 
 const { fileHeader } = formatHelpers
@@ -97,6 +99,13 @@ export const alphaCustomJsCjs: CustomFormat = {
         (category) =>
           `\n  "${category}": Object.freeze({\n` +
           `${categorizedTokens[category]
+            .flatMap((token) => {
+              if (category !== 'color') {
+                return [token]
+              } else {
+                return [token, getHoveredColorToken(token)]
+              }
+            })
             .map((token) => {
               const ref = (() => {
                 if (!dictionary.usesReference(token.original.value)) {
@@ -154,6 +163,13 @@ export const alphaCustomJsEsm: CustomFormat = {
         (category) =>
           `\n  "${category}": Object.freeze({\n` +
           `${categorizedTokens[category]
+            .flatMap((token) => {
+              if (category !== 'color') {
+                return [token]
+              } else {
+                return [token, getHoveredColorToken(token)]
+              }
+            })
             .map((token) => {
               const ref = (() => {
                 if (!dictionary.usesReference(token.original.value)) {
