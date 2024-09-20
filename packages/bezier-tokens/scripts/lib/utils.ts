@@ -66,6 +66,10 @@ export const getHoveredColorToken = (
   const theme = token.filePath.includes('darkTheme') ? 'dark' : 'light'
   return {
     ...token,
+    original: {
+      ...token.original,
+      value: null,
+    },
     name: `${token.name}-hovered`,
     value: getHoveredColor(token.value, theme),
   }

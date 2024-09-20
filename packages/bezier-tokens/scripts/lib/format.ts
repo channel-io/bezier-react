@@ -127,7 +127,14 @@ export const alphaCustomJsCjs: CustomFormat = {
                 return value
               })()
 
-              return `    "${token.name}": Object.freeze(${JSON.stringify({ value: token.value, ref })}),`
+              const valueObject = ref
+                ? {
+                    value: token.value,
+                    ref,
+                  }
+                : { value: token.value }
+
+              return `    "${token.name}": Object.freeze(${JSON.stringify(valueObject)}),`
             })
             .join('\n')}\n  })`
       )}\n` +
@@ -191,7 +198,14 @@ export const alphaCustomJsEsm: CustomFormat = {
                 return value
               })()
 
-              return `    "${token.name}": Object.freeze(${JSON.stringify({ value: token.value, ref })}),`
+              const valueObject = ref
+                ? {
+                    value: token.value,
+                    ref,
+                  }
+                : { value: token.value }
+
+              return `    "${token.name}": Object.freeze(${JSON.stringify(valueObject)}),`
             })
             .join('\n')}\n  })`
       )}\n` +
