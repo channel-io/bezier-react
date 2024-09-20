@@ -21,11 +21,6 @@ const CustomTransforms = [
     ({ name }) => !isHoveredTransformName(name)
   ),
 ]
-const HoveredTransforms = [
-  ...Object.values(CSSTransforms).filter(({ name }) =>
-    isHoveredTransformName(name)
-  ),
-]
 
 const BUILD_PATH = {
   BASE: 'dist',
@@ -48,13 +43,6 @@ const AlphaTokenBuilder = CustomTransforms.reduce(
 )
   .registerFormat(alphaCustomJsCjs)
   .registerFormat(alphaCustomJsEsm)
-
-const AlphaHoveredColorTokenBuilder = HoveredTransforms.reduce(
-  (builder, transform) => builder.registerTransform(transform),
-  StyleDictionary
-)
-  .registerFormat(alphaCustomJsCjs)
-  .registerFormat(alphaCustomJsCjs)
 
 function defineWebPlatform({
   options,
@@ -90,16 +78,13 @@ interface DefineConfigOptions {
 
 function defineConfig({
   useAlpha = false,
-  isForHovered = false,
   source,
   reference = [],
   basePath,
   destination,
   options,
 }: DefineConfigOptions): Config {
-  const transforms = isForHovered
-    ? HoveredTransforms.map(({ name }) => name)
-    : CustomTransforms.map(({ name }) => name)
+  const transforms = CustomTransforms.map(({ name }) => name)
 
   return {
     source: [...source, ...reference],
@@ -215,30 +200,6 @@ async function main() {
         basePath: BUILD_PATH.BASE_ALPHA,
         destination: 'darkTheme',
         options: { cssSelector: '[data-bezier-theme="dark"]' },
-      })
-    ),
-    AlphaHoveredColorTokenBuilder.extend(
-      defineConfig({
-        useAlpha: true,
-        source: ['src/alpha/functional/dark-theme/*.json'],
-        reference: ['src/alpha/global/*.json'],
-        basePath: BUILD_PATH.BASE_ALPHA,
-        destination: 'darkThemeHovered',
-        options: { cssSelector: '[data-bezier-theme="dark"]' },
-        isForHovered: true,
-      })
-    ),
-    AlphaHoveredColorTokenBuilder.extend(
-      defineConfig({
-        useAlpha: true,
-        source: ['src/alpha/functional/light-theme/*.json'],
-        reference: ['src/alpha/global/*.json'],
-        basePath: BUILD_PATH.BASE_ALPHA,
-        destination: 'lightThemeHovered',
-        options: {
-          cssSelector: ':where(:root, :host), [data-bezier-theme="light"]',
-        },
-        isForHovered: true,
       })
     ),
   ].forEach((builder) => {

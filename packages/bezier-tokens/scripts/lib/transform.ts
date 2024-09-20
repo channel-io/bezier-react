@@ -106,15 +106,6 @@ export const CSSTransforms = {
         .map(({ color, position }) => `${color} ${position}`)
         .join(', ')})`,
   },
-  hoveredSuffix: {
-    name: `custom/css/${HOVERED}/namespace`,
-    type: 'name',
-    matcher: ({ type, filePath }) =>
-      filePath.startsWith('src/alpha') && type === 'color',
-    transformer: ({ name }) => {
-      return `alpha-${name}-${HOVERED}`
-    },
-  },
   makeHoveredColor: {
     name: `custom/css/${HOVERED}/functional-color`,
     type: 'value',
@@ -171,18 +162,6 @@ export const CSSTransforms = {
       return filePath.includes('dark-theme')
         ? getHoveredColor(value, 'dark')
         : getHoveredColor(value, 'light')
-    },
-  },
-  removeReference: {
-    name: `custom/css/${HOVERED}/remove-ref`,
-    type: 'attribute',
-    matcher: ({ type, filePath, name }) =>
-      filePath.startsWith('src/alpha') &&
-      type === 'color' &&
-      name.includes(`-${HOVERED}`),
-    transformer: (token) => {
-      token.original.value = null
-      return token
     },
   },
 } satisfies Transforms
