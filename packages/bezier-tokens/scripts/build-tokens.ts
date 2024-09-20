@@ -13,14 +13,9 @@ import {
   customJsEsm,
 } from './lib/format'
 import { CSSTransforms } from './lib/transform'
-import { isHoveredTransformName } from './lib/utils'
 import { mergeCss } from './merge-css'
 
-const CustomTransforms = [
-  ...Object.values(CSSTransforms).filter(
-    ({ name }) => !isHoveredTransformName(name)
-  ),
-]
+const CustomTransforms = [...Object.values(CSSTransforms)]
 
 const BUILD_PATH = {
   BASE: 'dist',

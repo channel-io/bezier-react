@@ -1,8 +1,6 @@
 import { type TransformedToken } from 'style-dictionary'
 import tinycolor from 'tinycolor2'
 
-import { HOVERED } from './constants'
-
 export const toCamelCase = (str: string) =>
   str
     .toLowerCase()
@@ -15,8 +13,6 @@ export const toCSSDimension = (value: string) =>
   /^0[a-zA-Z]+$/.test(value) ? 0 : value
 
 const clip = (value: number) => Math.min(Math.max(value, 0), 1)
-
-export const isHoveredTransformName = (name: string) => name.includes(HOVERED)
 
 const getHoveredColor = (value: string, theme: 'dark' | 'light') => {
   const color = tinycolor(value)
