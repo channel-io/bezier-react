@@ -1,5 +1,16 @@
 # @channel.io/bezier-react
 
+## 2.3.0
+
+### Minor Changes
+
+- Fix z-index not being applied correctly in `Toast`. Add `zIndex` prop to `ToastProvider`. ([#2438](https://github.com/channel-io/bezier-react/pull/2438)) by @sungik-choi
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.2.7
+
 ## 2.2.4
 
 ### Patch Changes

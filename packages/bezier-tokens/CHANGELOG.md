@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.2.7
+
+### Patch Changes
+
+- Add hovered color tokens for alpha functional color. ([#2422](https://github.com/channel-io/bezier-react/pull/2422)) by @yangwooseong
+
 ## 0.2.6
 
 ### Patch Changes
