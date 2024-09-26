@@ -193,6 +193,7 @@ const DEFAULT_OFFSET = {
 export function ToastProvider({
   autoDismissTimeout = 3000,
   container: givenContainer,
+  zIndex = 'toast',
   offset = DEFAULT_OFFSET,
   children = [],
 }: ToastProviderProps) {
@@ -213,7 +214,10 @@ export function ToastProvider({
               ? { right: px(offset?.right ?? DEFAULT_OFFSET.right) }
               : { left: px(offset?.left ?? DEFAULT_OFFSET.left) }),
           }}
-          className={styles.ToastContainer}
+          className={classNames(
+            styles.ToastContainer,
+            zIndex && getZIndexClassName(zIndex)
+          )}
         >
           {toasts.map(({ id, onDismiss, ...rest }) => (
             <Toast
@@ -227,7 +231,7 @@ export function ToastProvider({
         </div>
       </InvertedThemeProvider>
     ),
-    [autoDismissTimeout, dismiss, offset]
+    [autoDismissTimeout, dismiss, offset, zIndex]
   )
 
   return (
