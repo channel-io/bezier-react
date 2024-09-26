@@ -82,7 +82,7 @@ export function Toast({
 
   const className = classNames(
     styles.ToastElement,
-    zIndex && getZIndexClassName(zIndex),
+    getZIndexClassName(zIndex),
     placement && styles[`placement-${placement}`],
     isSlidingOut && styles['slide-out']
   )
@@ -216,7 +216,7 @@ export function ToastProvider({
           }}
           className={classNames(
             styles.ToastContainer,
-            zIndex && getZIndexClassName(zIndex)
+            getZIndexClassName(zIndex)
           )}
         >
           {toasts.map(({ id, onDismiss, ...rest }) => (
