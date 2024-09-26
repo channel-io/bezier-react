@@ -16,6 +16,9 @@ interface ToastOwnProps {
   appearance?: ToastAppearance
   preset?: ToastPreset
   icon?: BezierIcon
+  /**
+   * @deprecated Use `zIndex` of `ToastProvider` instead
+   */
   zIndex?: ZIndex
   autoDismiss?: boolean
   autoDismissTimeout?: number
@@ -40,6 +43,11 @@ type Offset = {
 interface ToastProviderOwnProps {
   offset?: Offset
   container?: HTMLElement | null
+  /**
+   * z-index level of the Toast container
+   * @default 'toast'
+   */
+  zIndex?: ZIndex
 }
 
 export interface ToastProviderProps
