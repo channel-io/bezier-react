@@ -11,14 +11,15 @@
     "dev": "turbo run dev --filter=@channel.io/bezier-react",
     "lint": "turbo run lint && syncpack lint",
     "format": "prettier . --write",
-    "typecheck": "turbo run typecheck",
+    "typecheck": "turbo run typecheck && yarn knip",
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules .turbo",
     "version-packages": "changeset version && yarn --mode=\"update-lockfile\"",
     "release": "turbo run build --filter='@channel.io/*' && changeset publish",
     "update-snapshot": "yarn workspace @channel.io/bezier-react update-snapshot",
     "changeset": "changeset",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "knip": "knip --config knip.json --workspace packages/bezier-react"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
@@ -37,6 +38,7 @@
     "husky": "^9.0.11",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "knip": "^5.27.3",
     "npm-run-all2": "^6.1.2",
     "prettier": "^3.2.5",
     "stylelint": "^16.3.0",
