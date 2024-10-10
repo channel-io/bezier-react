@@ -220,7 +220,10 @@ async function main() {
     AlphaHoveredColorTokenBuilder.extend(
       defineConfig({
         useAlpha: true,
-        source: ['src/alpha/functional/dark-theme/*.json'],
+        source: [
+          'src/alpha/functional/dark-theme/*.json',
+          'src/alpha/semantic/color.json',
+        ],
         reference: ['src/alpha/global/*.json'],
         basePath: BUILD_PATH.BASE_ALPHA,
         destination: 'darkThemeHovered',
@@ -231,7 +234,10 @@ async function main() {
     AlphaHoveredColorTokenBuilder.extend(
       defineConfig({
         useAlpha: true,
-        source: ['src/alpha/functional/light-theme/*.json'],
+        source: [
+          'src/alpha/functional/light-theme/*.json',
+          'src/alpha/semantic/color.json',
+        ],
         reference: ['src/alpha/global/*.json'],
         basePath: BUILD_PATH.BASE_ALPHA,
         destination: 'lightThemeHovered',
