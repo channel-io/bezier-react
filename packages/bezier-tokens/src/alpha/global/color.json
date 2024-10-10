@@ -10,7 +10,7 @@
         "type": "color"
       },
       "300": {
-        "value": "#84a5ff",
+        "value": "#7d9efa",
         "type": "color"
       },
       "400": {
@@ -52,15 +52,15 @@
     },
     "cobalt": {
       "100": {
-        "value": "#afdaff",
+        "value": "#a1d5ff",
         "type": "color"
       },
       "200": {
-        "value": "#9ad1ff",
+        "value": "#8dcafc",
         "type": "color"
       },
       "300": {
-        "value": "#77c0fb",
+        "value": "#71b9f5",
         "type": "color"
       },
       "400": {
@@ -106,11 +106,11 @@
         "type": "color"
       },
       "200": {
-        "value": "#91e5a4",
+        "value": "#84e09a",
         "type": "color"
       },
       "300": {
-        "value": "#6ad081",
+        "value": "#68cc7f",
         "type": "color"
       },
       "400": {
@@ -302,7 +302,7 @@
         "type": "color"
       },
       "200": {
-        "value": "#ffb77d",
+        "value": "#ffb070",
         "type": "color"
       },
       "300": {
