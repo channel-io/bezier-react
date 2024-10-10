@@ -44,11 +44,11 @@
   /* visual effect on interaction */
   &:where(:hover) {
     &:where(.variant-primary) {
-      background-color: var(--alpha-color-bg-grey-lighter);
+      background-color: var(--alpha-color-bg-grey-lightest-hovered);
     }
 
     &:where(.variant-secondary) {
-      background-color: var(--alpha-color-bg-black-lighter);
+      background-color: var(--alpha-color-bg-black-lightest-hovered);
     }
 
     &:where([data-state='off']) {
