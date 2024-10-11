@@ -48,20 +48,24 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   /* background-color */
   &:where(.variant-primary) {
     $background-color-by-color: (
-      blue: var(--alpha-color-primary-bg-normal),
-      cobalt: var(--alpha-color-accent-bg-normal),
-      red: var(--alpha-color-critical-bg-normal),
-      orange: var(--alpha-color-warning-bg-normal),
-      green: var(--alpha-color-success-bg-normal),
-      pink: var(--alpha-color-bg-pink-normal),
-      purple: var(--alpha-color-bg-purple-normal),
-      dark-grey: var(--alpha-color-bg-grey-darkest),
-      light-grey: var(--alpha-color-bg-grey-dark),
+      blue: --alpha-color-primary-bg-normal,
+      cobalt: --alpha-color-accent-bg-normal,
+      red: --alpha-color-critical-bg-normal,
+      orange: --alpha-color-warning-bg-normal,
+      green: --alpha-color-success-bg-normal,
+      pink: --alpha-color-bg-pink-normal,
+      purple: --alpha-color-bg-purple-normal,
+      dark-grey: --alpha-color-bg-grey-darkest,
+      light-grey: --alpha-color-bg-grey-dark,
     );
 
     @each $color, $background-color in $background-color-by-color {
       &:where(.color-#{'' + $color}) {
-        background-color: $background-color;
+        background-color: var(#{$background-color});
+
+        &:where(.active, :hover):where(:not(:disabled)) {
+          background-color: var(#{$background-color}-hovered);
+        }
       }
     }
   }
@@ -109,23 +113,6 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
   /* visual effect on interaction */
   &:where(.active, :hover):where(:not(:disabled)) {
-    &:where(.variant-primary) {
-      @each $color in $chromatic-colors {
-        &:where(.color-#{'' + $color}) {
-          /* stylelint-disable-next-line bezier/validate-token */
-          background-color: var(--bgtxt-#{$color}-dark);
-        }
-      }
-
-      &:where(.color-dark-grey) {
-        background-color: var(--bg-grey-darkest);
-      }
-
-      &:where(.color-light-grey) {
-        background-color: var(--bg-black-darker);
-      }
-    }
-
     &:where(.variant-secondary) {
       @each $color in $chromatic-colors {
         &:where(.color-#{'' + $color}) {
