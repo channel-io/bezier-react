@@ -84,7 +84,16 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   }
 
   &:where(.variant-tertiary) {
-    background-color: var(--alpha-color-bg-white-white-alpha-transparent);
+    @each $color in $chromatic-colors {
+      &:where(.color-#{'' + $color}) {
+        /* stylelint-disable-next-line bezier/validate-token */
+        background-color: var(--alpha-color-bg-#{$color}-transparent);
+      }
+    }
+
+    &:where(.color-dark-grey, .color-light-grey, .color-white) {
+      background-color: var(--alpha-color-bg-white-white-alpha-transparent);
+    }
   }
 
   /* color */
