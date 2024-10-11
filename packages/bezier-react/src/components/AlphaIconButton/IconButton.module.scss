@@ -108,6 +108,10 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     &:where(.color-light-grey) {
       color: var(--alpha-color-fg-absolute-white-normal);
     }
+
+    &:where(.color-white-absolute) {
+      color: var(--alpha-color-fg-absolute-black-normal);
+    }
   }
 
   &:where(.variant-secondary, .variant-tertiary) {
@@ -142,7 +146,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     }
   }
 
-  &:where(.variant-tertiary.color-white-absolute) {
+  &:where(.variant-tertiary, .variant-secondary):where(.color-white-absolute) {
     & :where(.ButtonIcon) {
       color: var(--alpha-color-fg-absolute-white-normal);
     }
