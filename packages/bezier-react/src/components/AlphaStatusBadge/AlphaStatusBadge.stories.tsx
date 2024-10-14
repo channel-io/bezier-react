@@ -25,10 +25,15 @@ const Template: StoryFn<StatusBadgeProps> = (args) => (
 
 export const Primary: StoryObj<StatusBadgeProps> = {
   render: Template,
-
   args: {
     size: 'm',
     online: true,
     doNotDisturb: false,
+  },
+  parameters: {
+    design: {
+      type: 'link',
+      url: 'https://www.figma.com/design/KyhPPZeeC0JBmTclJGe3nn/Status?node-id=0-1&t=jHTuLNWLSHKGQjYX-1',
+    },
   },
 }
