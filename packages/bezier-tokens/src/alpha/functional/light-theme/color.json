@@ -295,6 +295,10 @@
         "lightest": {
           "value": "{color.black.3}",
           "type": "color"
+        },
+        "transparent": {
+          "value": "{color.black.0}",
+          "type": "color"
         }
       },
       "grey": {
@@ -316,6 +320,10 @@
         },
         "lightest": {
           "value": "{color.grey.50}",
+          "type": "color"
+        },
+        "transparent": {
+          "value": "{color.grey.900-0}",
           "type": "color"
         },
         "grey-alpha": {
@@ -352,6 +360,10 @@
         },
         "normal": {
           "value": "{color.white.100}",
+          "type": "color"
+        },
+        "transparent": {
+          "value": "{color.white.0}",
           "type": "color"
         },
         "white-alpha": {
@@ -401,6 +413,10 @@
         "shade-normal": {
           "value": "{color.shade-blue.400}",
           "type": "color"
+        },
+        "transparent": {
+          "value": "{color.blue.400-0}",
+          "type": "color"
         }
       },
       "cobalt": {
@@ -430,6 +446,10 @@
         },
         "shade-normal": {
           "value": "{color.shade-cobalt.400}",
+          "type": "color"
+        },
+        "transparent": {
+          "value": "{color.cobalt.400-0}",
           "type": "color"
         }
       },
@@ -461,6 +481,10 @@
         "shade-normal": {
           "value": "{color.shade-red.400}",
           "type": "color"
+        },
+        "transparent": {
+          "value": "{color.red.400-0}",
+          "type": "color"
         }
       },
       "orange": {
@@ -490,6 +514,10 @@
         },
         "shade-normal": {
           "value": "{color.shade-orange.400}",
+          "type": "color"
+        },
+        "transparent": {
+          "value": "{color.orange.400-0}",
           "type": "color"
         }
       },
@@ -521,6 +549,10 @@
         "shade-normal": {
           "value": "{color.shade-green.400}",
           "type": "color"
+        },
+        "transparent": {
+          "value": "{color.green.400-0}",
+          "type": "color"
         }
       },
       "teal": {
@@ -550,6 +582,10 @@
         },
         "shade-normal": {
           "value": "{color.shade-teal.400}",
+          "type": "color"
+        },
+        "transparent": {
+          "value": "{color.teal.400-0}",
           "type": "color"
         }
       },
@@ -581,6 +617,10 @@
         "shade-normal": {
           "value": "{color.shade-olive.400}",
           "type": "color"
+        },
+        "transparent": {
+          "value": "{color.olive.400-0}",
+          "type": "color"
         }
       },
       "yellow": {
@@ -610,6 +650,10 @@
         },
         "shade-normal": {
           "value": "{color.shade-yellow.400}",
+          "type": "color"
+        },
+        "transparent": {
+          "value": "{color.yellow.400-0}",
           "type": "color"
         }
       },
@@ -641,6 +685,10 @@
         "shade-normal": {
           "value": "{color.shade-pink.400}",
           "type": "color"
+        },
+        "transparent": {
+          "value": "{color.pink.400-0}",
+          "type": "color"
         }
       },
       "purple": {
@@ -671,6 +719,10 @@
         "shade-normal": {
           "value": "{color.shade-purple.400}",
           "type": "color"
+        },
+        "transparent": {
+          "value": "{color.purple.400-0}",
+          "type": "color"
         }
       },
       "navy": {
@@ -700,6 +752,10 @@
         },
         "shade-normal": {
           "value": "{color.shade-navy.400}",
+          "type": "color"
+        },
+        "transparent": {
+          "value": "{color.navy.400-0}",
           "type": "color"
         }
       },
