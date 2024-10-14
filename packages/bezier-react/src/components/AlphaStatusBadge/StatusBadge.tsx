@@ -1,8 +1,9 @@
-import React, { type CSSProperties, forwardRef, memo } from 'react'
+import React, { type CSSProperties, forwardRef } from 'react'
 
 import { MoonFilledIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
+import { type SemanticColor } from '~/src/types/tokens'
 import { cssVar } from '~/src/utils/style'
 
 import { Icon } from '~/src/components/Icon'
@@ -23,8 +24,8 @@ import styles from './StatusBadge.module.scss'
  * />
  * ```
  */
-export const StatusBadge = memo(
-  forwardRef<HTMLDivElement, StatusBadgeProps>(function StatusBadge(
+export const StatusBadge = forwardRef<HTMLDivElement, StatusBadgeProps>(
+  function StatusBadge(
     {
       size = 'm',
       online = false,
@@ -35,13 +36,14 @@ export const StatusBadge = memo(
     },
     forwardedRef
   ) {
-    const withIcon = doNotDisturb
-    const iconColor = online
+    const iconColor: SemanticColor = online
       ? 'bgtxt-green-normal'
       : doNotDisturb
         ? 'bgtxt-yellow-normal'
         : 'bg-black-dark'
-    const backgroundColor = withIcon ? 'bg-white-high' : iconColor
+    const backgroundColor: SemanticColor = doNotDisturb
+      ? 'bg-white-high'
+      : iconColor
 
     return (
       <div
@@ -52,10 +54,14 @@ export const StatusBadge = memo(
             ...style,
           } as CSSProperties
         }
-        className={classNames(styles.Status, styles[`size-${size}`], className)}
+        className={classNames(
+          styles.StatusBadge,
+          styles[`size-${size}`],
+          className
+        )}
         {...rest}
       >
-        {withIcon && (
+        {doNotDisturb && (
           <Icon
             source={MoonFilledIcon}
             size={size === 'm' ? 'xxxs' : 'xs'}
@@ -65,5 +71,5 @@ export const StatusBadge = memo(
         )}
       </div>
     )
-  })
+  }
 )
