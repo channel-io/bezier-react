@@ -12,8 +12,8 @@
   width: var(--b-status-size);
   height: var(--b-status-size);
 
-  background-color: var(--bg-white-high);
-  border: var(--b-status-border-width) solid var(--bg-white-high);
+  background-color: var(--alpha-color-bg-white-highest);
+  border: var(--b-status-border-width) solid var(--alpha-color-bg-white-highest);
   border-radius: 50%;
 
   &::after {

@@ -12,6 +12,8 @@ import { type StatusBadgeProps } from './StatusBadge.types'
 
 import styles from './StatusBadge.module.scss'
 
+// TODO: Change to use AlphaIcon and alpha color tokens
+
 /**
  * `StatusBadge` is a component to indicate user status.
  * @example
