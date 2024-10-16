@@ -1,5 +1,13 @@
 # @channel.io/bezier-tokens
 
+## 0.2.8
+
+### Patch Changes
+
+- Add transparent tokens for alpha global and functional tokens. ([#2454](https://github.com/channel-io/bezier-react/pull/2454)) by @yangwooseong
+
+- Change some value of alpha tokens and add transparent token for alpha tokens. ([#2453](https://github.com/channel-io/bezier-react/pull/2453)) by @yangwooseong
+
 ## 0.2.7
 
 ### Patch Changes

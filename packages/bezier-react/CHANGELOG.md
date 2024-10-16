@@ -1,5 +1,20 @@
 # @channel.io/bezier-react
 
+## 2.3.1
+
+### Patch Changes
+
+- Add `AlphaStatusBadge` component. ([#2434](https://github.com/channel-io/bezier-react/pull/2434)) by @babycroc
+
+- Changes to `AlphaButton` and `AlphaIconButton` ([#2454](https://github.com/channel-io/bezier-react/pull/2454)) by @yangwooseong
+
+  - `white` color is renamed to `white-absolute`.
+  - use transparent token for background color of tertiary style.
+  - add missed color style for `white-absolute`.
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.2.8
+
 ## 2.3.0
 
 ### Minor Changes
