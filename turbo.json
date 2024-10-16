@@ -16,6 +16,11 @@
       "outputs": [".jestcache/**", "coverage/*"],
       "inputs": ["src/**/*.tsx", "src/**/*.ts", "src/**/*.js"]
     },
+    "//#knip": {
+      "outputs": ["node_modules/.cache/knip"],
+      "inputs": ["knip.json", "packages/bezier-react/src/**/*"]
+    },
+
     "dev": {
       "cache": false,
       "persistent": true
