@@ -71,7 +71,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       purple: --alpha-color-bg-purple-normal,
       dark-grey: --alpha-color-bg-grey-darkest,
       light-grey: --alpha-color-bg-black-dark,
-      white: --alpha-color-bg-absolute-white-dark,
+      white-absolute: --alpha-color-bg-absolute-white-dark,
     );
 
     @each $color, $background-color in $background-color-by-color {
@@ -96,7 +96,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       purple: --alpha-color-bg-purple-lightest,
       dark-grey: --alpha-color-bg-black-lighter,
       light-grey: --alpha-color-bg-black-lighter,
-      white: --alpha-color-bg-absolute-white-lightest,
+      white-absolute: --alpha-color-bg-absolute-white-lightest,
     );
 
     @each $color, $background-color in $background-color-by-color {
