@@ -115,15 +115,33 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       &:where(.color-#{'' + $color}) {
         /* stylelint-disable-next-line bezier/validate-token */
         background-color: var(--alpha-color-bg-#{$color}-transparent);
+
+        &:where(.active, :hover):where(:not(:disabled)) {
+          /* stylelint-disable-next-line bezier/validate-token */
+          background-color: var(--alpha-color-bg-#{$color}-transparent-hovered);
+        }
       }
     }
 
     &:where(.color-dark-grey, .color-light-grey) {
       background-color: var(--alpha-color-bg-black-transparent);
+      
+      &:where(.active, :hover):where(:not(:disabled)) {
+        background-color: var(
+          --alpha-color-bg-black-transparent-hovered
+        );
+      }
     }
 
     &:where(.color-white-absolute) {
       background-color: var(--alpha-color-bg-absolute-white-transparent);
+    }
+
+      &:where(.active, :hover):where(:not(:disabled)) {
+        background-color: var(
+          --alpha-color-bg-absolute-white-transparent-hovered
+        );
+      }
     }
   }
 
@@ -208,18 +226,18 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
   /* visual effect on interaction */
   &:where(.active, :hover):where(:not(:disabled)) {
-    &:where(.variant-tertiary) {
-      @each $color in $chromatic-colors {
-        &:where(.color-#{'' + $color}) {
-          /* stylelint-disable-next-line bezier/validate-token */
-          background-color: var(--bgtxt-#{$color}-lightest);
-        }
-      }
+    // &:where(.variant-tertiary) {
+    //   @each $color in $chromatic-colors {
+    //     &:where(.color-#{'' + $color}) {
+    //       /* stylelint-disable-next-line bezier/validate-token */
+    //       background-color: var(--bgtxt-#{$color}-lightest);
+    //     }
+    //   }
 
-      &:where(.color-dark-grey, .color-light-grey, .color-white-absolute) {
-        background-color: var(--bg-black-lighter);
-      }
-    }
+    //   &:where(.color-dark-grey, .color-light-grey, .color-white-absolute) {
+    //     background-color: var(--bg-black-lighter);
+    //   }
+    // }
 
     &:where(.color-dark-grey):where(.variant-secondary, .variant-tertiary) {
       & :is(.ButtonIcon, .ButtonLoader) {
