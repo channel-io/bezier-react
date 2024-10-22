@@ -101,10 +101,12 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
             <div
               className={classNames(
                 styles.ButtonLoader,
+                // NOTE: Loader size is the same as icon size
                 styles[`size-${ICON_SIZE}`]
               )}
             >
               <AlphaLoader
+                size="s"
                 className={styles.Loader}
                 variant="secondary"
               />
