@@ -16,6 +16,6 @@ interface LoaderOwnProps {
 
 export interface LoaderProps
   extends Omit<BezierComponentProps<'span'>, keyof ColorProps>,
-    SizeProps<LoaderSize>,
+    Required<SizeProps<LoaderSize>>,
     ColorProps,
     LoaderOwnProps {}
