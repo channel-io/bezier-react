@@ -6,7 +6,12 @@ import { LOADER_TEST_ID, Loader } from './Loader'
 
 describe('Loader >', () => {
   const renderLoader = (props?: React.ComponentProps<typeof Loader>) =>
-    render(<Loader {...props} />)
+    render(
+      <Loader
+        size="s"
+        {...props}
+      />
+    )
 
   it('should render', () => {
     const { getByTestId } = renderLoader()
@@ -22,7 +27,7 @@ describe('Loader >', () => {
 
   it('should forward ref', () => {
     const ref = React.createRef<HTMLDivElement>()
-    renderLoader({ ref })
+    renderLoader({ ref, size: 's' })
     expect(ref.current).toBeInTheDocument()
   })
 

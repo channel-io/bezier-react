@@ -76,10 +76,12 @@ export const IconButton = forwardRef<HTMLButtonElement, AlphaIconButtonProps>(
           <div
             className={classNames(
               styles.ButtonLoader,
+              // NOTE: Loader size is the same as icon size
               styles[`size-${getIconSize(size)}`]
             )}
           >
             <AlphaLoader
+              size="s"
               className={styles.Loader}
               variant="on-overlay"
             />
