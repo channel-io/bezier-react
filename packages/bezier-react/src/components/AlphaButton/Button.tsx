@@ -125,7 +125,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             <AlphaLoader
               size="s"
               className={styles.Loader}
-              variant="on-overlay"
+              variant={variant === 'primary' ? 'on-overlay' : 'secondary'}
             />
           </div>
         )}
