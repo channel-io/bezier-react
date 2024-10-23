@@ -380,7 +380,7 @@
             "type": "color"
           },
           "transparent": {
-            "value": "{color.white.0}",
+            "value": "{color.black.0}",
             "type": "color"
           }
         }
@@ -780,6 +780,10 @@
           "lightest": {
             "value": "{color.black.20}",
             "type": "color"
+          },
+          "transparent": {
+            "value": "{color.black.0}",
+            "type": "color"
           }
         },
         "white": {
@@ -801,6 +805,10 @@
           },
           "lightest": {
             "value": "{color.white.20}",
+            "type": "color"
+          },
+          "transparent": {
+            "value": "{color.white.0}",
             "type": "color"
           }
         }
