@@ -7,6 +7,7 @@ import StyleDictionary, {
 
 import { buildJsIndex } from './build-js-index'
 import {
+  alphaCustomCSS,
   alphaCustomJsCjs,
   alphaCustomJsEsm,
   customJsCjs,
@@ -38,6 +39,7 @@ const AlphaTokenBuilder = CustomTransforms.reduce(
 )
   .registerFormat(alphaCustomJsCjs)
   .registerFormat(alphaCustomJsEsm)
+  .registerFormat(alphaCustomCSS)
 
 function defineWebPlatform({
   options,
@@ -113,7 +115,7 @@ function defineConfig({
         files: [
           {
             destination: `${destination}.css`,
-            format: 'css/variables',
+            format: useAlpha ? alphaCustomCSS.name : 'css/variables',
             filter: ({ filePath }) =>
               source.some((src) => minimatch(filePath, src)),
             options: {

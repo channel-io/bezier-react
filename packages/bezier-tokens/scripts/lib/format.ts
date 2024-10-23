@@ -4,7 +4,7 @@ import { getHoveredColorToken } from './utils'
 
 type CustomFormat = Named<Format>
 
-const { fileHeader } = formatHelpers
+const { fileHeader, createPropertyFormatter } = formatHelpers
 
 export const customJsCjs: CustomFormat = {
   name: 'custom/js/cjs',
@@ -211,5 +211,30 @@ export const alphaCustomJsEsm: CustomFormat = {
       )}\n` +
       '})\n'
     )
+  },
+}
+
+export const alphaCustomCSS: CustomFormat = {
+  name: 'alpha/custom/css',
+  formatter({ dictionary, options }) {
+    const propertyFormatter = createPropertyFormatter({
+      outputReferences: options.outputReferences,
+      dictionary,
+      format: 'css',
+    })
+
+    const formattedResult = dictionary.allTokens
+      .flatMap((token) => {
+        const shouldMakeHoveredToken =
+          token.type === 'color' && !token.filePath.includes('global')
+
+        return shouldMakeHoveredToken
+          ? [token, getHoveredColorToken(token)]
+          : [token]
+      })
+      .map(propertyFormatter)
+      .join('\n')
+
+    return `${options.selector} {\n` + formattedResult + `\n}\n`
   },
 }
