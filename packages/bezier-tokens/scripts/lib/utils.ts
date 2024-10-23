@@ -60,6 +60,10 @@ const getHoveredColor = (value: string, theme: 'dark' | 'light') => {
   return res.toHex8String()
 }
 
+export const shouldMakeHoveredToken = ({ type, filePath }: TransformedToken) =>
+  type === 'color' &&
+  (filePath.includes('functional') || filePath.includes('semantic'))
+
 export const getHoveredColorToken = (
   token: TransformedToken
 ): TransformedToken => {

@@ -1,6 +1,6 @@
 import { type Format, type Named, formatHelpers } from 'style-dictionary'
 
-import { getHoveredColorToken } from './utils'
+import { getHoveredColorToken, shouldMakeHoveredToken } from './utils'
 
 type CustomFormat = Named<Format>
 
@@ -99,13 +99,11 @@ export const alphaCustomJsCjs: CustomFormat = {
         (category) =>
           `\n  "${category}": Object.freeze({\n` +
           `${categorizedTokens[category]
-            .flatMap((token) => {
-              if (category !== 'color') {
-                return [token]
-              } else {
-                return [token, getHoveredColorToken(token)]
-              }
-            })
+            .flatMap((token) =>
+              shouldMakeHoveredToken(token)
+                ? [token, getHoveredColorToken(token)]
+                : [token]
+            )
             .map((token) => {
               const ref = (() => {
                 if (!dictionary.usesReference(token.original.value)) {
@@ -170,13 +168,11 @@ export const alphaCustomJsEsm: CustomFormat = {
         (category) =>
           `\n  "${category}": Object.freeze({\n` +
           `${categorizedTokens[category]
-            .flatMap((token) => {
-              if (category !== 'color') {
-                return [token]
-              } else {
-                return [token, getHoveredColorToken(token)]
-              }
-            })
+            .flatMap((token) =>
+              shouldMakeHoveredToken(token)
+                ? [token, getHoveredColorToken(token)]
+                : [token]
+            )
             .map((token) => {
               const ref = (() => {
                 if (!dictionary.usesReference(token.original.value)) {
@@ -224,14 +220,11 @@ export const alphaCustomCSS: CustomFormat = {
     })
 
     const formattedResult = dictionary.allTokens
-      .flatMap((token) => {
-        const shouldMakeHoveredToken =
-          token.type === 'color' && !token.filePath.includes('global')
-
-        return shouldMakeHoveredToken
+      .flatMap((token) =>
+        shouldMakeHoveredToken(token)
           ? [token, getHoveredColorToken(token)]
           : [token]
-      })
+      )
       .map(propertyFormatter)
       .join('\n')
 
