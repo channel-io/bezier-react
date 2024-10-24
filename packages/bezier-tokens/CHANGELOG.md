@@ -1,5 +1,13 @@
 # @channel.io/bezier-tokens
 
+## 0.2.9
+
+### Patch Changes
+
+- Changes in alpha functional tokens ([#2460](https://github.com/channel-io/bezier-react/pull/2460)) by @yangwooseong
+  - fix value of dark theme `bg-white-white-alpha-transparent` to `black-0`.
+  - add `bg-absolute-white,black-transparent`.
+
 ## 0.2.8
 
 ### Patch Changes

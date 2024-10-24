@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/stylelint-bezier",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Stylelint configuration for Bezier design system.",
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
   "author": "Channel Corp.",
   "license": "Apache-2.0",
   "dependencies": {
-    "@channel.io/bezier-tokens": "0.2.8"
+    "@channel.io/bezier-tokens": "0.2.9"
   },
   "devDependencies": {
     "eslint-config-bezier": "workspace:*",

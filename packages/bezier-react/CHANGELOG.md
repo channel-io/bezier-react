@@ -1,5 +1,18 @@
 # @channel.io/bezier-react
 
+## 2.3.2
+
+### Patch Changes
+
+- Fix `variant` props of `AlphaLoader` component used in `AlphaButton` component. ([#2461](https://github.com/channel-io/bezier-react/pull/2461)) by @yangwooseong
+
+- Fix `size` props of `AlphaLoader` component to be required. ([#2458](https://github.com/channel-io/bezier-react/pull/2458)) by @yangwooseong
+
+- Modify background color of tertiary `AlphaButton` and `AlphaIconButton`. ([#2460](https://github.com/channel-io/bezier-react/pull/2460)) by @yangwooseong
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.2.9
+
 ## 2.3.1
 
 ### Patch Changes
