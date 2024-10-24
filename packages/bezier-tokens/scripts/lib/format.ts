@@ -210,7 +210,7 @@ export const alphaCustomJsEsm: CustomFormat = {
   },
 }
 
-export const alphaCustomCSS: CustomFormat = {
+export const alphaCustomCss: CustomFormat = {
   name: 'alpha/custom/css',
   formatter({ dictionary, options }) {
     const propertyFormatter = createPropertyFormatter({
