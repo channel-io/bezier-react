@@ -67,7 +67,6 @@ interface DefineConfigOptions {
   reference?: string[]
   basePath: string
   destination: string
-  isForHovered?: boolean
   options?: Options & {
     cssSelector: string
   }
