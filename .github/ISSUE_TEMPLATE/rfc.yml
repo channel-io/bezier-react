@@ -1,0 +1,59 @@
+name: 'RFC'
+description: 'Template for RFC (Request for Comments) proposals'
+labels: ['rfc', 'status:need triage']
+body:
+  - type: 'markdown'
+    attributes:
+      value: |
+        🙏 Please write the issue title in English!
+
+        Thank you for writing the issue.
+        Before you write, please search for the duplicate issue first!
+  - type: 'textarea'
+    id: 'summary'
+    attributes:
+      label: 'Summary'
+      description: 'Please briefly explain the purpose of this document and the problem you are trying to solve.'
+    validations:
+      required: true
+  - type: 'textarea'
+    id: 'goals-and-requirements'
+    attributes:
+      label: 'Goals & Requirements'
+      description: 'Please describe the goals you want to achieve and the functional and non-functional requirements.'
+    validations:
+      required: true
+  - type: 'textarea'
+    id: 'design-details'
+    attributes:
+      label: 'Design Details'
+      description: 'Please describe the design overview and implementation methods. For components, please include API (Props) definitions, descriptions of each property, default values, etc. Please attach screenshots or code snippets if necessary.'
+    validations:
+      required: true
+  - type: 'textarea'
+    id: 'usage-cases'
+    attributes:
+      label: 'Use Cases'
+      description: 'Please describe the scenarios in which this will be used. Please attach screenshots or code snippets if necessary.'
+    validations:
+      required: true
+  - type: 'textarea'
+    id: 'accessibility'
+    attributes:
+      label: 'Accessibility'
+      description: 'Please describe the accessibility requirements considered and how to comply with them.'
+  - type: 'textarea'
+    id: 'test-plan'
+    attributes:
+      label: 'Test Plan'
+      description: 'If testing is required, please explain what tests will be performed.'
+  - type: 'textarea'
+    id: 'alternatives'
+    attributes:
+      label: 'Alternatives'
+      description: 'If there are any alternatives considered besides the proposed method, please explain them.'
+  - type: 'textarea'
+    id: 'references'
+    attributes:
+      label: 'References'
+      description: 'If you have any references or helpful resources, please attach links. (e.g. Figma, Notion)'
