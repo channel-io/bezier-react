@@ -67,7 +67,7 @@ export const shouldMakeHoveredToken = ({ type, filePath }: TransformedToken) =>
 export const getHoveredColorToken = (
   token: TransformedToken
 ): TransformedToken => {
-  const theme = token.filePath.includes('darkTheme') ? 'dark' : 'light'
+  const theme = token.filePath.includes('dark') ? 'dark' : 'light'
   return {
     ...token,
     original: {
