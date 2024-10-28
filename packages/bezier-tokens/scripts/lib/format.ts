@@ -103,12 +103,7 @@ export const alphaCustomJsCjs: CustomFormat = {
       `${Object.keys(categorizedTokens).map(
         (category) =>
           `\n  "${category}": Object.freeze({\n` +
-          `${categorizedTokens[category]
-            .flatMap((token) =>
-              shouldMakeHoveredToken(token)
-                ? [token, getHoveredColorToken(token)]
-                : [token]
-            )
+          `${processTokensWithHovered(categorizedTokens[category])
             .map((token) => {
               const ref = (() => {
                 if (!dictionary.usesReference(token.original.value)) {
@@ -172,12 +167,7 @@ export const alphaCustomJsEsm: CustomFormat = {
       `${Object.keys(categorizedTokens).map(
         (category) =>
           `\n  "${category}": Object.freeze({\n` +
-          `${categorizedTokens[category]
-            .flatMap((token) =>
-              shouldMakeHoveredToken(token)
-                ? [token, getHoveredColorToken(token)]
-                : [token]
-            )
+          `${processTokensWithHovered(categorizedTokens[category])
             .map((token) => {
               const ref = (() => {
                 if (!dictionary.usesReference(token.original.value)) {
@@ -224,12 +214,7 @@ export const alphaCustomCss: CustomFormat = {
       format: 'css',
     })
 
-    const formattedResult = dictionary.allTokens
-      .flatMap((token) =>
-        shouldMakeHoveredToken(token)
-          ? [token, getHoveredColorToken(token)]
-          : [token]
-      )
+    const formattedResult = processTokensWithHovered(dictionary.allTokens)
       .map(propertyFormatter)
       .join('\n')
 
@@ -237,7 +222,7 @@ export const alphaCustomCss: CustomFormat = {
   },
 }
 
-function getHoveredColorToken(token: TransformedToken) {
+function getHoveredColorToken(token: TransformedToken): TransformedToken {
   const theme = token.filePath.includes('dark') ? 'dark' : 'light'
   return {
     ...token,
@@ -248,4 +233,10 @@ function getHoveredColorToken(token: TransformedToken) {
     name: `${token.name}-hovered`,
     value: getHoveredColor(token.value, theme),
   }
+}
+
+function processTokensWithHovered(tokens: TransformedToken[]) {
+  return tokens.flatMap((token) =>
+    shouldMakeHoveredToken(token) ? [token, getHoveredColorToken(token)] : token
+  )
 }
