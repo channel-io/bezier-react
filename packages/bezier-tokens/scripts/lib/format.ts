@@ -1,8 +1,15 @@
-import { type Format, type Named, formatHelpers } from 'style-dictionary'
+import {
+  type Format,
+  type Named,
+  type TransformedToken,
+  formatHelpers,
+} from 'style-dictionary'
+
+import { getHoveredColor, shouldMakeHoveredToken } from './utils'
 
 type CustomFormat = Named<Format>
 
-const { fileHeader } = formatHelpers
+const { fileHeader, createPropertyFormatter } = formatHelpers
 
 export const customJsCjs: CustomFormat = {
   name: 'custom/js/cjs',
@@ -96,7 +103,7 @@ export const alphaCustomJsCjs: CustomFormat = {
       `${Object.keys(categorizedTokens).map(
         (category) =>
           `\n  "${category}": Object.freeze({\n` +
-          `${categorizedTokens[category]
+          `${processTokensWithHovered(categorizedTokens[category])
             .map((token) => {
               const ref = (() => {
                 if (!dictionary.usesReference(token.original.value)) {
@@ -118,7 +125,14 @@ export const alphaCustomJsCjs: CustomFormat = {
                 return value
               })()
 
-              return `    "${token.name}": Object.freeze(${JSON.stringify({ value: token.value, ref })}),`
+              const valueObject = ref
+                ? {
+                    value: token.value,
+                    ref,
+                  }
+                : { value: token.value }
+
+              return `    "${token.name}": Object.freeze(${JSON.stringify(valueObject)}),`
             })
             .join('\n')}\n  })`
       )}\n` +
@@ -153,7 +167,7 @@ export const alphaCustomJsEsm: CustomFormat = {
       `${Object.keys(categorizedTokens).map(
         (category) =>
           `\n  "${category}": Object.freeze({\n` +
-          `${categorizedTokens[category]
+          `${processTokensWithHovered(categorizedTokens[category])
             .map((token) => {
               const ref = (() => {
                 if (!dictionary.usesReference(token.original.value)) {
@@ -175,11 +189,54 @@ export const alphaCustomJsEsm: CustomFormat = {
                 return value
               })()
 
-              return `    "${token.name}": Object.freeze(${JSON.stringify({ value: token.value, ref })}),`
+              const valueObject = ref
+                ? {
+                    value: token.value,
+                    ref,
+                  }
+                : { value: token.value }
+
+              return `    "${token.name}": Object.freeze(${JSON.stringify(valueObject)}),`
             })
             .join('\n')}\n  })`
       )}\n` +
       '})\n'
     )
   },
+}
+
+export const alphaCustomCss: CustomFormat = {
+  name: 'alpha/custom/css',
+  formatter({ dictionary, options }) {
+    const propertyFormatter = createPropertyFormatter({
+      outputReferences: options.outputReferences,
+      dictionary,
+      format: 'css',
+    })
+
+    const formattedResult = processTokensWithHovered(dictionary.allTokens)
+      .map(propertyFormatter)
+      .join('\n')
+
+    return `${options.selector} {\n` + formattedResult + `\n}\n`
+  },
+}
+
+function getHoveredColorToken(token: TransformedToken): TransformedToken {
+  const theme = token.filePath.includes('dark') ? 'dark' : 'light'
+  return {
+    ...token,
+    original: {
+      ...token.original,
+      value: null,
+    },
+    name: `${token.name}-hovered`,
+    value: getHoveredColor(token.value, theme),
+  }
+}
+
+function processTokensWithHovered(tokens: TransformedToken[]) {
+  return tokens.flatMap((token) =>
+    shouldMakeHoveredToken(token) ? [token, getHoveredColorToken(token)] : token
+  )
 }
