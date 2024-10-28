@@ -1,6 +1,11 @@
-import { type Format, type Named, formatHelpers } from 'style-dictionary'
+import {
+  type Format,
+  type Named,
+  type TransformedToken,
+  formatHelpers,
+} from 'style-dictionary'
 
-import { getHoveredColorToken, shouldMakeHoveredToken } from './utils'
+import { getHoveredColor, shouldMakeHoveredToken } from './utils'
 
 type CustomFormat = Named<Format>
 
@@ -230,4 +235,17 @@ export const alphaCustomCss: CustomFormat = {
 
     return `${options.selector} {\n` + formattedResult + `\n}\n`
   },
+}
+
+function getHoveredColorToken(token: TransformedToken) {
+  const theme = token.filePath.includes('dark') ? 'dark' : 'light'
+  return {
+    ...token,
+    original: {
+      ...token.original,
+      value: null,
+    },
+    name: `${token.name}-hovered`,
+    value: getHoveredColor(token.value, theme),
+  }
 }

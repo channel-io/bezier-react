@@ -14,7 +14,7 @@ export const toCSSDimension = (value: string) =>
 
 const clip = (value: number) => Math.min(Math.max(value, 0), 1)
 
-const getHoveredColor = (value: string, theme: 'dark' | 'light') => {
+export const getHoveredColor = (value: string, theme: 'dark' | 'light') => {
   const color = tinycolor(value)
   const { h, s, l, a } = color.toHsl()
 
@@ -65,18 +65,3 @@ const getHoveredColor = (value: string, theme: 'dark' | 'light') => {
 export const shouldMakeHoveredToken = ({ type, filePath }: TransformedToken) =>
   type === 'color' &&
   (filePath.includes('functional') || filePath.includes('semantic'))
-
-export const getHoveredColorToken = (
-  token: TransformedToken
-): TransformedToken => {
-  const theme = token.filePath.includes('dark') ? 'dark' : 'light'
-  return {
-    ...token,
-    original: {
-      ...token.original,
-      value: null,
-    },
-    name: `${token.name}-hovered`,
-    value: getHoveredColor(token.value, theme),
-  }
-}
