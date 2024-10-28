@@ -24,7 +24,7 @@ const getHoveredColor = (value: string, theme: 'dark' | 'light') => {
 
   if (a === 0) {
     alpha = 0.1
-  } else if (a < 0.2) {
+  } else if (a <= 0.2) {
     alpha = alpha * 1.5
   }
 
