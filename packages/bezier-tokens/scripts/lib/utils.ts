@@ -28,26 +28,28 @@ const getHoveredColor = (value: string, theme: 'dark' | 'light') => {
     alpha = alpha * 1.5
   }
 
-  if (theme === 'light') {
-    if (l <= 0.17) {
-      lightness = (l + 0.07) * 1.1
-      saturation += 0.05
+  if (a !== 0) {
+    if (theme === 'light') {
+      if (l <= 0.17) {
+        lightness = (l + 0.07) * 1.1
+        saturation += 0.05
+      } else {
+        lightness *= 0.93
+        saturation -= 0.03
+      }
     } else {
-      lightness *= 0.93
-      saturation -= 0.03
+      if (l >= 0.83) {
+        lightness = (lightness - 0.2) * 0.98
+        saturation -= 0.03
+      } else {
+        lightness = (lightness + 0.04) * 1.005
+        saturation += 0.05
+      }
     }
-  } else {
-    if (l >= 0.83) {
-      lightness = (lightness - 0.2) * 0.98
-      saturation -= 0.03
-    } else {
-      lightness = (lightness + 0.04) * 1.005
-      saturation += 0.05
-    }
-  }
 
-  if (s <= 0.1 || s >= 0.9) {
-    saturation = s
+    if (s <= 0.1 || s >= 0.9) {
+      saturation = s
+    }
   }
 
   const res = tinycolor.fromRatio({
