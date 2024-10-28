@@ -129,15 +129,15 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       &:where(.active, :hover):where(:not(:disabled)) {
         background-color: var(--alpha-color-bg-black-transparent-hovered);
       }
+    }
 
-      &:where(.color-white-absolute) {
-        background-color: var(--alpha-color-bg-absolute-white-transparent);
+    &:where(.color-white-absolute) {
+      background-color: var(--alpha-color-bg-absolute-white-transparent);
 
-        &:where(.active, :hover):where(:not(:disabled)) {
-          background-color: var(
-            --alpha-color-bg-absolute-white-transparent-hovered
-          );
-        }
+      &:where(.active, :hover):where(:not(:disabled)) {
+        background-color: var(
+          --alpha-color-bg-absolute-white-transparent-hovered
+        );
       }
     }
   }
