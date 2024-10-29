@@ -406,7 +406,7 @@
           "value": "{color.blue.500}",
           "type": "color"
         },
-        "shade-light": {
+        "shade-lighter": {
           "value": "{color.shade-blue.400-20}",
           "type": "color"
         },
@@ -440,7 +440,7 @@
           "value": "{color.cobalt.500}",
           "type": "color"
         },
-        "shade-light": {
+        "shade-lighter": {
           "value": "{color.shade-cobalt.400-20}",
           "type": "color"
         },
@@ -474,7 +474,7 @@
           "value": "{color.red.500}",
           "type": "color"
         },
-        "shade-light": {
+        "shade-lighter": {
           "value": "{color.shade-red.400-20}",
           "type": "color"
         },
@@ -508,7 +508,7 @@
           "value": "{color.orange.500}",
           "type": "color"
         },
-        "shade-light": {
+        "shade-lighter": {
           "value": "{color.shade-orange.400-20}",
           "type": "color"
         },
@@ -542,7 +542,7 @@
           "value": "{color.green.500}",
           "type": "color"
         },
-        "shade-light": {
+        "shade-lighter": {
           "value": "{color.shade-green.400-20}",
           "type": "color"
         },
@@ -576,7 +576,7 @@
           "value": "{color.teal.500}",
           "type": "color"
         },
-        "shade-light": {
+        "shade-lighter": {
           "value": "{color.shade-teal.400-20}",
           "type": "color"
         },
@@ -610,7 +610,7 @@
           "value": "{color.olive.500}",
           "type": "color"
         },
-        "shade-light": {
+        "shade-lighter": {
           "value": "{color.shade-olive.400-20}",
           "type": "color"
         },
@@ -644,7 +644,7 @@
           "value": "{color.yellow.500}",
           "type": "color"
         },
-        "shade-light": {
+        "shade-lighter": {
           "value": "{color.shade-yellow.400-20}",
           "type": "color"
         },
@@ -678,7 +678,7 @@
           "value": "{color.pink.500}",
           "type": "color"
         },
-        "shade-light": {
+        "shade-lighter": {
           "value": "{color.shade-pink.400-20}",
           "type": "color"
         },
@@ -712,7 +712,7 @@
           "value": "{color.purple.500}",
           "type": "color"
         },
-        "shade-light": {
+        "shade-lighter": {
           "value": "{color.shade-purple.400-20}",
           "type": "color"
         },
@@ -746,7 +746,7 @@
           "value": "{color.navy.500}",
           "type": "color"
         },
-        "shade-light": {
+        "shade-lighter": {
           "value": "{color.shade-navy.400-20}",
           "type": "color"
         },
