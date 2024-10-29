@@ -3,7 +3,6 @@ import React from 'react'
 import type { Meta, StoryFn, StoryObj } from '@storybook/react'
 
 import { Center } from '~/src/components/Center'
-import { Emoji } from '~/src/components/Emoji'
 
 import {
   ToggleEmojiButtonGroup,
@@ -36,24 +35,12 @@ const Template: StoryFn<ToggleButtonCompositionType> = ({
       <ToggleEmojiButtonSource
         variant={variant}
         loading={loading}
-        content={
-          <Emoji
-            name="channel"
-            size="30"
-            imageUrl="https://cf.exp.channel.io/asset/emoji/images/80/blush.png"
-          />
-        }
+        name="blush"
       />
       <ToggleEmojiButtonSource
         variant={variant}
         loading={loading}
-        content={
-          <Emoji
-            name="channel"
-            size="30"
-            imageUrl="https://cf.exp.channel.io/asset/emoji/images/80/blush.png"
-          />
-        }
+        name="blush"
       />
     </ToggleEmojiButtonGroup>
   </Center>

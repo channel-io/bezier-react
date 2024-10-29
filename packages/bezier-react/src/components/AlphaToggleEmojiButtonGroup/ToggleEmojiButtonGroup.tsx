@@ -1,7 +1,6 @@
 import React, {
   type CSSProperties,
   type ReactEventHandler,
-  type ReactNode,
   forwardRef,
   useMemo,
   useRef,
@@ -25,7 +24,7 @@ import {
   useResizeButton,
 } from '~/src/components/AlphaToggleEmojiButtonGroup/useResizeButton'
 import { BaseButton } from '~/src/components/BaseButton'
-import { type EmojiProps } from '~/src/components/Emoji'
+import { Emoji } from '~/src/components/Emoji'
 
 import {
   type ToggleEmojiButtonGroupProps,
@@ -34,7 +33,7 @@ import {
 
 import styles from './ToggleEmojiButtonGroup.module.scss'
 
-const EMOJI_SIZE = '30'
+const EMOJI_SIZE = 30
 
 /**
  * Toggle Button that contains `Emoji` component with size fixed to 30.
@@ -56,7 +55,7 @@ export const ToggleEmojiButtonSource = forwardRef<
   ToggleEmojiButtonSourceProps
 >(function ToggleEmojiButtonSource(
   {
-    content,
+    name,
     variant,
     className,
     selected,
@@ -80,14 +79,6 @@ export const ToggleEmojiButtonSource = forwardRef<
     if (fillDirection === 'all') {
       adjustButtonSize()
     }
-  }
-
-  const renderEmojiWithFixedSize = (content: ReactNode) => {
-    if (!React.isValidElement<EmojiProps>(content)) {
-      return null
-    }
-
-    return React.cloneElement(content, { ...content.props, size: EMOJI_SIZE })
   }
 
   return (
@@ -116,7 +107,10 @@ export const ToggleEmojiButtonSource = forwardRef<
             loading && styles.loading
           )}
         >
-          {renderEmojiWithFixedSize(content)}
+          <Emoji
+            name={name}
+            size={`${EMOJI_SIZE}`}
+          />
         </div>
 
         {loading && (

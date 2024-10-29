@@ -1,5 +1,3 @@
-import { type ReactNode } from 'react'
-
 import { type BezierComponentProps, type SizeProps } from '~/src/types/props'
 
 interface ToggleEmojiButtonSourceOwnProps {
@@ -22,9 +20,9 @@ interface ToggleEmojiButtonSourceOwnProps {
   selected?: boolean
 
   /**
-   * Emoji in the button.
+   * Name of emoji in the button.
    */
-  content: ReactNode
+  name: string
 }
 
 interface ToggleEmojiButtonGroupOwnProps {
