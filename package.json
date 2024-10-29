@@ -19,7 +19,8 @@
     "update-snapshot": "yarn workspace @channel.io/bezier-react update-snapshot",
     "changeset": "changeset",
     "postinstall": "husky install",
-    "knip": "knip --config knip.json --workspace packages/bezier-react --cache"
+    "knip": "knip --config knip.json --workspace packages/bezier-react --cache",
+    "code-connect": "yarn workspace @channel.io/bezier-react figma connect publish"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
