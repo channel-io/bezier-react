@@ -12,7 +12,7 @@ import styles from './Emoji.module.scss'
 export const EMOJI_TEST_ID = 'bezier-emoji'
 
 const getEmojiUrl = (name: EmojiProps['name'], size: '160' | '80' | '44') => {
-  return `https://cf${isDev() ? '.exp' : ''}.channel.io/asset/emoji/images/${size}/${name}.png`
+  return `https://cf${isDev() ? '.exp' : ''}.channel.io/asset/emoji/images/${size}/${encodeURIComponent(name)}.png`
 }
 
 /**
