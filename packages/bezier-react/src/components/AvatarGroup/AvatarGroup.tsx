@@ -1,3 +1,5 @@
+'use client' 
+
 import React, { forwardRef, useCallback, useMemo } from 'react'
 
 import { MoreIcon } from '@channel.io/bezier-icons'

@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useMemo } from 'react'
 
 import { tokens } from '@channel.io/bezier-tokens'

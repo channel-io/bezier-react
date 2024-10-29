@@ -1,3 +1,5 @@
+'use client' 
+
 import React, { forwardRef, memo } from 'react'
 
 import { isEmpty } from '~/src/utils/type'

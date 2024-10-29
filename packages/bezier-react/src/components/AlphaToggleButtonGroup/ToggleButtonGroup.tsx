@@ -1,3 +1,5 @@
+'use client'
+
 import React, { forwardRef, useMemo } from 'react'
 
 import * as ToggleGroupPrimitive from '@radix-ui/react-toggle-group'

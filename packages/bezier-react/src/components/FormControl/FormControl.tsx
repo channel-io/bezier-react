@@ -1,3 +1,5 @@
+'use client'
+
 import React, { forwardRef, useCallback, useMemo, useState } from 'react'
 
 import classNames from 'classnames'

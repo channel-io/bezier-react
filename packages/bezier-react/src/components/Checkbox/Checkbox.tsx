@@ -1,3 +1,5 @@
+'use client'
+
 import React, { forwardRef } from 'react'
 
 import { CheckBoldIcon, HyphenBoldIcon } from '@channel.io/bezier-icons'
