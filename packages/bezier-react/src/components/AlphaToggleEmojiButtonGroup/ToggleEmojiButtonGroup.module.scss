@@ -86,7 +86,7 @@
     align-items: center;
     justify-content: center;
 
-    & :is(.Spinner) {
+    & :is(.Loader) {
       @include dimension.square(var(--b-toggle-emoji-button-emoji-size));
     }
   }

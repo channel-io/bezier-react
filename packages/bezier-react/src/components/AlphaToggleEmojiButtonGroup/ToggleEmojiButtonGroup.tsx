@@ -14,7 +14,7 @@ import classNames from 'classnames'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { cssDimension } from '~/src/utils/style'
 
-import { AlphaSpinner } from '~/src/components/AlphaSpinner'
+import { AlphaLoader } from '~/src/components/AlphaLoader'
 import {
   ToggleEmojiButtonProvider,
   useToggleEmojiButtonContext,
@@ -121,8 +121,9 @@ export const ToggleEmojiButtonSource = forwardRef<
 
         {loading && (
           <div className={classNames(styles.ButtonLoader)}>
-            <AlphaSpinner
-              className={styles.Spinner}
+            <AlphaLoader
+              className={styles.Loader}
+              size="s"
               variant="secondary"
             />
           </div>
