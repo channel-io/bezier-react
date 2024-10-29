@@ -1,0 +1,9 @@
+{
+  "codeConnect": {
+    "parser": "react",
+    "include": ["/**/*.{tsx,jsx}"],
+    "importPaths": {
+      "src/components/*": "@channel.io/bezier-react"
+    }
+  }
+}
