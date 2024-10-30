@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import type { Meta, StoryFn, StoryObj } from '@storybook/react'
 
@@ -26,8 +26,6 @@ const Template: StoryFn<ToggleButtonCompositionType> = ({
   variant,
   loading,
 }) => {
-  const [value, setValue] = useState('blush')
-
   return (
     <Center
       width="25vw"
@@ -35,8 +33,7 @@ const Template: StoryFn<ToggleButtonCompositionType> = ({
       backgroundColor="bg-lounge"
     >
       <ToggleEmojiButtonGroup
-        value={value}
-        onValueChange={setValue}
+        defaultValue="blush"
         fillDirection={fillDirection}
       >
         <ToggleEmojiButtonSource

@@ -147,7 +147,16 @@ export const ToggleEmojiButtonGroup = forwardRef<
   HTMLDivElement,
   ToggleEmojiButtonGroupProps
 >(function ToggleEmojiButtonGroup(
-  { fillDirection, value, className, children, style, onValueChange, ...rest },
+  {
+    fillDirection,
+    value,
+    className,
+    defaultValue,
+    children,
+    style,
+    onValueChange,
+    ...rest
+  },
   forwardedRef
 ) {
   const [ref, setRef] = useState<null | HTMLDivElement>(null)
@@ -156,6 +165,7 @@ export const ToggleEmojiButtonGroup = forwardRef<
   return (
     <ToggleGroup.Root
       type="single"
+      defaultValue={defaultValue}
       onValueChange={onValueChange}
       value={value}
     >

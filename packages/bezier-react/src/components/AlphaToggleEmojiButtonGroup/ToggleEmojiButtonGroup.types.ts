@@ -36,7 +36,12 @@ interface ToggleEmojiButtonGroupOwnProps {
    * Controlled value of the button item to select.
    * should be used with `onValueChange`.
    */
-  value: string
+  value?: string
+  /**
+   * The value of the button to show as selected when initially rendered.
+   * Use when you do not need to control the state of the items.
+   */
+  defaultValue?: string
   /**
    * Event handler called when the value changes.
    */
@@ -44,7 +49,7 @@ interface ToggleEmojiButtonGroupOwnProps {
 }
 
 export interface ToggleEmojiButtonGroupProps
-  extends BezierComponentProps<'div'>,
+  extends Omit<BezierComponentProps<'div'>, 'defaultValue'>,
     ToggleEmojiButtonGroupOwnProps {}
 
 export interface ToggleEmojiButtonSourceProps
