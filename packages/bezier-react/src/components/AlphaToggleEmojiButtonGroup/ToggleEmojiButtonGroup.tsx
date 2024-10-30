@@ -7,7 +7,7 @@ import React, {
   useState,
 } from 'react'
 
-import * as Toggle from '@radix-ui/react-toggle'
+import * as ToggleGroup from '@radix-ui/react-toggle-group'
 import classNames from 'classnames'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
@@ -62,6 +62,7 @@ export const ToggleEmojiButtonSource = forwardRef<
     size = 'm',
     loading,
     style,
+    value,
     onResize,
     ...rest
   },
@@ -82,7 +83,10 @@ export const ToggleEmojiButtonSource = forwardRef<
   }
 
   return (
-    <Toggle.Root asChild>
+    <ToggleGroup.Item
+      value={value}
+      asChild
+    >
       <BaseButton
         ref={mergedRefs}
         onResize={handleResize}
@@ -123,7 +127,7 @@ export const ToggleEmojiButtonSource = forwardRef<
           </div>
         )}
       </BaseButton>
-    </Toggle.Root>
+    </ToggleGroup.Item>
   )
 })
 
@@ -143,42 +147,48 @@ export const ToggleEmojiButtonGroup = forwardRef<
   HTMLDivElement,
   ToggleEmojiButtonGroupProps
 >(function ToggleEmojiButtonGroup(
-  { fillDirection, className, children, style, ...rest },
+  { fillDirection, value, className, children, style, onValueChange, ...rest },
   forwardedRef
 ) {
   const [ref, setRef] = useState<null | HTMLDivElement>(null)
   const mergedRefs = useMergeRefs(setRef, forwardedRef)
 
   return (
-    <ToggleEmojiButtonProvider
-      value={useMemo(
-        () => ({
-          container: ref,
-          fillDirection,
-          childrenSize: React.Children.count(children),
-        }),
-        [children, fillDirection, ref]
-      )}
+    <ToggleGroup.Root
+      type="single"
+      onValueChange={onValueChange}
+      value={value}
     >
-      <div
-        ref={mergedRefs}
-        style={
-          {
-            '--b-toggle-emoji-button-group-gap': cssDimension(
-              EMOJI_BUTTON_GROUP_GAP
-            ),
-            ...style,
-          } as CSSProperties
-        }
-        className={classNames(
-          styles.ToggleEmojiButtonGroup,
-          fillDirection && styles[`fillDirection-${fillDirection}`],
-          className
+      <ToggleEmojiButtonProvider
+        value={useMemo(
+          () => ({
+            container: ref,
+            fillDirection,
+            childrenSize: React.Children.count(children),
+          }),
+          [children, fillDirection, ref]
         )}
-        {...rest}
       >
-        {children}
-      </div>
-    </ToggleEmojiButtonProvider>
+        <div
+          ref={mergedRefs}
+          style={
+            {
+              '--b-toggle-emoji-button-group-gap': cssDimension(
+                EMOJI_BUTTON_GROUP_GAP
+              ),
+              ...style,
+            } as CSSProperties
+          }
+          className={classNames(
+            styles.ToggleEmojiButtonGroup,
+            fillDirection && styles[`fillDirection-${fillDirection}`],
+            className
+          )}
+          {...rest}
+        >
+          {children}
+        </div>
+      </ToggleEmojiButtonProvider>
+    </ToggleGroup.Root>
   )
 })
