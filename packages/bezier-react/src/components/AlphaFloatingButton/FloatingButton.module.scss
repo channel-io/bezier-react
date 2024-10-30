@@ -5,7 +5,7 @@
 $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
 .FloatingButton {
-  $background-color-by-color: (
+  $background-color-map: (
     blue: --alpha-color-primary-bg-normal,
     cobalt: --alpha-color-accent-bg-normal,
     red: --alpha-color-critical-bg-normal,
@@ -89,8 +89,8 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
   /* background-color */
   &:where(.variant-primary) {
-    @each $color, $background-color in $background-color-by-color {
-      &:where(.color-#{'' + $color}) {
+    @each $button-color, $background-color in $background-color-map {
+      &:where(.color-#{'' + $button-color}) {
         background-color: var(#{$background-color});
       }
     }
@@ -131,14 +131,14 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   &:where(.active, :hover):where(:not(:disabled)) {
     box-shadow: var(--alpha-shadow-3);
 
-    @each $color, $background-color in $background-color-by-color {
-      &:where(.variant-primary.color-#{'' + $color}) {
+    @each $button-color, $background-color in $background-color-map {
+      &:where(.variant-primary.color-#{'' + $button-color}) {
         background-color: var(#{$background-color}-hovered);
       }
     }
 
-    @each $color, $background-color in $color-map {
-      &:where(.variant-secondary.color-#{'' + $color}) {
+    @each $button-color, $background-color in $color-map {
+      &:where(.variant-secondary.color-#{'' + $button-color}) {
         color: var(#{$background-color}-hovered);
 
         & :is(.ButtonIcon) {
