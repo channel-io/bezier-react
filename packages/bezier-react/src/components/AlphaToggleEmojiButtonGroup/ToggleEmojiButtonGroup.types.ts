@@ -6,24 +6,20 @@ interface ToggleEmojiButtonSourceOwnProps {
    * @default 'primary'
    */
   variant: 'primary' | 'secondary'
-
   /**
    * If `loading` is true, spinner will be shown, replacing the content.
    * @default false
    */
   loading?: boolean
-
   /**
    * Props that shows whether the button is selected.
    * @default false
    */
   selected?: boolean
-
   /**
    * Name of emoji in the button.
    */
   name: string
-
   /**
    * Controlled value of the button.
    */

@@ -64,4 +64,10 @@ export const Primary = {
     variant: 'primary',
     loading: false,
   },
+  parameters: {
+    design: {
+      type: 'link',
+      url: 'https://www.figma.com/design/fPXP9zfjZU9NyARnhTWL6o/Input?node-id=425-281&t=ktusTVyr8cD3cTlt-1',
+    },
+  },
 } satisfies StoryObj<ToggleButtonCompositionType>
