@@ -1,3 +1,5 @@
+'use client'
+
 import { createElement, forwardRef } from 'react'
 
 import classNames from 'classnames'

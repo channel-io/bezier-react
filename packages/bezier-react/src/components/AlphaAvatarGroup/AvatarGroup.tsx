@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import React, { forwardRef, useCallback, useMemo } from 'react'
 
