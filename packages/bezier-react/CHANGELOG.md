@@ -1,5 +1,14 @@
 # @channel.io/bezier-react
 
+## 2.3.3
+
+### Patch Changes
+
+- Fix a bug where "+1" emoji does not render. ([#2470](https://github.com/channel-io/bezier-react/pull/2470)) by @yangwooseong
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.2.10
+
 ## 2.3.2
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @channel.io/bezier-tokens
 
+## 0.2.10
+
+### Patch Changes
+
+- Rename `bg-${red}-shade-light` token to `bg-${red}-shade-lighter`. ([#2466](https://github.com/channel-io/bezier-react/pull/2466)) by @yangwooseong
+
+- Changes to the build result of package. ([#2462](https://github.com/channel-io/bezier-react/pull/2462)) by @yangwooseong
+
+  - `dark(light)ThemeHovered` property of entry object is removed and merged into the `dark(light)Theme` property.
+  - duplicate selector issue is resolved in `styles.css` stylesheet.
+
 ## 0.2.9
 
 ### Patch Changes
