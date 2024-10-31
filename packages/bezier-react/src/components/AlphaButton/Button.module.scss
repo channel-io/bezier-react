@@ -5,6 +5,31 @@
 $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
 .Button {
+  $primary-color-map: (
+    blue: --alpha-color-primary-bg-normal,
+    cobalt: --alpha-color-accent-bg-normal,
+    red: --alpha-color-critical-bg-normal,
+    orange: --alpha-color-warning-bg-normal,
+    green: --alpha-color-success-bg-normal,
+    pink: --alpha-color-bg-pink-normal,
+    purple: --alpha-color-bg-purple-normal,
+    dark-grey: --alpha-color-bg-grey-darkest,
+    light-grey: --alpha-color-bg-black-dark,
+    white-absolute: --alpha-color-bg-absolute-white-dark,
+  );
+  $secondary-color-map: (
+    blue: --alpha-color-primary-bg-lightest,
+    cobalt: --alpha-color-accent-bg-lightest,
+    red: --alpha-color-critical-bg-lightest,
+    orange: --alpha-color-warning-bg-lightest,
+    green: --alpha-color-success-bg-lightest,
+    pink: --alpha-color-bg-pink-lightest,
+    purple: --alpha-color-bg-purple-lightest,
+    dark-grey: --alpha-color-bg-black-lighter,
+    light-grey: --alpha-color-bg-black-lighter,
+    white-absolute: --alpha-color-bg-absolute-white-lightest,
+  );
+
   position: relative;
   box-sizing: border-box;
   transition: background-color var(--transition-s);
@@ -57,51 +82,17 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
   /* background-color */
   &:where(.variant-primary) {
-    $background-color-by-color: (
-      blue: --alpha-color-primary-bg-normal,
-      cobalt: --alpha-color-accent-bg-normal,
-      red: --alpha-color-critical-bg-normal,
-      orange: --alpha-color-warning-bg-normal,
-      green: --alpha-color-success-bg-normal,
-      pink: --alpha-color-bg-pink-normal,
-      purple: --alpha-color-bg-purple-normal,
-      dark-grey: --alpha-color-bg-grey-darkest,
-      light-grey: --alpha-color-bg-black-dark,
-      white-absolute: --alpha-color-bg-absolute-white-dark,
-    );
-
-    @each $color, $background-color in $background-color-by-color {
+    @each $color, $background-color in $primary-color-map {
       &:where(.color-#{'' + $color}) {
         background-color: var(#{$background-color});
-
-        &:where(.active, :hover):where(:not(:disabled)) {
-          background-color: var(#{$background-color}-hovered);
-        }
       }
     }
   }
 
   &:where(.variant-secondary) {
-    $background-color-by-color: (
-      blue: --alpha-color-primary-bg-lightest,
-      cobalt: --alpha-color-accent-bg-lightest,
-      red: --alpha-color-critical-bg-lightest,
-      orange: --alpha-color-warning-bg-lightest,
-      green: --alpha-color-success-bg-lightest,
-      pink: --alpha-color-bg-pink-lightest,
-      purple: --alpha-color-bg-purple-lightest,
-      dark-grey: --alpha-color-bg-black-lighter,
-      light-grey: --alpha-color-bg-black-lighter,
-      white-absolute: --alpha-color-bg-absolute-white-lightest,
-    );
-
-    @each $color, $background-color in $background-color-by-color {
+    @each $color, $background-color in $secondary-color-map {
       &:where(.color-#{'' + $color}) {
         background-color: var(#{$background-color});
-
-        &:where(.active, :hover):where(:not(:disabled)) {
-          background-color: var(#{$background-color}-hovered);
-        }
       }
     }
   }
@@ -111,11 +102,6 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       &:where(.color-#{'' + $color}) {
         /* stylelint-disable-next-line bezier/validate-token */
         background-color: var(--alpha-color-bg-#{$color}-transparent);
-
-        &:where(.active, :hover):where(:not(:disabled)) {
-          /* stylelint-disable-next-line bezier/validate-token */
-          background-color: var(--alpha-color-bg-#{$color}-transparent-hovered);
-        }
       }
     }
 
@@ -219,6 +205,41 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
   /* visual effect on interaction */
   &:where(.active, :hover):where(:not(:disabled)) {
+    &:where(.variant-primary) {
+      @each $color, $background-color in $primary-color-map {
+        &:where(.color-#{'' + $color}) {
+          background-color: var(#{$background-color}-hovered);
+        }
+      }
+    }
+
+    &:where(.variant-secondary) {
+      @each $color, $background-color in $secondary-color-map {
+        &:where(.color-#{'' + $color}) {
+          background-color: var(#{$background-color}-hovered);
+        }
+      }
+    }
+
+    &:where(.variant-tertiary) {
+      @each $color in $chromatic-colors {
+        &:where(.color-#{'' + $color}) {
+          /* stylelint-disable-next-line bezier/validate-token */
+          background-color: var(--alpha-color-bg-#{$color}-transparent-hovered);
+        }
+      }
+
+      &:where(.color-dark-grey, .color-light-grey) {
+        background-color: var(--alpha-color-bg-black-transparent-hovered);
+      }
+
+      &:where(.color-white-absolute) {
+        background-color: var(
+          --alpha-color-bg-absolute-white-transparent-hovered
+        );
+      }
+    }
+
     &:where(.color-dark-grey):where(.variant-secondary, .variant-tertiary) {
       & :is(.ButtonIcon, .ButtonLoader) {
         color: var(--txt-black-darkest);
