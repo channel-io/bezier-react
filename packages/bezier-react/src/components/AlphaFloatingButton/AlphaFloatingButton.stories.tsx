@@ -38,7 +38,7 @@ export const Primary: StoryObj<AlphaFloatingButtonProps> = {
   },
 }
 
-export const Demo: StoryObj<AlphaFloatingButtonProps> = {
+export const Hovered: StoryObj<AlphaFloatingButtonProps> = {
   render: () => {
     const VARIANTS: AlphaFloatingButtonProps['variant'][] = [
       'primary',
