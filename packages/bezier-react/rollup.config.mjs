@@ -114,8 +114,10 @@ const generateConfig = ({ output = [], plugins = [] }) =>
       ...plugins,
     ],
     onwarn(warning, warn) {
-      // Suppress "Module level directives cause errors when bundled" warnings
-      if (warning.code === 'MODULE_LEVEL_DIRECTIVE') {
+      if (
+        warning.code === 'MODULE_LEVEL_DIRECTIVE' &&
+        warning.message.includes('use client')
+      ) {
         return
       }
       warn(warning)
