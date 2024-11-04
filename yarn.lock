@@ -5487,13 +5487,13 @@ __metadata:
   linkType: hard
 
 "@storybook/addon-styling-webpack@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@storybook/addon-styling-webpack@npm:1.0.0"
+  version: 1.0.1
+  resolution: "@storybook/addon-styling-webpack@npm:1.0.1"
   dependencies:
     "@storybook/node-logger": "npm:^8.0.0-alpha.10"
   peerDependencies:
     webpack: ^5.0.0
-  checksum: 10/af8f4a48737034a9ad2013cf117a8631c43a9ce0554ed46f52f252150bee519c416964ae16a4418db3dd730a7af89b7c18690d8f0b95d4db05f7f1b65656d10d
+  checksum: 10/449682f8897cc7c7a8b0098d8c6399455f2c87c625cc2e2bd5a6cf3b747a0c16c4e09d90d0cab6acf8a5a022e7e223b915c02aad988a990ae0357144bf09a50b
   languageName: node
   linkType: hard
 
