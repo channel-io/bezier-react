@@ -1,3 +1,5 @@
+'use client'
+
 import React, { forwardRef, memo } from 'react'
 
 import { CancelSmallIcon } from '@channel.io/bezier-icons'

@@ -1,3 +1,5 @@
+'use client'
+
 import React, { type CSSProperties, forwardRef } from 'react'
 
 import { MoonFilledIcon } from '@channel.io/bezier-icons'

@@ -1,3 +1,5 @@
+'use client'
+
 import React, { forwardRef, useState } from 'react'
 
 import { Slot } from '@radix-ui/react-slot'

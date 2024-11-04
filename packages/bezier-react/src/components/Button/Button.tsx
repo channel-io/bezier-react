@@ -1,3 +1,5 @@
+'use client' 
+
 import React, { forwardRef, useCallback } from 'react'
 
 import { isBezierIcon } from '@channel.io/bezier-icons'
