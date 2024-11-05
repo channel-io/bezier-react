@@ -31,10 +31,6 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     & :where(.ButtonText) {
       padding: 0 4px;
     }
-
-    & :where(.ButtonContent) {
-      gap: 1px;
-    }
   }
 
   &:where(.size-m) {
