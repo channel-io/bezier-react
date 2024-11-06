@@ -94,7 +94,7 @@ export const ToggleEmojiButtonGroup = forwardRef<
     defaultValue,
     children,
     style,
-    dir,
+    dir = 'ltr',
     onValueChange,
     ...rest
   },
@@ -133,7 +133,6 @@ export const ToggleEmojiButtonGroup = forwardRef<
         fillDirection && styles[`fillDirection-${fillDirection}`],
         className
       )}
-      dir={dir as 'ltr' | 'rtl'}
       {...rest}
     >
       {children}

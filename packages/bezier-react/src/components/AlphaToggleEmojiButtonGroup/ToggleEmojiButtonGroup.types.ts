@@ -38,13 +38,19 @@ interface ToggleEmojiButtonGroupOwnProps {
    */
   defaultValue?: string
   /**
+   *
+   * @default 'ltr'
+   * The reading direction of the toggle group.
+   */
+  dir?: 'ltr' | 'rtl'
+  /**
    * Event handler called when the value changes.
    */
   onValueChange?: (value: string) => void
 }
 
 export interface ToggleEmojiButtonGroupProps
-  extends Omit<BezierComponentProps<'div'>, 'defaultValue'>,
+  extends Omit<BezierComponentProps<'div'>, 'dir' | 'defaultValue'>,
     ToggleEmojiButtonGroupOwnProps {}
 
 export interface ToggleEmojiButtonSourceProps
