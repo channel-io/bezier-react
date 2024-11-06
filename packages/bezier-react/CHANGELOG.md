@@ -1,5 +1,22 @@
 # @channel.io/bezier-react
 
+## 2.4.0
+
+### Minor Changes
+
+- The use client directive has been added at the top of all components inside @channel.io/bezier-react. ([#2468](https://github.com/channel-io/bezier-react/pull/2468)) by @nayounsang
+
+### Patch Changes
+
+- Remove 1px gap between icon and text in `s` size `AlphaButton`, `AlphaFloatingButton`. ([#2484](https://github.com/channel-io/bezier-react/pull/2484)) by @yangwooseong
+
+- Apply hovered color token for `AlphaButton`, `AlphaFloatingButton`, and `AlphaFloatingIconButton`. ([#2471](https://github.com/channel-io/bezier-react/pull/2471)) by @yangwooseong
+
+- Add `ToggleEmojiButtonGroup` and `ToggleEmojiButtonSource` component. ([#2301](https://github.com/channel-io/bezier-react/pull/2301)) by @yangwooseong
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.2.11
+
 ## 2.3.3
 
 ### Patch Changes
