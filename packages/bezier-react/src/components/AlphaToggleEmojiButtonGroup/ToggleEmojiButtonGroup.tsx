@@ -9,6 +9,7 @@ import { cssDimension } from '~/src/utils/style'
 import { AlphaLoader } from '~/src/components/AlphaLoader'
 import {
   EMOJI_BUTTON_GROUP_GAP,
+  EMOJI_BUTTON_SIZE,
   useResizeButton,
 } from '~/src/components/AlphaToggleEmojiButtonGroup/useResizeButton'
 import { BaseButton } from '~/src/components/BaseButton'
@@ -128,7 +129,7 @@ export const ToggleEmojiButtonGroup = forwardRef<
   const [ref, setRef] = useState<null | HTMLDivElement>(null)
   const mergedRefs = useMergeRefs(setRef, forwardedRef)
   const shouldResizeButton = fillDirection === 'all'
-  const buttonSize = useResizeButton({
+  const resizedButtonSize = useResizeButton({
     container: ref,
     enable: shouldResizeButton,
     buttonCount: React.Children.count(children),
@@ -144,9 +145,9 @@ export const ToggleEmojiButtonGroup = forwardRef<
       style={
         {
           '--b-toggle-emoji-button-emoji-size': cssDimension(EMOJI_SIZE),
-          '--b-toggle-emoji-button-size': shouldResizeButton
-            ? cssDimension(buttonSize)
-            : undefined,
+          '--b-toggle-emoji-button-size': cssDimension(
+            shouldResizeButton ? resizedButtonSize : EMOJI_BUTTON_SIZE
+          ),
           '--b-toggle-emoji-button-group-gap': cssDimension(
             EMOJI_BUTTON_GROUP_GAP
           ),
