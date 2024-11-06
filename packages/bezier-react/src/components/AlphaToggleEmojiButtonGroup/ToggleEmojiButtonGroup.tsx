@@ -131,7 +131,7 @@ export const ToggleEmojiButtonGroup = forwardRef<
   const buttonSize = useResizeButton({
     container: ref,
     enable: shouldResizeButton,
-    childrenSize: React.Children.count(children),
+    buttonCount: React.Children.count(children),
   })
 
   return (

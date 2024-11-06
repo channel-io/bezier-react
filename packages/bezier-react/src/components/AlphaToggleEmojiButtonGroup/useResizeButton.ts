@@ -6,13 +6,13 @@ export const EMOJI_BUTTON_SIZE = 54
 interface UseResizeButtonProps {
   container: HTMLDivElement | null
   enable: boolean
-  childrenSize: number
+  buttonCount: number
 }
 
 export function useResizeButton({
   container,
   enable,
-  childrenSize,
+  buttonCount,
 }: UseResizeButtonProps) {
   const [buttonSize, setButtonSize] = useState(EMOJI_BUTTON_SIZE)
 
@@ -25,15 +25,15 @@ export function useResizeButton({
     const containerHeight = container.clientHeight
     const size = Math.max(
       Math.min(
-        (containerWidth - EMOJI_BUTTON_GROUP_GAP * (childrenSize - 1)) /
-          childrenSize,
+        (containerWidth - EMOJI_BUTTON_GROUP_GAP * (buttonCount - 1)) /
+          buttonCount,
         containerHeight - EMOJI_BUTTON_GROUP_GAP
       ),
       EMOJI_BUTTON_SIZE
     )
 
     setButtonSize(size)
-  }, [childrenSize, container, enable])
+  }, [buttonCount, container, enable])
 
   useEffect(
     function setResizeObserver() {
