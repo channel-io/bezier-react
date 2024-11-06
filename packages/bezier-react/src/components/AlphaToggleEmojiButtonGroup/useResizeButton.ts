@@ -1,20 +1,23 @@
-import { useCallback, useEffect } from 'react'
-
-import { useToggleEmojiButtonContext } from '~/src/components/AlphaToggleEmojiButtonGroup/ToggleEmojiButtonGroupContext'
+import { useCallback, useEffect, useState } from 'react'
 
 export const EMOJI_BUTTON_GROUP_GAP = 6
 export const EMOJI_BUTTON_SIZE = 54
 
 interface UseResizeButtonProps {
-  button: HTMLButtonElement | null
+  container: HTMLDivElement | null
+  enable: boolean
+  childrenSize: number
 }
 
-export function useResizeButton({ button }: UseResizeButtonProps) {
-  const { container, childrenSize, fillDirection } =
-    useToggleEmojiButtonContext()
+export function useResizeButton({
+  container,
+  enable,
+  childrenSize,
+}: UseResizeButtonProps) {
+  const [buttonSize, setButtonSize] = useState(EMOJI_BUTTON_SIZE)
 
   const adjustButtonSize = useCallback(() => {
-    if (!container || !button || fillDirection !== 'all') {
+    if (!container || !enable) {
       return
     }
 
@@ -29,34 +32,31 @@ export function useResizeButton({ button }: UseResizeButtonProps) {
       EMOJI_BUTTON_SIZE
     )
 
-    button.style.width = `${size}px`
-    button.style.height = `${size}px`
-  }, [button, childrenSize, container, fillDirection])
+    setButtonSize(size)
+  }, [childrenSize, container, enable])
 
   useEffect(
     function setResizeObserver() {
-      if (fillDirection !== 'all') {
-        return
-      }
+      let resizeObserver: ResizeObserver | null = null
 
-      const resizeObserver = new ResizeObserver(() => {
-        adjustButtonSize()
-      })
+      if (enable && container) {
+        resizeObserver = new ResizeObserver(() => {
+          adjustButtonSize()
+        })
 
-      if (container) {
         resizeObserver.observe(container)
         container.addEventListener('resize', adjustButtonSize)
       }
 
       return () => {
         if (container) {
-          resizeObserver.unobserve(container)
-          container.removeEventListener('resize', adjustButtonSize)
+          resizeObserver?.unobserve(container)
+          container?.removeEventListener('resize', adjustButtonSize)
         }
       }
     },
-    [adjustButtonSize, container, fillDirection]
+    [adjustButtonSize, container, enable]
   )
 
-  return { adjustButtonSize }
+  return buttonSize
 }

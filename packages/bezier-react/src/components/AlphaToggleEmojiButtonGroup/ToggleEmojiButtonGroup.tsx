@@ -1,11 +1,4 @@
-import React, {
-  type CSSProperties,
-  type ReactEventHandler,
-  forwardRef,
-  useMemo,
-  useRef,
-  useState,
-} from 'react'
+import React, { type CSSProperties, forwardRef, useState } from 'react'
 
 import * as ToggleGroup from '@radix-ui/react-toggle-group'
 import classNames from 'classnames'
@@ -15,12 +8,7 @@ import { cssDimension } from '~/src/utils/style'
 
 import { AlphaLoader } from '~/src/components/AlphaLoader'
 import {
-  ToggleEmojiButtonProvider,
-  useToggleEmojiButtonContext,
-} from '~/src/components/AlphaToggleEmojiButtonGroup/ToggleEmojiButtonGroupContext'
-import {
   EMOJI_BUTTON_GROUP_GAP,
-  EMOJI_BUTTON_SIZE,
   useResizeButton,
 } from '~/src/components/AlphaToggleEmojiButtonGroup/useResizeButton'
 import { BaseButton } from '~/src/components/BaseButton'
@@ -61,42 +49,19 @@ export const ToggleEmojiButtonSource = forwardRef<
     selected,
     size = 'm',
     loading,
-    style,
     value,
     onResize,
     ...rest
   },
   forwardedRef
 ) {
-  const ref = useRef<HTMLButtonElement>(null)
-  const mergedRefs = useMergeRefs(ref, forwardedRef)
-  const { fillDirection } = useToggleEmojiButtonContext()
-
-  const { adjustButtonSize } = useResizeButton({ button: ref.current })
-
-  const handleResize: ReactEventHandler<HTMLButtonElement> = (e) => {
-    onResize?.(e)
-
-    if (fillDirection === 'all') {
-      adjustButtonSize()
-    }
-  }
-
   return (
     <ToggleGroup.Item
       value={value}
       asChild
     >
       <BaseButton
-        ref={mergedRefs}
-        onResize={handleResize}
-        style={
-          {
-            '--b-toggle-emoji-button-size': cssDimension(EMOJI_BUTTON_SIZE),
-            '--b-toggle-emoji-button-emoji-size': cssDimension(EMOJI_SIZE),
-            ...style,
-          } as CSSProperties
-        }
+        ref={forwardedRef}
         className={classNames(
           styles.ToggleEmojiButtonSource,
           styles[`size-${size}`],
@@ -162,42 +127,41 @@ export const ToggleEmojiButtonGroup = forwardRef<
 ) {
   const [ref, setRef] = useState<null | HTMLDivElement>(null)
   const mergedRefs = useMergeRefs(setRef, forwardedRef)
+  const shouldResizeButton = fillDirection === 'all'
+  const buttonSize = useResizeButton({
+    container: ref,
+    enable: shouldResizeButton,
+    childrenSize: React.Children.count(children),
+  })
 
   return (
-    <ToggleEmojiButtonProvider
-      value={useMemo(
-        () => ({
-          container: ref,
-          fillDirection,
-          childrenSize: React.Children.count(children),
-        }),
-        [children, fillDirection, ref]
+    <ToggleGroup.Root
+      type="single"
+      defaultValue={defaultValue}
+      onValueChange={onValueChange}
+      value={value}
+      ref={mergedRefs}
+      style={
+        {
+          '--b-toggle-emoji-button-emoji-size': cssDimension(EMOJI_SIZE),
+          '--b-toggle-emoji-button-size': shouldResizeButton
+            ? cssDimension(buttonSize)
+            : undefined,
+          '--b-toggle-emoji-button-group-gap': cssDimension(
+            EMOJI_BUTTON_GROUP_GAP
+          ),
+          ...style,
+        } as CSSProperties
+      }
+      className={classNames(
+        styles.ToggleEmojiButtonGroup,
+        fillDirection && styles[`fillDirection-${fillDirection}`],
+        className
       )}
+      dir={dir as 'ltr' | 'rtl'}
+      {...rest}
     >
-      <ToggleGroup.Root
-        type="single"
-        defaultValue={defaultValue}
-        onValueChange={onValueChange}
-        value={value}
-        ref={mergedRefs}
-        style={
-          {
-            '--b-toggle-emoji-button-group-gap': cssDimension(
-              EMOJI_BUTTON_GROUP_GAP
-            ),
-            ...style,
-          } as CSSProperties
-        }
-        className={classNames(
-          styles.ToggleEmojiButtonGroup,
-          fillDirection && styles[`fillDirection-${fillDirection}`],
-          className
-        )}
-        dir={dir as 'ltr' | 'rtl'}
-        {...rest}
-      >
-        {children}
-      </ToggleGroup.Root>
-    </ToggleEmojiButtonProvider>
+      {children}
+    </ToggleGroup.Root>
   )
 })
