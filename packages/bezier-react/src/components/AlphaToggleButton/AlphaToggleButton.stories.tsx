@@ -16,7 +16,6 @@ export const Primary = {
   args: {
     text: 'Invite',
     selected: false,
-    loading: false,
     prefixContent: GiftIcon,
     suffixContent: ArrowRightIcon,
     size: 'm',

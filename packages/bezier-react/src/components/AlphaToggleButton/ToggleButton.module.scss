@@ -1,8 +1,3 @@
-@use '../../styles/mixins/dimension';
-@use 'sass:map';
-
-@import '../Icon/Icon.module';
-
 .Button {
   position: relative;
 
@@ -89,25 +84,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    &:where(.loading) {
-      visibility: hidden;
-    }
-  }
-
-  & :where(.ButtonLoader) {
-    position: absolute;
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &:where(.size-s) {
-      & :is(.Loader) {
-        @include dimension.square(#{map.get($size-map, 's')}px);
-      }
-    }
   }
 
   /* NOTE: this fixes container width when bold toggles */

@@ -18,12 +18,6 @@ interface ToggleButtonOwnProps {
   text: string
 
   /**
-   * If `loading` is true, spinner will be shown, replacing the content.
-   * @default false
-   */
-  loading?: boolean
-
-  /**
    * Props that shows whether the button is selected.
    * @default false
    */

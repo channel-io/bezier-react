@@ -1,0 +1,76 @@
+@use '../../styles/mixins/dimension';
+
+.ToggleEmojiButtonGroup {
+  display: flex;
+  gap: var(--b-toggle-emoji-button-group-gap);
+  align-items: center;
+  justify-content: center;
+
+  /* stylelint-disable-next-line selector-class-pattern */
+  &:where(.fillDirection-horizontal) {
+    width: 100%;
+
+    & :where(.ToggleEmojiButtonSource) {
+      flex-grow: 1;
+    }
+  }
+
+  /* stylelint-disable-next-line selector-class-pattern */
+  &:where(.fillDirection-all) {
+    width: 100%;
+    height: 100%;
+
+    & :is(.ToggleEmojiButtonSource) {
+      max-width: 160px;
+      max-height: 160px;
+    }
+  }
+}
+
+.ToggleEmojiButtonSource {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px;
+
+  border-radius: var(--radius-12);
+
+  &:where(.size-m) {
+    @include dimension.square(var(--b-toggle-emoji-button-size));
+  }
+
+  &:where(.variant-primary) {
+    background-color: var(--alpha-color-bg-grey-lightest);
+    box-shadow: var(--alpha-shadow-input-default);
+
+    &:where(&:hover) {
+      background-color: var(--alpha-color-bg-grey-lighter);
+    }
+
+    &:where([data-state='on']) {
+      background-color: var(--alpha-color-bg-blue-lightest);
+      box-shadow: 0 0 0 1px var(--alpha-color-primary-bg-normal) inset;
+    }
+  }
+
+  &:where(.variant-secondary) {
+    background-color: var(--alpha-color-bg-black-lightest);
+
+    &:where(&:hover) {
+      background-color: var(--alpha-color-bg-black-lighter);
+    }
+
+    &:where([data-state='on']) {
+      background-color: var(--alpha-color-primary-bg-lighter);
+    }
+  }
+
+  & :where(.ButtonContent) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
