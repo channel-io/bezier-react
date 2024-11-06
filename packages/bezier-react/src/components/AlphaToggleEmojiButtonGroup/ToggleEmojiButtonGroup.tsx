@@ -154,6 +154,7 @@ export const ToggleEmojiButtonGroup = forwardRef<
     defaultValue,
     children,
     style,
+    dir,
     onValueChange,
     ...rest
   },
@@ -163,42 +164,40 @@ export const ToggleEmojiButtonGroup = forwardRef<
   const mergedRefs = useMergeRefs(setRef, forwardedRef)
 
   return (
-    <ToggleGroup.Root
-      type="single"
-      defaultValue={defaultValue}
-      onValueChange={onValueChange}
-      value={value}
+    <ToggleEmojiButtonProvider
+      value={useMemo(
+        () => ({
+          container: ref,
+          fillDirection,
+          childrenSize: React.Children.count(children),
+        }),
+        [children, fillDirection, ref]
+      )}
     >
-      <ToggleEmojiButtonProvider
-        value={useMemo(
-          () => ({
-            container: ref,
-            fillDirection,
-            childrenSize: React.Children.count(children),
-          }),
-          [children, fillDirection, ref]
+      <ToggleGroup.Root
+        type="single"
+        defaultValue={defaultValue}
+        onValueChange={onValueChange}
+        value={value}
+        ref={mergedRefs}
+        style={
+          {
+            '--b-toggle-emoji-button-group-gap': cssDimension(
+              EMOJI_BUTTON_GROUP_GAP
+            ),
+            ...style,
+          } as CSSProperties
+        }
+        className={classNames(
+          styles.ToggleEmojiButtonGroup,
+          fillDirection && styles[`fillDirection-${fillDirection}`],
+          className
         )}
+        dir={dir as 'ltr' | 'rtl'}
+        {...rest}
       >
-        <div
-          ref={mergedRefs}
-          style={
-            {
-              '--b-toggle-emoji-button-group-gap': cssDimension(
-                EMOJI_BUTTON_GROUP_GAP
-              ),
-              ...style,
-            } as CSSProperties
-          }
-          className={classNames(
-            styles.ToggleEmojiButtonGroup,
-            fillDirection && styles[`fillDirection-${fillDirection}`],
-            className
-          )}
-          {...rest}
-        >
-          {children}
-        </div>
-      </ToggleEmojiButtonProvider>
-    </ToggleGroup.Root>
+        {children}
+      </ToggleGroup.Root>
+    </ToggleEmojiButtonProvider>
   )
 })
