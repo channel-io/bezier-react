@@ -3,21 +3,21 @@ import { useCallback, useEffect, useState } from 'react'
 export const EMOJI_BUTTON_GROUP_GAP = 6
 export const EMOJI_BUTTON_SIZE = 54
 
-interface UseResizeButtonProps {
+interface UseToggleEmojiButtonSizeProps {
   container: HTMLDivElement | null
-  enable: boolean
+  enabled: boolean
   buttonCount: number
 }
 
-export function useResizeButton({
+export function useToggleEmojiButtonSize({
   container,
-  enable,
+  enabled,
   buttonCount,
-}: UseResizeButtonProps) {
+}: UseToggleEmojiButtonSizeProps) {
   const [buttonSize, setButtonSize] = useState(EMOJI_BUTTON_SIZE)
 
   const adjustButtonSize = useCallback(() => {
-    if (!container || !enable) {
+    if (!container || !enabled) {
       return
     }
 
@@ -33,13 +33,13 @@ export function useResizeButton({
     )
 
     setButtonSize(size)
-  }, [buttonCount, container, enable])
+  }, [buttonCount, container, enabled])
 
   useEffect(
     function setResizeObserver() {
       let resizeObserver: ResizeObserver | null = null
 
-      if (enable && container) {
+      if (enabled && container) {
         resizeObserver = new ResizeObserver(() => {
           adjustButtonSize()
         })
@@ -55,7 +55,7 @@ export function useResizeButton({
         }
       }
     },
-    [adjustButtonSize, container, enable]
+    [adjustButtonSize, container, enabled]
   )
 
   return buttonSize
