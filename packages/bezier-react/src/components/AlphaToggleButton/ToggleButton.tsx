@@ -6,7 +6,6 @@ import { isBezierIcon } from '@channel.io/bezier-icons'
 import * as TogglePrimitive from '@radix-ui/react-toggle'
 import classNames from 'classnames'
 
-import { AlphaLoader } from '~/src/components/AlphaLoader'
 import { useToggleButtonContext } from '~/src/components/AlphaToggleButton/ToggleButtonContext'
 import { BaseButton } from '~/src/components/BaseButton'
 import { Icon, type IconSize } from '~/src/components/Icon'
@@ -45,7 +44,6 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
       shape: shapeProps,
       size = 'm',
       className,
-      loading,
       onSelectedChange,
       ...rest
     },
@@ -72,12 +70,7 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
             className
           )}
         >
-          <div
-            className={classNames(
-              styles.ButtonContent,
-              loading && styles.loading
-            )}
-          >
+          <div className={classNames(styles.ButtonContent)}>
             <SideContent
               size={ICON_SIZE}
               content={prefixContent}
@@ -98,22 +91,6 @@ export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
               content={suffixContent}
             />
           </div>
-
-          {loading && (
-            <div
-              className={classNames(
-                styles.ButtonLoader,
-                // NOTE: Loader size is the same as icon size
-                styles[`size-${ICON_SIZE}`]
-              )}
-            >
-              <AlphaLoader
-                size="s"
-                className={styles.Loader}
-                variant="secondary"
-              />
-            </div>
-          )}
         </Comp>
       </TogglePrimitive.Root>
     )

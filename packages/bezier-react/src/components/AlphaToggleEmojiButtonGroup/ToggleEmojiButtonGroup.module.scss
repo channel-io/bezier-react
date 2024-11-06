@@ -72,22 +72,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    &:where(.loading) {
-      visibility: hidden;
-    }
-  }
-
-  & :where(.ButtonLoader) {
-    position: absolute;
-    inset: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    & :is(.Loader) {
-      @include dimension.square(var(--b-toggle-emoji-button-emoji-size));
-    }
   }
 }

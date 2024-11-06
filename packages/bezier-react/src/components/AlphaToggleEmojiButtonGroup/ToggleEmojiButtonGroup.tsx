@@ -6,7 +6,6 @@ import classNames from 'classnames'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { cssDimension } from '~/src/utils/style'
 
-import { AlphaLoader } from '~/src/components/AlphaLoader'
 import {
   EMOJI_BUTTON_GROUP_GAP,
   EMOJI_BUTTON_SIZE,
@@ -43,17 +42,7 @@ export const ToggleEmojiButtonSource = forwardRef<
   HTMLButtonElement,
   ToggleEmojiButtonSourceProps
 >(function ToggleEmojiButtonSource(
-  {
-    name,
-    variant,
-    className,
-    selected,
-    size = 'm',
-    loading,
-    value,
-    onResize,
-    ...rest
-  },
+  { name, variant, className, selected, size = 'm', value, onResize, ...rest },
   forwardedRef
 ) {
   return (
@@ -71,27 +60,12 @@ export const ToggleEmojiButtonSource = forwardRef<
         )}
         {...rest}
       >
-        <div
-          className={classNames(
-            styles.ButtonContent,
-            loading && styles.loading
-          )}
-        >
+        <div className={classNames(styles.ButtonContent)}>
           <Emoji
             name={name}
             size={`${EMOJI_SIZE}`}
           />
         </div>
-
-        {loading && (
-          <div className={classNames(styles.ButtonLoader)}>
-            <AlphaLoader
-              className={styles.Loader}
-              size="s"
-              variant="secondary"
-            />
-          </div>
-        )}
       </BaseButton>
     </ToggleGroup.Item>
   )
