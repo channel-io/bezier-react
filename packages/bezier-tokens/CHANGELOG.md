@@ -1,5 +1,12 @@
 # @channel.io/bezier-tokens
 
+## 0.2.11
+
+### Patch Changes
+
+- Change `alpha-color-green-300-0` alpha token. ([#2471](https://github.com/channel-io/bezier-react/pull/2471)) by @yangwooseong
+  Modify hovered color generating formula so that they are more visible in dark theme.
+
 ## 0.2.10
 
 ### Patch Changes
