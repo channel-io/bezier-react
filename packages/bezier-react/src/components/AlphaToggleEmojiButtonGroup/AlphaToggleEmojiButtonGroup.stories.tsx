@@ -19,12 +19,11 @@ const meta: Meta<typeof ToggleEmojiButtonGroup> = {
 export default meta
 
 type ToggleButtonCompositionType = ToggleEmojiButtonGroupProps &
-  Pick<ToggleEmojiButtonSourceProps, 'variant' | 'loading'>
+  Pick<ToggleEmojiButtonSourceProps, 'variant'>
 
 const Template: StoryFn<ToggleButtonCompositionType> = ({
   fillDirection,
   variant,
-  loading,
 }) => {
   return (
     <Center
@@ -38,13 +37,11 @@ const Template: StoryFn<ToggleButtonCompositionType> = ({
       >
         <ToggleEmojiButtonSource
           variant={variant}
-          loading={loading}
           value="blush"
           name="blush"
         />
         <ToggleEmojiButtonSource
           variant={variant}
-          loading={loading}
           value="grinning"
           name="grinning"
         />
@@ -59,7 +56,6 @@ export const Primary = {
   args: {
     fillDirection: 'horizontal',
     variant: 'primary',
-    loading: false,
   },
   parameters: {
     design: {
