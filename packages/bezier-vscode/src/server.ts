@@ -43,15 +43,15 @@ const completionItemsByTokenGroup = Object.fromEntries(
 ) as Record<TokenGroup, CompletionItem[]>
 
 const tokenGroupPatterns = {
-  radius: /border-radius/,
-  color: /color|background|border(?!-radius)|outline|background-color/,
-  elevation: /box-shadow/,
-  input: /box-shadow/,
-  typography: /font|letter-spacing|line-height/,
-  font: /font|letter-spacing|line-height/,
-  transition: /transition/,
-  opacity: /opacity/,
-  'z-index': /z-index/,
+  radius: /border-radius:/,
+  color: /color:|background:|border(?!-radius):|outline:|background-color:/,
+  elevation: /box-shadow:/,
+  input: /box-shadow:/,
+  typography: /font:|letter-spacing|line-height:/,
+  font: /font:|letter-spacing:|line-height:/,
+  transition: /transition:/,
+  opacity: /opacity:/,
+  'z-index': /z-index:/,
 } satisfies Record<TokenGroup, RegExp>
 
 const allCompletionItems = Object.values(completionItemsByTokenGroup).flat()
