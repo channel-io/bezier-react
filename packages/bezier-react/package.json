@@ -48,7 +48,9 @@
     "prebuild": "yarn clean:build",
     "storybook": "storybook dev -p 4101",
     "build-storybook": "storybook build",
-    "chromatic": "chromatic --project-token=06157a6fbe6f"
+    "chromatic": "chromatic --project-token=06157a6fbe6f",
+    "code-connect": "figma connect publish",
+    "code-connect:create": "figma connect"
   },
   "keywords": [
     "design",

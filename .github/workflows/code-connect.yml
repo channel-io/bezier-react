@@ -12,4 +12,4 @@ jobs:
     name: Code Connect
     runs-on: ubuntu-latest
     steps:
-      - run: yarn code-connect
+      - run: yarn workspace @channel.io/bezier-react code-connect
