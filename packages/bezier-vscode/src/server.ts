@@ -29,8 +29,8 @@ const completionItemsByTokenGroup = Object.fromEntries(
     const completionItems: CompletionItem[] = Object.entries(
       tokenKeyValues
     ).map(([key, value]) => ({
-      label: `--${key}`,
-      insertText: `--${key}`,
+      label: key,
+      insertText: `var(--${key})`,
       // RGBA conversion to display color preview in suggestion item
       detail: groupName === 'color' ? hexToRGBA(value) : String(value),
       kind:
@@ -43,15 +43,15 @@ const completionItemsByTokenGroup = Object.fromEntries(
 ) as Record<TokenGroup, CompletionItem[]>
 
 const tokenGroupPatterns = {
-  radius: /border-radius/,
-  color: /color|background|border(?!-radius)|outline|background-color/,
-  elevation: /box-shadow/,
-  input: /box-shadow/,
-  typography: /font|letter-spacing|line-height/,
-  font: /font|letter-spacing|line-height/,
-  transition: /transition/,
-  opacity: /opacity/,
-  'z-index': /z-index/,
+  radius: /border-radius:/,
+  color: /color:|background:|border(?!-radius):|outline:|background-color:/,
+  elevation: /box-shadow:/,
+  input: /box-shadow:/,
+  typography: /font:|letter-spacing|line-height:/,
+  font: /font:|letter-spacing:|line-height:/,
+  transition: /transition:/,
+  opacity: /opacity:/,
+  'z-index': /z-index:/,
 } satisfies Record<TokenGroup, RegExp>
 
 const allCompletionItems = Object.values(completionItemsByTokenGroup).flat()
@@ -69,7 +69,7 @@ connection.onInitialize(() => {
       textDocumentSync: TextDocumentSyncKind.Incremental,
       // Tell the client that this server supports code completion.
       completionProvider: {
-        triggerCharacters: ['--'],
+        resolveProvider: true,
       },
     },
   }
@@ -97,7 +97,11 @@ connection.onCompletion(
       end: { line: _textDocumentPosition.position.line, character: 1000 },
     })
 
-    if (!currentText.includes('var(')) {
+    if (
+      Object.values(tokenGroupPatterns).every(
+        (pattern) => !pattern.test(currentText)
+      )
+    ) {
       return []
     }
 
