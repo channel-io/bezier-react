@@ -1,0 +1,15 @@
+name: Figma Code Connect
+
+on:
+  push:
+    paths:
+      - packages/bezier-react/src/components/**/*.figma.tsx
+    branches:
+      - main
+
+jobs:
+  code-connect:
+    name: Code Connect
+    runs-on: ubuntu-latest
+    steps:
+      - run: yarn workspace @channel.io/bezier-react code-connect

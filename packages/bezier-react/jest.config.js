@@ -17,5 +17,9 @@ module.exports = {
   },
   collectCoverage: true,
   coveragePathIgnorePatterns: ['src/index.ts'],
-  collectCoverageFrom: ['**/*.{ts,tsx,js,jsx}', '!**/*.stories.tsx'],
+  collectCoverageFrom: [
+    '**/*.{ts,tsx,js,jsx}',
+    '!**/*.stories.tsx',
+    '!**/*.figma.tsx',
+  ],
 }
