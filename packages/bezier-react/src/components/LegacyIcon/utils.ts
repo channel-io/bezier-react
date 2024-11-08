@@ -1,5 +1,7 @@
 import { type IconName, icons } from '@channel.io/bezier-icons'
 
+const iconNames = new Set(Object.keys(icons))
+
 /**
  * @deprecated Please import and use individual icons.
  * @example
@@ -14,5 +16,4 @@ import { type IconName, icons } from '@channel.io/bezier-icons'
  * import { LegacyIcon, type LegacyIconProps } from '@channel.io/bezier-react'
  * <LegacyIcon name="all" color="bg-black-dark" />
  */
-export const isIconName = (name: any): name is IconName =>
-  Object.keys(icons).includes(name)
+export const isIconName = (name: any): name is IconName => iconNames.has(name)
