@@ -342,12 +342,17 @@ export interface LayoutProps {
    */
   left?: React.CSSProperties['left']
   /**
-   * the flex-shrink factor of a flex item.
+   * the flex-basis value of a flex item.
+   * @default initial
+   */
+  basis?: React.CSSProperties['flexBasis']
+  /**
+   * the flex-shrink value of a flex item.
    * @default initial
    */
   shrink?: React.CSSProperties['flexShrink']
   /**
-   * the flex-grow factor of a flex item.
+   * the flex-grow value of a flex item.
    * @default initial
    */
   grow?: React.CSSProperties['flexGrow']
