@@ -51,3 +51,4 @@ Disallows use of tokens not in bezier-tokens. If you want to use css variable ot
 | @channel.io/stylelint-bezier | @channel.io/bezier-react |
 | ---------------------------- | ------------------------ |
 | 0.1.0                        | 2.2.4                    |
+| 0.2.4                        | 2.3.3                    |
