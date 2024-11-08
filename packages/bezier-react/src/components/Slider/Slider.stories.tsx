@@ -16,6 +16,18 @@ const meta: Meta<typeof Slider> = {
     onValueCommit: {
       action: 'onValueCommit',
     },
+    value: {
+      if: {
+        exists: true,
+        arg: 'value',
+      },
+    },
+    defaultValue: {
+      if: {
+        exists: true,
+        arg: 'defaultValue',
+      },
+    },
   },
   args: {
     width: 285,
