@@ -17,6 +17,7 @@
   --b-right: var(--b-inset);
   --b-bottom: var(--b-inset);
   --b-left: var(--b-inset);
+  --b-basis: initial;
   --b-shrink: initial;
   --b-grow: initial;
   --b-background-color: initial;
@@ -29,8 +30,11 @@
 
   inset: var(--b-top) var(--b-right) var(--b-bottom) var(--b-left);
 
+  /* stylelint-disable declaration-block-no-redundant-longhand-properties */
+  flex-basis: var(--b-basis);
   flex-grow: var(--b-grow);
   flex-shrink: var(--b-shrink);
+  /* stylelint-enable declaration-block-no-redundant-longhand-properties */
 
   box-sizing: border-box;
   width: var(--b-width);
