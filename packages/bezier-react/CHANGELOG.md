@@ -1,5 +1,15 @@
 # @channel.io/bezier-react
 
+## 2.5.0
+
+### Minor Changes
+
+- Layout components support the `basis` (`flex-basis`) property. ([#2495](https://github.com/channel-io/bezier-react/pull/2495)) by @sungik-choi
+
+### Patch Changes
+
+- Improve the rendering performance of components that use `LegacyIcon`. ([#2494](https://github.com/channel-io/bezier-react/pull/2494)) by @sungik-choi
+
 ## 2.4.0
 
 ### Minor Changes

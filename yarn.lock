@@ -2522,7 +2522,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@channel.io/bezier-react@npm:2.4.0, @channel.io/bezier-react@workspace:packages/bezier-react":
+"@channel.io/bezier-react@npm:2.5.0, @channel.io/bezier-react@workspace:packages/bezier-react":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-react@workspace:packages/bezier-react"
   dependencies:
@@ -8333,7 +8333,7 @@ __metadata:
   resolution: "bezier-figma-plugin@workspace:packages/bezier-figma-plugin"
   dependencies:
     "@channel.io/bezier-icons": "npm:0.35.0"
-    "@channel.io/bezier-react": "npm:2.4.0"
+    "@channel.io/bezier-react": "npm:2.5.0"
     "@figma/plugin-typings": "npm:^1.87.0"
     "@types/react": "npm:^18.2.59"
     "@types/react-dom": "npm:^18.2.19"
