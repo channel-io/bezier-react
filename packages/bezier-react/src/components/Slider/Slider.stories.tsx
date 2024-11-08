@@ -1,9 +1,6 @@
-import React from 'react'
-
-import { type Meta, type StoryFn } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 
 import { Slider } from './Slider'
-import { type SliderProps } from './Slider.types'
 
 const meta: Meta<typeof Slider> = {
   component: Slider,
@@ -20,7 +17,7 @@ const meta: Meta<typeof Slider> = {
       action: 'onValueCommit',
     },
   },
-  args:{
+  args: {
     width: 285,
     disabled: false,
     guide: [5],
@@ -28,20 +25,18 @@ const meta: Meta<typeof Slider> = {
     max: 10,
     step: 1,
     disableTooltip: false,
-  }
+  },
 }
 export default meta
 
-const Template: StoryFn<SliderProps> = (otherSwitchProps) => {
-  return <Slider {...otherSwitchProps} />
-}
+export const Primary = {
+  args: {
+    value: [5],
+  },
+} satisfies StoryObj<typeof meta>
 
-export const Primary = Template.bind({})
-Primary.args = {
-  value: [5],
-}
-
-export const Uncontrolled = Template.bind({})
-Uncontrolled.args = {
-  defaultValue: [5],
-}
+export const Uncontrolled = {
+  args: {
+    defaultValue: [5],
+  },
+} satisfies StoryObj<typeof meta>
