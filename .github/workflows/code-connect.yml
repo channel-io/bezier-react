@@ -10,6 +10,20 @@ on:
 jobs:
   code-connect:
     name: Code Connect
+    if: github.repository == 'channel-io/bezier-react'
     runs-on: ubuntu-latest
     steps:
-      - run: yarn workspace @channel.io/bezier-react code-connect
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Code Connect
+        run: yarn workspace @channel.io/bezier-react code-connect
