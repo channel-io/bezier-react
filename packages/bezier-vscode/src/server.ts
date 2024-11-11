@@ -1,4 +1,5 @@
-import { tokens as _tokens } from '@channel.io/bezier-tokens'
+import { tokens } from '@channel.io/bezier-tokens'
+import { tokens as alphaTokens } from '@channel.io/bezier-tokens/alpha'
 import {
   type CompletionItem,
   CompletionItemKind,
@@ -11,21 +12,60 @@ import {
 } from 'vscode-languageserver/node'
 import { TextDocument } from 'vscode-languageserver-textdocument'
 
-import { hexToRGBA } from './utils'
+import { deepMerge, hexToRGBA } from './utils'
 
-const tokens = {
-  ..._tokens.lightTheme,
-  ..._tokens.global,
-  color: {
-    ..._tokens.lightTheme.color,
-    ..._tokens.global.color,
-  },
-}
+const alphaTokenMap = {} as Record<string, Record<string, string>>
 
-type TokenGroup = keyof typeof tokens
+Object.entries(alphaTokens.lightTheme).forEach(([key, value]) => {
+  if (alphaTokenMap[key] === undefined) {
+    alphaTokenMap[key] = {}
+  }
+  Object.entries(value).forEach(([token, valueRefObject]) => {
+    alphaTokenMap[key][token] = valueRefObject.value
+  })
+})
+
+Object.entries(alphaTokens.global).forEach(([key, value]) => {
+  if (alphaTokenMap[key] === undefined) {
+    alphaTokenMap[key] = {}
+  }
+  Object.entries(value).forEach(([token, valueRefObject]) => {
+    alphaTokenMap[key][token] = valueRefObject.value
+  })
+})
+
+const tokenMap = {} as Record<string, Record<string, string>>
+
+Object.entries(tokens.lightTheme).forEach(([key, value]) => {
+  if (tokenMap[key] === undefined) {
+    tokenMap[key] = {}
+  }
+  Object.entries(value).forEach(([token, value]) => {
+    tokenMap[key][token] = value
+  })
+})
+
+Object.entries(tokens.global).forEach(([key, value]) => {
+  if (tokenMap[key] === undefined) {
+    tokenMap[key] = {}
+  }
+  Object.entries(value).forEach(([token, value]) => {
+    tokenMap[key][token] = value
+  })
+})
+
+const allTokenMap = deepMerge(alphaTokenMap, tokenMap) as Record<
+  | keyof typeof alphaTokens.global
+  | keyof typeof alphaTokens.lightTheme
+  | keyof typeof tokens.global
+  | keyof typeof tokens.lightTheme,
+  Record<string, string>
+>
+
+type TokenGroup = keyof typeof allTokenMap
 
 const completionItemsByTokenGroup = Object.fromEntries(
-  Object.entries(tokens).map(([groupName, tokenKeyValues]) => {
+  Object.entries(allTokenMap).map(([groupName, tokenKeyValues]) => {
     const completionItems: CompletionItem[] = Object.entries(
       tokenKeyValues
     ).map(([key, value]) => ({
@@ -51,8 +91,10 @@ const tokenGroupPatterns = {
   font: /font:|letter-spacing:|line-height:/,
   transition: /transition:/,
   opacity: /opacity:/,
+  shadow: /box-shadow:/,
+  gradient: /background:/,
   'z-index': /z-index:/,
-} satisfies Record<TokenGroup, RegExp>
+} satisfies Record<Exclude<TokenGroup, 'dimension'>, RegExp>
 
 const allCompletionItems = Object.values(completionItemsByTokenGroup).flat()
 
