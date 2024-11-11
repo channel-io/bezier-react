@@ -1,5 +1,11 @@
 # bezier-vscode
 
+## 0.2.0
+
+### Minor Changes
+
+- Change autocomplete logic. Now token name can trigger autocomplete even without `var` string. ([#2486](https://github.com/channel-io/bezier-react/pull/2486)) by @yangwooseong
+
 ## 0.1.0
 
 ### Minor Changes
