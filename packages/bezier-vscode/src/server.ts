@@ -14,45 +14,41 @@ import { TextDocument } from 'vscode-languageserver-textdocument'
 
 import { deepMerge, hexToRGBA } from './utils'
 
-const alphaTokenMap = {} as Record<string, Record<string, string>>
+type TokenMap = Record<
+  string,
+  Record<string, string | number | Record<string, string | number>>
+>
 
-Object.entries(alphaTokens.lightTheme).forEach(([key, value]) => {
-  if (alphaTokenMap[key] === undefined) {
-    alphaTokenMap[key] = {}
-  }
-  Object.entries(value).forEach(([token, valueRefObject]) => {
-    alphaTokenMap[key][token] = valueRefObject.value
+const assignToTokenMap = (
+  target: TokenMap,
+  source: TokenMap,
+  fn: Function = (v: Record<string, string> | string) => v
+) => {
+  Object.entries(source).forEach(([key, value]) => {
+    if (target[key] === undefined) {
+      target[key] = {}
+    }
+    Object.entries(value).forEach(([token, tokenValue]) => {
+      target[key][token] = fn(tokenValue)
+    })
   })
-})
+}
 
-Object.entries(alphaTokens.global).forEach(([key, value]) => {
-  if (alphaTokenMap[key] === undefined) {
-    alphaTokenMap[key] = {}
-  }
-  Object.entries(value).forEach(([token, valueRefObject]) => {
-    alphaTokenMap[key][token] = valueRefObject.value
-  })
-})
+const alphaTokenMap = {} as TokenMap
+const tokenMap = {} as TokenMap
 
-const tokenMap = {} as Record<string, Record<string, string>>
-
-Object.entries(tokens.lightTheme).forEach(([key, value]) => {
-  if (tokenMap[key] === undefined) {
-    tokenMap[key] = {}
-  }
-  Object.entries(value).forEach(([token, value]) => {
-    tokenMap[key][token] = value
-  })
-})
-
-Object.entries(tokens.global).forEach(([key, value]) => {
-  if (tokenMap[key] === undefined) {
-    tokenMap[key] = {}
-  }
-  Object.entries(value).forEach(([token, value]) => {
-    tokenMap[key][token] = value
-  })
-})
+assignToTokenMap(
+  alphaTokenMap,
+  alphaTokens.lightTheme,
+  (v: Record<string, string>) => v.value
+)
+assignToTokenMap(
+  alphaTokenMap,
+  alphaTokens.global,
+  (v: Record<string, string>) => v.value
+)
+assignToTokenMap(tokenMap, tokens.lightTheme)
+assignToTokenMap(tokenMap, tokens.global)
 
 const allTokenMap = deepMerge(alphaTokenMap, tokenMap) as Record<
   | keyof typeof alphaTokens.global
