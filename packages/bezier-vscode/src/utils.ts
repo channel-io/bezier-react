@@ -11,3 +11,26 @@ export const hexToRGBA = (hex: string) => {
   }
   return `rgba(${r}, ${g}, ${b}, 1)`
 }
+
+export const deepMerge = (target: any, source: any) => {
+  if (!source || !isObject(source)) return target
+
+  Object.keys(source).forEach((key) => {
+    const targetValue = target[key]
+    const sourceValue = source[key]
+
+    if (isObject(targetValue) && isObject(sourceValue)) {
+      target[key] = deepMerge(Object.assign({}, targetValue), sourceValue)
+    } else if (Array.isArray(targetValue) && Array.isArray(sourceValue)) {
+      target[key] = Array.from(new Set([...targetValue, ...sourceValue]))
+    } else {
+      target[key] = sourceValue
+    }
+  })
+
+  return target
+}
+
+const isObject = (obj: Object) => {
+  return obj && typeof obj === 'object' && !Array.isArray(obj)
+}

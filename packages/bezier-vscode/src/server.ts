@@ -1,4 +1,5 @@
-import { tokens as _tokens } from '@channel.io/bezier-tokens'
+import { tokens } from '@channel.io/bezier-tokens'
+import { tokens as alphaTokens } from '@channel.io/bezier-tokens/alpha'
 import {
   type CompletionItem,
   CompletionItemKind,
@@ -11,21 +12,56 @@ import {
 } from 'vscode-languageserver/node'
 import { TextDocument } from 'vscode-languageserver-textdocument'
 
-import { hexToRGBA } from './utils'
+import { deepMerge, hexToRGBA } from './utils'
 
-const tokens = {
-  ..._tokens.lightTheme,
-  ..._tokens.global,
-  color: {
-    ..._tokens.lightTheme.color,
-    ..._tokens.global.color,
-  },
+type TokenValue = string | number
+type AlphaTokenValue = Record<string, string | number>
+type TokenMap = Record<string, Record<string, TokenValue | AlphaTokenValue>>
+
+const assignToTokenMap = (
+  target: TokenMap,
+  source: TokenMap,
+  transformValue: (v: TokenValue | AlphaTokenValue) => TokenValue = (v) =>
+    v as TokenValue
+) => {
+  Object.entries(source).forEach(([category, tokenObject]) => {
+    if (target[category] === undefined) {
+      target[category] = {}
+    }
+    Object.entries(tokenObject).forEach(([name, value]) => {
+      target[category][name] = transformValue(value)
+    })
+  })
 }
 
-type TokenGroup = keyof typeof tokens
+const alphaTokenMap = {} as TokenMap
+const tokenMap = {} as TokenMap
+
+assignToTokenMap(
+  alphaTokenMap,
+  alphaTokens.lightTheme,
+  (v) => (v as AlphaTokenValue).value
+)
+assignToTokenMap(
+  alphaTokenMap,
+  alphaTokens.global,
+  (v) => (v as AlphaTokenValue).value
+)
+assignToTokenMap(tokenMap, tokens.lightTheme)
+assignToTokenMap(tokenMap, tokens.global)
+
+const allTokenMap = deepMerge(alphaTokenMap, tokenMap) as Record<
+  | keyof typeof alphaTokens.global
+  | keyof typeof alphaTokens.lightTheme
+  | keyof typeof tokens.global
+  | keyof typeof tokens.lightTheme,
+  Record<string, string>
+>
+
+type TokenGroup = keyof typeof allTokenMap
 
 const completionItemsByTokenGroup = Object.fromEntries(
-  Object.entries(tokens).map(([groupName, tokenKeyValues]) => {
+  Object.entries(allTokenMap).map(([groupName, tokenKeyValues]) => {
     const completionItems: CompletionItem[] = Object.entries(
       tokenKeyValues
     ).map(([key, value]) => ({
@@ -51,8 +87,11 @@ const tokenGroupPatterns = {
   font: /font:|letter-spacing:|line-height:/,
   transition: /transition:/,
   opacity: /opacity:/,
+  shadow: /box-shadow:/,
+  gradient: /background:|background-image:/,
   'z-index': /z-index:/,
-} satisfies Record<TokenGroup, RegExp>
+  // FIXME: delete Exclude when dimension token is removed
+} satisfies Record<Exclude<TokenGroup, 'dimension'>, RegExp>
 
 const allCompletionItems = Object.values(completionItemsByTokenGroup).flat()
 
@@ -77,6 +116,27 @@ connection.onInitialize(() => {
   return result
 })
 
+const hasMatchingPattern = (currentText: string): boolean => {
+  return Object.values(tokenGroupPatterns).some((pattern) =>
+    pattern.test(currentText)
+  )
+}
+
+const getMatchedCompletionItems = (currentText: string): CompletionItem[] => {
+  if (!hasMatchingPattern(currentText)) {
+    return []
+  }
+
+  return Object.entries(tokenGroupPatterns)
+    .filter(([_, pattern]) => pattern.test(currentText))
+    .flatMap(
+      ([tokenGroupName]) =>
+        completionItemsByTokenGroup[
+          tokenGroupName as keyof typeof tokenGroupPatterns
+        ] ?? []
+    )
+}
+
 // // This handler provides the initial list of the completion items.
 connection.onCompletion(
   (_textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
@@ -84,8 +144,6 @@ connection.onCompletion(
     // which code complete got requested. For the example we ignore this
     // info and always provide the same completion items.
     const doc = documents.get(_textDocumentPosition.textDocument.uri)
-
-    let matchedCompletionItems: CompletionItem[] = []
 
     // if the doc can't be found, return nothing
     if (!doc) {
@@ -97,36 +155,9 @@ connection.onCompletion(
       end: { line: _textDocumentPosition.position.line, character: 1000 },
     })
 
-    if (
-      Object.values(tokenGroupPatterns).every(
-        (pattern) => !pattern.test(currentText)
-      )
-    ) {
-      return []
-    }
+    const matchedItems = getMatchedCompletionItems(currentText)
 
-    for (const [tokenGroupName, pattern] of Object.entries(
-      tokenGroupPatterns
-    )) {
-      if (pattern.test(currentText)) {
-        const currentCompletionItems =
-          completionItemsByTokenGroup[
-            tokenGroupName as keyof typeof tokenGroupPatterns
-          ]
-
-        matchedCompletionItems = matchedCompletionItems.concat(
-          currentCompletionItems
-        )
-      }
-    }
-
-    // if there were matches above, send them
-    if (matchedCompletionItems.length > 0) {
-      return matchedCompletionItems
-    }
-
-    // if there were no matches, send everything
-    return allCompletionItems
+    return matchedItems.length > 0 ? matchedItems : allCompletionItems
   }
 )
 
