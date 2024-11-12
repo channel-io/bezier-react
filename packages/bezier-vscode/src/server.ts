@@ -90,7 +90,7 @@ const tokenGroupPatterns = {
   shadow: /box-shadow:/,
   gradient: /background:|background-image:/,
   'z-index': /z-index:/,
-  // FIXME: dimension token should be supported later
+  // FIXME: delete Exclude when dimension token is removed
 } satisfies Record<Exclude<TokenGroup, 'dimension'>, RegExp>
 
 const allCompletionItems = Object.values(completionItemsByTokenGroup).flat()
