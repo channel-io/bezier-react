@@ -14,20 +14,22 @@ import { TextDocument } from 'vscode-languageserver-textdocument'
 
 import { deepMerge, hexToRGBA } from './utils'
 
-type TokenValue = string | number | Record<string, string | number>
-type TokenMap = Record<string, Record<string, TokenValue>>
+type TokenValue = string | number
+type AlphaTokenValue = Record<string, string | number>
+type TokenMap = Record<string, Record<string, TokenValue | AlphaTokenValue>>
 
 const assignToTokenMap = (
   target: TokenMap,
   source: TokenMap,
-  fn: Function = (v: TokenMap) => v
+  transformValue: (v: TokenValue | AlphaTokenValue) => TokenValue = (v) =>
+    v as TokenValue
 ) => {
   Object.entries(source).forEach(([category, tokenObject]) => {
     if (target[category] === undefined) {
       target[category] = {}
     }
     Object.entries(tokenObject).forEach(([name, value]) => {
-      target[category][name] = fn(value)
+      target[category][name] = transformValue(value)
     })
   })
 }
@@ -38,12 +40,12 @@ const tokenMap = {} as TokenMap
 assignToTokenMap(
   alphaTokenMap,
   alphaTokens.lightTheme,
-  (v: Record<string, string>) => v.value
+  (v) => (v as AlphaTokenValue).value
 )
 assignToTokenMap(
   alphaTokenMap,
   alphaTokens.global,
-  (v: Record<string, string>) => v.value
+  (v) => (v as AlphaTokenValue).value
 )
 assignToTokenMap(tokenMap, tokens.lightTheme)
 assignToTokenMap(tokenMap, tokens.global)
