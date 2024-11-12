@@ -1,15 +1,10 @@
-import { type Meta } from '@storybook/react'
+import { type Meta, type StoryObj } from '@storybook/react'
 
 import { Slider } from './Slider'
 
 const meta: Meta<typeof Slider> = {
   component: Slider,
   argTypes: {
-    value: {
-      control: {
-        type: 'object',
-      },
-    },
     minStepsBetweenThumbs: {
       control: {
         type: 'number',
@@ -21,15 +16,21 @@ const meta: Meta<typeof Slider> = {
     onValueCommit: {
       action: 'onValueCommit',
     },
+    value: {
+      if: {
+        exists: true,
+        arg: 'value',
+      },
+    },
+    defaultValue: {
+      if: {
+        exists: true,
+        arg: 'defaultValue',
+      },
+    },
   },
-}
-export default meta
-
-export const Primary = {
   args: {
     width: 285,
-    defaultValue: [5],
-    value: undefined,
     disabled: false,
     guide: [5],
     min: 0,
@@ -38,3 +39,16 @@ export const Primary = {
     disableTooltip: false,
   },
 }
+export default meta
+
+export const Primary = {
+  args: {
+    value: [5],
+  },
+} satisfies StoryObj<typeof meta>
+
+export const Uncontrolled = {
+  args: {
+    defaultValue: [5],
+  },
+} satisfies StoryObj<typeof meta>
