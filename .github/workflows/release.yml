@@ -42,6 +42,6 @@ jobs:
 
       - name: Release VSCode extension
         continue-on-error: true
-        run: yarn publish-vscode
+        run: npm i -g vsce && yarn publish-vscode
         env:
           VSCE_PAT: ${{ secrets.VSCE_PERSONAL_ACCESS_TOKEN }}
