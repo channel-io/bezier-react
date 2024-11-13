@@ -27,3 +27,5 @@ jobs:
 
       - name: Code Connect
         run: yarn workspace @channel.io/bezier-react code-connect
+        env:
+          FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
