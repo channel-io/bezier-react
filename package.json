@@ -19,7 +19,6 @@
     "update-snapshot": "yarn workspace @channel.io/bezier-react update-snapshot",
     "changeset": "changeset",
     "postinstall": "husky install",
-    "publish-vscode": "yarn workspace bezier-vscode publish --no-dependencies",
     "knip": "knip --config knip.json --workspace packages/bezier-react --cache"
   },
   "devDependencies": {
