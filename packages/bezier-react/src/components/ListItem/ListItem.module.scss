@@ -50,7 +50,7 @@
     opacity: var(--opacity-disabled);
   }
 
-  &:where(:not(.disabled, .active, .clickable)) {
+  &:where(.clickable:not(.disabled, .active)) {
     &:where(.focused, :focus-visible) {
       background-color: var(--bg-black-lighter);
     }
