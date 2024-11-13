@@ -1,6 +1,6 @@
 {
   "name": "bezier-vscode",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "description": "VS Code extension for Bezier Design System",
   "icon": "assets/channel-icon.png",
