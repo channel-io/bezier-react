@@ -3,8 +3,6 @@
 }
 
 .ListItem {
-  cursor: pointer;
-
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -43,12 +41,16 @@
     border-radius: var(--radius-12);
   }
 
+  &:where(.clickable) {
+    cursor: pointer;
+  }
+
   &:where(.disabled) {
     cursor: default;
     opacity: var(--opacity-disabled);
   }
 
-  &:where(:not(.disabled, .active)) {
+  &:where(:not(.disabled, .active, .clickable)) {
     &:where(.focused, :focus-visible) {
       background-color: var(--bg-black-lighter);
     }

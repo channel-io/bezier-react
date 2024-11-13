@@ -49,6 +49,7 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(
     },
     forwardedRef
   ) {
+    const clickable = !isNil(onClick)
     const isLink = !isEmpty(href)
     const Comp = isLink ? 'a' : ((as ?? 'div') as 'div')
 
@@ -67,6 +68,7 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(
           disabled && styles.disabled,
           focused && styles.focused,
           active && styles.active,
+          clickable && styles.clickable,
           className
         )}
         ref={forwardedRef}
