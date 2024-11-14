@@ -43,10 +43,12 @@ export const OutlineItem = forwardRef<
     disableChevron = false,
     active = false,
     focused = false,
+    clickable: clickableProp = false,
     leftContent,
     content,
     rightContent,
     href,
+    onClick,
     ...rest
   },
   forwardedRef
@@ -57,6 +59,7 @@ export const OutlineItem = forwardRef<
 
   const isLink = !isEmpty(href)
   const Comp = isLink ? 'a' : ((as ?? 'div') as 'div')
+  const clickable = isLink || clickableProp || !isNil(onClick)
 
   return (
     <>
@@ -76,10 +79,12 @@ export const OutlineItem = forwardRef<
           styles.OutlineItem,
           active && styles.active,
           focused && styles.focused,
+          clickable && styles.clickable,
           className
         )}
         ref={forwardedRef}
         data-testid={OUTLINE_ITEM_TEST_ID}
+        onClick={onClick}
         {...rest}
       >
         {!disableChevron && (

@@ -1,6 +1,4 @@
 .OutlineItem {
-  cursor: pointer;
-
   display: flex;
   align-items: center;
 
@@ -17,6 +15,10 @@
     background-color var(--transition-s),
     color var(--transition-s);
 
+  &:where(.clickable) {
+    cursor: pointer;
+  }
+
   &:where(.active) {
     color: var(--bgtxt-blue-normal);
     background-color: var(--bgtxt-blue-lightest);
@@ -26,7 +28,7 @@
     }
   }
 
-  &:where(:not(.active):where(.focused, :hover)) {
+  &:where(.clickable:not(.active):where(.focused, :hover)) {
     background-color: var(--bg-black-lighter);
   }
 }
