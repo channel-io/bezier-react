@@ -59,7 +59,8 @@
     "lint": "TIMING=1 eslint --cache .",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist",
-    "vscode:prepublish": "yarn build"
+    "vscode:prepublish": "yarn build",
+    "publish": "yarn dlx vsce publish --no-dependencies --skip-duplicate"
   },
   "dependencies": {
     "vscode-languageclient": "^9.0.1",
