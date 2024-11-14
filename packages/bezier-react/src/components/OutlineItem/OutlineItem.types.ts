@@ -5,6 +5,7 @@ import type {
   BezierComponentProps,
   ChildrenProps,
   ContentProps,
+  InteractiveStyleProps,
   LinkProps,
   PolymorphicProps,
   SideContentProps,
@@ -16,7 +17,6 @@ export interface OutlineItemContextProps {
 
 interface OutlineItemOwnProps {
   open?: boolean
-  focused?: boolean
   disableChevron?: boolean
 }
 
@@ -28,4 +28,5 @@ export interface OutlineItemProps
     SideContentProps<BezierIcon | React.ReactNode, React.ReactNode>,
     ActivatableProps,
     LinkProps,
+    InteractiveStyleProps,
     OutlineItemOwnProps {}
