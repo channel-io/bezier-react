@@ -7,6 +7,7 @@ import type {
   BezierComponentProps,
   ContentProps,
   DisableProps,
+  InteractiveStyleProps,
   LinkProps,
   PolymorphicProps,
   SideContentProps,
@@ -19,7 +20,6 @@ export type ListItemSize = 'xs' | 's' | 'm' | 'l'
 export type ListItemVariant = 'blue' | 'red' | 'green' | 'cobalt' | 'monochrome'
 
 interface ListItemOwnProps {
-  focused?: boolean
   description?: React.ReactNode
   descriptionMaxLines?: number
 }
@@ -34,4 +34,5 @@ export interface ListItemProps
     LinkProps,
     DisableProps,
     ActivatableProps,
+    InteractiveStyleProps,
     ListItemOwnProps {}
