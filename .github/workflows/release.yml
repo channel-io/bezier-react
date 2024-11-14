@@ -42,6 +42,6 @@ jobs:
 
       - name: Release VSCode extension
         continue-on-error: true
-        run: npx vsce && yarn workspace bezier-vscode publish
+        run: yarn workspace bezier-vscode publish
         env:
           VSCE_PAT: ${{ secrets.VSCE_PERSONAL_ACCESS_TOKEN }}
