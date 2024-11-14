@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 2.5.1
+
+### Patch Changes
+
+- Improves the styling of the `ListItem` component based on whether it is interacted with or not. ([#2501](https://github.com/channel-io/bezier-react/pull/2501)) by @sungik-choi
+
 ## 2.5.0
 
 ### Minor Changes

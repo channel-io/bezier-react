@@ -1,5 +1,15 @@
 # bezier-vscode
 
+## 0.3.0
+
+### Minor Changes
+
+- Include `alpha` token for autocomplete suggestion. ([#2496](https://github.com/channel-io/bezier-react/pull/2496)) by @yangwooseong
+
+### Patch Changes
+
+- Fix bug where `bezier-vscode` is not running. ([#2499](https://github.com/channel-io/bezier-react/pull/2499)) by @yangwooseong
+
 ## 0.2.0
 
 ### Minor Changes
