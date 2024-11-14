@@ -199,6 +199,21 @@ export interface LinkProps {
 }
 
 /**
+ * Props for components that are not inherently interactive but can be styled as interactive,
+ * such as when they are children of an anchor element.
+ */
+export interface InteractiveStyleProps {
+  /**
+   * When true, applies styles that make the component appear clickable.
+   */
+  clickable?: boolean
+  /**
+   * When true, applies styles that make the component appear focused.
+   */
+  focused?: boolean
+}
+
+/**
  * Props for specifying margins around a component.
  */
 export interface MarginProps {
