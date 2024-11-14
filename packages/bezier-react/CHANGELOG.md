@@ -1,5 +1,12 @@
 # @channel.io/bezier-react
 
+## 2.6.0
+
+### Minor Changes
+
+- - Add `clickable` property to `ListItem` and `OutlineItem`. This property makes the component appear clickable even when it's not inherently interactive. ([#2502](https://github.com/channel-io/bezier-react/pull/2502)) by @sungik-choi
+  - `OutlineItem` now does not have a clickable style by default.
+
 ## 2.5.1
 
 ### Patch Changes
