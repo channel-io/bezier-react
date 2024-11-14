@@ -126,6 +126,7 @@ export interface SideContentProps<
 export interface DisableProps {
   /**
    * Whether the component is disabled.
+   * @default false
    */
   disabled?: boolean
 }
@@ -184,6 +185,7 @@ export type AdditionalColorProps<ElementName extends PropNameType> =
 export interface ActivatableProps {
   /**
    * Whether the component is active.
+   * @default false
    */
   active?: boolean
 }
@@ -205,10 +207,12 @@ export interface LinkProps {
 export interface InteractiveStyleProps {
   /**
    * When true, applies styles that make the component appear clickable.
+   * @default false
    */
   clickable?: boolean
   /**
    * When true, applies styles that make the component appear focused.
+   * @default false
    */
   focused?: boolean
 }
@@ -449,14 +453,17 @@ export type FormFieldSize = 'xl' | 'l' | 'm' | 'xs'
 export interface FormFieldProps extends DisableProps, Partial<IdentifierProps> {
   /**
    * Indicates whether the validation failed.
+   * @default false
    */
   hasError?: boolean
   /**
    * Indicates that the user must specify a value for the input before the owning form can be submitted.
+   * @default false
    */
   required?: boolean
   /**
    * Indicates that the user cannot modify the value of the input.
+   * @default false
    */
   readOnly?: boolean
 }
