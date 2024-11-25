@@ -9,8 +9,10 @@ scripts
 src
 rollup.config.js
 tsconfig.tsbuildinfo
-node_modules
 
 # Ignore parent directories
-../bezier-*/**
+../**
 ../../**
+node_modules/**
+!client/node_modules
+!server/node_modules
