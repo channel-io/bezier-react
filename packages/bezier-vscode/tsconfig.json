@@ -1,8 +1,5 @@
 {
   "extends": "tsconfig/node.json",
-  "compilerOptions": {
-    "outDir": "dist",
-    "declaration": true
-  },
-  "include": ["src"]
+  "include": ["src"],
+  "references": [{ "path": "./client" }, { "path": "./server" }]
 }
