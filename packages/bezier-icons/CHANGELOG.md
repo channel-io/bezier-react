@@ -1,5 +1,16 @@
 # @channel.io/bezier-icons
 
+## 0.36.0
+
+### Minor Changes
+
+- Update icons ([#2505](https://github.com/channel-io/bezier-react/pull/2505)) by @ch-builder
+
+  Modified
+
+  - headset-off.svg
+  - headset.svg
+
 ## 0.35.0
 
 ### Minor Changes
