@@ -1,0 +1,20 @@
+{
+  "name": "bezier-vscode-server",
+  "description": "VSCode part of a language server",
+  "author": "Channel Corp",
+  "license": "Apache-2.0",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/channel-io/bezier-react",
+    "directory": "packages/bezier-vscode/server"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "dependencies": {
+    "@channel.io/bezier-tokens": "^0.2.11",
+    "vscode-languageserver": "^9.0.1",
+    "vscode-languageserver-textdocument": "^1.0.11"
+  }
+}
