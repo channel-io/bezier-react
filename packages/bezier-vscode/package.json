@@ -27,7 +27,7 @@
     "onLanguage:scss",
     "onLanguage:css"
   ],
-  "main": "./dist/client.js",
+  "main": "./client/dist/client.js",
   "contributes": {
     "configuration": {
       "type": "object",
