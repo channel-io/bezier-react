@@ -234,6 +234,10 @@
         }
       },
       "grey": {
+        "darkest": {
+          "value": "{color.grey.900}",
+          "type": "color"
+        },
         "dark": {
           "value": "{color.grey.500}",
           "type": "color"
