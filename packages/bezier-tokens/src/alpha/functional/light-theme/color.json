@@ -365,24 +365,24 @@
         "transparent": {
           "value": "{color.white.0}",
           "type": "color"
+        }
+      },
+      "white-alpha": {
+        "lightest": {
+          "value": "{color.white.90}",
+          "type": "color"
         },
-        "white-alpha": {
-          "lightest": {
-            "value": "{color.white.90}",
-            "type": "color"
-          },
-          "lighter": {
-            "value": "{color.white.60}",
-            "type": "color"
-          },
-          "light": {
-            "value": "{color.white.20}",
-            "type": "color"
-          },
-          "transparent": {
-            "value": "{color.white.0}",
-            "type": "color"
-          }
+        "lighter": {
+          "value": "{color.white.60}",
+          "type": "color"
+        },
+        "light": {
+          "value": "{color.white.20}",
+          "type": "color"
+        },
+        "transparent": {
+          "value": "{color.white.0}",
+          "type": "color"
         }
       },
       "blue": {
