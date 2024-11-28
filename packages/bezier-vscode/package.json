@@ -60,6 +60,7 @@
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist",
     "vscode:prepublish": "yarn build",
-    "publish": "yarn dlx vsce publish --no-dependencies --skip-duplicate"
+    "package": "yarn dlx vsce package --no-yarn",
+    "publish": "yarn dlx vsce publish --no-yarn --skip-duplicate"
   }
 }
