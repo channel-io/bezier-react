@@ -95,7 +95,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       text,
       loading = false,
-      disabled = loading,
+      disabled: disabledProp = false,
       active = false,
       size = 'm',
       styleVariant = 'primary',
@@ -108,6 +108,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     forwardedRef
   ) {
     const Comp = as as typeof BaseButton
+
+    const disabled = loading || disabledProp
 
     const handleClick = useCallback<React.MouseEventHandler<HTMLButtonElement>>(
       (event) => {
