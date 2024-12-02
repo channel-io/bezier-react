@@ -52,8 +52,7 @@ interface ButtonOwnProps {
   text?: string
 
   /**
-   * If `loading` is true, spinner will be shown, replacing the content.
-   * Also, the button will be disabled.
+   * If `loading` is true, spinner will be shown, replacing the content. Also, the button will be disabled.
    * @default false
    */
   loading?: boolean
