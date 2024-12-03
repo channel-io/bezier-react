@@ -50,7 +50,7 @@ lerna-debug.log*
 ### Yarn ###
 # @see https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
 .pnp.*
-.yarn/*
+**/.yarn
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
