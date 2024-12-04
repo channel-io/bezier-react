@@ -16,7 +16,7 @@ import styles from './IconButton.module.scss'
 function getIconSize(size: ButtonSize) {
   return (
     {
-      xs: 'xxs',
+      xs: 'xs',
       s: 'xs',
       m: 's',
       l: 's',
