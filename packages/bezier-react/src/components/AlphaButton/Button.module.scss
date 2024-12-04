@@ -177,11 +177,11 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   /* border-radius */
   &:where(.variant-primary, .variant-secondary, .variant-tertiary) {
     $border-radius-by-size: (
-      xs: var(--alpha-dimension-6),
-      s: var(--alpha-dimension-7),
-      m: var(--alpha-dimension-10),
-      l: var(--alpha-dimension-12),
-      xl: var(--alpha-dimension-14),
+      xs: var(--alpha-radius-6),
+      s: var(--alpha-radius-7),
+      m: var(--alpha-radius-10),
+      l: var(--alpha-radius-12),
+      xl: var(--alpha-radius-14),
     );
 
     @each $size, $border-radius in $border-radius-by-size {
