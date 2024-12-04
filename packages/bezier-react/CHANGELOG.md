@@ -1,5 +1,14 @@
 # @channel.io/bezier-react
 
+## 2.6.1
+
+### Patch Changes
+
+- Decreate icon size of `AlphaButton`, `AlphaIconbutton`, `AlphaFloatingButton`, and `AlphaFloatingIconButton`. ([#2532](https://github.com/channel-io/bezier-react/pull/2532)) by @yangwooseong
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.2.12
+
 ## 2.6.0
 
 ### Minor Changes

@@ -1,5 +1,14 @@
 # @channel.io/bezier-tokens
 
+## 0.2.12
+
+### Patch Changes
+
+- Changes in alpha color tokens. ([#2515](https://github.com/channel-io/bezier-react/pull/2515)) by @yangwooseong
+  - `color-fg(bg)-grey-grey-alpha-*` are renamed to `color-fg(bg)-grey-alpha-*`.
+  - `color-fg(bg)-white-white-alpha-*` are renamed to `color-fg(bg)-white-alpha-*`.
+  - add `color-fg-grey-darkest` token.
+
 ## 0.2.11
 
 ### Patch Changes
