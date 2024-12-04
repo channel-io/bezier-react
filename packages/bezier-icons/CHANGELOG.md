@@ -1,5 +1,19 @@
 # @channel.io/bezier-icons
 
+## 0.37.0
+
+### Minor Changes
+
+- Update icons ([#2508](https://github.com/channel-io/bezier-react/pull/2508)) by @ch-builder
+
+  Added
+
+  - hospital.svg
+
+  Modified
+
+  - office.svg
+
 ## 0.36.0
 
 ### Minor Changes
