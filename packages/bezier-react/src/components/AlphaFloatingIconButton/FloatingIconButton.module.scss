@@ -52,7 +52,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   &:where(.size-xs) {
     @include dimension.square(20px);
 
-    padding: 4px;
+    padding: 2px;
   }
 
   &:where(.size-s) {
