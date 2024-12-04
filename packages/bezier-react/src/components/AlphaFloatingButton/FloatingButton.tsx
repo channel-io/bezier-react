@@ -37,7 +37,7 @@ function SideContent({
 function getIconSize(size: FloatingButtonSize) {
   return (
     {
-      xs: 'xxs',
+      xs: 'xs',
       s: 'xs',
       m: 's',
       l: 's',
