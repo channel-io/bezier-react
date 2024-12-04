@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "eslint-config-bezier": "workspace:*",
-    "postcss-styled-syntax": "^0.6.4",
+    "postcss-styled-syntax": "^0.7.0",
     "tsconfig": "workspace:*"
   },
   "peerDependencies": {
