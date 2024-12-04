@@ -15203,7 +15203,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^9.0.0, minimatch@npm:^9.0.1, minimatch@npm:^9.0.3, minimatch@npm:^9.0.4":
+"minimatch@npm:^9.0.0, minimatch@npm:^9.0.1, minimatch@npm:^9.0.3, minimatch@npm:^9.0.4, minimatch@npm:^9.0.5":
   version: 9.0.5
   resolution: "minimatch@npm:9.0.5"
   dependencies:
@@ -20232,13 +20232,13 @@ __metadata:
   linkType: hard
 
 "typescript-transform-paths@npm:^3.4.7":
-  version: 3.4.7
-  resolution: "typescript-transform-paths@npm:3.4.7"
+  version: 3.5.2
+  resolution: "typescript-transform-paths@npm:3.5.2"
   dependencies:
-    minimatch: "npm:^3.0.4"
+    minimatch: "npm:^9.0.5"
   peerDependencies:
     typescript: ">=3.6.5"
-  checksum: 10/c97ae6303c662a40bd87da4335da6240e4ab335dc7fca527e0970273bc3cd2937c6327a6e976c98614e049a18cc17918f676b9461a80c1fc563ad816ebe4755e
+  checksum: 10/16fc6ff1ff4849df8c1819cd7a24b019c4341b873f73a97231bedbeb5c129c19fd325e061178a453e9bfc56fc782721fa154fb06ec2ab2e1188145590d6dd572
   languageName: node
   linkType: hard
 
