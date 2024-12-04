@@ -76,8 +76,8 @@ const replaceTransitionsCSS = (sourceFile: SourceFile) => {
           node.replaceWithText(
             node
               .getText()
-              .replace(`\${${text}};\n` ?? '', transitionStyle)
-              .replace(`\${${text}}\n` ?? '', transitionStyle)
+              .replace(`\${${text}};\n`, transitionStyle)
+              .replace(`\${${text}}\n`, transitionStyle)
           )
         })
 
