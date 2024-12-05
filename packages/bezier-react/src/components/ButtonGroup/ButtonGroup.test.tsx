@@ -8,7 +8,7 @@ import { ButtonGroup } from './ButtonGroup'
 import type { ButtonGroupProps } from './ButtonGroup.types'
 
 describe('ButtonGroup', () => {
-  let props: ButtonGroupProps
+  const props: ButtonGroupProps = {}
 
   it('creates a button group with spacing', () => {
     const { getByRole } = render(

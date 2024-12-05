@@ -81,8 +81,8 @@ const replaceBorder = (sourceFile: SourceFile) => {
           node.replaceWithText(
             node
               .getText()
-              .replace(`\${${text}};\n` ?? '', borderStyle)
-              .replace(`\${${text}}\n` ?? '', borderStyle)
+              .replace(`\${${text}};\n`, borderStyle)
+              .replace(`\${${text}}\n`, borderStyle)
           )
         })
     }

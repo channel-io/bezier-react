@@ -9,7 +9,7 @@ import { SELECT_DROPDOWN_TEST_ID, Select } from './Select'
 import { type SelectProps } from './Select.types'
 
 describe('Select', () => {
-  let props: SelectProps
+  const props: SelectProps = {}
 
   beforeEach(() => {
     const { body } = document

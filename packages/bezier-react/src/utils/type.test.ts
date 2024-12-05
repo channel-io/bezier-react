@@ -77,7 +77,7 @@ describe('typeUtils', () => {
     it('is boolean', () => {
       expect(isBoolean(true)).toBe(true)
       expect(isBoolean(false)).toBe(true)
-      expect(isBoolean(!!'test')).toBe(true)
+      expect(isBoolean(Boolean('test'))).toBe(true)
     })
   })
 
