@@ -1,4 +1,4 @@
-'use client' 
+'use client'
 
 import React, { forwardRef, useCallback } from 'react'
 
@@ -94,8 +94,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       as = BaseButton,
       className,
       text,
-      disabled = false,
       loading = false,
+      disabled: disabledProp = false,
       active = false,
       size = 'm',
       styleVariant = 'primary',
@@ -108,6 +108,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     forwardedRef
   ) {
     const Comp = as as typeof BaseButton
+
+    const disabled = loading || disabledProp
 
     const handleClick = useCallback<React.MouseEventHandler<HTMLButtonElement>>(
       (event) => {
