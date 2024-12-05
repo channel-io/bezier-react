@@ -29,7 +29,7 @@
   }
 
   &:where(.shape-rectangle) {
-    border-radius: var(--alpha-dimension-10);
+    border-radius: var(--alpha-radius-10);
   }
 
   &:where(.shape-capsule) {
