@@ -49,13 +49,13 @@
   },
   "engines": {
     "node": "18.20.5",
-    "yarn": "4.3.1"
+    "yarn": "4.5.3"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "packageManager": "yarn@4.3.1",
+  "packageManager": "yarn@4.5.3",
   "prettier": "@channel.io/prettier-config"
 }
