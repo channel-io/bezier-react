@@ -1,5 +1,14 @@
 # @channel.io/bezier-react
 
+## 2.6.2
+
+### Patch Changes
+
+- If disabled is not passed from Button's props, disabled follows loading ([#2510](https://github.com/channel-io/bezier-react/pull/2510)) by @jintak0401
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.2.13
+
 ## 2.6.1
 
 ### Patch Changes

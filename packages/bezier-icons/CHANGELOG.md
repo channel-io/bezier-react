@@ -1,5 +1,25 @@
 # @channel.io/bezier-icons
 
+## 0.38.0
+
+### Minor Changes
+
+- Update icons ([#2545](https://github.com/channel-io/bezier-react/pull/2545)) by @ch-builder
+
+  Modified
+
+  - arrow-left-up-small.svg
+  - arrow-up.svg
+  - chevron-right-double.svg
+  - naver-talktalk.svg
+
+  Added
+
+  - chevron-down-bold.svg
+  - chevron-left-bold.svg
+  - chevron-right-bold.svg
+  - chevron-up-bold.svg
+
 ## 0.37.0
 
 ### Minor Changes
