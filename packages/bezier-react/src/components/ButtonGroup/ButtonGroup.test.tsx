@@ -5,14 +5,11 @@ import { render } from '~/src/utils/test'
 import { Button } from '~/src/components/Button'
 
 import { ButtonGroup } from './ButtonGroup'
-import type { ButtonGroupProps } from './ButtonGroup.types'
 
 describe('ButtonGroup', () => {
-  let props: ButtonGroupProps
-
   it('creates a button group with spacing', () => {
     const { getByRole } = render(
-      <ButtonGroup {...props}>
+      <ButtonGroup>
         <Button text="button1" />
         <Button text="button2" />
       </ButtonGroup>
@@ -25,7 +22,6 @@ describe('ButtonGroup', () => {
   it('creates a button group without spacing', () => {
     const { getByRole } = render(
       <ButtonGroup
-        {...props}
         withoutSpacing
         data-testid="button-group"
       >

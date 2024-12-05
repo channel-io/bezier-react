@@ -9,8 +9,6 @@ import { SELECT_DROPDOWN_TEST_ID, Select } from './Select'
 import { type SelectProps } from './Select.types'
 
 describe('Select', () => {
-  let props: SelectProps
-
   beforeEach(() => {
     const { body } = document
     body.innerHTML = ''
@@ -22,18 +20,13 @@ describe('Select', () => {
   })
 
   const renderSelect = (optionProps?: Partial<SelectProps>) =>
-    render(
-      <Select
-        {...props}
-        {...optionProps}
-      />
-    )
+    render(<Select {...optionProps} />)
 
   describe('Event', () => {
     const renderFormWithSelect = (onSubmit: React.FormEventHandler) =>
       render(
         <form onSubmit={onSubmit}>
-          <Select {...props} />
+          <Select />
         </form>
       )
 
