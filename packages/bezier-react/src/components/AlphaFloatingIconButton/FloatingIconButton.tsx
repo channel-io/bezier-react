@@ -36,13 +36,15 @@ export const FloatingIconButton = forwardRef<
     size = 'm',
     active,
     content,
-    loading,
+    loading = false,
+    disabled: disabledProp = false,
     className,
     ...rest
   },
   forwardedRef
 ) {
   const Comp = as as typeof BaseButton
+  const disabled = loading || disabledProp
 
   return (
     <Comp
@@ -55,6 +57,7 @@ export const FloatingIconButton = forwardRef<
         active && styles.active,
         className
       )}
+      disabled={disabled}
       {...rest}
     >
       <div
