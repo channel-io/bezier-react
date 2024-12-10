@@ -2302,7 +2302,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@channel.io/bezier-tokens@npm:0.2.13, @channel.io/bezier-tokens@npm:^0.2.11, @channel.io/bezier-tokens@workspace:packages/bezier-tokens":
+"@channel.io/bezier-tokens@npm:0.2.13, @channel.io/bezier-tokens@workspace:packages/bezier-tokens":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-tokens@workspace:packages/bezier-tokens"
   dependencies:
@@ -8186,7 +8186,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bezier-vscode-server@workspace:packages/bezier-vscode/server"
   dependencies:
-    "@channel.io/bezier-tokens": "npm:^0.2.11"
+    "@channel.io/bezier-tokens": "npm:0.2.13"
     vscode-languageserver: "npm:^9.0.1"
     vscode-languageserver-textdocument: "npm:^1.0.11"
   languageName: unknown

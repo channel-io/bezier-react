@@ -13,7 +13,7 @@
     "vscode": "^1.75.0"
   },
   "dependencies": {
-    "@channel.io/bezier-tokens": "^0.2.11",
+    "@channel.io/bezier-tokens": "0.2.13",
     "vscode-languageserver": "^9.0.1",
     "vscode-languageserver-textdocument": "^1.0.11"
   }
