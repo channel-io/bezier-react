@@ -27,7 +27,7 @@
     "onLanguage:scss",
     "onLanguage:css"
   ],
-  "main": "./dist/client.js",
+  "main": "./client/dist/client.js",
   "contributes": {
     "configuration": {
       "type": "object",
@@ -60,16 +60,8 @@
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist",
     "vscode:prepublish": "yarn build",
-    "publish": "yarn dlx vsce publish --no-dependencies --skip-duplicate"
-  },
-  "dependencies": {
-    "vscode-languageclient": "^9.0.1",
-    "vscode-languageserver": "^9.0.1",
-    "vscode-languageserver-textdocument": "^1.0.11"
-  },
-  "devDependencies": {
-    "@channel.io/bezier-tokens": "0.2.13",
-    "@types/node": "^20.11.20",
-    "@types/vscode": "^1.64.0"
+    "install-dependencies": "cd client && yarn && cd ../server && yarn && cd ../ ",
+    "package": "yarn install-dependencies && yarn dlx vsce package --no-yarn",
+    "publish": "yarn install-dependencies && yarn dlx vsce publish --no-yarn --skip-duplicate"
   }
 }

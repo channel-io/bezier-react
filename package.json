@@ -4,7 +4,8 @@
   "license": "Apache-2.0",
   "workspaces": [
     "packages/*",
-    "configs/*"
+    "configs/*",
+    "packages/bezier-vscode/*"
   ],
   "scripts": {
     "build": "turbo run build",
