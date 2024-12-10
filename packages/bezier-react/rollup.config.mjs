@@ -77,6 +77,17 @@ const generateConfig = ({ output = [], plugins = [] }) =>
           generateScopedName: 'b-[hash:base64:5]',
           hashPrefix: 'bezier',
         },
+        use: {
+          sass: {
+            /**
+             * FIXME: Silence warnings caused by the following issue.
+             *
+             * Since the `rollup-plugin-postcss` plugin is no longer maintained, we will be implementing our own plugin.
+             * @see {@link https://github.com/sass/dart-sass/issues/1481}
+             */
+            silenceDeprecations: ['legacy-js-api'],
+          },
+        },
         plugins: [
           postcssPresetEnv(),
           postcssAutoLayer({
@@ -120,6 +131,19 @@ const generateConfig = ({ output = [], plugins = [] }) =>
       ) {
         return
       }
+
+      /**
+       * FIXME: Silence warnings caused by the following issues
+       * @see {@link https://github.com/radix-ui/primitives/issues/3281}
+       */
+      if (
+        warning.code === 'SOURCEMAP_ERROR' &&
+        warning.loc.file.includes('@radix-ui') &&
+        warning.loc.line === 1
+      ) {
+        return
+      }
+
       warn(warning)
     },
   })
