@@ -23,26 +23,26 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@figma/plugin-typings": "^1.104.0",
-    "@types/react": "^18.3.13",
-    "@types/react-dom": "^18.3.1",
-    "css-loader": "^6.11.0",
+    "@types/react": "^18.3.14",
+    "@types/react-dom": "^18.3.3",
+    "css-loader": "^7.1.2",
     "eslint-config-bezier": "workspace:*",
     "html-webpack-inline-source-plugin": "^0.0.10",
     "html-webpack-plugin": "^5.6.3",
     "react-dev-utils": "^12.0.1",
-    "style-loader": "^3.3.4",
+    "style-loader": "^4.0.0",
     "ts-loader": "^9.5.1",
     "tsconfig": "workspace:*",
     "url-loader": "^4.1.1",
-    "webpack": "^5.97.0",
+    "webpack": "^5.97.1",
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "@channel.io/bezier-icons": "0.37.0",
     "@channel.io/bezier-react": "2.6.1",
-    "octokit": "^3.1.2",
+    "octokit": "^4.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.22.1"
+    "react-router-dom": "^7.0.2"
   }
 }
