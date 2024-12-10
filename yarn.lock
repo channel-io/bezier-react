@@ -1830,16 +1830,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.10.2":
-  version: 7.26.0
-  resolution: "@babel/runtime@npm:7.26.0"
-  dependencies:
-    regenerator-runtime: "npm:^0.14.0"
-  checksum: 10/9f4ea1c1d566c497c052d505587554e782e021e6ccd302c2ad7ae8291c8e16e3f19d4a7726fb64469e057779ea2081c28b7dbefec6d813a22f08a35712c0f699
-  languageName: node
-  linkType: hard
-
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.10.2, @babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.16.3, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2, @babel/runtime@npm:^7.8.4":
   version: 7.24.0
   resolution: "@babel/runtime@npm:7.24.0"
   dependencies:
@@ -2190,7 +2181,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@channel.io/bezier-icons@npm:0.37.0, @channel.io/bezier-icons@workspace:packages/bezier-icons":
+"@channel.io/bezier-icons@npm:0.38.0, @channel.io/bezier-icons@workspace:packages/bezier-icons":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-icons@workspace:packages/bezier-icons"
   dependencies:
@@ -2214,7 +2205,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@channel.io/bezier-react@npm:2.6.1, @channel.io/bezier-react@workspace:packages/bezier-react":
+"@channel.io/bezier-react@npm:2.6.2, @channel.io/bezier-react@workspace:packages/bezier-react":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-react@workspace:packages/bezier-react"
   dependencies:
@@ -2222,8 +2213,8 @@ __metadata:
     "@babel/preset-env": "npm:^7.26.0"
     "@babel/preset-react": "npm:^7.26.3"
     "@babel/preset-typescript": "npm:^7.26.0"
-    "@channel.io/bezier-icons": "npm:0.37.0"
-    "@channel.io/bezier-tokens": "npm:0.2.12"
+    "@channel.io/bezier-icons": "npm:0.38.0"
+    "@channel.io/bezier-tokens": "npm:0.2.13"
     "@chromatic-com/storybook": "npm:^3.2.2"
     "@figma/code-connect": "npm:^1.2.4"
     "@radix-ui/react-checkbox": "npm:^1.1.2"
@@ -2307,7 +2298,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@channel.io/bezier-tokens@npm:0.2.12, @channel.io/bezier-tokens@workspace:packages/bezier-tokens":
+"@channel.io/bezier-tokens@npm:0.2.13, @channel.io/bezier-tokens@workspace:packages/bezier-tokens":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-tokens@workspace:packages/bezier-tokens"
   dependencies:
@@ -2359,7 +2350,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@channel.io/stylelint-bezier@workspace:packages/stylelint-bezier"
   dependencies:
-    "@channel.io/bezier-tokens": "npm:0.2.12"
+    "@channel.io/bezier-tokens": "npm:0.2.13"
     eslint-config-bezier: "workspace:*"
     postcss-styled-syntax: "npm:^0.7.0"
     tsconfig: "workspace:*"
@@ -3368,10 +3359,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint-community/regexpp@npm:^4.10.0, @eslint-community/regexpp@npm:^4.6.1":
+"@eslint-community/regexpp@npm:^4.10.0":
   version: 4.12.1
   resolution: "@eslint-community/regexpp@npm:4.12.1"
   checksum: 10/c08f1dd7dd18fbb60bdd0d85820656d1374dd898af9be7f82cb00451313402a22d5e30569c150315b4385907cdbca78c22389b2a72ab78883b3173be317620cc
+  languageName: node
+  linkType: hard
+
+"@eslint-community/regexpp@npm:^4.6.1":
+  version: 4.10.0
+  resolution: "@eslint-community/regexpp@npm:4.10.0"
+  checksum: 10/8c36169c815fc5d726078e8c71a5b592957ee60d08c6470f9ce0187c8046af1a00afbda0a065cc40ff18d5d83f82aed9793c6818f7304a74a7488dc9f3ecbd42
   languageName: node
   linkType: hard
 
@@ -8108,8 +8106,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bezier-figma-plugin@workspace:packages/bezier-figma-plugin"
   dependencies:
-    "@channel.io/bezier-icons": "npm:0.37.0"
-    "@channel.io/bezier-react": "npm:2.6.1"
+    "@channel.io/bezier-icons": "npm:0.38.0"
+    "@channel.io/bezier-react": "npm:2.6.2"
     "@figma/plugin-typings": "npm:^1.104.0"
     "@types/react": "npm:^18.3.14"
     "@types/react-dom": "npm:^18.3.3"
@@ -8166,7 +8164,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bezier-vscode@workspace:packages/bezier-vscode"
   dependencies:
-    "@channel.io/bezier-tokens": "npm:0.2.12"
+    "@channel.io/bezier-tokens": "npm:0.2.13"
     "@types/node": "npm:^22.10.1"
     "@types/vscode": "npm:^1.95.0"
     vscode-languageclient: "npm:^9.0.1"
@@ -13573,14 +13571,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsonc-parser@npm:3.3.1, jsonc-parser@npm:^3.0.0":
+"jsonc-parser@npm:3.3.1":
   version: 3.3.1
   resolution: "jsonc-parser@npm:3.3.1"
   checksum: 10/9b0dc391f20b47378f843ef1e877e73ec652a5bdc3c5fa1f36af0f119a55091d147a86c1ee86a232296f55c929bba174538c2bf0312610e0817a22de131cc3f4
   languageName: node
   linkType: hard
 
-"jsonc-parser@npm:^3.2.0":
+"jsonc-parser@npm:^3.0.0, jsonc-parser@npm:^3.2.0":
   version: 3.2.1
   resolution: "jsonc-parser@npm:3.2.1"
   checksum: 10/fe2df6f39e21653781d52cae20c5b9e0ab62461918d97f9430b216cea9b6500efc1d8b42c6584cc0a7548b4c996055e9cdc39f09b9782fa6957af2f45306c530

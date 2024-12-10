@@ -71,11 +71,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       active,
       className,
       loading,
+      disabled: disabledProp,
       ...rest
     },
     forwardedRef
   ) {
     const Comp = as as typeof BaseButton
+
+    const disabled = loading || disabledProp
 
     return (
       <Comp
@@ -88,6 +91,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           active && styles.active,
           className
         )}
+        disabled={disabled}
         {...rest}
       >
         <div

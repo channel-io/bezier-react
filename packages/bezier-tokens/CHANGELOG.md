@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.2.13
+
+### Patch Changes
+
+- The alpha version dimension token is removed. The alpha version radius token is added. ([#2540](https://github.com/channel-io/bezier-react/pull/2540)) by @sungik-choi
+
 ## 0.2.12
 
 ### Patch Changes

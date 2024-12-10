@@ -68,7 +68,7 @@
     "vscode-languageserver-textdocument": "^1.0.12"
   },
   "devDependencies": {
-    "@channel.io/bezier-tokens": "0.2.12",
+    "@channel.io/bezier-tokens": "0.2.13",
     "@types/node": "^22.10.1",
     "@types/vscode": "^1.95.0"
   }
