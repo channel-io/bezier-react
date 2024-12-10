@@ -25,11 +25,6 @@ jobs:
       - name: Install Dependencies
         run: yarn install
 
-      - name: Install VSCode Extension Dependencies
-        run: |
-          cd packages/bezier-vscode/client && yarn install
-          cd ../server && yarn install
-
       - name: TurboRepo Local Server
         uses: felixmosh/turborepo-gh-artifacts@v3
         with:
