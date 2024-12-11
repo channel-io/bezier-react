@@ -1,1 +1,1 @@
-export * from './alignment'
+export type * from './alignment'

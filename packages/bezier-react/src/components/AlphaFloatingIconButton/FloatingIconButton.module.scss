@@ -1,6 +1,6 @@
 @use '../../styles/mixins/dimension';
 
-@import '../Icon/Icon.module';
+@use '../Icon/Icon.module';
 
 $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
@@ -167,7 +167,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     align-items: center;
     justify-content: center;
 
-    @each $size, $value in $size-map {
+    @each $size, $value in Icon.$size-map {
       &:where(.size-#{$size}) {
         & :is(.Loader) {
           @include dimension.square(#{$value}px);

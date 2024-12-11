@@ -1,4 +1,4 @@
-@import '../AlphaAvatar/Avatar.module';
+@use '../AlphaAvatar/Avatar.module';
 
 .AvatarGroup {
   --b-avatar-group-spacing: 0;
@@ -8,7 +8,7 @@
   z-index: var(--z-index-base);
   display: flex;
 
-  @each $size in $avatar-sizes {
+  @each $size in Avatar.$avatar-sizes {
     &:where(.size-#{$size}) {
       --b-avatar-group-size: #{$size}px;
     }

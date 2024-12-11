@@ -76,5 +76,5 @@ export * from '~/src/components/WindowProvider'
 export * from '~/src/hooks/useKeyboardActionLockerWhileComposing'
 
 /* ---------------------------------- TYPES --------------------------------- */
-export * from '~/src/types/props'
-export * from '~/src/types/tokens'
+export type * from '~/src/types/props'
+export type * from '~/src/types/tokens'
