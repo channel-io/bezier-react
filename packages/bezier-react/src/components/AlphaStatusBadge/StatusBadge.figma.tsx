@@ -10,7 +10,7 @@ figma.connect(
       size: figma.enum('size', {
         medium: 'm',
         large: 'l',
-      }),
+      } as const),
       online: figma.boolean('online'),
       doNotDisturb: figma.boolean('doNotDisturb'),
     },

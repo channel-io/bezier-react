@@ -17,7 +17,7 @@ function useEventHandler<K extends keyof HTMLElementEventMap>(
   condition: boolean = true,
   options: boolean | HandlerOptionsProps = false
 ) {
-  const prevOptionsRef = useRef<boolean | HandlerOptionsProps>()
+  const prevOptionsRef = useRef<boolean | HandlerOptionsProps>(undefined)
 
   const nextOptions = useMemo(() => {
     if (isEqual(prevOptionsRef.current, options)) {

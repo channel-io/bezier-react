@@ -196,8 +196,8 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(
       ...ownProps
     } = useFormFieldProps(rest)
 
-    const focusTimeout = useRef<ReturnType<Window['setTimeout']>>()
-    const blurTimeout = useRef<ReturnType<Window['setTimeout']>>()
+    const focusTimeout = useRef<ReturnType<Window['setTimeout']>>(undefined)
+    const blurTimeout = useRef<ReturnType<Window['setTimeout']>>(undefined)
 
     const normalizedValue = isNil(value) ? undefined : toString(value)
     const activeInput = !disabled && !readOnly

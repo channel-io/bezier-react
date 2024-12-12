@@ -1,6 +1,6 @@
 'use client'
 
-import { forwardRef, useMemo } from 'react'
+import { type JSX, forwardRef, useMemo } from 'react'
 import * as React from 'react'
 
 import { OpenInNewIcon } from '@channel.io/bezier-icons'

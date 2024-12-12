@@ -78,7 +78,7 @@ export function Toast({
 }: ToastProps) {
   const { window } = useWindow()
 
-  const dismissTimer = useRef<ReturnType<Window['setTimeout']>>()
+  const dismissTimer = useRef<ReturnType<Window['setTimeout']>>(undefined)
 
   const [isSlidingOut, setIsSlidingOut] = useState(false)
 

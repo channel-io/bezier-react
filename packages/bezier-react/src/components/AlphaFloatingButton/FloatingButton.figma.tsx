@@ -13,12 +13,12 @@ figma.connect(
         'medium (default)': 'm',
         large: 'l',
         xlarge: 'xl',
-      }),
+      } as const),
       text: figma.string('🔄 text'),
       variant: figma.enum('variant', {
         primary: 'primary',
         secondary: 'secondary',
-      }),
+      } as const),
       color: figma.enum('color', {
         blue: 'blue',
         cobalt: 'cobalt',
@@ -29,7 +29,7 @@ figma.connect(
         purple: 'purple',
         darkGrey: 'dark-grey',
         lightGrey: 'light-grey',
-      }),
+      } as const),
       /**
        * TODO: Add Code Connect for Icon component
        * @see {@link https://github.com/figma/code-connect/blob/main/cli/scripts/README.md}

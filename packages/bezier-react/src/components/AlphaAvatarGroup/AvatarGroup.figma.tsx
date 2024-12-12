@@ -10,11 +10,11 @@ figma.connect(
       size: figma.enum('size', {
         '20': '20',
         '24': '24',
-      }),
+      } as const),
       ellipsisType: figma.enum('variants', {
         'icon (default)': 'icon',
         count: 'count',
-      }),
+      } as const),
       max: figma.nestedProps('⛔️️ alpha/Common/$AvatarGroupSource', {
         value: figma.enum('itemCount', {
           '2': 2,
@@ -22,7 +22,7 @@ figma.connect(
           '4': 4,
           '5': 5,
         }),
-      }),
+      } as const),
     },
     example: (props) => (
       <AlphaAvatarGroup
