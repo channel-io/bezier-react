@@ -23,8 +23,8 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@figma/plugin-typings": "^1.104.0",
-    "@types/react": "^18.3.14",
-    "@types/react-dom": "^18.3.3",
+    "@types/react": "^18.3.16",
+    "@types/react-dom": "^18.3.5",
     "css-loader": "^7.1.2",
     "eslint-config-bezier": "workspace:*",
     "html-webpack-inline-source-plugin": "^0.0.10",

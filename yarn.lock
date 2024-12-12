@@ -2168,8 +2168,8 @@ __metadata:
   resolution: "@channel.io/bezier-codemod@workspace:packages/bezier-codemod"
   dependencies:
     "@inkjs/ui": "npm:^2.0.0"
-    "@types/node": "npm:^22.10.1"
-    "@types/react": "npm:^18.3.14"
+    "@types/node": "npm:^22.10.2"
+    "@types/react": "npm:^18.3.16"
     eslint-config-bezier: "workspace:*"
     ink: "npm:^5.1.0"
     meow: "npm:^13.2.0"
@@ -2253,15 +2253,15 @@ __metadata:
     "@testing-library/react": "npm:^16.1.0"
     "@testing-library/user-event": "npm:^14.5.2"
     "@types/jest": "npm:^29.5.14"
-    "@types/react": "npm:^18.3.14"
-    "@types/react-dom": "npm:^18.3.3"
+    "@types/react": "npm:^18.3.16"
+    "@types/react-dom": "npm:^18.3.5"
     "@types/uuid": "npm:^10.0.0"
     babel-loader: "npm:^9.2.1"
     babel-preset-react-app: "npm:^10.0.1"
-    chromatic: "npm:^11.20.0"
+    chromatic: "npm:^11.20.2"
     classnames: "npm:^2.5.1"
     eslint-config-bezier: "workspace:*"
-    eslint-plugin-jsdoc: "npm:^50.6.0"
+    eslint-plugin-jsdoc: "npm:^50.6.1"
     eslint-plugin-sort-export-all: "npm:^1.4.1"
     eslint-plugin-storybook: "npm:^0.11.1"
     identity-obj-proxy: "npm:^3.0.0"
@@ -6598,7 +6598,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^22.0.0, @types/node@npm:^22.10.1":
+"@types/node@npm:*, @types/node@npm:^22.0.0":
   version: 22.10.1
   resolution: "@types/node@npm:22.10.1"
   dependencies:
@@ -6611,6 +6611,15 @@ __metadata:
   version: 12.20.55
   resolution: "@types/node@npm:12.20.55"
   checksum: 10/1f916a06fff02faadb09a16ed6e31820ce170798b202ef0b14fc244bfbd721938c54a3a99836e185e4414ca461fe96c5bb5c67c3d248f153555b7e6347f061dd
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^22.10.2":
+  version: 22.10.2
+  resolution: "@types/node@npm:22.10.2"
+  dependencies:
+    undici-types: "npm:~6.20.0"
+  checksum: 10/451adfefed4add58b069407173e616220fd4aaa3307cdde1bb701aa053b65b54ced8483db2f870dcedec7a58cb3b06101fbc19d85852716672ec1fd3660947fa
   languageName: node
   linkType: hard
 
@@ -6660,22 +6669,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.3.3":
-  version: 18.3.3
-  resolution: "@types/react-dom@npm:18.3.3"
+"@types/react-dom@npm:^18.3.5":
+  version: 18.3.5
+  resolution: "@types/react-dom@npm:18.3.5"
   peerDependencies:
     "@types/react": ^18.0.0
-  checksum: 10/696e271386113b5d018d3760b39dad10b5659833d625432d4ce903d74d1b956183ffa77a11a809a6ef65b28a1ea3273d5405e0fa77e9411c77254ece1bb41b95
+  checksum: 10/02095b326f373867498e0eb2b5ebb60f9bd9535db0d757ea13504c4b7d75e16605cf1d43ce7a2e67893d177b51db4357cabb2842fb4257c49427d02da1a14e09
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.3.14":
-  version: 18.3.14
-  resolution: "@types/react@npm:18.3.14"
+"@types/react@npm:^18.3.16":
+  version: 18.3.16
+  resolution: "@types/react@npm:18.3.16"
   dependencies:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10/683927b1e24293276cf62f60f1baa666b7f1053c87ec8d8c79d2d4bc105b99e0492482f801ffce7cdef9d656c11294faa423051807a500c7475f4fbd7661bd8d
+  checksum: 10/971b4f46af9aeda85326000ba4a78973db6a1f11e10665c014e1274a68ae801469f057b56d850512694cf04a69cc264c07e6a507b4613874e8bf6ab4df7904f1
   languageName: node
   linkType: hard
 
@@ -6763,10 +6772,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/vscode@npm:^1.95.0":
-  version: 1.95.0
-  resolution: "@types/vscode@npm:1.95.0"
-  checksum: 10/2ec60421c66816355a565dcf4a5fdcc05f751754c192b0b8b84f3006ebbc64c72421de1a90fa3dbc74cac5dd0dc30eeaea4a8064a8a50d6e3df908390781522d
+"@types/vscode@npm:^1.96.0":
+  version: 1.96.0
+  resolution: "@types/vscode@npm:1.96.0"
+  checksum: 10/30c62d120eb1d269f7e62976f89d014b8c891d434628b40c635215daba9957e9d8f667f17426acc55d9cc152a4da388191ee21531e7fdd8ef5960762ee86ec47
   languageName: node
   linkType: hard
 
@@ -8108,8 +8117,8 @@ __metadata:
     "@channel.io/bezier-icons": "npm:0.38.0"
     "@channel.io/bezier-react": "npm:2.6.2"
     "@figma/plugin-typings": "npm:^1.104.0"
-    "@types/react": "npm:^18.3.14"
-    "@types/react-dom": "npm:^18.3.3"
+    "@types/react": "npm:^18.3.16"
+    "@types/react-dom": "npm:^18.3.5"
     css-loader: "npm:^7.1.2"
     eslint-config-bezier: "workspace:*"
     html-webpack-inline-source-plugin: "npm:^0.0.10"
@@ -8148,7 +8157,7 @@ __metadata:
     husky: "npm:^9.1.7"
     jest: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
-    knip: "npm:^5.39.2"
+    knip: "npm:^5.39.4"
     npm-run-all2: "npm:^7.0.1"
     prettier: "npm:^3.4.2"
     stylelint: "npm:^16.11.0"
@@ -8164,8 +8173,8 @@ __metadata:
   resolution: "bezier-vscode@workspace:packages/bezier-vscode"
   dependencies:
     "@channel.io/bezier-tokens": "npm:0.2.13"
-    "@types/node": "npm:^22.10.1"
-    "@types/vscode": "npm:^1.95.0"
+    "@types/node": "npm:^22.10.2"
+    "@types/vscode": "npm:^1.96.0"
     vscode-languageclient: "npm:^9.0.1"
     vscode-languageserver: "npm:^9.0.1"
     vscode-languageserver-textdocument: "npm:^1.0.12"
@@ -8577,7 +8586,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:^11.15.0, chromatic@npm:^11.20.0":
+"chromatic@npm:^11.15.0":
   version: 11.20.0
   resolution: "chromatic@npm:11.20.0"
   peerDependencies:
@@ -8593,6 +8602,25 @@ __metadata:
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
   checksum: 10/9faaa07819abb3c9be8e2be479bcb6b9b47168fadad77a2d17828e74a786b7b4472fba25b0dbebc660b7f26c94736b5c77a0c116cc720e11521ed3f0e10febc8
+  languageName: node
+  linkType: hard
+
+"chromatic@npm:^11.20.2":
+  version: 11.20.2
+  resolution: "chromatic@npm:11.20.2"
+  peerDependencies:
+    "@chromatic-com/cypress": ^0.*.* || ^1.0.0
+    "@chromatic-com/playwright": ^0.*.* || ^1.0.0
+  peerDependenciesMeta:
+    "@chromatic-com/cypress":
+      optional: true
+    "@chromatic-com/playwright":
+      optional: true
+  bin:
+    chroma: dist/bin.js
+    chromatic: dist/bin.js
+    chromatic-cli: dist/bin.js
+  checksum: 10/74adb89978f5787c88e63db76fe673bb50953c5ea7af9e9d4b31491b55c0fe4c2db74021c01239139ecaaf6e070f74b9fa730cf3adbb48ffa8cf61983afe0721
   languageName: node
   linkType: hard
 
@@ -10489,9 +10517,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsdoc@npm:^50.6.0":
-  version: 50.6.0
-  resolution: "eslint-plugin-jsdoc@npm:50.6.0"
+"eslint-plugin-jsdoc@npm:^50.6.1":
+  version: 50.6.1
+  resolution: "eslint-plugin-jsdoc@npm:50.6.1"
   dependencies:
     "@es-joy/jsdoccomment": "npm:~0.49.0"
     are-docs-informative: "npm:^0.0.2"
@@ -10506,7 +10534,7 @@ __metadata:
     synckit: "npm:^0.9.1"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
-  checksum: 10/295df63b2d0300a072f4349b15eaf3279080ed13147752e21ce145ed31ed111a15c406e44650726a9e5bcf6bf248e5714ec3962e7e4f7b4bbd4cc3cd0cf16db2
+  checksum: 10/53fceff38a5317bb7c42c15a622100515aec89aea0d2bbf07e7d2d07eacdaa10ce625232a1bc7c1497f7bbe044675123d30cd3e123fa52fe5c7a9c336a59709c
   languageName: node
   linkType: hard
 
@@ -13644,9 +13672,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"knip@npm:^5.39.2":
-  version: 5.39.2
-  resolution: "knip@npm:5.39.2"
+"knip@npm:^5.39.4":
+  version: 5.39.4
+  resolution: "knip@npm:5.39.4"
   dependencies:
     "@nodelib/fs.walk": "npm:1.2.8"
     "@snyk/github-codeowners": "npm:1.1.0"
@@ -13670,7 +13698,7 @@ __metadata:
   bin:
     knip: bin/knip.js
     knip-bun: bin/knip-bun.js
-  checksum: 10/b6871c4922ef75452984b5742b16e290a65bfe5bb565aaf423d634f4d4a541b8235482811dc83edd859fbcf3f9c694d9130659fc6cc8db676b22aad0a20b5042
+  checksum: 10/5d572880a26ed0deef1ecac620be8e314e5e29d2f6c80aed72c3184e24ec5632b05ef2029e5b9fbba546d1aef29c30141bf3726c5a82d205624da2b2f9caab89
   languageName: node
   linkType: hard
 
