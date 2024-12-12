@@ -6,7 +6,7 @@ module.exports = {
      * Remove the helper function for Object.assign.
      * @see https://babeljs.io/docs/babel-preset-react#usebuiltins
      */
-    ['@babel/preset-react', { useBuiltIns: true }],
+    ['@babel/preset-react', { runtime: 'automatic', useBuiltIns: true }],
     ['@babel/preset-typescript', { isTSX: true, allExtensions: true }],
   ],
 }
