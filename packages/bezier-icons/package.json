@@ -60,5 +60,13 @@
     "rollup-plugin-visualizer": "^5.12.0",
     "svgo": "^3.3.2",
     "tsconfig": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
   }
 }
