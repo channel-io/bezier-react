@@ -96,7 +96,6 @@
     "babel-loader": "^9.2.1",
     "babel-preset-react-app": "^10.0.1",
     "chromatic": "^11.20.0",
-    "core-js": "^3.39.0",
     "eslint-config-bezier": "workspace:*",
     "eslint-plugin-jsdoc": "^50.6.0",
     "eslint-plugin-sort-export-all": "^1.4.1",

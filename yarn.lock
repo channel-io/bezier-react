@@ -2260,7 +2260,6 @@ __metadata:
     babel-preset-react-app: "npm:^10.0.1"
     chromatic: "npm:^11.20.0"
     classnames: "npm:^2.5.1"
-    core-js: "npm:^3.39.0"
     eslint-config-bezier: "workspace:*"
     eslint-plugin-jsdoc: "npm:^50.6.0"
     eslint-plugin-sort-export-all: "npm:^1.4.1"
@@ -9049,13 +9048,6 @@ __metadata:
   dependencies:
     browserslist: "npm:^4.23.3"
   checksum: 10/4e2f219354fd268895f79486461a12df96f24ed307321482fe2a43529c5a64e7c16bcba654980ba217d603444f5141d43a79058aeac77511085f065c5da72207
-  languageName: node
-  linkType: hard
-
-"core-js@npm:^3.39.0":
-  version: 3.39.0
-  resolution: "core-js@npm:3.39.0"
-  checksum: 10/a3d34e669783dfc878e545f1983f60d9ff48a3867cd1d7ff8839b849e053002a208c7c14a5ca354b8e0b54982901e2f83dc87c3d9b95de0a94b4071d1c74e5f6
   languageName: node
   linkType: hard
 
