@@ -1,6 +1,6 @@
 'use client'
 
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 import { LegacyStackItem } from '~/src/components/LegacyStack/LegacyStackItem'
 

@@ -1,6 +1,6 @@
 'use client'
 
-import React, {
+import {
   forwardRef,
   useCallback,
   useEffect,
@@ -8,6 +8,7 @@ import React, {
   useMemo,
   useRef,
 } from 'react'
+import * as React from 'react'
 
 import { CancelCircleFilledIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'

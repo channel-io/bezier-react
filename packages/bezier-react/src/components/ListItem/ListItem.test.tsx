@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { render } from '~/src/utils/test'
 
 import { LIST_ITEM_TEST_ID, ListItem } from './ListItem'

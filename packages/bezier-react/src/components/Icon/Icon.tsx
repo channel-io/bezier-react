@@ -1,6 +1,6 @@
 'use client'
-
-import React, { forwardRef, memo } from 'react'
+import { forwardRef, memo } from 'react'
+import * as React from 'react'
 
 import classNames from 'classnames'
 

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { render } from '~/src/utils/test'
 
 import { OUTLINE_ITEM_TEST_ID, OutlineItem } from './OutlineItem'

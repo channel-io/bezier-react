@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { CalendarIcon } from '@channel.io/bezier-icons'
 import { type Meta, type StoryFn } from '@storybook/react'
 

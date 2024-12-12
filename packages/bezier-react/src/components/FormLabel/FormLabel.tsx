@@ -1,6 +1,6 @@
 'use client'
 
-import React, { forwardRef } from 'react'
+import { forwardRef, isValidElement } from 'react'
 
 import classNames from 'classnames'
 
@@ -55,7 +55,7 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(
         return null
       }
 
-      if (React.isValidElement(help)) {
+      if (isValidElement(help)) {
         // FIXME(@bora): string, JSXElementCostructor 타입에 displayName 속성이 존재하지 않음, 임시로 any 타입으로 설정
         const { displayName } = help?.type as any
         if (displayName === HELP_DISPLAY_NAME) {

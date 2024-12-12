@@ -1,6 +1,6 @@
 'use client'
 
-import React, { forwardRef, useMemo } from 'react'
+import { forwardRef, isValidElement, useMemo } from 'react'
 
 import classNames from 'classnames'
 
@@ -95,7 +95,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
   const StatusComponent = useMemo(() => {
     if (
       (isEmpty(children) && !status) ||
-      (children && !React.isValidElement(children))
+      (children && !isValidElement(children))
     ) {
       return null
     }

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 
 import {
@@ -154,10 +154,10 @@ export function Toast({
           {isString(content)
             ? content.split('\n').map((str, index) => (
                 // eslint-disable-next-line react/no-array-index-key
-                <React.Fragment key={index}>
+                <Fragment key={index}>
                   {index !== 0 && <br />}
                   {str}
-                </React.Fragment>
+                </Fragment>
               ))
             : content}
         </Text>

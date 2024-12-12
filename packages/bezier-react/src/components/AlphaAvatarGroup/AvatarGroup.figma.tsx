@@ -1,5 +1,3 @@
-import React from 'react'
-
 import figma from '@figma/code-connect'
 
 import { AvatarGroup as AlphaAvatarGroup } from './AvatarGroup'

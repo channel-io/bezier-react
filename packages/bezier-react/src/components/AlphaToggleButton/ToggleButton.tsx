@@ -1,6 +1,6 @@
 'use client'
 
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 import { isBezierIcon } from '@channel.io/bezier-icons'
 import * as TogglePrimitive from '@radix-ui/react-toggle'

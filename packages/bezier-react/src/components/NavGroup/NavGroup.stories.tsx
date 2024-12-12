@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { DotIcon, SettingsIcon } from '@channel.io/bezier-icons'
 import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 

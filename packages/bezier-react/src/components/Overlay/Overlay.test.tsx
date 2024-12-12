@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 
 import { fireEvent } from '@testing-library/dom'
 import { getWindow } from 'ssr-window'

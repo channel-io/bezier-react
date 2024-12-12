@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import { useCallback } from 'react'
 
 import { HexahedronIcon } from '@channel.io/bezier-icons'
 import { ListItem, VStack } from '@channel.io/bezier-react'

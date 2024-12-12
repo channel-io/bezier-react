@@ -1,6 +1,7 @@
 'use client'
 
-import React, { forwardRef, useMemo } from 'react'
+import { forwardRef, useMemo } from 'react'
+import * as React from 'react'
 
 import { OpenInNewIcon } from '@channel.io/bezier-icons'
 import * as TabsPrimitive from '@radix-ui/react-tabs'

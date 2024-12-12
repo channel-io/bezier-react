@@ -1,4 +1,3 @@
-import React from 'react'
 import { ProgressBar, ProgressBarVariant } from '@channel.io/bezier-react'
 
 export default function UploadProgress({

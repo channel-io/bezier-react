@@ -1,6 +1,5 @@
 /* External dependencies */
-import React from 'react'
-import { Button } from '@channel.io/bezier-react'
+import { Button } from '@channel.io/bezier-react';
 
 /* Internal dependencies */
 import useTranslator from 'Hooks/useTranslator'

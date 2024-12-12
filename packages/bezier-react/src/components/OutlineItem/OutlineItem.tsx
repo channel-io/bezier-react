@@ -1,6 +1,6 @@
 'use client'
-
-import React, { forwardRef, useMemo } from 'react'
+import { forwardRef, useMemo } from 'react'
+import * as React from 'react'
 
 import {
   ChevronSmallDownIcon,

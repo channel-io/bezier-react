@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { type Meta, type StoryFn } from '@storybook/react'
 
 import { Text } from '~/src/components/Text'

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import { useCallback } from 'react'
 
 import { Button, Text, VStack } from '@channel.io/bezier-react'
 import { useLocation, useNavigate } from 'react-router-dom'

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { render } from '~/src/utils/test'
 
 import { HELP_TEST_ID, Help } from '~/src/components/Help/Help'

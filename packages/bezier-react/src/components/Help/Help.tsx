@@ -1,6 +1,6 @@
 'use client'
 
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 import { HelpFilledIcon } from '@channel.io/bezier-icons'
 

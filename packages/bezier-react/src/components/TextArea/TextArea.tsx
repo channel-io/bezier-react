@@ -1,6 +1,6 @@
 'use client'
 
-import React, { forwardRef, useRef } from 'react'
+import { forwardRef, useRef } from 'react'
 
 import classNames from 'classnames'
 import TextareaAutosize from 'react-textarea-autosize'

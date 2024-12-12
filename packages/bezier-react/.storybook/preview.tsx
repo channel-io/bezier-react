@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 import type { Preview } from '@storybook/react'
 
@@ -55,7 +55,7 @@ const preview: Preview = {
     ),
   ],
 
-  tags: ['autodocs']
+  tags: ['autodocs'],
 }
 
 export default preview

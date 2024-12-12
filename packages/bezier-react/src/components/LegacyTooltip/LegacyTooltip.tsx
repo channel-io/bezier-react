@@ -1,6 +1,6 @@
 'use client'
 
-import React, {
+import {
   type Ref,
   forwardRef,
   memo,
