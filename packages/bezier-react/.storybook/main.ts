@@ -45,6 +45,9 @@ export default {
                    * @see {@link https://github.com/webpack-contrib/sass-loader/releases/tag/v16.0.0}
                    */
                   api: 'legacy',
+                  sassOptions: {
+                    silenceDeprecations: ['legacy-js-api'],
+                  },
                   implementation: require.resolve('sass'),
                 },
               },
