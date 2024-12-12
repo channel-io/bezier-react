@@ -3,6 +3,6 @@
   "extends": "@channel.io/typescript-config/web.json",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "allowJs": true,
+    "allowJs": true
   }
 }
