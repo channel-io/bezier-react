@@ -2294,8 +2294,8 @@ __metadata:
     uuid: "npm:^11.0.3"
   peerDependencies:
     "@channel.io/bezier-icons": ">=0.2.0"
-    react: ">=16.8.0"
-    react-dom: ">=16.8.0"
+    react: ">=17"
+    react-dom: ">=17"
   peerDependenciesMeta:
     "@channel.io/bezier-icons":
       optional: true
