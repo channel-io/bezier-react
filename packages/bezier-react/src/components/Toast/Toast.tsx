@@ -40,28 +40,30 @@ import useToastProviderValues from './useToastContextValues'
 import styles from './Toast.module.scss'
 
 function getToastPreset(preset: ToastPreset) {
-  return {
-    success: {
-      icon: CheckCircleFilledIcon,
-      appearance: 'success',
-    },
-    error: {
-      icon: ErrorTriangleFilledIcon,
-      appearance: 'error',
-    },
-    offline: {
-      icon: WifiOffIcon,
-      appearance: 'warning',
-    },
-    online: {
-      icon: WifiIcon,
-      appearance: 'success',
-    },
-    default: {
-      icon: InfoFilledIcon,
-      appearance: 'info',
-    },
-  }[preset]
+  return (
+    {
+      success: {
+        icon: CheckCircleFilledIcon,
+        appearance: 'success',
+      },
+      error: {
+        icon: ErrorTriangleFilledIcon,
+        appearance: 'error',
+      },
+      offline: {
+        icon: WifiOffIcon,
+        appearance: 'warning',
+      },
+      online: {
+        icon: WifiIcon,
+        appearance: 'success',
+      },
+      default: {
+        icon: InfoFilledIcon,
+        appearance: 'info',
+      },
+    } as const
+  )[preset]
 }
 
 export function Toast({
