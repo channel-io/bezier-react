@@ -65,7 +65,7 @@
     "dev": "tsc -b -w",
     "lint": "TIMING=1 eslint --cache .",
     "typecheck": "tsc --noEmit",
-    "clean": "rm -rf dist",
+    "clean": "rm -rf node_modules .turbo client/dist client/node_modules server/dist server/node_modules",
     "vscode:prepublish": "yarn build",
     "package": "yarn dlx vsce package --no-dependencies",
     "publish": "yarn dlx vsce publish --no-dependencies --skip-duplicate"
