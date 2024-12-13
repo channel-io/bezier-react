@@ -44,6 +44,6 @@ jobs:
         run: yarn test
 
       - name: Upload Coverage Reports to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           token: 0a48be00-2768-42b0-b528-7ab854c3db46
