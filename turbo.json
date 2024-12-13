@@ -1,6 +1,6 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "pipeline": {
+  "tasks": {
     "build": {
       "outputs": ["dist/**"],
       "dependsOn": ["^build"]
@@ -20,7 +20,6 @@
       "outputs": ["node_modules/.cache/knip"],
       "inputs": ["knip.json", "packages/bezier-react/src/**/*"]
     },
-
     "dev": {
       "cache": false,
       "persistent": true

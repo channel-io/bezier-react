@@ -26,15 +26,15 @@
     "dist"
   ],
   "dependencies": {
-    "@inkjs/ui": "^1.0.0",
-    "ink": "^4.4.1",
+    "@inkjs/ui": "^2.0.0",
+    "ink": "^5.1.0",
     "meow": "^13.2.0",
-    "react": "^18.2.0",
-    "ts-morph": "^21.0.1"
+    "react": "^18.3.1",
+    "ts-morph": "^24.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.11.20",
-    "@types/react": "^18.2.59",
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.16",
     "eslint-config-bezier": "workspace:*",
     "tsconfig": "workspace:*"
   },
