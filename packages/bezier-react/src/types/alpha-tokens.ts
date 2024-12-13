@@ -10,6 +10,9 @@ import {
 export type ThemeName = 'light' | 'dark'
 
 export type GlobalToken = typeof tokens.global
+/**
+ * FIXME: Separate functional and semantic tokens?
+ */
 export type ThemeToken = typeof tokens.lightTheme | typeof tokens.darkTheme
 
 // NOTE: (@ed) Do not remove alpha- prefix to match CSS variable names
