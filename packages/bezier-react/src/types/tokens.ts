@@ -1,17 +1,10 @@
 import { type tokens } from '@channel.io/bezier-tokens'
 
-type RemovePrefix<
-  Prefix extends string,
-  Value extends string,
-> = Value extends `${Prefix}-${infer Rest}` ? Rest : never
-
-type StartsWithPrefix<
-  Prefix extends string,
-  Value extends string,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-> = Value extends `${Prefix}-${infer Rest}` ? Value : never
-
-type ExtractKeys<T> = T extends Record<infer K, any> ? K : never
+import {
+  type ExtractKeys,
+  type RemovePrefix,
+  type StartsWithPrefix,
+} from './utils'
 
 // TODO: Change theme name constant to import from bezier-tokens
 export type ThemeName = 'light' | 'dark'
