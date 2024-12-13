@@ -85,7 +85,7 @@ export const LegacyStack = forwardRef<HTMLElement, LegacyStackProps>(
             ...(element.props ?? {}),
             direction,
             marginBefore:
-              ((element.props as LegacyStackItemProps)?.marginBefore ?? 0) +
+              (element.props as LegacyStackItemProps)?.marginBefore ??
               (index > firstValidElementIdx.current ? spacing : 0),
           } as LegacyStackItemProps)
         })}
