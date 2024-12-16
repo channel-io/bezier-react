@@ -1,3 +1,4 @@
+import type * as AlphaTokens from '~/src/types/alpha-tokens'
 import { type FlattenAllToken } from '~/src/types/tokens'
 import { isNil, isString } from '~/src/utils/type'
 
@@ -58,4 +59,19 @@ export function tokenCssVar<PropertyName extends FlattenAllToken | undefined>(
  */
 export function cssUrl(url?: string) {
   return isNil(url) ? undefined : `url(${url})`
+}
+
+/**
+ * TODO: (@ed) Implement
+ */
+export function alphaTokenCssVar<
+  PropertyName extends AlphaTokens.FlattenAllToken | undefined,
+>(propertyName: PropertyName) {
+  return cssVar(propertyName)
+}
+
+export function alphaColorTokenCssVar<
+  PropertyName extends AlphaTokens.BaseSemanticColor | undefined,
+>(propertyName: PropertyName) {
+  return cssVar(`alpha-color-${propertyName}`)
 }
