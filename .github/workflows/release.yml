@@ -40,7 +40,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Release VSCode extension
-        run: yarn workspace bezier-vscode publish
+      - name: Release VS Code extension
+        run: yarn build --filter=bezier-vscode && yarn workspace bezier-vscode publish
+        continue-on-error: true
         env:
           VSCE_PAT: ${{ secrets.VSCE_PERSONAL_ACCESS_TOKEN }}
