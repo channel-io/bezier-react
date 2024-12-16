@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 
 import { tokens } from '@channel.io/bezier-tokens/alpha'
 
@@ -13,10 +13,11 @@ import {
   type TokenProviderProps,
 } from './TokenProvider.types'
 
-const [AlphaTokenContextProvider, useAlphaTokenContext] =
+const [TokenContextProvider, useTokenContext] =
+  // FIXME: (@ed) Change the name to TokenProvider after the migration is done
   createContext<TokenContextValue | null>(null, 'AlphaTokenProvider')
 
-export { useAlphaTokenContext }
+export { useTokenContext as useAlphaTokenContext }
 
 const tokenSet: Record<ThemeName, ThemeSpecificTokens> = Object.freeze({
   light: {
@@ -34,7 +35,7 @@ const tokenSet: Record<ThemeName, ThemeSpecificTokens> = Object.freeze({
  */
 export function TokenProvider({ themeName, children }: TokenProviderProps) {
   return (
-    <AlphaTokenContextProvider
+    <TokenContextProvider
       value={useMemo(
         () => ({
           themeName,
@@ -44,6 +45,6 @@ export function TokenProvider({ themeName, children }: TokenProviderProps) {
       )}
     >
       {children}
-    </AlphaTokenContextProvider>
+    </TokenContextProvider>
   )
 }
