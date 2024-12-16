@@ -6,7 +6,7 @@ import {
 
 export interface ThemeSpecificTokens {
   global: GlobalToken
-  theme: SemanticToken
+  semantic: SemanticToken
 }
 
 export interface TokenContextValue {

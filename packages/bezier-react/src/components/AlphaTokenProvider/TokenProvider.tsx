@@ -22,11 +22,11 @@ export { useTokenContext as useAlphaTokenContext }
 const tokenSet: Record<ThemeName, ThemeSpecificTokens> = Object.freeze({
   light: {
     global: tokens.global,
-    theme: tokens.lightTheme,
+    semantic: tokens.lightTheme,
   },
   dark: {
     global: tokens.global,
-    theme: tokens.darkTheme,
+    semantic: tokens.darkTheme,
   },
 })
 
