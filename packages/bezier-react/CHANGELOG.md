@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 3.0.0
+
+### Major Changes
+
+- Add support for React 19 and enable new JSX transform. Increase minimum supported React peer dependency version from 16.8 to 17. ([#2559](https://github.com/channel-io/bezier-react/pull/2559)) by @sungik-choi
+
 ## 2.6.2
 
 ### Patch Changes
