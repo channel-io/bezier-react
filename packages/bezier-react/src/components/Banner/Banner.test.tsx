@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { AllIcon, InfoIcon } from '@channel.io/bezier-icons'
 import { fireEvent } from '@testing-library/react'
 

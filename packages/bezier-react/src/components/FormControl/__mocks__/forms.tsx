@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { FormControl } from '~/src/components/FormControl'
 import { FormGroup } from '~/src/components/FormGroup'
 import {

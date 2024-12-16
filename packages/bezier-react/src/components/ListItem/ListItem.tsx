@@ -1,6 +1,6 @@
 'use client'
 
-import React, { forwardRef } from 'react'
+import { Fragment, forwardRef } from 'react'
 
 import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
@@ -19,10 +19,10 @@ type ListItemRef = HTMLDivElement & HTMLAnchorElement
 function renderNewLineComponent(value: string) {
   return value.split('\n').map((str, index) => (
     // eslint-disable-next-line react/no-array-index-key
-    <React.Fragment key={index}>
+    <Fragment key={index}>
       {index !== 0 && <br />}
       {str}
-    </React.Fragment>
+    </Fragment>
   ))
 }
 

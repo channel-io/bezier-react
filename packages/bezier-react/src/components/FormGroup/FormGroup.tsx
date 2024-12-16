@@ -1,6 +1,6 @@
 'use client'
 
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { noop } from '~/src/utils/function'

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { isInaccessible } from '@testing-library/react'
 import userEvent, { PointerEventsCheckLevel } from '@testing-library/user-event'
 

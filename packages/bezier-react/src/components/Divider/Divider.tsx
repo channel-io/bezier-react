@@ -1,6 +1,6 @@
 'use client'
 
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 import * as SeparatorPrimitive from '@radix-ui/react-separator'
 import classNames from 'classnames'

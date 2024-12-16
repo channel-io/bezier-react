@@ -197,7 +197,7 @@ function svgBuild(options = {}) {
            */
           plugins: ['@svgr/plugin-jsx'],
           icon: true,
-          jsxRuntime: 'classic',
+          jsxRuntime: 'automatic',
           ref: true,
           template: reactIconTemplate,
         },
@@ -281,7 +281,7 @@ export default defineConfig({
       manualChunks,
     },
   ],
-  external: ['react'],
+  external: ['react', 'react/jsx-runtime'],
   plugins: [
     virtual({ 'src/index.ts': entryModuleContent }),
     nodeResolve({ extensions }),

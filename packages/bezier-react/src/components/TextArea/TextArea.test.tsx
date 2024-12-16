@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { fireEvent } from '@testing-library/dom'
 import { act } from '@testing-library/react'
 

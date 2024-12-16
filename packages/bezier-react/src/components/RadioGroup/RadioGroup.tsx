@@ -1,6 +1,7 @@
 'use client'
 
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
+import * as React from 'react'
 
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import classNames from 'classnames'

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { DotIcon } from '@channel.io/bezier-icons'
 
 import { render } from '~/src/utils/test'

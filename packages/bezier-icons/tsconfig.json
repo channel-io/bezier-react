@@ -1,7 +1,4 @@
 {
   "extends": "tsconfig/node.json",
-  "compilerOptions": {
-    "jsx": "react-jsx"
-  },
   "include": ["utils", "script"]
 }

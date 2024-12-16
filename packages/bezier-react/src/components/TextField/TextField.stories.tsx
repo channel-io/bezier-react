@@ -1,4 +1,5 @@
-import React, { useCallback, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
+import * as React from 'react'
 
 import { SearchIcon } from '@channel.io/bezier-icons'
 import { type Meta, type StoryFn } from '@storybook/react'

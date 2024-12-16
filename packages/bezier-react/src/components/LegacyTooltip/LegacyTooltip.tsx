@@ -1,6 +1,6 @@
 'use client'
 
-import React, {
+import {
   type Ref,
   forwardRef,
   memo,
@@ -56,7 +56,7 @@ export const LegacyTooltip = memo(
     const [didMount, setDidMount] = useState(show)
 
     const tooltipContainerRef = useRef<HTMLDivElement>(null)
-    const timerRef = useRef<ReturnType<Window['setTimeout']>>()
+    const timerRef = useRef<ReturnType<Window['setTimeout']>>(undefined)
 
     useEffect(
       function hideTooltipContentWhenDisabled() {

@@ -1,6 +1,6 @@
 'use client'
 
-import React, {
+import {
   forwardRef,
   useCallback,
   useEffect,
@@ -9,6 +9,7 @@ import React, {
   useRef,
   useState,
 } from 'react'
+import * as React from 'react'
 
 import {
   ChevronDownIcon,

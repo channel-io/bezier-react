@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-imports */
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { type Meta, type StoryFn } from '@storybook/react'
 

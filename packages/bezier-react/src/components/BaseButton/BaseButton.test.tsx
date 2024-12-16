@@ -1,4 +1,4 @@
-import React from 'react'
+import { createRef } from 'react'
 
 import { render } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
@@ -26,7 +26,7 @@ describe('BaseButton', () => {
   })
 
   it('should forward ref to the button element', () => {
-    const ref = React.createRef<HTMLButtonElement>()
+    const ref = createRef<HTMLButtonElement>()
     render(<BaseButton ref={ref}>Test Button</BaseButton>)
     expect(ref.current).toBeInstanceOf(HTMLButtonElement)
   })

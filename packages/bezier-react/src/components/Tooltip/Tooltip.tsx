@@ -1,6 +1,6 @@
 'use client'
 
-import React, {
+import {
   forwardRef,
   useCallback,
   useEffect,
@@ -140,7 +140,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
     forwardedRef
   ) {
     const [show, setShow] = useState<boolean>(defaultShow ?? false)
-    const timeoutRef = useRef<NodeJS.Timeout>()
+    const timeoutRef = useRef<NodeJS.Timeout>(undefined)
 
     const rootElement = useRootElement()
     const container = containerProp ?? rootElement

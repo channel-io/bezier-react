@@ -1,6 +1,6 @@
 'use client'
 
-import React, {
+import {
   forwardRef,
   useCallback,
   useEffect,
@@ -8,6 +8,7 @@ import React, {
   useMemo,
   useRef,
 } from 'react'
+import * as React from 'react'
 
 import { CancelCircleFilledIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
@@ -195,8 +196,8 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(
       ...ownProps
     } = useFormFieldProps(rest)
 
-    const focusTimeout = useRef<ReturnType<Window['setTimeout']>>()
-    const blurTimeout = useRef<ReturnType<Window['setTimeout']>>()
+    const focusTimeout = useRef<ReturnType<Window['setTimeout']>>(undefined)
+    const blurTimeout = useRef<ReturnType<Window['setTimeout']>>(undefined)
 
     const normalizedValue = isNil(value) ? undefined : toString(value)
     const activeInput = !disabled && !readOnly

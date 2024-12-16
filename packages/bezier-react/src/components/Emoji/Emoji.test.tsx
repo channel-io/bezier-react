@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { render } from '~/src/utils/test'
 
 import { EMOJI_TEST_ID, Emoji } from './Emoji'

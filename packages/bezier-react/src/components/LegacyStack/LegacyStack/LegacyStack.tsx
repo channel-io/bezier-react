@@ -1,6 +1,6 @@
 'use client'
 
-import React, {
+import {
   Children,
   cloneElement,
   forwardRef,
@@ -9,6 +9,9 @@ import React, {
 } from 'react'
 
 import classNames from 'classnames'
+
+// eslint-disable-next-line no-restricted-imports
+import { type LegacyStackItemProps } from '../LegacyStackItem'
 
 import type LegacyStackProps from './LegacyStack.types'
 
@@ -79,12 +82,12 @@ export const LegacyStack = forwardRef<HTMLElement, LegacyStackProps>(
             firstValidElementIdx.current = index
           }
           return cloneElement(element, {
-            ...element.props,
+            ...(element.props ?? {}),
             direction,
             marginBefore:
-              element.props.marginBefore ??
+              (element.props as LegacyStackItemProps)?.marginBefore ??
               (index > firstValidElementIdx.current ? spacing : 0),
-          })
+          } as LegacyStackItemProps)
         })}
       </Comp>
     )

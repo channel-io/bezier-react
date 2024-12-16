@@ -45,7 +45,6 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
             class="TextFieldInput"
             id="field-:r3:"
             size="36"
-            value=""
           />
         </div>
       </div>
@@ -72,7 +71,6 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
             class="TextFieldInput"
             id="field-:r4:"
             size="36"
-            value=""
           />
         </div>
       </div>
@@ -134,7 +132,6 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
             class="TextFieldInput"
             id="field-:r6:"
             size="36"
-            value=""
           />
         </div>
       </div>
@@ -161,7 +158,6 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
             class="TextFieldInput"
             id="field-:r7:"
             size="36"
-            value=""
           />
         </div>
       </div>
@@ -202,7 +198,6 @@ exports[`FormControl > Snapshot > With single field 1`] = `
       class="TextFieldInput"
       id="form"
       size="36"
-      value=""
     />
   </div>
   <p
@@ -240,7 +235,6 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
       class="TextFieldInput"
       id="form"
       size="36"
-      value=""
     />
   </div>
   <p

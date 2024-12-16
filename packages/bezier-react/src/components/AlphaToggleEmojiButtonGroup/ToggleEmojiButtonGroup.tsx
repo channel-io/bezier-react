@@ -1,4 +1,5 @@
-import React, { type CSSProperties, forwardRef, useState } from 'react'
+import type { CSSProperties } from 'react'
+import { Children, forwardRef, useState } from 'react'
 
 import * as ToggleGroup from '@radix-ui/react-toggle-group'
 import classNames from 'classnames'
@@ -106,7 +107,7 @@ export const ToggleEmojiButtonGroup = forwardRef<
   const resizedButtonSize = useToggleEmojiButtonSize({
     container,
     enabled: shouldResizeButton,
-    buttonCount: React.Children.count(children),
+    buttonCount: Children.count(children),
   })
 
   return (

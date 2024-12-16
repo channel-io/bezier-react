@@ -1,6 +1,6 @@
 /* eslint-disable no-alert */
 
-import React, { useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 

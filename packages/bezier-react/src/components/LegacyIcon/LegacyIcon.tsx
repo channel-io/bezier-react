@@ -1,6 +1,6 @@
 'use client'
 
-import React, { memo } from 'react'
+import { memo } from 'react'
 
 import { icons } from '@channel.io/bezier-icons'
 

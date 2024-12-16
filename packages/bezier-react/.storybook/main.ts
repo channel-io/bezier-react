@@ -45,6 +45,9 @@ export default {
                    * @see {@link https://github.com/webpack-contrib/sass-loader/releases/tag/v16.0.0}
                    */
                   api: 'legacy',
+                  sassOptions: {
+                    silenceDeprecations: ['legacy-js-api'],
+                  },
                   implementation: require.resolve('sass'),
                 },
               },
@@ -91,7 +94,12 @@ export default {
           test: /\.(ts|tsx)$/,
           loader: require.resolve('babel-loader'),
           options: {
-            presets: [['react-app', { flow: false, typescript: true }]],
+            presets: [
+              [
+                'react-app',
+                { flow: false, typescript: true, runtime: 'automatic' },
+              ],
+            ],
           },
         },
       ],

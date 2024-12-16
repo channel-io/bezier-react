@@ -1,6 +1,7 @@
 'use client'
 
-import React, { type CSSProperties, forwardRef, memo } from 'react'
+import { type CSSProperties, forwardRef, memo } from 'react'
+import * as React from 'react'
 
 import * as SliderPrimitive from '@radix-ui/react-slider'
 import classNames from 'classnames'

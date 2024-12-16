@@ -1,12 +1,14 @@
 'use client'
 
-import React, {
+import {
   type ForwardedRef,
+  type JSX,
   forwardRef,
   useEffect,
   useMemo,
   useState,
 } from 'react'
+import * as React from 'react'
 
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import * as TabsPrimitive from '@radix-ui/react-tabs'

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import figma from '@figma/code-connect'
 
 import { IconButton as AlphaIconButton } from './IconButton'
@@ -15,12 +13,12 @@ figma.connect(
         'medium (default)': 'm',
         large: 'l',
         xlarge: 'xl',
-      }),
+      } as const),
       variant: figma.enum('variant', {
         primary: 'primary',
         secondary: 'secondary',
         tertiary: 'tertiary',
-      }),
+      } as const),
       color: figma.enum('color', {
         blue: 'blue',
         cobalt: 'cobalt',
@@ -32,11 +30,11 @@ figma.connect(
         darkGrey: 'dark-grey',
         lightGrey: 'light-grey',
         'white (absolute)': 'white-absolute',
-      }),
+      } as const),
       shape: figma.enum('shape', {
         circle: 'circle',
         rectangle: 'rectangle',
-      }),
+      } as const),
       /**
        * TODO: Add Code Connect for Icon component
        * @see {@link https://github.com/figma/code-connect/blob/main/cli/scripts/README.md}

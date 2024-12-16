@@ -1,6 +1,6 @@
 'use client'
 
-import React, { type CSSProperties, forwardRef } from 'react'
+import { type CSSProperties, forwardRef } from 'react'
 
 import classNames from 'classnames'
 

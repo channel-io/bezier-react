@@ -1,5 +1,5 @@
 /* External dependencies */
-import React, { useMemo } from 'react'
+import { useMemo } from 'react'
 import { Button } from '@channel.io/bezier-react'
 import { ArrowRightIcon, FlagFilledIcon, ArrowLeftIcon, AllIcon } from '@channel.io/bezier-icons'
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 

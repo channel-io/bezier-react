@@ -105,8 +105,10 @@
           (
             (var(--b-segmented-control-item-count) - 1) *
               var(--b-divider-thickness)
-          ) - (var(--b-segmented-control-padding) * 2)
-      ) / var(--b-segmented-control-item-count)
+          ) -
+          (var(--b-segmented-control-padding) * 2)
+      ) /
+      var(--b-segmented-control-item-count)
   );
   height: calc(
     var(--b-segmented-control-height) - (var(--b-segmented-control-padding) * 2)

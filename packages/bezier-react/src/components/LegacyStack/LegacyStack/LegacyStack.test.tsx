@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { render } from '~/src/utils/test'
 
 import { LegacyStackItem } from '~/src/components/LegacyStack/LegacyStackItem'

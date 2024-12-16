@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 
 import {
@@ -40,28 +40,30 @@ import useToastProviderValues from './useToastContextValues'
 import styles from './Toast.module.scss'
 
 function getToastPreset(preset: ToastPreset) {
-  return {
-    success: {
-      icon: CheckCircleFilledIcon,
-      appearance: 'success',
-    },
-    error: {
-      icon: ErrorTriangleFilledIcon,
-      appearance: 'error',
-    },
-    offline: {
-      icon: WifiOffIcon,
-      appearance: 'warning',
-    },
-    online: {
-      icon: WifiIcon,
-      appearance: 'success',
-    },
-    default: {
-      icon: InfoFilledIcon,
-      appearance: 'info',
-    },
-  }[preset]
+  return (
+    {
+      success: {
+        icon: CheckCircleFilledIcon,
+        appearance: 'success',
+      },
+      error: {
+        icon: ErrorTriangleFilledIcon,
+        appearance: 'error',
+      },
+      offline: {
+        icon: WifiOffIcon,
+        appearance: 'warning',
+      },
+      online: {
+        icon: WifiIcon,
+        appearance: 'success',
+      },
+      default: {
+        icon: InfoFilledIcon,
+        appearance: 'info',
+      },
+    } as const
+  )[preset]
 }
 
 export function Toast({
@@ -78,7 +80,7 @@ export function Toast({
 }: ToastProps) {
   const { window } = useWindow()
 
-  const dismissTimer = useRef<ReturnType<Window['setTimeout']>>()
+  const dismissTimer = useRef<ReturnType<Window['setTimeout']>>(undefined)
 
   const [isSlidingOut, setIsSlidingOut] = useState(false)
 
@@ -154,10 +156,10 @@ export function Toast({
           {isString(content)
             ? content.split('\n').map((str, index) => (
                 // eslint-disable-next-line react/no-array-index-key
-                <React.Fragment key={index}>
+                <Fragment key={index}>
                   {index !== 0 && <br />}
                   {str}
-                </React.Fragment>
+                </Fragment>
               ))
             : content}
         </Text>

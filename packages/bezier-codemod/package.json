@@ -29,12 +29,12 @@
     "@inkjs/ui": "^2.0.0",
     "ink": "^5.1.0",
     "meow": "^13.2.0",
-    "react": "^18.3.1",
+    "react": "^19.0.0",
     "ts-morph": "^24.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
-    "@types/react": "^18.3.16",
+    "@types/react": "^19.0.1",
     "eslint-config-bezier": "workspace:*",
     "tsconfig": "workspace:*"
   },

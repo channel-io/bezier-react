@@ -1,5 +1,3 @@
-import React from 'react'
-
 import figma from '@figma/code-connect'
 
 import { StatusBadge as AlphaStatusBadge } from './StatusBadge'
@@ -12,7 +10,7 @@ figma.connect(
       size: figma.enum('size', {
         medium: 'm',
         large: 'l',
-      }),
+      } as const),
       online: figma.boolean('online'),
       doNotDisturb: figma.boolean('doNotDisturb'),
     },

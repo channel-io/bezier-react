@@ -1,6 +1,6 @@
 'use client'
 
-import React, { forwardRef, useMemo } from 'react'
+import { Children, forwardRef, isValidElement, useMemo } from 'react'
 
 import * as ToggleGroupPrimitive from '@radix-ui/react-toggle-group'
 import classNames from 'classnames'
@@ -58,8 +58,8 @@ export const ToggleButtonGroup = forwardRef<
     }
   }
 
-  const ToggleButtons = React.Children.map(children, (toggleButton) => {
-    if (!React.isValidElement<ToggleButtonProps>(toggleButton)) {
+  const ToggleButtons = Children.map(children, (toggleButton) => {
+    if (!isValidElement<ToggleButtonProps>(toggleButton)) {
       return null
     }
 

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { Center } from './Center'

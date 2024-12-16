@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { render } from '~/src/utils/test'
 
 import { DIVIDER_TEST_ID, Divider } from './Divider'

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 import { CheckIcon } from '@channel.io/bezier-icons'
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'

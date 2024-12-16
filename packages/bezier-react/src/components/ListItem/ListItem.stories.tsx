@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import { InboxIcon } from '@channel.io/bezier-icons'
 import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
