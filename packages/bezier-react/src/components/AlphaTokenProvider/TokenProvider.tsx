@@ -14,7 +14,7 @@ import {
 } from './TokenProvider.types'
 
 const [TokenContextProvider, useTokenContext] =
-  // FIXME: (@ed) Change the name to TokenProvider after the migration is done
+  // FIXME: (@ed) Remove Alpha prefix after the migration is done
   createContext<TokenContextValue | null>(null, 'AlphaTokenProvider')
 
 export { useTokenContext as useAlphaTokenContext }

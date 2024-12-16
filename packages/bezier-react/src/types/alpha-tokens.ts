@@ -13,12 +13,14 @@ export type GlobalToken = typeof tokens.global
 /**
  * FIXME: Separate functional and semantic tokens?
  */
-export type ThemeToken = typeof tokens.lightTheme | typeof tokens.darkTheme
+export type SemanticToken = typeof tokens.lightTheme | typeof tokens.darkTheme
 
 // NOTE: (@ed) Do not remove alpha- prefix to match CSS variable names
 export type FlattenGlobalToken = ExtractKeys<GlobalToken[keyof GlobalToken]>
-export type FlattenThemeToken = ExtractKeys<ThemeToken[keyof ThemeToken]>
-export type FlattenAllToken = FlattenGlobalToken | FlattenThemeToken
+export type FlattenSemanticToken = ExtractKeys<
+  SemanticToken[keyof SemanticToken]
+>
+export type FlattenAllToken = FlattenGlobalToken | FlattenSemanticToken
 
 export type GlobalColor = RemovePrefix<
   'alpha-color',
@@ -28,13 +30,28 @@ export type GlobalColor = RemovePrefix<
 /**
  * Functional & Semantic color tokens
  */
-export type ThemeColor = RemovePrefix<'alpha-color', keyof ThemeToken['color']>
+export type BaseSemanticColor = RemovePrefix<
+  'alpha-color',
+  keyof SemanticToken['color']
+>
 
-export type BackgroundFunctionalColor = StartsWithPrefix<'bg', ThemeColor>
-export type ForegroundFunctionalColor = StartsWithPrefix<'fg', ThemeColor>
-export type SurfaceFunctionalColor = StartsWithPrefix<'surface', ThemeColor>
-export type ShadowFunctionalColor = StartsWithPrefix<'shadow', ThemeColor>
-export type DimFunctionalColor = StartsWithPrefix<'dim', ThemeColor>
+export type BackgroundFunctionalColor = StartsWithPrefix<
+  'bg',
+  BaseSemanticColor
+>
+export type ForegroundFunctionalColor = StartsWithPrefix<
+  'fg',
+  BaseSemanticColor
+>
+export type SurfaceFunctionalColor = StartsWithPrefix<
+  'surface',
+  BaseSemanticColor
+>
+export type ShadowFunctionalColor = StartsWithPrefix<
+  'shadow',
+  BaseSemanticColor
+>
+export type DimFunctionalColor = StartsWithPrefix<'dim', BaseSemanticColor>
 
 export type FunctionalColor =
   | BackgroundFunctionalColor
@@ -45,7 +62,7 @@ export type FunctionalColor =
 
 export type SemanticColor = StartsWithPrefix<
   'primary' | 'critical' | 'warning' | 'accent' | 'success',
-  ThemeColor
+  BaseSemanticColor
 >
 
 export type Color = GlobalColor | FunctionalColor | SemanticColor
@@ -65,8 +82,8 @@ export type GlobalGradient = RemovePrefix<
   keyof GlobalToken['gradient']
 >
 
-export type Shadow = RemovePrefix<'alpha-shadow', keyof ThemeToken['shadow']>
+export type Shadow = RemovePrefix<'alpha-shadow', keyof SemanticToken['shadow']>
 export type FunctionalGradient = RemovePrefix<
   'alpha-gradient',
-  keyof ThemeToken['gradient']
+  keyof SemanticToken['gradient']
 >

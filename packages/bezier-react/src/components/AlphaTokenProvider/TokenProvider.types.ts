@@ -1,12 +1,12 @@
 import {
   type GlobalToken,
+  type SemanticToken,
   type ThemeName,
-  type ThemeToken,
 } from '~/src/types/alpha-tokens'
 
 export interface ThemeSpecificTokens {
   global: GlobalToken
-  theme: ThemeToken
+  theme: SemanticToken
 }
 
 export interface TokenContextValue {
