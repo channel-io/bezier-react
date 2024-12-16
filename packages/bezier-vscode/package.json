@@ -27,7 +27,7 @@
     "server"
   ],
   "installConfig": {
-    "hoistingLimits": "workspaces"
+    "hoistingLimits": "dependencies"
   },
   "activationEvents": [
     "onLanguage:typescript",
