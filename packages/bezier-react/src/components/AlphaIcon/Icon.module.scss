@@ -1,0 +1,25 @@
+@use '../../styles/mixins/dimension';
+
+$size-map: (
+  xxxs: 10,
+  xxs: 12,
+  xs: 16,
+  s: 20,
+  m: 24,
+  l: 36,
+  xl: 44,
+);
+
+.Icon {
+  --b-icon-color: initial;
+
+  flex: 0 0 auto;
+  color: var(--b-icon-color);
+  transition: color var(--transition-s);
+
+  @each $size, $value in $size-map {
+    &:where(.size-#{$size}) {
+      @include dimension.square(#{$value}px);
+    }
+  }
+}
