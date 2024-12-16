@@ -1,5 +1,11 @@
 # @channel.io/bezier-icons
 
+## 0.39.0
+
+### Minor Changes
+
+- Enable new JSX transform and update React peer dependency to be optional for version 17 and above ([#2559](https://github.com/channel-io/bezier-react/pull/2559)) by @sungik-choi
+
 ## 0.38.0
 
 ### Minor Changes
