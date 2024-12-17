@@ -14,4 +14,3 @@ tsconfig.tsbuildinfo
 # Ignore parent directories
 ../**
 ../../**
-node_modules
