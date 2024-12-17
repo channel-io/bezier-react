@@ -1,0 +1,9 @@
+@use '../mixins/dimension';
+
+$sizes: 10, 12, 16, 20, 24, 30, 36, 42, 48, 60, 72, 90, 120;
+
+@each $size in $sizes {
+  :where(.size-#{$size}) {
+    @include dimension.square(var(--alpha-source-size-#{$size}));
+  }
+}
