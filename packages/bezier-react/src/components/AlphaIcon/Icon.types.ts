@@ -1,13 +1,17 @@
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
-import type { FunctionalColor, SemanticColor } from '~/src/types/alpha-tokens'
+import type {
+  FunctionalColor,
+  SemanticColor,
+  SourceSize,
+} from '~/src/types/alpha-tokens'
 import {
   type BezierComponentProps,
   type MarginProps,
   type SizeProps,
 } from '~/src/types/props'
 
-export type IconSize = 'xs' | 's' | 'm' | 'l' | 'xl'
+export type IconSize = SourceSize
 
 interface IconOwnProps {
   /**

@@ -5,6 +5,7 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 
+import { getSourceSizeClassName } from '~/src/types/alpha-props-helpers'
 import { getMarginStyles, splitByMarginProps } from '~/src/types/props-helpers'
 import { alphaColorTokenCssVar } from '~/src/utils/style'
 
@@ -21,7 +22,7 @@ export const Icon = memo(
 
     const {
       className,
-      size = 'm',
+      size = '24',
       color,
       source: SourceElement,
       style,
@@ -40,7 +41,7 @@ export const Icon = memo(
         }
         className={classNames(
           styles.Icon,
-          styles[`size-${size}`],
+          getSourceSizeClassName(size),
           marginStyles.className,
           className
         )}
