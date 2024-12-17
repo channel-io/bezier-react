@@ -19,7 +19,8 @@
       "import": {
         "types": "./dist/types/esm/index.d.mts",
         "default": "./dist/esm/index.mjs"
-      }
+      },
+      "sass": "./dist/scss/index.scss"
     },
     "./alpha": {
       "require": {
@@ -29,10 +30,13 @@
       "import": {
         "types": "./dist/types/alpha/esm/index.d.mts",
         "default": "./dist/alpha/esm/index.mjs"
-      }
+      },
+      "sass": "./dist/alpha/scss/index.scss"
     },
     "./css/*": "./dist/css/*",
-    "./alpha/css/*": "./dist/alpha/css/*"
+    "./scss/*": "./dist/scss/*",
+    "./alpha/css/*": "./dist/alpha/css/*",
+    "./alpha/scss/*": "./dist/alpha/scss/*"
   },
   "typesVersions": {
     "*": {
@@ -42,7 +46,8 @@
     }
   },
   "sideEffects": [
-    "**/*.css"
+    "**/*.css",
+    "**/*.scss"
   ],
   "files": [
     "dist"
