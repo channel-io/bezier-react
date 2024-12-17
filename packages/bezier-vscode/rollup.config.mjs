@@ -1,22 +1,43 @@
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
-import { defineConfig } from 'rollup'
 
-export default defineConfig({
-  input: 'src/client.ts',
-  output: {
-    dir: 'dist',
-    format: 'cjs',
+/**
+ * @type {import('rollup').RollupOptions}
+ */
+export default [
+  {
+    input: 'src/server.ts',
+    output: {
+      file: 'dist/server.js',
+      format: 'cjs',
+    },
+    external: ['vscode'],
+    plugins: [
+      nodeResolve({
+        browser: false,
+        preferBuiltins: true,
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      }),
+      commonjs(),
+      typescript(),
+    ],
   },
-  external: ['vscode'],
-  plugins: [
-    nodeResolve({
-      browser: false,
-      preferBuiltins: true,
-      extensions: ['.js', '.jsx', '.ts', '.tsx'], // 해석할 파일 확장자
-    }),
-    commonjs(),
-    typescript(),
-  ],
-})
+  {
+    input: 'src/client.ts',
+    output: {
+      file: 'dist/client.js',
+      format: 'cjs',
+    },
+    external: ['vscode'],
+    plugins: [
+      nodeResolve({
+        browser: false,
+        preferBuiltins: true,
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      }),
+      commonjs(),
+      typescript(),
+    ],
+  },
+]

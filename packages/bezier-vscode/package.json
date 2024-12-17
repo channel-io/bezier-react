@@ -26,9 +26,6 @@
     "client",
     "server"
   ],
-  "installConfig": {
-    "hoistingLimits": "dependencies"
-  },
   "activationEvents": [
     "onLanguage:typescript",
     "onLanguage:scss",
