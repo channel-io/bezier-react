@@ -6763,13 +6763,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/vscode@npm:^1.96.0":
-  version: 1.96.0
-  resolution: "@types/vscode@npm:1.96.0"
-  checksum: 10/30c62d120eb1d269f7e62976f89d014b8c891d434628b40c635215daba9957e9d8f667f17426acc55d9cc152a4da388191ee21531e7fdd8ef5960762ee86ec47
-  languageName: node
-  linkType: hard
-
 "@types/yargs-parser@npm:*":
   version: 21.0.3
   resolution: "@types/yargs-parser@npm:21.0.3"
@@ -8172,36 +8165,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"bezier-vscode-client@workspace:packages/bezier-vscode/client":
-  version: 0.0.0-use.local
-  resolution: "bezier-vscode-client@workspace:packages/bezier-vscode/client"
-  dependencies:
-    "@types/vscode": "npm:^1.75.1"
-    "@vscode/test-electron": "npm:^2.3.8"
-    vscode-languageclient: "npm:^8.1.0"
-  languageName: unknown
-  linkType: soft
-
-"bezier-vscode-server@workspace:packages/bezier-vscode/server":
-  version: 0.0.0-use.local
-  resolution: "bezier-vscode-server@workspace:packages/bezier-vscode/server"
-  dependencies:
-    "@channel.io/bezier-tokens": "npm:0.2.13"
-    vscode-languageserver: "npm:^9.0.1"
-    vscode-languageserver-textdocument: "npm:^1.0.11"
-  languageName: unknown
-  linkType: soft
-
 "bezier-vscode@workspace:packages/bezier-vscode":
   version: 0.0.0-use.local
   resolution: "bezier-vscode@workspace:packages/bezier-vscode"
   dependencies:
     "@channel.io/bezier-tokens": "npm:0.2.13"
-    "@types/node": "npm:^22.10.2"
-    "@types/vscode": "npm:^1.96.0"
-    vscode-languageclient: "npm:^9.0.1"
+    "@types/vscode": "npm:^1.75.1"
+    "@vscode/test-electron": "npm:^2.3.8"
+    vscode-languageclient: "npm:^8.1.0"
     vscode-languageserver: "npm:^9.0.1"
-    vscode-languageserver-textdocument: "npm:^1.0.12"
+    vscode-languageserver-textdocument: "npm:^1.0.11"
   languageName: unknown
   linkType: soft
 
@@ -19833,17 +19806,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vscode-languageclient@npm:^9.0.1":
-  version: 9.0.1
-  resolution: "vscode-languageclient@npm:9.0.1"
-  dependencies:
-    minimatch: "npm:^5.1.0"
-    semver: "npm:^7.3.7"
-    vscode-languageserver-protocol: "npm:3.17.5"
-  checksum: 10/56acdb78a153e39d9f97494833ae74ff49b143034f4ef8d0bd3817e39c9278d1e6db7269875d0b3fc173d9717b5806b6812bbac7d85b8325c37ca142383bfcdb
-  languageName: node
-  linkType: hard
-
 "vscode-languageserver-protocol@npm:3.17.3":
   version: 3.17.3
   resolution: "vscode-languageserver-protocol@npm:3.17.3"
@@ -19864,7 +19826,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vscode-languageserver-textdocument@npm:^1.0.11, vscode-languageserver-textdocument@npm:^1.0.12":
+"vscode-languageserver-textdocument@npm:^1.0.11":
   version: 1.0.12
   resolution: "vscode-languageserver-textdocument@npm:1.0.12"
   checksum: 10/2bc0fde952d40f35a31179623d1491b0fafdee156aaf58557f40f5d394a25fc84826763cdde55fa6ce2ed9cd35a931355ad6dd7fe5db82e7f21e5d865f0af8c6

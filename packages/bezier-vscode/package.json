@@ -71,13 +71,13 @@
     "publish": "yarn dlx vsce publish --no-dependencies --skip-duplicate"
   },
   "dependencies": {
-    "vscode-languageclient": "^9.0.1",
+    "@channel.io/bezier-tokens": "0.2.13",
+    "vscode-languageclient": "^8.1.0",
     "vscode-languageserver": "^9.0.1",
-    "vscode-languageserver-textdocument": "^1.0.12"
+    "vscode-languageserver-textdocument": "^1.0.11"
   },
   "devDependencies": {
-    "@channel.io/bezier-tokens": "0.2.13",
-    "@types/node": "^22.10.2",
-    "@types/vscode": "^1.96.0"
+    "@types/vscode": "^1.75.1",
+    "@vscode/test-electron": "^2.3.8"
   }
 }
