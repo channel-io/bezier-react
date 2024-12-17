@@ -77,6 +77,10 @@ export type Typography = RemovePrefix<
   'alpha-typography',
   keyof GlobalToken['typography']
 >
+export type SourceSize = RemovePrefix<
+  'alpha-source-size',
+  keyof GlobalToken['source-size']
+>
 export type GlobalGradient = RemovePrefix<
   'alpha-gradient',
   keyof GlobalToken['gradient']
