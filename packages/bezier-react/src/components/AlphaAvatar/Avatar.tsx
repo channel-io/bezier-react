@@ -4,6 +4,7 @@ import { forwardRef, isValidElement, useMemo } from 'react'
 
 import classNames from 'classnames'
 
+import { getSourceSizeClassName } from '~/src/types/alpha-props-helpers'
 import { isEmpty } from '~/src/utils/type'
 
 import { useAvatarContext } from '~/src/components/AlphaAvatar/AvatarSizeContext'
@@ -127,11 +128,13 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
     )
   }, [status, size, children])
 
+  console.log(getSourceSizeClassName(size))
+
   return (
     <div
       className={classNames(
         styles.Avatar,
-        styles[`size-${size}`],
+        getSourceSizeClassName(size),
         disabled && styles.disabled,
         className
       )}

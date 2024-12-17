@@ -37,6 +37,8 @@ function getRestAvatarListCountText(count: number, max: number) {
 function getProperIconSize(size: AlphaAvatarSize) {
   return (
     {
+      10: 'xxs',
+      12: 'xxs',
       16: 'xxs',
       20: 'xxs',
       24: 'xs',
@@ -44,6 +46,7 @@ function getProperIconSize(size: AlphaAvatarSize) {
       36: 'm',
       42: 'm',
       48: 'l',
+      60: 'l',
       72: 'l',
       90: 'l',
       120: 'l',
@@ -55,6 +58,8 @@ function getProperIconSize(size: AlphaAvatarSize) {
 function getProperTypoSize(size: AlphaAvatarSize) {
   return (
     {
+      10: '12',
+      12: '12',
       16: '12',
       20: '12',
       24: '13',
@@ -62,6 +67,7 @@ function getProperTypoSize(size: AlphaAvatarSize) {
       36: '16',
       42: '18',
       48: '24',
+      60: '24',
       72: '24',
       90: '24',
       120: '24',
@@ -202,11 +208,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
         <div
           role="group"
           ref={forwardedRef}
-          className={classNames(
-            styles.AvatarGroup,
-            styles[`size-${size}`],
-            className
-          )}
+          className={classNames(styles.AvatarGroup, className)}
           style={
             {
               '--b-avatar-group-spacing': px(spacing),

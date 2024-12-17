@@ -1,7 +1,5 @@
 @use '../../styles/mixins/dimension';
 
-$avatar-sizes: 16, 20, 24, 30, 36, 42, 48, 72, 90, 120;
-
 .Avatar {
   position: relative;
   display: block;
@@ -9,12 +7,6 @@ $avatar-sizes: 16, 20, 24, 30, 36, 42, 48, 72, 90, 120;
   &:where(.disabled) {
     pointer-events: none;
     opacity: var(--alpha-opacity-disabled);
-  }
-
-  @each $size in $avatar-sizes {
-    &:where(.size-#{$size}) {
-      @include dimension.square(#{$size}px);
-    }
   }
 }
 

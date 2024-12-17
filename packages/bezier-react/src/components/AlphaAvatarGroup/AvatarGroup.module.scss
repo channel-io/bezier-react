@@ -1,18 +1,9 @@
-@use '../AlphaAvatar/Avatar.module';
-
 .AvatarGroup {
   --b-avatar-group-spacing: 0;
-  --b-avatar-group-size: 0;
 
   position: relative;
   z-index: var(--z-index-base);
   display: flex;
-
-  @each $size in Avatar.$avatar-sizes {
-    &:where(.size-#{$size}) {
-      --b-avatar-group-size: #{$size}px;
-    }
-  }
 
   & > * + * {
     margin-left: var(--b-avatar-group-spacing);
@@ -49,5 +40,5 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: var(--b-avatar-group-size);
+  height: 100%;
 }
