@@ -9,10 +9,9 @@ scripts
 src
 rollup.config.js
 tsconfig.tsbuildinfo
+.yarn
 
 # Ignore parent directories
 ../**
 ../../**
-node_modules/**
-!client/node_modules
-!server/node_modules
+node_modules

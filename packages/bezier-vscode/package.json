@@ -34,7 +34,7 @@
     "onLanguage:scss",
     "onLanguage:css"
   ],
-  "main": "./client/dist/client.js",
+  "main": "./dist/client.js",
   "contributes": {
     "configuration": {
       "type": "object",
@@ -61,11 +61,13 @@
     }
   },
   "scripts": {
-    "build": "tsc --build --verbose",
-    "dev": "tsc -b -w",
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
     "lint": "TIMING=1 eslint --cache .",
     "typecheck": "tsc --noEmit",
-    "clean": "rm -rf node_modules .turbo client/dist client/node_modules server/dist server/node_modules",
+    "clean": "run-s 'clean:*'",
+    "clean:build": "rm -rf dist",
+    "clean:cache": "rm -rf node_modules .turbo",
     "vscode:prepublish": "yarn build",
     "package": "yarn dlx vsce package --no-dependencies",
     "publish": "yarn dlx vsce publish --no-dependencies --skip-duplicate"
@@ -77,7 +79,10 @@
     "vscode-languageserver-textdocument": "^1.0.11"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^12.1.2",
     "@types/vscode": "^1.75.1",
-    "@vscode/test-electron": "^2.3.8"
+    "@vscode/test-electron": "^2.3.8",
+    "rollup": "^4.11.0"
   }
 }
