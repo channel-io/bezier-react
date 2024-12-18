@@ -37,12 +37,20 @@ export const Icon = memo(
       color,
       source: SourceElement,
       style,
+      'aria-hidden': ariaHidden,
+      'aria-label': ariaLabel,
+      role = 'img',
       ...rest
     } = marginRest
+
+    const isDecorative = !ariaLabel && ariaHidden !== false
 
     return (
       <SourceElement
         ref={forwardedRef}
+        role={role}
+        aria-hidden={isDecorative}
+        aria-label={ariaLabel}
         style={
           {
             '--b-icon-color': alphaColorTokenCssVar(color),
