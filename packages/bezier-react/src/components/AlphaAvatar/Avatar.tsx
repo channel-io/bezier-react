@@ -128,8 +128,6 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
     )
   }, [status, size, children])
 
-  console.log(getSourceSizeClassName(size))
-
   return (
     <div
       className={classNames(
