@@ -22,10 +22,6 @@
   "engines": {
     "vscode": "^1.96.0"
   },
-  "workspaces": [
-    "client",
-    "server"
-  ],
   "activationEvents": [
     "onLanguage:typescript",
     "onLanguage:scss",
