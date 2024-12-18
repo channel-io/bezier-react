@@ -9,8 +9,8 @@ scripts
 src
 rollup.config.js
 tsconfig.tsbuildinfo
-node_modules
+.yarn
 
 # Ignore parent directories
-../bezier-*/**
+../**
 ../../**

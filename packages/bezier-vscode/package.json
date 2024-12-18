@@ -20,7 +20,7 @@
     "extension"
   ],
   "engines": {
-    "vscode": "^1.96.0"
+    "vscode": "^1.85.0"
   },
   "activationEvents": [
     "onLanguage:typescript",
@@ -54,22 +54,28 @@
     }
   },
   "scripts": {
-    "build": "tsc --build --verbose",
-    "dev": "tsc -b -w",
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
     "lint": "TIMING=1 eslint --cache .",
     "typecheck": "tsc --noEmit",
-    "clean": "rm -rf dist",
+    "clean": "run-s 'clean:*'",
+    "clean:build": "rm -rf dist",
+    "clean:cache": "rm -rf node_modules .turbo",
     "vscode:prepublish": "yarn build",
+    "package": "yarn dlx vsce package --no-dependencies",
     "publish": "yarn dlx vsce publish --no-dependencies --skip-duplicate"
   },
   "dependencies": {
-    "vscode-languageclient": "^9.0.1",
+    "@channel.io/bezier-tokens": "0.2.13",
+    "vscode-languageclient": "^8.1.0",
     "vscode-languageserver": "^9.0.1",
-    "vscode-languageserver-textdocument": "^1.0.12"
+    "vscode-languageserver-textdocument": "^1.0.11"
   },
   "devDependencies": {
-    "@channel.io/bezier-tokens": "0.2.13",
-    "@types/node": "^22.10.2",
-    "@types/vscode": "^1.96.0"
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-electron": "^2.3.8",
+    "rollup": "^4.28.1"
   }
 }
