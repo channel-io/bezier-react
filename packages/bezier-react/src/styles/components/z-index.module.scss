@@ -1,6 +1,7 @@
-$z-indices: hidden, base, floating, overlay, modal, toast, tooltip, important;
+@use 'sass:map';
+@use '../../../../../node_modules/@channel.io/bezier-tokens/dist/scss' as *;
 
-@each $z-index in $z-indices {
+@each $z-index in map.keys(map.get($tokens, 'global', 'z-index')) {
   :where(.z-index-#{$z-index}) {
     /* stylelint-disable-next-line bezier/validate-token */
     z-index: var(--z-index-#{$z-index});

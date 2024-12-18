@@ -6,6 +6,9 @@ export const toCamelCase = (str: string) =>
     .toLowerCase()
     .replace(/[^a-zA-Z0-9]+(.)/g, (_, char) => char.toUpperCase())
 
+export const toKebabCase = (str: string) =>
+  str.replace(/([A-Z])/g, '-$1').toLowerCase()
+
 export const extractNumber = (str: string) =>
   str.match(/-?\d+(\.\d+)?/g)?.join('')
 

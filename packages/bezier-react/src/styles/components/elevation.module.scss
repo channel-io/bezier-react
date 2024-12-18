@@ -1,6 +1,7 @@
-$elevations: 1, 2, 3, 4, 5, 6;
+@use 'sass:map';
+@use '../../../../../node_modules/@channel.io/bezier-tokens/dist/scss' as *;
 
-@each $ev in $elevations {
+@each $ev in map.keys(map.get($tokens, 'light-theme', 'ev')) {
   :where(.elevation-#{$ev}) {
     /* stylelint-disable-next-line bezier/validate-token */
     box-shadow: var(--ev-#{$ev});

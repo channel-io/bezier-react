@@ -6,6 +6,7 @@ import StyleDictionary, {
 } from 'style-dictionary'
 
 import { buildJsIndex } from './build-js-index'
+import { buildScssIndex } from './build-scss-index'
 import {
   alphaCustomCss,
   alphaCustomJsCjs,
@@ -14,6 +15,7 @@ import {
   customJsEsm,
 } from './lib/format'
 import { CSSTransforms } from './lib/transform'
+import { toKebabCase } from './lib/utils'
 import { mergeCss } from './merge-css'
 
 const CustomTransforms = [...Object.values(CSSTransforms)]
@@ -24,6 +26,7 @@ const BUILD_PATH = {
   CJS: 'cjs',
   ESM: 'esm',
   CSS: 'css',
+  SCSS: 'scss',
 }
 
 const TokenBuilder = CustomTransforms.reduce(
@@ -125,6 +128,21 @@ function defineConfig({
         ],
         transforms,
       }),
+      'web/scss': defineWebPlatform({
+        buildPath: `${basePath}/${BUILD_PATH.SCSS}/`,
+        files: [
+          {
+            destination: `${toKebabCase(destination)}.scss`,
+            format: 'scss/map-deep',
+            filter: ({ filePath }) =>
+              source.some((src) => minimatch(filePath, src)),
+            options: {
+              outputReferences: false,
+            },
+          },
+        ],
+        transforms,
+      }),
     },
   }
 }
@@ -207,6 +225,13 @@ async function main() {
     `${BUILD_PATH.BASE_ALPHA}/${BUILD_PATH.CSS}`,
   ]) {
     await mergeCss(buildPath)
+  }
+
+  for (const buildPath of [
+    `${BUILD_PATH.BASE}/${BUILD_PATH.SCSS}`,
+    `${BUILD_PATH.BASE_ALPHA}/${BUILD_PATH.SCSS}`,
+  ]) {
+    await buildScssIndex({ buildPath })
   }
 
   for (const options of [
