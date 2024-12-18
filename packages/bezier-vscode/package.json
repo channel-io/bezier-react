@@ -20,7 +20,7 @@
     "extension"
   ],
   "engines": {
-    "vscode": "^1.96.0"
+    "vscode": "^1.85.0"
   },
   "activationEvents": [
     "onLanguage:typescript",
@@ -74,7 +74,7 @@
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^12.1.2",
-    "@types/vscode": "^1.75.1",
+    "@types/vscode": "^1.85.0",
     "@vscode/test-electron": "^2.3.8",
     "rollup": "^4.11.0"
   }
