@@ -1,43 +1,39 @@
 @use '../../styles/mixins/dimension';
 
-@use '../Icon/Icon.module';
-
 $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
 .IconButton {
+  --b-icon-button-padding: initial;
+
   position: relative;
   box-sizing: border-box;
+  padding: var(--b-icon-button-padding);
   transition: background-color var(--transition-s);
 
   /* dimension */
   &:where(.size-xs) {
+    --b-icon-button-padding: 2px;
     @include dimension.square(20px);
-
-    padding: 2px;
   }
 
   &:where(.size-s) {
+    --b-icon-button-padding: 4px;
     @include dimension.square(24px);
-
-    padding: 4px;
   }
 
   &:where(.size-m) {
+    --b-icon-button-padding: 8px;
     @include dimension.square(36px);
-
-    padding: 8px;
   }
 
   &:where(.size-l) {
+    --b-icon-button-padding: 12px;
     @include dimension.square(44px);
-
-    padding: 12px;
   }
 
   &:where(.size-xl) {
+    --b-icon-button-padding: 15px;
     @include dimension.square(54px);
-
-    padding: 15px;
   }
 
   /* background-color */
@@ -265,18 +261,16 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
   & :where(.ButtonLoader) {
     position: absolute;
-    inset: 0;
+    top: var(--b-icon-button-padding);
+    left: var(--b-icon-button-padding);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    @each $size, $value in Icon.$size-map {
-      &:where(.size-#{$size}) {
-        & :is(.Loader) {
-          @include dimension.square(#{$value}px);
-        }
-      }
+    & :is(.Loader) {
+      width: inherit;
+      height: inherit;
     }
   }
 }
