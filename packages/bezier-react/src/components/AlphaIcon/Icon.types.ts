@@ -30,6 +30,21 @@ interface IconOwnProps {
    * Color from the design system's functional or semantic color.
    */
   color?: FunctionalColor | SemanticColor
+  /**
+   * Accessible label for the icon
+   * @example "Close", "Menu", "More"
+   */
+  'aria-label'?: string
+  /**
+   * Whether to hide the icon from screen readers
+   * @default true when `aria-label` is not provided
+   */
+  'aria-hidden'?: boolean
+  /**
+   * ARIA role
+   * @default "img"
+   */
+  role?: string
 }
 
 export interface IconProps
