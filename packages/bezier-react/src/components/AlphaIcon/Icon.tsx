@@ -13,8 +13,6 @@ import { type IconProps } from './Icon.types'
 
 import styles from './Icon.module.scss'
 
-export const ICON_TEST_ID = 'bezier-alpha-icon'
-
 export const Icon = memo(
   forwardRef<SVGSVGElement, IconProps>(function Icon(props, forwardedRef) {
     const [marginProps, marginRest] = splitByMarginProps(props)
@@ -45,7 +43,6 @@ export const Icon = memo(
           marginStyles.className,
           className
         )}
-        data-testid={ICON_TEST_ID}
         {...rest}
       />
     )
