@@ -1,5 +1,16 @@
 # bezier-vscode
 
+## 0.4.0
+
+### Minor Changes
+
+- Fixed bug where autocomplete did not work. ([#2507](https://github.com/channel-io/bezier-react/pull/2507)) by @yangwooseong
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.3.0
+
 ## 0.3.0
 
 ### Minor Changes

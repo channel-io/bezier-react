@@ -1,5 +1,14 @@
 # @channel.io/bezier-react
 
+## 3.0.1
+
+### Patch Changes
+
+- Export the `alphaTokens`, `AlphaTokens`, and `useAlphaTokens` modules. ([#2564](https://github.com/channel-io/bezier-react/pull/2564)) by @sungik-choi
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.3.0
+
 ## 3.0.0
 
 ### Major Changes

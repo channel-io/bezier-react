@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.3.0
+
+### Minor Changes
+
+- Add SCSS support to access design tokens directly through SCSS variables. ([#2568](https://github.com/channel-io/bezier-react/pull/2568)) by @sungik-choi
+
 ## 0.2.13
 
 ### Patch Changes
