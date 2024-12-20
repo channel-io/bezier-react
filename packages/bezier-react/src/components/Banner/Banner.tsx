@@ -96,14 +96,18 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(
         <div className={styles.Center}>
           {isBezierIcon(icon) ? (
             <Icon
-              className={styles.Icon}
+              className={classNames({
+                [styles.Icon]: !iconColor,
+              })}
               source={icon}
               color={iconColor}
               size="s"
             />
           ) : (
             <LegacyIcon
-              className={styles.Icon}
+              className={classNames({
+                [styles.Icon]: !iconColor,
+              })}
               name={icon}
               color={iconColor}
               size="s"
