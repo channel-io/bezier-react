@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 3.0.2
+
+### Patch Changes
+
+- Modify the `iconColor` property of the `Banner` component to override the color. ([#2575](https://github.com/channel-io/bezier-react/pull/2575)) by @yangwooseong
+
 ## 3.0.1
 
 ### Patch Changes
