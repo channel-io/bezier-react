@@ -90,8 +90,9 @@ const tokenGroupPatterns = {
   shadow: /box-shadow:/,
   gradient: /background:|background-image:/,
   'z-index': /z-index:/,
-  // FIXME: delete Exclude when dimension token is removed
-} satisfies Record<Exclude<TokenGroup, 'dimension'>, RegExp>
+  // NOTE: (@ed) `source-size` is used in the internal component
+  // so we don't need to suggest it
+} satisfies Record<Exclude<TokenGroup, 'source-size'>, RegExp>
 
 const allCompletionItems = Object.values(completionItemsByTokenGroup).flat()
 
