@@ -2385,8 +2385,8 @@ __metadata:
   linkType: hard
 
 "@chromatic-com/storybook@npm:^3.2.2":
-  version: 3.2.2
-  resolution: "@chromatic-com/storybook@npm:3.2.2"
+  version: 3.2.3
+  resolution: "@chromatic-com/storybook@npm:3.2.3"
   dependencies:
     chromatic: "npm:^11.15.0"
     filesize: "npm:^10.0.12"
@@ -2395,7 +2395,7 @@ __metadata:
     strip-ansi: "npm:^7.1.0"
   peerDependencies:
     storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
-  checksum: 10/71338edf56cdbc855074c78981f2e1612b364cd864fa99bbda5c0aad147769b9f476de2fd76816102fd504efc5c0c54ba559d5ac9e3828d53278fe7000863d54
+  checksum: 10/6aa32ff8a227c5ada0667457a36d5db1946f9d89b8fb64153150445c8b67f26647aa48a6afce21f6dc2cad4905418f37c2fd0b12d26c3a42a36edf45b52efb7b
   languageName: node
   linkType: hard
 
