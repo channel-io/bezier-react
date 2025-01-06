@@ -5,22 +5,24 @@ import { forwardRef } from 'react'
 import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
+import { getSourceSizeClassName } from '~/src/types/alpha-props-helpers'
+
+import { AlphaIcon } from '~/src/components/AlphaIcon'
 import { type AlphaIconButtonProps } from '~/src/components/AlphaIconButton'
 import { AlphaLoader } from '~/src/components/AlphaLoader'
 import { BaseButton } from '~/src/components/BaseButton'
 import { type ButtonSize } from '~/src/components/Button'
-import { Icon } from '~/src/components/Icon'
 
 import styles from './IconButton.module.scss'
 
 function getIconSize(size: ButtonSize) {
   return (
     {
-      xs: 'xs',
-      s: 'xs',
-      m: 's',
-      l: 's',
-      xl: 'm',
+      xs: '16',
+      s: '16',
+      m: '20',
+      l: '20',
+      xl: '24',
     } as const
   )[size]
 }
@@ -68,7 +70,7 @@ export const IconButton = forwardRef<HTMLButtonElement, AlphaIconButtonProps>(
           )}
         >
           {isBezierIcon(content) ? (
-            <Icon
+            <AlphaIcon
               size={getIconSize(size)}
               source={content}
               className={styles.ButtonIcon}
@@ -82,8 +84,7 @@ export const IconButton = forwardRef<HTMLButtonElement, AlphaIconButtonProps>(
           <div
             className={classNames(
               styles.ButtonLoader,
-              // NOTE: Loader size is the same as icon size
-              styles[`size-${getIconSize(size)}`]
+              getSourceSizeClassName(getIconSize(size))
             )}
           >
             <AlphaLoader
