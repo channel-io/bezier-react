@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - alpha
   pull_request:
     paths:
       - packages/bezier-react/**
