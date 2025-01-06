@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 3.0.3
+
+### Patch Changes
+
+- Add `text-align: left` style to `Banner` component. ([#2577](https://github.com/channel-io/bezier-react/pull/2577)) by @sungik-choi
+
 ## 3.0.2
 
 ### Patch Changes
