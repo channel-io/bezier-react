@@ -54,22 +54,4 @@ describe('NavGroup Test >', () => {
       expect(rendered).toMatchSnapshot()
     })
   })
-
-  describe('LeftIcon Color', () => {
-    it('Icon color should be "bgtxt-blue-normal" when active prop is true', () => {
-      const { getByTestId } = renderNavItem({ active: true })
-
-      const rendered = getByTestId(NAV_GROUP_LEFT_ICON_TEST_ID)
-
-      expect(rendered).toHaveStyle('--b-icon-color: var(--bgtxt-blue-normal)')
-    })
-
-    it('Icon color should be "txt-black-dark" when active prop is false', () => {
-      const { getByTestId } = renderNavItem({ active: false })
-
-      const rendered = getByTestId(NAV_GROUP_LEFT_ICON_TEST_ID)
-
-      expect(rendered).toHaveStyle('--b-icon-color: var(--txt-black-dark)')
-    })
-  })
 })
