@@ -6,7 +6,7 @@ import { LockIcon, MoonFilledIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import { type SemanticColor } from '~/src/types/tokens'
-import { cssVar } from '~/src/utils/style'
+import { colorTokenCssVar } from '~/src/utils/style'
 
 import { Icon } from '~/src/components/Icon'
 
@@ -44,7 +44,7 @@ export const Status = memo(
         ref={forwardedRef}
         style={
           {
-            '--b-status-bg-color': cssVar(backgroundColor),
+            '--b-status-bg-color': colorTokenCssVar(backgroundColor),
             ...style,
           } as CSSProperties
         }
