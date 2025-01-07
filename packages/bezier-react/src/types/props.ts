@@ -1,6 +1,6 @@
 import type { JSX } from 'react'
 
-import { type FunctionalAndSemanticColor } from './alpha-tokens'
+import { type FunctionalAndSemanticColor as AlphaFunctionalAndSemanticColor } from './alpha-tokens'
 import type {
   BackgroundSemanticColor,
   BackgroundTextSemanticColor,
@@ -11,7 +11,9 @@ import type {
   ZIndex,
 } from './tokens'
 
-type LegacyAndAlphaSemanticColor = SemanticColor | FunctionalAndSemanticColor
+type LegacyAndAlphaSemanticColor =
+  | SemanticColor
+  | AlphaFunctionalAndSemanticColor
 
 /**
  * Props for overriding default styles of components. Intended for exceptional use cases where default styles need customization.

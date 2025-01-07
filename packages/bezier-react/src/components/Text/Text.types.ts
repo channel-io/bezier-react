@@ -1,10 +1,10 @@
 import {
   type BezierComponentProps,
   type ChildrenProps,
+  type ColorProps,
   type MarginProps,
   type PolymorphicProps,
 } from '~/src/types/props'
-import { type SemanticColor } from '~/src/types/tokens'
 
 type Typography =
   | '11'
@@ -29,10 +29,6 @@ interface TextOwnProps {
    */
   typo?: Typography
   /**
-   * Color of the text. If no value is specified, it inherits the color of the parent element.
-   */
-  color?: SemanticColor
-  /**
    * Whether the text is bold.
    * @default false
    */
@@ -55,8 +51,9 @@ interface TextOwnProps {
 }
 
 export interface TextProps
-  extends Omit<BezierComponentProps, keyof TextOwnProps>,
+  extends Omit<BezierComponentProps, keyof TextOwnProps | keyof ColorProps>,
     PolymorphicProps,
     ChildrenProps,
+    ColorProps,
     MarginProps,
     TextOwnProps {}

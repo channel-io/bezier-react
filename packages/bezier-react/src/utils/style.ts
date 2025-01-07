@@ -1,6 +1,6 @@
 import {
-  type Color,
-  type FunctionalAndSemanticColor,
+  type Color as AlphaColor,
+  type FunctionalAndSemanticColor as AlphaFunctionalAndSemanticColor,
 } from '~/src/types/alpha-tokens'
 import {
   type FlattenAllToken,
@@ -63,7 +63,7 @@ export const tokenCssVar = cssVar as <
  * NOTE: (@ed) Converts a legacy color token to alpha color token.
  * **Should be removed after the migration is complete.**
  */
-function alphaColorTokenCssVar<ColorToken extends Color | undefined>(
+function alphaColorTokenCssVar<ColorToken extends AlphaColor | undefined>(
   colorToken: ColorToken
 ) {
   return !isNil(colorToken)
@@ -76,7 +76,7 @@ function alphaColorTokenCssVar<ColorToken extends Color | undefined>(
  * **Should be removed after the migration is complete.**
  */
 export function colorTokenCssVar<
-  ColorToken extends GlobalColor | SemanticColor | undefined,
+  ColorToken extends GlobalColor | SemanticColor | AlphaColor | undefined,
 >(colorToken: ColorToken) {
   return alphaColorTokenCssVar(
     legacyToAlphaColorTokenMap[
@@ -177,7 +177,7 @@ const legacyToAlphaColorTokenMap = Object.freeze({
   'shdw-medium': 'shadow-medium',
   'shdw-large': 'shadow-large',
   'shdw-xlarge': 'shadow-xlarge',
-}) satisfies Partial<Record<SemanticColor, FunctionalAndSemanticColor>>
+}) satisfies Partial<Record<SemanticColor, AlphaFunctionalAndSemanticColor>>
 
 /**
  * Formats a given URL string into a CSS `url()` function format.
