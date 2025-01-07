@@ -59,17 +59,17 @@
   }
 
   &:where(.variant-primary) {
-    --b-loader-track-color: var(--alpha-color-primary-bg-lightest);
-    --b-loader-indicator-color: var(--alpha-color-fg-blue-normal);
+    --b-loader-track-color: var(--alpha-primary-bg-lightest);
+    --b-loader-indicator-color: var(--alpha-fg-blue-normal);
   }
 
   &:where(.variant-secondary) {
-    --b-loader-track-color: var(--alpha-color-bg-black-light);
-    --b-loader-indicator-color: var(--alpha-color-fg-black-light);
+    --b-loader-track-color: var(--alpha-bg-black-light);
+    --b-loader-indicator-color: var(--alpha-fg-black-light);
   }
 
   &:where(.variant-on-overlay) {
-    --b-loader-track-color: var(--alpha-color-bg-absolute-white-lightest);
-    --b-loader-indicator-color: var(--alpha-color-fg-absolute-white-light);
+    --b-loader-track-color: var(--alpha-bg-absolute-white-lightest);
+    --b-loader-indicator-color: var(--alpha-fg-absolute-white-light);
   }
 }

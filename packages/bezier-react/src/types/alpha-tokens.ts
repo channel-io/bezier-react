@@ -22,16 +22,13 @@ export type FlattenSemanticToken = ExtractKeys<
 >
 export type FlattenAllToken = FlattenGlobalToken | FlattenSemanticToken
 
-export type GlobalColor = RemovePrefix<
-  'alpha-color',
-  keyof GlobalToken['color']
->
+export type GlobalColor = RemovePrefix<'alpha', keyof GlobalToken['color']>
 
 /**
  * Functional & Semantic color tokens
  */
 export type BaseSemanticColor = RemovePrefix<
-  'alpha-color',
+  'alpha',
   keyof SemanticToken['color']
 >
 
