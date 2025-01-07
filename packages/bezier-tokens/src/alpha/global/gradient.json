@@ -4,11 +4,11 @@
       "purple": {
         "value": [
           {
-            "color": "{color.purple.300}",
+            "color": "{purple.300}",
             "position": "50%"
           },
           {
-            "color": "{color.pink.200}",
+            "color": "{pink.200}",
             "position": "100%"
           }
         ],
@@ -17,11 +17,11 @@
       "orange": {
         "value": [
           {
-            "color": "{color.orange.300}",
+            "color": "{orange.300}",
             "position": "50%"
           },
           {
-            "color": "{color.yellow.200}",
+            "color": "{yellow.200}",
             "position": "100%"
           }
         ],
@@ -30,11 +30,11 @@
       "green": {
         "value": [
           {
-            "color": "{color.green.300}",
+            "color": "{green.300}",
             "position": "50%"
           },
           {
-            "color": "{color.teal.200}",
+            "color": "{teal.200}",
             "position": "100%"
           }
         ],
@@ -43,11 +43,11 @@
       "blue": {
         "value": [
           {
-            "color": "{color.blue.300}",
+            "color": "{blue.300}",
             "position": "50%"
           },
           {
-            "color": "{color.green.200}",
+            "color": "{green.200}",
             "position": "100%"
           }
         ],
@@ -58,11 +58,11 @@
       "green": {
         "value": [
           {
-            "color": "{color.green.400}",
+            "color": "{green.400}",
             "position": "0%"
           },
           {
-            "color": "{color.green.300}",
+            "color": "{green.300}",
             "position": "100%"
           }
         ],
