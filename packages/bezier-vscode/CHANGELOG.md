@@ -1,5 +1,12 @@
 # bezier-vscode
 
+## 0.4.1-alpha.0
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.3.1-alpha.0
+
 ## 0.4.0
 
 ### Minor Changes
