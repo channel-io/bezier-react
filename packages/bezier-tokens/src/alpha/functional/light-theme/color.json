@@ -858,15 +858,13 @@
     }
   },
   "dim": {
-    "black": {
-      "light": {
-        "value": "{bg.absolute.black.lightest}",
-        "type": "color"
-      },
-      "normal": {
-        "value": "{bg.absolute.black.lighter}",
-        "type": "color"
-      }
+    "light": {
+      "value": "{bg.absolute.black.lightest}",
+      "type": "color"
+    },
+    "normal": {
+      "value": "{bg.absolute.black.lighter}",
+      "type": "color"
     }
   }
 }

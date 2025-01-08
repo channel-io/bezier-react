@@ -42,7 +42,7 @@
         "type": "color"
       },
       "dark": {
-        "value": "{blue.300}",
+        "value": "{blue.200}",
         "type": "color"
       }
     },
@@ -56,7 +56,7 @@
         "type": "color"
       },
       "dark": {
-        "value": "{cobalt.300}",
+        "value": "{cobalt.200}",
         "type": "color"
       }
     },
@@ -70,7 +70,7 @@
         "type": "color"
       },
       "dark": {
-        "value": "{red.300}",
+        "value": "{red.200}",
         "type": "color"
       }
     },
@@ -84,7 +84,7 @@
         "type": "color"
       },
       "dark": {
-        "value": "{orange.300}",
+        "value": "{orange.200}",
         "type": "color"
       }
     },
@@ -98,7 +98,7 @@
         "type": "color"
       },
       "dark": {
-        "value": "{green.300}",
+        "value": "{green.200}",
         "type": "color"
       }
     },
@@ -112,7 +112,7 @@
         "type": "color"
       },
       "dark": {
-        "value": "{teal.300}",
+        "value": "{teal.200}",
         "type": "color"
       }
     },
@@ -126,7 +126,7 @@
         "type": "color"
       },
       "dark": {
-        "value": "{olive.300}",
+        "value": "{olive.200}",
         "type": "color"
       }
     },
@@ -140,7 +140,7 @@
         "type": "color"
       },
       "dark": {
-        "value": "{yellow.300}",
+        "value": "{yellow.200}",
         "type": "color"
       }
     },
@@ -154,7 +154,7 @@
         "type": "color"
       },
       "dark": {
-        "value": "{pink.300}",
+        "value": "{pink.200}",
         "type": "color"
       }
     },
@@ -168,7 +168,7 @@
         "type": "color"
       },
       "dark": {
-        "value": "{purple.300}",
+        "value": "{purple.200}",
         "type": "color"
       }
     },
@@ -182,7 +182,7 @@
         "type": "color"
       },
       "dark": {
-        "value": "{navy.300}",
+        "value": "{navy.200}",
         "type": "color"
       }
     },
@@ -276,7 +276,7 @@
   "bg": {
     "black": {
       "darkest": {
-        "value": "{black.60}",
+        "value": "{white.60}",
         "type": "color"
       },
       "darker": {
@@ -858,15 +858,13 @@
     }
   },
   "dim": {
-    "black": {
-      "light": {
-        "value": "{bg.absolute.black.lightest}",
-        "type": "color"
-      },
-      "normal": {
-        "value": "{bg.absolute.black.lighter}",
-        "type": "color"
-      }
+    "light": {
+      "value": "{bg.absolute.black.lightest}",
+      "type": "color"
+    },
+    "normal": {
+      "value": "{bg.absolute.black.lighter}",
+      "type": "color"
     }
   }
 }
