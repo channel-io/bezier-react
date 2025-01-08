@@ -10,7 +10,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
       class="Text typo-13 bold align-left margin LabelText FormLabelWrapper position-top size-m"
       data-testid="bezier-form-label"
       id="form-label"
-      style="--b-text-color: var(--txt-black-darkest);"
+      style="--b-text-color: var(--alpha-fg-black-darkest);"
     >
       Label
     </label>
@@ -32,7 +32,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
           data-testid="bezier-form-label"
           for="field-:r3:"
           id="field-:r3:-label"
-          style="--b-text-color: var(--txt-black-darkest);"
+          style="--b-text-color: var(--alpha-fg-black-darkest);"
         >
           First Inner Label
         </label>
@@ -57,7 +57,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
           data-testid="bezier-form-label"
           for="field-:r4:"
           id="field-:r4:-label"
-          style="--b-text-color: var(--txt-black-darkest);"
+          style="--b-text-color: var(--alpha-fg-black-darkest);"
         >
           Second Inner Label
         </label>
@@ -79,7 +79,7 @@ exports[`FormControl > Snapshot > With multiple field 1`] = `
       class="Text typo-13 align-left margin FormHelperText FormHelperTextWrapper"
       data-testid="bezier-form-helper-text"
       id="form-help-text"
-      style="--b-text-color: var(--txt-black-dark);"
+      style="--b-text-color: var(--alpha-fg-black-dark);"
     >
       Description
     </p>
@@ -97,7 +97,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
       class="Text typo-14 bold align-left margin LabelText FormLabelWrapper position-left size-m"
       data-testid="bezier-form-label"
       id="form-label"
-      style="--b-text-color: var(--txt-black-darkest);"
+      style="--b-text-color: var(--alpha-fg-black-darkest);"
     >
       Label
     </label>
@@ -119,7 +119,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
           data-testid="bezier-form-label"
           for="field-:r6:"
           id="field-:r6:-label"
-          style="--b-text-color: var(--txt-black-darkest);"
+          style="--b-text-color: var(--alpha-fg-black-darkest);"
         >
           First Inner Label
         </label>
@@ -144,7 +144,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
           data-testid="bezier-form-label"
           for="field-:r7:"
           id="field-:r7:-label"
-          style="--b-text-color: var(--txt-black-darkest);"
+          style="--b-text-color: var(--alpha-fg-black-darkest);"
         >
           Second Inner Label
         </label>
@@ -166,7 +166,7 @@ exports[`FormControl > Snapshot > With multiple field and left label position 1`
       class="Text typo-13 align-left margin FormHelperText FormHelperTextWrapper position-left"
       data-testid="bezier-form-helper-text"
       id="form-help-text"
-      style="--b-text-color: var(--txt-black-dark);"
+      style="--b-text-color: var(--alpha-fg-black-dark);"
     >
       Description
     </p>
@@ -184,7 +184,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
     data-testid="bezier-form-label"
     for="form"
     id="form-label"
-    style="--b-text-color: var(--txt-black-darkest);"
+    style="--b-text-color: var(--alpha-fg-black-darkest);"
   >
     Label
   </label>
@@ -204,7 +204,7 @@ exports[`FormControl > Snapshot > With single field 1`] = `
     class="Text typo-13 align-left margin FormHelperText FormHelperTextWrapper"
     data-testid="bezier-form-helper-text"
     id="form-help-text"
-    style="--b-text-color: var(--txt-black-dark);"
+    style="--b-text-color: var(--alpha-fg-black-dark);"
   >
     Description
   </p>
@@ -221,7 +221,7 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
     data-testid="bezier-form-label"
     for="form"
     id="form-label"
-    style="--b-text-color: var(--txt-black-darkest);"
+    style="--b-text-color: var(--alpha-fg-black-darkest);"
   >
     Label
   </label>
@@ -241,7 +241,7 @@ exports[`FormControl > Snapshot > With single field and left label position 1`] 
     class="Text typo-13 align-left margin FormHelperText FormHelperTextWrapper position-left"
     data-testid="bezier-form-helper-text"
     id="form-help-text"
-    style="--b-text-color: var(--txt-black-dark);"
+    style="--b-text-color: var(--alpha-fg-black-dark);"
   >
     Description
   </p>

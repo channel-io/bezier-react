@@ -19,13 +19,13 @@
   }
 
   &:where(.variant-primary) {
-    color: var(--alpha-color-fg-black-darkest);
-    background-color: var(--alpha-color-bg-grey-lightest);
+    color: var(--alpha-fg-black-darkest);
+    background-color: var(--alpha-bg-grey-lightest);
     box-shadow: var(--alpha-shadow-input-default);
   }
 
   &:where(.variant-secondary) {
-    background-color: var(--alpha-color-bg-black-lightest);
+    background-color: var(--alpha-bg-black-lightest);
   }
 
   &:where(.shape-rectangle) {
@@ -39,11 +39,11 @@
   /* visual effect on interaction */
   &:where(:hover) {
     &:where(.variant-primary) {
-      background-color: var(--alpha-color-bg-grey-lighter);
+      background-color: var(--alpha-bg-grey-lighter);
     }
 
     &:where(.variant-secondary) {
-      background-color: var(--alpha-color-bg-black-lighter);
+      background-color: var(--alpha-bg-black-lighter);
     }
 
     &:where([data-state='off']) {
@@ -54,16 +54,16 @@
   }
 
   &:where([data-state='on']) {
-    color: var(--alpha-color-fg-blue-normal);
+    color: var(--alpha-fg-blue-normal);
 
     &:where(.variant-primary) {
-      background-color: var(--alpha-color-bg-blue-lightest);
+      background-color: var(--alpha-bg-blue-lightest);
       box-shadow: var(--alpha-shadow-input-default);
-      box-shadow: 0 0 0 1px var(--alpha-color-primary-bg-normal) inset;
+      box-shadow: 0 0 0 1px var(--alpha-primary-bg-normal) inset;
     }
 
     &:where(.variant-secondary) {
-      background-color: var(--alpha-color-primary-bg-lighter);
+      background-color: var(--alpha-primary-bg-lighter);
     }
 
     & :where(.ButtonText) {
@@ -77,7 +77,7 @@
 
   /* internal components */
   &:where([data-state='off']) :where(.ButtonIcon) {
-    color: var(--alpha-color-fg-black-dark);
+    color: var(--alpha-fg-black-dark);
   }
 
   & :where(.ButtonContent) {

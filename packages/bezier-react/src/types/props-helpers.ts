@@ -6,7 +6,7 @@ import {
   type MarginProps,
 } from '~/src/types/props'
 import { type Elevation, type Radius, type ZIndex } from '~/src/types/tokens'
-import { cssDimension, tokenCssVar } from '~/src/utils/style'
+import { colorTokenCssVar, cssDimension } from '~/src/utils/style'
 
 // NOTE: 'typescript-plugin-css-modules' does not support path alias
 /* eslint-disable no-restricted-imports */
@@ -210,8 +210,8 @@ export const getLayoutStyles = ({
     '--b-basis': cssDimension(basis),
     '--b-shrink': shrink,
     '--b-grow': grow,
-    '--b-background-color': tokenCssVar(backgroundColor),
-    '--b-border-color': tokenCssVar(borderColor),
+    '--b-background-color': colorTokenCssVar(backgroundColor),
+    '--b-border-color': colorTokenCssVar(borderColor),
     '--b-border-width': cssDimension(borderWidth),
     '--b-border-top-width': cssDimension(borderTopWidth),
     '--b-border-right-width': cssDimension(borderRightWidth),

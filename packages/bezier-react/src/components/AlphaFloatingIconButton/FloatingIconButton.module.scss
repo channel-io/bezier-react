@@ -6,37 +6,37 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
 .FloatingIconButton {
   $primary-color-map: (
-    blue: --alpha-color-primary-bg-normal,
-    cobalt: --alpha-color-accent-bg-normal,
-    red: --alpha-color-critical-bg-normal,
-    orange: --alpha-color-warning-bg-normal,
-    green: --alpha-color-success-bg-normal,
-    pink: --alpha-color-bg-pink-normal,
-    purple: --alpha-color-bg-purple-normal,
-    dark-grey: --alpha-color-bg-grey-darkest,
-    light-grey: --alpha-color-bg-grey-dark,
+    blue: --alpha-primary-bg-normal,
+    cobalt: --alpha-accent-bg-normal,
+    red: --alpha-critical-bg-normal,
+    orange: --alpha-warning-bg-normal,
+    green: --alpha-success-bg-normal,
+    pink: --alpha-bg-pink-normal,
+    purple: --alpha-bg-purple-normal,
+    dark-grey: --alpha-bg-grey-darkest,
+    light-grey: --alpha-bg-grey-dark,
   );
   $color-map: (
-    blue: --alpha-color-primary-fg-normal,
-    cobalt: --alpha-color-accent-fg-normal,
-    red: --alpha-color-critical-fg-normal,
-    orange: --alpha-color-warning-fg-normal,
-    green: --alpha-color-success-fg-normal,
-    pink: --alpha-color-fg-pink-normal,
-    purple: --alpha-color-fg-purple-normal,
-    dark-grey: --alpha-color-fg-black-darker,
-    light-grey: --alpha-color-fg-black-dark,
+    blue: --alpha-primary-fg-normal,
+    cobalt: --alpha-accent-fg-normal,
+    red: --alpha-critical-fg-normal,
+    orange: --alpha-warning-fg-normal,
+    green: --alpha-success-fg-normal,
+    pink: --alpha-fg-pink-normal,
+    purple: --alpha-fg-purple-normal,
+    dark-grey: --alpha-fg-black-darker,
+    light-grey: --alpha-fg-black-dark,
   );
   $hovered-color-map: (
-    blue: --alpha-color-primary-fg-dark,
-    cobalt: --alpha-color-accent-fg-dark,
-    red: --alpha-color-critical-fg-dark,
-    orange: --alpha-color-warning-fg-dark,
-    green: --alpha-color-success-fg-dark,
-    pink: --alpha-color-fg-pink-dark,
-    purple: --alpha-color-fg-purple-dark,
-    dark-grey: --alpha-color-fg-black-darkest,
-    light-grey: --alpha-color-fg-black-darker,
+    blue: --alpha-primary-fg-dark,
+    cobalt: --alpha-accent-fg-dark,
+    red: --alpha-critical-fg-dark,
+    orange: --alpha-warning-fg-dark,
+    green: --alpha-success-fg-dark,
+    pink: --alpha-fg-pink-dark,
+    purple: --alpha-fg-purple-dark,
+    dark-grey: --alpha-fg-black-darkest,
+    light-grey: --alpha-fg-black-darker,
   );
 
   position: relative;
@@ -89,20 +89,20 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   }
 
   &:where(.variant-secondary) {
-    background-color: var(--alpha-color-bg-white-higher);
+    background-color: var(--alpha-bg-white-higher);
   }
 
   /* color */
   /* stylelint-disable-next-line no-duplicate-selectors */
   &:where(.variant-primary) {
-    color: var(--alpha-color-fg-absolute-white-dark);
+    color: var(--alpha-fg-absolute-white-dark);
 
     &:where(.color-dark-grey) {
-      color: var(--alpha-color-fg-white-normal);
+      color: var(--alpha-fg-white-normal);
     }
 
     &:where(.color-light-grey) {
-      color: var(--alpha-color-fg-absolute-white-dark);
+      color: var(--alpha-fg-absolute-white-dark);
     }
   }
 

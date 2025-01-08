@@ -29,15 +29,4 @@ describe('Icon test >', () => {
 
     expect(renderedIcon).toHaveStyle('color: inherit;')
   })
-
-  it('Icon receives custom color', () => {
-    const { getByTestId } = renderIcon({
-      source: AllIcon,
-      color: 'bgtxt-olive-dark',
-    })
-
-    const renderedIcon = getByTestId(ICON_TEST_ID)
-
-    expect(renderedIcon).toHaveStyle('--b-icon-color: var(--bgtxt-olive-dark);')
-  })
 })

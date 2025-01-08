@@ -43,28 +43,28 @@
   }
 
   &:where(.variant-primary) {
-    background-color: var(--alpha-color-bg-grey-lightest);
+    background-color: var(--alpha-bg-grey-lightest);
     box-shadow: var(--alpha-shadow-input-default);
 
     &:where(&:hover) {
-      background-color: var(--alpha-color-bg-grey-lighter);
+      background-color: var(--alpha-bg-grey-lighter);
     }
 
     &:where([data-state='on']) {
-      background-color: var(--alpha-color-bg-blue-lightest);
-      box-shadow: 0 0 0 1px var(--alpha-color-primary-bg-normal) inset;
+      background-color: var(--alpha-bg-blue-lightest);
+      box-shadow: 0 0 0 1px var(--alpha-primary-bg-normal) inset;
     }
   }
 
   &:where(.variant-secondary) {
-    background-color: var(--alpha-color-bg-black-lightest);
+    background-color: var(--alpha-bg-black-lightest);
 
     &:where(&:hover) {
-      background-color: var(--alpha-color-bg-black-lighter);
+      background-color: var(--alpha-bg-black-lighter);
     }
 
     &:where([data-state='on']) {
-      background-color: var(--alpha-color-primary-bg-lighter);
+      background-color: var(--alpha-primary-bg-lighter);
     }
   }
 

@@ -4,11 +4,11 @@
       "black": {
         "value": [
           {
-            "color": "{color.bg.black.light}",
+            "color": "{bg.black.light}",
             "position": "0%"
           },
           {
-            "color": "{color.bg.black.dark}",
+            "color": "{bg.black.dark}",
             "position": "100%"
           }
         ],

@@ -38,7 +38,7 @@ return (
   <VStack
     style={{
       flex: 1,
-      color: 'var(--alpha-color-fg-black-darkest)',
+      color: 'var(--alpha-fg-black-darkest)',
     }}
     spacing={4}
     justify="center"
@@ -51,7 +51,7 @@ return (
         gap: 3,
         fontSize: 9,
         lineHeight: 1,
-        color: 'var(--alpha-color-fg-black-dark)',
+        color: 'var(--alpha-fg-black-dark)',
       }}
     >
       {isHoveredColor ? '' : reference ? 'var' : ''}
@@ -61,9 +61,9 @@ return (
           fontSize: 'inherit',
           lineHeight: 'inherit',
           padding: '1px 2px',
-          backgroundColor: 'var(--alpha-color-bg-grey-lighter)',
+          backgroundColor: 'var(--alpha-bg-grey-lighter)',
           borderRadius: 3,
-          border: '1px solid var(--alpha-color-bg-black-lightest)',
+          border: '1px solid var(--alpha-bg-black-lightest)',
         }}
       >
         {isHoveredColor ? value : reference ? reference : value}
@@ -75,7 +75,7 @@ return (
 
 export const Primary = () => (
   <HStack>
-    <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-color-surface-normal)' }} padding={0}>
+    <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-surface-normal)' }} padding={0}>
       {Object.entries(tokens.global.color).map(([key, { value, ref }]) => (
         <Color
           key={key}
@@ -87,7 +87,7 @@ export const Primary = () => (
     </VStack>
 
     <LightThemeProvider>
-      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-color-surface-normal)' }} padding={0}>
+      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-surface-normal)' }} padding={0}>
         {Object.entries(tokens.lightTheme.color).map(([key, { value, ref }]) => (
           <Color
             key={key}
@@ -100,7 +100,7 @@ export const Primary = () => (
     </LightThemeProvider>
 
     <DarkThemeProvider>
-      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-color-surface-normal)' }} padding={0}>
+      <VStack style={{ flex: 1, backgroundColor: 'var(--alpha-surface-normal)' }} padding={0}>
         {Object.entries(tokens.darkTheme.color).map(([key, { value, ref }]) => (
           <Color
             key={key}

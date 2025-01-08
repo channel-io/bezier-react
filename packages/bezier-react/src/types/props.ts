@@ -1,5 +1,6 @@
 import type { JSX } from 'react'
 
+import { type FunctionalAndSemanticColor as AlphaFunctionalAndSemanticColor } from './alpha-tokens'
 import type {
   BackgroundSemanticColor,
   BackgroundTextSemanticColor,
@@ -9,6 +10,10 @@ import type {
   SemanticColor,
   ZIndex,
 } from './tokens'
+
+type LegacyAndAlphaSemanticColor =
+  | SemanticColor
+  | AlphaFunctionalAndSemanticColor
 
 /**
  * Props for overriding default styles of components. Intended for exceptional use cases where default styles need customization.
@@ -140,7 +145,7 @@ export interface ColorProps {
   /**
    * Color from the design system's semantic color.
    */
-  color?: SemanticColor
+  color?: LegacyAndAlphaSemanticColor
 }
 
 /**
@@ -179,7 +184,7 @@ export type AdditionalOverridableStyleProps<ElementName extends PropNameType> =
  * Props for adding color properties to named elements within a component.
  */
 export type AdditionalColorProps<ElementName extends PropNameType> =
-  AdditionalProps<ElementName, 'color', SemanticColor>
+  AdditionalProps<ElementName, 'color', LegacyAndAlphaSemanticColor>
 
 /**
  * Props for components that can be activated or deactivated.

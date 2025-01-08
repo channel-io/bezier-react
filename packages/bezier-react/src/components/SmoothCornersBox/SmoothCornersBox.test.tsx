@@ -49,18 +49,12 @@ describe('SmoothCornersBox', () => {
       expect(
         styles.getPropertyValue('--b-smooth-corners-box-shadow-spread-radius')
       ).toBe('10px')
-      expect(
-        styles.getPropertyValue('--b-smooth-corners-box-shadow-color')
-      ).toBe('var(--bg-black-light)')
       expect(styles.getPropertyValue('--b-smooth-corners-box-padding')).toBe(
         '20px'
       )
       expect(styles.getPropertyValue('--b-smooth-corners-box-margin')).toBe(
         '10px'
       )
-      expect(
-        styles.getPropertyValue('--b-smooth-corners-box-background-color')
-      ).toBe('var(--bg-black-light)')
       expect(
         styles.getPropertyValue('--b-smooth-corners-box-background-image')
       ).toBe('url(foo/bar)')

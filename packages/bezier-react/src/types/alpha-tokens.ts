@@ -10,9 +10,6 @@ import {
 export type ThemeName = 'light' | 'dark'
 
 export type GlobalToken = typeof tokens.global
-/**
- * FIXME: Separate functional and semantic tokens?
- */
 export type SemanticToken = typeof tokens.lightTheme | typeof tokens.darkTheme
 
 // NOTE: (@ed) Do not remove alpha- prefix to match CSS variable names
@@ -22,36 +19,35 @@ export type FlattenSemanticToken = ExtractKeys<
 >
 export type FlattenAllToken = FlattenGlobalToken | FlattenSemanticToken
 
-export type GlobalColor = RemovePrefix<
-  'alpha-color',
-  keyof GlobalToken['color']
->
+export type GlobalColor = RemovePrefix<'alpha', keyof GlobalToken['color']>
 
-/**
- * Functional & Semantic color tokens
- */
-export type BaseSemanticColor = RemovePrefix<
-  'alpha-color',
+export type FunctionalAndSemanticColor = RemovePrefix<
+  'alpha',
   keyof SemanticToken['color']
 >
 
+export type Color = GlobalColor | FunctionalAndSemanticColor
+
 export type BackgroundFunctionalColor = StartsWithPrefix<
   'bg',
-  BaseSemanticColor
+  FunctionalAndSemanticColor
 >
 export type ForegroundFunctionalColor = StartsWithPrefix<
   'fg',
-  BaseSemanticColor
+  FunctionalAndSemanticColor
 >
 export type SurfaceFunctionalColor = StartsWithPrefix<
   'surface',
-  BaseSemanticColor
+  FunctionalAndSemanticColor
 >
 export type ShadowFunctionalColor = StartsWithPrefix<
   'shadow',
-  BaseSemanticColor
+  FunctionalAndSemanticColor
 >
-export type DimFunctionalColor = StartsWithPrefix<'dim', BaseSemanticColor>
+export type DimFunctionalColor = StartsWithPrefix<
+  'dim',
+  FunctionalAndSemanticColor
+>
 
 export type FunctionalColor =
   | BackgroundFunctionalColor
@@ -62,10 +58,8 @@ export type FunctionalColor =
 
 export type SemanticColor = StartsWithPrefix<
   'primary' | 'critical' | 'warning' | 'accent' | 'success',
-  BaseSemanticColor
+  FunctionalAndSemanticColor
 >
-
-export type Color = GlobalColor | FunctionalColor | SemanticColor
 
 export type Radius = RemovePrefix<'alpha-radius', keyof GlobalToken['radius']>
 export type Opacity = RemovePrefix<
