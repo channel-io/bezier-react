@@ -31,6 +31,13 @@ export const Primary: StoryObj<BadgeProps> = {
     icon: AppleIcon,
     variant: 'default',
   },
+  argTypes: {
+    truncated: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 }
 
 export const Secondary: StoryObj<BadgeProps> = {
