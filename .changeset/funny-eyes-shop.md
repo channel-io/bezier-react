@@ -1,5 +1,5 @@
 ---
-'@channel.io/bezier-react': patch
+'@channel.io/bezier-react': minor
 ---
 
-Add truncated props in the Badge
+Add `truncated` props in the Badge
