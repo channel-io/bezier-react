@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 3.1.0
+
+### Minor Changes
+
+- Add `truncated` props in the Badge ([#2603](https://github.com/channel-io/bezier-react/pull/2603)) by @nayounsang
+
 ## 3.0.3
 
 ### Patch Changes
