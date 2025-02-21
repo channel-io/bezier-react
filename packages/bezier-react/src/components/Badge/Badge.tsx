@@ -26,7 +26,7 @@ export const BADGE_TEST_ID = 'bezier-badge'
  */
 export const Badge = memo(
   forwardRef<HTMLDivElement, BadgeProps>(function Badge(
-    { size = 'm', variant = 'default', icon, children, ...rest },
+    { size = 'm', variant = 'default', truncated ,icon, children, ...rest },
     forwardedRef
   ) {
     return (
@@ -48,6 +48,7 @@ export const Badge = memo(
           <BaseTagBadgeText
             size={size}
             marginHorizontal={3}
+            truncated={truncated}
           >
             {children}
           </BaseTagBadgeText>
