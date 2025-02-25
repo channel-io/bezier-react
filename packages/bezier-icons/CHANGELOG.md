@@ -1,5 +1,16 @@
 # @channel.io/bezier-icons
 
+## 0.41.0
+
+### Minor Changes
+
+- Update icons ([#2604](https://github.com/channel-io/bezier-react/pull/2604)) by @ch-builder
+
+  Added
+
+  - bounce.svg
+  - one-way.svg
+
 ## 0.40.0
 
 ### Minor Changes
