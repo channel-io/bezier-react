@@ -1,3 +1,4 @@
+import { type SourceSize } from '~/src/types/alpha-tokens'
 import {
   type BezierComponentProps,
   type ChildrenProps,
@@ -8,17 +9,7 @@ import {
 // TODO: Replace this with AlphaStatusBadgeType
 import { type StatusType } from '~/src/components/Status'
 
-export type AvatarSize =
-  | '16'
-  | '20'
-  | '24'
-  | '30'
-  | '36'
-  | '42'
-  | '48'
-  | '72'
-  | '90'
-  | '120'
+export type AvatarSize = SourceSize
 
 interface AvatarOwnProps {
   /**
