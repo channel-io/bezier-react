@@ -19585,13 +19585,13 @@ __metadata:
   linkType: hard
 
 "typescript-transform-paths@npm:^3.5.2":
-  version: 3.5.2
-  resolution: "typescript-transform-paths@npm:3.5.2"
+  version: 3.5.5
+  resolution: "typescript-transform-paths@npm:3.5.5"
   dependencies:
     minimatch: "npm:^9.0.5"
   peerDependencies:
     typescript: ">=3.6.5"
-  checksum: 10/16fc6ff1ff4849df8c1819cd7a24b019c4341b873f73a97231bedbeb5c129c19fd325e061178a453e9bfc56fc782721fa154fb06ec2ab2e1188145590d6dd572
+  checksum: 10/9d952db35c94d2b9ecb89e0cf85188106d0366eb1b534e663c811eef5567018f1b0f93540eb58ef0e997d06000d0be0a80942d196180e683f2265395bf95ebb9
   languageName: node
   linkType: hard
 
