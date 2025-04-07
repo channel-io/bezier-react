@@ -3,6 +3,7 @@ import {
   type BezierComponentProps,
   type ChildrenProps,
 } from '~/src/types/props'
+import { type ZIndex } from '~/src/types/tokens'
 
 export interface ContainerRectAttr {
   containerWidth: number
@@ -62,4 +63,6 @@ export interface OverlayProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,
     AdditionalOverridableStyleProps<'container'>,
-    OverlayOwnProps {}
+    OverlayOwnProps {
+  zIndex?: ZIndex
+}
