@@ -5743,12 +5743,12 @@ __metadata:
   linkType: hard
 
 "@storybook/addon-webpack5-compiler-babel@npm:^3.0.3":
-  version: 3.0.5
-  resolution: "@storybook/addon-webpack5-compiler-babel@npm:3.0.5"
+  version: 3.0.6
+  resolution: "@storybook/addon-webpack5-compiler-babel@npm:3.0.6"
   dependencies:
     "@babel/core": "npm:^7.26.0"
     babel-loader: "npm:^9.2.1"
-  checksum: 10/32249b0dbf704f0eb79bd3e0e1fa05b5e7a684b03d350338823afafcb306ff2b4e7de9bac4fd1436038290e544e95a4ac140455ef3af7ae17aa965d1b6dc32e7
+  checksum: 10/a2195c7a6ed9aaa336eb2140ac370e7dfeba084038eb1aea5b2acc0a7ec5a53e460e1a9c1f5a27473e117f703ff64b450bf4fa88464cdb08670fe82df85813c4
   languageName: node
   linkType: hard
 
