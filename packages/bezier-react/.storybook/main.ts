@@ -61,12 +61,7 @@ export default {
   ],
 
   typescript: {
-    /**
-     * `react-docgen-typescript-plugin` introduces significant overhead
-     * when HMR is enabled, so we enable it only in production.
-     */
-    reactDocgen:
-      process.env.NODE_ENV === 'production' && 'react-docgen-typescript',
+    reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
       shouldRemoveUndefinedFromOptional: true,
       shouldExtractLiteralValuesFromEnum: true,
