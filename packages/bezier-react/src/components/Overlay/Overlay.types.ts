@@ -64,5 +64,9 @@ export interface OverlayProps
     ChildrenProps,
     AdditionalOverridableStyleProps<'container'>,
     OverlayOwnProps {
+  /**
+   * z-index of the overlay.
+   * @default 'overlay'
+   */
   zIndex?: ZIndex
 }
