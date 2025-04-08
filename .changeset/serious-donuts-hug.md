@@ -1,5 +1,5 @@
 ---
-'@channel.io/bezier-react': minor
+'@channel.io/bezier-react': patch
 ---
 
-Ensure dropdownZIndex properly overrides Overlay z-index
+Ensure `dropdownZIndex` property of `Select` properly overrides `Overlay` z-index
