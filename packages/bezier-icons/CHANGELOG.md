@@ -1,5 +1,15 @@
 # @channel.io/bezier-icons
 
+## 0.42.0
+
+### Minor Changes
+
+- Update icons ([#2612](https://github.com/channel-io/bezier-react/pull/2612)) by @ch-builder
+
+  Added
+
+  - cloud-check.svg
+
 ## 0.41.0
 
 ### Minor Changes
