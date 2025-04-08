@@ -57,16 +57,16 @@ interface OverlayOwnProps {
   withTransition?: boolean
   enableClickOutside?: boolean
   onHide?: () => void
-}
 
-export interface OverlayProps
-  extends BezierComponentProps<'div'>,
-    ChildrenProps,
-    AdditionalOverridableStyleProps<'container'>,
-    OverlayOwnProps {
   /**
    * z-index of the overlay.
    * @default 'overlay'
    */
   zIndex?: ZIndex
 }
+
+export interface OverlayProps
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    AdditionalOverridableStyleProps<'container'>,
+    OverlayOwnProps {}
