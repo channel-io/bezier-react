@@ -232,14 +232,12 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       return null
     }
 
-    const zIndexClassName = getZIndexClassName(zIndex)
-
     const Content = (
       <ThemeProvider themeName={themeName}>
         <div
           className={classNames(
             styles.Overlay,
-            zIndexClassName,
+            getZIndexClassName(zIndex),
             !shouldShow && styles.hidden,
             withTransition && styles.transition,
             className
