@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 3.1.1
+
+### Patch Changes
+
+- Ensure `dropdownZIndex` property of `Select` properly overrides `Overlay` z-index ([#2621](https://github.com/channel-io/bezier-react/pull/2621)) by @j-nary
+
 ## 3.1.0
 
 ### Minor Changes
