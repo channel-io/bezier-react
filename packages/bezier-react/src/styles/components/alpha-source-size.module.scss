@@ -1,0 +1,10 @@
+@use 'sass:map';
+@use '../../../../../node_modules/@channel.io/bezier-tokens/dist/alpha/scss'
+  as *;
+@use '../mixins/dimension';
+
+@each $size in map.keys(map.get($tokens, 'global', 'source-size')) {
+  :where(.size-#{$size}) {
+    @include dimension.square(var(--alpha-source-size-#{$size}));
+  }
+}
