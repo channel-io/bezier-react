@@ -18,10 +18,7 @@ import {
 } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import {
-  getFormFieldSizeClassName,
-  getZIndexClassName,
-} from '~/src/types/props-helpers'
+import { getFormFieldSizeClassName } from '~/src/types/props-helpers'
 import { isEmpty } from '~/src/utils/type'
 
 import { BaseButton } from '~/src/components/BaseButton'
@@ -181,12 +178,9 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select(
       </BaseButton>
 
       <Overlay
+        zIndex={dropdownZIndex}
         style={dropdownStyle}
-        className={classNames(
-          styles.SelectDropdown,
-          getZIndexClassName(dropdownZIndex),
-          dropdownClassName
-        )}
+        className={classNames(styles.SelectDropdown, dropdownClassName)}
         withTransition
         show={isDropdownOpened && !disabled}
         marginX={dropdownMarginX}

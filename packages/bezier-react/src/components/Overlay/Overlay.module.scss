@@ -20,7 +20,6 @@
 
 .Overlay {
   position: absolute;
-  z-index: var(--z-index-overlay);
 
   &:where(.hidden) {
     opacity: 0;

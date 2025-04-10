@@ -15,6 +15,7 @@ import classNames from 'classnames'
 import useEventHandler from '~/src/hooks/useEventHandler'
 import { useIsomorphicLayoutEffect } from '~/src/hooks/useIsomorphicLayoutEffect'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
+import { getZIndexClassName } from '~/src/types/props-helpers'
 
 import { useModalContainerContext } from '~/src/components/Modal'
 import { ThemeProvider, useThemeName } from '~/src/components/ThemeProvider'
@@ -52,6 +53,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       containerClassName,
       onHide,
       onTransitionEnd,
+      zIndex = 'overlay',
       ...rest
     },
     forwardedRef
@@ -235,6 +237,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
         <div
           className={classNames(
             styles.Overlay,
+            getZIndexClassName(zIndex),
             !shouldShow && styles.hidden,
             withTransition && styles.transition,
             className
