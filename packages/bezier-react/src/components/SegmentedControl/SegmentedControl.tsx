@@ -10,6 +10,7 @@ import {
 } from 'react'
 import * as React from 'react'
 
+import { isBezierIcon } from '@channel.io/bezier-icons'
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
 import classNames from 'classnames'
@@ -23,6 +24,7 @@ import { BaseButton } from '~/src/components/BaseButton'
 import { Divider } from '~/src/components/Divider'
 import dividerStyles from '~/src/components/Divider/Divider.module.scss'
 import { useFormFieldProps } from '~/src/components/FormControl'
+import { Icon } from '~/src/components/Icon'
 import { HStack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
 
@@ -294,7 +296,7 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(
     { children, leftContent, rightContent, className, ...rest },
     forwardedRef
   ) {
-    const { type, size } = useSegmentedControlContext('SegmentedControlItem')
+    const { type } = useSegmentedControlContext('SegmentedControlItem')
     const { setSelectedItemIndex } = useSegmentedControlItemListContext(
       'SegmentedControlItem'
     )
@@ -324,18 +326,34 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(
         <HStack
           className={styles.SegmentedControlItemContainer}
           align="center"
-          spacing={2}
+          spacing={4}
         >
-          {leftContent}
+          {isBezierIcon(leftContent) ? (
+            <Icon
+              source={leftContent}
+              size="xs"
+            />
+          ) : (
+            leftContent
+          )}
+
           <Text
             className={styles.SegmentedControlItemLabel}
             bold
             truncated
-            typo={size === 'xs' ? '13' : '14'}
+            typo="13"
           >
             {children}
           </Text>
-          {rightContent}
+
+          {isBezierIcon(rightContent) ? (
+            <Icon
+              source={rightContent}
+              size="xs"
+            />
+          ) : (
+            rightContent
+          )}
         </HStack>
       </BaseButton>
     )

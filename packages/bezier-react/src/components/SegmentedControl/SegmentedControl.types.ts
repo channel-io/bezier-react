@@ -1,5 +1,6 @@
 import type React from 'react'
 
+import { type BezierIcon } from '@channel.io/bezier-icons'
 import type * as TabsPrimitive from '@radix-ui/react-tabs'
 
 import {
@@ -121,7 +122,10 @@ export interface SegmentedControlItemProps<Value extends string>
     >,
     ChildrenProps,
     DisableProps,
-    SideContentProps,
+    SideContentProps<
+      BezierIcon | React.ReactNode,
+      BezierIcon | React.ReactNode
+    >,
     SegmentedControlItemOwnProps<Value> {}
 
 export interface SegmentedControlTabContentProps<Value extends string>
