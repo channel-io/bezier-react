@@ -122,10 +122,7 @@ export interface SegmentedControlItemProps<Value extends string>
     >,
     ChildrenProps,
     DisableProps,
-    SideContentProps<
-      BezierIcon | React.ReactNode,
-      BezierIcon | React.ReactNode
-    >,
+    SideContentProps,
     SegmentedControlItemOwnProps<Value> {}
 
 export interface SegmentedControlTabContentProps<Value extends string>

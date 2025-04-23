@@ -10,7 +10,6 @@ import {
 } from 'react'
 import * as React from 'react'
 
-import { isBezierIcon } from '@channel.io/bezier-icons'
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'
 import * as TabsPrimitive from '@radix-ui/react-tabs'
 import classNames from 'classnames'
@@ -24,7 +23,6 @@ import { BaseButton } from '~/src/components/BaseButton'
 import { Divider } from '~/src/components/Divider'
 import dividerStyles from '~/src/components/Divider/Divider.module.scss'
 import { useFormFieldProps } from '~/src/components/FormControl'
-import { Icon } from '~/src/components/Icon'
 import { HStack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
 
@@ -33,6 +31,7 @@ import {
   type SegmentedControlItemProps,
   type SegmentedControlProps,
   type SegmentedControlRadioGroupProps,
+  type SegmentedControlSize,
   type SegmentedControlTabContentProps,
   type SegmentedControlTabListProps,
   type SegmentedControlTabsProps,
@@ -291,12 +290,24 @@ type ItemProps<Type extends SegmentedControlType> = (Type extends 'radiogroup'
   React.HTMLAttributes<HTMLButtonElement> &
   Partial<SegmentedControlItemProps<Type>>
 
+function getTypography(size: SegmentedControlSize) {
+  return (
+    {
+      xs: '13',
+      s: '13',
+      m: '14',
+      l: '14',
+      xl: '14',
+    } as const
+  )[size]
+}
+
 const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(
   function Item(
     { children, leftContent, rightContent, className, ...rest },
     forwardedRef
   ) {
-    const { type } = useSegmentedControlContext('SegmentedControlItem')
+    const { type, size } = useSegmentedControlContext('SegmentedControlItem')
     const { setSelectedItemIndex } = useSegmentedControlItemListContext(
       'SegmentedControlItem'
     )
@@ -328,32 +339,18 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(
           align="center"
           spacing={4}
         >
-          {isBezierIcon(leftContent) ? (
-            <Icon
-              source={leftContent}
-              size="xs"
-            />
-          ) : (
-            leftContent
-          )}
+          {leftContent}
 
           <Text
             className={styles.SegmentedControlItemLabel}
             bold
             truncated
-            typo="13"
+            typo={getTypography(size)}
           >
             {children}
           </Text>
 
-          {isBezierIcon(rightContent) ? (
-            <Icon
-              source={rightContent}
-              size="xs"
-            />
-          ) : (
-            rightContent
-          )}
+          {rightContent}
         </HStack>
       </BaseButton>
     )
