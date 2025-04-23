@@ -1,6 +1,5 @@
 import type React from 'react'
 
-import { type BezierIcon } from '@channel.io/bezier-icons'
 import type * as TabsPrimitive from '@radix-ui/react-tabs'
 
 import {
