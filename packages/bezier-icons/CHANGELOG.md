@@ -1,5 +1,20 @@
 # @channel.io/bezier-icons
 
+## 0.43.0
+
+### Minor Changes
+
+- Update icons ([#2626](https://github.com/channel-io/bezier-react/pull/2626)) by @ch-builder
+
+  Modified
+
+  - coupon.svg
+
+  Added
+
+  - team-alf-filled.svg
+  - team-alf.svg
+
 ## 0.42.0
 
 ### Minor Changes
