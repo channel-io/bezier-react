@@ -17,7 +17,7 @@ describe('Toast', () => {
       const { getByRole } = renderToast({ onDismiss, autoDismiss: false })
       const toast = getByRole('status')
       const closeButton = getByRole('button')
-      closeButton.click()
+      fireEvent.click(closeButton)
       expect(onDismiss).not.toHaveBeenCalled()
       const animationEndEvent = new Event('animationend', {
         bubbles: true,
