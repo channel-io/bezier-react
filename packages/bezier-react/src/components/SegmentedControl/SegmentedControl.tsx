@@ -295,9 +295,8 @@ function getTypography(size: SegmentedControlSize) {
     {
       xs: '13',
       s: '13',
-      m: '14',
+      m: '13',
       l: '14',
-      xl: '14',
     } as const
   )[size]
 }
