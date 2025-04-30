@@ -68,15 +68,13 @@ describe('TextField', () => {
     expect(inputElement).toHaveAttribute('maxLength', '5')
   })
 
-  describe('callback should called', () => {
+  describe('callback should be called', () => {
     it('onFocus', () => {
       const onFocus = jest.fn()
       const { getByTestId } = renderComponent({ onFocus })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      act(() => {
-        input.focus()
-      })
+      input.focus()
       expect(onFocus).toHaveBeenCalled()
     })
 
@@ -85,9 +83,7 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onChange })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      act(() => {
-        fireEvent.change(input, { target: { value: 'test' } })
-      })
+      fireEvent.change(input, { target: { value: 'test' } })
       expect(onChange).toHaveBeenCalled()
     })
 
@@ -96,9 +92,7 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onKeyDown })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      act(() => {
-        fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
-      })
+      fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
       expect(onKeyDown).toHaveBeenCalled()
     })
 
@@ -107,9 +101,7 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onKeyUp })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      act(() => {
-        fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
-      })
+      fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
       expect(onKeyUp).toHaveBeenCalled()
     })
   })
@@ -120,9 +112,7 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onFocus, disabled: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      act(() => {
-        input.focus()
-      })
+      input.focus()
       expect(onFocus).not.toHaveBeenCalled()
     })
 
@@ -131,9 +121,7 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onFocus, readOnly: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      act(() => {
-        input.focus()
-      })
+      input.focus()
       expect(onFocus).not.toHaveBeenCalled()
     })
 
@@ -142,9 +130,7 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onChange, disabled: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      act(() => {
-        fireEvent.change(input, { target: { value: 'test' } })
-      })
+      fireEvent.change(input, { target: { value: 'test' } })
       expect(onChange).not.toHaveBeenCalled()
     })
 
@@ -153,9 +139,7 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onChange, readOnly: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      act(() => {
-        fireEvent.change(input, { target: { value: 'test' } })
-      })
+      fireEvent.change(input, { target: { value: 'test' } })
       expect(onChange).not.toHaveBeenCalled()
     })
 
@@ -164,9 +148,7 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onKeyDown, disabled: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      act(() => {
-        fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
-      })
+      fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
       expect(onKeyDown).not.toHaveBeenCalled()
     })
 
@@ -175,9 +157,7 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onKeyDown, readOnly: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      act(() => {
-        fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
-      })
+      fireEvent.keyDown(input, { key: 'A', code: 'KeyA' })
       expect(onKeyDown).not.toHaveBeenCalled()
     })
 
@@ -186,9 +166,7 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onKeyUp, disabled: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      act(() => {
-        fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
-      })
+      fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
       expect(onKeyUp).not.toHaveBeenCalled()
     })
 
@@ -197,9 +175,7 @@ describe('TextField', () => {
       const { getByTestId } = renderComponent({ onKeyUp, readOnly: true })
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
-      act(() => {
-        fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
-      })
+      fireEvent.keyUp(input, { key: 'A', code: 'KeyA' })
       expect(onKeyUp).not.toHaveBeenCalled()
     })
   })
@@ -286,9 +262,7 @@ describe('TextField', () => {
       const rendered = getByTestId(TEXT_INPUT_TEST_ID)
       const input = rendered.getElementsByTagName('input')[0]
 
-      act(() => {
-        input.focus()
-      })
+      input.focus()
 
       const clearButton = within(rendered).getByTestId(
         TEXT_INPUT_CLEAR_ICON_TEST_ID
