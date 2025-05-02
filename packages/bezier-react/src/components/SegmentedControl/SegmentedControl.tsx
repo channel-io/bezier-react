@@ -343,7 +343,6 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(
           <Text
             className={styles.SegmentedControlItemLabel}
             bold
-            truncated
             typo={getTypography(size)}
           >
             {children}
