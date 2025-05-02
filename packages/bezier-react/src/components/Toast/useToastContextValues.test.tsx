@@ -1,4 +1,4 @@
-import { act, renderHook } from '@testing-library/react'
+import { renderHook, waitFor } from '@testing-library/react'
 
 import { type ToastType } from './Toast.types'
 import useToastContextValues from './useToastContextValues'
@@ -19,37 +19,37 @@ describe('useToastContextValues', () => {
     expect(result.current.rightToasts).toStrictEqual([])
   })
 
-  it('add()', () => {
+  it('add()', async () => {
     const { result } = renderHook(() => useToastContextValues())
 
-    act(() => {
+    await waitFor(() => {
       result.current.add('0')
-    })
 
-    expect(result.current.leftToasts).toStrictEqual([
-      expect.objectContaining({
-        autoDismiss: false,
-        rightSide: false,
-        id: expect.stringMatching(UUID_V4_REGEX),
-        content: '0',
-        version: 0,
-      }),
-    ])
+      expect(result.current.leftToasts).toStrictEqual([
+        expect.objectContaining({
+          autoDismiss: false,
+          rightSide: false,
+          id: expect.stringMatching(UUID_V4_REGEX),
+          content: '0',
+          version: 0,
+        }),
+      ])
+    })
   })
 
   describe('update()', () => {
-    it('not found', () => {
+    it('not found', async () => {
       const { result } = renderHook(() => useToastContextValues())
 
-      act(() => {
+      await waitFor(() => {
         expect(result.current.update('0', 'Not found')).toBe('')
       })
     })
 
-    it('updated', () => {
+    it('updated', async () => {
       const { result } = renderHook(() => useToastContextValues())
 
-      act(() => {
+      await waitFor(() => {
         result.current.add('0')
       })
       const targetIndex = 0
@@ -58,7 +58,7 @@ describe('useToastContextValues', () => {
         ...targetToast,
         content: 'New Toast',
       }
-      act(() => {
+      await waitFor(() => {
         expect(
           result.current.update(updateTargetToast.id, updateTargetToast.content)
         ).toBe(updateTargetToast.id)
@@ -71,11 +71,11 @@ describe('useToastContextValues', () => {
     })
   })
 
-  it('remove()', () => {
+  it('remove()', async () => {
     const { result } = renderHook(() => useToastContextValues())
 
     let toastId: string
-    act(() => {
+    await waitFor(() => {
       toastId = result.current.add('0')
     })
     expect(result.current.leftToasts).toStrictEqual([
@@ -87,17 +87,17 @@ describe('useToastContextValues', () => {
         version: 0,
       }),
     ])
-    act(() => {
+    await waitFor(() => {
       result.current.remove(toastId)
     })
     expect(result.current.leftToasts).toStrictEqual([])
     expect(result.current.rightToasts).toStrictEqual([])
   })
 
-  it('removeAll()', () => {
+  it('removeAll()', async () => {
     const { result } = renderHook(() => useToastContextValues())
 
-    act(() => {
+    await waitFor(() => {
       result.current.add('0')
     })
 
@@ -111,19 +111,19 @@ describe('useToastContextValues', () => {
       }),
     ])
 
-    act(() => {
+    await waitFor(() => {
       result.current.removeAll()
     })
     expect(result.current.leftToasts).toStrictEqual([])
     expect(result.current.rightToasts).toStrictEqual([])
   })
 
-  it('dismiss()', () => {
+  it('dismiss()', async () => {
     const onDismiss = jest.fn()
     const { result } = renderHook(() => useToastContextValues())
 
     let toastId: string
-    act(() => {
+    await waitFor(() => {
       toastId = result.current.add('0')
     })
     expect(result.current.leftToasts).toStrictEqual([
@@ -135,7 +135,7 @@ describe('useToastContextValues', () => {
         version: 0,
       }),
     ])
-    act(() => {
+    await waitFor(() => {
       result.current.dismiss(toastId, onDismiss)
     })
     expect(onDismiss).toHaveBeenCalledTimes(1)

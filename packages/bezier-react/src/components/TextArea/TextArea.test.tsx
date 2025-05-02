@@ -1,5 +1,4 @@
 import { fireEvent } from '@testing-library/dom'
-import { act } from '@testing-library/react'
 
 import { COMMON_IME_CONTROL_KEYS } from '~/src/hooks/useKeyboardActionLockerWhileComposing'
 import { render } from '~/src/utils/test'
@@ -54,9 +53,7 @@ describe('TextArea', () => {
       const onFocus = jest.fn()
       const { getByRole } = renderComponent({ onFocus, disabled: true })
       const rendered = getByRole('textbox')
-      act(() => {
-        rendered.focus()
-      })
+      rendered.focus()
 
       expect(onFocus).not.toHaveBeenCalled()
     })
@@ -65,9 +62,7 @@ describe('TextArea', () => {
       const onFocus = jest.fn()
       const { getByRole } = renderComponent({ onFocus })
       const rendered = getByRole('textbox')
-      act(() => {
-        rendered.focus()
-      })
+      rendered.focus()
 
       expect(onFocus).toHaveBeenCalled()
     })
@@ -79,9 +74,7 @@ describe('TextArea', () => {
       const { getByRole } = renderComponent({ onChange })
       const rendered = getByRole('textbox')
 
-      act(() => {
-        fireEvent.change(rendered, { target: { value: 'test' } })
-      })
+      fireEvent.change(rendered, { target: { value: 'test' } })
 
       expect(onChange).toHaveBeenCalled()
     })
@@ -92,10 +85,9 @@ describe('TextArea', () => {
       const onBlur = jest.fn()
       const { getByRole } = renderComponent({ onBlur })
       const rendered = getByRole('textbox')
-      act(() => {
-        rendered.focus()
-        rendered.blur()
-      })
+      rendered.focus()
+      rendered.blur()
+
       expect(onBlur).toHaveBeenCalled()
     })
   })
