@@ -3290,17 +3290,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@effect/schema@npm:^0.75.5":
-  version: 0.75.5
-  resolution: "@effect/schema@npm:0.75.5"
-  dependencies:
-    fast-check: "npm:^3.21.0"
-  peerDependencies:
-    effect: ^3.9.2
-  checksum: 10/597f33a7b678d43f461c03a432c23a02e823aaa6ca49fad1feec2215c7e5898bff6e238c044d6788d645a2c6b4b803aac4f32731f1b0dc1b649949162360d884
-  languageName: node
-  linkType: hard
-
 "@es-joy/jsdoccomment@npm:~0.49.0":
   version: 0.49.0
   resolution: "@es-joy/jsdoccomment@npm:0.49.0"
@@ -11089,15 +11078,6 @@ __metadata:
     iconv-lite: "npm:^0.4.24"
     tmp: "npm:^0.0.33"
   checksum: 10/776dff1d64a1d28f77ff93e9e75421a81c062983fd1544279d0a32f563c0b18c52abbb211f31262e2827e48edef5c9dc8f960d06dd2d42d1654443b88568056b
-  languageName: node
-  linkType: hard
-
-"fast-check@npm:^3.21.0":
-  version: 3.23.1
-  resolution: "fast-check@npm:3.23.1"
-  dependencies:
-    pure-rand: "npm:^6.1.0"
-  checksum: 10/03720c2d4adf02701a2e974b83d6439477851a6524c5980df0870dc0032f0200cc5e157f47641afa79dc42733b05058f2333df54291d5ac39d108d317a62e6c0
   languageName: node
   linkType: hard
 
@@ -18916,10 +18896,9 @@ __metadata:
   linkType: hard
 
 "syncpack@npm:^13.0.0":
-  version: 13.0.3
-  resolution: "syncpack@npm:13.0.3"
+  version: 13.0.4
+  resolution: "syncpack@npm:13.0.4"
   dependencies:
-    "@effect/schema": "npm:^0.75.5"
     chalk: "npm:^5.4.1"
     chalk-template: "npm:^1.1.0"
     commander: "npm:^13.1.0"
@@ -18948,7 +18927,7 @@ __metadata:
     syncpack-prompt: dist/bin-prompt/index.js
     syncpack-set-semver-ranges: dist/bin-set-semver-ranges/index.js
     syncpack-update: dist/bin-update/index.js
-  checksum: 10/702c734cbb9970a218419dec7e1f2c9bb478f6a8f3dcee22f4368878f243cfcb7565dd4eae8b2e162c3fb2476b5b5b6ccf7d4b40d29b19e6283e68519c7adcfe
+  checksum: 10/eab57e78ca601dd8d8f22b43e6b478d410b2fd7cb28424876363f627bcd2b1704991182594df2aff4ce64f1f6ac19e74601b820671a49c633a86a3b77e49df59
   languageName: node
   linkType: hard
 
