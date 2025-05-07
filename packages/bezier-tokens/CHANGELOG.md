@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.3.1
+
+### Patch Changes
+
+- Updated surface colors in dark theme and Added grey-950(#1a1a1c) color to the global color palette. ([#2635](https://github.com/channel-io/bezier-react/pull/2635)) by @sungik-choi
+
 ## 0.3.0
 
 ### Minor Changes
