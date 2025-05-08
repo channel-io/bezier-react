@@ -333,7 +333,11 @@ describe('Modal', () => {
           <ModalTrigger>
             <button type="button">{TRIGGER_TEXT}</button>
           </ModalTrigger>
-          <ModalContent>
+          <ModalContent aria-describedby={undefined}>
+            <ModalHeader
+              hidden
+              title={TITLE_TEXT}
+            />
             <ModalBody>
               <input type="text" />
             </ModalBody>
