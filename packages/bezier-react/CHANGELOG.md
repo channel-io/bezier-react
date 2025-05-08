@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 3.1.3
+
+### Patch Changes
+
+- Disable truncation of SegmentedControl Item ([#2623](https://github.com/channel-io/bezier-react/pull/2623)) by @dohyun-ko
+
+- Adjusted SegmentedControl's typo, padding, and gap as design spec changes ([#2623](https://github.com/channel-io/bezier-react/pull/2623)) by @dohyun-ko
+
 ## 3.1.2
 
 ### Patch Changes
