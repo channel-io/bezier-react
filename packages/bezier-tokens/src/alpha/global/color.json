@@ -786,6 +786,10 @@
       "900-0": {
         "value": "#24242800",
         "type": "color"
+      },
+      "950": {
+        "value": "#1a1a1c",
+        "type": "color"
       }
     },
     "grey-alpha": {
