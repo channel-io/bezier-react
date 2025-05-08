@@ -31,6 +31,7 @@ import {
   type SegmentedControlItemProps,
   type SegmentedControlProps,
   type SegmentedControlRadioGroupProps,
+  type SegmentedControlSize,
   type SegmentedControlTabContentProps,
   type SegmentedControlTabListProps,
   type SegmentedControlTabsProps,
@@ -289,6 +290,17 @@ type ItemProps<Type extends SegmentedControlType> = (Type extends 'radiogroup'
   React.HTMLAttributes<HTMLButtonElement> &
   Partial<SegmentedControlItemProps<Type>>
 
+function getTypography(size: SegmentedControlSize) {
+  return (
+    {
+      xs: '13',
+      s: '13',
+      m: '13',
+      l: '14',
+    } as const
+  )[size]
+}
+
 const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(
   function Item(
     { children, leftContent, rightContent, className, ...rest },
@@ -324,17 +336,18 @@ const Item = forwardRef<HTMLButtonElement, ItemProps<SegmentedControlType>>(
         <HStack
           className={styles.SegmentedControlItemContainer}
           align="center"
-          spacing={2}
+          spacing={4}
         >
           {leftContent}
+
           <Text
             className={styles.SegmentedControlItemLabel}
             bold
-            truncated
-            typo={size === 'xs' ? '13' : '14'}
+            typo={getTypography(size)}
           >
             {children}
           </Text>
+
           {rightContent}
         </HStack>
       </BaseButton>
