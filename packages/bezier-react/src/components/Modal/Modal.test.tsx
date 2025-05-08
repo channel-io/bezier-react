@@ -157,6 +157,7 @@ describe('Modal', () => {
       it("should have proper 'aria-labelledby' attribute (only title)", () => {
         const { getByRole } = renderOpenedModal({
           modalHeaderProps: { title: TITLE_TEXT, subtitle: null },
+          modalContentProps: { 'aria-describedby': undefined },
         })
         expect(getByRole('dialog', { name: TITLE_TEXT })).toBeInTheDocument()
       })
@@ -164,6 +165,7 @@ describe('Modal', () => {
       it("should have proper 'aria-labelledby' attribute (hidden title)", () => {
         const { getByRole } = renderOpenedModal({
           modalHeaderProps: { title: TITLE_TEXT, subtitle: null, hidden: true },
+          modalContentProps: { 'aria-describedby': undefined },
         })
         expect(getByRole('dialog', { name: TITLE_TEXT })).toBeInTheDocument()
       })
@@ -248,6 +250,7 @@ describe('Modal', () => {
 
       it("should be visually hidden when the 'hidden' prop is true", () => {
         const { queryByRole } = renderOpenedModal({
+          modalContentProps: { 'aria-describedby': undefined },
           modalHeaderProps: { title: TITLE_TEXT, hidden: true },
         })
         /**
