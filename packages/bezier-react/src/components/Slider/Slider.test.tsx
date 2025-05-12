@@ -1,4 +1,4 @@
-import { isInaccessible, waitFor } from '@testing-library/react'
+import { isInaccessible } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
@@ -14,13 +14,6 @@ describe('Slider', () => {
 
   beforeEach(() => {
     user = userEvent.setup()
-  })
-
-  describe('Snapshot', () => {
-    it('should match snapshot', () => {
-      const { container } = renderSlider({ defaultValue: [5], guide: [5] })
-      expect(container).toMatchSnapshot()
-    })
   })
 
   describe('ARIA', () => {

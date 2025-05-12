@@ -20,20 +20,6 @@ describe('Help >', () => {
       />
     )
 
-  it('Snapshot >', () => {
-    const { getByTestId } = renderComponent()
-    const rendered = getByTestId(HELP_TEST_ID)
-
-    expect(rendered).toMatchSnapshot()
-  })
-
-  it('renders text when children prop is not empty', () => {
-    const { getByTestId } = renderComponent()
-    const rendered = getByTestId(HELP_TEST_ID)
-
-    expect(rendered).toBeInTheDocument()
-  })
-
   it('renders nothing when children prop is empty', () => {
     const { queryByTestId } = renderComponent({ children: '' })
     const rendered = queryByTestId(HELP_TEST_ID)

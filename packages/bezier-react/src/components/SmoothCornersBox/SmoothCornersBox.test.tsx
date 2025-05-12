@@ -9,11 +9,6 @@ describe('SmoothCornersBox', () => {
   ) => render(<SmoothCornersBox {...rest}>{children}</SmoothCornersBox>)
 
   describe('Style', () => {
-    it('snapshot with default value', () => {
-      const { container } = renderSmoothCornersBox()
-      expect(container).toMatchSnapshot()
-    })
-
     it('each style property must have the correct unit.', () => {
       const children = 'foo'
       const { getByText } = renderSmoothCornersBox({

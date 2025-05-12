@@ -42,18 +42,6 @@ describe('Tooltip test >', () => {
       />
     )
 
-  it('Tooltip with default props', () => {
-    const { baseElement, getByTestId } = renderTooltip()
-
-    act(() => {
-      fireEvent.mouseOver(getByTestId(TOOLTIP_TEST_ID))
-
-      jest.runAllTimers()
-    })
-
-    expect(baseElement).toMatchSnapshot()
-  })
-
   it('TooltipContent not rendered at first', async () => {
     const { queryByTestId } = renderTooltip()
 

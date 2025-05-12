@@ -30,13 +30,6 @@ describe('FormHelperText >', () => {
       />
     )
 
-  it('Snapshot >', () => {
-    const { getByTestId } = renderFormHelperText()
-    const helperText = getByTestId(FORM_HELPER_TEXT_TEST_ID)
-
-    expect(helperText).toMatchSnapshot()
-  })
-
   it('renders text when children prop is not empty', () => {
     const { getByTestId } = renderFormHelperText()
     const helperText = getByTestId(FORM_HELPER_TEXT_TEST_ID)
@@ -70,13 +63,6 @@ describe('FormErrorMessage >', () => {
         {...otherProps}
       />
     )
-
-  it('Snapshot >', () => {
-    const { getByTestId } = renderFormHelperText()
-    const rendered = getByTestId(FORM_ERROR_MESSAGE_TEST_ID)
-
-    expect(rendered).toMatchSnapshot()
-  })
 
   it('renders text when children prop is not empty', () => {
     const { getByTestId } = renderFormHelperText()

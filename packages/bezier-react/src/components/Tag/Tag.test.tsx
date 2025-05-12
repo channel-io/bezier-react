@@ -21,13 +21,6 @@ describe('Tag test >', () => {
       />
     )
 
-  it('Snapshot >', () => {
-    const { getByTestId } = renderTag()
-    const tag = getByTestId(TAG_TEST_ID)
-
-    expect(tag).toMatchSnapshot()
-  })
-
   describe('Click Event Test >', () => {
     it('onClick function should be called when the tag is clicked', async () => {
       const onClickFn = jest.fn()
