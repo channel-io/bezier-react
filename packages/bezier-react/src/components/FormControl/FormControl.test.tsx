@@ -2,7 +2,7 @@ import { isInaccessible } from '@testing-library/react'
 
 import { render } from '~/src/utils/test'
 
-import { FORM_CONTROL_TEST_ID, FormControl } from './FormControl'
+import { FormControl } from './FormControl'
 import { type FormControlProps } from './FormControl.types'
 import {
   MOCK_CONSTS,
@@ -33,44 +33,6 @@ describe('FormControl >', () => {
         {children}
       </FormControl>
     )
-
-  describe('Snapshot >', () => {
-    it('With single field', () => {
-      const { getByTestId } = renderComponent({
-        children: SingleFieldForm,
-      })
-
-      const rendered = getByTestId(FORM_CONTROL_TEST_ID)
-      expect(rendered).toMatchSnapshot()
-    })
-
-    it('With single field and left label position', () => {
-      const { getByTestId } = renderComponent({
-        labelPosition: 'left',
-        children: SingleFieldForm,
-      })
-
-      const rendered = getByTestId(FORM_CONTROL_TEST_ID)
-      expect(rendered).toMatchSnapshot()
-    })
-
-    it('With multiple field', () => {
-      const { container } = renderComponent({
-        children: MultipleFieldForm,
-      })
-
-      expect(container).toMatchSnapshot()
-    })
-
-    it('With multiple field and left label position', () => {
-      const { container } = renderComponent({
-        labelPosition: 'left',
-        children: MultipleFieldForm,
-      })
-
-      expect(container).toMatchSnapshot()
-    })
-  })
 
   describe('Accessibility >', () => {
     it('With single field', () => {

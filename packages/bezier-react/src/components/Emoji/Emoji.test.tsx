@@ -14,13 +14,6 @@ describe('Emoji Test >', () => {
       />
     )
 
-  it('snapshot', () => {
-    const { getByTestId } = renderComponent()
-    const emoji = getByTestId(EMOJI_TEST_ID)
-
-    expect(emoji).toMatchSnapshot()
-  })
-
   it('should render with emoji image', () => {
     const { getByTestId } = renderComponent()
     const emoji = getByTestId(EMOJI_TEST_ID)

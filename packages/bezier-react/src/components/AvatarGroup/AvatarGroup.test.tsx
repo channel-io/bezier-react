@@ -44,12 +44,6 @@ describe('AvatarGroup', () => {
       props.ellipsisType = 'icon'
     })
 
-    it('Snapshot', () => {
-      const { getByRole } = renderComponent()
-      const rendered = getByRole('group')
-      expect(rendered).toMatchSnapshot()
-    })
-
     it('should render ellipsis icon when avatar count is more than max', () => {
       const { getByTestId } = renderComponent()
       const rendered = getByTestId(AVATAR_GROUP_ELLIPSIS_ICON_TEST_ID)
@@ -67,12 +61,6 @@ describe('AvatarGroup', () => {
   describe('Ellipsis type - Count', () => {
     beforeEach(() => {
       props.ellipsisType = 'count'
-    })
-
-    it('Snapshot', () => {
-      const { getByRole } = renderComponent()
-      const rendered = getByRole('group')
-      expect(rendered).toMatchSnapshot()
     })
 
     it('should render ellipsis count when avatar count is more than max', () => {

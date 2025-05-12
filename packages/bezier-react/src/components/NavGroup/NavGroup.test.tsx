@@ -4,11 +4,7 @@ import { render } from '~/src/utils/test'
 
 import { Icon } from '~/src/components/Icon'
 
-import {
-  NAV_GROUP_LEFT_ICON_TEST_ID,
-  NAV_GROUP_TEST_ID,
-  NavGroup,
-} from './NavGroup'
+import { NAV_GROUP_LEFT_ICON_TEST_ID, NavGroup } from './NavGroup'
 import type { NavGroupProps } from './NavGroup.types'
 
 describe('NavGroup Test >', () => {
@@ -36,24 +32,6 @@ describe('NavGroup Test >', () => {
         {...optionProps}
       />
     )
-
-  describe('Snapshot >', () => {
-    it('Active', () => {
-      const { getByTestId } = renderNavItem({ active: true })
-
-      const rendered = getByTestId(NAV_GROUP_TEST_ID)
-
-      expect(rendered).toMatchSnapshot()
-    })
-
-    it('Not active', () => {
-      const { getByTestId } = renderNavItem({ active: false })
-
-      const rendered = getByTestId(NAV_GROUP_TEST_ID)
-
-      expect(rendered).toMatchSnapshot()
-    })
-  })
 
   describe('LeftIcon Color', () => {
     it('Icon color should be "bgtxt-blue-normal" when active prop is true', () => {

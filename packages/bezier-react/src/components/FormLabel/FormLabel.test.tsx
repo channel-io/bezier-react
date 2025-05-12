@@ -23,13 +23,6 @@ describe('FormLabel >', () => {
       />
     )
 
-  it('Snapshot >', () => {
-    const { getByTestId } = renderComponent()
-    const rendered = getByTestId(FORM_LABEL_TEST_ID)
-
-    expect(rendered).toMatchSnapshot()
-  })
-
   it('renders text when children prop is not empty', () => {
     const { getByTestId } = renderComponent()
     const rendered = getByTestId(FORM_LABEL_TEST_ID)

@@ -50,7 +50,6 @@ yarn dev
 | `yarn lint`            | Lints all workspaces                    |
 | `yarn typecheck`       | Type checks all workspaces              |
 | `yarn clean`           | Remove generated files                  |
-| `yarn update-snapshot` | Update test snapshots of `bezier-react` |
 
 ## Contributing
 
