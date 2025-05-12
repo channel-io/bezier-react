@@ -9,7 +9,7 @@ import { Icon } from '~/src/components/Icon'
 
 import { type BadgeProps } from './Badge.types'
 
-export const BADGE_TEST_ID = 'bezier-badge'
+const BADGE_TEST_ID = 'bezier-badge'
 
 /**
  * `Badge` is a component for representing badge, which consists of text and icon.
@@ -26,7 +26,7 @@ export const BADGE_TEST_ID = 'bezier-badge'
  */
 export const Badge = memo(
   forwardRef<HTMLDivElement, BadgeProps>(function Badge(
-    { size = 'm', variant = 'default', truncated ,icon, children, ...rest },
+    { size = 'm', variant = 'default', truncated, icon, children, ...rest },
     forwardedRef
   ) {
     return (

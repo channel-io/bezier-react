@@ -11,7 +11,7 @@ import type { NavItemProps } from './NavItem.types'
 
 import styles from './NavItem.module.scss'
 
-export const NAV_ITEM_TEST_ID = 'bezier-nav-item'
+const NAV_ITEM_TEST_ID = 'bezier-nav-item'
 export const NAV_ITEM_LEFT_ICON_TEST_ID = 'bezier-nav-item-left-icon'
 
 /**

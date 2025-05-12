@@ -54,8 +54,8 @@ export function useAvatarRadiusToken() {
 }
 
 export const AVATAR_WRAPPER_TEST_ID = 'bezier-avatar-wrapper'
-export const AVATAR_TEST_ID = 'bezier-avatar'
-export const STATUS_WRAPPER_TEST_ID = 'bezier-status-wrapper'
+const AVATAR_TEST_ID = 'bezier-avatar'
+const STATUS_WRAPPER_TEST_ID = 'bezier-status-wrapper'
 
 /**
  * `Avatar` is a component for representing some profile image.

@@ -36,7 +36,7 @@ const [FormControlContextProvider, useFormControlContext] = createContext<
 
 export { useFormControlContext }
 
-export const FORM_CONTROL_TEST_ID = 'bezier-form-control'
+const FORM_CONTROL_TEST_ID = 'bezier-form-control'
 
 const Container = forwardRef<HTMLElement, ContainerProps>(function Container(
   { labelPosition, children, className, ...rest },

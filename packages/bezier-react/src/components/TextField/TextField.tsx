@@ -37,7 +37,7 @@ import {
 
 import styles from './TextField.module.scss'
 
-export const TEXT_INPUT_TEST_ID = 'bezier-text-input'
+const TEXT_INPUT_TEST_ID = 'bezier-text-input'
 export const TEXT_INPUT_CLEAR_ICON_TEST_ID = 'bezier-text-input-clear-icon'
 
 /**
