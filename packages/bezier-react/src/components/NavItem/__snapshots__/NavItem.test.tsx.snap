@@ -25,6 +25,7 @@ exports[`NavItem Test > Snapshot > Active 1`] = `
         d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0"
         fill="currentColor"
         fill-rule="evenodd"
+        style="fill: color(display-p3 .1922 .1961 .2039); fill-opacity: 1;"
       />
     </svg>
   </div>
@@ -62,6 +63,7 @@ exports[`NavItem Test > Snapshot > Not active 1`] = `
         d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0"
         fill="currentColor"
         fill-rule="evenodd"
+        style="fill: color(display-p3 .1922 .1961 .2039); fill-opacity: 1;"
       />
     </svg>
   </div>
