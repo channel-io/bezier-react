@@ -21,8 +21,15 @@ import type { NavGroupProps } from './NavGroup.types'
 
 import styles from './NavGroup.module.scss'
 
+/**
+ * @deprecated
+ */
 const NAV_GROUP_TEST_ID = 'bezier-nav-group'
-export const NAV_GROUP_LEFT_ICON_TEST_ID = 'bezier-nav-group-left-icon'
+
+/**
+ * @deprecated
+ */
+const NAV_GROUP_LEFT_ICON_TEST_ID = 'bezier-nav-group-left-icon'
 
 export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(
   function NavGroup(
