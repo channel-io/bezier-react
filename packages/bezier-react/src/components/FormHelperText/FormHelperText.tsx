@@ -19,8 +19,15 @@ import type {
 
 import styles from './FormHelperText.module.scss'
 
-export const FORM_HELPER_TEXT_TEST_ID = 'bezier-form-helper-text'
-export const FORM_ERROR_MESSAGE_TEST_ID = 'bezier-form-error-message'
+/**
+ * @deprecated
+ */
+const FORM_HELPER_TEXT_TEST_ID = 'bezier-form-helper-text'
+
+/**
+ * @deprecated
+ */
+const FORM_ERROR_MESSAGE_TEST_ID = 'bezier-form-error-message'
 
 const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(
   function BaseHelperText(props, forwardedRef) {
