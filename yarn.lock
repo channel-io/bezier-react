@@ -5528,16 +5528,16 @@ __metadata:
   linkType: hard
 
 "@storybook/addon-designs@npm:^8.0.4":
-  version: 8.0.4
-  resolution: "@storybook/addon-designs@npm:8.0.4"
+  version: 8.2.1
+  resolution: "@storybook/addon-designs@npm:8.2.1"
   dependencies:
     "@figspec/react": "npm:^1.0.0"
   peerDependencies:
     "@storybook/blocks": ^8.0.0 || ^8.1.0-0 || ^8.2.0-0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
     "@storybook/components": ^8.0.0 || ^8.1.0-0 || ^8.2.0-0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
     "@storybook/theming": ^8.0.0 || ^8.1.0-0 || ^8.2.0-0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
   peerDependenciesMeta:
     "@storybook/blocks":
       optional: true
@@ -5549,7 +5549,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10/7892f8752e2767e51d7b8c9e73cb415bb3dfef191f38b640e6ac29cd5be7fd6406f2b6fe40045416941051dabeb5cbdd118edc17c0d4d199c6b67aa588014b8b
+  checksum: 10/5363dd1765bf34fc5fa51f1ad9f4480e97cb3f35835dbd89c54db170b1bd5bb36c06c37f93e8fd1e09d5488fef04b1ecbb167036b7a07ce3c94543507f3ca61c
   languageName: node
   linkType: hard
 
