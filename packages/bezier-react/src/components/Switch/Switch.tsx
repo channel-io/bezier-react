@@ -12,7 +12,10 @@ import { type SwitchProps } from './Switch.types'
 
 import styles from './Switch.module.scss'
 
-export const SWITCH_TEST_ID = 'bezier-switch'
+/**
+ * @deprecated
+ */
+const SWITCH_TEST_ID = 'bezier-switch'
 
 /**
  * `Switch` is an input component where user can toggle checked state of the element.

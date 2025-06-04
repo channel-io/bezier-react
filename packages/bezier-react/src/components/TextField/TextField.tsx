@@ -37,8 +37,15 @@ import {
 
 import styles from './TextField.module.scss'
 
+/**
+ * @deprecated
+ */
 const TEXT_INPUT_TEST_ID = 'bezier-text-input'
-export const TEXT_INPUT_CLEAR_ICON_TEST_ID = 'bezier-text-input-clear-icon'
+
+/**
+ * @deprecated
+ */
+const TEXT_INPUT_CLEAR_ICON_TEST_ID = 'bezier-text-input-clear-icon'
 
 /**
  * FIXME: This mapping constant was defined for UI consistency,
@@ -414,6 +421,7 @@ export const TextField = forwardRef<TextFieldRef, TextFieldProps>(
             className={styles.CloseIconWrapper}
             tabIndex={0}
             onClick={handleClear}
+            aria-label="Clear input"
           >
             <Icon
               className={styles.CloseIcon}
