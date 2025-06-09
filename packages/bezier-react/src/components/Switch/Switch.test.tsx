@@ -2,7 +2,7 @@ import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
 
-import { SWITCH_TEST_ID, Switch } from './Switch'
+import { Switch } from './Switch'
 import { type SwitchProps } from './Switch.types'
 
 describe('Switch', () => {
@@ -12,19 +12,19 @@ describe('Switch', () => {
   describe('data attribute', () => {
     describe('data-state', () => {
       it('should have data-state="checked" attribute when checked is true', () => {
-        const { getByTestId } = renderComponent({
+        const { getByRole } = renderComponent({
           checked: true,
         })
-        const switchComponent = getByTestId(SWITCH_TEST_ID)
+        const switchComponent = getByRole('switch')
 
         expect(switchComponent).toHaveAttribute('data-state', 'checked')
       })
 
       it('should have data-state="unchecked" attribute when checked is false', () => {
-        const { getByTestId } = renderComponent({
+        const { getByRole } = renderComponent({
           checked: false,
         })
-        const switchComponent = getByTestId(SWITCH_TEST_ID)
+        const switchComponent = getByRole('switch')
 
         expect(switchComponent).toHaveAttribute('data-state', 'unchecked')
       })
@@ -32,19 +32,19 @@ describe('Switch', () => {
 
     describe('data-disabled', () => {
       it('should have data-disabled attribute when disabled is true', () => {
-        const { getByTestId } = renderComponent({
+        const { getByRole } = renderComponent({
           disabled: true,
         })
-        const switchComponent = getByTestId(SWITCH_TEST_ID)
+        const switchComponent = getByRole('switch')
 
         expect(switchComponent).toHaveAttribute('data-disabled')
       })
 
       it('should not have data-disabled attribute when disabled is false', () => {
-        const { getByTestId } = renderComponent({
+        const { getByRole } = renderComponent({
           disabled: false,
         })
-        const switchComponent = getByTestId(SWITCH_TEST_ID)
+        const switchComponent = getByRole('switch')
 
         expect(switchComponent).not.toHaveAttribute('data-disabled')
       })
@@ -56,12 +56,12 @@ describe('Switch', () => {
       const user = userEvent.setup()
       const onClick = jest.fn()
       const onCheckedChange = jest.fn()
-      const { getByTestId } = renderComponent({
+      const { getByRole } = renderComponent({
         defaultChecked: false,
         onClick,
         onCheckedChange,
       })
-      const switchComponent = getByTestId(SWITCH_TEST_ID)
+      const switchComponent = getByRole('switch')
 
       await user.click(switchComponent)
       expect(switchComponent).toHaveAttribute('data-state', 'checked')
@@ -76,11 +76,11 @@ describe('Switch', () => {
     it('should change state when user enters Space key on Switch', async () => {
       const user = userEvent.setup()
       const onCheckedChange = jest.fn()
-      const { getByTestId } = renderComponent({
+      const { getByRole } = renderComponent({
         defaultChecked: false,
         onCheckedChange,
       })
-      const switchComponent = getByTestId(SWITCH_TEST_ID)
+      const switchComponent = getByRole('switch')
 
       await user.tab()
       await user.keyboard('[Space]')
@@ -94,11 +94,11 @@ describe('Switch', () => {
     it('should change state when user enters Enter key on Switch', async () => {
       const user = userEvent.setup()
       const onCheckedChange = jest.fn()
-      const { getByTestId } = renderComponent({
+      const { getByRole } = renderComponent({
         defaultChecked: false,
         onCheckedChange,
       })
-      const switchComponent = getByTestId(SWITCH_TEST_ID)
+      const switchComponent = getByRole('switch')
 
       await user.tab()
       await user.keyboard('[Enter]')
@@ -113,13 +113,13 @@ describe('Switch', () => {
       const user = userEvent.setup()
       const onClick = jest.fn()
       const onCheckedChange = jest.fn()
-      const { getByTestId } = renderComponent({
+      const { getByRole } = renderComponent({
         defaultChecked: false,
         disabled: true,
         onClick,
         onCheckedChange,
       })
-      const switchComponent = getByTestId(SWITCH_TEST_ID)
+      const switchComponent = getByRole('switch')
 
       await user.click(switchComponent)
       expect(switchComponent).toHaveAttribute('data-state', 'unchecked')

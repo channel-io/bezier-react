@@ -11,8 +11,15 @@ import type { NavItemProps } from './NavItem.types'
 
 import styles from './NavItem.module.scss'
 
+/**
+ * @deprecated
+ */
 const NAV_ITEM_TEST_ID = 'bezier-nav-item'
-export const NAV_ITEM_LEFT_ICON_TEST_ID = 'bezier-nav-item-left-icon'
+
+/**
+ * @deprecated
+ */
+const NAV_ITEM_LEFT_ICON_TEST_ID = 'bezier-nav-item-left-icon'
 
 /**
  * `NavItem` is a component for an item where you can navigate to another link.

@@ -13,8 +13,15 @@ import { type TagProps } from './Tag.types'
 
 import styles from './Tag.module.scss'
 
-export const TAG_TEST_ID = 'bezier-tag'
-export const TAG_DELETE_TEST_ID = 'bezier-tag-delete-icon'
+/**
+ * @deprecated
+ */
+const TAG_TEST_ID = 'bezier-tag'
+
+/**
+ * @deprecated
+ */
+const TAG_DELETE_TEST_ID = 'bezier-tag-delete-icon'
 
 /**
  * `Tag` is a component for representing tag, which shows close icon when `onDelete` property is specified.
@@ -55,6 +62,7 @@ export const Tag = memo(
         {!isNil(onDelete) && (
           <Icon
             role="button"
+            aria-label="delete"
             tabIndex={0}
             className={styles.TagDeleteIcon}
             source={CancelSmallIcon}

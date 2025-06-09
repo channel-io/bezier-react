@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event'
 import { COMMON_IME_CONTROL_KEYS } from '~/src/hooks/useKeyboardActionLockerWhileComposing'
 import { render } from '~/src/utils/test'
 
-import { TEXT_INPUT_CLEAR_ICON_TEST_ID, TextField } from './TextField'
+import { TextField } from './TextField'
 import { type TextFieldProps } from './TextField.types'
 
 describe('TextField', () => {
@@ -211,7 +211,7 @@ describe('TextField', () => {
     // })
 
     it('appear when filled & hovered', async () => {
-      const { getByRole, getByTestId } = renderComponent({
+      const { getByRole, getByLabelText } = renderComponent({
         value: 'test',
         allowClear: true,
       })
@@ -219,12 +219,12 @@ describe('TextField', () => {
 
       await user.hover(input)
 
-      const clearButton = getByTestId(TEXT_INPUT_CLEAR_ICON_TEST_ID)
+      const clearButton = getByLabelText('Clear input')
       expect(clearButton).toBeVisible()
     })
 
     it('appear when filled & focused', () => {
-      const { getByRole, getByTestId } = renderComponent({
+      const { getByRole, getByLabelText } = renderComponent({
         value: 'test',
         allowClear: true,
       })
@@ -232,7 +232,7 @@ describe('TextField', () => {
 
       input.focus()
 
-      const clearButton = getByTestId(TEXT_INPUT_CLEAR_ICON_TEST_ID)
+      const clearButton = getByLabelText('Clear input')
       expect(clearButton).toBeVisible()
     })
 

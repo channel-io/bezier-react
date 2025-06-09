@@ -9,7 +9,10 @@ import { type DividerProps } from './Divider.types'
 
 import styles from './Divider.module.scss'
 
-export const DIVIDER_TEST_ID = 'bezier-divider'
+/**
+ * @deprecated
+ */
+const DIVIDER_TEST_ID = 'bezier-divider'
 
 /**
  * `Divider` is a component to visually or semantically separate content.
@@ -52,6 +55,7 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
           withoutSideIndent && styles['without-side-indent'],
           className
         )}
+        role="separator"
         data-testid={DIVIDER_TEST_ID}
         {...rest}
       />
