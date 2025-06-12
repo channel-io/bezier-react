@@ -36,19 +36,15 @@ export default meta
 const VALUES = [
   {
     value: '1',
-    label: 'Opened',
+    label: 'First',
   },
   {
     value: '2',
-    label: 'Snoozed',
+    label: 'Second',
   },
   {
     value: '3',
-    label: 'Missed',
-  },
-  {
-    value: '4',
-    label: 'Closed',
+    label: 'Third',
   },
 ]
 
