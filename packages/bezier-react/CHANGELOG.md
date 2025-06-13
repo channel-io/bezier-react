@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 3.1.4
+
+### Patch Changes
+
+- Fix infinite type recursion of Checkbox that occurs in TS 5.6+ ([#2654](https://github.com/channel-io/bezier-react/pull/2654)) by @dohyun-ko
+
+- Add a11y related properties to Divider, Tag, and TextField components ([#2649](https://github.com/channel-io/bezier-react/pull/2649)) by @yangwooseong
+
 ## 3.1.3
 
 ### Patch Changes
