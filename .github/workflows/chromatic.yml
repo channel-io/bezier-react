@@ -13,7 +13,10 @@ on:
 jobs:
   chromatic-deployment:
     #  Skip Chromatic build for version package update PRs or release PRs
-    if: github.actor != 'dependabot[bot]' && github.actor != 'renovate[bot]' && !contains(github.event.pull_request.title, 'ci(changesets): version packages')
+    if: >-
+      github.actor != 'dependabot[bot]' &&
+      github.actor != 'renovate[bot]' &&
+      !contains(github.event.pull_request.title, 'ci(changesets): version packages')
     name: Chromatic
     runs-on: ubuntu-latest
     steps:
