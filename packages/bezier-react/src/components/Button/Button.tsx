@@ -50,7 +50,7 @@ function getSpinnerSize(size: ButtonSize) {
       s: 'xs',
       m: 's',
       l: 's',
-      xl: 's',
+      xl: 'l',
     } as const
   )[size]
 }
