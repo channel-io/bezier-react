@@ -98,6 +98,11 @@ function CheckboxImpl<Checked extends CheckedState>(
   )
 }
 
+/* NOTE: This is a workaround to avoid infinite type recursion when directly using `ReturnType` */
+type ReturnTypeOfCheckboxImpl<Checked extends CheckedState> = ReturnType<
+  typeof CheckboxImpl<Checked>
+>
+
 /**
  * `Checkbox` is a control that allows the user to toggle between checked and not checked.
  * It can be used with labels or standalone.
@@ -131,4 +136,4 @@ export const Checkbox = forwardRef(CheckboxImpl) as <
   props: CheckboxProps<Checked> & {
     ref?: React.ForwardedRef<HTMLButtonElement>
   }
-) => ReturnType<typeof CheckboxImpl<Checked>>
+) => ReturnTypeOfCheckboxImpl<Checked>
