@@ -1,5 +1,11 @@
 # bezier-figma-plugin
 
+## 0.7.0
+
+### Minor Changes
+
+- Bezier Figma plugin now supports Figma's Dev Mode. ([#2656](https://github.com/channel-io/bezier-react/pull/2656)) by @sungik-choi
+
 ## 0.6.32
 
 ### Patch Changes
