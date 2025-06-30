@@ -4,6 +4,8 @@
   "api": "1.0.0",
   "editorType": ["figma", "dev"],
   "capabilities": ["inspect", "vscode"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": { "allowedDomains": ["*"], "reasoning": "For development" },
   "main": "dist/code.js",
   "ui": "dist/ui.html",
   "enablePrivatePluginApi": true
