@@ -1,5 +1,29 @@
 # @channel.io/bezier-icons
 
+## 0.45.0
+
+### Minor Changes
+
+- Update icons ([#2659](https://github.com/channel-io/bezier-react/pull/2659)) by @ch-builder
+
+  Modified
+
+  - app-check.svg
+  - bot.svg
+  - chat-suggestion.svg
+  - google-play.svg
+  - receipt.svg
+  - skip-filled.svg
+  - voice-wave-missed.svg
+  - wifi-poor.svg
+  - wifi-weak.svg
+
+  Added
+
+  - curved.svg
+  - straight.svg
+  - team-ai.svg
+
 ## 0.44.0
 
 ### Minor Changes
