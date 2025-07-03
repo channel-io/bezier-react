@@ -86,4 +86,47 @@ describe('warn', () => {
 
     warnSpy.mockRestore()
   })
+
+  it('should output the message only once per scope when scope is provided', () => {
+    process.env.NODE_ENV = 'development'
+
+    const warnSpy = jest.spyOn(console, 'warn')
+
+    warn('Warning message', 'test-scope')
+    warn('Warning message', 'test-scope')
+    warn('Warning message', 'test-scope')
+
+    expect(warnSpy).toHaveBeenCalledTimes(1)
+    expect(warnSpy).toHaveBeenCalledWith('Warning message')
+
+    warnSpy.mockRestore()
+  })
+
+  it('should output different messages for different scopes', () => {
+    process.env.NODE_ENV = 'development'
+
+    const warnSpy = jest.spyOn(console, 'warn')
+
+    warn('Warning message 1', 'scope-1')
+    warn('Warning message 2', 'scope-2')
+    warn('Warning message 1', 'scope-1') // Should not be called again
+
+    expect(warnSpy).toHaveBeenCalledTimes(2)
+    expect(warnSpy).toHaveBeenNthCalledWith(1, 'Warning message 1')
+    expect(warnSpy).toHaveBeenNthCalledWith(2, 'Warning message 2')
+
+    warnSpy.mockRestore()
+  })
+
+  it('should not output warning in production environment even with scope', () => {
+    process.env.NODE_ENV = 'production'
+
+    const warnSpy = jest.spyOn(console, 'warn')
+
+    warn('Warning message', 'test-scope')
+
+    expect(warnSpy).not.toHaveBeenCalled()
+
+    warnSpy.mockRestore()
+  })
 })

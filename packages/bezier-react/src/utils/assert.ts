@@ -2,10 +2,22 @@ export function isDev() {
   return process.env.NODE_ENV !== 'production'
 }
 
-export function warn(message: string) {
+const devWarningScopes = new Set<string>()
+
+export function warn(message: string): void
+export function warn(message: string, scope: string): void
+export function warn(message: string, scope?: string) {
   if (isDev()) {
-    // eslint-disable-next-line no-console
-    console.warn(message)
+    if (scope) {
+      if (!devWarningScopes.has(scope)) {
+        devWarningScopes.add(scope)
+        // eslint-disable-next-line no-console
+        console.warn(message)
+      }
+    } else {
+      // eslint-disable-next-line no-console
+      console.warn(message)
+    }
   }
 }
 
