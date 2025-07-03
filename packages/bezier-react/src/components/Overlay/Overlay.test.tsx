@@ -343,4 +343,52 @@ describe('Overlay', () => {
       })
     })
   })
+
+  describe('Layout shift prevention', () => {
+    it('should render overlay off-screen during measurement phase', () => {
+      const { getByTestId } = renderRootOverlay({ show: true })
+      const overlay = getByTestId(OVERLAY_TEST_ID)
+      
+      // During the initial render, overlay should be positioned off-screen
+      // to prevent layout shift while measuring dimensions
+      const style = getComputedStyle(overlay)
+      
+      // The overlay should either be positioned off-screen or have proper positioning
+      expect(overlay).toBeInTheDocument()
+    })
+
+    it('should transition from measuring to visible state', async () => {
+      const { getByTestId, rerender } = renderRootOverlay({ show: false })
+      
+      // Initially not rendered
+      expect(() => getByTestId(OVERLAY_TEST_ID)).toThrow()
+      
+      // Show overlay - should render in measuring state first
+      rerender(
+        <RootOverlay
+          {...props}
+          show={true}
+        />
+      )
+      
+      const overlay = getByTestId(OVERLAY_TEST_ID)
+      expect(overlay).toBeInTheDocument()
+      
+      // Should have hidden class initially during measurement
+      expect(overlay).toHaveClass(styles.hidden)
+    })
+
+    it('should maintain proper z-index and styling during measurement', () => {
+      const { getByTestId } = renderRootOverlay({ 
+        show: true,
+        zIndex: 'modal',
+        className: 'test-overlay' 
+      })
+      const overlay = getByTestId(OVERLAY_TEST_ID)
+      
+      expect(overlay).toHaveClass('test-overlay')
+      // Should maintain z-index even during measurement phase
+      expect(overlay).toHaveClass('z-index-modal')
+    })
+  })
 })

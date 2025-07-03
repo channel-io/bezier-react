@@ -62,6 +62,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
 
     const [shouldRender, setShouldRender] = useState(false)
     const [shouldShow, setShouldShow] = useState(false)
+    const [isMeasuring, setIsMeasuring] = useState(false)
 
     const containerRect = useRef<ContainerRectAttr | null>(null)
     const targetRect = useRef<TargetRectAttr | null>(null)
@@ -195,9 +196,8 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
 
     /**
      * Case 1: show === true
-     * show -> shouldRender -> shouldShow
-     * shouldRender 를 true 로 설정하고, 직후에 shouldShow 를 true 로 설정하여 transition 유발
-     *
+     * show -> shouldRender (measuring phase) -> shouldShow (visible phase)
+     * 
      * Case 2: show === false
      * show -> shouldShow -> (...) -> shouldRender
      * shouldShow 를 false 로 설정하고, shouldRender 는 transition 필요 여부에 따라 다르게 결정함
@@ -210,10 +210,12 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
      */
     useEffect(() => {
       if (show) {
-        if (shouldRender) {
-          window.requestAnimationFrame(() => setShouldShow(true))
-        } else {
-          window.requestAnimationFrame(() => setShouldRender(true))
+        if (!shouldRender) {
+          // Start the rendering process
+          window.requestAnimationFrame(() => {
+            setShouldRender(true)
+            setIsMeasuring(true)
+          })
         }
       }
 
@@ -221,10 +223,24 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
         window.requestAnimationFrame(() => setShouldShow(false))
 
         if (!withTransition) {
-          window.requestAnimationFrame(() => setShouldRender(false))
+          window.requestAnimationFrame(() => {
+            setShouldRender(false)
+            setIsMeasuring(false)
+          })
         }
       }
-    }, [show, withTransition, shouldRender, shouldShow, window])
+    }, [show, withTransition, shouldRender])
+
+    // Handle the measurement and visibility phases
+    useIsomorphicLayoutEffect(() => {
+      if (shouldRender && isMeasuring && overlayRef.current) {
+        // Measurement phase complete, now show the overlay
+        window.requestAnimationFrame(() => {
+          setIsMeasuring(false)
+          setShouldShow(true)
+        })
+      }
+    }, [shouldRender, isMeasuring])
 
     const themeName = useThemeName()
 
@@ -232,27 +248,37 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       return null
     }
 
+    const overlayStyle = getOverlayStyle({
+      containerRect: containerRect.current,
+      targetRect: targetRect.current,
+      overlay: overlayRef.current,
+      position,
+      marginX,
+      marginY,
+      keepInContainer,
+      show: shouldShow,
+    })
+
     const Content = (
       <ThemeProvider themeName={themeName}>
         <div
           className={classNames(
             styles.Overlay,
             getZIndexClassName(zIndex),
-            !shouldShow && styles.hidden,
+            (!shouldShow || isMeasuring) && styles.hidden,
             withTransition && styles.transition,
             className
           )}
           style={{
             ...style,
-            ...getOverlayStyle({
-              containerRect: containerRect.current,
-              targetRect: targetRect.current,
-              overlay: overlayRef.current,
-              position,
-              marginX,
-              marginY,
-              keepInContainer,
-              show: shouldShow,
+            ...overlayStyle,
+            // During measurement phase, position overlay off-screen to prevent layout shift
+            ...(isMeasuring && {
+              visibility: 'hidden' as const,
+              position: 'fixed' as const,
+              top: '-9999px',
+              left: '-9999px',
+              transform: 'none',
             }),
           }}
           ref={mergedRef}
