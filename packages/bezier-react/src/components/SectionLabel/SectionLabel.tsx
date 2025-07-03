@@ -40,7 +40,8 @@ function LeftContent({ children }: { children: SectionLabelLeftContent }) {
 
   if (isLegacyIcon) {
     warn(
-      'Deprecation: IconName as a value for the icon property of SectionLabel has been deprecated. Use the Icon of bezier-icons instead.'
+      'Deprecation: IconName as a value for the icon property of SectionLabel has been deprecated. Use the Icon of bezier-icons instead.',
+      'SectionLabel.LeftContent.IconName'
     )
   }
 
@@ -76,7 +77,8 @@ function RightContent({ children }: { children: SectionLabelRightContent }) {
 
   if (isLegacyIcon) {
     warn(
-      'Deprecation: IconName as a value for the icon property of SectionLabel has been deprecated. Use the Icon of bezier-icons instead.'
+      'Deprecation: IconName as a value for the icon property of SectionLabel has been deprecated. Use the Icon of bezier-icons instead.',
+      'SectionLabel.RightContent.IconName'
     )
   }
 

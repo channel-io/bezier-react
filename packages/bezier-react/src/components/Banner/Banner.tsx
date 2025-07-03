@@ -77,7 +77,8 @@ export const Banner = forwardRef<HTMLDivElement, BannerProps>(function Banner(
 ) {
   if (isIconName(icon)) {
     warn(
-      'Deprecation: IconName as a value for the icon property of Banner has been deprecated. Use the Icon of bezier-icons instead.'
+      'Deprecation: IconName as a value for the icon property of Banner has been deprecated. Use the Icon of bezier-icons instead.',
+      'Banner.IconName'
     )
   }
 

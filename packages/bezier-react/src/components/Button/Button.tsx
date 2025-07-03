@@ -64,7 +64,8 @@ function ButtonSideContent({
 }) {
   if (isIconName(children)) {
     warn(
-      'Deprecation: IconName as a value for the leftContent property of a Button has been deprecated. Use the Icon of bezier-icons instead.'
+      'Deprecation: IconName as a value for the leftContent property of a Button has been deprecated. Use the Icon of bezier-icons instead.',
+      'Button.IconName'
     )
     return (
       <LegacyIcon
