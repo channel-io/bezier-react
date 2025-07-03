@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개선된 Overlay AutoFocus 데모</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .demo-container {
+            position: relative;
+            width: 500px;
+            height: 400px;
+            margin: 50px auto;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .overlay {
+            position: absolute;
+            width: 350px;
+            padding: 24px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            z-index: 1000;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.2s ease-out;
+        }
+        
+        .overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .overlay.measuring {
+            opacity: 0.1;
+            transition: none;
+        }
+        
+        .overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+        }
+        
+        .button {
+            padding: 12px 20px;
+            margin: 8px 4px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        
+        .button:hover {
+            background: #0056b3;
+        }
+        
+        .button.secondary {
+            background: #6c757d;
+        }
+        
+        .button.secondary:hover {
+            background: #545b62;
+        }
+        
+        .status {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 16px;
+            background: #28a745;
+            color: white;
+            border-radius: 8px;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .status.show {
+            opacity: 1;
+        }
+        
+        .instructions {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .test-results {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container" id="container">
+        <button class="button" id="openButton">오버레이 열기 (개선됨)</button>
+        
+        <div class="overlay hidden" id="overlay">
+            <h3>AutoFocus 테스트</h3>
+            <p style="margin: 0 0 16px; color: #666; font-size: 14px;">
+                이 입력 필드는 오버레이가 열릴 때 자동으로 포커스됩니다.
+            </p>
+            <input 
+                type="text" 
+                class="input-field" 
+                id="autoFocusInput"
+                placeholder="자동 포커스 입력 필드"
+                autofocus
+            />
+            <input 
+                type="text" 
+                class="input-field" 
+                placeholder="두 번째 입력 필드"
+            />
+            <div style="margin-top: 16px;">
+                <button class="button secondary" id="closeButton">닫기</button>
+                <button class="button" id="testAgainButton">다시 테스트</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="status" id="status"></div>
+
+    <div class="instructions">
+        <h3>🎯 개선된 Overlay AutoFocus 데모</h3>
+        <p><strong>개선 사항:</strong></p>
+        <ul>
+            <li>✅ AutoFocus가 정상적으로 동작합니다</li>
+            <li>✅ 레이아웃 시프트가 최소화되었습니다</li>
+            <li>✅ 매우 짧은 측정 단계 (2 프레임) 후 즉시 표시</li>
+            <li>✅ 측정 중에도 포커스 가능 (opacity 0.1)</li>
+        </ul>
+
+        <div class="test-results">
+            <h4>테스트 결과:</h4>
+            <p id="testResults">버튼을 클릭하여 테스트를 시작하세요.</p>
+        </div>
+    </div>
+
+    <script>
+        const overlay = document.getElementById('overlay');
+        const openButton = document.getElementById('openButton');
+        const closeButton = document.getElementById('closeButton');
+        const testAgainButton = document.getElementById('testAgainButton');
+        const autoFocusInput = document.getElementById('autoFocusInput');
+        const status = document.getElementById('status');
+        const testResults = document.getElementById('testResults');
+
+        let isShowing = false;
+        let testCount = 0;
+        let successCount = 0;
+
+        function showStatus(message, duration = 2000) {
+            status.textContent = message;
+            status.classList.add('show');
+            setTimeout(() => {
+                status.classList.remove('show');
+            }, duration);
+        }
+
+        function updateTestResults() {
+            testResults.innerHTML = `
+                <strong>총 테스트: ${testCount}회</strong><br>
+                AutoFocus 성공: ${successCount}회<br>
+                성공률: ${testCount > 0 ? Math.round((successCount / testCount) * 100) : 0}%
+            `;
+        }
+
+        function hideOverlay() {
+            if (!isShowing) return;
+            isShowing = false;
+            overlay.classList.remove('show', 'measuring');
+            overlay.classList.add('hidden');
+            showStatus('오버레이 닫힘');
+        }
+
+        function showOverlay() {
+            if (isShowing) return;
+            isShowing = true;
+            testCount++;
+            
+            console.log('=== 개선된 오버레이 테스트 시작 ===');
+            
+            // 1단계: 렌더링 시작
+            overlay.classList.remove('hidden');
+            overlay.classList.add('measuring');
+            console.log('1단계: 측정 시작, opacity: 0.1');
+            
+            // 2단계: 매우 빠른 측정 (2 requestAnimationFrame)
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    overlay.classList.remove('measuring');
+                    overlay.classList.add('show');
+                    console.log('2단계: 표시 완료, opacity: 1');
+                    
+                    // AutoFocus 확인
+                    setTimeout(() => {
+                        const focusedElement = document.activeElement;
+                        const isAutoFocusWorking = focusedElement === autoFocusInput;
+                        
+                        if (isAutoFocusWorking) {
+                            successCount++;
+                            console.log('✅ AutoFocus 성공!');
+                            showStatus('✅ AutoFocus 성공!');
+                        } else {
+                            console.log('❌ AutoFocus 실패');
+                            showStatus('❌ AutoFocus 실패');
+                            
+                            // 수동으로 포커스 설정
+                            autoFocusInput.focus();
+                        }
+                        
+                        updateTestResults();
+                        console.log(`포커스된 요소:`, focusedElement);
+                    }, 50);
+                });
+            });
+        }
+
+        // 이벤트 리스너
+        openButton.addEventListener('click', showOverlay);
+        closeButton.addEventListener('click', hideOverlay);
+        testAgainButton.addEventListener('click', () => {
+            hideOverlay();
+            setTimeout(showOverlay, 100);
+        });
+
+        // ESC 키로 닫기
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isShowing) {
+                hideOverlay();
+            }
+        });
+
+        // 오버레이 외부 클릭으로 닫기
+        document.addEventListener('click', (e) => {
+            if (isShowing && 
+                !overlay.contains(e.target) && 
+                e.target !== openButton &&
+                e.target !== testAgainButton) {
+                hideOverlay();
+            }
+        });
+
+        // 초기 결과 표시
+        updateTestResults();
+    </script>
+</body>
+</html>

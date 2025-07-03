@@ -195,26 +195,23 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
     }, [children, handleOverlayForceUpdate])
 
     /**
-     * Case 1: show === true
-     * show -> shouldRender (measuring phase) -> shouldShow (visible phase)
-     * 
-     * Case 2: show === false
-     * show -> shouldShow -> (...) -> shouldRender
-     * shouldShow 를 false 로 설정하고, shouldRender 는 transition 필요 여부에 따라 다르게 결정함
-     *    Case 2-1: withTransition === true
-     *    shouldShow -> onTransitionEnd -> shouldRender
-     *    onTransitionEnd handler 를 이용해 transition 이 끝난 다음 shouldRender 를 false 로 설정
-     *    Case 2-2: withTransition === false
-     *    shouldShow && shouldRender
-     *    transition 을 기다릴 필요가 없으므로 바로 shouldRender 를 false 로 설정
+     * Simplified rendering approach to fix autoFocus while preventing layout shift
+     * Case 1: show === true -> shouldRender -> shouldShow (with micro-delay for positioning)
+     * Case 2: show === false -> shouldShow -> shouldRender (based on transition setting)
      */
     useEffect(() => {
       if (show) {
         if (!shouldRender) {
-          // Start the rendering process
+          setShouldRender(true)
+          // Brief measurement phase to calculate position without major layout shift
+          setIsMeasuring(true)
+          
+          // Very fast transition to visible state to maintain autoFocus functionality
           window.requestAnimationFrame(() => {
-            setShouldRender(true)
-            setIsMeasuring(true)
+            window.requestAnimationFrame(() => {
+              setIsMeasuring(false)
+              setShouldShow(true)
+            })
           })
         }
       }
@@ -231,17 +228,6 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       }
     }, [show, withTransition, shouldRender])
 
-    // Handle the measurement and visibility phases
-    useIsomorphicLayoutEffect(() => {
-      if (shouldRender && isMeasuring && overlayRef.current) {
-        // Measurement phase complete, now show the overlay
-        window.requestAnimationFrame(() => {
-          setIsMeasuring(false)
-          setShouldShow(true)
-        })
-      }
-    }, [shouldRender, isMeasuring])
-
     const themeName = useThemeName()
 
     if (!shouldRender) {
@@ -251,7 +237,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
     const overlayStyle = getOverlayStyle({
       containerRect: containerRect.current,
       targetRect: targetRect.current,
-      overlay: overlayRef.current,
+      overlay: isMeasuring ? null : overlayRef.current, // Allow initial positioning during measurement
       position,
       marginX,
       marginY,
@@ -272,13 +258,10 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
           style={{
             ...style,
             ...overlayStyle,
-            // During measurement phase, position overlay off-screen to prevent layout shift
+            // During brief measurement phase, reduce opacity slightly but keep focusable
             ...(isMeasuring && {
-              visibility: 'hidden' as const,
-              position: 'fixed' as const,
-              top: '-9999px',
-              left: '-9999px',
-              transform: 'none',
+              opacity: 0.1, // Very low opacity instead of 0 to maintain focus functionality
+              transition: 'none', // Disable transitions during measurement
             }),
           }}
           ref={mergedRef}

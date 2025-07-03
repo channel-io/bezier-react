@@ -22,11 +22,10 @@ import { getOverlayTranslation } from './utils'
 
 import styles from './Overlay.module.scss'
 
-const RootOverlay: React.FC<OverlayProps> = ({ children, ...rests }) => (
-  <div id="main">
-    <Overlay {...rests}>{children}</Overlay>
-  </div>
-)
+const RootOverlay: React.FC<OverlayProps> = ({ children, ...rests }) =>
+  React.createElement('div', { id: 'main' },
+    React.createElement(Overlay, rests, children)
+  )
 
 describe('Overlay', () => {
   let props: OverlayProps
@@ -333,7 +332,7 @@ describe('Overlay', () => {
 
         it('does not call onHide when element inside the overlay is clicked', () => {
           const { getByRole } = renderRootOverlay({
-            children: <Button text="button" />,
+            children: React.createElement(Button, { text: "button" }),
             onHide,
           })
           const button = getByRole('button')
@@ -344,41 +343,64 @@ describe('Overlay', () => {
     })
   })
 
-  describe('Layout shift prevention', () => {
-    it('should render overlay off-screen during measurement phase', () => {
+  describe('Layout shift prevention and AutoFocus support', () => {
+    it('should render overlay with correct positioning during measurement phase', () => {
       const { getByTestId } = renderRootOverlay({ show: true })
       const overlay = getByTestId(OVERLAY_TEST_ID)
       
-      // During the initial render, overlay should be positioned off-screen
-      // to prevent layout shift while measuring dimensions
-      const style = getComputedStyle(overlay)
-      
-      // The overlay should either be positioned off-screen or have proper positioning
+      // The overlay should be rendered at correct position, not off-screen
       expect(overlay).toBeInTheDocument()
+      
+      // Should have proper positioning, not moved off-screen
+      const style = getComputedStyle(overlay)
+      expect(style.top).not.toBe('-9999px')
+      expect(style.left).not.toBe('-9999px')
     })
 
-    it('should transition from measuring to visible state', async () => {
+    it('should maintain focusability during measurement phase', () => {
+      const TestInput = () => React.createElement('input', {
+        'data-testid': 'test-input',
+        autoFocus: true
+      })
+      
+      const { getByTestId } = renderRootOverlay({ 
+        show: true,
+        children: React.createElement(TestInput)
+      })
+      
+      const overlay = getByTestId(OVERLAY_TEST_ID)
+      const input = getByTestId('test-input')
+      
+      expect(overlay).toBeInTheDocument()
+      expect(input).toBeInTheDocument()
+      
+      // Input should be focusable even during measurement phase
+      input.focus()
+      expect(document.activeElement).toBe(input)
+    })
+
+    it('should transition quickly from measuring to visible state', async () => {
       const { getByTestId, rerender } = renderRootOverlay({ show: false })
       
       // Initially not rendered
       expect(() => getByTestId(OVERLAY_TEST_ID)).toThrow()
       
-      // Show overlay - should render in measuring state first
+      // Show overlay - should render and quickly become visible
       rerender(
-        <RootOverlay
-          {...props}
-          show={true}
-        />
+        React.createElement(RootOverlay, {
+          ...props,
+          show: true
+        })
       )
       
       const overlay = getByTestId(OVERLAY_TEST_ID)
       expect(overlay).toBeInTheDocument()
       
-      // Should have hidden class initially during measurement
+      // Should transition to visible state very quickly
       expect(overlay).toHaveClass(styles.hidden)
     })
 
-    it('should maintain proper z-index and styling during measurement', () => {
+    it('should maintain proper z-index and styling throughout the process', () => {
       const { getByTestId } = renderRootOverlay({ 
         show: true,
         zIndex: 'modal',
@@ -387,7 +409,7 @@ describe('Overlay', () => {
       const overlay = getByTestId(OVERLAY_TEST_ID)
       
       expect(overlay).toHaveClass('test-overlay')
-      // Should maintain z-index even during measurement phase
+      // Should maintain z-index throughout the process
       expect(overlay).toHaveClass('z-index-modal')
     })
   })

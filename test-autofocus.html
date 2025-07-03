@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoFocus 테스트</title>
+    <style>
+        .container {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .overlay {
+            position: absolute;
+            width: 300px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+        
+        .overlay.hidden {
+            opacity: 0;
+        }
+        
+        .overlay.measuring {
+            /* 문제가 되는 스타일 */
+            visibility: hidden;
+            position: fixed;
+            top: -9999px;
+            left: -9999px;
+            transform: none;
+        }
+        
+        .overlay.measuring-fixed {
+            /* 개선된 스타일 */
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .button {
+            padding: 8px 16px;
+            margin: 8px 4px;
+            border: 1px solid #007bff;
+            background: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <button class="button" id="openButton">오버레이 열기</button>
+        
+        <div class="overlay hidden" id="overlay">
+            <h3>AutoFocus 테스트</h3>
+            <input 
+                type="text" 
+                class="input-field" 
+                id="autoFocusInput"
+                placeholder="이 필드에 자동으로 포커스되어야 합니다"
+                autofocus
+            />
+            <input 
+                type="text" 
+                class="input-field" 
+                placeholder="두 번째 필드"
+            />
+            <button class="button" id="closeButton">닫기</button>
+        </div>
+    </div>
+
+    <div style="margin: 20px auto; max-width: 600px; text-align: center;">
+        <h3>테스트 방법:</h3>
+        <p>1. "오버레이 열기" 버튼 클릭</p>
+        <p>2. 입력 필드에 자동으로 포커스가 되는지 확인</p>
+        <p>3. 현재는 측정 단계 때문에 autoFocus가 동작하지 않을 수 있음</p>
+        
+        <button class="button" id="testProblematic">문제 있는 방식 테스트</button>
+        <button class="button" id="testFixed">개선된 방식 테스트</button>
+    </div>
+
+    <script>
+        const overlay = document.getElementById('overlay');
+        const openButton = document.getElementById('openButton');
+        const closeButton = document.getElementById('closeButton');
+        const autoFocusInput = document.getElementById('autoFocusInput');
+        const testProblematic = document.getElementById('testProblematic');
+        const testFixed = document.getElementById('testFixed');
+
+        let isShowing = false;
+
+        function hideOverlay() {
+            isShowing = false;
+            overlay.classList.add('hidden');
+            overlay.classList.remove('measuring', 'measuring-fixed');
+        }
+
+        function showOverlayProblematic() {
+            if (isShowing) return;
+            isShowing = true;
+            
+            // 1단계: 측정을 위해 화면 밖에 렌더링 (문제 있는 방식)
+            overlay.classList.remove('hidden');
+            overlay.classList.add('measuring');
+            
+            console.log('1단계: 측정 중...', document.activeElement);
+            
+            // 2단계: 실제 위치로 이동하여 표시
+            requestAnimationFrame(() => {
+                overlay.classList.remove('measuring');
+                console.log('2단계: 표시 완료', document.activeElement);
+                
+                // autoFocus가 동작하지 않았다면 수동으로 포커스
+                if (document.activeElement !== autoFocusInput) {
+                    console.log('autoFocus 실패, 수동으로 포커스 설정');
+                    autoFocusInput.focus();
+                }
+            });
+        }
+
+        function showOverlayFixed() {
+            if (isShowing) return;
+            isShowing = true;
+            
+            // 1단계: 측정을 위해 같은 위치에서 투명하게 렌더링 (개선된 방식)
+            overlay.classList.remove('hidden');
+            overlay.classList.add('measuring-fixed');
+            
+            console.log('1단계: 개선된 측정 중...', document.activeElement);
+            
+            // 2단계: 투명도 해제하여 표시
+            requestAnimationFrame(() => {
+                overlay.classList.remove('measuring-fixed');
+                console.log('2단계: 개선된 표시 완료', document.activeElement);
+            });
+        }
+
+        openButton.addEventListener('click', showOverlayProblematic);
+        closeButton.addEventListener('click', hideOverlay);
+        testProblematic.addEventListener('click', showOverlayProblematic);
+        testFixed.addEventListener('click', showOverlayFixed);
+
+        // ESC 키로 닫기
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isShowing) {
+                hideOverlay();
+            }
+        });
+
+        // 오버레이 외부 클릭으로 닫기
+        document.addEventListener('click', (e) => {
+            if (isShowing && !overlay.contains(e.target) && e.target !== openButton) {
+                hideOverlay();
+            }
+        });
+    </script>
+</body>
+</html>
