@@ -238,58 +238,9 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(
   }
 )
 
-type ElementType = 'input' | 'textarea' | 'button' | 'div' | 'select'
-
-type FormFieldPropsResult = {
-  'aria-disabled': string | undefined
-  'aria-invalid': string | undefined
-  'aria-required': string | undefined
-  'aria-readonly': string | undefined
-  size?: FormFieldSize
-  disabled: boolean
-  hasError: boolean
-  required: boolean
-  readOnly: boolean
-  getInputProps: () => any
-  getTextAreaProps: () => any
-  getButtonProps: () => any
-  getSelectProps: () => any
-  getDivProps: () => any
-  state: {
-    hasError: boolean
-    disabled: boolean
-    readOnly: boolean
-    required: boolean
-    size?: FormFieldSize
-  }
-}
-
-// Function overloads
 export function useFormFieldProps<
   Props extends FormFieldProps & SizeProps<FormFieldSize>,
->(props?: Props): FormFieldPropsResult & Props
-export function useFormFieldProps<
-  Props extends FormFieldProps & SizeProps<FormFieldSize>,
-  Element extends ElementType,
->(props: Props | undefined, elementType: Element): {
-  props: Record<string, any>
-  state: {
-    hasError: boolean
-    disabled: boolean
-    readOnly: boolean
-    required: boolean
-    size?: FormFieldSize
-  }
-  hasError: boolean
-  disabled: boolean
-  readOnly: boolean
-  required: boolean
-  size?: FormFieldSize
-} & Props
-export function useFormFieldProps<
-  Props extends FormFieldProps & SizeProps<FormFieldSize>,
-  Element extends ElementType = 'input',
->(props?: Props, elementType?: Element) {
+>(props?: Props) {
   const contextValue = useFormControlContext()
 
   const formFieldProps = useMemo(() => {
@@ -304,148 +255,19 @@ export function useFormFieldProps<
       ...rest
     } = mergedProps
 
-    // Base ARIA attributes (valid for all elements)
-    const ariaProps = {
+    return {
+      ...rest,
       'aria-disabled': ariaAttr(disabled),
       'aria-invalid': ariaAttr(hasError),
       'aria-required': ariaAttr(required),
       'aria-readonly': ariaAttr(readOnly),
-    }
-
-    // If elementType is specified, return element-specific props with clear state separation
-    if (elementType) {
-      const elementSpecificProps = (() => {
-        switch (elementType) {
-          case 'input':
-            return {
-              ...rest,
-              ...ariaProps,
-              size,
-              disabled,
-              required,
-              readOnly,
-            }
-          case 'textarea':
-            return {
-              ...rest,
-              ...ariaProps,
-              disabled,
-              required,
-              readOnly,
-              // size is invalid for textarea
-            }
-          case 'button':
-            return {
-              ...rest,
-              ...ariaProps,
-              disabled,
-              // readOnly, size, required are invalid for button
-            }
-          case 'select':
-            return {
-              ...rest,
-              ...ariaProps,
-              size,
-              disabled,
-              required,
-              // readOnly is handled differently for select
-            }
-          case 'div':
-          default:
-            return {
-              ...rest,
-              ...ariaProps,
-              // disabled, readOnly, size, required are invalid for div
-            }
-        }
-      })()
-
-      // Return separated props and state for cleaner API
-      return {
-        // DOM props (element-specific, safe to spread)
-        props: elementSpecificProps,
-        
-        // State values (for conditional logic, styling, etc.)
-        state: {
-          hasError,
-          disabled,
-          readOnly,
-          required,
-          size,
-        },
-
-        // Backward compatibility: include all values at root level
-        ...elementSpecificProps,
-        hasError,
-        disabled,
-        readOnly,
-        required,
-        size,
-      }
-    }
-
-    // Backward compatibility: return all props including deprecated getters
-    return {
-      // All props for backward compatibility
-      ...rest,
-      ...ariaProps,
       size,
       disabled,
       hasError,
       required,
       readOnly,
-
-      // Element-specific prop getters (deprecated but maintained for compatibility)
-      getInputProps: () => ({
-        ...rest,
-        ...ariaProps,
-        size,
-        disabled,
-        required,
-        readOnly,
-      }),
-
-      getTextAreaProps: () => ({
-        ...rest,
-        ...ariaProps,
-        disabled,
-        required,
-        readOnly,
-        // size is invalid for textarea
-      }),
-
-      getButtonProps: () => ({
-        ...rest,
-        ...ariaProps,
-        disabled,
-        // readOnly, size, required are invalid for button
-      }),
-
-      getSelectProps: () => ({
-        ...rest,
-        ...ariaProps,
-        size,
-        disabled,
-        required,
-        // readOnly is handled differently for select
-      }),
-
-      getDivProps: () => ({
-        ...rest,
-        ...ariaProps,
-        // disabled, readOnly, size, required are invalid for div
-      }),
-
-      // State values (not for DOM)
-      state: {
-        hasError,
-        disabled,
-        readOnly,
-        required,
-        size,
-      }
     }
-  }, [props, contextValue, elementType])
+  }, [props, contextValue])
 
-  return formFieldProps as any
+  return formFieldProps as typeof formFieldProps & Props
 }
