@@ -255,17 +255,73 @@ export function useFormFieldProps<
       ...rest
     } = mergedProps
 
-    return {
-      ...rest,
+    // Base ARIA attributes (valid for all elements)
+    const ariaProps = {
       'aria-disabled': ariaAttr(disabled),
       'aria-invalid': ariaAttr(hasError),
       'aria-required': ariaAttr(required),
       'aria-readonly': ariaAttr(readOnly),
+    }
+
+    return {
+      // All props for backward compatibility
+      ...rest,
+      ...ariaProps,
       size,
       disabled,
       hasError,
       required,
       readOnly,
+
+      // Element-specific prop getters
+      getInputProps: () => ({
+        ...rest,
+        ...ariaProps,
+        size,
+        disabled,
+        required,
+        readOnly,
+      }),
+
+      getTextAreaProps: () => ({
+        ...rest,
+        ...ariaProps,
+        disabled,
+        required,
+        readOnly,
+        // size is invalid for textarea
+      }),
+
+      getButtonProps: () => ({
+        ...rest,
+        ...ariaProps,
+        disabled,
+        // readOnly, size, required are invalid for button
+      }),
+
+      getSelectProps: () => ({
+        ...rest,
+        ...ariaProps,
+        size,
+        disabled,
+        required,
+        // readOnly is handled differently for select
+      }),
+
+      getDivProps: () => ({
+        ...rest,
+        ...ariaProps,
+        // disabled, readOnly, size, required are invalid for div
+      }),
+
+      // State values (not for DOM)
+      state: {
+        hasError,
+        disabled,
+        readOnly,
+        required,
+        size,
+      }
     }
   }, [props, contextValue])
 
