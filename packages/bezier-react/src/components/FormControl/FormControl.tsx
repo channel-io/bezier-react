@@ -238,9 +238,44 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(
   }
 )
 
+type ElementType = 'input' | 'textarea' | 'button' | 'div' | 'select'
+
+type FormFieldPropsResult = {
+  'aria-disabled': string | undefined
+  'aria-invalid': string | undefined
+  'aria-required': string | undefined
+  'aria-readonly': string | undefined
+  size?: FormFieldSize
+  disabled: boolean
+  hasError: boolean
+  required: boolean
+  readOnly: boolean
+  getInputProps: () => any
+  getTextAreaProps: () => any
+  getButtonProps: () => any
+  getSelectProps: () => any
+  getDivProps: () => any
+  state: {
+    hasError: boolean
+    disabled: boolean
+    readOnly: boolean
+    required: boolean
+    size?: FormFieldSize
+  }
+}
+
+// Function overloads
 export function useFormFieldProps<
   Props extends FormFieldProps & SizeProps<FormFieldSize>,
->(props?: Props) {
+>(props?: Props): FormFieldPropsResult & Props
+export function useFormFieldProps<
+  Props extends FormFieldProps & SizeProps<FormFieldSize>,
+  Element extends ElementType,
+>(props: Props | undefined, elementType: Element): Omit<FormFieldPropsResult, 'getInputProps' | 'getTextAreaProps' | 'getButtonProps' | 'getSelectProps' | 'getDivProps' | 'state'> & Props
+export function useFormFieldProps<
+  Props extends FormFieldProps & SizeProps<FormFieldSize>,
+  Element extends ElementType = 'input',
+>(props?: Props, elementType?: Element) {
   const contextValue = useFormControlContext()
 
   const formFieldProps = useMemo(() => {
@@ -263,6 +298,66 @@ export function useFormFieldProps<
       'aria-readonly': ariaAttr(readOnly),
     }
 
+    // If elementType is specified, return element-specific props
+    if (elementType) {
+      const elementSpecificProps = (() => {
+        switch (elementType) {
+          case 'input':
+            return {
+              ...rest,
+              ...ariaProps,
+              size,
+              disabled,
+              required,
+              readOnly,
+            }
+          case 'textarea':
+            return {
+              ...rest,
+              ...ariaProps,
+              disabled,
+              required,
+              readOnly,
+              // size is invalid for textarea
+            }
+          case 'button':
+            return {
+              ...rest,
+              ...ariaProps,
+              disabled,
+              // readOnly, size, required are invalid for button
+            }
+          case 'select':
+            return {
+              ...rest,
+              ...ariaProps,
+              size,
+              disabled,
+              required,
+              // readOnly is handled differently for select
+            }
+          case 'div':
+          default:
+            return {
+              ...rest,
+              ...ariaProps,
+              // disabled, readOnly, size, required are invalid for div
+            }
+        }
+      })()
+
+      return {
+        ...elementSpecificProps,
+        // Always include state values for conditional logic
+        hasError,
+        disabled,
+        readOnly,
+        required,
+        size,
+      }
+    }
+
+    // Backward compatibility: return all props including deprecated getters
     return {
       // All props for backward compatibility
       ...rest,
@@ -273,7 +368,7 @@ export function useFormFieldProps<
       required,
       readOnly,
 
-      // Element-specific prop getters
+      // Element-specific prop getters (deprecated but maintained for compatibility)
       getInputProps: () => ({
         ...rest,
         ...ariaProps,
@@ -323,7 +418,7 @@ export function useFormFieldProps<
         size,
       }
     }
-  }, [props, contextValue])
+  }, [props, contextValue, elementType])
 
-  return formFieldProps as typeof formFieldProps & Props
+  return formFieldProps as any
 }
