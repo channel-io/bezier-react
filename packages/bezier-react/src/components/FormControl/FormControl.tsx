@@ -271,7 +271,21 @@ export function useFormFieldProps<
 export function useFormFieldProps<
   Props extends FormFieldProps & SizeProps<FormFieldSize>,
   Element extends ElementType,
->(props: Props | undefined, elementType: Element): Omit<FormFieldPropsResult, 'getInputProps' | 'getTextAreaProps' | 'getButtonProps' | 'getSelectProps' | 'getDivProps' | 'state'> & Props
+>(props: Props | undefined, elementType: Element): {
+  props: Record<string, any>
+  state: {
+    hasError: boolean
+    disabled: boolean
+    readOnly: boolean
+    required: boolean
+    size?: FormFieldSize
+  }
+  hasError: boolean
+  disabled: boolean
+  readOnly: boolean
+  required: boolean
+  size?: FormFieldSize
+} & Props
 export function useFormFieldProps<
   Props extends FormFieldProps & SizeProps<FormFieldSize>,
   Element extends ElementType = 'input',
@@ -298,7 +312,7 @@ export function useFormFieldProps<
       'aria-readonly': ariaAttr(readOnly),
     }
 
-    // If elementType is specified, return element-specific props
+    // If elementType is specified, return element-specific props with clear state separation
     if (elementType) {
       const elementSpecificProps = (() => {
         switch (elementType) {
@@ -346,9 +360,22 @@ export function useFormFieldProps<
         }
       })()
 
+      // Return separated props and state for cleaner API
       return {
+        // DOM props (element-specific, safe to spread)
+        props: elementSpecificProps,
+        
+        // State values (for conditional logic, styling, etc.)
+        state: {
+          hasError,
+          disabled,
+          readOnly,
+          required,
+          size,
+        },
+
+        // Backward compatibility: include all values at root level
         ...elementSpecificProps,
-        // Always include state values for conditional logic
         hasError,
         disabled,
         readOnly,
