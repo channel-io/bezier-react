@@ -10,14 +10,15 @@ export type {
 } from './FormControl.types'
 
 export {
-  filterFormFieldProps,
+  filterHtmlProps,
   filterForInput,
   filterForTextArea,
   filterForButton,
   filterForSelect,
   filterForDiv,
-  useFormFieldPropsFor,
-} from './formFieldUtils'
+  useFilteredHtmlProps,
+} from './htmlPropsFilter'
 export type {
-  ElementType,
-} from './formFieldUtils'
+  HtmlElementType,
+  HtmlFormProps,
+} from './htmlPropsFilter'
