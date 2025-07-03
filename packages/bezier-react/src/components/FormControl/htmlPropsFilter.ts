@@ -1,12 +1,9 @@
-import { type FormFieldSize } from '~/src/types/props'
+import { type FormFieldProps, type FormFieldSize } from '~/src/types/props'
 
 export type HtmlElementType = 'input' | 'textarea' | 'button' | 'div' | 'select'
 
-export interface HtmlFormProps {
-  disabled?: boolean
-  readOnly?: boolean
-  required?: boolean
-  hasError?: boolean
+// FormFieldProps를 확장하여 hasError를 포함한 전체 form props 정의
+export interface HtmlFormProps extends FormFieldProps {
   size?: FormFieldSize
   'aria-disabled'?: string
   'aria-invalid'?: string
@@ -16,10 +13,18 @@ export interface HtmlFormProps {
 }
 
 /**
+ * FormFieldProps에서 form 관련 속성 키들을 추출
+ * 단일 진실의 원천으로 FormFieldProps 타입 정의를 활용
+ */
+const FORM_FIELD_ATTRIBUTES = ['disabled', 'hasError', 'required', 'readOnly'] as const
+const ADDITIONAL_FORM_ATTRIBUTES = ['size'] as const
+const ALL_FORM_ATTRIBUTES = [...FORM_FIELD_ATTRIBUTES, ...ADDITIONAL_FORM_ATTRIBUTES] as const
+
+/**
  * HTML element별로 유효한 form 관련 속성들을 정의
  * HTML 표준에 따른 속성 유효성 검증
  */
-const VALID_HTML_FORM_ATTRIBUTES: Record<HtmlElementType, string[]> = {
+const VALID_HTML_FORM_ATTRIBUTES: Record<HtmlElementType, readonly string[]> = {
   input: ['disabled', 'readOnly', 'required', 'size'],
   textarea: ['disabled', 'readOnly', 'required'], // size는 textarea에 무효
   button: ['disabled'], // readOnly, required, size는 button에 무효
@@ -35,7 +40,7 @@ const ARIA_ATTRIBUTES = [
   'aria-invalid', 
   'aria-required',
   'aria-readonly',
-]
+] as const
 
 /**
  * 특정 HTML element type에 유효한 속성만 필터링
@@ -62,13 +67,13 @@ export function filterHtmlProps<T extends Record<string, any>>(
     }
 
     // ARIA 속성은 모든 element에 유효
-    if (ARIA_ATTRIBUTES.indexOf(key) !== -1) {
+    if ((ARIA_ATTRIBUTES as readonly string[]).indexOf(key) !== -1) {
       result[key] = value
       return
     }
 
     // Form 관련 속성들은 element type에 따라 필터링
-    if (['disabled', 'readOnly', 'required', 'size'].indexOf(key) !== -1) {
+    if (ALL_FORM_ATTRIBUTES.indexOf(key as any) !== -1) {
       if (validFormAttrs.indexOf(key) !== -1) {
         result[key] = value
       }

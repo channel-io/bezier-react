@@ -16,7 +16,6 @@ export {
   filterForButton,
   filterForSelect,
   filterForDiv,
-  useFilteredHtmlProps,
 } from './htmlPropsFilter'
 export type {
   HtmlElementType,
