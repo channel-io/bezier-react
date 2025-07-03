@@ -1,5 +1,16 @@
 # @channel.io/bezier-react
 
+## 3.1.5
+
+### Patch Changes
+
+- Optimize warn function to prevent duplicate console logs ([#2661](https://github.com/channel-io/bezier-react/pull/2661)) by @sungik-choi
+
+  - Add `scope` parameter to `warn` so each message logs only once per scope
+  - Apply the scoped warning to legacy-icon deprecation in Button, Banner, SectionLabel
+  - Add comprehensive tests for the new `warn` behavior
+  - Prevent UI blocking and developer tool freezing when using legacy icons with virtual lists
+
 ## 3.1.4
 
 ### Patch Changes
