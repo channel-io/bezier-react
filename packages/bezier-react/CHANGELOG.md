@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 3.2.0
+
+### Minor Changes
+
+- Expand type of `text` props to ReactNode ([#2674](https://github.com/channel-io/bezier-react/pull/2674)) by @yangwooseong
+
 ## 3.1.5
 
 ### Patch Changes
