@@ -115,6 +115,36 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select(
 
   const hasContent = !isEmpty(text)
 
+  const Content = (() => {
+    if (!hasContent) {
+      return (
+        <Text
+          data-testid="bezier-select-trigger-text"
+          typo="14"
+          truncated
+          color="txt-black-dark"
+        >
+          {placeholder}
+        </Text>
+      )
+    }
+
+    if (typeof text === 'string') {
+      return (
+        <Text
+          data-testid="bezier-select-trigger-text"
+          typo="14"
+          truncated
+          color={textColor}
+        >
+          {text}
+        </Text>
+      )
+    }
+
+    return text
+  })()
+
   return (
     <div
       style={style}
@@ -146,14 +176,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select(
             leftContent
           )}
 
-          <Text
-            data-testid="bezier-select-trigger-text"
-            typo="14"
-            truncated
-            color={hasContent ? textColor : 'txt-black-dark'}
-          >
-            {hasContent ? text : placeholder}
-          </Text>
+          {Content}
 
           {isBezierIcon(rightContent) ? (
             <Icon

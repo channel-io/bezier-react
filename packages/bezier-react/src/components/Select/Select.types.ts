@@ -1,3 +1,5 @@
+import { type ReactNode } from 'react'
+
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
@@ -23,7 +25,7 @@ export interface SelectRef {
 interface SelectOwnProps {
   defaultFocus?: boolean
   placeholder?: string
-  text?: string
+  text?: ReactNode
   withoutChevron?: boolean
   dropdownContainer?: HTMLElement | null
   dropdownMarginX?: OverlayProps['marginX']
