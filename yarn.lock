@@ -3201,9 +3201,9 @@ __metadata:
   linkType: hard
 
 "@figma/plugin-typings@npm:^1.104.0":
-  version: 1.114.0
-  resolution: "@figma/plugin-typings@npm:1.114.0"
-  checksum: 10/b6869c81e54b50c2de4476e8c9211e25d8a22abf9888357dfa4f2f6bfa544241138406f6231838d06cfddee2a55e2ecc9a8f4966c34cdd6412eaf86ab6d5921a
+  version: 1.116.0
+  resolution: "@figma/plugin-typings@npm:1.116.0"
+  checksum: 10/6e265f34a8b94d1b26e7fbdba417bde293bc17dc01ec60b2a6bff8980f80cf84fd62305360b8ccd72596e68fbc8ead6064d8212d951a74dfaaf81ff8db1563a0
   languageName: node
   linkType: hard
 
