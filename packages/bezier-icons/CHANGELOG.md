@@ -1,5 +1,19 @@
 # @channel.io/bezier-icons
 
+## 0.47.0
+
+### Minor Changes
+
+- Update icons ([#2682](https://github.com/channel-io/bezier-react/pull/2682)) by @ch-builder
+
+  Added
+
+  - chat-edit.svg
+
+  Modified
+
+  - square.svg
+
 ## 0.46.0
 
 ### Minor Changes
