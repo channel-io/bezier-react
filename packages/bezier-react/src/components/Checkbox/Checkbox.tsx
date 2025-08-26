@@ -37,7 +37,6 @@ const CheckIcon = forwardRef<SVGSVGElement, CheckIconProps>(
         className={styles.CheckIcon}
         ref={forwardedRef}
         source={!isIndeterminate ? CheckBoldIcon : HyphenBoldIcon}
-        size="xs"
         color={isUnchecked ? 'bg-black-dark' : 'bgtxt-absolute-white-dark'}
         {...props}
       />
@@ -46,7 +45,7 @@ const CheckIcon = forwardRef<SVGSVGElement, CheckIconProps>(
 )
 
 function CheckboxImpl<Checked extends CheckedState>(
-  { children, className, checked, id: idProp, ...rest }: CheckboxProps<Checked>,
+  { children, className, checked, size = 'm', id: idProp, ...rest }: CheckboxProps<Checked>,
   forwardedRef: React.Ref<HTMLButtonElement>
 ) {
   const {
@@ -56,6 +55,7 @@ function CheckboxImpl<Checked extends CheckedState>(
   } = useFormFieldProps(rest)
 
   const id = useId(idProp ?? formFieldId, 'bezier-checkbox')
+  const iconSize = size === 's' ? 'xxs' : 'xs'
 
   return (
     <div
@@ -63,7 +63,7 @@ function CheckboxImpl<Checked extends CheckedState>(
     >
       <CheckboxPrimitive.Root
         asChild
-        className={classNames(styles.Checkbox, className)}
+        className={classNames(styles.Checkbox, styles[`size-${size}`], className)}
         ref={forwardedRef}
         id={id}
         checked={checked}
@@ -77,7 +77,7 @@ function CheckboxImpl<Checked extends CheckedState>(
             forceMount
           >
             {/* @ts-expect-error */}
-            <CheckIcon />
+            <CheckIcon size={iconSize} />
           </CheckboxPrimitive.Indicator>
         </BaseButton>
       </CheckboxPrimitive.Root>
