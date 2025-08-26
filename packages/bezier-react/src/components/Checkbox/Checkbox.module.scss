@@ -22,7 +22,7 @@
   border-radius: 7px;
   box-shadow: inset 0 0 0 2px var(--bdr-black-dark);
 
-
+  /* stylelint-disable-next-line order/order */
   @include interaction.touchable-hover {
     &:where(:not([data-disabled], [data-state='unchecked'])) {
       background-color: var(--bgtxt-green-dark);
