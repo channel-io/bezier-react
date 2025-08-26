@@ -34,6 +34,9 @@
   }
 
   &:where(.size-s) {
+    border-radius: 4.6px;
+
+    /* stylelint-disable-next-line order/order */
     @include dimension.square(16px);
   }
 
