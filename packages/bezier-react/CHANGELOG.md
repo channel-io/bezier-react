@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 3.3.0
+
+### Minor Changes
+
+- Add size prop to Checkbox component ([#2684](https://github.com/channel-io/bezier-react/pull/2684)) by @annie1229
+
 ## 3.2.0
 
 ### Minor Changes
