@@ -2,9 +2,12 @@ import {
   type BezierComponentProps,
   type ChildrenProps,
   type FormFieldProps,
+  type SizeProps,
 } from '~/src/types/props'
 
 export type CheckedState = boolean | 'indeterminate'
+
+export type CheckboxSize = 's' | 'm'
 
 interface CheckboxOwnProps<Checked extends CheckedState> {
   /**
@@ -42,4 +45,5 @@ export interface CheckboxProps<Checked extends CheckedState>
   extends Omit<BezierComponentProps<'button'>, keyof CheckboxOwnProps<Checked>>,
     ChildrenProps,
     FormFieldProps,
+    SizeProps<CheckboxSize>,
     CheckboxOwnProps<Checked> {}
