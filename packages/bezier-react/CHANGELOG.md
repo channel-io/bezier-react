@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 3.3.1
+
+### Patch Changes
+
+- Update Checkbox component s square size from 16px to 14px ([#2686](https://github.com/channel-io/bezier-react/pull/2686)) by @annie1229
+
 ## 3.3.0
 
 ### Minor Changes
