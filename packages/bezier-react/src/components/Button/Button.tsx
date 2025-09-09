@@ -104,6 +104,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       leftContent,
       rightContent,
       onClick,
+      children,
       ...rest
     },
     forwardedRef

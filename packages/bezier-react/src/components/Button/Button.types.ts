@@ -79,9 +79,11 @@ interface ButtonOwnProps {
 }
 
 export interface ButtonProps
-  extends BezierComponentProps<'button'>,
+  extends Omit<BezierComponentProps<'button'>, 'children'>,
     PolymorphicProps,
     SizeProps<ButtonSize>,
     DisableProps,
     SideContentProps<SideContent, SideContent>,
-    ButtonOwnProps {}
+    ButtonOwnProps {
+  children?: never
+}
