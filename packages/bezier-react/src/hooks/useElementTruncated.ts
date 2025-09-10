@@ -12,30 +12,31 @@ const useElementTruncated = <Element extends HTMLElement>(
 ): UseElementTruncatedReturns => {
   const [isTruncated, setTruncated] = useState(false)
 
-  useEffect(function initResizeObserver() {
-    if (ref.current) {
-      const resizeObserver = new ResizeObserver((entries) => {
-        const firstEntry = entries[0]
-        if (firstEntry.target) {
-          setTruncated(
-            firstEntry.target.scrollWidth > firstEntry.target.clientWidth ||
-              firstEntry.target.scrollHeight > firstEntry.target.clientHeight
-          )
+  useEffect(
+    function initResizeObserver() {
+      if (ref.current) {
+        const resizeObserver = new ResizeObserver((entries) => {
+          const firstEntry = entries[0]
+          if (firstEntry.target) {
+            setTruncated(
+              firstEntry.target.scrollWidth > firstEntry.target.clientWidth ||
+                firstEntry.target.scrollHeight > firstEntry.target.clientHeight
+            )
+          }
+        })
+        resizeObserver.observe(ref.current)
+
+        return function cleanup() {
+          return resizeObserver.disconnect()
         }
-      })
-      resizeObserver.observe(ref.current)
-
-      return function cleanup() {
-        return resizeObserver.disconnect()
       }
-    }
 
-    return undefined
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+      return undefined
+    },
+    [ref]
+  )
 
   return isTruncated
 }
 
-export { useElementTruncated }
 export default useElementTruncated
