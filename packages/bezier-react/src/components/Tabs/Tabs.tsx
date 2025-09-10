@@ -12,7 +12,6 @@ import { createContext } from '~/src/utils/react'
 import { isNil } from '~/src/utils/type'
 
 import { BaseButton } from '~/src/components/BaseButton'
-import { Button } from '~/src/components/Button'
 import { Icon } from '~/src/components/Icon'
 import {
   type TabActionElement,
@@ -27,6 +26,8 @@ import {
   type TabsProps,
 } from '~/src/components/Tabs/Tabs.types'
 import { Text } from '~/src/components/Text'
+
+// eslint-disable-next-line no-restricted-imports
 
 import styles from './Tabs.module.scss'
 
@@ -130,12 +131,22 @@ function getButtonSizeBy(size: TabSize) {
   )[size]
 }
 
+function getTypography(size: TabSize) {
+  return (
+    {
+      s: '13',
+      m: '14',
+      l: '15',
+    } as const
+  )[size]
+}
+
 /**
  * `TabItem` is a button that activates its associated content.
  */
 export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
   function TabItem(
-    { className, disabled, value, children, ...rest },
+    { className, disabled, value, children, maxWidth, ...rest },
     forwardedRef
   ) {
     const { size } = useTabListContext()
@@ -150,16 +161,27 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
         value={value}
         asChild
       >
-        <Button
-          className={classNames(styles.TabItem, className)}
+        <BaseButton
+          className={classNames(
+            styles.TabItem,
+            styles.TabItemButton,
+            styles[`size-${getButtonSizeBy(size)}`],
+            className
+          )}
           disabled={disabled}
-          text={children}
-          size={getButtonSizeBy(size)}
-          colorVariant="monochrome-light"
-          styleVariant="tertiary"
           ref={forwardedRef}
           {...rest}
-        />
+        >
+          <div className={classNames(styles.TabItemButtonContent)}>
+            <Text
+              className={styles.TabItemButtonText}
+              typo={getTypography(size)}
+              bold
+            >
+              {children}
+            </Text>
+          </div>
+        </BaseButton>
       </TabsPrimitive.TabsTrigger>
     )
   }
