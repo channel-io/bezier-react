@@ -1,6 +1,6 @@
 'use client'
 
-import { type JSX, forwardRef, useMemo } from 'react'
+import { type JSX, forwardRef, useMemo, useRef } from 'react'
 import * as React from 'react'
 
 import { OpenInNewIcon } from '@channel.io/bezier-icons'
@@ -8,6 +8,7 @@ import * as TabsPrimitive from '@radix-ui/react-tabs'
 import * as ToolbarPrimitive from '@radix-ui/react-toolbar'
 import classNames from 'classnames'
 
+import useElementTruncated from '~/src/hooks/useElementTruncated'
 import { createContext } from '~/src/utils/react'
 import { isNil } from '~/src/utils/type'
 
@@ -26,8 +27,7 @@ import {
   type TabsProps,
 } from '~/src/components/Tabs/Tabs.types'
 import { Text } from '~/src/components/Text'
-
-// eslint-disable-next-line no-restricted-imports
+import { Tooltip } from '~/src/components/Tooltip'
 
 import styles from './Tabs.module.scss'
 
@@ -149,6 +149,9 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
     { className, disabled, value, children, maxWidth, ...rest },
     forwardedRef
   ) {
+    const contentRef = useRef<HTMLDivElement>(null)
+    const isTruncated = useElementTruncated(contentRef)
+
     const { size } = useTabListContext()
 
     if (typeof children !== 'string') {
@@ -172,15 +175,24 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
           ref={forwardedRef}
           {...rest}
         >
-          <div className={classNames(styles.TabItemButtonContent)}>
-            <Text
-              className={styles.TabItemButtonText}
-              typo={getTypography(size)}
-              bold
-            >
-              {children}
-            </Text>
-          </div>
+          <Tooltip
+            content={children}
+            disabled={!isTruncated}
+            offset={15}
+          >
+            <div className={classNames(styles.TabItemButtonContent)}>
+              <Text
+                ref={contentRef}
+                className={styles.TabItemButtonText}
+                typo={getTypography(size)}
+                bold
+                truncated
+                style={{ maxWidth }}
+              >
+                {children}
+              </Text>
+            </div>
+          </Tooltip>
         </BaseButton>
       </TabsPrimitive.TabsTrigger>
     )
