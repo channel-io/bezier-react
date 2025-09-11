@@ -31,9 +31,21 @@ $tab-item-indicator-height: 3px;
   display: flex;
 }
 
-.TabItem {
+$active-selector: ':where(.active, :hover):where(:not(:disabled))';
+
+.TabItemButton {
+  position: relative;
   top: 4px;
+
   overflow: visible;
+
+  box-sizing: border-box;
+
+  background-color: transparent;
+
+  transition:
+    background-color var(--transition-s),
+    box-shadow var(--transition-s);
 
   &::after {
     content: '';
@@ -50,40 +62,6 @@ $tab-item-indicator-height: 3px;
 
     transition: height var(--transition-s);
   }
-
-  &:where([data-state='active']) {
-    color: var(--bgtxt-blue-normal);
-
-    &::after {
-      height: $tab-item-indicator-height;
-    }
-
-    &:hover {
-      background-color: inherit;
-    }
-  }
-
-  /* stylelint-disable-next-line no-descending-specificity */
-  &:where([data-state='inactive']) {
-    color: var(--txt-black-dark);
-
-    &:hover {
-      color: var(--txt-black-darker);
-    }
-  }
-}
-
-$chromatic-color-variants: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink',
-  'purple';
-$active-selector: ':where(.active, :hover):where(:not(:disabled))';
-
-.TabItemButton {
-  position: relative;
-  box-sizing: border-box;
-  background-color: transparent;
-  transition:
-    background-color var(--transition-s),
-    box-shadow var(--transition-s);
 
   &:where(.size-s) {
     min-width: 24px;
@@ -133,12 +111,28 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     cursor: not-allowed;
     opacity: var(--opacity-disabled);
   }
-}
 
-.TabItemButtonContent {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  /* stylelint-disable-next-line no-descending-specificity */
+  &:where([data-state='active']) {
+    color: var(--bgtxt-blue-normal);
+
+    &::after {
+      height: $tab-item-indicator-height;
+    }
+
+    &:hover {
+      background-color: inherit;
+    }
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  &:where([data-state='inactive']) {
+    color: var(--txt-black-dark);
+
+    &:hover {
+      color: var(--txt-black-darker);
+    }
+  }
 }
 
 .TabActions {

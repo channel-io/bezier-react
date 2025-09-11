@@ -166,7 +166,6 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
       >
         <BaseButton
           className={classNames(
-            styles.TabItem,
             styles.TabItemButton,
             styles[`size-${getButtonSizeBy(size)}`],
             className
@@ -174,24 +173,22 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
           disabled={disabled}
           ref={forwardedRef}
           {...rest}
+          style={{ maxWidth }}
         >
           <Tooltip
             content={children}
             disabled={!isTruncated}
             offset={15}
           >
-            <div className={classNames(styles.TabItemButtonContent)}>
-              <Text
-                ref={contentRef}
-                className={styles.TabItemButtonText}
-                typo={getTypography(size)}
-                bold
-                truncated
-                style={{ maxWidth }}
-              >
-                {children}
-              </Text>
-            </div>
+            <Text
+              ref={contentRef}
+              className={styles.TabItemButtonText}
+              typo={getTypography(size)}
+              bold
+              truncated
+            >
+              {children}
+            </Text>
           </Tooltip>
         </BaseButton>
       </TabsPrimitive.TabsTrigger>

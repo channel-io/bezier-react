@@ -1,15 +1,9 @@
 import type { RefObject } from 'react'
 import { useEffect, useState } from 'react'
 
-export interface UseElementTruncatedArgs<Element> {
-  ref: RefObject<Element>
-}
-
-export type UseElementTruncatedReturns = boolean
-
 const useElementTruncated = <Element extends HTMLElement>(
   ref: RefObject<Element | null>
-): UseElementTruncatedReturns => {
+): boolean => {
   const [isTruncated, setTruncated] = useState(false)
 
   useEffect(
