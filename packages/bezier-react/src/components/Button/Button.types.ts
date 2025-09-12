@@ -84,6 +84,4 @@ export interface ButtonProps
     SizeProps<ButtonSize>,
     DisableProps,
     SideContentProps<SideContent, SideContent>,
-    ButtonOwnProps {
-  children?: never
-}
+    ButtonOwnProps {}
