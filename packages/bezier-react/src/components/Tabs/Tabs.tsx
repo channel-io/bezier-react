@@ -141,6 +141,52 @@ function getTypography(size: TabSize) {
   )[size]
 }
 
+function TabItemButton({
+  ref,
+  className,
+  disabled,
+  value,
+  children,
+  maxWidth,
+  style,
+  ...rest
+}: TabItemProps & { ref: React.ForwardedRef<HTMLButtonElement> }) {
+  const contentRef = useRef<HTMLDivElement>(null)
+  const isTruncated = useElementTruncated(contentRef)
+
+  const { size } = useTabListContext()
+
+  return (
+    <Tooltip
+      content={children}
+      disabled={!isTruncated}
+      offset={6}
+    >
+      <BaseButton
+        className={classNames(
+          styles.TabItemButton,
+          styles[`size-${getButtonSizeBy(size)}`],
+          className
+        )}
+        disabled={disabled}
+        ref={ref}
+        style={{ maxWidth, ...style }}
+        {...rest}
+      >
+        <Text
+          ref={contentRef}
+          className={styles.TabItemButtonText}
+          typo={getTypography(size)}
+          bold
+          truncated
+        >
+          {children}
+        </Text>
+      </BaseButton>
+    </Tooltip>
+  )
+}
+
 /**
  * `TabItem` is a button that activates its associated content.
  */
@@ -149,11 +195,6 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
     { className, disabled, value, children, maxWidth, style, ...rest },
     forwardedRef
   ) {
-    const contentRef = useRef<HTMLDivElement>(null)
-    const isTruncated = useElementTruncated(contentRef)
-
-    const { size } = useTabListContext()
-
     if (typeof children !== 'string') {
       return null
     }
@@ -164,33 +205,17 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
         value={value}
         asChild
       >
-        <BaseButton
-          className={classNames(
-            styles.TabItemButton,
-            styles[`size-${getButtonSizeBy(size)}`],
-            className
-          )}
-          disabled={disabled}
+        <TabItemButton
           ref={forwardedRef}
-          style={{ maxWidth, ...style }}
+          className={className}
+          disabled={disabled}
+          value={value}
+          maxWidth={maxWidth}
+          style={style}
           {...rest}
         >
-          <Tooltip
-            content={children}
-            disabled={!isTruncated}
-            offset={15}
-          >
-            <Text
-              ref={contentRef}
-              className={styles.TabItemButtonText}
-              typo={getTypography(size)}
-              bold
-              truncated
-            >
-              {children}
-            </Text>
-          </Tooltip>
-        </BaseButton>
+          {children}
+        </TabItemButton>
       </TabsPrimitive.TabsTrigger>
     )
   }
