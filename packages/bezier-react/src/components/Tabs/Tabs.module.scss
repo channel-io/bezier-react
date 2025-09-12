@@ -31,8 +31,6 @@ $tab-item-indicator-height: 3px;
   display: flex;
 }
 
-$active-selector: ':where(.active, :hover):where(:not(:disabled))';
-
 .TabItemButton {
   position: relative;
   top: 4px;
@@ -98,7 +96,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     }
   }
 
-  &#{$active-selector} {
+  &:where(.active, :hover):where(:not(:disabled)) {
     background-color: var(--bg-black-lighter);
   }
 
