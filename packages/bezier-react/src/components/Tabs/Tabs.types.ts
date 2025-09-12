@@ -1,4 +1,5 @@
 import type React from 'react'
+import { type CSSProperties } from 'react'
 
 import {
   type BezierComponentProps,
@@ -52,6 +53,7 @@ interface TabItemOwnProps {
    * A unique value that associates the trigger with a content.
    */
   value: string
+  maxWidth?: CSSProperties['maxWidth']
 }
 
 interface TabContentOwnProps {

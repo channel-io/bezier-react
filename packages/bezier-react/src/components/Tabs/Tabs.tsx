@@ -1,6 +1,6 @@
 'use client'
 
-import { type JSX, forwardRef, useMemo } from 'react'
+import { type JSX, forwardRef, useMemo, useRef } from 'react'
 import * as React from 'react'
 
 import { OpenInNewIcon } from '@channel.io/bezier-icons'
@@ -8,11 +8,11 @@ import * as TabsPrimitive from '@radix-ui/react-tabs'
 import * as ToolbarPrimitive from '@radix-ui/react-toolbar'
 import classNames from 'classnames'
 
+import useElementTruncated from '~/src/hooks/useElementTruncated'
 import { createContext } from '~/src/utils/react'
 import { isNil } from '~/src/utils/type'
 
 import { BaseButton } from '~/src/components/BaseButton'
-import { Button } from '~/src/components/Button'
 import { Icon } from '~/src/components/Icon'
 import {
   type TabActionElement,
@@ -27,6 +27,7 @@ import {
   type TabsProps,
 } from '~/src/components/Tabs/Tabs.types'
 import { Text } from '~/src/components/Text'
+import { Tooltip } from '~/src/components/Tooltip'
 
 import styles from './Tabs.module.scss'
 
@@ -130,16 +131,66 @@ function getButtonSizeBy(size: TabSize) {
   )[size]
 }
 
+function getTypography(size: TabSize) {
+  return (
+    {
+      s: '13',
+      m: '14',
+      l: '15',
+    } as const
+  )[size]
+}
+
+const TabItemButton = forwardRef<HTMLButtonElement, TabItemProps>(
+  function TabItemButton(
+    { className, disabled, value, children, maxWidth, style, ...rest },
+    forwardedRef
+  ) {
+    const contentRef = useRef<HTMLElement>(null)
+    const isTruncated = useElementTruncated(contentRef)
+
+    const { size } = useTabListContext()
+
+    return (
+      <Tooltip
+        content={children}
+        disabled={!isTruncated}
+        offset={6}
+      >
+        <BaseButton
+          className={classNames(
+            styles.TabItemButton,
+            styles[`size-${getButtonSizeBy(size)}`],
+            className
+          )}
+          disabled={disabled}
+          ref={forwardedRef}
+          style={{ maxWidth, ...style }}
+          {...rest}
+        >
+          <Text
+            ref={contentRef}
+            className={styles.TabItemButtonText}
+            typo={getTypography(size)}
+            bold
+            truncated
+          >
+            {children}
+          </Text>
+        </BaseButton>
+      </Tooltip>
+    )
+  }
+)
+
 /**
  * `TabItem` is a button that activates its associated content.
  */
 export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
   function TabItem(
-    { className, disabled, value, children, ...rest },
+    { className, disabled, value, children, maxWidth, style, ...rest },
     forwardedRef
   ) {
-    const { size } = useTabListContext()
-
     if (typeof children !== 'string') {
       return null
     }
@@ -150,16 +201,17 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
         value={value}
         asChild
       >
-        <Button
-          className={classNames(styles.TabItem, className)}
-          disabled={disabled}
-          text={children}
-          size={getButtonSizeBy(size)}
-          colorVariant="monochrome-light"
-          styleVariant="tertiary"
+        <TabItemButton
           ref={forwardedRef}
+          className={className}
+          disabled={disabled}
+          value={value}
+          maxWidth={maxWidth}
+          style={style}
           {...rest}
-        />
+        >
+          {children}
+        </TabItemButton>
       </TabsPrimitive.TabsTrigger>
     )
   }

@@ -66,7 +66,12 @@ function TabsComposition({
           <TabItems>
             <TabItem value="One">Tab1</TabItem>
             <TabItem value="Two">Tab2</TabItem>
-            <TabItem value="Three">Tab3</TabItem>
+            <TabItem
+              value="Three"
+              maxWidth={50}
+            >
+              LongLongLabelTab
+            </TabItem>
           </TabItems>
 
           <TabActions>
@@ -95,7 +100,7 @@ function TabsComposition({
         </TabContent>
         <TabContent value="Three">
           <Center height={100}>
-            <Text color="txt-black-darkest">Tab3 content</Text>
+            <Text color="txt-black-darkest">LongLongLabelTab content</Text>
           </Center>
         </TabContent>
       </Tabs>
