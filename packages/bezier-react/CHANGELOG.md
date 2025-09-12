@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 3.4.1
+
+### Patch Changes
+
+- Hide dividers adjacent to selected item in `SegmentedControl`. ([#2691](https://github.com/channel-io/bezier-react/pull/2691)) by @sungik-choi
+
 ## 3.4.0
 
 ### Minor Changes
