@@ -186,3 +186,12 @@
 .SegmentedControlItemLabel {
   padding: 1px 0;
 }
+
+.SegmentedControlDivider {
+  opacity: 1;
+  transition: opacity var(--transition-s);
+
+  &.hidden {
+    opacity: 0;
+  }
+}
