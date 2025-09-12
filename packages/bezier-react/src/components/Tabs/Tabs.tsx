@@ -151,7 +151,7 @@ function TabItemButton({
   style,
   ...rest
 }: TabItemProps & { ref: React.ForwardedRef<HTMLButtonElement> }) {
-  const contentRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLElement>(null)
   const isTruncated = useElementTruncated(contentRef)
 
   const { size } = useTabListContext()
