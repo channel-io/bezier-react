@@ -141,51 +141,47 @@ function getTypography(size: TabSize) {
   )[size]
 }
 
-function TabItemButton({
-  ref,
-  className,
-  disabled,
-  value,
-  children,
-  maxWidth,
-  style,
-  ...rest
-}: TabItemProps & { ref: React.ForwardedRef<HTMLButtonElement> }) {
-  const contentRef = useRef<HTMLElement>(null)
-  const isTruncated = useElementTruncated(contentRef)
+const TabItemButton = forwardRef<HTMLButtonElement, TabItemProps>(
+  function TabItemButton(
+    { className, disabled, value, children, maxWidth, style, ...rest },
+    forwardedRef
+  ) {
+    const contentRef = useRef<HTMLElement>(null)
+    const isTruncated = useElementTruncated(contentRef)
 
-  const { size } = useTabListContext()
+    const { size } = useTabListContext()
 
-  return (
-    <Tooltip
-      content={children}
-      disabled={!isTruncated}
-      offset={6}
-    >
-      <BaseButton
-        className={classNames(
-          styles.TabItemButton,
-          styles[`size-${getButtonSizeBy(size)}`],
-          className
-        )}
-        disabled={disabled}
-        ref={ref}
-        style={{ maxWidth, ...style }}
-        {...rest}
+    return (
+      <Tooltip
+        content={children}
+        disabled={!isTruncated}
+        offset={6}
       >
-        <Text
-          ref={contentRef}
-          className={styles.TabItemButtonText}
-          typo={getTypography(size)}
-          bold
-          truncated
+        <BaseButton
+          className={classNames(
+            styles.TabItemButton,
+            styles[`size-${getButtonSizeBy(size)}`],
+            className
+          )}
+          disabled={disabled}
+          ref={forwardedRef}
+          style={{ maxWidth, ...style }}
+          {...rest}
         >
-          {children}
-        </Text>
-      </BaseButton>
-    </Tooltip>
-  )
-}
+          <Text
+            ref={contentRef}
+            className={styles.TabItemButtonText}
+            typo={getTypography(size)}
+            bold
+            truncated
+          >
+            {children}
+          </Text>
+        </BaseButton>
+      </Tooltip>
+    )
+  }
+)
 
 /**
  * `TabItem` is a button that activates its associated content.
