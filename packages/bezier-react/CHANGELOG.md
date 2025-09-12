@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 3.4.0
+
+### Minor Changes
+
+- Add `maxWidth` prop to `TabItem` and show `Tooltip` only when truncated. ([#2689](https://github.com/channel-io/bezier-react/pull/2689)) by @j-nary
+
+- Remove unused `children` prop from `Button` component. ([#2689](https://github.com/channel-io/bezier-react/pull/2689)) by @j-nary
+
 ## 3.3.1
 
 ### Patch Changes
