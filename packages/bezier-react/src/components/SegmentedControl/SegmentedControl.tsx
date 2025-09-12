@@ -65,6 +65,29 @@ const [
   'SegmentedControlItemList'
 )
 
+function SegmentedControlDivider({
+  index,
+  selectedItemIndex,
+}: {
+  index: number
+  selectedItemIndex: number | null
+}) {
+  const isAdjacentToSelectedItem =
+    !isNil(selectedItemIndex) &&
+    (selectedItemIndex + 1 === index || selectedItemIndex === index)
+
+  return (
+    <Divider
+      className={classNames(
+        styles.SegmentedControlDivider,
+        isAdjacentToSelectedItem && styles.hidden
+      )}
+      withoutParallelIndent
+      orientation="vertical"
+    />
+  )
+}
+
 function SegmentedControlItemListImpl<
   Type extends SegmentedControlType,
   Value extends string,
@@ -120,9 +143,9 @@ function SegmentedControlItemListImpl<
           {React.Children.map(children, (child, index) => (
             <>
               {index !== 0 && (
-                <Divider
-                  withoutParallelIndent
-                  orientation="vertical"
+                <SegmentedControlDivider
+                  index={index}
+                  selectedItemIndex={selectedItemIndex}
                 />
               )}
               <SegmentedControlItemContextProvider value={index}>
