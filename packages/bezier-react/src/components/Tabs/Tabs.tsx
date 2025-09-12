@@ -146,7 +146,7 @@ function getTypography(size: TabSize) {
  */
 export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
   function TabItem(
-    { className, disabled, value, children, maxWidth, ...rest },
+    { className, disabled, value, children, maxWidth, style, ...rest },
     forwardedRef
   ) {
     const contentRef = useRef<HTMLDivElement>(null)
@@ -172,8 +172,8 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
           )}
           disabled={disabled}
           ref={forwardedRef}
+          style={{ maxWidth, ...style }}
           {...rest}
-          style={{ maxWidth }}
         >
           <Tooltip
             content={children}
