@@ -1,5 +1,15 @@
 # @channel.io/bezier-icons
 
+## 0.49.0
+
+### Minor Changes
+
+- Update icons ([#2700](https://github.com/channel-io/bezier-react/pull/2700)) by @yangwooseong
+
+  Added
+
+  - chat-error-btn-filled.svg
+
 ## 0.48.0
 
 ### Minor Changes
