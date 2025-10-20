@@ -53,8 +53,8 @@ figma.connect<
     example: (props) => (
       <AlphaAvatar
         size={props.size}
-        avatarUrl="/* TODO */"
-        name="/* TODO */"
+        avatarUrl="TODO"
+        name="TODO"
         showBorder={props.showBorder}
         status={props.status.value}
       />
