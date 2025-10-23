@@ -1,5 +1,15 @@
 # @channel.io/bezier-tokens
 
+## 0.3.2
+
+### Patch Changes
+
+- fix(typography): update line-height for size 16 and 17 from 22 to 24 ([#2704](https://github.com/channel-io/bezier-react/pull/2704)) by @dinohan
+
+  - Update typography size 16 line-height from 22 to 24
+  - Update typography size 17 line-height from 22 to 24
+  - This change improves text readability and spacing consistency
+
 ## 0.3.1
 
 ### Patch Changes
