@@ -1,14 +1,6 @@
-import {
-  ArgsTable,
-  Canvas,
-  Story,
-} from '@storybook/addon-docs'
-import {
-  ChannelBtnSmileFilledIcon,
-} from '@channel.io/bezier-icons'
-import {
-  Icon,
-} from './Icon'
+import { ArgsTable, Canvas, Story } from "@storybook/addon-docs";
+import { ChannelBtnSmileFilledIcon } from "@channel.io/bezier-icons";
+import { Icon } from "./Icon";
 
 # Icon
 
@@ -31,6 +23,7 @@ import {
 5. Filled
 
 **Example**
+
 - `arrow-left`
 - `bookmark`, `bookmark-filled`
 - `check`, `check-circle`, `check-circle-filled`
@@ -61,10 +54,7 @@ Semantic 색상을 `color` prop에 지정하여 아이콘이 어떤 색상으로
 <Story id="components-icon--usage-color" />
 
 ```tsx
-<Icon
-  source={ArrowLeftIcon}
-  color="bgtxt-blue-normal"
-/>
+<Icon source={ArrowLeftIcon} color="bgtxt-blue-normal" />
 ```
 
 ### Sizes
@@ -76,10 +66,7 @@ Semantic 색상을 `color` prop에 지정하여 아이콘이 어떤 색상으로
 <Story id="components-icon--usage-size" />
 
 ```tsx
-<Icon
-  source={ArrowLeftIcon}
-  size={IconSize.S}
-/>
+<Icon source={ArrowLeftIcon} size={IconSize.S} />
 ```
 
 ### Composite usage
@@ -106,7 +93,8 @@ Semantic 색상을 `color` prop에 지정하여 아이콘이 어떤 색상으로
 이를 design tool 에서 직접 수동으로 다운로드 받을 수도 있지만, 이 프로세스를 자동화하기 위한 tool이 준비되어 있습니다.
 
 아래 문서를 참고 바랍니다.
-- [Integration with Figma](https://github.com/channel-io/bezier-react/tree/next-v1/packages/bezier-figma-plugin)
+
+- [Integration with Figma](https://github.com/channel-io/bezier-react/tree/main/packages/bezier-figma-plugin)
 
 ### Usage (Legacy)
 
