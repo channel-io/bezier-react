@@ -55,13 +55,13 @@ const Size15 = css`
 
 const Size16 = css`
   font-size: ${TypoAbsoluteNumber.Typo16}rem;
-  line-height: ${LineHeightAbsoluteNumber.Lh22}rem;
+  line-height: ${LineHeightAbsoluteNumber.Lh24}rem;
   letter-spacing: -0.1px;
 `
 
 const Size17 = css`
   font-size: ${TypoAbsoluteNumber.Typo17}rem;
-  line-height: ${LineHeightAbsoluteNumber.Lh22}rem;
+  line-height: ${LineHeightAbsoluteNumber.Lh24}rem;
   letter-spacing: -0.1px;
 `
 
