@@ -38,4 +38,9 @@ describe('OutlineItem', () => {
     const siblingElements = outlineItem[0].nextSibling
     expect(siblingElements).toBeNull()
   })
+
+  it('should renders as button if onClick prop exists', () => {
+    const { getByRole } = renderComponent({ onClick: jest.fn() })
+    expect(getByRole('button')).toBeInTheDocument()
+  })
 })
