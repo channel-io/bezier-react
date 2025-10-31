@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 3.5.0
+
+### Minor Changes
+
+- Fix ListItem to use BaseButton instead of div when clickable ([#2711](https://github.com/channel-io/bezier-react/pull/2711)) by @j-nary
+
+- Fix OutlineItem to use BaseButton instead of div when clickable ([#2711](https://github.com/channel-io/bezier-react/pull/2711)) by @j-nary
+
 ## 3.4.2
 
 ### Patch Changes
