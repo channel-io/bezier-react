@@ -7,14 +7,13 @@ import classNames from 'classnames'
 
 import { isEmpty, isNil, isString } from '~/src/utils/type'
 
+import { BaseButton } from '~/src/components/BaseButton'
 import { Icon } from '~/src/components/Icon'
 import { Text } from '~/src/components/Text'
 
 import { type ListItemProps } from './ListItem.types'
 
 import styles from './ListItem.module.scss'
-
-type ListItemRef = HTMLDivElement & HTMLAnchorElement
 
 function renderNewLineComponent(value: string) {
   return value.split('\n').map((str, index) => (
@@ -28,7 +27,7 @@ function renderNewLineComponent(value: string) {
 
 export const LIST_ITEM_TEST_ID = 'bezier-list-item'
 
-export const ListItem = forwardRef<ListItemRef, ListItemProps>(
+export const ListItem = forwardRef<HTMLElement, ListItemProps>(
   function ListItem(
     {
       className,
@@ -51,8 +50,9 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(
     forwardedRef
   ) {
     const isLink = !isEmpty(href)
-    const Comp = isLink ? 'a' : ((as ?? 'div') as 'div')
-    const clickable = isLink || clickableProp || !isNil(onClick)
+    const isButton = !isNil(onClick)
+    const Comp = isLink ? 'a' : isButton ? BaseButton : ((as ?? 'div') as 'div')
+    const clickable = isLink || clickableProp || isButton
 
     return (
       <Comp
@@ -72,6 +72,7 @@ export const ListItem = forwardRef<ListItemRef, ListItemProps>(
           clickable && styles.clickable,
           className
         )}
+        // @ts-expect-error
         ref={forwardedRef}
         onClick={!disabled ? onClick : undefined}
         data-testid={LIST_ITEM_TEST_ID}
