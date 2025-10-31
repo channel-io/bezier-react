@@ -13,7 +13,6 @@
 | [bezier-codemod](packages/bezier-codemod)           | Codemod transformations to help upgrade app using Bezier design system.       |
 | [bezier-figma-plugin](packages/bezier-figma-plugin) | Figma plugin that helps build Bezier design system and increase productivity. |
 | [bezier-tokens](packages/bezier-tokens)             | Design token library for Bezier design system.                                |
-| [bezier-vscode](packages/bezier-vscode)             | VS Code extension for Bezier design system.                                   |
 | [stylelint-bezier](packages/stylelint-bezier)       | Stylelint configuration for Bezier design system.                             |
 
 ## Commands
