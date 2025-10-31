@@ -28,4 +28,9 @@ describe('ListItem', () => {
     expect(rendered).toHaveAttribute('rel', 'noopener noreferrer')
     expect(rendered).toHaveAttribute('target', '_blank')
   })
+
+  it('should renders as button if onClick prop exists', () => {
+    const { getByRole } = renderComponent({ onClick: jest.fn() })
+    expect(getByRole('button')).toBeInTheDocument()
+  })
 })
