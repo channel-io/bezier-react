@@ -2,13 +2,12 @@
   display: flex;
   align-items: center;
 
-  text-align: inherit;
-
   box-sizing: border-box;
   height: 28px;
   padding: 0 6px 0 calc(var(--b-outline-item-indent) + 6px);
 
   color: var(--txt-black-darkest);
+  text-align: inherit;
   text-decoration: none;
 
   border-radius: var(--radius-6);
@@ -18,8 +17,8 @@
     color var(--transition-s);
 
   &:where(.clickable) {
-    width: 100%;
     cursor: pointer;
+    width: 100%;
   }
 
   &:where(.active) {

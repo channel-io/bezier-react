@@ -6,10 +6,10 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  text-align: inherit;
 
   box-sizing: border-box;
 
+  text-align: inherit;
   text-decoration: none;
 
   transition: background-color var(--transition-s);
@@ -43,8 +43,8 @@
   }
 
   &:where(.clickable) {
-    width: 100%;
     cursor: pointer;
+    width: 100%;
   }
 
   &:where(.disabled) {
