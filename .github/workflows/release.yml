@@ -39,4 +39,3 @@ jobs:
           # https://github.com/changesets/action/issues/187
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          VSCE_PAT: ${{ secrets.VSCE_PERSONAL_ACCESS_TOKEN }}
