@@ -9,6 +9,7 @@
 
   box-sizing: border-box;
 
+  text-align: inherit;
   text-decoration: none;
 
   transition: background-color var(--transition-s);
@@ -43,6 +44,7 @@
 
   &:where(.clickable) {
     cursor: pointer;
+    width: 100%;
   }
 
   &:where(.disabled) {

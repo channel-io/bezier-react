@@ -32,6 +32,49 @@ export const Primary: StoryObj<ListItemProps> = {
   },
 }
 
+export const WithOnClick: StoryObj<ListItemProps> = {
+  render: Template,
+  args: {
+    size: 's',
+    content: 'Clickable Item',
+    leftContent: InboxIcon,
+    onClick: () => alert('clicked'),
+  },
+}
+
+export const WithRightContent: StoryObj<ListItemProps> = {
+  render: Template,
+  args: {
+    size: 's',
+    content: 'With Right Content',
+    leftContent: InboxIcon,
+    rightContent: <span style={{ color: 'gray', fontSize: 12 }}>⌘K</span>,
+  },
+}
+
+export const WithOnClickAndRightContent: StoryObj<ListItemProps> = {
+  render: Template,
+  args: {
+    size: 's',
+    content: 'Clickable with Right Content',
+    leftContent: InboxIcon,
+    description: 'This item has both onClick and rightContent',
+    rightContent: <span style={{ color: 'gray', fontSize: 12 }}>⌘K</span>,
+    onClick: () => alert('clicked'),
+  },
+}
+
+export const ActiveWithOnClick: StoryObj<ListItemProps> = {
+  render: Template,
+  args: {
+    size: 's',
+    content: 'Active Clickable Item',
+    leftContent: InboxIcon,
+    active: true,
+    onClick: () => alert('clicked'),
+  },
+}
+
 const list = range(0, 10)
 
 const CompositionTemplate = () => {
