@@ -6,6 +6,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
+  text-align: inherit;
 
   box-sizing: border-box;
 
@@ -42,6 +43,7 @@
   }
 
   &:where(.clickable) {
+    width: 100%;
     cursor: pointer;
   }
 
