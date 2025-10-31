@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 3.5.1
+
+### Patch Changes
+
+- Use BaseButton in OutlineItem/ListItem when onClick is provided and fix layout issues ([#2716](https://github.com/channel-io/bezier-react/pull/2716)) by @j-nary
+
 ## 3.5.0
 
 ### Minor Changes
