@@ -1,5 +1,11 @@
 # @channel.io/bezier-icons
 
+## 0.50.1
+
+### Patch Changes
+
+- Re-release to fix release issue ([#2724](https://github.com/channel-io/bezier-react/pull/2724)) by @annie1229
+
 ## 0.50.0
 
 ### Minor Changes
