@@ -1,5 +1,15 @@
 # @channel.io/bezier-icons
 
+## 0.51.0
+
+### Minor Changes
+
+- Update icons ([#2726](https://github.com/channel-io/bezier-react/pull/2726)) by @wes5510
+
+  Added
+
+  - intersect.svg
+
 ## 0.50.1
 
 ### Patch Changes
