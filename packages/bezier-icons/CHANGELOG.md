@@ -1,5 +1,30 @@
 # @channel.io/bezier-icons
 
+## 0.52.0
+
+### Minor Changes
+
+- Update icons ([#2728](https://github.com/channel-io/bezier-react/pull/2728)) by @wes5510
+
+  Modified
+
+  - area-chart.svg
+  - line-chart.svg
+
+  Added
+
+  - combo-chart.svg
+  - page-add.svg
+  - pathfinder-exclude.svg
+  - pathfinder-intersect.svg
+  - pathfinder-subtract-left.svg
+  - pathfinder-subtract-right.svg
+  - pathfinder-union.svg
+
+  Deleted
+
+  - intersect.svg
+
 ## 0.51.0
 
 ### Minor Changes
