@@ -1,0 +1,24 @@
+{
+  "motion": {
+    "duration": {
+      "150": {
+        "value": "150ms",
+        "type": "duration"
+      },
+      "300": {
+        "value": "300ms",
+        "type": "duration"
+      },
+      "450": {
+        "value": "450ms",
+        "type": "duration"
+      }
+    },
+    "timing-function": {
+      "easing": {
+        "value": [0.3, 0, 0, 1],
+        "type": "cubicBezier"
+      }
+    }
+  }
+}
