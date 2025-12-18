@@ -1,0 +1,92 @@
+{
+  "border": {
+    "default": {
+      "value": {
+        "color": "{color.border.neutral.normal}",
+        "type": "dropShadow",
+        "offsetX": "0",
+        "offsetY": "0",
+        "blur": "0",
+        "spread": "{dimension.1}"
+      },
+      "type": "shadow"
+    },
+    "bottom": {
+      "value": {
+        "color": "{color.border.neutral.normal}",
+        "type": "dropShadow",
+        "offsetX": "0",
+        "offsetY": "{dimension.1-m}",
+        "blur": "0",
+        "spread": "0"
+      },
+      "type": "shadow"
+    },
+    "right": {
+      "value": {
+        "color": "{color.border.neutral.normal}",
+        "type": "dropShadow",
+        "offsetX": "{dimension.1-m}",
+        "offsetY": "0",
+        "blur": "0",
+        "spread": "0"
+      },
+      "type": "shadow"
+    },
+    "left": {
+      "value": {
+        "color": "{color.border.neutral.normal}",
+        "type": "dropShadow",
+        "offsetX": "{dimension.1}",
+        "offsetY": "0",
+        "blur": "0",
+        "spread": "0"
+      },
+      "type": "shadow"
+    },
+    "top": {
+      "value": {
+        "color": "{color.border.neutral.normal}",
+        "type": "dropShadow",
+        "offsetX": "0",
+        "offsetY": "{dimension.1}",
+        "blur": "0",
+        "spread": "0"
+      },
+      "type": "shadow"
+    },
+    "white-high": {
+      "value": {
+        "color": "{color.surface.high}",
+        "type": "dropShadow",
+        "offsetX": "0",
+        "offsetY": "0",
+        "blur": "0",
+        "spread": "{dimension.1}"
+      },
+      "type": "shadow"
+    },
+    "white-higher": {
+      "value": {
+        "color": "{color.surface.higher}",
+        "type": "dropShadow",
+        "offsetX": "0",
+        "offsetY": "0",
+        "blur": "0",
+        "spread": "{dimension.1}"
+      },
+      "type": "shadow"
+    },
+    "white-highest": {
+      "value": {
+        "color": "{color.surface.highest}",
+        "type": "dropShadow",
+        "offsetX": "0",
+        "offsetY": "0",
+        "blur": "0",
+        "spread": "{dimension.1}"
+      },
+      "type": "shadow"
+    }
+  }
+}

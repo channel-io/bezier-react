@@ -1,0 +1,8 @@
+{
+  "opacity": {
+    "disabled": {
+      "value": "{dimension.40-p}",
+      "type": "opacity"
+    }
+  }
+}

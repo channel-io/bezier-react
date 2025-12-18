@@ -1,0 +1,128 @@
+{
+  "state": {
+    "error": {
+      "value": {
+        "color": "{color.state.warning.normal}",
+        "type": "dropShadow",
+        "offsetX": "0",
+        "offsetY": "0",
+        "blur": "0",
+        "spread": "{dimension.1}"
+      },
+      "type": "shadow"
+    },
+    "active": {
+      "value": {
+        "color": "{color.state.action.normal}",
+        "type": "dropShadow",
+        "offsetX": "0",
+        "offsetY": "0",
+        "blur": "0",
+        "spread": "{dimension.1}"
+      },
+      "type": "shadow"
+    },
+    "input": {
+      "default": {
+        "value": [
+          {
+            "color": "{color.elevation.base}",
+            "type": "dropShadow",
+            "offsetX": "0",
+            "offsetY": "{dimension.1}",
+            "blur": "{dimension.2}",
+            "spread": "0"
+          },
+          {
+            "color": "{color.state.default}",
+            "type": "innerShadow",
+            "offsetX": "0",
+            "offsetY": "0",
+            "blur": "0",
+            "spread": "{dimension.1}"
+          }
+        ],
+        "type": "shadow"
+      },
+      "hovered": {
+        "value": [
+          {
+            "color": "{color.elevation.base}",
+            "type": "dropShadow",
+            "offsetX": "0",
+            "offsetY": "{dimension.2}",
+            "blur": "{dimension.6}",
+            "spread": "0"
+          },
+          {
+            "color": "{color.state.action.normal}",
+            "type": "innerShadow",
+            "offsetX": "0",
+            "offsetY": "0",
+            "blur": "0",
+            "spread": "{dimension.1}"
+          }
+        ],
+        "type": "shadow"
+      },
+      "active": {
+        "value": [
+          {
+            "color": "{color.elevation.base}",
+            "type": "dropShadow",
+            "offsetX": "0",
+            "offsetY": "{dimension.2}",
+            "blur": "{dimension.6}",
+            "spread": "0"
+          },
+          {
+            "color": "{color.state.action.light}",
+            "type": "dropShadow",
+            "offsetX": "0",
+            "offsetY": "0",
+            "blur": "0",
+            "spread": "{dimension.3}"
+          },
+          {
+            "color": "{color.state.action.normal}",
+            "type": "innerShadow",
+            "offsetX": "0",
+            "offsetY": "0",
+            "blur": "0",
+            "spread": "{dimension.1}"
+          }
+        ],
+        "type": "shadow"
+      },
+      "error": {
+        "value": [
+          {
+            "color": "{color.elevation.base}",
+            "type": "dropShadow",
+            "offsetX": "0",
+            "offsetY": "{dimension.2}",
+            "blur": "{dimension.6}",
+            "spread": "0"
+          },
+          {
+            "color": "{color.state.warning.light}",
+            "type": "dropShadow",
+            "offsetX": "0",
+            "offsetY": "0",
+            "blur": "0",
+            "spread": "{dimension.3}"
+          },
+          {
+            "color": "{color.state.warning.normal}",
+            "type": "innerShadow",
+            "offsetX": "0",
+            "offsetY": "0",
+            "blur": "0",
+            "spread": "{dimension.1}"
+          }
+        ],
+        "type": "shadow"
+      }
+    }
+  }
+}
