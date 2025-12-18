@@ -12,6 +12,15 @@ export const toKebabCase = (str: string) =>
 export const extractNumber = (str: string) =>
   str.match(/-?\d+(\.\d+)?/g)?.join('')
 
+export const toPx = (value: string) => {
+  const trimmed = value.trim()
+  if (!/^[+-]?\d+(\.\d+)?$/.test(trimmed)) {
+    return value
+  }
+  const numeric = extractNumber(trimmed)
+  return numeric ? `${numeric}px` : `${trimmed}px`
+}
+
 export const toCSSDimension = (value: string) =>
   /^0[a-zA-Z]+$/.test(value) ? 0 : value
 

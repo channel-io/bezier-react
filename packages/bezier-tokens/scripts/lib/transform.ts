@@ -1,6 +1,6 @@
 import type { Named, Transform } from 'style-dictionary'
 
-import { extractNumber, toCSSDimension } from './utils'
+import { extractNumber, toCSSDimension, toPx } from './utils'
 
 type CustomTransform = Named<Transform<unknown>>
 type Transforms = Record<string, CustomTransform>
@@ -9,8 +9,48 @@ export const CSSTransforms = {
   alphaNamespace: {
     name: 'custom/alpha/namespace',
     type: 'name',
-    matcher: (token) => token.filePath.startsWith('src/alpha'),
+    matcher: (token) => token.filePath.startsWith('src/alpha/'),
     transformer: ({ name }) => `alpha-${name}`,
+  },
+  betaNamespace: {
+    name: 'custom/beta/namespace',
+    type: 'name',
+    matcher: (token) => token.filePath.startsWith('src/beta/'),
+    transformer: ({ name }) => `beta-${name}`,
+  },
+  removeNormalSuffix: {
+    name: 'custom/remove-normal-suffix',
+    type: 'name',
+    matcher: (token) => {
+      /** TODO: Remove beta condition in the next major release. */
+      if (!token.filePath.startsWith('src/beta/')) {
+        return false
+      }
+      const path = token.path || []
+      const lastSegment = path[path.length - 1]
+      return lastSegment === 'normal' && path.length > 1
+    },
+    transformer: ({ name }) => {
+      return name.replace(/-normal$/, '')
+    },
+  },
+  dimensionPx: {
+    name: 'custom/css/dimension/beta-px',
+    type: 'value',
+    transitive: true,
+    matcher: (token) =>
+      /** TODO: Remove beta condition in the next major release. */
+      token.type === 'dimension' && token.filePath.startsWith('src/beta/'),
+    transformer: ({ value }) => {
+      if (typeof value !== 'string') {
+        return value as string
+      }
+      const trimmed = value.trim()
+      if (/^-?(?:0|0\.0+)?$/.test(trimmed)) {
+        return '0'
+      }
+      return toPx(trimmed)
+    },
   },
   fontRem: {
     name: 'custom/css/font/rem',
