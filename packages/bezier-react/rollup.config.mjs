@@ -102,7 +102,7 @@ const generateConfig = ({ output = [], plugins = [] }) =>
        * @see https://github.com/Septh/rollup-plugin-node-externals#3-order-matters
        */
       nodeExternals({
-        deps: true,
+        deps: false,
         peerDeps: true,
         packagePath: './package.json',
       }),
