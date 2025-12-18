@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 3.5.2-beta.1
+
+### Patch Changes
+
+- Migrate style tokens to beta tokens ([#2737](https://github.com/channel-io/bezier-react/pull/2737)) by @timok1m
+
 ## 3.5.2-beta.0
 
 ### Patch Changes
