@@ -29,7 +29,7 @@ export const Primary: StoryObj<SmoothCornersBoxProps> = {
       offsetY: 4,
       blurRadius: 20,
       spreadRadius: 0,
-      color: 'shdw-large',
+      color: 'elevation-large',
     },
     margin: 0,
     backgroundColor: 'fill-absolute-white',

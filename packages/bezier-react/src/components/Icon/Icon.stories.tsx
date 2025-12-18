@@ -22,7 +22,7 @@ import {
 } from '@channel.io/bezier-icons'
 import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
-import { type SemanticColor } from '~/src/types/tokens'
+import { type SemanticColor } from '~/src/types/beta-tokens'
 import { camelCase } from '~/src/utils/string'
 
 import {
