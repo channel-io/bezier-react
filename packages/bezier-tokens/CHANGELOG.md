@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.3.3-beta.2
+
+### Patch Changes
+
+- Add v3 tokens with --beta prefix ([#2733](https://github.com/channel-io/bezier-react/pull/2733)) by @timok1m
+
 ## 0.3.2
 
 ### Patch Changes
