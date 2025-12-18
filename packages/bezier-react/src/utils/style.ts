@@ -1,4 +1,12 @@
-import { type FlattenAllToken } from '~/src/types/tokens'
+import {
+  FlattenAllToken,
+  type FlattenAllToken as BetaFlattenAllToken,
+  type SemanticColor as BetaSemanticColor,
+} from '~/src/types/beta-tokens'
+import {
+  type FlattenAllToken as V1FlattenAllToken,
+  type SemanticColor as V1SemanticColor,
+} from '~/src/types/tokens'
 import { isNil, isString } from '~/src/utils/type'
 
 /**
@@ -50,6 +58,44 @@ export function cssVar<PropertyName extends string | undefined>(
 export function tokenCssVar<PropertyName extends FlattenAllToken | undefined>(
   propertyName: PropertyName
 ) {
+  return cssVar(propertyName)
+}
+
+/**
+ * Wrapper function for `cssVar` to handle tokens specifically.
+ * It generates a CSS variable string for a given design token.
+ * For beta tokens (v3), it adds the 'beta-color-' prefix to match CSS variable names.
+ * For v1 tokens, it uses the token name directly.
+ */
+export function betaTokenCssVar<
+  PropertyName extends
+    | BetaFlattenAllToken
+    | BetaSemanticColor
+    | V1FlattenAllToken
+    | V1SemanticColor
+    | undefined,
+>(propertyName: PropertyName) {
+  if (!propertyName) {
+    return undefined
+  }
+  // Beta tokens (v3) have prefix removed in type definitions but need 'beta-color-' prefix for CSS variables
+  // Check if the token starts with known beta token prefixes (text-, icon-, fill-, border-, surface-, dim-, state-, elevation-)
+  const betaTokenPrefixes = [
+    'text-',
+    'icon-',
+    'fill-',
+    'border-',
+    'surface-',
+    'dim-',
+    'state-',
+    'elevation-',
+  ]
+  const isBetaToken = betaTokenPrefixes.some((prefix) =>
+    propertyName.startsWith(prefix)
+  )
+  if (isBetaToken) {
+    return `var(--beta-color-${propertyName})` as const
+  }
   return cssVar(propertyName)
 }
 
