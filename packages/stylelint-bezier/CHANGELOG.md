@@ -1,5 +1,11 @@
 # @channel.io/stylelint-bezier
 
+## 0.2.11-beta.1
+
+### Patch Changes
+
+- Update stylelint to cover v3 token ([#2735](https://github.com/channel-io/bezier-react/pull/2735)) by @timok1m
+
 ## 0.2.11-beta.0
 
 ### Patch Changes

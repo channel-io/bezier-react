@@ -12,6 +12,8 @@
     "@channel.io/stylelint-bezier": "0.2.10"
   },
   "changesets": [
-    "every-swans-sink"
+    "cuddly-peas-change",
+    "every-swans-sink",
+    "ninety-teeth-ring"
   ]
 }
