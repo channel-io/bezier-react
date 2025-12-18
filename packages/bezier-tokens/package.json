@@ -69,9 +69,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "run-s clean:build build:tokens build:types",
+    "build": "run-s clean:build validate:tokens build:tokens build:types",
     "build:tokens": "ts-node scripts/build-tokens.ts",
     "build:types": "tsc -p tsconfig.build.json",
+    "validate:tokens": "ts-node scripts/validate-token-references.ts",
     "lint": "TIMING=1 eslint --cache .",
     "typecheck": "tsc --noEmit",
     "clean": "run-s 'clean:*'",
