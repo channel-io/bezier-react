@@ -1,3 +1,5 @@
+import * as React from 'react'
+
 import { fireEvent } from '@testing-library/dom'
 import userEvent from '@testing-library/user-event'
 
@@ -5,7 +7,7 @@ import { COMMON_IME_CONTROL_KEYS } from '~/src/hooks/useKeyboardActionLockerWhil
 import { render } from '~/src/utils/test'
 
 import { TextField } from './TextField'
-import { type TextFieldProps } from './TextField.types'
+import { type TextFieldProps, type TextFieldRef } from './TextField.types'
 
 describe('TextField', () => {
   const user = userEvent.setup()
@@ -247,6 +249,178 @@ describe('TextField', () => {
       await user.tab()
 
       expect(document.activeElement).toHaveClass('CloseIconWrapper')
+    })
+
+    it('should clear input value when clear button is clicked', async () => {
+      const onChange = jest.fn()
+      const { getByRole, getByLabelText } = renderComponent({
+        value: 'test',
+        allowClear: true,
+        onChange,
+      })
+      const input = getByRole('textbox') as HTMLInputElement
+      const clearButton = getByLabelText('Clear input')
+
+      input.focus()
+      expect(input.value).toBe('test')
+
+      await user.click(clearButton)
+
+      // handleClear dispatches an input event, which React converts to onChange
+      expect(onChange).toHaveBeenCalled()
+    })
+
+    it('should not clear input when disabled', async () => {
+      const { getByRole, queryByLabelText } = renderComponent({
+        value: 'test',
+        allowClear: true,
+        disabled: true,
+      })
+      const input = getByRole('textbox') as HTMLInputElement
+
+      const clearButton = queryByLabelText('Clear input')
+      expect(clearButton).not.toBeInTheDocument()
+      expect(input.value).toBe('test')
+    })
+
+    it('should not clear input when readOnly', async () => {
+      const { getByRole, queryByLabelText } = renderComponent({
+        value: 'test',
+        allowClear: true,
+        readOnly: true,
+      })
+      const input = getByRole('textbox') as HTMLInputElement
+
+      const clearButton = queryByLabelText('Clear input')
+      expect(clearButton).not.toBeInTheDocument()
+      expect(input.value).toBe('test')
+    })
+  })
+
+  describe('selectAllOnInit', () => {
+    it('should select all text on mount when selectAllOnInit is true', async () => {
+      const { getByRole } = renderComponent({
+        value: 'test value',
+        selectAllOnInit: true,
+      })
+      const input = getByRole('textbox') as HTMLInputElement
+
+      // Wait for setTimeout in the component
+      await new Promise((resolve) => setTimeout(resolve, 10))
+
+      expect(input.selectionStart).toBe(0)
+      expect(input.selectionEnd).toBe('test value'.length)
+    })
+
+    it('should not select all text on mount when selectAllOnInit is false', () => {
+      const { getByRole } = renderComponent({
+        value: 'test value',
+        selectAllOnInit: false,
+      })
+      const input = getByRole('textbox') as HTMLInputElement
+
+      expect(input.selectionStart).toBe(input.selectionEnd)
+    })
+  })
+
+  describe('selectAllOnFocus', () => {
+    it('should select all text on focus when selectAllOnFocus is true', async () => {
+      const { getByRole } = renderComponent({
+        value: 'test value',
+        selectAllOnFocus: true,
+      })
+      const input = getByRole('textbox') as HTMLInputElement
+
+      input.focus()
+
+      // Wait for setTimeout in the component
+      await new Promise((resolve) => setTimeout(resolve, 10))
+
+      expect(input.selectionStart).toBe(0)
+      expect(input.selectionEnd).toBe('test value'.length)
+    })
+
+    it('should not select all text on focus when selectAllOnFocus is false', () => {
+      const { getByRole } = renderComponent({
+        value: 'test value',
+        selectAllOnFocus: false,
+      })
+      const input = getByRole('textbox') as HTMLInputElement
+
+      input.focus()
+
+      expect(input.selectionStart).toBe(input.selectionEnd)
+    })
+  })
+
+  describe('setSelectionRange with different input types', () => {
+    it('should not set selection range for number type via ref', () => {
+      const ref = React.createRef<TextFieldRef>()
+      render(
+        <TextField
+          ref={ref}
+          type="number"
+          value="123"
+        />
+      )
+      const input = ref.current?.getDOMNode() as HTMLInputElement
+      const setSelectionRangeSpy = jest.spyOn(input, 'setSelectionRange')
+
+      ref.current?.setSelectionRange(0, 3)
+
+      expect(setSelectionRangeSpy).not.toHaveBeenCalled()
+    })
+
+    it('should not set selection range for email type via ref', () => {
+      const ref = React.createRef<TextFieldRef>()
+      render(
+        <TextField
+          ref={ref}
+          type="email"
+          value="test@example.com"
+        />
+      )
+      const input = ref.current?.getDOMNode() as HTMLInputElement
+      const setSelectionRangeSpy = jest.spyOn(input, 'setSelectionRange')
+
+      ref.current?.setSelectionRange(0, 5)
+
+      expect(setSelectionRangeSpy).not.toHaveBeenCalled()
+    })
+
+    it('should not set selection range for hidden type via ref', () => {
+      const ref = React.createRef<TextFieldRef>()
+      render(
+        <TextField
+          ref={ref}
+          type="hidden"
+          value="hidden value"
+        />
+      )
+      const input = ref.current?.getDOMNode() as HTMLInputElement
+      const setSelectionRangeSpy = jest.spyOn(input, 'setSelectionRange')
+
+      ref.current?.setSelectionRange(0, 5)
+
+      expect(setSelectionRangeSpy).not.toHaveBeenCalled()
+    })
+
+    it('should set selection range for text type via ref', () => {
+      const ref = React.createRef<TextFieldRef>()
+      render(
+        <TextField
+          ref={ref}
+          type="text"
+          value="test value"
+        />
+      )
+      const input = ref.current?.getDOMNode() as HTMLInputElement
+
+      input.focus()
+      ref.current?.setSelectionRange(0, 4)
+
+      expect(input.selectionStart).toBe(0)
+      expect(input.selectionEnd).toBe(4)
     })
   })
 })
