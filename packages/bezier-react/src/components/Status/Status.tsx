@@ -5,8 +5,8 @@ import { type CSSProperties, forwardRef, memo } from 'react'
 import { LockIcon, MoonFilledIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import { type SemanticColor } from '~/src/types/tokens'
-import { cssVar } from '~/src/utils/style'
+import { type SemanticColor } from '~/src/types/beta-tokens'
+import { betaTokenCssVar } from '~/src/utils/style'
 
 import { Icon } from '~/src/components/Icon'
 
@@ -21,11 +21,11 @@ const statusTypesWithIcon: Readonly<StatusType[]> = [
 ]
 
 const statusColor: Readonly<Record<StatusType, SemanticColor>> = {
-  online: 'bgtxt-green-normal',
-  offline: 'bg-black-dark',
-  'online-crescent': 'bgtxt-green-normal',
-  'offline-crescent': 'bgtxt-yellow-normal',
-  lock: 'txt-black-darker',
+  online: 'text-accent-green',
+  offline: 'fill-neutral-heavy',
+  'online-crescent': 'text-accent-green',
+  'offline-crescent': 'text-accent-yellow',
+  lock: 'text-neutral-light',
 }
 
 /**
@@ -37,14 +37,14 @@ export const Status = memo(
     forwardedRef
   ) {
     const withIcon = statusTypesWithIcon.includes(type)
-    const backgroundColor = withIcon ? 'bg-white-high' : statusColor[type]
+    const backgroundColor = withIcon ? 'surface-high' : statusColor[type]
 
     return (
       <div
         ref={forwardedRef}
         style={
           {
-            '--b-status-bg-color': cssVar(backgroundColor),
+            '--b-status-bg-color': betaTokenCssVar(backgroundColor),
             ...style,
           } as CSSProperties
         }

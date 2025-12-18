@@ -150,7 +150,7 @@ export function Toast({
         <Text
           className={styles.EllipsisableContent}
           typo="14"
-          color="txt-black-darkest"
+          color="text-neutral"
           truncated={5}
         >
           {isString(content)

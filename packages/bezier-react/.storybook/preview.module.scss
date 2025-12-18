@@ -1,11 +1,11 @@
 // Override the default styles for the Storybook docs
 :where(*:not(code, pre)) {
-  font-family: var(--font-family-sans-kr) !important;
+  font-family: var(--beta-typography-text-font-family) !important;
 }
 
 :where(code, pre),
 :where(code, pre) * {
-  font-family: var(--font-family-mono) !important;
+  font-family: var(--beta-typography-code-font-family) !important;
 }
 
 .Wrapper {
@@ -21,5 +21,5 @@
 .Story {
   height: 100%;
   padding: 40px;
-  background-color: var(--bg-white-normal);
+  background-color: var(--beta-color-surface);
 }

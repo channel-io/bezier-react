@@ -1,9 +1,9 @@
 @use 'sass:map';
-@use '../../../../../node_modules/@channel.io/bezier-tokens/dist/scss' as *;
+@use '../../../../../node_modules/@channel.io/bezier-tokens/dist/beta/scss' as *;
 
-@each $ev in map.keys(map.get($tokens, 'light-theme', 'ev')) {
+@each $ev in map.keys(map.get($tokens, 'light-theme', 'elevation')) {
   :where(.elevation-#{$ev}) {
     /* stylelint-disable-next-line bezier/validate-token */
-    box-shadow: var(--ev-#{$ev});
+    box-shadow: var(--beta-elevation-#{$ev});
   }
 }

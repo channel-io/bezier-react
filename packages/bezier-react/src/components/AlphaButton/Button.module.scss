@@ -6,33 +6,33 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
 .Button {
   $primary-color-map: (
-    blue: --alpha-color-primary-bg-normal,
-    cobalt: --alpha-color-accent-bg-normal,
-    red: --alpha-color-critical-bg-normal,
-    orange: --alpha-color-warning-bg-normal,
-    green: --alpha-color-success-bg-normal,
-    pink: --alpha-color-bg-pink-normal,
-    purple: --alpha-color-bg-purple-normal,
-    dark-grey: --alpha-color-bg-grey-darkest,
-    light-grey: --alpha-color-bg-black-dark,
-    white-absolute: --alpha-color-bg-absolute-white-dark,
+    blue: --beta-color-fill-accent-blue-heavier,
+    cobalt: --beta-color-fill-accent-cobalt-heavier,
+    red: --beta-color-fill-accent-red-heavier,
+    orange: --beta-color-fill-accent-orange-heavier,
+    green: --beta-color-fill-accent-green-heavier,
+    pink: --beta-color-fill-accent-pink-heavier,
+    purple: --beta-color-fill-accent-purple-heavier,
+    dark-grey: --beta-color-fill-neutral-heaviest,
+    light-grey: --beta-color-fill-neutral-heavier,
+    white-absolute: --beta-color-fill-absolute-white,
   );
   $secondary-color-map: (
-    blue: --alpha-color-primary-bg-lightest,
-    cobalt: --alpha-color-accent-bg-lightest,
-    red: --alpha-color-critical-bg-lightest,
-    orange: --alpha-color-warning-bg-lightest,
-    green: --alpha-color-success-bg-lightest,
-    pink: --alpha-color-bg-pink-lightest,
-    purple: --alpha-color-bg-purple-lightest,
-    dark-grey: --alpha-color-bg-black-lighter,
-    light-grey: --alpha-color-bg-black-lighter,
-    white-absolute: --alpha-color-bg-absolute-white-lightest,
+    blue: --beta-color-fill-accent-blue,
+    cobalt: --beta-color-fill-accent-cobalt,
+    red: --beta-color-fill-accent-red,
+    orange: --beta-color-fill-accent-orange,
+    green: --beta-color-fill-accent-green,
+    pink: --beta-color-fill-accent-pink,
+    purple: --beta-color-fill-accent-purple,
+    dark-grey: --beta-color-fill-neutral-light,
+    light-grey: --beta-color-fill-neutral-light,
+    white-absolute: --beta-color-fill-absolute-white-light,
   );
 
   position: relative;
   box-sizing: border-box;
-  transition: background-color var(--transition-s);
+  transition: background-color var(--beta-motion-transition-fast);
 
   /* dimension */
   &:where(.size-xs) {
@@ -101,48 +101,48 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     @each $color in $chromatic-colors {
       &:where(.color-#{'' + $color}) {
         /* stylelint-disable-next-line bezier/validate-token */
-        background-color: var(--alpha-color-bg-#{$color}-transparent);
+        background-color: var(--beta-color-fill-accent-#{$color}-transparent);
       }
     }
 
     &:where(.color-dark-grey, .color-light-grey) {
-      background-color: var(--alpha-color-bg-black-transparent);
+      background-color: var(--beta-color-fill-neutral-transparent);
     }
 
     &:where(.color-white-absolute) {
-      background-color: var(--alpha-color-bg-absolute-white-transparent);
+      background-color: var(--beta-color-fill-absolute-white-transparent);
     }
   }
 
   /* color */
   /* stylelint-disable-next-line no-duplicate-selectors */
   &:where(.variant-primary) {
-    color: var(--alpha-color-fg-absolute-white-dark);
+    color: var(--beta-color-text-absolute-white);
 
     &:where(.color-dark-grey) {
-      color: var(--alpha-color-fg-white-normal);
+      color: var(--beta-color-text-neutral-heaviest);
     }
 
     &:where(.color-light-grey) {
-      color: var(--alpha-color-fg-absolute-white-normal);
+      color: var(--beta-color-text-absolute-white);
     }
 
     &:where(.color-white-absolute) {
-      color: var(--alpha-color-fg-absolute-black-normal);
+      color: var(--beta-color-text-absolute-black);
     }
   }
 
   &:where(.variant-secondary, .variant-tertiary) {
     $color-map: (
-      blue: var(--alpha-color-primary-fg-normal),
-      cobalt: var(--alpha-color-accent-fg-normal),
-      red: var(--alpha-color-critical-fg-normal),
-      orange: var(--alpha-color-warning-fg-normal),
-      green: var(--alpha-color-success-fg-normal),
-      pink: var(--alpha-color-fg-pink-normal),
-      purple: var(--alpha-color-fg-purple-normal),
-      dark-grey: var(--alpha-color-fg-black-darkest),
-      light-grey: var(--alpha-color-fg-black-darker),
+      blue: var(--beta-color-text-accent-blue),
+      cobalt: var(--beta-color-text-accent-cobalt),
+      red: var(--beta-color-text-accent-red),
+      orange: var(--beta-color-text-accent-orange),
+      green: var(--beta-color-text-accent-green),
+      pink: var(--beta-color-text-accent-pink,),
+      purple: var(--beta-color-text-accent-purple),
+      dark-grey: var(--beta-color-text-neutral),
+      light-grey: var(--beta-color-text-neutral-light),
     );
 
     @each $button-color, $color in $color-map {
@@ -153,35 +153,35 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
     &:where(.color-dark-grey) {
       & :where(.ButtonIcon) {
-        color: var(--alpha-color-fg-black-darker);
+        color: var(--beta-color-icon-neutral-heavy);
       }
     }
 
     &:where(.color-light-grey) {
       & :where(.ButtonIcon) {
-        color: var(--alpha-color-fg-black-dark);
+        color: var(--beta-color-icon-neutral);
       }
     }
   }
 
   &:where(.variant-tertiary, .variant-secondary):where(.color-white-absolute) {
     & :where(.ButtonIcon) {
-      color: var(--alpha-color-fg-absolute-white-light);
+      color: var(--beta-color-icon-absolute-white);
     }
 
     & :where(.ButtonText) {
-      color: var(--alpha-color-fg-absolute-white-normal);
+      color: var(--beta-color-text-absolute-white);
     }
   }
 
   /* border-radius */
   &:where(.variant-primary, .variant-secondary, .variant-tertiary) {
     $border-radius-by-size: (
-      xs: var(--alpha-radius-6),
-      s: var(--alpha-radius-7),
-      m: var(--alpha-radius-10),
-      l: var(--alpha-radius-12),
-      xl: var(--alpha-radius-14),
+      xs: var(--beta-radius-6),
+      s: var(--beta-radius-7),
+      m: var(--beta-radius-10),
+      l: var(--beta-radius-12),
+      xl: var(--beta-radius-14),
     );
 
     @each $size, $border-radius in $border-radius-by-size {
@@ -215,47 +215,49 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       @each $color in $chromatic-colors {
         &:where(.color-#{'' + $color}) {
           /* stylelint-disable-next-line bezier/validate-token */
-          background-color: var(--alpha-color-bg-#{$color}-transparent-hovered);
+          background-color: var(
+            --beta-color-fill-accent-#{$color}-transparent-hovered
+          );
         }
       }
 
       &:where(.color-dark-grey, .color-light-grey) {
-        background-color: var(--alpha-color-bg-black-transparent-hovered);
+        background-color: var(--beta-color-fill-neutral-transparent-hovered);
       }
 
       &:where(.color-white-absolute) {
         background-color: var(
-          --alpha-color-bg-absolute-white-transparent-hovered
+          --beta-color-fill-absolute-white-transparent-hovered
         );
       }
     }
 
     &:where(.color-dark-grey):where(.variant-secondary, .variant-tertiary) {
       & :is(.ButtonIcon, .ButtonLoader) {
-        color: var(--txt-black-darkest);
+        color: var(--beta-color-icon-neutral-heavy-hovered);
       }
     }
 
     &:where(.color-light-grey):where(.variant-secondary, .variant-tertiary) {
       & :is(.ButtonIcon, .ButtonLoader) {
-        color: var(--txt-black-darker);
+        color: var(--beta-color-icon-neutral-hovered);
       }
     }
 
     &:where(.color-white-absolute.variant-tertiary) {
       & :where(.ButtonIcon) {
-        color: var(--alpha-color-fg-absolute-white-normal);
+        color: var(--beta-color-icon-absolute-white-hovered);
       }
     }
   }
 
   &:where(.variant-primary.color-blue:focus-visible) {
-    outline: 3px solid var(--bgtxt-blue-light);
+    outline: 3px solid var(--beta-color-state-action-light);
   }
 
   &:disabled {
     cursor: not-allowed;
-    opacity: var(--alpha-opacity-disabled);
+    opacity: var(--beta-opacity-disabled);
   }
 
   /* internal components */

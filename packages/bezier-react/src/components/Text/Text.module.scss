@@ -10,14 +10,14 @@ $typo-sizes: 11, 12, 13, 14, 15, 16, 17, 18, 22, 24, 30, 36;
   --b-text-letter-spacing: initial;
 
   font-size: var(--b-text-font-size);
-  font-weight: var(--font-weight-400);
+  font-weight: 400;
   font-style: normal;
   line-height: var(--b-text-line-height);
   color: var(--b-text-color);
   letter-spacing: var(--b-text-letter-spacing);
 
   &:where(.bold) {
-    font-weight: var(--font-weight-700);
+    font-weight: 700;
   }
 
   &:where(.italic) {

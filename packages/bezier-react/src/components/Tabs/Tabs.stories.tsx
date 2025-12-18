@@ -90,17 +90,17 @@ function TabsComposition({
 
         <TabContent value="One">
           <Center height={100}>
-            <Text color="txt-black-darkest">Tab1 content</Text>
+            <Text color="text-neutral">Tab1 content</Text>
           </Center>
         </TabContent>
         <TabContent value="Two">
           <Center height={100}>
-            <Text color="txt-black-darkest">Tab2 content</Text>
+            <Text color="text-neutral">Tab2 content</Text>
           </Center>
         </TabContent>
         <TabContent value="Three">
           <Center height={100}>
-            <Text color="txt-black-darkest">LongLongLabelTab content</Text>
+            <Text color="text-neutral">LongLongLabelTab content</Text>
           </Center>
         </TabContent>
       </Tabs>

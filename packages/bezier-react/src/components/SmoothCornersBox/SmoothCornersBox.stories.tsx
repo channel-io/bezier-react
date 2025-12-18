@@ -32,7 +32,7 @@ export const Primary: StoryObj<SmoothCornersBoxProps> = {
       color: 'shdw-large',
     },
     margin: 0,
-    backgroundColor: 'bgtxt-absolute-white-dark',
+    backgroundColor: 'fill-absolute-white',
     backgroundImage: '',
   },
 }

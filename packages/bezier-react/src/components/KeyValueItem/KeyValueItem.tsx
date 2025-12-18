@@ -36,7 +36,7 @@ function KeyItem({
         <Icon
           size="s"
           source={icon}
-          color="txt-black-dark"
+          color="text-neutral-lighter"
           data-testid={KEY_VALUE_ITEM_KEY_ICON_TEST_ID}
         />
       ) : (
@@ -47,7 +47,7 @@ function KeyItem({
         className={styles.KeyText}
         bold
         typo="12"
-        color="txt-black-dark"
+        color="text-neutral-lighter"
         truncated
       >
         {children}

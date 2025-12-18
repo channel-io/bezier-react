@@ -157,13 +157,13 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
             >
               <SmoothCornersBox
                 borderRadius={AVATAR_BORDER_RADIUS}
-                backgroundColor="bgtxt-absolute-black-lightest"
+                backgroundColor="fill-absolute-black-light"
                 className={styles.AvatarEllipsisIcon}
               >
                 <Icon
                   source={MoreIcon}
                   size={getProperIconSize(size)}
-                  color="bgtxt-absolute-white-dark"
+                  color="text-absolute-white"
                 />
               </SmoothCornersBox>
               {AvatarElement}
@@ -192,7 +192,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
               >
                 <Text
                   typo={getProperTypoSize(size)}
-                  color="txt-black-dark"
+                  color="text-neutral-lighter"
                   className={styles.AvatarEllipsisCount}
                 >
                   {getRestAvatarListCountText(avatarListCount, max)}

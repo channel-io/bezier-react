@@ -2,6 +2,6 @@
   cursor: pointer;
 
   &:where(:focus-visible) {
-    outline: 3px solid var(--bgtxt-cobalt-light);
+    outline: 3px solid var(--beta-color-text-accent-cobalt);
   }
 }

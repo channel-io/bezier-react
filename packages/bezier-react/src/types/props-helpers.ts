@@ -1,16 +1,16 @@
 import classNames from 'classnames'
 
 import {
-  type FormFieldSize,
-  type LayoutProps,
-  type MarginProps,
-} from '~/src/types/props'
-import {
   type Elevation,
   type Radius,
   type ZIndex,
 } from '~/src/types/beta-tokens'
-import { cssDimension, betaTokenCssVar } from '~/src/utils/style'
+import {
+  type FormFieldSize,
+  type LayoutProps,
+  type MarginProps,
+} from '~/src/types/props'
+import { betaTokenCssVar, cssDimension } from '~/src/utils/style'
 
 // NOTE: 'typescript-plugin-css-modules' does not support path alias
 /* eslint-disable no-restricted-imports */

@@ -29,7 +29,7 @@ const Template: StoryFn<ToggleButtonCompositionType> = ({
     <Center
       width="25vw"
       height="15vh"
-      backgroundColor="bg-lounge"
+      backgroundColor="surface-glass"
     >
       <ToggleEmojiButtonGroup
         defaultValue="blush"

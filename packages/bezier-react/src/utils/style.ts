@@ -1,11 +1,11 @@
-import {
+import type {
+  FlattenAllToken as BetaFlattenAllToken,
+  SemanticColor as BetaSemanticColor,
   FlattenAllToken,
-  type FlattenAllToken as BetaFlattenAllToken,
-  type SemanticColor as BetaSemanticColor,
 } from '~/src/types/beta-tokens'
-import {
-  type FlattenAllToken as V1FlattenAllToken,
-  type SemanticColor as V1SemanticColor,
+import type {
+  FlattenAllToken as V1FlattenAllToken,
+  SemanticColor as V1SemanticColor,
 } from '~/src/types/tokens'
 import { isNil, isString } from '~/src/utils/type'
 

@@ -52,7 +52,7 @@ export const Primary: StoryObj<NavGroupProps> = {
       <Icon
         source={DotIcon}
         size="xs"
-        color="bgtxt-orange-normal"
+        color="icon-accent-orange"
       />
     ),
   },

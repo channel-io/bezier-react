@@ -35,7 +35,7 @@ const Template: StoryFn<
   return (
     <Box
       width={800}
-      backgroundColor="bg-lounge"
+      backgroundColor="surface-glass"
     >
       {/* @ts-ignore */}
       <ToggleButtonGroup

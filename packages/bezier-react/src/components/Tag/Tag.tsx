@@ -53,7 +53,7 @@ export const Tag = memo(
           <BaseTagBadgeText
             size={size}
             marginHorizontal={2}
-            color="txt-black-darkest"
+            color="text-neutral"
           >
             {children}
           </BaseTagBadgeText>
@@ -67,7 +67,7 @@ export const Tag = memo(
             className={styles.TagDeleteIcon}
             source={CancelSmallIcon}
             size="xs"
-            color="txt-black-darker"
+            color="text-neutral-light"
             onClick={(e) => {
               e.stopPropagation()
               onDelete(e)

@@ -13,14 +13,14 @@ import { type LegacyIconProps } from './LegacyIcon.types'
  * @example
  * import { AllIcon } from '@channel.io/bezier-icons'
  * import { Icon, type IconProps } from '@channel.io/bezier-react'
- * <Icon source={AllIcon} color="bg-black-dark" />
+ * <Icon source={AllIcon} color="icon-neutral-heavier" />
  * @example <caption>How to validate the bezier icon source</caption>
  * import { isBezierIcon, AllIcon } from '@channel.io/bezier-icons'
  * isBezierIcon(AllIcon) // true
  * isBezierIcon(() => <svg>...</svg>) // false
  * @example <caption>Legacy icon component is still available. but it will be removed in future versions!</caption>
  * import { LegacyIcon, type LegacyIconProps } from '@channel.io/bezier-react'
- * <LegacyIcon name="all" color="bg-black-dark" />
+ * <LegacyIcon name="all" color="icon-neutral-heavier" />
  */
 export const LegacyIcon = memo(({ name, ...rest }: LegacyIconProps) => {
   const IconSource = icons[name]

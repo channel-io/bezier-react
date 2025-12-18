@@ -21,7 +21,7 @@ import styles from './Avatar.module.scss'
 
 const shadow: SmoothCornersBoxProps['shadow'] = {
   spreadRadius: 2,
-  color: 'bg-white-high',
+  color: 'surface-high',
 }
 
 export function useAvatarRadiusToken() {
@@ -133,7 +133,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
         disabled={!smoothCorners}
         borderRadius={AVATAR_BORDER_RADIUS}
         shadow={showBorder ? shadow : undefined}
-        backgroundColor="bg-white-normal"
+        backgroundColor="surface"
         backgroundImage={loadedAvatarUrl}
         data-testid={AVATAR_TEST_ID}
       >

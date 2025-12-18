@@ -18,14 +18,14 @@
 
   margin: 1px;
 
-  background-color: var(--bg-white-normal);
+  background-color: var(--beta-color-surface);
   border-radius: 7px;
-  box-shadow: inset 0 0 0 2px var(--bdr-black-dark);
+  box-shadow: inset 0 0 0 2px var(--beta-color-border-neutral-heavy);
 
   /* stylelint-disable-next-line order/order */
   @include interaction.touchable-hover {
     &:where(:not([data-disabled], [data-state='unchecked'])) {
-      background-color: var(--bgtxt-green-dark);
+      background-color: var(--beta-color-text-accent-green-hovered);
     }
 
     &:where(:not([data-disabled])[data-state='unchecked']) .CheckIcon {
@@ -45,16 +45,16 @@
   }
 
   &:where([data-disabled]) {
-    background-color: var(--bg-black-dark);
+    background-color: var(--beta-color-fill-neutral-heavy);
     box-shadow: none;
   }
 
   &[data-invalid] {
-    box-shadow: var(--input-box-shadow-invalid);
+    box-shadow: var(--beta-state-error);
   }
 
   &:where([data-state='checked'], [data-state='indeterminate']) {
-    background-color: var(--bgtxt-green-normal);
+    background-color: var(--beta-color-fill-success);
 
     &:where(:not([data-invalid])) {
       box-shadow: none;
@@ -63,7 +63,7 @@
 
   &:where(:focus-visible) {
     outline: none;
-    box-shadow: var(--input-box-shadow-focused);
+    box-shadow: var(--beta-state-input-active);
 
     &:where(:not([data-disabled])[data-state='unchecked']) .CheckIcon {
       visibility: visible;
@@ -79,7 +79,7 @@
 
   &:where(:has(.Checkbox[data-disabled])) {
     cursor: not-allowed;
-    opacity: var(--opacity-disabled);
+    opacity: var(--beta-opacity-disabled);
   }
 
   &:where(:has(.Label)) {
@@ -96,5 +96,5 @@
   height: 100%;
   padding-left: 12px;
 
-  color: var(--txt-black-darkest);
+  color: var(--beta-color-text-neutral);
 }

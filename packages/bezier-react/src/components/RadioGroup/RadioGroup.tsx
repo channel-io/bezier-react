@@ -92,7 +92,7 @@ function RadioImpl<Value extends string>(
             /* @ts-ignore */
             htmlFor={id}
             typo="14"
-            color="txt-black-darkest"
+            color="text-neutral"
           >
             {children}
           </Text>

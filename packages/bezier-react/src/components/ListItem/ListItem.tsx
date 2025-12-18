@@ -110,7 +110,7 @@ export const ListItem = forwardRef<HTMLElement, ListItemProps>(
             <div className={styles.ListItemDescription}>
               <Text
                 typo="12"
-                color="txt-black-darker"
+                color="text-neutral-light"
                 truncated={descriptionMaxLines}
               >
                 {isString(description)

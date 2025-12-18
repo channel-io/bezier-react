@@ -1,10 +1,10 @@
+import { type SemanticColor } from '~/src/types/beta-tokens'
 import {
   type BezierComponentProps,
   type ChildrenProps,
   type MarginProps,
   type PolymorphicProps,
 } from '~/src/types/props'
-import { type SemanticColor } from '~/src/types/tokens'
 
 type Typography =
   | '11'

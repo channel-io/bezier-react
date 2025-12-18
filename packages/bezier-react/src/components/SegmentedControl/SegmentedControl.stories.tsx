@@ -84,7 +84,7 @@ const Template: StoryFn<SegmentedControlProps<'radiogroup', string>> = ({
               key={value}
               value={value}
             >
-              <Text color="txt-black-darkest">{label}</Text>
+              <Text color="text-neutral">{label}</Text>
             </SegmentedControlTabContent>
           ))}
         </>
