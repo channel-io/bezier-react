@@ -15,7 +15,7 @@ const Template: StoryFn<StatusBadgeProps> = (args) => (
   <Center
     width={200}
     height={200}
-    backgroundColor="bg-grey-light"
+    backgroundColor="fill-neutral-light"
   >
     <StatusBadge {...args} />
   </Center>

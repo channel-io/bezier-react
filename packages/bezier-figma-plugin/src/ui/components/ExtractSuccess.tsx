@@ -20,7 +20,7 @@ function ExtractSuccess() {
     >
       <Text typo="18">아이콘 추출 성공!</Text>
       <Text
-        color="bgtxt-blue-normal"
+        color="text-accent-blue"
         as="a"
         // @ts-expect-error
         href={url}

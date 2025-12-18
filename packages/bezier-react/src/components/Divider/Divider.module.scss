@@ -1,7 +1,7 @@
 .Divider {
   --b-divider-indent-size: 6px;
 
-  background-color: var(--bdr-black-light);
+  background-color: var(--beta-color-border-neutral);
   border-radius: var(--b-divider-thickness);
 
   &:where(.horizontal) {

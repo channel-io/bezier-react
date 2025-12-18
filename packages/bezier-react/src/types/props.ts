@@ -2,13 +2,13 @@ import type { JSX } from 'react'
 
 import type {
   BackgroundSemanticColor,
-  BackgroundTextSemanticColor,
   BorderSemanticColor,
   Elevation,
   Radius,
   SemanticColor,
+  TextSemanticColor,
   ZIndex,
-} from './tokens'
+} from './beta-tokens'
 
 /**
  * Props for overriding default styles of components. Intended for exceptional use cases where default styles need customization.
@@ -379,9 +379,10 @@ export interface LayoutProps {
   grow?: React.CSSProperties['flexGrow']
   /**
    * the background color of an element.
+   * @todo @timo TextSemanticColor is included for v1 component compatibility. v3 components should use only BackgroundSemanticColor for proper semantic usage.
    * @default initial
    */
-  backgroundColor?: BackgroundSemanticColor | BackgroundTextSemanticColor
+  backgroundColor?: BackgroundSemanticColor | TextSemanticColor
   /**
    * the border color of an element.
    * @default initial

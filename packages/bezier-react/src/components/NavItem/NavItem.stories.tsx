@@ -30,7 +30,7 @@ export const Primary: StoryObj<NavItemProps> = {
       <Icon
         source={ErrorFilledIcon}
         size="xs"
-        color="bgtxt-orange-normal"
+        color="icon-accent-orange"
       />
     ),
   },

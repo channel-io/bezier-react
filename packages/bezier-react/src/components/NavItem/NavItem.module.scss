@@ -31,19 +31,19 @@
 
   text-decoration: none;
 
-  border-radius: var(--radius-6);
+  border-radius: var(--beta-radius-6);
   outline: 0;
 
   &:where(.active) {
-    color: var(--bgtxt-blue-normal);
-    background-color: var(--bgtxt-blue-lightest);
+    color: var(--beta-color-text-accent-blue);
+    background-color: var(--beta-color-fill-accent-blue);
   }
 
   &:where(:not(.active)) {
-    color: var(--txt-black-darkest);
+    color: var(--beta-color-text-neutral);
 
     &:where(&:hover, &:focus-visible) {
-      background-color: var(--bg-black-lighter);
+      background-color: var(--beta-color-fill-neutral-light);
     }
   }
 }

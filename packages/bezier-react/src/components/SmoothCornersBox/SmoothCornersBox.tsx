@@ -5,7 +5,7 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 
-import { cssUrl, cssVar, px } from '~/src/utils/style'
+import { betaTokenCssVar, cssUrl, px } from '~/src/utils/style'
 
 import { FeatureType, useFeatureFlag } from '~/src/components/FeatureProvider'
 
@@ -57,14 +57,15 @@ export const SmoothCornersBox = forwardRef<
           '--b-smooth-corners-box-shadow-offset-y': px(shadow?.offsetY),
           '--b-smooth-corners-box-shadow-blur-radius': `${shadowBlurRadius}px`,
           '--b-smooth-corners-box-shadow-spread-radius': `${shadowSpreadRadius}px`,
-          '--b-smooth-corners-box-shadow-color': cssVar(shadow?.color),
+          '--b-smooth-corners-box-shadow-color': betaTokenCssVar(shadow?.color),
           /**
            * NOTE: Calculate in javascript because it cannot access calculated values via CSS calc() in the paint worklet.
            * @see {@link ~/src/features/SmoothCorners/smoothCornersScript.ts}
            */
           '--b-smooth-corners-box-padding': `${Math.max(shadowBlurRadius, shadowSpreadRadius) * 2}px`,
           '--b-smooth-corners-box-margin': `${margin ?? 0}px`,
-          '--b-smooth-corners-box-background-color': cssVar(backgroundColor),
+          '--b-smooth-corners-box-background-color':
+            betaTokenCssVar(backgroundColor),
           '--b-smooth-corners-box-background-image': cssUrl(backgroundImage),
         } as React.CSSProperties
       }

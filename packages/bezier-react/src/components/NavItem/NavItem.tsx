@@ -79,7 +79,7 @@ export const NavItem = forwardRef<HTMLAnchorElement, NavItemProps>(
                 data-testid={NAV_ITEM_LEFT_ICON_TEST_ID}
                 source={leftContent}
                 size="s"
-                color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}
+                color={active ? 'text-accent-blue' : 'text-neutral-lighter'}
               />
             )}
           </div>

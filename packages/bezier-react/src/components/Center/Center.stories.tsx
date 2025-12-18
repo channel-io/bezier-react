@@ -19,10 +19,10 @@ export const Primary: StoryObj<typeof meta> = {
     },
     width: 200,
     height: 200,
-    backgroundColor: 'bg-black-light',
+    backgroundColor: 'fill-neutral-light',
     borderRadius: '8',
     borderWidth: 1,
-    borderColor: 'bdr-black-light',
+    borderColor: 'border-neutral',
     children: 'Centered content',
   },
 }

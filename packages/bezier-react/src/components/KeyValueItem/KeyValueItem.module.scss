@@ -1,8 +1,8 @@
 .KeyValueItem {
-  border-radius: var(--radius-6);
+  border-radius: var(--beta-radius-6);
   transition:
-    background-color var(--transition-s),
-    color var(--transition-s);
+    background-color var(--beta-motion-transition-fast),
+    color var(--beta-motion-transition-fast);
 
   &:where(.singleline) {
     display: flex;
@@ -47,13 +47,13 @@
   box-sizing: border-box;
   padding: 4px 6px;
 
-  border-radius: var(--radius-6);
+  border-radius: var(--beta-radius-6);
 
   &:where(.clickable) {
     cursor: pointer;
 
     &:hover {
-      background-color: var(--bg-black-lighter);
+      background-color: var(--beta-color-fill-neutral-light);
     }
   }
 }
@@ -72,7 +72,7 @@
   flex: 1;
 
   /* To avoid inheritance issues with the internal `Text` color */
-  color: var(--txt-black-darkest);
+  color: var(--beta-color-text-neutral);
 }
 
 .ItemAction {

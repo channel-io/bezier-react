@@ -1,9 +1,9 @@
 @use 'sass:map';
-@use '../../../../../node_modules/@channel.io/bezier-tokens/dist/scss' as *;
+@use '../../../../../node_modules/@channel.io/bezier-tokens/dist/beta/scss' as *;
 
-@each $z-index in map.keys(map.get($tokens, 'global', 'z-index')) {
+@each $z-index in map.keys(map.get($tokens, 'light-theme', 'layer', 'z-index')) {
   :where(.z-index-#{$z-index}) {
     /* stylelint-disable-next-line bezier/validate-token */
-    z-index: var(--z-index-#{$z-index});
+    z-index: var(--beta-layer-z-index-#{$z-index});
   }
 }

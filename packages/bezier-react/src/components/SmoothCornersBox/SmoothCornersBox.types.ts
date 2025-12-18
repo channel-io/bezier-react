@@ -1,9 +1,9 @@
+import { type SemanticColor } from '~/src/types/beta-tokens'
 import type {
   BezierComponentProps,
   ChildrenProps,
   DisableProps,
 } from '~/src/types/props'
-import { type SemanticColor } from '~/src/types/tokens'
 
 /**
  * NOTE: The `inset` property is not currently supported.

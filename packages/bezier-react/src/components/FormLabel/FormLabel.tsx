@@ -36,7 +36,7 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(
     const {
       help,
       bold = true,
-      color = 'txt-black-darkest',
+      color = 'text-neutral',
       className,
       children,
       ...rest

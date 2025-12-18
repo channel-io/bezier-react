@@ -135,7 +135,7 @@ export const UsageWidth: StoryObj<{}> = {
           align="center"
         >
           <LegacyStackItem style={{ width: 120 }}>
-            <Text color="txt-black-darkest">36px (default)</Text>
+            <Text color="text-neutral">36px (default)</Text>
           </LegacyStackItem>
           <LegacyStackItem
             grow
@@ -152,7 +152,7 @@ export const UsageWidth: StoryObj<{}> = {
           align="center"
         >
           <LegacyStackItem style={{ width: 120 }}>
-            <Text color="txt-black-darkest">80px</Text>
+            <Text color="text-neutral">80px</Text>
           </LegacyStackItem>
           <LegacyStackItem
             grow
@@ -172,7 +172,7 @@ export const UsageWidth: StoryObj<{}> = {
           align="center"
         >
           <LegacyStackItem style={{ width: 120 }}>
-            <Text color="txt-black-darkest">200px</Text>
+            <Text color="text-neutral">200px</Text>
           </LegacyStackItem>
           <LegacyStackItem
             grow
@@ -204,7 +204,7 @@ export const UsageValue: StoryObj<{}> = {
           align="center"
         >
           <LegacyStackItem style={{ width: 120 }}>
-            <Text color="txt-black-darkest">0 (default)</Text>
+            <Text color="text-neutral">0 (default)</Text>
           </LegacyStackItem>
           <LegacyStackItem
             grow
@@ -221,7 +221,7 @@ export const UsageValue: StoryObj<{}> = {
           align="center"
         >
           <LegacyStackItem style={{ width: 120 }}>
-            <Text color="txt-black-darkest">0.25</Text>
+            <Text color="text-neutral">0.25</Text>
           </LegacyStackItem>
           <LegacyStackItem
             grow
@@ -241,7 +241,7 @@ export const UsageValue: StoryObj<{}> = {
           align="center"
         >
           <LegacyStackItem style={{ width: 120 }}>
-            <Text color="txt-black-darkest">0.5</Text>
+            <Text color="text-neutral">0.5</Text>
           </LegacyStackItem>
           <LegacyStackItem
             grow
@@ -261,7 +261,7 @@ export const UsageValue: StoryObj<{}> = {
           align="center"
         >
           <LegacyStackItem style={{ width: 120 }}>
-            <Text color="txt-black-darkest">0.75</Text>
+            <Text color="text-neutral">0.75</Text>
           </LegacyStackItem>
           <LegacyStackItem
             grow
@@ -281,7 +281,7 @@ export const UsageValue: StoryObj<{}> = {
           align="center"
         >
           <LegacyStackItem style={{ width: 120 }}>
-            <Text color="txt-black-darkest">1</Text>
+            <Text color="text-neutral">1</Text>
           </LegacyStackItem>
           <LegacyStackItem
             grow
@@ -301,7 +301,7 @@ export const UsageValue: StoryObj<{}> = {
           align="center"
         >
           <LegacyStackItem style={{ width: 120 }}>
-            <Text color="txt-black-darkest">-1 (invalid value)</Text>
+            <Text color="text-neutral">-1 (invalid value)</Text>
           </LegacyStackItem>
           <LegacyStackItem
             grow
@@ -321,7 +321,7 @@ export const UsageValue: StoryObj<{}> = {
           align="center"
         >
           <LegacyStackItem style={{ width: 120 }}>
-            <Text color="txt-black-darkest">3 (invalid value)</Text>
+            <Text color="text-neutral">3 (invalid value)</Text>
           </LegacyStackItem>
           <LegacyStackItem
             grow
@@ -353,7 +353,7 @@ export const SizeVariant: StoryObj<{}> = {
           align="center"
         >
           <LegacyStackItem>
-            <Text color="txt-black-darkest">M (6px)</Text>
+            <Text color="text-neutral">M (6px)</Text>
           </LegacyStackItem>
           <LegacySpacer />
           <LegacyStackItem>
@@ -372,7 +372,7 @@ export const SizeVariant: StoryObj<{}> = {
           align="center"
         >
           <LegacyStackItem>
-            <Text color="txt-black-darkest">S (4px)</Text>
+            <Text color="text-neutral">S (4px)</Text>
           </LegacyStackItem>
           <LegacySpacer />
           <LegacyStackItem>
@@ -403,7 +403,7 @@ export const Variant: StoryObj<{}> = {
           align="center"
         >
           <LegacyStackItem>
-            <Text color="txt-black-darkest">green</Text>
+            <Text color="text-neutral">green</Text>
           </LegacyStackItem>
           <LegacySpacer />
           <LegacyStackItem>
@@ -422,7 +422,7 @@ export const Variant: StoryObj<{}> = {
           align="center"
         >
           <LegacyStackItem>
-            <Text color="txt-black-darkest">monochrome</Text>
+            <Text color="text-neutral">monochrome</Text>
           </LegacyStackItem>
           <LegacySpacer />
           <LegacyStackItem>
@@ -441,7 +441,7 @@ export const Variant: StoryObj<{}> = {
           align="center"
         >
           <LegacyStackItem>
-            <Text color="txt-black-darkest">green-alt</Text>
+            <Text color="text-neutral">green-alt</Text>
           </LegacyStackItem>
           <LegacySpacer />
           <LegacyStackItem>

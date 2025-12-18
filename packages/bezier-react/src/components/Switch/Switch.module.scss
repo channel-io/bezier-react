@@ -10,12 +10,12 @@
   width: var(--b-switch-width);
   height: var(--b-switch-height);
 
-  background-color: var(--bg-black-dark);
-  border-radius: var(--radius-12);
+  background-color: var(--beta-color-fill-neutral-heavy);
+  border-radius: var(--beta-radius-12);
 
   transition:
-    background-color var(--transition-s),
-    opacity var(--transition-s);
+    background-color var(--beta-motion-transition-fast),
+    opacity var(--beta-motion-transition-fast);
 
   &:where(.size-s) {
     --b-switch-width: 30px;
@@ -30,21 +30,21 @@
   }
 
   &:where(&[data-state='checked']) {
-    background-color: var(--bgtxt-green-normal);
+    background-color: var(--beta-color-fill-success);
 
     &:hover {
-      background-color: var(--bgtxt-green-dark);
+      background-color: var(--beta-color-fill-success-hovered);
     }
   }
 
   &:disabled {
     cursor: not-allowed;
-    opacity: var(--opacity-disabled);
+    opacity: var(--beta-opacity-disabled);
   }
 
   &:focus-visible {
     outline: none;
-    box-shadow: var(--input-box-shadow-focused);
+    box-shadow: var(--beta-state-input-active);
   }
 }
 
@@ -60,11 +60,11 @@
   width: var(--b-switch-thumb-size);
   height: var(--b-switch-thumb-size);
 
-  background-color: var(--bgtxt-absolute-white-dark);
-  border-radius: var(--radius-12);
-  box-shadow: var(--ev-2);
+  background-color: var(--beta-color-text-absolute-white);
+  border-radius: var(--beta-radius-12);
+  box-shadow: var(--beta-elevation-2);
 
-  transition: transform var(--transition-s);
+  transition: transform var(--beta-motion-transition-fast);
 
   &:where(&[data-state='checked']) {
     transform: translateX(

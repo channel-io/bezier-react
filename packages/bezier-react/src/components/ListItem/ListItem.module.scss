@@ -1,5 +1,5 @@
 .ListItemLeftIcon {
-  transition: color var(--transition-m);
+  transition: color var(--beta-motion-transition-default);
 }
 
 .ListItem {
@@ -12,34 +12,34 @@
   text-align: inherit;
   text-decoration: none;
 
-  transition: background-color var(--transition-s);
+  transition: background-color var(--beta-motion-transition-fast);
 
   &:where(.variant-monochrome) {
-    color: var(--txt-black-darkest);
+    color: var(--beta-color-text-neutral);
 
     & :where(.ListItemLeftIcon) {
-      color: var(--txt-black-dark);
+      color: var(--beta-color-text-neutral-lighter);
     }
   }
 
   &:where(.size-xs) {
     padding: 4px 6px;
-    border-radius: var(--radius-6);
+    border-radius: var(--beta-radius-6);
   }
 
   &:where(.size-s) {
     padding: 6px;
-    border-radius: var(--radius-6);
+    border-radius: var(--beta-radius-6);
   }
 
   &:where(.size-m) {
     padding: 8px 6px;
-    border-radius: var(--radius-8);
+    border-radius: var(--beta-radius-8);
   }
 
   &:where(.size-l) {
     padding: 10px 6px;
-    border-radius: var(--radius-12);
+    border-radius: var(--beta-radius-12);
   }
 
   &:where(.clickable) {
@@ -49,29 +49,29 @@
 
   &:where(.disabled) {
     cursor: not-allowed;
-    opacity: var(--opacity-disabled);
+    opacity: var(--beta-opacity-disabled);
   }
 
   &:where(.clickable:not(.disabled, .active)) {
     &:where(.focused, :focus-visible) {
-      background-color: var(--bg-black-lighter);
+      background-color: var(--beta-color-fill-neutral-light);
     }
 
     &:where(:hover) {
-      background-color: var(--bg-black-lighter);
+      background-color: var(--beta-color-fill-neutral-light);
     }
   }
 
   &:where(.active) {
-    color: var(--bgtxt-blue-normal);
-    background-color: var(--bgtxt-blue-lightest);
+    color: var(--beta-color-text-accent-blue);
+    background-color: var(--beta-color-fill-accent-blue);
 
     &:where(.focused, :focus-visible) {
-      background-color: var(--bgtxt-blue-lighter);
+      background-color: var(--beta-color-fill-accent-blue-heavy);
     }
 
     & :where(.ListItemLeftIcon) {
-      color: var(--bgtxt-blue-normal);
+      color: var(--beta-color-text-accent-blue);
     }
 
     /* NOTE: When multiple adjacent elements are active, it naturally stitches the border together. */
@@ -89,34 +89,34 @@
   }
 
   &.variant-blue {
-    color: var(--bgtxt-blue-normal);
+    color: var(--beta-color-text-accent-blue);
 
     & :where(.ListItemLeftIcon) {
-      color: var(--bgtxt-blue-normal);
+      color: var(--beta-color-text-accent-blue);
     }
   }
 
   &.variant-red {
-    color: var(--bgtxt-red-normal);
+    color: var(--beta-color-text-accent-red);
 
     & :where(.ListItemLeftIcon) {
-      color: var(--bgtxt-red-normal);
+      color: var(--beta-color-text-accent-red);
     }
   }
 
   &.variant-green {
-    color: var(--bgtxt-green-normal);
+    color: var(--beta-color-text-accent-green);
 
     & :where(.ListItemLeftIcon) {
-      color: var(--bgtxt-green-normal);
+      color: var(--beta-color-text-accent-green);
     }
   }
 
   &.variant-cobalt {
-    color: var(--bgtxt-cobalt-normal);
+    color: var(--beta-color-text-accent-cobalt);
 
     & :where(.ListItemLeftIcon) {
-      color: var(--bgtxt-cobalt-normal);
+      color: var(--beta-color-text-accent-cobalt);
     }
   }
 }
@@ -140,7 +140,7 @@
   align-items: center;
 
   & * {
-    transition: color var(--transition-s);
+    transition: color var(--beta-motion-transition-fast);
   }
 }
 

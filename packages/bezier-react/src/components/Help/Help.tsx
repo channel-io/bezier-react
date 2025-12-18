@@ -35,7 +35,7 @@ export const Help = forwardRef<HTMLDivElement, HelpProps>(function Help(
           className={styles.Icon}
           source={HelpFilledIcon}
           size="xs"
-          color="txt-black-dark"
+          color="text-neutral-lighter"
           data-testid={HELP_TEST_ID}
         />
       </div>

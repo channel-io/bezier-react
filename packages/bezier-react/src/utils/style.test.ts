@@ -1,4 +1,11 @@
-import { cssDimension, cssUrl, cssVar, px, tokenCssVar } from './style'
+import {
+  betaTokenCssVar,
+  cssDimension,
+  cssUrl,
+  cssVar,
+  px,
+  tokenCssVar,
+} from './style'
 
 describe('style', () => {
   describe('px', () => {
@@ -48,6 +55,51 @@ describe('style', () => {
   describe('tokenCssVar', () => {
     it('formats input as CSS variable', () => {
       expect(tokenCssVar('padding' as any)).toBe('var(--padding)')
+    })
+  })
+
+  describe('betaTokenCssVar', () => {
+    it('returns undefined for undefined input', () => {
+      expect(betaTokenCssVar(undefined)).toBeUndefined()
+    })
+
+    it('formats beta color tokens with beta-color- prefix', () => {
+      expect(betaTokenCssVar('text-neutral' as any)).toBe(
+        'var(--beta-color-text-neutral)'
+      )
+      expect(betaTokenCssVar('icon-neutral' as any)).toBe(
+        'var(--beta-color-icon-neutral)'
+      )
+      expect(betaTokenCssVar('fill-neutral-light' as any)).toBe(
+        'var(--beta-color-fill-neutral-light)'
+      )
+      expect(betaTokenCssVar('border-neutral' as any)).toBe(
+        'var(--beta-color-border-neutral)'
+      )
+      expect(betaTokenCssVar('surface-high' as any)).toBe(
+        'var(--beta-color-surface-high)'
+      )
+      expect(betaTokenCssVar('dim-black-lightest' as any)).toBe(
+        'var(--beta-color-dim-black-lightest)'
+      )
+      expect(betaTokenCssVar('state-action' as any)).toBe(
+        'var(--beta-color-state-action)'
+      )
+      expect(betaTokenCssVar('elevation-base' as any)).toBe(
+        'var(--beta-color-elevation-base)'
+      )
+    })
+
+    it('formats v1 tokens without beta-color- prefix', () => {
+      expect(betaTokenCssVar('bg-black-light' as any)).toBe(
+        'var(--bg-black-light)'
+      )
+      expect(betaTokenCssVar('bgtxt-blue-normal' as any)).toBe(
+        'var(--bgtxt-blue-normal)'
+      )
+      expect(betaTokenCssVar('bdr-black-dark' as any)).toBe(
+        'var(--bdr-black-dark)'
+      )
     })
   })
 

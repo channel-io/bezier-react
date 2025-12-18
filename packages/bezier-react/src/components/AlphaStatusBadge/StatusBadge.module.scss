@@ -6,14 +6,14 @@
   --b-status-bg-color: initial;
 
   position: relative;
-  z-index: var(--z-index-base);
+  z-index: var(--beta-layer-z-index-base);
 
   box-sizing: content-box;
   width: var(--b-status-size);
   height: var(--b-status-size);
 
-  background-color: var(--alpha-color-bg-white-highest);
-  border: var(--b-status-border-width) solid var(--alpha-color-bg-white-highest);
+  background-color: var(--beta-color-surface-high);
+  border: var(--b-status-border-width) solid var(--beta-color-surface-highest);
   border-radius: 50%;
 
   &::after {
@@ -46,5 +46,5 @@
 .Icon {
   @include position.absolute-center;
 
-  z-index: var(--z-index-floating);
+  z-index: var(--beta-layer-z-index-floating);
 }

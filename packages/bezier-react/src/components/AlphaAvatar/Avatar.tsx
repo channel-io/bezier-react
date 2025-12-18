@@ -44,7 +44,7 @@ function getShadow(size: AvatarSize): SmoothCornersBoxProps['shadow'] {
 
   return {
     spreadRadius,
-    color: 'bg-white-high',
+    color: 'surface-higher',
   }
 }
 
@@ -150,7 +150,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
         disabled={!smoothCorners}
         borderRadius={AVATAR_BORDER_RADIUS}
         shadow={showBorder ? getShadow(size) : undefined}
-        backgroundColor="bg-white-normal"
+        backgroundColor="surface"
         backgroundImage={loadedAvatarUrl}
         data-testid={AVATAR_TEST_ID}
       >

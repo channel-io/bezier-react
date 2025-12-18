@@ -36,35 +36,35 @@
 
   padding: 12px;
 
-  border-radius: var(--radius-12);
+  border-radius: var(--beta-radius-12);
 
   &:where(.size-m) {
     @include dimension.square(var(--b-toggle-emoji-button-size));
   }
 
   &:where(.variant-primary) {
-    background-color: var(--alpha-color-bg-grey-lightest);
-    box-shadow: var(--alpha-shadow-input-default);
+    background-color: var(--beta-color-fill-grey);
+    box-shadow: var(--beta-state-input-default);
 
     &:where(&:hover) {
-      background-color: var(--alpha-color-bg-grey-lighter);
+      background-color: var(--beta-color-fill-grey-heavy);
     }
 
     &:where([data-state='on']) {
-      background-color: var(--alpha-color-bg-blue-lightest);
-      box-shadow: 0 0 0 1px var(--alpha-color-primary-bg-normal) inset;
+      background-color: var(--beta-color-fill-accent-blue);
+      box-shadow: 0 0 0 1px var(--beta-color-fill-accent-blue-heavier) inset;
     }
   }
 
   &:where(.variant-secondary) {
-    background-color: var(--alpha-color-bg-black-lightest);
+    background-color: var(--beta-color-surface-low);
 
     &:where(&:hover) {
-      background-color: var(--alpha-color-bg-black-lighter);
+      background-color: var(--beta-color-fill-neutral-lighter-hovered);
     }
 
     &:where([data-state='on']) {
-      background-color: var(--alpha-color-primary-bg-lighter);
+      background-color: var(--beta-color-fill-accent-blue);
     }
   }
 

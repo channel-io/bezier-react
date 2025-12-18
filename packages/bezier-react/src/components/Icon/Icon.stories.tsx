@@ -22,7 +22,7 @@ import {
 } from '@channel.io/bezier-icons'
 import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
-import { type SemanticColor } from '~/src/types/tokens'
+import { type SemanticColor } from '~/src/types/beta-tokens'
 import { camelCase } from '~/src/utils/string'
 
 import {
@@ -56,7 +56,7 @@ export const Primary: StoryObj<IconProps> = {
   args: {
     source: ChannelBtnFilledIcon,
     size: 'm',
-    color: 'bg-black-darker',
+    color: 'icon-neutral-heavier',
   },
 }
 
@@ -88,7 +88,7 @@ export const AllIcons: StoryObj<Omit<IconProps, 'source'>> = {
               wordBreak: 'break-word',
             }}
             typo="12"
-            color="txt-black-darkest"
+            color="text-neutral"
             align="center"
           >
             {pascalCase(iconName)}
@@ -100,7 +100,7 @@ export const AllIcons: StoryObj<Omit<IconProps, 'source'>> = {
 
   args: {
     size: 'm',
-    color: 'bg-black-darkest',
+    color: 'icon-neutral-heavier',
   },
 }
 
@@ -130,7 +130,7 @@ export const Overview: StoryFn<{}> = () => (
           <LegacyStackItem key={`item-${i}`}>
             <Icon
               source={source}
-              color="txt-black-darkest"
+              color="icon-neutral-heavier"
             />
           </LegacyStackItem>
         ))}
@@ -139,18 +139,18 @@ export const Overview: StoryFn<{}> = () => (
     <LegacyStackItem>
       <LegacyHStack spacing={8}>
         {[
-          'txt-black-darkest' as const,
-          'bgtxt-blue-normal' as const,
-          'bgtxt-cobalt-normal' as const,
-          'bgtxt-teal-normal' as const,
-          'bgtxt-green-normal' as const,
-          'bgtxt-olive-normal' as const,
-          'bgtxt-yellow-normal' as const,
-          'bgtxt-orange-normal' as const,
-          'bgtxt-red-normal' as const,
-          'bgtxt-pink-normal' as const,
-          'bgtxt-purple-normal' as const,
-          'bgtxt-navy-normal' as const,
+          'icon-neutral-heavier' as const,
+          'icon-accent-blue' as const,
+          'icon-accent-cobalt' as const,
+          'icon-accent-teal' as const,
+          'icon-accent-green' as const,
+          'icon-accent-olive' as const,
+          'icon-accent-yellow' as const,
+          'icon-accent-orange' as const,
+          'icon-accent-red' as const,
+          'icon-accent-pink' as const,
+          'icon-accent-purple' as const,
+          'icon-accent-navy' as const,
         ].map((semanticName) => (
           <LegacyStackItem key={semanticName}>
             <Icon
@@ -168,7 +168,7 @@ export const Overview: StoryFn<{}> = () => (
           <LegacyStackItem key={size}>
             <Icon
               source={ChannelBtnFilledIcon}
-              color="txt-black-darkest"
+              color="icon-neutral-heavier"
               size={size}
             />
           </LegacyStackItem>
@@ -179,7 +179,7 @@ export const Overview: StoryFn<{}> = () => (
 )
 
 function ColorIcon() {
-  const [color, setColor] = useState<SemanticColor>('bgtxt-blue-normal')
+  const [color, setColor] = useState<SemanticColor>('icon-accent-blue')
 
   return (
     <LegacyVStack spacing={16}>
@@ -223,7 +223,7 @@ export const UsageSize: StoryFn<{}> = () => (
           <LegacyStackItem size={30}>
             <Text
               typo="13"
-              color="txt-black-darkest"
+              color="text-neutral"
             >
               {size}
             </Text>
@@ -231,7 +231,7 @@ export const UsageSize: StoryFn<{}> = () => (
           <LegacyStackItem>
             <Icon
               source={ChannelBtnFilledIcon}
-              color="txt-black-darkest"
+              color="icon-neutral-heavier"
               size={size}
             />
           </LegacyStackItem>
@@ -246,7 +246,7 @@ export const TipsMargin: StoryObj<{}> = {
     <div style={{ border: '1px solid red' }}>
       <Icon
         source={ChannelBtnFilledIcon}
-        color="bgtxt-blue-normal"
+        color="text-accent-blue"
         marginTop={16}
         marginRight={24}
         marginBottom={32}

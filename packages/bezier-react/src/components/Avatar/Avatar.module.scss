@@ -5,7 +5,7 @@
 
   &:where(.disabled) {
     pointer-events: none;
-    opacity: var(--opacity-disabled);
+    opacity: var(--beta-opacity-disabled);
   }
 
   &:where(.size-20) {

@@ -94,7 +94,7 @@ const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(
  */
 export const FormHelperText = forwardRef<HTMLSpanElement, FormHelperTextProps>(
   function FormHelperText(props, forwardedRef) {
-    const { color = 'txt-black-dark', children, ...rest } = props
+    const { color = 'text-neutral-lighter', children, ...rest } = props
 
     return (
       <BaseHelperText
@@ -130,7 +130,7 @@ export const FormErrorMessage = forwardRef<
   HTMLSpanElement,
   FormErrorMessageProps
 >(function FormErrorMessage(props, forwardedRef) {
-  const { color = 'bgtxt-orange-normal', children, ...rest } = props
+  const { color = 'text-accent-orange', children, ...rest } = props
 
   return (
     <BaseHelperText

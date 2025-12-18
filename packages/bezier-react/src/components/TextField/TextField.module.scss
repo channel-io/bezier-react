@@ -7,14 +7,14 @@
   height: 100%;
   padding: 0;
 
-  color: var(--txt-black-darkest);
+  color: var(--beta-color-text-neutral);
 
   background-color: transparent;
   border: none;
   outline: none;
 
   &:read-only {
-    color: var(--txt-black-darker);
+    color: var(--beta-color-text-neutral-light);
   }
 
   &:disabled {
@@ -36,15 +36,15 @@
   height: var(--b-form-field-size);
   padding: 0 12px;
 
-  background-color: var(--bg-grey-lightest);
-  border-radius: var(--radius-8);
+  background-color: var(--beta-color-fill-grey);
+  border-radius: var(--beta-radius-8);
 
   transition:
-    border-color var(--transition-s),
-    box-shadow var(--transition-s);
+    border-color var(--beta-motion-transition-fast),
+    box-shadow var(--beta-motion-transition-fast);
 
   &:where(.variant-secondary) {
-    background-color: var(--bg-black-lighter);
+    background-color: var(--beta-color-fill-neutral-light);
   }
 
   &:where(.size-l) .TextFieldInput {
@@ -52,7 +52,7 @@
   }
 
   &:where(.size-xl) {
-    border-radius: var(--radius-12);
+    border-radius: var(--beta-radius-12);
 
     & .TextFieldInput {
       @include typography.size(18);
@@ -60,15 +60,15 @@
   }
 
   &:where(:has(.TextFieldInput:disabled)) {
-    opacity: var(--opacity-disabled);
+    opacity: var(--beta-opacity-disabled);
   }
 
   &:where(.variant-primary) {
-    box-shadow: var(--input-box-shadow);
+    box-shadow: var(--beta-state-input-default);
   }
 
   &:where(:has(.TextFieldInput:focus)) {
-    box-shadow: var(--input-box-shadow-focused);
+    box-shadow: var(--beta-state-input-active);
   }
 
   &:where(:has(.TextFieldInput:focus, :hover, .CloseIconWrapper:focus))
@@ -80,15 +80,15 @@
       :has(.TextFieldInput[aria-invalid='true']),
       :has(.TextFieldInput:not(:disabled, :read-only):focus)
     ) {
-    background-color: var(--bg-white-normal);
+    background-color: var(--beta-color-surface);
   }
 
   &:where(.variant-primary:has(.TextFieldInput:read-only)) {
-    background-color: var(--bg-grey-lighter);
+    background-color: var(--beta-color-fill-grey-heavy);
   }
 
   &:has(:where(.TextFieldInput[aria-invalid='true'])) {
-    box-shadow: var(--input-box-shadow-invalid);
+    box-shadow: var(--beta-state-error);
   }
 }
 
@@ -127,9 +127,9 @@
   height: 20px;
   padding-right: 2px;
 
-  color: var(--txt-black-dark);
+  color: var(--beta-color-text-neutral-lighter);
 
   &:hover {
-    color: var(--txt-black-darker);
+    color: var(--beta-color-text-neutral-light);
   }
 }

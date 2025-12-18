@@ -243,14 +243,14 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
                         typo="13"
                         bold
                         marginBottom={2}
-                        color="txt-black-darkest"
+                        color="text-neutral"
                       >
                         {title}
                       </Text>
                     )}
 
                     <Text
-                      color="txt-black-darkest"
+                      color="text-neutral"
                       className={styles.TooltipContent}
                       truncated={20}
                       typo="13"
@@ -261,7 +261,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
                     {description && (
                       <Text
                         typo="12"
-                        color="txt-black-dark"
+                        color="text-neutral-lighter"
                       >
                         {description}
                       </Text>
@@ -271,7 +271,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
                   {icon && (
                     <Icon
                       size="xs"
-                      color="txt-black-darkest"
+                      color="text-neutral"
                       source={icon}
                       className={styles.Icon}
                     />

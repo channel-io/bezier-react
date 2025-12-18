@@ -43,9 +43,9 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select(
     placeholder = '',
     leftContent,
     rightContent,
-    iconColor = 'txt-black-dark',
+    iconColor = 'text-neutral-lighter',
     text,
-    textColor = 'txt-black-darkest',
+    textColor = 'text-neutral',
     withoutChevron = false,
     dropdownStyle,
     dropdownClassName,
@@ -122,7 +122,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select(
           data-testid="bezier-select-trigger-text"
           typo="14"
           truncated
-          color="txt-black-dark"
+          color="text-neutral-lighter"
         >
           {placeholder}
         </Text>
@@ -194,7 +194,7 @@ export const Select = forwardRef<SelectRef, SelectProps>(function Select(
           <Icon
             source={isDropdownOpened ? ChevronUpIcon : ChevronDownIcon}
             size="xs"
-            color={readOnly ? 'txt-black-dark' : 'txt-black-darker'}
+            color={readOnly ? 'text-neutral-lighter' : 'text-neutral-light'}
             marginLeft={6}
           />
         )}

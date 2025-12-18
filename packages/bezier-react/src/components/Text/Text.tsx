@@ -5,7 +5,7 @@ import { createElement, forwardRef } from 'react'
 import classNames from 'classnames'
 
 import { getMarginStyles, splitByMarginProps } from '~/src/types/props-helpers'
-import { tokenCssVar } from '~/src/utils/style'
+import { betaTokenCssVar } from '~/src/utils/style'
 import { isNumber } from '~/src/utils/type'
 
 import { type TextProps } from './Text.types'
@@ -19,7 +19,7 @@ import styles from './Text.module.scss'
  * ```tsx
  * <Text
  *   typo="15"
- *   color="txt-black-darkest"
+ *   color="text-neutral"
  * >
  *   Hello, Channel!
  * </Text>
@@ -50,7 +50,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(
       {
         ref: forwardedRef,
         style: {
-          '--b-text-color': tokenCssVar(color),
+          '--b-text-color': betaTokenCssVar(color),
           '--b-text-line-clamp': isMultiLineTruncated ? truncated : undefined,
           ...marginStyles.style,
           ...style,

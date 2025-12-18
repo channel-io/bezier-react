@@ -8,7 +8,7 @@ $avatar-sizes: 16, 20, 24, 30, 36, 42, 48, 72, 90, 120;
 
   &:where(.disabled) {
     pointer-events: none;
-    opacity: var(--alpha-opacity-disabled);
+    opacity: var(--beta-opacity-disabled);
   }
 
   @each $size in $avatar-sizes {

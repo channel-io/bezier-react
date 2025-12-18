@@ -34,6 +34,6 @@ describe('Avatar >', () => {
     const { getByTestId } = renderAvatar({ disabled: true })
     const wrapper = getByTestId(AVATAR_WRAPPER_TEST_ID)
 
-    expect(wrapper).toHaveStyle('opacity: var(--opacity-disabled)')
+    expect(wrapper).toHaveStyle('opacity: var(--beta-opacity-disabled)')
   })
 })

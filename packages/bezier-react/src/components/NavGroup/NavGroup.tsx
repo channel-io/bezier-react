@@ -81,7 +81,7 @@ export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(
             <Icon
               source={leftContent}
               size="s"
-              color={active ? 'bgtxt-blue-normal' : 'txt-black-dark'}
+              color={active ? 'text-accent-blue' : 'text-neutral-lighter'}
               data-testid={NAV_GROUP_LEFT_ICON_TEST_ID}
             />
           </div>
@@ -98,7 +98,7 @@ export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(
               <Icon
                 source={chevronIconSource}
                 size="s"
-                color="txt-black-dark"
+                color="text-neutral-lighter"
               />
             </div>
           )}
