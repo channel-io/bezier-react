@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 3.5.2-beta.2
+
+### Patch Changes
+
+- Fix build configuration to include all dependencies used by bezier-react. Revert incorrect changes that were committed during testing and redeploy. ([#2740](https://github.com/channel-io/bezier-react/pull/2740)) by @timok1m
+
 ## 3.5.2-beta.1
 
 ### Patch Changes
