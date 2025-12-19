@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/stylelint-bezier",
-  "version": "0.2.11-beta.1",
+  "version": "0.2.11-beta.2",
   "description": "Stylelint configuration for Bezier design system.",
   "repository": {
     "type": "git",

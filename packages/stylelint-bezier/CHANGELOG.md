@@ -1,5 +1,11 @@
 # @channel.io/stylelint-bezier
 
+## 0.2.11-beta.2
+
+### Patch Changes
+
+- Restrict stylelint-bezier to validate only v3 tokens to detect migration omissions during development. ([#2742](https://github.com/channel-io/bezier-react/pull/2742)) by @timok1m
+
 ## 0.2.11-beta.1
 
 ### Patch Changes
