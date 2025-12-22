@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.3.3-beta.3
+
+### Patch Changes
+
+- Update dark mode colors for text-success and text-warning. (text-success: cobalt.200 → cobalt.300, text-warning: warning.200 → warning.300) ([#2745](https://github.com/channel-io/bezier-react/pull/2745)) by @timok1m
+
 ## 0.3.3-beta.2
 
 ### Patch Changes
