@@ -76,6 +76,9 @@ describe('style', () => {
       expect(betaTokenCssVar('border-neutral' as any)).toBe(
         'var(--beta-color-border-neutral)'
       )
+      expect(betaTokenCssVar('surface' as any)).toBe(
+        'var(--beta-color-surface)'
+      )
       expect(betaTokenCssVar('surface-high' as any)).toBe(
         'var(--beta-color-surface-high)'
       )

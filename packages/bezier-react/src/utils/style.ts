@@ -80,6 +80,7 @@ export function betaTokenCssVar<
   }
   // Beta tokens (v3) have prefix removed in type definitions but need 'beta-color-' prefix for CSS variables
   // Check if the token starts with known beta token prefixes (text-, icon-, fill-, border-, surface-, dim-, state-, elevation-)
+  // or is exactly one of the base tokens (e.g., 'surface' from 'surface.normal')
   const betaTokenPrefixes = [
     'text-',
     'icon-',
@@ -90,9 +91,10 @@ export function betaTokenCssVar<
     'state-',
     'elevation-',
   ]
-  const isBetaToken = betaTokenPrefixes.some((prefix) =>
-    propertyName.startsWith(prefix)
-  )
+  const betaBaseTokens = ['surface']
+  const isBetaToken =
+    betaTokenPrefixes.some((prefix) => propertyName.startsWith(prefix)) ||
+    betaBaseTokens.includes(propertyName)
   if (isBetaToken) {
     return `var(--beta-color-${propertyName})` as const
   }
