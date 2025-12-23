@@ -2,7 +2,7 @@ import { type ReactNode } from 'react'
 
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
-import { type ZIndex } from '~/src/types/beta-tokens'
+import { type BetaZIndex } from '~/src/types/beta-tokens'
 import type {
   AdditionalColorProps,
   AdditionalOverridableStyleProps,
@@ -30,7 +30,7 @@ interface SelectOwnProps {
   dropdownContainer?: HTMLElement | null
   dropdownMarginX?: OverlayProps['marginX']
   dropdownMarginY?: OverlayProps['marginY']
-  dropdownZIndex?: ZIndex
+  dropdownZIndex?: BetaZIndex
   dropdownPosition?: OverlayProps['position']
   dropdownKeepInContainer?: OverlayProps['keepInContainer']
   onClickTrigger?: React.MouseEventHandler

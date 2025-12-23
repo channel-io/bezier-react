@@ -22,7 +22,7 @@ import {
 } from '@channel.io/bezier-icons'
 import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
-import { type SemanticColor } from '~/src/types/beta-tokens'
+import { type BetaSemanticColor } from '~/src/types/beta-tokens'
 import { camelCase } from '~/src/utils/string'
 
 import {
@@ -179,7 +179,7 @@ export const Overview: StoryFn<{}> = () => (
 )
 
 function ColorIcon() {
-  const [color, setColor] = useState<SemanticColor>('icon-accent-blue')
+  const [color, setColor] = useState<BetaSemanticColor>('icon-accent-blue')
 
   return (
     <LegacyVStack spacing={16}>
@@ -200,7 +200,7 @@ function ColorIcon() {
               <ListItem
                 key={semanticName}
                 content={semanticName}
-                onClick={() => setColor(semanticName as SemanticColor)}
+                onClick={() => setColor(semanticName as BetaSemanticColor)}
               />
             ))}
           </div>
