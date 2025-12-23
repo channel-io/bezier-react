@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.3.3-beta.4
+
+### Patch Changes
+
+- Remove unused 42-p, 100-p dimension tokens ([#2752](https://github.com/channel-io/bezier-react/pull/2752)) by @timok1m
+
 ## 0.3.3-beta.3
 
 ### Patch Changes
