@@ -7,102 +7,122 @@ import {
 } from './utils'
 
 // TODO: Change theme name constant to import from bezier-tokens
-export type ThemeName = 'light' | 'dark'
+export type BetaThemeName = 'light' | 'dark'
 
-export type GlobalToken = typeof tokens.global
-export type SemanticToken = typeof tokens.lightTheme | typeof tokens.darkTheme
+export type BetaGlobalToken = typeof tokens.global
+export type BetaSemanticToken =
+  | typeof tokens.lightTheme
+  | typeof tokens.darkTheme
 
 // NOTE: (@timo) Do not remove beta- prefix to match CSS variable names
-export type FlattenGlobalToken = ExtractKeys<GlobalToken[keyof GlobalToken]>
-export type FlattenSemanticToken = ExtractKeys<
-  SemanticToken[keyof SemanticToken]
+export type BetaFlattenGlobalToken = ExtractKeys<
+  BetaGlobalToken[keyof BetaGlobalToken]
 >
-export type FlattenAllToken = FlattenGlobalToken | FlattenSemanticToken
+export type BetaFlattenSemanticToken = ExtractKeys<
+  BetaSemanticToken[keyof BetaSemanticToken]
+>
+export type BetaFlattenAllToken =
+  | BetaFlattenGlobalToken
+  | BetaFlattenSemanticToken
 
 /**
  * Global color tokens (internal use only, not for props)
  */
-export type GlobalColor = RemovePrefix<'beta-color', keyof GlobalToken['color']>
+export type BetaGlobalColor = RemovePrefix<
+  'beta-color',
+  keyof BetaGlobalToken['color']
+>
 
 /**
  * Semantic color tokens (for props)
  */
-export type SemanticColor = RemovePrefix<
+export type BetaSemanticColor = RemovePrefix<
   'beta-color',
-  keyof SemanticToken['color']
+  keyof BetaSemanticToken['color']
 >
 
 /**
  * Text semantic color tokens
  */
-export type TextSemanticColor = StartsWithPrefix<'text', SemanticColor>
+export type BetaTextSemanticColor = StartsWithPrefix<'text', BetaSemanticColor>
 
 /**
  * Icon semantic color tokens
  */
-export type IconSemanticColor = StartsWithPrefix<'icon', SemanticColor>
+export type BetaIconSemanticColor = StartsWithPrefix<'icon', BetaSemanticColor>
 
 /**
  * Fill semantic color tokens (for background)
  */
-type FillSemanticColor = StartsWithPrefix<'fill', SemanticColor>
+type BetaFillSemanticColor = StartsWithPrefix<'fill', BetaSemanticColor>
 /**
  * Surface semantic color tokens (for background)
  */
-type SurfaceSemanticColor = StartsWithPrefix<'surface', SemanticColor>
+type BetaSurfaceSemanticColor = StartsWithPrefix<'surface', BetaSemanticColor>
 /**
  * Background semantic color tokens (for props)
  */
-export type BackgroundSemanticColor = FillSemanticColor | SurfaceSemanticColor
+export type BetaBackgroundSemanticColor =
+  | BetaFillSemanticColor
+  | BetaSurfaceSemanticColor
 
 /**
  * Border semantic color tokens
  */
-export type BorderSemanticColor = StartsWithPrefix<'border', SemanticColor>
+export type BetaBorderSemanticColor = StartsWithPrefix<
+  'border',
+  BetaSemanticColor
+>
 
 /**
  * Dim semantic color tokens
  */
-export type DimSemanticColor = StartsWithPrefix<'dim', SemanticColor>
+export type BetaDimSemanticColor = StartsWithPrefix<'dim', BetaSemanticColor>
 
 /**
  * State semantic color tokens
  */
-export type StateSemanticColor = StartsWithPrefix<'state', SemanticColor>
+export type BetaStateSemanticColor = StartsWithPrefix<
+  'state',
+  BetaSemanticColor
+>
 
 /**
  * Elevation semantic color tokens
  */
-export type ElevationSemanticColor = StartsWithPrefix<
+export type BetaElevationSemanticColor = StartsWithPrefix<
   'elevation',
-  SemanticColor
+  BetaSemanticColor
 >
 
 /**
  * Semantic radius tokens (for props)
  */
-export type Radius = RemovePrefix<'beta-radius', keyof SemanticToken['radius']>
+export type BetaRadius = RemovePrefix<
+  'beta-radius',
+  keyof BetaSemanticToken['radius']
+>
 
 /**
  * Semantic opacity tokens (for props)
  */
-export type Opacity = RemovePrefix<
+export type BetaOpacity = RemovePrefix<
   'beta-opacity',
-  keyof SemanticToken['opacity']
+  keyof BetaSemanticToken['opacity']
 >
 
 /**
  * Semantic elevation tokens (for props)
  */
-export type Elevation = RemovePrefix<
+export type BetaElevation = RemovePrefix<
   'beta-elevation',
-  keyof SemanticToken['elevation']
+  keyof BetaSemanticToken['elevation']
 >
 
 /**
  * Semantic z-index tokens (for props)
  */
-export type ZIndex = RemovePrefix<
+export type BetaZIndex = RemovePrefix<
   'beta-layer-z-index',
-  keyof SemanticToken['layer']
+  keyof BetaSemanticToken['layer']
 >
