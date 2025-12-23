@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { getWindow } from 'ssr-window'
 
 import { AlphaTokenProvider } from '~/src/components/AlphaTokenProvider'
+import { BetaTokenProvider } from '~/src/components/BetaTokenProvider'
 import { FeatureProvider } from '~/src/components/FeatureProvider'
 import { TokenProvider } from '~/src/components/TokenProvider'
 import { WindowProvider } from '~/src/components/WindowProvider'
@@ -55,7 +56,9 @@ export function AppProvider({
       <FeatureProvider features={features}>
         <TokenProvider themeName={themeName}>
           <AlphaTokenProvider themeName={themeName}>
-            {children}
+            <BetaTokenProvider themeName={themeName}>
+              {children}
+            </BetaTokenProvider>
           </AlphaTokenProvider>
         </TokenProvider>
       </FeatureProvider>
