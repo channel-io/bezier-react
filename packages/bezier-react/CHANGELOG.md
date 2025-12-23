@@ -1,5 +1,20 @@
 # @channel.io/bezier-react
 
+## 3.5.2-beta.4
+
+### Patch Changes
+
+- Add beta prefix to beta-tokens types to resolve naming conflicts ([#2750](https://github.com/channel-io/bezier-react/pull/2750)) by @timok1m
+
+- Add BetaTokenProvider, useBetaTokens and migrate the codebase. ([#2751](https://github.com/channel-io/bezier-react/pull/2751)) by @timok1m
+
+- Fixes the issue where backgroundColor="surface" was generating incorrect CSS variable name. ([#2748](https://github.com/channel-io/bezier-react/pull/2748)) by @timok1m
+
+- Replace useTokens().global.radius usage with individual '42%' styling in avatar components ([#2753](https://github.com/channel-io/bezier-react/pull/2753)) by @timok1m
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.3.3-beta.4
+
 ## 3.5.2-beta.3
 
 ### Patch Changes
