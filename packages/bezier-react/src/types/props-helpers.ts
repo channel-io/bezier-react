@@ -1,9 +1,9 @@
 import classNames from 'classnames'
 
 import {
-  type Elevation,
-  type Radius,
-  type ZIndex,
+  type BetaElevation,
+  type BetaRadius,
+  type BetaZIndex,
 } from '~/src/types/beta-tokens'
 import {
   type FormFieldSize,
@@ -122,15 +122,15 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
   rest,
 ]
 
-function getElevationClassName(elevation: Elevation) {
+function getElevationClassName(elevation: BetaElevation) {
   return elevationStyles[`elevation-${elevation}`]
 }
 
-function getRadiusClassName(radius: Radius) {
+function getRadiusClassName(radius: BetaRadius) {
   return radiusStyles[`radius-${radius}`]
 }
 
-export function getZIndexClassName(zIndex: ZIndex) {
+export function getZIndexClassName(zIndex: BetaZIndex) {
   return zIndexStyles[`z-index-${zIndex}`]
 }
 

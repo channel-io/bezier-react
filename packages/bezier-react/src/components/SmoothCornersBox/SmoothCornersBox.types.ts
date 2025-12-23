@@ -1,4 +1,4 @@
-import { type SemanticColor } from '~/src/types/beta-tokens'
+import { type BetaSemanticColor } from '~/src/types/beta-tokens'
 import type {
   BezierComponentProps,
   ChildrenProps,
@@ -33,7 +33,7 @@ interface BoxShadow {
    * The color of the shadow.
    * @default transparent
    */
-  color?: SemanticColor
+  color?: BetaSemanticColor
 }
 
 interface SmoothCornersBoxOwnProps {
@@ -55,7 +55,7 @@ interface SmoothCornersBoxOwnProps {
    * The background color of an element.
    * @default 'transparent'
    */
-  backgroundColor?: SemanticColor
+  backgroundColor?: BetaSemanticColor
   /**
    * The background image url of an element.
    */

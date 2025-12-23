@@ -1,13 +1,13 @@
 import type { JSX } from 'react'
 
 import type {
-  BackgroundSemanticColor,
-  BorderSemanticColor,
-  Elevation,
-  Radius,
-  SemanticColor,
-  TextSemanticColor,
-  ZIndex,
+  BetaBackgroundSemanticColor,
+  BetaBorderSemanticColor,
+  BetaElevation,
+  BetaRadius,
+  BetaSemanticColor,
+  BetaTextSemanticColor,
+  BetaZIndex,
 } from './beta-tokens'
 
 /**
@@ -140,7 +140,7 @@ export interface ColorProps {
   /**
    * Color from the design system's semantic color.
    */
-  color?: SemanticColor
+  color?: BetaSemanticColor
 }
 
 /**
@@ -179,7 +179,7 @@ export type AdditionalOverridableStyleProps<ElementName extends PropNameType> =
  * Props for adding color properties to named elements within a component.
  */
 export type AdditionalColorProps<ElementName extends PropNameType> =
-  AdditionalProps<ElementName, 'color', SemanticColor>
+  AdditionalProps<ElementName, 'color', BetaSemanticColor>
 
 /**
  * Props for components that can be activated or deactivated.
@@ -379,20 +379,20 @@ export interface LayoutProps {
   grow?: React.CSSProperties['flexGrow']
   /**
    * the background color of an element.
-   * @todo @timo TextSemanticColor is included for v1 component compatibility. v3 components should use only BackgroundSemanticColor for proper semantic usage.
+   * @todo @timo BetaTextSemanticColor is included for v1 component compatibility. v3 components should use only BetaBackgroundSemanticColor for proper semantic usage.
    * @default initial
    */
-  backgroundColor?: BackgroundSemanticColor | TextSemanticColor
+  backgroundColor?: BetaBackgroundSemanticColor | BetaTextSemanticColor
   /**
    * the border color of an element.
    * @default initial
    */
-  borderColor?: BorderSemanticColor
+  borderColor?: BetaBorderSemanticColor
   /**
    * the border radius of an element.
    * @default initial
    */
-  borderRadius?: Radius
+  borderRadius?: BetaRadius
   /**
    * the border width of an element.
    * @default 0
@@ -422,12 +422,12 @@ export interface LayoutProps {
    * the elevation of an element. (box-shadow)
    * @default initial
    */
-  elevation?: Elevation
+  elevation?: BetaElevation
   /**
    * the z-index of an element.
    * @default initial
    */
-  zIndex?: ZIndex
+  zIndex?: BetaZIndex
   /**
    * the overflow of an element.
    * @default initial
