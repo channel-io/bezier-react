@@ -155,14 +155,6 @@
     "40-p": {
       "value": "40%",
       "type": "dimension"
-    },
-    "42-p": {
-      "value": "42%",
-      "type": "dimension"
-    },
-    "100-p": {
-      "value": "100%",
-      "type": "dimension"
     }
   }
 }
