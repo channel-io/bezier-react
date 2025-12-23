@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 3.5.2-beta.5
+
+### Patch Changes
+
+- Remove BetaTokens namespace to allow direct use of required types ([#2754](https://github.com/channel-io/bezier-react/pull/2754)) by @timok1m
+
 ## 3.5.2-beta.4
 
 ### Patch Changes
