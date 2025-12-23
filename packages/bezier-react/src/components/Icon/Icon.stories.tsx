@@ -34,7 +34,7 @@ import { ListItem } from '~/src/components/ListItem'
 import { Select } from '~/src/components/Select'
 import { Stack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
-import { useTokens } from '~/src/components/ThemeProvider'
+import { useBetaTokens } from '~/src/components/ThemeProvider'
 
 import { Icon } from './Icon'
 import mdx from './Icon.mdx'
@@ -196,7 +196,7 @@ function ColorIcon() {
           style={{ width: 200 }}
         >
           <div style={{ padding: 6, maxHeight: 200, overflowY: 'auto' }}>
-            {Object.keys(useTokens().semantic.color).map((semanticName) => (
+            {Object.keys(useBetaTokens().semantic.color).map((semanticName) => (
               <ListItem
                 key={semanticName}
                 content={semanticName}
