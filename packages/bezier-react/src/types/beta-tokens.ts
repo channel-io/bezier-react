@@ -14,7 +14,6 @@ export type BetaSemanticToken =
   | typeof tokens.lightTheme
   | typeof tokens.darkTheme
 
-// NOTE: (@timo) Do not remove beta- prefix to match CSS variable names
 export type BetaFlattenGlobalToken = ExtractKeys<
   BetaGlobalToken[keyof BetaGlobalToken]
 >
@@ -29,7 +28,7 @@ export type BetaFlattenAllToken =
  * Global color tokens (internal use only, not for props)
  */
 export type BetaGlobalColor = RemovePrefix<
-  'beta-color',
+  'color',
   keyof BetaGlobalToken['color']
 >
 
@@ -37,7 +36,7 @@ export type BetaGlobalColor = RemovePrefix<
  * Semantic color tokens (for props)
  */
 export type BetaSemanticColor = RemovePrefix<
-  'beta-color',
+  'color',
   keyof BetaSemanticToken['color']
 >
 
@@ -99,7 +98,7 @@ export type BetaElevationSemanticColor = StartsWithPrefix<
  * Semantic radius tokens (for props)
  */
 export type BetaRadius = RemovePrefix<
-  'beta-radius',
+  'radius',
   keyof BetaSemanticToken['radius']
 >
 
@@ -107,7 +106,7 @@ export type BetaRadius = RemovePrefix<
  * Semantic opacity tokens (for props)
  */
 export type BetaOpacity = RemovePrefix<
-  'beta-opacity',
+  'opacity',
   keyof BetaSemanticToken['opacity']
 >
 
@@ -115,7 +114,7 @@ export type BetaOpacity = RemovePrefix<
  * Semantic elevation tokens (for props)
  */
 export type BetaElevation = RemovePrefix<
-  'beta-elevation',
+  'elevation',
   keyof BetaSemanticToken['elevation']
 >
 
@@ -123,6 +122,6 @@ export type BetaElevation = RemovePrefix<
  * Semantic z-index tokens (for props)
  */
 export type BetaZIndex = RemovePrefix<
-  'beta-layer-z-index',
+  'layer-z-index',
   keyof BetaSemanticToken['layer']
 >

@@ -1,14 +1,14 @@
 .ProgressBarActive {
   width: calc(var(--b-progress-bar-value) * 100%);
   height: 100%;
-  border-radius: var(--beta-radius-3);
-  transition: width var(--beta-motion-transition-fast);
+  border-radius: var(--radius-3);
+  transition: width var(--motion-transition-fast);
 }
 
 .ProgressBar {
   width: var(--b-progress-bar-width);
-  border-radius: var(--beta-radius-3);
-  transition: width var(--beta-motion-transition-fast);
+  border-radius: var(--radius-3);
+  transition: width var(--motion-transition-fast);
 
   &:where(.size-s) {
     height: 4px;
@@ -19,25 +19,25 @@
   }
 
   &:where(.variant-green, .variant-monochrome) {
-    background-color: var(--beta-color-fill-neutral-light);
+    background-color: var(--color-fill-neutral-light);
   }
 
   &:where(.variant-green-alt) {
-    background-color: var(--beta-color-fill-absolute-white);
+    background-color: var(--color-fill-absolute-white);
   }
 
   &:where(.variant-green, .variant-green-alt) .ProgressBarActive {
     background: linear-gradient(
       90deg,
-      var(--beta-color-gradient-green) 0%,
-      var(--beta-color-gradient-green-heavy) 100%
+      var(--color-gradient-green) 0%,
+      var(--color-gradient-green-heavy) 100%
     );
 
     &:where(.dark-theme) {
       background: linear-gradient(
         90deg,
-        var(--beta-color-gradient-green-heavy) 0%,
-        var(--beta-color-gradient-green) 100%
+        var(--color-gradient-green-heavy) 0%,
+        var(--color-gradient-green) 100%
       );
     }
   }
@@ -45,8 +45,8 @@
   &:where(.variant-monochrome) .ProgressBarActive {
     background: linear-gradient(
       90deg,
-      var(--beta-color-fill-neutral-light) 0%,
-      var(--beta-color-fill-neutral-heavy) 100%
+      var(--color-fill-neutral-light) 0%,
+      var(--color-fill-neutral-heavy) 100%
     );
   }
 }

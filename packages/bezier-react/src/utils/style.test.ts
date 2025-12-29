@@ -63,33 +63,31 @@ describe('style', () => {
       expect(betaTokenCssVar(undefined)).toBeUndefined()
     })
 
-    it('formats beta color tokens with beta-color- prefix', () => {
+    it('formats beta color tokens with color- prefix', () => {
       expect(betaTokenCssVar('text-neutral' as any)).toBe(
-        'var(--beta-color-text-neutral)'
+        'var(--color-text-neutral)'
       )
       expect(betaTokenCssVar('icon-neutral' as any)).toBe(
-        'var(--beta-color-icon-neutral)'
+        'var(--color-icon-neutral)'
       )
       expect(betaTokenCssVar('fill-neutral-light' as any)).toBe(
-        'var(--beta-color-fill-neutral-light)'
+        'var(--color-fill-neutral-light)'
       )
       expect(betaTokenCssVar('border-neutral' as any)).toBe(
-        'var(--beta-color-border-neutral)'
+        'var(--color-border-neutral)'
       )
-      expect(betaTokenCssVar('surface' as any)).toBe(
-        'var(--beta-color-surface)'
-      )
+      expect(betaTokenCssVar('surface' as any)).toBe('var(--color-surface)')
       expect(betaTokenCssVar('surface-high' as any)).toBe(
-        'var(--beta-color-surface-high)'
+        'var(--color-surface-high)'
       )
       expect(betaTokenCssVar('dim-black-lightest' as any)).toBe(
-        'var(--beta-color-dim-black-lightest)'
+        'var(--color-dim-black-lightest)'
       )
       expect(betaTokenCssVar('state-action' as any)).toBe(
-        'var(--beta-color-state-action)'
+        'var(--color-state-action)'
       )
       expect(betaTokenCssVar('elevation-base' as any)).toBe(
-        'var(--beta-color-elevation-base)'
+        'var(--color-elevation-base)'
       )
     })
 

@@ -76,7 +76,7 @@ const Item = ({
       style={{
         width: fixedSize && direction === 'vertical' ? size : '100%',
         height: fixedSize && direction === 'horizontal' ? size : '100%',
-        backgroundColor: 'var(--beta-color-fill-neutral-light)',
+        backgroundColor: 'var(--color-fill-neutral-light)',
         borderRadius: '4px',
         boxShadow: 'inset 0 0 1px #c0c0c0',
       }}

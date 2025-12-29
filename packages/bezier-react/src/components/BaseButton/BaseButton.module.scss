@@ -11,7 +11,7 @@
   border: none;
 
   &:where(:focus-visible) {
-    outline: 3px solid var(--beta-color-text-accent-cobalt);
+    outline: 3px solid var(--color-text-accent-cobalt);
   }
 
   &:where(:focus:not(:focus-visible)) {

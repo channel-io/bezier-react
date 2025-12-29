@@ -4,9 +4,9 @@
   box-sizing: border-box;
   max-width: 200px;
 
-  color: var(--beta-color-text-neutral);
+  color: var(--color-text-neutral);
 
-  transition: background-color var(--beta-motion-transition-fast);
+  transition: background-color var(--motion-transition-fast);
 
   /* dimension, variant, and shape */
   &:where(.size-m) {
@@ -19,17 +19,17 @@
   }
 
   &:where(.variant-primary) {
-    color: var(--beta-color-text-neutral);
-    background-color: var(--beta-color-fill-grey);
-    box-shadow: var(--beta-state-input-default);
+    color: var(--color-text-neutral);
+    background-color: var(--color-fill-grey);
+    box-shadow: var(--state-input-default);
   }
 
   &:where(.variant-secondary) {
-    background-color: var(--beta-color-surface-low);
+    background-color: var(--color-surface-low);
   }
 
   &:where(.shape-rectangle) {
-    border-radius: var(--beta-radius-10);
+    border-radius: var(--radius-10);
   }
 
   &:where(.shape-capsule) {
@@ -39,45 +39,45 @@
   /* visual effect on interaction */
   &:where(:hover) {
     &:where(.variant-primary) {
-      background-color: var(--beta-color-fill-grey-heavy);
+      background-color: var(--color-fill-grey-heavy);
     }
 
     &:where(.variant-secondary) {
-      background-color: var(--beta-color-fill-neutral-lighter-hovered);
+      background-color: var(--color-fill-neutral-lighter-hovered);
     }
 
     &:where([data-state='off']) {
       & :is(.ButtonIcon) {
-        color: var(--beta-color-icon-neutral-heavy);
+        color: var(--color-icon-neutral-heavy);
       }
     }
   }
 
   &:where([data-state='on']) {
-    color: var(--beta-color-text-accent-blue);
+    color: var(--color-text-accent-blue);
 
     &:where(.variant-primary) {
-      background-color: var(--beta-color-fill-accent-blue);
-      box-shadow: var(--beta-state-input-default);
-      box-shadow: 0 0 0 1px var(--beta-color-fill-accent-blue-heavier) inset;
+      background-color: var(--color-fill-accent-blue);
+      box-shadow: var(--state-input-default);
+      box-shadow: 0 0 0 1px var(--color-fill-accent-blue-heavier) inset;
     }
 
     &:where(.variant-secondary) {
-      background-color: var(--beta-color-fill-accent-blue-heavy);
+      background-color: var(--color-fill-accent-blue-heavy);
     }
 
     & :where(.ButtonText) {
-      font-weight: var(--beta-typography-text-weight-bold);
+      font-weight: var(--typography-text-weight-bold);
     }
   }
 
   &:where(:focus-visible) {
-    box-shadow: var(--beta-state-input-active);
+    box-shadow: var(--state-input-active);
   }
 
   /* internal components */
   &:where([data-state='off']) :where(.ButtonIcon) {
-    color: var(--beta-color-icon-neutral);
+    color: var(--color-icon-neutral);
   }
 
   & :where(.ButtonContent) {
@@ -95,7 +95,7 @@
 
     height: 0;
 
-    font-weight: var(--beta-typography-text-weight-bold);
+    font-weight: var(--typography-text-weight-bold);
     color: transparent;
 
     visibility: hidden;
