@@ -3,7 +3,7 @@
 
   &:where(:not([data-state='closed'])) {
     > .Icon {
-      color: var(--beta-color-text-neutral);
+      color: var(--color-text-neutral);
     }
   }
 }

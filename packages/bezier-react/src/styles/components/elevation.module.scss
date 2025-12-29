@@ -4,6 +4,6 @@
 @each $ev in map.keys(map.get($tokens, 'light-theme', 'elevation')) {
   :where(.elevation-#{$ev}) {
     /* stylelint-disable-next-line bezier/validate-token */
-    box-shadow: var(--beta-elevation-#{$ev});
+    box-shadow: var(--elevation-#{$ev});
   }
 }

@@ -14,11 +14,11 @@
   width: var(--b-slider-width);
   height: var(--b-slider-thumb-size);
 
-  transition: opacity var(--beta-motion-transition-fast);
+  transition: opacity var(--motion-transition-fast);
 
   &[data-disabled] {
     cursor: not-allowed;
-    opacity: var(--beta-opacity-disabled);
+    opacity: var(--opacity-disabled);
   }
 }
 
@@ -29,16 +29,16 @@
 
   height: 6px;
 
-  background-color: var(--beta-color-fill-neutral-heavy);
-  border-radius: var(--beta-radius-3);
+  background-color: var(--color-fill-neutral-heavy);
+  border-radius: var(--radius-3);
   border-radius: 3px;
 }
 
 .SliderPrimitiveRange {
   position: absolute;
   height: 100%;
-  background-color: var(--beta-color-fill-success);
-  border-radius: var(--beta-radius-3);
+  background-color: var(--color-fill-success);
+  border-radius: var(--radius-3);
 }
 
 .GuideContainer {
@@ -61,7 +61,7 @@
   width: 2px;
   height: var(--b-slider-guide-height);
 
-  background-color: var(--beta-color-fill-neutral-light);
+  background-color: var(--color-fill-neutral-light);
   border-radius: 1px;
 }
 
@@ -71,18 +71,18 @@
   width: var(--b-slider-thumb-size);
   height: var(--b-slider-thumb-size);
 
-  background-color: var(--beta-color-fill-absolute-white);
-  border-radius: var(--beta-radius-12);
-  box-shadow: var(--beta-elevation-2);
+  background-color: var(--color-fill-absolute-white);
+  border-radius: var(--radius-12);
+  box-shadow: var(--elevation-2);
 
-  transition: box-shadow var(--beta-motion-transition-fast);
+  transition: box-shadow var(--motion-transition-fast);
 
   &:hover {
-    box-shadow: var(--beta-elevation-3);
+    box-shadow: var(--elevation-3);
   }
 
   &:focus-visible {
     outline: none;
-    box-shadow: var(--beta-state-input-active);
+    box-shadow: var(--state-input-active);
   }
 }

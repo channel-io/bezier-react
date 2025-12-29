@@ -4,6 +4,6 @@
 @each $z-index in map.keys(map.get($tokens, 'light-theme', 'layer', 'z-index')) {
   :where(.z-index-#{$z-index}) {
     /* stylelint-disable-next-line bezier/validate-token */
-    z-index: var(--beta-layer-z-index-#{$z-index});
+    z-index: var(--layer-z-index-#{$z-index});
   }
 }

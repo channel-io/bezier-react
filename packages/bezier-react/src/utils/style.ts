@@ -64,7 +64,7 @@ export function tokenCssVar<PropertyName extends FlattenAllToken | undefined>(
 /**
  * Wrapper function for `cssVar` to handle tokens specifically.
  * It generates a CSS variable string for a given design token.
- * For beta tokens (v3), it adds the 'beta-color-' prefix to match CSS variable names.
+ * For beta color tokens (v3), it adds the 'color-' prefix to match CSS variable names.
  * For v1 tokens, it uses the token name directly.
  */
 export function betaTokenCssVar<
@@ -78,10 +78,9 @@ export function betaTokenCssVar<
   if (!propertyName) {
     return undefined
   }
-  // Beta tokens (v3) have prefix removed in type definitions but need 'beta-color-' prefix for CSS variables
-  // Check if the token starts with known beta token prefixes (text-, icon-, fill-, border-, surface-, dim-, state-, elevation-)
-  // or is exactly one of the base tokens (e.g., 'surface' from 'surface.normal')
-  const betaTokenPrefixes = [
+  // Beta color tokens (v3) need 'color-' prefix for CSS variables
+  // Check if the token starts with known beta color token prefixes
+  const betaColorTokenPrefixes = [
     'text-',
     'icon-',
     'fill-',
@@ -92,11 +91,11 @@ export function betaTokenCssVar<
     'elevation-',
   ]
   const betaBaseTokens = ['surface']
-  const isBetaToken =
-    betaTokenPrefixes.some((prefix) => propertyName.startsWith(prefix)) ||
+  const isBetaColorToken =
+    betaColorTokenPrefixes.some((prefix) => propertyName.startsWith(prefix)) ||
     betaBaseTokens.includes(propertyName)
-  if (isBetaToken) {
-    return `var(--beta-color-${propertyName})` as const
+  if (isBetaColorToken) {
+    return cssVar(`color-${propertyName}`)
   }
   return cssVar(propertyName)
 }

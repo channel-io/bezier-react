@@ -39,7 +39,7 @@ describe('Icon test >', () => {
     const renderedIcon = getByTestId(ICON_TEST_ID)
 
     expect(renderedIcon).toHaveStyle(
-      '--b-icon-color: var(--beta-color-icon-accent-olive);'
+      '--b-icon-color: var(--color-icon-accent-olive);'
     )
   })
 })

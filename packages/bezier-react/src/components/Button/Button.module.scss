@@ -6,8 +6,8 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   position: relative;
   box-sizing: border-box;
   transition:
-    background-color var(--beta-motion-transition-fast),
-    box-shadow var(--beta-motion-transition-fast);
+    background-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast);
 
   /* Size */
   &:where(.size-xs) {
@@ -80,38 +80,38 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   &:where(.style-primary) {
     @each $color-variant in $chromatic-color-variants {
       &:where(.color-#{$color-variant}) {
-        color: var(--beta-color-text-absolute-white);
+        color: var(--color-text-absolute-white);
         /* stylelint-disable-next-line bezier/validate-token */
         background-color: var(
-          --beta-color-fill-accent-#{$color-variant}-heavier
+          --color-fill-accent-#{$color-variant}-heavier
         );
 
         &#{$active-selector} {
           /* stylelint-disable-next-line bezier/validate-token */
           background-color: var(
-            --beta-color-fill-accent-#{$color-variant}-heavier
+            --color-fill-accent-#{$color-variant}-heavier
           );
         }
       }
     }
 
     &:where(.color-monochrome) {
-      color: var(--beta-color-text-absolute-white);
-      background-color: var(--beta-color-fill-absolute-black-light);
+      color: var(--color-text-absolute-white);
+      background-color: var(--color-fill-absolute-black-light);
 
       &#{$active-selector} {
-        background-color: var(--beta-color-fill-absolute-black-light);
+        background-color: var(--color-fill-absolute-black-light);
       }
     }
 
     &:where(.color-monochrome-light) {
-      color: var(--beta-color-text-absolute-white);
-      background-color: var(--beta-color-fill-neutral-heavier);
+      color: var(--color-text-absolute-white);
+      background-color: var(--color-fill-neutral-heavier);
     }
 
     &:where(.color-monochrome-dark) {
-      color: var(--beta-color-text-absolute-white);
-      background-color: var(--beta-color-fill-neutral-heaviest);
+      color: var(--color-text-absolute-white);
+      background-color: var(--color-fill-neutral-heaviest);
     }
   }
 
@@ -119,12 +119,12 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     @each $color-variant in $chromatic-color-variants {
       &:where(.color-#{$color-variant}) {
         /* stylelint-disable bezier/validate-token */
-        color: var(--beta-color-text-accent-#{$color-variant});
-        background-color: var(--beta-color-fill-accent-#{$color-variant});
+        color: var(--color-text-accent-#{$color-variant});
+        background-color: var(--color-fill-accent-#{$color-variant});
 
         &#{$active-selector} {
           background-color: var(
-            --beta-color-fill-accent-#{$color-variant}-heavy
+            --color-fill-accent-#{$color-variant}-heavy
           );
         }
         /* stylelint-enable bezier/validate-token */
@@ -132,29 +132,29 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     }
 
     &:where(.color-monochrome) {
-      color: var(--beta-color-text-neutral);
-      background-color: var(--beta-color-fill-neutral-light);
+      color: var(--color-text-neutral);
+      background-color: var(--color-fill-neutral-light);
 
       &#{$active-selector} {
-        background-color: var(--beta-color-fill-neutral-light);
+        background-color: var(--color-fill-neutral-light);
       }
     }
 
     &:where(.color-monochrome-light) {
-      color: var(--beta-color-text-neutral-light);
-      background-color: var(--beta-color-fill-neutral-light);
+      color: var(--color-text-neutral-light);
+      background-color: var(--color-fill-neutral-light);
 
       &#{$active-selector} {
-        background-color: var(--beta-color-fill-neutral-light);
+        background-color: var(--color-fill-neutral-light);
       }
     }
 
     &:where(.color-monochrome-dark) {
-      color: var(--beta-color-text-neutral);
-      background-color: var(--beta-color-fill-neutral-light);
+      color: var(--color-text-neutral);
+      background-color: var(--color-fill-neutral-light);
 
       &#{$active-selector} {
-        background-color: var(--beta-color-fill-neutral-light);
+        background-color: var(--color-fill-neutral-light);
       }
     }
   }
@@ -165,36 +165,36 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     @each $color-variant in $chromatic-color-variants {
       &:where(.color-#{$color-variant}) {
         /* stylelint-disable-next-line bezier/validate-token */
-        color: var(--beta-color-text-accent-#{$color-variant});
+        color: var(--color-text-accent-#{$color-variant});
 
         &#{$active-selector} {
           /* stylelint-disable-next-line bezier/validate-token */
-          background-color: var(--beta-color-fill-accent-#{$color-variant});
+          background-color: var(--color-fill-accent-#{$color-variant});
         }
       }
     }
 
     &:where(.color-monochrome) {
-      color: var(--beta-color-text-neutral);
+      color: var(--color-text-neutral);
 
       &#{$active-selector} {
-        background-color: var(--beta-color-surface-low);
+        background-color: var(--color-surface-low);
       }
     }
 
     &:where(.color-monochrome-light) {
-      color: var(--beta-color-text-neutral-light);
+      color: var(--color-text-neutral-light);
 
       &#{$active-selector} {
-        background-color: var(--beta-color-fill-neutral-light);
+        background-color: var(--color-fill-neutral-light);
       }
     }
 
     &:where(.color-monochrome-dark) {
-      color: var(--beta-color-text-neutral);
+      color: var(--color-text-neutral);
 
       &#{$active-selector} {
-        background-color: var(--beta-color-fill-neutral-light);
+        background-color: var(--color-fill-neutral-light);
       }
     }
   }
@@ -202,53 +202,53 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   &:where(.style-floating, .style-floating-alt) {
     @each $color-variant in $chromatic-color-variants {
       &:where(.color-#{$color-variant}) {
-        color: var(--beta-color-text-absolute-white);
+        color: var(--color-text-absolute-white);
         /* stylelint-disable-next-line bezier/validate-token */
         background-color: var(
-          --beta-color-fill-accent-#{$color-variant}-heavier
+          --color-fill-accent-#{$color-variant}-heavier
         );
 
         &#{$active-selector} {
           /* stylelint-disable-next-line bezier/validate-token */
           background-color: var(
-            --beta-color-fill-accent-#{$color-variant}-heavier
+            --color-fill-accent-#{$color-variant}-heavier
           );
         }
       }
     }
 
     &:where(.color-monochrome) {
-      color: var(--beta-color-text-neutral);
-      background-color: var(--beta-color-surface-high);
+      color: var(--color-text-neutral);
+      background-color: var(--color-surface-high);
     }
 
     &:where(.color-monochrome-light) {
-      color: var(--beta-color-text-neutral-light);
-      background-color: var(--beta-color-surface-high);
+      color: var(--color-text-neutral-light);
+      background-color: var(--color-surface-high);
     }
 
     &:where(.color-monochrome-dark) {
-      color: var(--beta-color-text-neutral);
-      background-color: var(--beta-color-surface-high);
+      color: var(--color-text-neutral);
+      background-color: var(--color-surface-high);
     }
   }
 
   /* Effect */
   &:where(.style-primary, .style-secondary, .style-tertiary) {
     &:where(.size-xs) {
-      border-radius: var(--beta-radius-6);
+      border-radius: var(--radius-6);
     }
 
     &:where(.size-s, .size-m) {
-      border-radius: var(--beta-radius-8);
+      border-radius: var(--radius-8);
     }
 
     &:where(.size-l) {
-      border-radius: var(--beta-radius-12);
+      border-radius: var(--radius-12);
     }
 
     &:where(.size-xl) {
-      border-radius: var(--beta-radius-16);
+      border-radius: var(--radius-16);
     }
   }
 
@@ -258,11 +258,11 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   }
 
   &:where(.style-floating-alt) {
-    border-radius: var(--beta-radius-8);
+    border-radius: var(--radius-8);
   }
 
   &:where(.style-primary.color-blue:focus-visible) {
-    outline: 3px solid var(--beta-color-state-action-light);
+    outline: 3px solid var(--color-state-action-light);
   }
 
   /* Hover styles for text, icon, and loader */
@@ -270,15 +270,15 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       :not(.active, :hover)
     ) {
     &:where(.size-s, .size-xs) .ButtonText {
-      color: var(--beta-color-text-neutral-light);
+      color: var(--color-text-neutral-light);
     }
 
     &:where(.size-s, .size-xs) :is(.ButtonIcon, .ButtonLoader) {
-      color: var(--beta-color-text-neutral-lighter);
+      color: var(--color-text-neutral-lighter);
     }
 
     &:where(.size-m, .size-l, .size-xl) :is(.ButtonIcon, .ButtonLoader) {
-      color: var(--beta-color-text-neutral-light);
+      color: var(--color-text-neutral-light);
     }
   }
 
@@ -288,7 +288,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       .style-floating
     ):where(:not(.active, :hover)) {
     & :is(.ButtonIcon, .ButtonLoader) {
-      color: var(--beta-color-text-neutral-lighter);
+      color: var(--color-text-neutral-lighter);
     }
   }
 
@@ -298,7 +298,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       .style-floating
     ):where(:not(.active, :hover)) {
     & :is(.ButtonIcon, .ButtonLoader) {
-      color: var(--beta-color-text-neutral-light);
+      color: var(--color-text-neutral-light);
     }
   }
 
@@ -309,14 +309,14 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
 
   &:disabled {
     cursor: not-allowed;
-    opacity: var(--beta-opacity-disabled);
+    opacity: var(--opacity-disabled);
   }
 
   &:is(.style-floating, .style-floating-alt) {
-    box-shadow: var(--beta-elevation-2);
+    box-shadow: var(--elevation-2);
 
     &:where(:hover) {
-      box-shadow: var(--beta-elevation-3);
+      box-shadow: var(--elevation-3);
     }
   }
 }

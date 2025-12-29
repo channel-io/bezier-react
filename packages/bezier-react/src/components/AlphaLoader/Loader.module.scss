@@ -59,17 +59,17 @@
   }
 
   &:where(.variant-primary) {
-    --b-loader-track-color: var(--beta-color-fill-accent-blue-heavy);
-    --b-loader-indicator-color: var(--beta-color-text-accent-blue);
+    --b-loader-track-color: var(--color-fill-accent-blue-heavy);
+    --b-loader-indicator-color: var(--color-text-accent-blue);
   }
 
   &:where(.variant-secondary) {
-    --b-loader-track-color: var(--beta-color-fill-neutral-light);
-    --b-loader-indicator-color: var(--beta-color-fill-neutral-heavy);
+    --b-loader-track-color: var(--color-fill-neutral-light);
+    --b-loader-indicator-color: var(--color-fill-neutral-heavy);
   }
 
   &:where(.variant-on-overlay) {
-    --b-loader-track-color: var(--beta-color-fill-absolute-white-light);
-    --b-loader-indicator-color: var(--beta-color-icon-absolute-white);
+    --b-loader-track-color: var(--color-fill-absolute-white-light);
+    --b-loader-indicator-color: var(--color-icon-absolute-white);
   }
 }

@@ -14,39 +14,39 @@
   height: var(--b-form-field-size);
   padding: 8px 12px;
 
-  color: var(--beta-color-text-neutral);
+  color: var(--color-text-neutral);
 
-  background-color: var(--beta-color-fill-grey);
-  border-radius: var(--beta-radius-8);
-  box-shadow: var(--beta-state-input-default);
+  background-color: var(--color-fill-grey);
+  border-radius: var(--radius-8);
+  box-shadow: var(--state-input-default);
 
   transition:
-    background-color var(--beta-motion-transition-fast),
-    box-shadow var(--beta-motion-transition-fast);
+    background-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast);
 
   &.readonly {
     cursor: initial;
-    color: var(--beta-color-text-neutral-light);
-    background-color: var(--beta-color-fill-grey-heavy);
+    color: var(--color-text-neutral-light);
+    background-color: var(--color-fill-grey-heavy);
   }
 
   &.invalid {
-    box-shadow: var(--beta-state-error);
+    box-shadow: var(--state-error);
   }
 
   &:where(:disabled) {
     cursor: not-allowed;
-    opacity: var(--beta-opacity-disabled);
+    opacity: var(--opacity-disabled);
   }
 
   &:where(:not(:disabled):where(.active, :focus)) {
-    background-color: var(--beta-color-fill-grey-heavy);
+    background-color: var(--color-fill-grey-heavy);
     outline: none;
-    box-shadow: var(--beta-state-input-active);
+    box-shadow: var(--state-input-active);
   }
 
   &:where(:not(.readonly, :disabled):hover) {
-    background-color: var(--beta-color-fill-grey-heavy);
+    background-color: var(--color-fill-grey-heavy);
   }
 }
 
@@ -61,7 +61,7 @@
   min-height: 42px;
   max-height: 640px;
 
-  background-color: var(--beta-color-surface-highest);
-  border-radius: var(--beta-radius-8);
-  box-shadow: var(--beta-elevation-3);
+  background-color: var(--color-surface-highest);
+  border-radius: var(--radius-8);
+  box-shadow: var(--elevation-3);
 }

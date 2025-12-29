@@ -4,6 +4,6 @@
 @each $radius in map.keys(map.get($tokens, 'light-theme', 'radius')) {
   :where(.radius-#{$radius}) {
     /* stylelint-disable-next-line bezier/validate-token */
-    border-radius: var(--beta-radius-#{$radius});
+    border-radius: var(--radius-#{$radius});
   }
 }

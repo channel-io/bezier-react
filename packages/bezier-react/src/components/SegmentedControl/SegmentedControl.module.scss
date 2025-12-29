@@ -6,7 +6,7 @@
   --b-segmented-control-padding: initial;
 
   position: relative;
-  z-index: var(--beta-layer-z-index-base);
+  z-index: var(--layer-z-index-base);
 
   display: flex;
   flex-direction: horizontal;
@@ -16,13 +16,13 @@
   height: var(--b-segmented-control-height);
   padding: var(--b-segmented-control-padding);
 
-  background-color: var(--beta-color-fill-neutral-light);
+  background-color: var(--color-fill-neutral-light);
 
   &:where(.size-xs) {
     --b-segmented-control-height: 24px;
     --b-segmented-control-padding: 1px;
 
-    border-radius: var(--beta-radius-6);
+    border-radius: var(--radius-6);
 
     & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
       border-radius: 5px;
@@ -37,7 +37,7 @@
     --b-segmented-control-height: 28px;
     --b-segmented-control-padding: 2px;
 
-    border-radius: var(--beta-radius-8);
+    border-radius: var(--radius-8);
 
     & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
       border-radius: 5px;
@@ -52,10 +52,10 @@
     --b-segmented-control-height: 36px;
     --b-segmented-control-padding: 2px;
 
-    border-radius: var(--beta-radius-8);
+    border-radius: var(--radius-8);
 
     & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
-      border-radius: var(--beta-radius-6);
+      border-radius: var(--radius-6);
     }
 
     & :where(.SegmentedControlItem) {
@@ -67,10 +67,10 @@
     --b-segmented-control-height: 44px;
     --b-segmented-control-padding: 4px;
 
-    border-radius: var(--beta-radius-12);
+    border-radius: var(--radius-12);
 
     & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
-      border-radius: var(--beta-radius-8);
+      border-radius: var(--radius-8);
     }
 
     & :where(.SegmentedControlItem) {
@@ -79,7 +79,7 @@
   }
 
   &:where([data-disabled]) {
-    opacity: var(--beta-opacity-disabled);
+    opacity: var(--opacity-disabled);
 
     & :where(.SegmentedControlItem, .SegmentedControlIndicator) {
       cursor: not-allowed;
@@ -114,10 +114,10 @@
     var(--b-segmented-control-height) - (var(--b-segmented-control-padding) * 2)
   );
 
-  background-color: var(--beta-color-surface-high);
-  box-shadow: var(--beta-elevation-1);
+  background-color: var(--color-surface-high);
+  box-shadow: var(--elevation-1);
 
-  transition: transform var(--beta-motion-transition-fast);
+  transition: transform var(--motion-transition-fast);
 }
 
 .SegmentedControlItem {
@@ -132,14 +132,14 @@
 
   outline: none;
 
-  transition: background-color var(--beta-motion-transition-fast);
+  transition: background-color var(--motion-transition-fast);
 
   /* NOTE: Focus indicator */
   &::after {
     content: '';
 
     position: absolute;
-    z-index: var(--beta-layer-z-index-floating);
+    z-index: var(--layer-z-index-floating);
     top: 0;
     left: 0;
 
@@ -151,16 +151,16 @@
     border-radius: inherit;
     outline: none;
 
-    transition: box-shadow var(--beta-motion-transition-default);
+    transition: box-shadow var(--motion-transition-default);
   }
 
   &:where([data-checked]) {
     cursor: default;
-    color: var(--beta-color-text-neutral);
+    color: var(--color-text-neutral);
   }
 
   &:where(:not([data-checked])) {
-    color: var(--beta-color-text-neutral-lighter);
+    color: var(--color-text-neutral-lighter);
   }
 
   &:where(:disabled) {
@@ -169,17 +169,17 @@
 
   &:where(:focus-visible) {
     &::after {
-      box-shadow: var(--beta-state-input-active);
+      box-shadow: var(--state-input-active);
     }
   }
 
   &:where(:not([data-checked], &:disabled):hover) {
-    background-color: var(--beta-color-fill-neutral-light);
+    background-color: var(--color-fill-neutral-light);
   }
 }
 
 .SegmentedControlItemContainer {
-  z-index: var(--beta-layer-z-index-floating);
+  z-index: var(--layer-z-index-floating);
   overflow: hidden;
 }
 
@@ -189,7 +189,7 @@
 
 .SegmentedControlDivider {
   opacity: 1;
-  transition: opacity var(--beta-motion-transition-fast);
+  transition: opacity var(--motion-transition-fast);
 
   &.hidden {
     opacity: 0;

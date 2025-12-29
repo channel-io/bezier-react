@@ -4,7 +4,7 @@
 
 .LegacyTooltipContentWrapper {
   position: absolute;
-  z-index: var(--beta-layer-z-index-tooltip);
+  z-index: var(--layer-z-index-tooltip);
   top: 0;
   left: 0;
 
@@ -20,11 +20,11 @@
   height: max-content;
   padding: 8px 14px;
 
-  color: var(--beta-color-text-neutral);
+  color: var(--color-text-neutral);
   word-break: normal;
   word-wrap: break-word;
 
-  background-color: var(--beta-color-surface-high);
-  border-radius: var(--beta-radius-8);
-  box-shadow: var(--beta-elevation-2);
+  background-color: var(--color-surface-high);
+  border-radius: var(--radius-8);
+  box-shadow: var(--elevation-2);
 }

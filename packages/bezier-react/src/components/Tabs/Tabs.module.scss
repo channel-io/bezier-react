@@ -12,7 +12,7 @@ $tab-item-indicator-height: 3px;
   display: flex;
   justify-content: space-between;
   width: 100%;
-  box-shadow: 0 -1px 0 0 var(--beta-color-fill-neutral-light) inset;
+  box-shadow: 0 -1px 0 0 var(--color-fill-neutral-light) inset;
 
   &:where(.size-l) {
     height: 53px;
@@ -42,8 +42,8 @@ $tab-item-indicator-height: 3px;
   background-color: transparent;
 
   transition:
-    background-color var(--beta-motion-transition-fast),
-    box-shadow var(--beta-motion-transition-fast);
+    background-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast);
 
   &::after {
     content: '';
@@ -55,17 +55,17 @@ $tab-item-indicator-height: 3px;
 
     height: 0;
 
-    background-color: var(--beta-color-fill-accent-blue-heavier);
+    background-color: var(--color-fill-accent-blue-heavier);
     border-radius: math.div($tab-item-indicator-height, 2);
 
-    transition: height var(--beta-motion-transition-fast);
+    transition: height var(--motion-transition-fast);
   }
 
   &:where(.size-s) {
     min-width: 24px;
     height: 24px;
     padding: 0 4px;
-    border-radius: var(--beta-radius-8);
+    border-radius: var(--radius-8);
 
     & :where(.TabItemButtonText) {
       padding: 0 3px;
@@ -76,14 +76,14 @@ $tab-item-indicator-height: 3px;
     min-width: 36px;
     height: 36px;
     padding: 0 10px;
-    border-radius: var(--beta-radius-8);
+    border-radius: var(--radius-8);
   }
 
   &:where(.size-l) {
     min-width: 44px;
     height: 44px;
     padding: 0 12px;
-    border-radius: var(--beta-radius-12);
+    border-radius: var(--radius-12);
   }
 
   &:where(.size-m, .size-l) {
@@ -97,7 +97,7 @@ $tab-item-indicator-height: 3px;
   }
 
   &:where(.active, :hover):where(:not(:disabled)) {
-    background-color: var(--beta-color-fill-neutral-light);
+    background-color: var(--color-fill-neutral-light);
   }
 
   /* NOTE: If there is no text, button is square, so padding is 0 */
@@ -107,12 +107,12 @@ $tab-item-indicator-height: 3px;
 
   &:disabled {
     cursor: not-allowed;
-    opacity: var(--beta-opacity-disabled);
+    opacity: var(--opacity-disabled);
   }
 
   /* stylelint-disable-next-line no-descending-specificity */
   &:where([data-state='active']) {
-    color: var(--beta-color-text-accent-blue);
+    color: var(--color-text-accent-blue);
 
     &::after {
       height: $tab-item-indicator-height;
@@ -125,10 +125,10 @@ $tab-item-indicator-height: 3px;
 
   /* stylelint-disable-next-line no-descending-specificity */
   &:where([data-state='inactive']) {
-    color: var(--beta-color-text-neutral-lighter);
+    color: var(--color-text-neutral-lighter);
 
     &:hover {
-      color: var(--beta-color-text-neutral-light);
+      color: var(--color-text-neutral-light);
     }
   }
 }
@@ -148,33 +148,33 @@ $tab-item-indicator-height: 3px;
   width: 100%;
   margin: 4px 0 5px;
 
-  color: var(--beta-color-text-accent-blue);
+  color: var(--color-text-accent-blue);
   text-decoration: none;
 
-  transition: background-color var(--beta-motion-transition-fast);
+  transition: background-color var(--motion-transition-fast);
 
   &:where(.size-l, .size-m) {
     padding: 0 14px;
   }
 
   &:where(.size-l) {
-    border-radius: var(--beta-radius-12);
+    border-radius: var(--radius-12);
   }
 
   &:where(.size-m) {
-    border-radius: var(--beta-radius-8);
+    border-radius: var(--radius-8);
   }
 
   &:where(.size-s) {
     padding: 0 7px;
-    border-radius: var(--beta-radius-6);
+    border-radius: var(--radius-6);
   }
 
   &:where(:focus-visible) {
-    outline: 3px solid var(--beta-color-text-accent-cobalt);
+    outline: 3px solid var(--color-text-accent-cobalt);
   }
 
   &:hover {
-    background-color: var(--beta-color-fill-accent-blue);
+    background-color: var(--color-fill-accent-blue);
   }
 }

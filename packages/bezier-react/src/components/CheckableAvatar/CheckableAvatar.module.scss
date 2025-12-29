@@ -5,7 +5,7 @@
   @include position.absolute-center;
 
   position: absolute;
-  z-index: var(--beta-layer-z-index-floating);
+  z-index: var(--layer-z-index-floating);
   visibility: hidden;
 
   &:where(.size-20) {
@@ -67,7 +67,7 @@
 @mixin unchecked-focus-styles {
   & :where(.Avatar > div) {
     --b-smooth-corners-box-background-color: var(
-      --beta-color-fill-neutral-heavier
+      --color-fill-neutral-heavier
     ) !important;
   }
 }
@@ -75,14 +75,14 @@
 @mixin checked-focus-styles {
   & :where(.Avatar > div) {
     --b-smooth-corners-box-background-color: var(
-      --beta-color-text-accent-green-hovered
+      --color-text-accent-green-hovered
     ) !important;
   }
 }
 
 .Checkbox {
   position: relative;
-  z-index: var(--beta-layer-z-index-base);
+  z-index: var(--layer-z-index-base);
   outline: none;
 
   &:where([data-disabled]) {
@@ -97,7 +97,7 @@
     & :where(.Avatar > div) {
       --b-smooth-corners-box-background-image: none !important;
       --b-smooth-corners-box-background-color: var(
-        --beta-color-text-accent-green-hovered
+        --color-text-accent-green-hovered
       ) !important;
     }
   }
