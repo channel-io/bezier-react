@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.3.3-beta.5
+
+### Patch Changes
+
+- Update v3 token name from with 'beta' prefix to no prefix ([#2756](https://github.com/channel-io/bezier-react/pull/2756)) by @timok1m
+
 ## 0.3.3-beta.4
 
 ### Patch Changes
