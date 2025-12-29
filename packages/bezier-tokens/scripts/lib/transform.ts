@@ -12,12 +12,6 @@ export const CSSTransforms = {
     matcher: (token) => token.filePath.startsWith('src/alpha/'),
     transformer: ({ name }) => `alpha-${name}`,
   },
-  betaNamespace: {
-    name: 'custom/beta/namespace',
-    type: 'name',
-    matcher: (token) => token.filePath.startsWith('src/beta/'),
-    transformer: ({ name }) => `beta-${name}`,
-  },
   removeNormalSuffix: {
     name: 'custom/remove-normal-suffix',
     type: 'name',
