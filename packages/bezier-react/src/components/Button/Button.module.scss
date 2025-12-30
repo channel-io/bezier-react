@@ -82,14 +82,12 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       &:where(.color-#{$color-variant}) {
         color: var(--color-text-absolute-white);
         /* stylelint-disable-next-line bezier/validate-token */
-        background-color: var(
-          --color-fill-accent-#{$color-variant}-heavier
-        );
+        background-color: var(--color-fill-accent-#{$color-variant}-heavier);
 
         &#{$active-selector} {
           /* stylelint-disable-next-line bezier/validate-token */
           background-color: var(
-            --color-fill-accent-#{$color-variant}-heavier
+            --color-fill-accent-#{$color-variant}-heavier-hovered
           );
         }
       }
@@ -100,7 +98,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       background-color: var(--color-fill-absolute-black-light);
 
       &#{$active-selector} {
-        background-color: var(--color-fill-absolute-black-light);
+        background-color: var(--color-fill-absolute-black-light-hovered);
       }
     }
 
@@ -123,9 +121,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
         background-color: var(--color-fill-accent-#{$color-variant});
 
         &#{$active-selector} {
-          background-color: var(
-            --color-fill-accent-#{$color-variant}-heavy
-          );
+          background-color: var(--color-fill-accent-#{$color-variant}-hovered);
         }
         /* stylelint-enable bezier/validate-token */
       }
@@ -136,7 +132,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       background-color: var(--color-fill-neutral-light);
 
       &#{$active-selector} {
-        background-color: var(--color-fill-neutral-light);
+        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
 
@@ -145,7 +141,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       background-color: var(--color-fill-neutral-light);
 
       &#{$active-selector} {
-        background-color: var(--color-fill-neutral-light);
+        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
 
@@ -154,7 +150,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       background-color: var(--color-fill-neutral-light);
 
       &#{$active-selector} {
-        background-color: var(--color-fill-neutral-light);
+        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
   }
@@ -169,7 +165,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
 
         &#{$active-selector} {
           /* stylelint-disable-next-line bezier/validate-token */
-          background-color: var(--color-fill-accent-#{$color-variant});
+          background-color: var(--color-fill-accent-#{$color-variant}-hovered);
         }
       }
     }
@@ -178,7 +174,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       color: var(--color-text-neutral);
 
       &#{$active-selector} {
-        background-color: var(--color-surface-low);
+        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
 
@@ -186,7 +182,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       color: var(--color-text-neutral-light);
 
       &#{$active-selector} {
-        background-color: var(--color-fill-neutral-light);
+        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
 
@@ -194,7 +190,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       color: var(--color-text-neutral);
 
       &#{$active-selector} {
-        background-color: var(--color-fill-neutral-light);
+        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
   }
@@ -204,14 +200,12 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       &:where(.color-#{$color-variant}) {
         color: var(--color-text-absolute-white);
         /* stylelint-disable-next-line bezier/validate-token */
-        background-color: var(
-          --color-fill-accent-#{$color-variant}-heavier
-        );
+        background-color: var(--color-fill-accent-#{$color-variant}-heavier);
 
         &#{$active-selector} {
           /* stylelint-disable-next-line bezier/validate-token */
           background-color: var(
-            --color-fill-accent-#{$color-variant}-heavier
+            --color-fill-accent-#{$color-variant}-heavier-hovered
           );
         }
       }
