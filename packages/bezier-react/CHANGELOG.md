@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 3.5.2-beta.7
+
+### Patch Changes
+
+- Fix Button's hover state styling ([#2758](https://github.com/channel-io/bezier-react/pull/2758)) by @timok1m
+
 ## 3.5.2-beta.6
 
 ### Patch Changes
