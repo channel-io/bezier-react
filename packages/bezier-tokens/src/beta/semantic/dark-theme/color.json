@@ -64,6 +64,10 @@
           "value": "{color.yellow.300}",
           "type": "color"
         },
+        "olive": {
+          "value": "{color.olive.300}",
+          "type": "color"
+        },
         "teal": {
           "value": "{color.teal.300}",
           "type": "color"
