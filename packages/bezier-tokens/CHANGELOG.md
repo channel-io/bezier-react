@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.3.3-beta.6
+
+### Patch Changes
+
+- Add text-accent-olive token, and update BetaBackgroundSemanticColor to accept BetaDimSemanticColor ([#2765](https://github.com/channel-io/bezier-react/pull/2765)) by @timok1m
+
 ## 0.3.3-beta.5
 
 ### Patch Changes
