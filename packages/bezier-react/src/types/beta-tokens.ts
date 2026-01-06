@@ -59,12 +59,16 @@ type BetaFillSemanticColor = StartsWithPrefix<'fill', BetaSemanticColor>
  */
 type BetaSurfaceSemanticColor = StartsWithPrefix<'surface', BetaSemanticColor>
 /**
+ * Dim semantic color tokens (for background)
+ */
+type BetaDimSemanticColor = StartsWithPrefix<'dim', BetaSemanticColor>
+/**
  * Background semantic color tokens (for props)
  */
 export type BetaBackgroundSemanticColor =
   | BetaFillSemanticColor
   | BetaSurfaceSemanticColor
-
+  | BetaDimSemanticColor
 /**
  * Border semantic color tokens
  */
@@ -72,11 +76,6 @@ export type BetaBorderSemanticColor = StartsWithPrefix<
   'border',
   BetaSemanticColor
 >
-
-/**
- * Dim semantic color tokens
- */
-export type BetaDimSemanticColor = StartsWithPrefix<'dim', BetaSemanticColor>
 
 /**
  * State semantic color tokens
