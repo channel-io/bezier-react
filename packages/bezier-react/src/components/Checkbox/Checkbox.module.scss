@@ -54,7 +54,7 @@
   }
 
   &:where([data-state='checked'], [data-state='indeterminate']) {
-    background-color: var(--color-fill-success);
+    background-color: var(--color-fill-accent-green-heavier);
 
     &:where(:not([data-invalid])) {
       box-shadow: none;

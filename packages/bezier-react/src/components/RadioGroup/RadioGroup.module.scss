@@ -77,7 +77,7 @@ $inner-indicator-size: 8px;
 
   &:where([data-state='checked']) {
     &::before {
-      background-color: var(--color-fill-success);
+      background-color: var(--color-fill-accent-green-heavier);
       box-shadow: none;
     }
 
