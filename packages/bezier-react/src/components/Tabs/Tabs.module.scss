@@ -171,7 +171,7 @@ $tab-item-indicator-height: 3px;
   }
 
   &:where(:focus-visible) {
-    outline: 3px solid var(--color-text-accent-cobalt);
+    outline: 3px solid var(--color-state-action-light);
   }
 
   &:hover {
