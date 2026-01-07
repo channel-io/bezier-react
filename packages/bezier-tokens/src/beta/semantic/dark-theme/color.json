@@ -94,6 +94,10 @@
           "value": "{color.black.100}",
           "type": "color"
         }
+      },
+      "inverse": {
+        "value": "{color.black.85}",
+        "type": "color"
       }
     },
     "icon": {
@@ -186,6 +190,9 @@
           "value": "{color.black.100}",
           "type": "color"
         }
+      },
+      "inverse": {
+        "heavier": { "value": "{color.black.85}", "type": "color" }
       }
     },
     "fill": {
@@ -557,7 +564,7 @@
           "type": "color"
         },
         "highest": {
-          "value": "{color.grey.700}",
+          "value": "{color.grey.750}",
           "type": "color"
         },
         "higher": {
@@ -607,7 +614,7 @@
           "type": "color"
         },
         "highest": {
-          "value": "{color.grey.700-90}",
+          "value": "{color.grey.750-90}",
           "type": "color"
         },
         "higher": {
