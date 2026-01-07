@@ -108,7 +108,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     }
 
     &:where(.color-monochrome-dark) {
-      color: var(--color-text-absolute-white);
+      color: var(--color-text-inverse);
       background-color: var(--color-fill-neutral-heaviest);
     }
   }
