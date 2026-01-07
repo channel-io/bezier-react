@@ -50,7 +50,7 @@
   }
 
   &[data-invalid] {
-    box-shadow: var(--state-error);
+    box-shadow: var(--state-input-error);
   }
 
   &:where([data-state='checked'], [data-state='indeterminate']) {

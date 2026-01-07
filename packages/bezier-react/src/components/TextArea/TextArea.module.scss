@@ -45,7 +45,7 @@
 
   &[aria-invalid='true'] {
     background-color: var(--color-surface);
-    box-shadow: var(--state-error);
+    box-shadow: var(--state-input-error);
   }
 
   &:read-only {
