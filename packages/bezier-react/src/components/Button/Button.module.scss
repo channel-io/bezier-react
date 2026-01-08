@@ -213,17 +213,17 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
 
     &:where(.color-monochrome) {
       color: var(--color-text-neutral);
-      background-color: var(--color-surface-highest);
+      background-color: var(--color-fill-bright);
     }
 
     &:where(.color-monochrome-light) {
       color: var(--color-text-neutral-light);
-      background-color: var(--color-surface-highest);
+      background-color: var(--color-fill-bright);
     }
 
     &:where(.color-monochrome-dark) {
       color: var(--color-text-neutral);
-      background-color: var(--color-surface-highest);
+      background-color: var(--color-fill-bright);
     }
   }
 

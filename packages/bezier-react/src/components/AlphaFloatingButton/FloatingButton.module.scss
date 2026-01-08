@@ -108,7 +108,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   }
 
   &:where(.variant-secondary) {
-    background-color: var(--color-surface-low);
+    background-color: var(--color-surface-highest);
   }
 
   /* color */
@@ -117,7 +117,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     color: var(--color-text-absolute-white);
 
     &:where(.color-dark-grey) {
-      color: var(--color-text-neutral-heaviest);
+      color: var(--color-text-inverse);
     }
   }
 

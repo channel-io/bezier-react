@@ -24,7 +24,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     green: --color-text-accent-green,
     pink: --color-text-accent-pink,
     purple: --color-text-accent-purple,
-    dark-grey: --color-text-neutral-heavy,
+    dark-grey: --color-text-neutral-light,
     light-grey: --color-text-neutral,
   );
   $hovered-color-map: (
@@ -89,7 +89,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   }
 
   &:where(.variant-secondary) {
-    background-color: var(--color-surface-low);
+    background-color: var(--color-surface-highest);
   }
 
   /* color */
@@ -98,7 +98,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     color: var(--color-text-absolute-white);
 
     &:where(.color-dark-grey) {
-      color: var(--color-text-neutral-heaviest);
+      color: var(--color-text-inverse);
     }
 
     &:where(.color-light-grey) {
