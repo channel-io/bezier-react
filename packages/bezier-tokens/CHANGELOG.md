@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.3.3-beta.8
+
+### Patch Changes
+
+- Update token values for dark mode visibility and edit Button component's background color ([#2769](https://github.com/channel-io/bezier-react/pull/2769)) by @timok1m
+
 ## 0.3.3-beta.7
 
 ### Patch Changes
