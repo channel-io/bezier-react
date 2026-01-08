@@ -1,5 +1,12 @@
 # @channel.io/stylelint-bezier
 
+## 0.2.11-beta.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.3.3-beta.8
+
 ## 0.2.11-beta.7
 
 ### Patch Changes
