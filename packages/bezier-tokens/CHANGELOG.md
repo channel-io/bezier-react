@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.3.3-beta.7
+
+### Patch Changes
+
+- Add invese color tokens and update grey-\* color value. Update bezier component colors ([#2767](https://github.com/channel-io/bezier-react/pull/2767)) by @timok1m
+
 ## 0.3.3-beta.6
 
 ### Patch Changes

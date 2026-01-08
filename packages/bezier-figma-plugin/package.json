@@ -1,6 +1,6 @@
 {
   "name": "bezier-figma-plugin",
-  "version": "0.7.19-beta.8",
+  "version": "0.7.19-beta.9",
   "private": true,
   "description": "Figma plugin that helps build Bezier design system and increase productivity.",
   "repository": {
@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@channel.io/bezier-icons": "0.52.0",
-    "@channel.io/bezier-react": "3.5.2-beta.8",
+    "@channel.io/bezier-react": "3.5.2-beta.9",
     "octokit": "^4.0.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
