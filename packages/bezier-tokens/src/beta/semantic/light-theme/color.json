@@ -541,6 +541,10 @@
           "light": { "value": "{color.black.20}", "type": "color" },
           "transparent": { "value": "{color.black.0}", "type": "color" }
         }
+      },
+      "bright": {
+        "value": "{color.grey.25}",
+        "type": "color"
       }
     },
     "border": {
