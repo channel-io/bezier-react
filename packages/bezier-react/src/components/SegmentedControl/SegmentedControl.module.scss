@@ -114,7 +114,7 @@
     var(--b-segmented-control-height) - (var(--b-segmented-control-padding) * 2)
   );
 
-  background-color: var(--color-surface-high);
+  background-color: var(--color-fill-bright);
   box-shadow: var(--elevation-1);
 
   transition: transform var(--motion-transition-fast);
