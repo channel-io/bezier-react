@@ -94,6 +94,10 @@
           "value": "{color.black.100}",
           "type": "color"
         }
+      },
+      "inverse": {
+        "value": "{color.white.80}",
+        "type": "color"
       }
     },
     "icon": {
@@ -186,6 +190,9 @@
           "value": "{color.black.100}",
           "type": "color"
         }
+      },
+      "inverse": {
+        "heavier": { "value": "{color.white.80}", "type": "color" }
       }
     },
     "fill": {

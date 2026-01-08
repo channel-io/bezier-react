@@ -30,10 +30,10 @@
   }
 
   &:where(&[data-state='checked']) {
-    background-color: var(--color-fill-success);
+    background-color: var(--color-fill-accent-green-heavier);
 
     &:hover {
-      background-color: var(--color-fill-success-hovered);
+      background-color: var(--color-fill-accent-green-heavier-hovered);
     }
   }
 

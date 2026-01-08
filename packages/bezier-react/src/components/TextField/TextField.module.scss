@@ -88,7 +88,7 @@
   }
 
   &:has(:where(.TextFieldInput[aria-invalid='true'])) {
-    box-shadow: var(--state-error);
+    box-shadow: var(--state-input-error);
   }
 }
 
