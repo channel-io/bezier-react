@@ -96,7 +96,7 @@
         }
       },
       "inverse": {
-        "value": "{color.white.80}",
+        "value": "{color.white.100}",
         "type": "color"
       }
     },
@@ -192,7 +192,7 @@
         }
       },
       "inverse": {
-        "heavier": { "value": "{color.white.80}", "type": "color" }
+        "heavier": { "value": "{color.white.100}", "type": "color" }
       }
     },
     "fill": {

@@ -198,7 +198,7 @@
     "fill": {
       "neutral": {
         "heaviest": {
-          "value": "{color.white.90}",
+          "value": "{color.white.100}",
           "type": "color"
         },
         "heavier": {
