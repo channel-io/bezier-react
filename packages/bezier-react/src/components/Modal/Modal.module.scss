@@ -103,7 +103,7 @@ $close-icon-button-margin-y: -6;
 
   /* NOTE(@ed): to show a focus ring when the modal is mounted */
   & [data-bezier-component='Button']:where(:focus) {
-    outline: 3px solid var(--color-text-accent-cobalt);
+    outline: 3px solid var(--color-state-action-light);
   }
 }
 

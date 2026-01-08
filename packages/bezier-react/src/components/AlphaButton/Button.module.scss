@@ -120,7 +120,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     color: var(--color-text-absolute-white);
 
     &:where(.color-dark-grey) {
-      color: var(--color-text-neutral-heaviest);
+      color: var(--color-text-inverse);
     }
 
     &:where(.color-light-grey) {
@@ -226,9 +226,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       }
 
       &:where(.color-white-absolute) {
-        background-color: var(
-          --color-fill-absolute-white-transparent-hovered
-        );
+        background-color: var(--color-fill-absolute-white-transparent-hovered);
       }
     }
 

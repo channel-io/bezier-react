@@ -198,7 +198,7 @@
     "fill": {
       "neutral": {
         "heaviest": {
-          "value": "{color.white.90}",
+          "value": "{color.white.100}",
           "type": "color"
         },
         "heavier": {
@@ -541,6 +541,10 @@
           "light": { "value": "{color.black.20}", "type": "color" },
           "transparent": { "value": "{color.black.0}", "type": "color" }
         }
+      },
+      "bright": {
+        "value": "{color.grey.650}",
+        "type": "color"
       }
     },
     "border": {
@@ -625,19 +629,6 @@
           "value": "{color.grey.850-90}",
           "type": "color"
         }
-      },
-      "accent": {
-        "blue": { "value": "{color.blue.300}", "type": "color" },
-        "cobalt": { "value": "{color.cobalt.300}", "type": "color" },
-        "green": { "value": "{color.green.300}", "type": "color" },
-        "red": { "value": "{color.red.300}", "type": "color" },
-        "orange": { "value": "{color.orange.300}", "type": "color" },
-        "yellow": { "value": "{color.yellow.300}", "type": "color" },
-        "olive": { "value": "{color.olive.300}", "type": "color" },
-        "teal": { "value": "{color.teal.300}", "type": "color" },
-        "navy": { "value": "{color.navy.300}", "type": "color" },
-        "purple": { "value": "{color.purple.300}", "type": "color" },
-        "pink": { "value": "{color.pink.300}", "type": "color" }
       }
     },
     "dim": {
