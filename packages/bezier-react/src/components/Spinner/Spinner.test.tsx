@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { betaTokenCssVar } from '~/src/utils/style'
+import { colorTokenCssVar } from '~/src/utils/style'
 import { render } from '~/src/utils/test'
 
 import { SPINNER_TEST_ID, Spinner } from './Spinner'
@@ -44,7 +44,7 @@ describe('Spinner >', () => {
     const { getByTestId } = renderSpinner({ color })
     const renderedSpinner = getByTestId(SPINNER_TEST_ID)
     expect(renderedSpinner).toHaveStyle(
-      `--b-spinner-color: ${betaTokenCssVar(color)}`
+      `--b-spinner-color: ${colorTokenCssVar(color)}`
     )
   })
 

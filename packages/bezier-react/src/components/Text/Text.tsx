@@ -5,7 +5,7 @@ import { createElement, forwardRef } from 'react'
 import classNames from 'classnames'
 
 import { getMarginStyles, splitByMarginProps } from '~/src/types/props-helpers'
-import { betaTokenCssVar } from '~/src/utils/style'
+import { colorTokenCssVar } from '~/src/utils/style'
 import { isNumber } from '~/src/utils/type'
 
 import { type TextProps } from './Text.types'
@@ -50,7 +50,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(
       {
         ref: forwardedRef,
         style: {
-          '--b-text-color': betaTokenCssVar(color),
+          '--b-text-color': colorTokenCssVar(color),
           '--b-text-line-clamp': isMultiLineTruncated ? truncated : undefined,
           ...marginStyles.style,
           ...style,
