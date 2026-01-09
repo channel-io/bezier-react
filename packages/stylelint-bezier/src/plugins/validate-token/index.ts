@@ -39,7 +39,7 @@ function flattenAlphaToken(obj: object, result: Record<string, unknown> = {}) {
       value !== null &&
       !Array.isArray(value)
     ) {
-      flattenBetaToken(value, result)
+      flattenAlphaToken(value, result)
     }
   }
 
