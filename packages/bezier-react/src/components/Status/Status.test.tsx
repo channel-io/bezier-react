@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { betaTokenCssVar } from '~/src/utils/style'
+import { colorTokenCssVar } from '~/src/utils/style'
 import { render } from '~/src/utils/test'
 
 import { Status } from './Status'
@@ -68,14 +68,14 @@ describe('Status >', () => {
     it('should use surface-high when type has icon', () => {
       const { container } = renderStatus({ type: 'online-crescent' })
       const status = container.querySelector('div')
-      const expectedColor = betaTokenCssVar('surface-high')
+      const expectedColor = colorTokenCssVar('surface-high')
       expect(status).toHaveStyle(`--b-status-bg-color: ${expectedColor}`)
     })
 
     it('should use statusColor when type does not have icon', () => {
       const { container } = renderStatus({ type: 'online' })
       const status = container.querySelector('div')
-      const expectedColor = betaTokenCssVar('text-accent-green')
+      const expectedColor = colorTokenCssVar('text-accent-green')
       expect(status).toHaveStyle(`--b-status-bg-color: ${expectedColor}`)
     })
   })

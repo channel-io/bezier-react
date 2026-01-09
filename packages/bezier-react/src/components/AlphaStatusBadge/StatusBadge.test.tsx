@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { betaTokenCssVar } from '~/src/utils/style'
+import { colorTokenCssVar } from '~/src/utils/style'
 import { render } from '~/src/utils/test'
 
 import { StatusBadge } from './StatusBadge'
@@ -47,7 +47,7 @@ describe('StatusBadge >', () => {
         doNotDisturb: false,
       })
       const badge = container.querySelector('div')
-      const expectedColor = betaTokenCssVar('text-accent-green')
+      const expectedColor = colorTokenCssVar('text-accent-green')
       expect(badge).toHaveStyle(`--b-status-bg-color: ${expectedColor}`)
     })
 
@@ -57,7 +57,7 @@ describe('StatusBadge >', () => {
         doNotDisturb: true,
       })
       const badge = container.querySelector('div')
-      const expectedColor = betaTokenCssVar('surface-high')
+      const expectedColor = colorTokenCssVar('surface-high')
       expect(badge).toHaveStyle(`--b-status-bg-color: ${expectedColor}`)
     })
 
@@ -67,7 +67,7 @@ describe('StatusBadge >', () => {
         doNotDisturb: false,
       })
       const badge = container.querySelector('div')
-      const expectedColor = betaTokenCssVar('fill-neutral-heavy')
+      const expectedColor = colorTokenCssVar('fill-neutral-heavy')
       expect(badge).toHaveStyle(`--b-status-bg-color: ${expectedColor}`)
     })
   })
@@ -79,7 +79,7 @@ describe('StatusBadge >', () => {
         doNotDisturb: true,
       })
       const badge = container.querySelector('div')
-      const expectedColor = betaTokenCssVar('surface-high')
+      const expectedColor = colorTokenCssVar('surface-high')
       expect(badge).toHaveStyle(`--b-status-bg-color: ${expectedColor}`)
     })
 
@@ -89,7 +89,7 @@ describe('StatusBadge >', () => {
         doNotDisturb: false,
       })
       const badge = container.querySelector('div')
-      const expectedColor = betaTokenCssVar('text-accent-green')
+      const expectedColor = colorTokenCssVar('text-accent-green')
       expect(badge).toHaveStyle(`--b-status-bg-color: ${expectedColor}`)
     })
   })

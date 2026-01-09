@@ -5,7 +5,7 @@ import * as React from 'react'
 import classNames from 'classnames'
 
 import { getMarginStyles, splitByMarginProps } from '~/src/types/props-helpers'
-import { betaTokenCssVar } from '~/src/utils/style'
+import { colorTokenCssVar } from '~/src/utils/style'
 
 import { type IconProps } from './Icon.types'
 
@@ -32,7 +32,7 @@ export const Icon = memo(
         ref={forwardedRef}
         style={
           {
-            '--b-icon-color': betaTokenCssVar(color),
+            '--b-icon-color': colorTokenCssVar(color),
             ...marginStyles.style,
             ...style,
           } as React.CSSProperties

@@ -5,7 +5,7 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 
-import { betaTokenCssVar } from '~/src/utils/style'
+import { colorTokenCssVar } from '~/src/utils/style'
 
 import { type SpinnerProps } from './Spinner.types'
 
@@ -24,7 +24,7 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
         ref={forwardedRef}
         style={
           {
-            '--b-spinner-color': betaTokenCssVar(color),
+            '--b-spinner-color': colorTokenCssVar(color),
             ...style,
           } as React.CSSProperties
         }

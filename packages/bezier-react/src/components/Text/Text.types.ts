@@ -5,6 +5,7 @@ import {
   type MarginProps,
   type PolymorphicProps,
 } from '~/src/types/props'
+import { type SemanticColor } from '~/src/types/tokens'
 
 type Typography =
   | '11'
@@ -31,7 +32,7 @@ interface TextOwnProps {
   /**
    * Color of the text. If no value is specified, it inherits the color of the parent element.
    */
-  color?: BetaSemanticColor
+  color?: SemanticColor | BetaSemanticColor
   /**
    * Whether the text is bold.
    * @default false

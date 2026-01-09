@@ -1,3 +1,5 @@
+import { tokens } from '@channel.io/bezier-tokens'
+import { tokens as alphaTokens } from '@channel.io/bezier-tokens/alpha'
 import { tokens as betaTokens } from '@channel.io/bezier-tokens/beta'
 import stylelint, { type Rule } from 'stylelint'
 
@@ -8,6 +10,40 @@ const {
 
 function isString(value: unknown): value is string {
   return typeof value === 'string'
+}
+
+function flattenObject(obj: object, result: Record<string, unknown> = {}) {
+  for (const [key, value] of Object.entries(obj)) {
+    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+      flattenObject(value, result)
+    } else {
+      result[key] = value
+    }
+  }
+  return result
+}
+
+function flattenAlphaToken(obj: object, result: Record<string, unknown> = {}) {
+  for (const [key, value] of Object.entries(obj)) {
+    if (
+      typeof value === 'object' &&
+      value !== null &&
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (value as any).value !== undefined &&
+      !Array.isArray(value)
+    ) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      result[key] = (value as any).value
+    } else if (
+      typeof value === 'object' &&
+      value !== null &&
+      !Array.isArray(value)
+    ) {
+      flattenBetaToken(value, result)
+    }
+  }
+
+  return result
 }
 
 function flattenBetaToken(obj: object, result: Record<string, unknown> = {}) {
@@ -34,6 +70,10 @@ function flattenBetaToken(obj: object, result: Record<string, unknown> = {}) {
 }
 
 const allTokens = {
+  ...flattenObject(tokens.global),
+  ...flattenObject(tokens.lightTheme),
+  ...flattenAlphaToken(alphaTokens.global),
+  ...flattenAlphaToken(alphaTokens.lightTheme),
   ...flattenBetaToken(betaTokens.global),
   ...flattenBetaToken(betaTokens.lightTheme),
 }
