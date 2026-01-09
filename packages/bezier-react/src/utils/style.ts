@@ -1,10 +1,10 @@
-import { isNil, isString } from './type'
-
 import type {
   BetaFlattenAllToken,
   BetaSemanticColor,
 } from '~/src/types/beta-tokens'
 import type { FlattenAllToken, SemanticColor } from '~/src/types/tokens'
+
+import { isNil, isString } from './type'
 
 /**
  * Convert a number to a string with `px` suffix.

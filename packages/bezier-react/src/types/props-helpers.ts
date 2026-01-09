@@ -1,16 +1,5 @@
 import classNames from 'classnames'
 
-import {
-  type BetaElevation,
-  type BetaRadius,
-  type BetaZIndex,
-} from '~/src/types/beta-tokens'
-import { type Elevation, type Radius, type ZIndex } from '~/src/types/tokens'
-import {
-  type FormFieldSize,
-  type LayoutProps,
-  type MarginProps,
-} from '~/src/types/props'
 import { colorTokenCssVar, cssDimension } from '~/src/utils/style'
 
 // NOTE: 'typescript-plugin-css-modules' does not support path alias
@@ -22,6 +11,14 @@ import marginStyles from '../styles/components/margin.module.scss'
 import radiusStyles from '../styles/components/radius.module.scss'
 import zIndexStyles from '../styles/components/z-index.module.scss'
 /* eslint-enable no-restricted-imports */
+
+import {
+  type BetaElevation,
+  type BetaRadius,
+  type BetaZIndex,
+} from './beta-tokens'
+import { type FormFieldSize, type LayoutProps, type MarginProps } from './props'
+import { type Elevation, type Radius, type ZIndex } from './tokens'
 
 export const splitByMarginProps = <Props extends MarginProps>({
   margin,
