@@ -1,5 +1,5 @@
 import {
-  betaTokenCssVar,
+  colorTokenCssVar,
   cssDimension,
   cssUrl,
   cssVar,
@@ -58,47 +58,47 @@ describe('style', () => {
     })
   })
 
-  describe('betaTokenCssVar', () => {
+  describe('colorTokenCssVar', () => {
     it('returns undefined for undefined input', () => {
-      expect(betaTokenCssVar(undefined)).toBeUndefined()
+      expect(colorTokenCssVar(undefined)).toBeUndefined()
     })
 
-    it('formats beta color tokens with color- prefix', () => {
-      expect(betaTokenCssVar('text-neutral' as any)).toBe(
+    it('formats beta semantic color tokens with color- prefix', () => {
+      expect(colorTokenCssVar('text-neutral' as any)).toBe(
         'var(--color-text-neutral)'
       )
-      expect(betaTokenCssVar('icon-neutral' as any)).toBe(
+      expect(colorTokenCssVar('icon-neutral' as any)).toBe(
         'var(--color-icon-neutral)'
       )
-      expect(betaTokenCssVar('fill-neutral-light' as any)).toBe(
+      expect(colorTokenCssVar('fill-neutral-light' as any)).toBe(
         'var(--color-fill-neutral-light)'
       )
-      expect(betaTokenCssVar('border-neutral' as any)).toBe(
+      expect(colorTokenCssVar('border-neutral' as any)).toBe(
         'var(--color-border-neutral)'
       )
-      expect(betaTokenCssVar('surface' as any)).toBe('var(--color-surface)')
-      expect(betaTokenCssVar('surface-high' as any)).toBe(
+      expect(colorTokenCssVar('surface' as any)).toBe('var(--color-surface)')
+      expect(colorTokenCssVar('surface-high' as any)).toBe(
         'var(--color-surface-high)'
       )
-      expect(betaTokenCssVar('dim-black-lightest' as any)).toBe(
+      expect(colorTokenCssVar('dim-black-lightest' as any)).toBe(
         'var(--color-dim-black-lightest)'
       )
-      expect(betaTokenCssVar('state-action' as any)).toBe(
+      expect(colorTokenCssVar('state-action' as any)).toBe(
         'var(--color-state-action)'
       )
-      expect(betaTokenCssVar('elevation-base' as any)).toBe(
+      expect(colorTokenCssVar('elevation-base' as any)).toBe(
         'var(--color-elevation-base)'
       )
     })
 
-    it('formats v1 tokens without beta-color- prefix', () => {
-      expect(betaTokenCssVar('bg-black-light' as any)).toBe(
+    it('formats v1 semantic color tokens without color- prefix', () => {
+      expect(colorTokenCssVar('bg-black-light' as any)).toBe(
         'var(--bg-black-light)'
       )
-      expect(betaTokenCssVar('bgtxt-blue-normal' as any)).toBe(
+      expect(colorTokenCssVar('bgtxt-blue-normal' as any)).toBe(
         'var(--bgtxt-blue-normal)'
       )
-      expect(betaTokenCssVar('bdr-black-dark' as any)).toBe(
+      expect(colorTokenCssVar('bdr-black-dark' as any)).toBe(
         'var(--bdr-black-dark)'
       )
     })
