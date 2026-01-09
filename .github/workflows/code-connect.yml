@@ -6,7 +6,6 @@ on:
       - packages/bezier-react/src/components/**/*.figma.tsx
     branches:
       - main
-      - beta
 
 jobs:
   code-connect:
