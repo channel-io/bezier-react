@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.4.0
+
+### Minor Changes
+
+- Add V3 bezier tokens and update bezier components allow to use V3 tokens. ([#2764](https://github.com/channel-io/bezier-react/pull/2764)) by @timok1m
+
 ## 0.3.3-beta.9
 
 ### Patch Changes
