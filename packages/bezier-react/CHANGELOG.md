@@ -1,5 +1,12 @@
 # @channel.io/bezier-react
 
+## 3.5.2-beta.11
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.3.3-beta.9
+
 ## 3.5.2-beta.10
 
 ### Patch Changes

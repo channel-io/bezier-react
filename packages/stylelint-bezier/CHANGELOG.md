@@ -1,5 +1,14 @@
 # @channel.io/stylelint-bezier
 
+## 0.2.11-beta.9
+
+### Patch Changes
+
+- Edit bezier-react's props and stylelint to maintain backward compatibility ([#2771](https://github.com/channel-io/bezier-react/pull/2771)) by @timok1m
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.3.3-beta.9
+
 ## 0.2.11-beta.8
 
 ### Patch Changes
