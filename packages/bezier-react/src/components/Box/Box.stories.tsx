@@ -16,10 +16,10 @@ export const Primary: StoryObj<typeof Box> = {
   args: {
     width: '50px',
     height: '50px',
-    backgroundColor: 'bg-black-light',
+    backgroundColor: 'fill-neutral-light',
     borderRadius: '8',
     borderWidth: '1px',
-    borderColor: 'bdr-black-light',
+    borderColor: 'border-neutral',
   },
 }
 

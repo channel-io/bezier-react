@@ -1,5 +1,5 @@
 .ListItemLeftIcon {
-  transition: color var(--transition-m);
+  transition: color var(--motion-transition-default);
 }
 
 .ListItem {
@@ -12,13 +12,13 @@
   text-align: inherit;
   text-decoration: none;
 
-  transition: background-color var(--transition-s);
+  transition: background-color var(--motion-transition-fast);
 
   &:where(.variant-monochrome) {
-    color: var(--txt-black-darkest);
+    color: var(--color-text-neutral);
 
     & :where(.ListItemLeftIcon) {
-      color: var(--txt-black-dark);
+      color: var(--color-text-neutral-lighter);
     }
   }
 
@@ -54,24 +54,24 @@
 
   &:where(.clickable:not(.disabled, .active)) {
     &:where(.focused, :focus-visible) {
-      background-color: var(--bg-black-lighter);
+      background-color: var(--color-fill-neutral-light);
     }
 
     &:where(:hover) {
-      background-color: var(--bg-black-lighter);
+      background-color: var(--color-fill-neutral-light);
     }
   }
 
   &:where(.active) {
-    color: var(--bgtxt-blue-normal);
-    background-color: var(--bgtxt-blue-lightest);
+    color: var(--color-text-accent-blue);
+    background-color: var(--color-fill-accent-blue);
 
     &:where(.focused, :focus-visible) {
-      background-color: var(--bgtxt-blue-lighter);
+      background-color: var(--color-fill-accent-blue-heavy);
     }
 
     & :where(.ListItemLeftIcon) {
-      color: var(--bgtxt-blue-normal);
+      color: var(--color-text-accent-blue);
     }
 
     /* NOTE: When multiple adjacent elements are active, it naturally stitches the border together. */
@@ -89,34 +89,34 @@
   }
 
   &.variant-blue {
-    color: var(--bgtxt-blue-normal);
+    color: var(--color-text-accent-blue);
 
     & :where(.ListItemLeftIcon) {
-      color: var(--bgtxt-blue-normal);
+      color: var(--color-text-accent-blue);
     }
   }
 
   &.variant-red {
-    color: var(--bgtxt-red-normal);
+    color: var(--color-text-accent-red);
 
     & :where(.ListItemLeftIcon) {
-      color: var(--bgtxt-red-normal);
+      color: var(--color-text-accent-red);
     }
   }
 
   &.variant-green {
-    color: var(--bgtxt-green-normal);
+    color: var(--color-text-accent-green);
 
     & :where(.ListItemLeftIcon) {
-      color: var(--bgtxt-green-normal);
+      color: var(--color-text-accent-green);
     }
   }
 
   &.variant-cobalt {
-    color: var(--bgtxt-cobalt-normal);
+    color: var(--color-text-accent-cobalt);
 
     & :where(.ListItemLeftIcon) {
-      color: var(--bgtxt-cobalt-normal);
+      color: var(--color-text-accent-cobalt);
     }
   }
 }
@@ -140,7 +140,7 @@
   align-items: center;
 
   & * {
-    transition: color var(--transition-s);
+    transition: color var(--motion-transition-fast);
   }
 }
 

@@ -80,7 +80,7 @@ function TextFieldLeftContent({
           className={!isNil(children.onClick) ? styles.clickable : undefined}
           source={children.icon}
           size="s"
-          color={children.iconColor ?? 'txt-black-dark'}
+          color={children.iconColor ?? 'text-neutral-lighter'}
           onClick={children.onClick}
         />
       )
@@ -128,7 +128,7 @@ function TextFieldRightContent({
             <Icon
               source={item.icon}
               size="xs"
-              color={item.iconColor ?? 'txt-black-dark'}
+              color={item.iconColor ?? 'text-neutral-lighter'}
             />
           </Comp>
         )

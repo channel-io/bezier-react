@@ -77,7 +77,7 @@ export const CheckableAvatar = forwardRef<
           <Icon
             className={classNames(styles.CheckIcon, styles[`size-${size}`])}
             source={CheckIcon}
-            color="bgtxt-absolute-white-normal"
+            color="text-absolute-white"
           />
         </CheckboxPrimitive.Indicator>
 

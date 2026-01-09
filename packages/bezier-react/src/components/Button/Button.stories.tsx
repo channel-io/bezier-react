@@ -361,11 +361,11 @@ export const UsageVariousContentsCustom: StoryObj<{}> = {
               style={{ borderRadius: '50%' }}
               width={20}
               height={20}
-              backgroundColor="bgtxt-red-dark"
+              backgroundColor="fill-accent-red-heavier"
             >
               <Text
                 typo="13"
-                color="txt-white-normal"
+                color="text-absolute-white"
               >
                 1
               </Text>

@@ -58,7 +58,7 @@ function LeftContent({ children }: { children: SectionLabelLeftContent }) {
             source: children,
           })}
       size="s"
-      color="txt-black-dark"
+      color="text-neutral-lighter"
     />
   )
 }
@@ -139,7 +139,7 @@ export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(
               <Text
                 bold
                 typo="13"
-                color="txt-black-dark"
+                color="text-neutral-lighter"
                 truncated
               >
                 {content}

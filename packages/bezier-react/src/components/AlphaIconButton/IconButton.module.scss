@@ -7,7 +7,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 .IconButton {
   position: relative;
   box-sizing: border-box;
-  transition: background-color var(--transition-s);
+  transition: background-color var(--motion-transition-fast);
 
   /* dimension */
   &:where(.size-xs) {
@@ -43,16 +43,16 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   /* background-color */
   &:where(.variant-primary) {
     $background-color-by-color: (
-      blue: var(--alpha-color-primary-bg-normal),
-      cobalt: var(--alpha-color-accent-bg-normal),
-      red: var(--alpha-color-critical-bg-normal),
-      orange: var(--alpha-color-warning-bg-normal),
-      green: var(--alpha-color-success-bg-normal),
-      pink: var(--alpha-color-bg-pink-normal),
-      purple: var(--alpha-color-bg-purple-normal),
-      dark-grey: var(--alpha-color-bg-grey-darkest),
-      light-grey: var(--alpha-color-bg-black-dark),
-      white-absolute: var(--alpha-color-bg-absolute-white-dark),
+      blue: var(--color-fill-accent-blue-heavier),
+      cobalt: var(--color-fill-accent-cobalt-heavier),
+      red: var(--color-fill-accent-red-heavier),
+      orange: var(--color-fill-accent-orange-heavier),
+      green: var(--color-fill-accent-green-heavier),
+      pink: var(--color-fill-accent-pink-heavier),
+      purple: var(--color-fill-accent-purple-heavier),
+      dark-grey: var(--color-fill-neutral-heaviest),
+      light-grey: var(--color-fill-neutral-heavier),
+      white-absolute: var(--color-fill-absolute-white),
     );
 
     @each $color, $background-color in $background-color-by-color {
@@ -64,16 +64,16 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
   &:where(.variant-secondary) {
     $background-color-by-color: (
-      blue: var(--alpha-color-primary-bg-lightest),
-      cobalt: var(--alpha-color-accent-bg-lightest),
-      red: var(--alpha-color-critical-bg-lightest),
-      orange: var(--alpha-color-warning-bg-lightest),
-      green: var(--alpha-color-success-bg-lightest),
-      pink: var(--alpha-color-bg-pink-lightest),
-      purple: var(--alpha-color-bg-purple-lightest),
-      dark-grey: var(--alpha-color-bg-black-lighter),
-      light-grey: var(--alpha-color-bg-black-lighter),
-      white-absolute: var(--alpha-color-bg-absolute-white-lightest),
+      blue: var(--color-fill-accent-blue),
+      cobalt: var(--color-fill-accent-cobalt),
+      red: var(--color-fill-accent-red),
+      orange: var(--color-fill-accent-orange),
+      green: var(--color-fill-accent-green),
+      pink: var(--color-fill-accent-pink),
+      purple: var(--color-fill-accent-purple),
+      dark-grey: var(--color-fill-neutral-light),
+      light-grey: var(--color-fill-neutral-light),
+      white-absolute: var(--color-fill-absolute-white-light),
     );
 
     @each $color, $background-color in $background-color-by-color {
@@ -87,48 +87,48 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     @each $color in $chromatic-colors {
       &:where(.color-#{'' + $color}) {
         /* stylelint-disable-next-line bezier/validate-token */
-        background-color: var(--alpha-color-bg-#{$color}-transparent);
+        background-color: var(--color-fill-accent-#{$color}-transparent);
       }
     }
 
     &:where(.color-dark-grey, .color-light-grey) {
-      background-color: var(--alpha-color-bg-black-transparent);
+      background-color: var(--color-fill-neutral-transparent);
     }
 
     &:where(.color-white-absolute) {
-      background-color: var(--alpha-color-bg-absolute-white-transparent);
+      background-color: var(--color-fill-absolute-white-transparent);
     }
   }
 
   /* color */
   /* stylelint-disable-next-line no-duplicate-selectors */
   &:where(.variant-primary) {
-    color: var(--alpha-color-fg-absolute-white-dark);
+    color: var(--color-text-absolute-white);
 
     &:where(.color-dark-grey) {
-      color: var(--alpha-color-fg-white-normal);
+      color: var(--color-text-neutral-heaviest);
     }
 
     &:where(.color-light-grey) {
-      color: var(--alpha-color-fg-absolute-white-normal);
+      color: var(--color-text-absolute-white);
     }
 
     &:where(.color-white-absolute) {
-      color: var(--alpha-color-fg-absolute-black-normal);
+      color: var(--color-text-absolute-black);
     }
   }
 
   &:where(.variant-secondary, .variant-tertiary) {
     $color-map: (
-      blue: var(--alpha-color-primary-fg-normal),
-      cobalt: var(--alpha-color-accent-fg-normal),
-      red: var(--alpha-color-critical-fg-normal),
-      orange: var(--alpha-color-warning-fg-normal),
-      green: var(--alpha-color-success-fg-normal),
-      pink: var(--alpha-color-fg-pink-normal),
-      purple: var(--alpha-color-fg-purple-normal),
-      dark-grey: var(--alpha-color-fg-black-darkest),
-      light-grey: var(--alpha-color-fg-black-darker),
+      blue: var(--color-text-accent-blue),
+      cobalt: var(--color-text-accent-cobalt),
+      red: var(--color-text-accent-red),
+      orange: var(--color-text-accent-orange),
+      green: var(--color-text-accent-green),
+      pink: var(--color-text-accent-pink),
+      purple: var(--color-text-accent-purple),
+      dark-grey: var(--color-text-neutral),
+      light-grey: var(--color-text-neutral-light),
     );
 
     @each $button-color, $color in $color-map {
@@ -139,31 +139,31 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
     &:where(.color-dark-grey) {
       & :where(.ButtonIcon) {
-        color: var(--alpha-color-fg-black-darker);
+        color: var(--color-icon-neutral-heavy);
       }
     }
 
     &:where(.color-light-grey) {
       & :where(.ButtonIcon) {
-        color: var(--alpha-color-fg-black-dark);
+        color: var(--color-icon-neutral);
       }
     }
   }
 
   &:where(.variant-tertiary, .variant-secondary):where(.color-white-absolute) {
     & :where(.ButtonIcon) {
-      color: var(--alpha-color-fg-absolute-white-normal);
+      color: var(--color-text-absolute-white);
     }
   }
 
   /* border-radius */
   &:where(.shape-rectangle) {
     $border-radius-by-size: (
-      xs: var(--alpha-radius-6),
-      s: var(--alpha-radius-7),
-      m: var(--alpha-radius-10),
-      l: var(--alpha-radius-12),
-      xl: var(--alpha-radius-14),
+      xs: var(--radius-6),
+      s: var(--radius-7),
+      m: var(--radius-10),
+      l: var(--radius-12),
+      xl: var(--radius-14),
     );
 
     @each $size, $border-radius in $border-radius-by-size {
@@ -185,16 +185,18 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       @each $color in $chromatic-colors {
         &:where(.color-#{'' + $color}) {
           /* stylelint-disable-next-line bezier/validate-token */
-          background-color: var(--bgtxt-#{$color}-dark);
+          background-color: var(
+            --color-fill-accent-#{$color}-heavier-hovered
+          );
         }
       }
 
       &:where(.color-dark-grey) {
-        background-color: var(--bg-grey-darkest);
+        background-color: var(--color-fill-neutral-heaviest-hovered);
       }
 
       &:where(.color-light-grey) {
-        background-color: var(--bg-black-darker);
+        background-color: var(--color-fill-neutral-heavier-hovered);
       }
     }
 
@@ -202,12 +204,12 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       @each $color in $chromatic-colors {
         &:where(.color-#{'' + $color}) {
           /* stylelint-disable-next-line bezier/validate-token */
-          background-color: var(--bgtxt-#{$color}-lighter);
+          background-color: var(--color-fill-accent-#{$color}-hovered);
         }
       }
 
       &:where(.color-dark-grey, .color-light-grey) {
-        background-color: var(--bg-black-light);
+        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
 
@@ -215,41 +217,51 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       @each $color in $chromatic-colors {
         &:where(.color-#{'' + $color}) {
           /* stylelint-disable-next-line bezier/validate-token */
-          background-color: var(--bgtxt-#{$color}-lightest);
+          background-color: var(
+            --color-fill-accent-#{$color}-transparent-hovered
+          );
         }
       }
 
-      &:where(.color-dark-grey, .color-light-grey, .color-white-absolute) {
-        background-color: var(--bg-black-lighter);
+      &:where(.color-dark-grey, .color-light-grey) {
+        background-color: var(
+          --color-fill-neutral-lighter-transparent-hovered
+        );
+      }
+
+      &:where(.color-white-absolute) {
+        background-color: var(
+          --color-fill-absolute-white-transparent-hovered
+        );
       }
     }
 
     &:where(.color-dark-grey):where(.variant-secondary, .variant-tertiary) {
       & :is(.ButtonIcon, .ButtonLoader) {
-        color: var(--txt-black-darkest);
+        color: var(--color-icon-neutral-heavy-hovered);
       }
     }
 
     &:where(.color-light-grey):where(.variant-secondary, .variant-tertiary) {
       & :is(.ButtonIcon, .ButtonLoader) {
-        color: var(--txt-black-darker);
+        color: var(--color-icon-neutral-hovered);
       }
     }
 
     &:where(.color-white-absolute.variant-tertiary) {
       & :where(.ButtonIcon) {
-        color: var(--alpha-color-fg-absolute-white-normal);
+        color: var(--color-icon-absolute-white-hovered);
       }
     }
   }
 
   &:where(.variant-primary.color-blue:focus-visible) {
-    outline: 3px solid var(--bgtxt-blue-light);
+    outline: 3px solid var(--color-state-action-light);
   }
 
   &:disabled {
     cursor: not-allowed;
-    opacity: var(--alpha-opacity-disabled);
+    opacity: var(--opacity-disabled);
   }
 
   /* internal components */

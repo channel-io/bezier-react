@@ -253,7 +253,7 @@ function ModalHeaderTitle({
       as="h2"
       typo={getTitleTypo(size)}
       bold
-      color="txt-black-darkest"
+      color="text-neutral"
     >
       {children}
     </Text>
@@ -273,7 +273,7 @@ function ModalHeaderTitle({
             aria-roledescription="subtitle"
             as="p"
             bold
-            color="txt-black-dark"
+            color="text-neutral-lighter"
             typo="13"
           >
             {subtitle}
@@ -344,7 +344,7 @@ export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(
             <AlphaDialogPrimitiveDescription asChild>
               <Text
                 as="p"
-                color="txt-black-darkest"
+                color="text-neutral"
                 typo="15"
               >
                 {description}

@@ -33,11 +33,13 @@ describe('Icon test >', () => {
   it('Icon receives custom color', () => {
     const { getByTestId } = renderIcon({
       source: AllIcon,
-      color: 'bgtxt-olive-dark',
+      color: 'icon-accent-olive',
     })
 
     const renderedIcon = getByTestId(ICON_TEST_ID)
 
-    expect(renderedIcon).toHaveStyle('--b-icon-color: var(--bgtxt-olive-dark);')
+    expect(renderedIcon).toHaveStyle(
+      '--b-icon-color: var(--color-icon-accent-olive);'
+    )
   })
 })

@@ -15,7 +15,7 @@ $size-map: (
 
   flex: 0 0 auto;
   color: var(--b-icon-color);
-  transition: color var(--transition-s);
+  transition: color var(--motion-transition-fast);
 
   @each $size, $value in $size-map {
     &:where(.size-#{$size}) {

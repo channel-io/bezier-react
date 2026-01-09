@@ -1,5 +1,105 @@
 # @channel.io/bezier-react
 
+## 3.5.2-beta.11
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.3.3-beta.9
+
+## 3.5.2-beta.10
+
+### Patch Changes
+
+- Update token values for dark mode visibility and edit Button component's background color ([#2769](https://github.com/channel-io/bezier-react/pull/2769)) by @timok1m
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.3.3-beta.8
+
+## 3.5.2-beta.9
+
+### Patch Changes
+
+- Add invese color tokens and update grey-\* color value. Update bezier component colors ([#2767](https://github.com/channel-io/bezier-react/pull/2767)) by @timok1m
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.3.3-beta.7
+
+## 3.5.2-beta.8
+
+### Patch Changes
+
+- Add text-accent-olive token, and update BetaBackgroundSemanticColor to accept BetaDimSemanticColor ([#2765](https://github.com/channel-io/bezier-react/pull/2765)) by @timok1m
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.3.3-beta.6
+
+## 3.5.2-beta.7
+
+### Patch Changes
+
+- Fix Button's hover state styling ([#2758](https://github.com/channel-io/bezier-react/pull/2758)) by @timok1m
+
+## 3.5.2-beta.6
+
+### Patch Changes
+
+- Update v3 token name from with 'beta' prefix to no prefix ([#2756](https://github.com/channel-io/bezier-react/pull/2756)) by @timok1m
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.3.3-beta.5
+
+## 3.5.2-beta.5
+
+### Patch Changes
+
+- Remove BetaTokens namespace to allow direct use of required types ([#2754](https://github.com/channel-io/bezier-react/pull/2754)) by @timok1m
+
+## 3.5.2-beta.4
+
+### Patch Changes
+
+- Add beta prefix to beta-tokens types to resolve naming conflicts ([#2750](https://github.com/channel-io/bezier-react/pull/2750)) by @timok1m
+
+- Add BetaTokenProvider, useBetaTokens and migrate the codebase. ([#2751](https://github.com/channel-io/bezier-react/pull/2751)) by @timok1m
+
+- Fixes the issue where backgroundColor="surface" was generating incorrect CSS variable name. ([#2748](https://github.com/channel-io/bezier-react/pull/2748)) by @timok1m
+
+- Replace useTokens().global.radius usage with individual '42%' styling in avatar components ([#2753](https://github.com/channel-io/bezier-react/pull/2753)) by @timok1m
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.3.3-beta.4
+
+## 3.5.2-beta.3
+
+### Patch Changes
+
+- Modify bezier-react to exports beta-tokens ([#2747](https://github.com/channel-io/bezier-react/pull/2747)) by @timok1m
+
+- Update StartsWithPrefix to include both prefix-\* and exact prefix matches, enabling 'surface' token to be properly typed in SurfaceSemanticColor. ([#2744](https://github.com/channel-io/bezier-react/pull/2744)) by @timok1m
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.3.3-beta.3
+
+## 3.5.2-beta.2
+
+### Patch Changes
+
+- Fix build configuration to include all dependencies used by bezier-react. Revert incorrect changes that were committed during testing and redeploy. ([#2740](https://github.com/channel-io/bezier-react/pull/2740)) by @timok1m
+
+## 3.5.2-beta.1
+
+### Patch Changes
+
+- Migrate style tokens to beta tokens ([#2737](https://github.com/channel-io/bezier-react/pull/2737)) by @timok1m
+
+## 3.5.2-beta.0
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.3.3-beta.2
+
 ## 3.5.1
 
 ### Patch Changes

@@ -1,5 +1,6 @@
 import * as React from 'react'
 
+import { colorTokenCssVar } from '~/src/utils/style'
 import { render } from '~/src/utils/test'
 
 import { SPINNER_TEST_ID, Spinner } from './Spinner'
@@ -39,10 +40,12 @@ describe('Spinner >', () => {
   })
 
   it('should recieve color', () => {
-    const color = 'bg-black-lighter'
+    const color = 'fill-neutral-light'
     const { getByTestId } = renderSpinner({ color })
     const renderedSpinner = getByTestId(SPINNER_TEST_ID)
-    expect(renderedSpinner).toHaveStyle(`--b-spinner-color: var(--${color})`)
+    expect(renderedSpinner).toHaveStyle(
+      `--b-spinner-color: ${colorTokenCssVar(color)}`
+    )
   })
 
   it('should receive size', () => {

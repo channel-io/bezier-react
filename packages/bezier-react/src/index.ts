@@ -4,6 +4,7 @@ import '~/src/styles/index.scss'
 /* --------------------------------- TOKENS --------------------------------- */
 export { tokens } from '@channel.io/bezier-tokens'
 export { tokens as alphaTokens } from '@channel.io/bezier-tokens/alpha'
+export { tokens as betaTokens } from '@channel.io/bezier-tokens/beta'
 
 /* ------------------------------- COMPONENTS ------------------------------- */
 export * from '~/src/components/AlphaAvatar'
@@ -80,3 +81,4 @@ export * from '~/src/hooks/useKeyboardActionLockerWhileComposing'
 export type * from '~/src/types/props'
 export type * from '~/src/types/tokens'
 export type * as AlphaTokens from '~/src/types/alpha-tokens'
+export type * from '~/src/types/beta-tokens'

@@ -8,13 +8,13 @@ $inner-indicator-size: 8px;
 
 @mixin outer-indicator-focus-styles {
   &:where(:not([data-disabled])[data-state='checked'])::before {
-    background-color: var(--bgtxt-green-dark);
+    background-color: var(--color-text-accent-green-hovered);
   }
 }
 
 @mixin inner-indicator-focus-styles {
   &:where(:not([data-disabled], [data-state='checked']))::after {
-    background-color: var(--bg-black-dark);
+    background-color: var(--color-fill-neutral-heavy);
   }
 }
 
@@ -45,10 +45,10 @@ $inner-indicator-size: 8px;
     box-sizing: border-box;
     margin: $outer-indicator-margin;
 
-    background-color: var(--bg-white-normal);
+    background-color: var(--color-surface);
     border-radius: 50%;
     outline: none;
-    box-shadow: inset 0 0 0 2px var(--bdr-black-dark);
+    box-shadow: inset 0 0 0 2px var(--color-border-neutral-heavy);
   }
 
   /* Inner Indicator */
@@ -70,19 +70,19 @@ $inner-indicator-size: 8px;
     opacity: var(--opacity-disabled);
 
     &::before {
-      background-color: var(--bg-black-dark);
+      background-color: var(--color-fill-neutral-heavy);
       box-shadow: none;
     }
   }
 
   &:where([data-state='checked']) {
     &::before {
-      background-color: var(--bgtxt-green-normal);
+      background-color: var(--color-fill-accent-green-heavier);
       box-shadow: none;
     }
 
     &::after {
-      background-color: var(--bgtxt-absolute-white-dark);
+      background-color: var(--color-text-absolute-white);
     }
   }
 
@@ -90,7 +90,7 @@ $inner-indicator-size: 8px;
     @include inner-indicator-focus-styles;
 
     &::before {
-      box-shadow: var(--input-box-shadow-focused);
+      box-shadow: var(--state-input-active);
     }
   }
 

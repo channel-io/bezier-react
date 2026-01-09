@@ -151,7 +151,7 @@ export const LegacyTooltipContent: React.FC<LegacyTooltipContentProps> = ({
           {...rest}
         >
           <Text
-            color="txt-black-darkest"
+            color="text-neutral"
             truncated={20}
             typo="13"
           >

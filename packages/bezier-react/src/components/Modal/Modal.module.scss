@@ -37,10 +37,10 @@ $close-icon-button-margin-y: -6;
   box-sizing: border-box;
   padding: var(--b-modal-collision-padding);
 
-  background-color: var(--bgtxt-absolute-black-lighter);
+  background-color: var(--color-dim-absolute-black);
 
   &:where([data-state='open']) {
-    animation: overlay-show var(--transition-m);
+    animation: overlay-show var(--motion-transition-default);
   }
 }
 
@@ -73,15 +73,15 @@ $close-icon-button-margin-y: -6;
   height: var(--b-modal-height);
   max-height: 100%;
 
-  color: var(--bg-grey-darkest);
+  color: var(--color-text-neutral-heaviest);
   word-break: break-word;
 
-  background-color: var(--bg-white-high);
+  background-color: var(--color-surface-higher);
   border-radius: var(--radius-20);
-  box-shadow: var(--ev-4);
+  box-shadow: var(--elevation-4);
 
   &:where([data-state='open']) {
-    animation: content-show var(--transition-m);
+    animation: content-show var(--motion-transition-default);
   }
 
   /* NOTE(@ed): Support when ModalFooter is used without ModalBody */
@@ -103,7 +103,7 @@ $close-icon-button-margin-y: -6;
 
   /* NOTE(@ed): to show a focus ring when the modal is mounted */
   & [data-bezier-component='Button']:where(:focus) {
-    outline: 3px solid var(--bgtxt-cobalt-light);
+    outline: 3px solid var(--color-state-action-light);
   }
 }
 

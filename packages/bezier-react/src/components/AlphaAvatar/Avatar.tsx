@@ -12,7 +12,6 @@ import {
   type SmoothCornersBoxProps,
 } from '~/src/components/SmoothCornersBox'
 import { Status, type StatusSize } from '~/src/components/Status'
-import { useTokens } from '~/src/components/ThemeProvider'
 
 import type { AvatarProps, AvatarSize } from './Avatar.types'
 import defaultAvatarUrl from './assets/default-avatar.svg'
@@ -44,13 +43,12 @@ function getShadow(size: AvatarSize): SmoothCornersBoxProps['shadow'] {
 
   return {
     spreadRadius,
-    color: 'bg-white-high',
+    color: 'surface-higher',
   }
 }
 
 export function useAvatarRadiusToken() {
-  // TODO: Replace this with useAlphaTokens
-  return useTokens().global.radius['radius-42-p']
+  return '42%' as const
 }
 
 export const AVATAR_WRAPPER_TEST_ID = 'bezier-avatar-wrapper'
@@ -150,7 +148,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(function Avatar(
         disabled={!smoothCorners}
         borderRadius={AVATAR_BORDER_RADIUS}
         shadow={showBorder ? getShadow(size) : undefined}
-        backgroundColor="bg-white-normal"
+        backgroundColor="surface"
         backgroundImage={loadedAvatarUrl}
         data-testid={AVATAR_TEST_ID}
       >

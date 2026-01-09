@@ -1,4 +1,11 @@
-import { cssDimension, cssUrl, cssVar, px, tokenCssVar } from './style'
+import {
+  colorTokenCssVar,
+  cssDimension,
+  cssUrl,
+  cssVar,
+  px,
+  tokenCssVar,
+} from './style'
 
 describe('style', () => {
   describe('px', () => {
@@ -48,6 +55,52 @@ describe('style', () => {
   describe('tokenCssVar', () => {
     it('formats input as CSS variable', () => {
       expect(tokenCssVar('padding' as any)).toBe('var(--padding)')
+    })
+  })
+
+  describe('colorTokenCssVar', () => {
+    it('returns undefined for undefined input', () => {
+      expect(colorTokenCssVar(undefined)).toBeUndefined()
+    })
+
+    it('formats beta semantic color tokens with color- prefix', () => {
+      expect(colorTokenCssVar('text-neutral' as any)).toBe(
+        'var(--color-text-neutral)'
+      )
+      expect(colorTokenCssVar('icon-neutral' as any)).toBe(
+        'var(--color-icon-neutral)'
+      )
+      expect(colorTokenCssVar('fill-neutral-light' as any)).toBe(
+        'var(--color-fill-neutral-light)'
+      )
+      expect(colorTokenCssVar('border-neutral' as any)).toBe(
+        'var(--color-border-neutral)'
+      )
+      expect(colorTokenCssVar('surface' as any)).toBe('var(--color-surface)')
+      expect(colorTokenCssVar('surface-high' as any)).toBe(
+        'var(--color-surface-high)'
+      )
+      expect(colorTokenCssVar('dim-black-lightest' as any)).toBe(
+        'var(--color-dim-black-lightest)'
+      )
+      expect(colorTokenCssVar('state-action' as any)).toBe(
+        'var(--color-state-action)'
+      )
+      expect(colorTokenCssVar('elevation-base' as any)).toBe(
+        'var(--color-elevation-base)'
+      )
+    })
+
+    it('formats v1 semantic color tokens without color- prefix', () => {
+      expect(colorTokenCssVar('bg-black-light' as any)).toBe(
+        'var(--bg-black-light)'
+      )
+      expect(colorTokenCssVar('bgtxt-blue-normal' as any)).toBe(
+        'var(--bgtxt-blue-normal)'
+      )
+      expect(colorTokenCssVar('bdr-black-dark' as any)).toBe(
+        'var(--bdr-black-dark)'
+      )
     })
   })
 

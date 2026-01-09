@@ -16,18 +16,18 @@
   margin: 0;
   padding: 8px 12px;
 
-  color: var(--txt-black-darkest);
+  color: var(--color-text-neutral);
   overflow-wrap: anywhere;
 
-  background-color: var(--bg-grey-lightest);
+  background-color: var(--color-fill-grey);
   border: none;
   border-radius: var(--radius-8);
   outline: none;
-  box-shadow: var(--input-box-shadow);
+  box-shadow: var(--state-input-default);
 
   transition:
-    border-color var(--transition-s),
-    box-shadow var(--transition-s);
+    border-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast);
 
   &::-webkit-scrollbar {
     display: none;
@@ -39,17 +39,17 @@
   }
 
   &:focus {
-    background-color: var(--bg-white-normal);
-    box-shadow: var(--input-box-shadow-focused);
+    background-color: var(--color-surface);
+    box-shadow: var(--state-input-active);
   }
 
   &[aria-invalid='true'] {
-    background-color: var(--bg-white-normal);
-    box-shadow: var(--input-box-shadow-invalid);
+    background-color: var(--color-surface);
+    box-shadow: var(--state-input-error);
   }
 
   &:read-only {
-    color: var(--txt-black-darker);
-    background-color: var(--bg-grey-lighter);
+    color: var(--color-text-neutral-light);
+    background-color: var(--color-fill-grey-heavy);
   }
 }

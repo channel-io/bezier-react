@@ -1,5 +1,5 @@
 .Tooltip {
-  z-index: var(--z-index-tooltip);
+  z-index: var(--layer-z-index-tooltip);
 
   overflow: hidden;
 
@@ -12,9 +12,9 @@
   word-break: normal;
   word-wrap: break-word;
 
-  background-color: var(--bg-white-low);
+  background-color: var(--color-surface-high);
   border-radius: var(--radius-8);
-  box-shadow: var(--ev-3);
+  box-shadow: var(--elevation-3);
 }
 
 .TooltipContainer {

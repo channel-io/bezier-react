@@ -95,7 +95,7 @@ export const OutlineItem = forwardRef<HTMLElement, OutlineItemProps>(
                   className={styles.Icon}
                   source={open ? ChevronSmallDownIcon : ChevronSmallRightIcon}
                   size="s"
-                  color="txt-black-dark"
+                  color="text-neutral-lighter"
                 />
               )}
             </div>
@@ -108,7 +108,7 @@ export const OutlineItem = forwardRef<HTMLElement, OutlineItemProps>(
                   className={styles.Icon}
                   size="s"
                   source={leftContent}
-                  color="txt-black-dark"
+                  color="text-neutral-lighter"
                 />
               ) : (
                 leftContent

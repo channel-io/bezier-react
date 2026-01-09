@@ -1,7 +1,7 @@
 :where(:root, :host) {
-  font-family: var(--font-family-sans-kr);
+  font-family: var(--typography-text-font-family);
   font-size: 62.5%; // 10/16 = 0.625. Make REM calculations easier.
-  color: var(--txt-black-darkest);
+  color: var(--color-text-neutral);
   color-scheme: light;
 }
 
@@ -16,14 +16,22 @@
 }
 
 :lang(ja) {
-  font-family: var(--font-family-sans-jp);
+  --typography-heading-font-family: var(
+    --typography-font-family-sans-jp
+  );
+  --typography-text-font-family: var(
+    --typography-font-family-sans-jp
+  );
+  --typography-display-font-family: var(
+    --typography-font-family-sans-jp
+  );
 }
 
 code {
-  font-family: var(--font-family-mono);
+  font-family: var(--typography-code-font-family);
 }
 
 ::placeholder {
-  color: var(--txt-black-dark);
+  color: var(--color-text-neutral-lighter);
   opacity: 1;
 }

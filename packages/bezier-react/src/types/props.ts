@@ -1,6 +1,15 @@
 import type { JSX } from 'react'
 
 import type {
+  BetaBackgroundSemanticColor,
+  BetaBorderSemanticColor,
+  BetaElevation,
+  BetaRadius,
+  BetaSemanticColor,
+  BetaTextSemanticColor,
+  BetaZIndex,
+} from './beta-tokens'
+import type {
   BackgroundSemanticColor,
   BackgroundTextSemanticColor,
   BorderSemanticColor,
@@ -140,7 +149,7 @@ export interface ColorProps {
   /**
    * Color from the design system's semantic color.
    */
-  color?: SemanticColor
+  color?: SemanticColor | BetaSemanticColor
 }
 
 /**
@@ -179,7 +188,7 @@ export type AdditionalOverridableStyleProps<ElementName extends PropNameType> =
  * Props for adding color properties to named elements within a component.
  */
 export type AdditionalColorProps<ElementName extends PropNameType> =
-  AdditionalProps<ElementName, 'color', SemanticColor>
+  AdditionalProps<ElementName, 'color', SemanticColor | BetaSemanticColor>
 
 /**
  * Props for components that can be activated or deactivated.
@@ -379,19 +388,24 @@ export interface LayoutProps {
   grow?: React.CSSProperties['flexGrow']
   /**
    * the background color of an element.
+   * @todo @timo BetaTextSemanticColor is included for v1 component compatibility. v3 components should use only BetaBackgroundSemanticColor for proper semantic usage.
    * @default initial
    */
-  backgroundColor?: BackgroundSemanticColor | BackgroundTextSemanticColor
+  backgroundColor?:
+    | BackgroundSemanticColor
+    | BackgroundTextSemanticColor
+    | BetaBackgroundSemanticColor
+    | BetaTextSemanticColor
   /**
    * the border color of an element.
    * @default initial
    */
-  borderColor?: BorderSemanticColor
+  borderColor?: BorderSemanticColor | BetaBorderSemanticColor
   /**
    * the border radius of an element.
    * @default initial
    */
-  borderRadius?: Radius
+  borderRadius?: Radius | BetaRadius
   /**
    * the border width of an element.
    * @default 0
@@ -421,12 +435,12 @@ export interface LayoutProps {
    * the elevation of an element. (box-shadow)
    * @default initial
    */
-  elevation?: Elevation
+  elevation?: Elevation | BetaElevation
   /**
    * the z-index of an element.
    * @default initial
    */
-  zIndex?: ZIndex
+  zIndex?: ZIndex | BetaZIndex
   /**
    * the overflow of an element.
    * @default initial

@@ -5,7 +5,7 @@
   --b-avatar-group-size: 0;
 
   position: relative;
-  z-index: var(--z-index-base);
+  z-index: var(--layer-z-index-base);
   display: flex;
 
   @each $size in Avatar.$avatar-sizes {
@@ -25,7 +25,7 @@
 
 .AvatarEllipsisIcon {
   position: absolute;
-  z-index: var(--z-index-floating);
+  z-index: var(--layer-z-index-floating);
   top: 0;
   right: 0;
 

@@ -76,7 +76,7 @@ const Item = ({
       style={{
         width: fixedSize && direction === 'vertical' ? size : '100%',
         height: fixedSize && direction === 'horizontal' ? size : '100%',
-        backgroundColor: 'var(--bg-black-light)',
+        backgroundColor: 'var(--color-fill-neutral-light)',
         borderRadius: '4px',
         boxShadow: 'inset 0 0 1px #c0c0c0',
       }}
@@ -208,7 +208,7 @@ export const Overview: StoryFn<{}> = () => (
           border: '1px solid #ccc',
         }}
         typo="13"
-        color="txt-black-darker"
+        color="text-neutral-light"
       >
         스택은 flex layout을 서술하는 컴포넌트입니다. 스택과 함께라면 뭐든지
         만들 수 있어요. 누가 만들었는지는 모르겠지만, 정말 잘 만든 컴포넌트에요.

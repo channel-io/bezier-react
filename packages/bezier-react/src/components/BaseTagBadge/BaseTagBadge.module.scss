@@ -20,72 +20,72 @@
   }
 
   &:where(.variant-default) {
-    --b-tag-badge-background-color: var(--bg-black-lighter);
-    --b-tag-badge-color: var(--txt-black-darkest);
+    --b-tag-badge-background-color: var(--color-fill-neutral-light);
+    --b-tag-badge-color: var(--color-text-neutral);
   }
 
   &:where(.variant-monochrome-light) {
-    --b-tag-badge-background-color: var(--bg-black-lighter);
-    --b-tag-badge-color: var(--txt-black-dark);
+    --b-tag-badge-background-color: var(--color-fill-neutral-light);
+    --b-tag-badge-color: var(--color-text-neutral-lighter);
   }
 
   &:where(.variant-monochrome-dark) {
-    --b-tag-badge-background-color: var(--bg-black-darker);
-    --b-tag-badge-color: var(--bgtxt-absolute-white-dark);
+    --b-tag-badge-background-color: var(--color-fill-neutral-heavier);
+    --b-tag-badge-color: var(--color-text-absolute-white);
   }
 
   &:where(.variant-blue) {
-    --b-tag-badge-background-color: var(--bgtxt-blue-lighter);
-    --b-tag-badge-color: var(--bgtxt-blue-normal);
+    --b-tag-badge-background-color: var(--color-fill-accent-blue-heavy);
+    --b-tag-badge-color: var(--color-text-accent-blue);
   }
 
   &:where(.variant-cobalt) {
-    --b-tag-badge-background-color: var(--bgtxt-cobalt-lighter);
-    --b-tag-badge-color: var(--bgtxt-cobalt-normal);
+    --b-tag-badge-background-color: var(--color-fill-accent-cobalt-heavy);
+    --b-tag-badge-color: var(--color-text-accent-cobalt);
   }
 
   &:where(.variant-teal) {
-    --b-tag-badge-background-color: var(--bgtxt-teal-lighter);
-    --b-tag-badge-color: var(--bgtxt-teal-normal);
+    --b-tag-badge-background-color: var(--color-fill-accent-teal-heavy);
+    --b-tag-badge-color: var(--color-text-accent-teal);
   }
 
   &:where(.variant-green) {
-    --b-tag-badge-background-color: var(--bgtxt-green-lighter);
-    --b-tag-badge-color: var(--bgtxt-green-normal);
+    --b-tag-badge-background-color: var(--color-fill-accent-green-heavy);
+    --b-tag-badge-color: var(--color-text-accent-green);
   }
 
   &:where(.variant-olive) {
-    --b-tag-badge-background-color: var(--bgtxt-olive-lighter);
-    --b-tag-badge-color: var(--bgtxt-olive-normal);
+    --b-tag-badge-background-color: var(--color-fill-accent-olive-heavy);
+    --b-tag-badge-color: var(--color-fill-accent-olive-heavier);
   }
 
   &:where(.variant-pink) {
-    --b-tag-badge-background-color: var(--bgtxt-pink-lighter);
-    --b-tag-badge-color: var(--bgtxt-pink-normal);
+    --b-tag-badge-background-color: var(--color-fill-accent-pink-heavy);
+    --b-tag-badge-color: var(--color-text-accent-pink);
   }
 
   &:where(.variant-navy) {
-    --b-tag-badge-background-color: var(--bgtxt-navy-lighter);
-    --b-tag-badge-color: var(--bgtxt-navy-normal);
+    --b-tag-badge-background-color: var(--color-fill-accent-navy-heavy);
+    --b-tag-badge-color: var(--color-text-accent-navy);
   }
 
   &:where(.variant-yellow) {
-    --b-tag-badge-background-color: var(--bgtxt-yellow-lighter);
-    --b-tag-badge-color: var(--bgtxt-yellow-normal);
+    --b-tag-badge-background-color: var(--color-fill-accent-yellow-heavy);
+    --b-tag-badge-color: var(--color-text-accent-yellow);
   }
 
   &:where(.variant-orange) {
-    --b-tag-badge-background-color: var(--bgtxt-orange-lighter);
-    --b-tag-badge-color: var(--bgtxt-orange-normal);
+    --b-tag-badge-background-color: var(--color-fill-accent-orange-heavy);
+    --b-tag-badge-color: var(--color-text-accent-orange);
   }
 
   &:where(.variant-red) {
-    --b-tag-badge-background-color: var(--bgtxt-red-lighter);
-    --b-tag-badge-color: var(--bgtxt-red-normal);
+    --b-tag-badge-background-color: var(--color-fill-accent-red-heavy);
+    --b-tag-badge-color: var(--color-text-accent-red);
   }
 
   &:where(.variant-purple) {
-    --b-tag-badge-background-color: var(--bgtxt-purple-lighter);
-    --b-tag-badge-color: var(--bgtxt-purple-normal);
+    --b-tag-badge-background-color: var(--color-fill-accent-purple-heavy);
+    --b-tag-badge-color: var(--color-text-accent-purple);
   }
 }

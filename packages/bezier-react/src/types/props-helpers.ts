@@ -1,12 +1,6 @@
 import classNames from 'classnames'
 
-import {
-  type FormFieldSize,
-  type LayoutProps,
-  type MarginProps,
-} from '~/src/types/props'
-import { type Elevation, type Radius, type ZIndex } from '~/src/types/tokens'
-import { cssDimension, tokenCssVar } from '~/src/utils/style'
+import { colorTokenCssVar, cssDimension } from '~/src/utils/style'
 
 // NOTE: 'typescript-plugin-css-modules' does not support path alias
 /* eslint-disable no-restricted-imports */
@@ -17,6 +11,14 @@ import marginStyles from '../styles/components/margin.module.scss'
 import radiusStyles from '../styles/components/radius.module.scss'
 import zIndexStyles from '../styles/components/z-index.module.scss'
 /* eslint-enable no-restricted-imports */
+
+import {
+  type BetaElevation,
+  type BetaRadius,
+  type BetaZIndex,
+} from './beta-tokens'
+import { type FormFieldSize, type LayoutProps, type MarginProps } from './props'
+import { type Elevation, type Radius, type ZIndex } from './tokens'
 
 export const splitByMarginProps = <Props extends MarginProps>({
   margin,
@@ -118,15 +120,15 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
   rest,
 ]
 
-function getElevationClassName(elevation: Elevation) {
+function getElevationClassName(elevation: Elevation | BetaElevation) {
   return elevationStyles[`elevation-${elevation}`]
 }
 
-function getRadiusClassName(radius: Radius) {
+function getRadiusClassName(radius: Radius | BetaRadius) {
   return radiusStyles[`radius-${radius}`]
 }
 
-export function getZIndexClassName(zIndex: ZIndex) {
+export function getZIndexClassName(zIndex: ZIndex | BetaZIndex) {
   return zIndexStyles[`z-index-${zIndex}`]
 }
 
@@ -210,8 +212,8 @@ export const getLayoutStyles = ({
     '--b-basis': cssDimension(basis),
     '--b-shrink': shrink,
     '--b-grow': grow,
-    '--b-background-color': tokenCssVar(backgroundColor),
-    '--b-border-color': tokenCssVar(borderColor),
+    '--b-background-color': colorTokenCssVar(backgroundColor),
+    '--b-border-color': colorTokenCssVar(borderColor),
     '--b-border-width': cssDimension(borderWidth),
     '--b-border-top-width': cssDimension(borderTopWidth),
     '--b-border-right-width': cssDimension(borderRightWidth),

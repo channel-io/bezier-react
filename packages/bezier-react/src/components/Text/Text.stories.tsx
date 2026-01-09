@@ -21,7 +21,7 @@ export const Primary: StoryObj<typeof Text> = {
     bold: false,
     italic: false,
     truncated: false,
-    color: 'txt-black-darkest',
+    color: 'text-neutral',
     children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     typo: '15',
   },
@@ -31,7 +31,7 @@ const MultiLineTruncated: StoryFn<TextProps> = ({ children, ...rest }) => (
   <Box width={200}>
     <Text
       {...rest}
-      color="txt-black-darkest"
+      color="text-neutral"
     >
       {children}
     </Text>

@@ -20,10 +20,10 @@ function DecorativeBox({ children }: React.PropsWithChildren<{}>) {
     <Box
       width={50}
       height={50}
-      backgroundColor="bg-black-light"
+      backgroundColor="fill-neutral-light"
       borderRadius="8"
       borderWidth={1}
-      borderColor="bdr-black-light"
+      borderColor="border-neutral"
     >
       <Text>{children}</Text>
     </Box>
@@ -33,7 +33,7 @@ function DecorativeBox({ children }: React.PropsWithChildren<{}>) {
 const Template: StoryFn<typeof Stack> = (args) => (
   <Stack
     {...args}
-    borderColor="bdr-black-dark"
+    borderColor="border-neutral-heavy"
     borderWidth={1}
   >
     {range(4).map((i) => (

@@ -5,8 +5,8 @@ import { type CSSProperties, forwardRef } from 'react'
 import { MoonFilledIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import { type SemanticColor } from '~/src/types/tokens'
-import { cssVar } from '~/src/utils/style'
+import { type BetaSemanticColor } from '~/src/types/beta-tokens'
+import { colorTokenCssVar } from '~/src/utils/style'
 
 import { Icon } from '~/src/components/Icon'
 
@@ -40,13 +40,13 @@ export const StatusBadge = forwardRef<HTMLDivElement, StatusBadgeProps>(
     },
     forwardedRef
   ) {
-    const iconColor: SemanticColor = online
-      ? 'bgtxt-green-normal'
+    const iconColor: BetaSemanticColor = online
+      ? 'text-accent-green'
       : doNotDisturb
-        ? 'bgtxt-yellow-normal'
-        : 'bg-black-dark'
-    const backgroundColor: SemanticColor = doNotDisturb
-      ? 'bg-white-high'
+        ? 'text-accent-yellow'
+        : 'fill-neutral-heavy'
+    const backgroundColor: BetaSemanticColor = doNotDisturb
+      ? 'surface-high'
       : iconColor
 
     return (
@@ -54,7 +54,7 @@ export const StatusBadge = forwardRef<HTMLDivElement, StatusBadgeProps>(
         ref={forwardedRef}
         style={
           {
-            '--b-status-bg-color': cssVar(backgroundColor),
+            '--b-status-bg-color': colorTokenCssVar(backgroundColor),
             ...style,
           } as CSSProperties
         }

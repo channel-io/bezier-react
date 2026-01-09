@@ -6,8 +6,8 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   position: relative;
   box-sizing: border-box;
   transition:
-    background-color var(--transition-s),
-    box-shadow var(--transition-s);
+    background-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast);
 
   /* Size */
   &:where(.size-xs) {
@@ -80,34 +80,36 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   &:where(.style-primary) {
     @each $color-variant in $chromatic-color-variants {
       &:where(.color-#{$color-variant}) {
-        color: var(--bgtxt-absolute-white-dark);
+        color: var(--color-text-absolute-white);
         /* stylelint-disable-next-line bezier/validate-token */
-        background-color: var(--bgtxt-#{$color-variant}-normal);
+        background-color: var(--color-fill-accent-#{$color-variant}-heavier);
 
         &#{$active-selector} {
           /* stylelint-disable-next-line bezier/validate-token */
-          background-color: var(--bgtxt-#{$color-variant}-dark);
+          background-color: var(
+            --color-fill-accent-#{$color-variant}-heavier-hovered
+          );
         }
       }
     }
 
     &:where(.color-monochrome) {
-      color: var(--bgtxt-absolute-white-dark);
-      background-color: var(--bgtxt-absolute-black-lightest);
+      color: var(--color-text-absolute-white);
+      background-color: var(--color-fill-absolute-black-light);
 
       &#{$active-selector} {
-        background-color: var(--bgtxt-absolute-black-lighter);
+        background-color: var(--color-fill-absolute-black-light-hovered);
       }
     }
 
     &:where(.color-monochrome-light) {
-      color: var(--bgtxt-absolute-white-dark);
-      background-color: var(--bg-black-darker);
+      color: var(--color-text-absolute-white);
+      background-color: var(--color-fill-neutral-heavier);
     }
 
     &:where(.color-monochrome-dark) {
-      color: var(--txt-white-normal);
-      background-color: var(--bg-grey-darkest);
+      color: var(--color-text-inverse);
+      background-color: var(--color-fill-neutral-heaviest);
     }
   }
 
@@ -115,40 +117,40 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     @each $color-variant in $chromatic-color-variants {
       &:where(.color-#{$color-variant}) {
         /* stylelint-disable bezier/validate-token */
-        color: var(--bgtxt-#{$color-variant}-normal);
-        background-color: var(--bgtxt-#{$color-variant}-lightest);
+        color: var(--color-text-accent-#{$color-variant});
+        background-color: var(--color-fill-accent-#{$color-variant});
 
         &#{$active-selector} {
-          background-color: var(--bgtxt-#{$color-variant}-lighter);
+          background-color: var(--color-fill-accent-#{$color-variant}-hovered);
         }
         /* stylelint-enable bezier/validate-token */
       }
     }
 
     &:where(.color-monochrome) {
-      color: var(--txt-black-darkest);
-      background-color: var(--bg-black-lighter);
+      color: var(--color-text-neutral);
+      background-color: var(--color-fill-neutral-light);
 
       &#{$active-selector} {
-        background-color: var(--bg-black-light);
+        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
 
     &:where(.color-monochrome-light) {
-      color: var(--txt-black-darker);
-      background-color: var(--bg-black-lighter);
+      color: var(--color-text-neutral-light);
+      background-color: var(--color-fill-neutral-light);
 
       &#{$active-selector} {
-        background-color: var(--bg-black-light);
+        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
 
     &:where(.color-monochrome-dark) {
-      color: var(--txt-black-darkest);
-      background-color: var(--bg-black-lighter);
+      color: var(--color-text-neutral);
+      background-color: var(--color-fill-neutral-light);
 
       &#{$active-selector} {
-        background-color: var(--bg-black-light);
+        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
   }
@@ -159,36 +161,36 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     @each $color-variant in $chromatic-color-variants {
       &:where(.color-#{$color-variant}) {
         /* stylelint-disable-next-line bezier/validate-token */
-        color: var(--bgtxt-#{$color-variant}-normal);
+        color: var(--color-text-accent-#{$color-variant});
 
         &#{$active-selector} {
           /* stylelint-disable-next-line bezier/validate-token */
-          background-color: var(--bgtxt-#{$color-variant}-lightest);
+          background-color: var(--color-fill-accent-#{$color-variant}-hovered);
         }
       }
     }
 
     &:where(.color-monochrome) {
-      color: var(--txt-black-darkest);
+      color: var(--color-text-neutral);
 
       &#{$active-selector} {
-        background-color: var(--bg-black-lightest);
+        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
 
     &:where(.color-monochrome-light) {
-      color: var(--txt-black-darker);
+      color: var(--color-text-neutral-light);
 
       &#{$active-selector} {
-        background-color: var(--bg-black-lighter);
+        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
 
     &:where(.color-monochrome-dark) {
-      color: var(--txt-black-darkest);
+      color: var(--color-text-neutral);
 
       &#{$active-selector} {
-        background-color: var(--bg-black-lighter);
+        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
   }
@@ -196,30 +198,32 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   &:where(.style-floating, .style-floating-alt) {
     @each $color-variant in $chromatic-color-variants {
       &:where(.color-#{$color-variant}) {
-        color: var(--bgtxt-absolute-white-dark);
+        color: var(--color-text-absolute-white);
         /* stylelint-disable-next-line bezier/validate-token */
-        background-color: var(--bgtxt-#{$color-variant}-normal);
+        background-color: var(--color-fill-accent-#{$color-variant}-heavier);
 
         &#{$active-selector} {
           /* stylelint-disable-next-line bezier/validate-token */
-          background-color: var(--bgtxt-#{$color-variant}-dark);
+          background-color: var(
+            --color-fill-accent-#{$color-variant}-heavier-hovered
+          );
         }
       }
     }
 
     &:where(.color-monochrome) {
-      color: var(--txt-black-darkest);
-      background-color: var(--bg-white-low);
+      color: var(--color-text-neutral);
+      background-color: var(--color-fill-bright);
     }
 
     &:where(.color-monochrome-light) {
-      color: var(--txt-black-darker);
-      background-color: var(--bg-white-high);
+      color: var(--color-text-neutral-light);
+      background-color: var(--color-fill-bright);
     }
 
     &:where(.color-monochrome-dark) {
-      color: var(--txt-black-darkest);
-      background-color: var(--bg-white-high);
+      color: var(--color-text-neutral);
+      background-color: var(--color-fill-bright);
     }
   }
 
@@ -252,7 +256,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   }
 
   &:where(.style-primary.color-blue:focus-visible) {
-    outline: 3px solid var(--bgtxt-blue-light);
+    outline: 3px solid var(--color-state-action-light);
   }
 
   /* Hover styles for text, icon, and loader */
@@ -260,15 +264,15 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       :not(.active, :hover)
     ) {
     &:where(.size-s, .size-xs) .ButtonText {
-      color: var(--txt-black-darker);
+      color: var(--color-text-neutral-light);
     }
 
     &:where(.size-s, .size-xs) :is(.ButtonIcon, .ButtonLoader) {
-      color: var(--txt-black-dark);
+      color: var(--color-text-neutral-lighter);
     }
 
     &:where(.size-m, .size-l, .size-xl) :is(.ButtonIcon, .ButtonLoader) {
-      color: var(--txt-black-darker);
+      color: var(--color-text-neutral-light);
     }
   }
 
@@ -278,7 +282,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       .style-floating
     ):where(:not(.active, :hover)) {
     & :is(.ButtonIcon, .ButtonLoader) {
-      color: var(--txt-black-dark);
+      color: var(--color-text-neutral-lighter);
     }
   }
 
@@ -288,7 +292,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       .style-floating
     ):where(:not(.active, :hover)) {
     & :is(.ButtonIcon, .ButtonLoader) {
-      color: var(--txt-black-darker);
+      color: var(--color-text-neutral-light);
     }
   }
 
@@ -303,10 +307,10 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   }
 
   &:is(.style-floating, .style-floating-alt) {
-    box-shadow: var(--ev-2);
+    box-shadow: var(--elevation-2);
 
     &:where(:hover) {
-      box-shadow: var(--ev-3);
+      box-shadow: var(--elevation-3);
     }
   }
 }

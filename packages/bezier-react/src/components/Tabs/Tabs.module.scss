@@ -12,7 +12,7 @@ $tab-item-indicator-height: 3px;
   display: flex;
   justify-content: space-between;
   width: 100%;
-  box-shadow: 0 -1px 0 0 var(--bg-black-light) inset;
+  box-shadow: 0 -1px 0 0 var(--color-fill-neutral-light) inset;
 
   &:where(.size-l) {
     height: 53px;
@@ -42,8 +42,8 @@ $tab-item-indicator-height: 3px;
   background-color: transparent;
 
   transition:
-    background-color var(--transition-s),
-    box-shadow var(--transition-s);
+    background-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast);
 
   &::after {
     content: '';
@@ -55,10 +55,10 @@ $tab-item-indicator-height: 3px;
 
     height: 0;
 
-    background-color: var(--bgtxt-blue-normal);
+    background-color: var(--color-fill-accent-blue-heavier);
     border-radius: math.div($tab-item-indicator-height, 2);
 
-    transition: height var(--transition-s);
+    transition: height var(--motion-transition-fast);
   }
 
   &:where(.size-s) {
@@ -97,7 +97,7 @@ $tab-item-indicator-height: 3px;
   }
 
   &:where(.active, :hover):where(:not(:disabled)) {
-    background-color: var(--bg-black-lighter);
+    background-color: var(--color-fill-neutral-light);
   }
 
   /* NOTE: If there is no text, button is square, so padding is 0 */
@@ -112,7 +112,7 @@ $tab-item-indicator-height: 3px;
 
   /* stylelint-disable-next-line no-descending-specificity */
   &:where([data-state='active']) {
-    color: var(--bgtxt-blue-normal);
+    color: var(--color-text-accent-blue);
 
     &::after {
       height: $tab-item-indicator-height;
@@ -125,10 +125,10 @@ $tab-item-indicator-height: 3px;
 
   /* stylelint-disable-next-line no-descending-specificity */
   &:where([data-state='inactive']) {
-    color: var(--txt-black-dark);
+    color: var(--color-text-neutral-lighter);
 
     &:hover {
-      color: var(--txt-black-darker);
+      color: var(--color-text-neutral-light);
     }
   }
 }
@@ -148,10 +148,10 @@ $tab-item-indicator-height: 3px;
   width: 100%;
   margin: 4px 0 5px;
 
-  color: var(--bgtxt-blue-normal);
+  color: var(--color-text-accent-blue);
   text-decoration: none;
 
-  transition: background-color var(--transition-s);
+  transition: background-color var(--motion-transition-fast);
 
   &:where(.size-l, .size-m) {
     padding: 0 14px;
@@ -171,10 +171,10 @@ $tab-item-indicator-height: 3px;
   }
 
   &:where(:focus-visible) {
-    outline: 3px solid var(--bgtxt-cobalt-light);
+    outline: 3px solid var(--color-state-action-light);
   }
 
   &:hover {
-    background-color: var(--bgtxt-blue-lightest);
+    background-color: var(--color-fill-accent-blue);
   }
 }

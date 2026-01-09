@@ -6,15 +6,15 @@
   height: 28px;
   padding: 0 6px 0 calc(var(--b-outline-item-indent) + 6px);
 
-  color: var(--txt-black-darkest);
+  color: var(--color-text-neutral);
   text-align: inherit;
   text-decoration: none;
 
   border-radius: var(--radius-6);
 
   transition:
-    background-color var(--transition-s),
-    color var(--transition-s);
+    background-color var(--motion-transition-fast),
+    color var(--motion-transition-fast);
 
   &:where(.clickable) {
     cursor: pointer;
@@ -22,16 +22,16 @@
   }
 
   &:where(.active) {
-    color: var(--bgtxt-blue-normal);
-    background-color: var(--bgtxt-blue-lightest);
+    color: var(--color-text-accent-blue);
+    background-color: var(--color-fill-accent-blue);
 
     & .Icon {
-      color: var(--bgtxt-blue-normal);
+      color: var(--color-text-accent-blue);
     }
   }
 
   &:where(.clickable:not(.active):where(.focused, :hover)) {
-    background-color: var(--bg-black-lighter);
+    background-color: var(--color-fill-neutral-light);
   }
 }
 

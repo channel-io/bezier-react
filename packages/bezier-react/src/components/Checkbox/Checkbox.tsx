@@ -37,7 +37,7 @@ const CheckIcon = forwardRef<SVGSVGElement, CheckIconProps>(
         className={styles.CheckIcon}
         ref={forwardedRef}
         source={!isIndeterminate ? CheckBoldIcon : HyphenBoldIcon}
-        color={isUnchecked ? 'bg-black-dark' : 'bgtxt-absolute-white-dark'}
+        color={isUnchecked ? 'fill-neutral-heavy' : 'text-absolute-white'}
         {...props}
       />
     )
@@ -89,7 +89,7 @@ function CheckboxImpl<Checked extends CheckedState>(
           htmlFor={id}
           className={styles.Label}
           typo="14"
-          color="txt-black-darkest"
+          color="text-neutral"
         >
           {children}
         </Text>

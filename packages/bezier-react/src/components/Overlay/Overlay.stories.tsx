@@ -95,9 +95,9 @@ const Template: StoryFn<OverlayProps> = ({
         style={{
           width: 200,
           height: 200,
-          backgroundColor: 'var(--bg-white-high)',
+          backgroundColor: 'var(--color-surface-higher)',
           borderRadius: 'var(--radius-8)',
-          boxShadow: 'var(--ev-3)',
+          boxShadow: 'var(--elevation-3)',
         }}
         target={targetRef.current}
         container={containerRef.current}

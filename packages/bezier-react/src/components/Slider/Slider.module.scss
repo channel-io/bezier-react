@@ -14,7 +14,7 @@
   width: var(--b-slider-width);
   height: var(--b-slider-thumb-size);
 
-  transition: opacity var(--transition-s);
+  transition: opacity var(--motion-transition-fast);
 
   &[data-disabled] {
     cursor: not-allowed;
@@ -29,7 +29,7 @@
 
   height: 6px;
 
-  background-color: var(--bg-black-dark);
+  background-color: var(--color-fill-neutral-heavy);
   border-radius: var(--radius-3);
   border-radius: 3px;
 }
@@ -37,7 +37,7 @@
 .SliderPrimitiveRange {
   position: absolute;
   height: 100%;
-  background-color: var(--bgtxt-green-normal);
+  background-color: var(--color-fill-accent-green-heavier);
   border-radius: var(--radius-3);
 }
 
@@ -61,7 +61,7 @@
   width: 2px;
   height: var(--b-slider-guide-height);
 
-  background-color: var(--bg-black-light);
+  background-color: var(--color-fill-neutral-light);
   border-radius: 1px;
 }
 
@@ -71,18 +71,18 @@
   width: var(--b-slider-thumb-size);
   height: var(--b-slider-thumb-size);
 
-  background-color: var(--bgtxt-absolute-white-dark);
+  background-color: var(--color-fill-absolute-white);
   border-radius: var(--radius-12);
-  box-shadow: var(--ev-2);
+  box-shadow: var(--elevation-2);
 
-  transition: box-shadow var(--transition-s);
+  transition: box-shadow var(--motion-transition-fast);
 
   &:hover {
-    box-shadow: var(--ev-3);
+    box-shadow: var(--elevation-3);
   }
 
   &:focus-visible {
     outline: none;
-    box-shadow: var(--input-box-shadow-focused);
+    box-shadow: var(--state-input-active);
   }
 }

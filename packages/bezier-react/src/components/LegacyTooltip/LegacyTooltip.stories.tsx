@@ -46,7 +46,7 @@ const Template: StoryFn<LegacyTooltipProps> = (props) => (
     <Center
       width={100}
       height={40}
-      backgroundColor="bg-black-dark"
+      backgroundColor="fill-neutral-heavy"
       borderRadius="4"
     >
       Target

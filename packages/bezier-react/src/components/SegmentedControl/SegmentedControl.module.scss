@@ -6,7 +6,7 @@
   --b-segmented-control-padding: initial;
 
   position: relative;
-  z-index: var(--z-index-base);
+  z-index: var(--layer-z-index-base);
 
   display: flex;
   flex-direction: horizontal;
@@ -16,7 +16,7 @@
   height: var(--b-segmented-control-height);
   padding: var(--b-segmented-control-padding);
 
-  background-color: var(--bg-black-lighter);
+  background-color: var(--color-fill-neutral-light);
 
   &:where(.size-xs) {
     --b-segmented-control-height: 24px;
@@ -114,10 +114,10 @@
     var(--b-segmented-control-height) - (var(--b-segmented-control-padding) * 2)
   );
 
-  background-color: var(--bg-white-high);
-  box-shadow: var(--ev-1);
+  background-color: var(--color-fill-bright);
+  box-shadow: var(--elevation-1);
 
-  transition: transform var(--transition-s);
+  transition: transform var(--motion-transition-fast);
 }
 
 .SegmentedControlItem {
@@ -132,14 +132,14 @@
 
   outline: none;
 
-  transition: background-color var(--transition-s);
+  transition: background-color var(--motion-transition-fast);
 
   /* NOTE: Focus indicator */
   &::after {
     content: '';
 
     position: absolute;
-    z-index: var(--z-index-floating);
+    z-index: var(--layer-z-index-floating);
     top: 0;
     left: 0;
 
@@ -151,16 +151,16 @@
     border-radius: inherit;
     outline: none;
 
-    transition: box-shadow var(--transition-m);
+    transition: box-shadow var(--motion-transition-default);
   }
 
   &:where([data-checked]) {
     cursor: default;
-    color: var(--txt-black-darkest);
+    color: var(--color-text-neutral);
   }
 
   &:where(:not([data-checked])) {
-    color: var(--txt-black-dark);
+    color: var(--color-text-neutral-lighter);
   }
 
   &:where(:disabled) {
@@ -169,17 +169,17 @@
 
   &:where(:focus-visible) {
     &::after {
-      box-shadow: var(--input-box-shadow-focused);
+      box-shadow: var(--state-input-active);
     }
   }
 
   &:where(:not([data-checked], &:disabled):hover) {
-    background-color: var(--bg-black-light);
+    background-color: var(--color-fill-neutral-light);
   }
 }
 
 .SegmentedControlItemContainer {
-  z-index: var(--z-index-floating);
+  z-index: var(--layer-z-index-floating);
   overflow: hidden;
 }
 
@@ -189,7 +189,7 @@
 
 .SegmentedControlDivider {
   opacity: 1;
-  transition: opacity var(--transition-s);
+  transition: opacity var(--motion-transition-fast);
 
   &.hidden {
     opacity: 0;

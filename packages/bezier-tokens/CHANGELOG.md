@@ -1,5 +1,53 @@
 # @channel.io/bezier-tokens
 
+## 0.3.3-beta.9
+
+### Patch Changes
+
+- Edit bezier-react's props and stylelint to maintain backward compatibility ([#2771](https://github.com/channel-io/bezier-react/pull/2771)) by @timok1m
+
+## 0.3.3-beta.8
+
+### Patch Changes
+
+- Update token values for dark mode visibility and edit Button component's background color ([#2769](https://github.com/channel-io/bezier-react/pull/2769)) by @timok1m
+
+## 0.3.3-beta.7
+
+### Patch Changes
+
+- Add invese color tokens and update grey-\* color value. Update bezier component colors ([#2767](https://github.com/channel-io/bezier-react/pull/2767)) by @timok1m
+
+## 0.3.3-beta.6
+
+### Patch Changes
+
+- Add text-accent-olive token, and update BetaBackgroundSemanticColor to accept BetaDimSemanticColor ([#2765](https://github.com/channel-io/bezier-react/pull/2765)) by @timok1m
+
+## 0.3.3-beta.5
+
+### Patch Changes
+
+- Update v3 token name from with 'beta' prefix to no prefix ([#2756](https://github.com/channel-io/bezier-react/pull/2756)) by @timok1m
+
+## 0.3.3-beta.4
+
+### Patch Changes
+
+- Remove unused 42-p, 100-p dimension tokens ([#2752](https://github.com/channel-io/bezier-react/pull/2752)) by @timok1m
+
+## 0.3.3-beta.3
+
+### Patch Changes
+
+- Update dark mode colors for text-success and text-warning. (text-success: cobalt.200 → cobalt.300, text-warning: warning.200 → warning.300) ([#2745](https://github.com/channel-io/bezier-react/pull/2745)) by @timok1m
+
+## 0.3.3-beta.2
+
+### Patch Changes
+
+- Add v3 tokens with --beta prefix ([#2733](https://github.com/channel-io/bezier-react/pull/2733)) by @timok1m
+
 ## 0.3.2
 
 ### Patch Changes

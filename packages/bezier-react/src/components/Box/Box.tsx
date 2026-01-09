@@ -25,7 +25,7 @@ import styles from './Box.module.scss'
  *   height="100px"
  *   p="6px"
  *   m="6px"
- *   bgColor="bg-black-light"
+ *   bgColor="fill-neutral-light"
  * >
  *   <div>{ ... }</div>
  * </Box>

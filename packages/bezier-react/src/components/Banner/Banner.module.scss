@@ -12,63 +12,63 @@
   border-radius: var(--radius-12);
 
   &:where(.variant-default) {
-    background-color: var(--bg-black-lighter);
+    background-color: var(--color-fill-neutral-light);
 
     & :where(.Content, .Icon, .Link) {
-      color: var(--txt-black-darker);
+      color: var(--color-text-neutral-light);
     }
   }
 
   &:where(.variant-blue) {
-    background-color: var(--bgtxt-blue-lightest);
+    background-color: var(--color-fill-accent-blue);
 
     & :where(.Content, .Icon, .Link) {
-      color: var(--bgtxt-blue-normal);
+      color: var(--color-text-accent-blue);
     }
   }
 
   &:where(.variant-cobalt) {
-    background-color: var(--bgtxt-cobalt-lightest);
+    background-color: var(--color-fill-accent-cobalt);
 
     & :where(.Content, .Icon, .Link) {
-      color: var(--bgtxt-cobalt-normal);
+      color: var(--color-text-accent-cobalt);
     }
   }
 
   &:where(.variant-green) {
-    background-color: var(--bgtxt-green-lightest);
+    background-color: var(--color-fill-accent-green);
 
     & :where(.Content, .Icon, .Link) {
-      color: var(--bgtxt-green-normal);
+      color: var(--color-text-accent-green);
     }
   }
 
   &:where(.variant-orange) {
-    background-color: var(--bgtxt-orange-lightest);
+    background-color: var(--color-fill-accent-orange);
 
     & :where(.Content, .Icon, .Link) {
-      color: var(--bgtxt-orange-normal);
+      color: var(--color-text-accent-orange);
     }
   }
 
   &:where(.variant-red) {
-    background-color: var(--bgtxt-red-lightest);
+    background-color: var(--color-fill-accent-red);
 
     & :where(.Content, .Icon, .Link) {
-      color: var(--bgtxt-red-normal);
+      color: var(--color-text-accent-red);
     }
   }
 
   &:where(.variant-alt) {
-    background-color: var(--bg-grey-lighter);
-    box-shadow: var(--ev-2);
+    background-color: var(--color-fill-grey-heavy);
+    box-shadow: var(--elevation-2);
 
     & :where(.Content, .Link) {
-      color: var(--txt-black-darker);
+      color: var(--color-text-neutral-light);
     }
 
     & :where(.Icon) {
-      color: var(--bgtxt-red-normal);
+      color: var(--color-text-accent-red);
     }
   }
 

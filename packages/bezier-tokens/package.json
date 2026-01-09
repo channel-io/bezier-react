@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/bezier-tokens",
-  "version": "0.3.2",
+  "version": "0.3.3-beta.9",
   "description": "Design tokens for Bezier design system.",
   "repository": {
     "type": "git",
@@ -33,15 +33,31 @@
       },
       "sass": "./dist/alpha/scss/index.scss"
     },
+    "./beta": {
+      "require": {
+        "types": "./dist/types/beta/cjs/index.d.ts",
+        "default": "./dist/beta/cjs/index.js"
+      },
+      "import": {
+        "types": "./dist/types/beta/esm/index.d.mts",
+        "default": "./dist/beta/esm/index.mjs"
+      },
+      "sass": "./dist/beta/scss/index.scss"
+    },
     "./css/*": "./dist/css/*",
     "./scss/*": "./dist/scss/*",
     "./alpha/css/*": "./dist/alpha/css/*",
-    "./alpha/scss/*": "./dist/alpha/scss/*"
+    "./alpha/scss/*": "./dist/alpha/scss/*",
+    "./beta/css/*": "./dist/beta/css/*",
+    "./beta/scss/*": "./dist/beta/scss/*"
   },
   "typesVersions": {
     "*": {
       "alpha": [
         "./dist/types/alpha/cjs/index.d.ts"
+      ],
+      "beta": [
+        "./dist/types/beta/cjs/index.d.ts"
       ]
     }
   },
@@ -53,9 +69,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "run-s clean:build build:tokens build:types",
+    "build": "run-s clean:build validate:tokens build:tokens build:types",
     "build:tokens": "ts-node scripts/build-tokens.ts",
     "build:types": "tsc -p tsconfig.build.json",
+    "validate:tokens": "ts-node scripts/validate-token-references.ts",
     "lint": "TIMING=1 eslint --cache .",
     "typecheck": "tsc --noEmit",
     "clean": "run-s 'clean:*'",

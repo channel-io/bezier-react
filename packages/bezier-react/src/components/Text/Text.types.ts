@@ -1,3 +1,4 @@
+import { type BetaSemanticColor } from '~/src/types/beta-tokens'
 import {
   type BezierComponentProps,
   type ChildrenProps,
@@ -31,7 +32,7 @@ interface TextOwnProps {
   /**
    * Color of the text. If no value is specified, it inherits the color of the parent element.
    */
-  color?: SemanticColor
+  color?: SemanticColor | BetaSemanticColor
   /**
    * Whether the text is bold.
    * @default false

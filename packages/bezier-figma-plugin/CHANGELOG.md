@@ -1,5 +1,91 @@
 # bezier-figma-plugin
 
+## 0.7.19-beta.11
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@3.5.2-beta.11
+
+## 0.7.19-beta.10
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@3.5.2-beta.10
+
+## 0.7.19-beta.9
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@3.5.2-beta.9
+
+## 0.7.19-beta.8
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@3.5.2-beta.8
+
+## 0.7.19-beta.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@3.5.2-beta.7
+
+## 0.7.19-beta.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@3.5.2-beta.6
+
+## 0.7.19-beta.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@3.5.2-beta.5
+
+## 0.7.19-beta.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@3.5.2-beta.4
+
+## 0.7.19-beta.3
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@3.5.2-beta.3
+
+## 0.7.19-beta.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@3.5.2-beta.2
+
+## 0.7.19-beta.1
+
+### Patch Changes
+
+- Migrate style tokens to beta tokens ([#2737](https://github.com/channel-io/bezier-react/pull/2737)) by @timok1m
+
+- Updated dependencies
+  - @channel.io/bezier-react@3.5.2-beta.1
+
+## 0.7.19-beta.0
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@3.5.2-beta.0
+
 ## 0.7.18
 
 ### Patch Changes

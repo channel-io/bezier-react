@@ -1,6 +1,6 @@
 .OverlayContainer {
   position: fixed;
-  z-index: var(--z-index-overlay);
+  z-index: var(--layer-z-index-overlay);
   inset: 0;
 
   width: 100%;
@@ -13,7 +13,7 @@
 
 .OverlayWrapper {
   position: relative;
-  z-index: var(--z-index-base);
+  z-index: var(--layer-z-index-base);
   width: 100%;
   height: 100%;
 }
@@ -27,7 +27,7 @@
 
   &:where(.transition) {
     transition:
-      top var(--transition-s),
-      opacity var(--transition-s);
+      top var(--motion-transition-fast),
+      opacity var(--motion-transition-fast);
   }
 }

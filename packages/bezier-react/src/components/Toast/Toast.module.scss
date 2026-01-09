@@ -67,23 +67,23 @@
   margin-top: 6px;
   padding: 16px;
 
-  background-color: var(--bg-grey-lighter);
+  background-color: var(--color-fill-grey-heavy);
   border-radius: var(--radius-12);
-  box-shadow: var(--ev-3);
+  box-shadow: var(--elevation-3);
 
   &:where(.placement-bottom-left) {
-    animation: var(--transition-m) slide-in-left forwards;
+    animation: var(--motion-transition-default) slide-in-left forwards;
 
     &:where(.slide-out) {
-      animation: var(--transition-m) slide-out-left forwards;
+      animation: var(--motion-transition-default) slide-out-left forwards;
     }
   }
 
   &:where(.placement-bottom-right) {
-    animation: var(--transition-m) slide-in-right forwards;
+    animation: var(--motion-transition-default) slide-in-right forwards;
 
     &:where(.slide-out) {
-      animation: var(--transition-m) slide-out-right forwards;
+      animation: var(--motion-transition-default) slide-out-right forwards;
     }
   }
 }
@@ -98,19 +98,19 @@
   height: 24px;
 
   &:where(.appearance-success) {
-    color: var(--bgtxt-green-normal);
+    color: var(--color-text-accent-green);
   }
 
   &:where(.appearance-warning) {
-    color: var(--bgtxt-orange-normal);
+    color: var(--color-text-accent-orange);
   }
 
   &:where(.appearance-error) {
-    color: var(--bgtxt-red-normal);
+    color: var(--color-text-accent-red);
   }
 
   &:where(.appearance-info) {
-    color: var(--txt-black-darkest);
+    color: var(--color-text-neutral);
   }
 }
 
@@ -121,7 +121,7 @@
 
   margin: 3px 6px;
 
-  color: var(--txt-black-darkest);
+  color: var(--color-text-neutral);
 }
 
 .EllipsisableContent {
@@ -139,13 +139,13 @@
 
   margin-left: auto;
 
-  color: var(--txt-black-darker);
+  color: var(--color-text-neutral-light);
 
-  background-color: var(--bg-black-lighter);
+  background-color: var(--color-fill-neutral-light);
   border-radius: var(--radius-12);
 
   &:hover {
-    color: var(--txt-black-darkest);
-    background-color: var(--bg-black-light);
+    color: var(--color-text-neutral);
+    background-color: var(--color-fill-neutral-light);
   }
 }
