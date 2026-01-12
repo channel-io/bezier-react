@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 3.6.3
+
+### Patch Changes
+
+- Adjust CSS specificity to ensure Japanese font is properly applied - revert to 3.6.1 approach; issue was external to bezier package ([#2780](https://github.com/channel-io/bezier-react/pull/2780)) by @timok1m
+
 ## 3.6.2
 
 ### Patch Changes
