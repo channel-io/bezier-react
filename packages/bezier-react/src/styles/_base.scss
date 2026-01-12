@@ -15,16 +15,11 @@
   color-scheme: dark;
 }
 
-:lang(ja) {
-  --typography-heading-font-family: var(
-    --typography-font-family-sans-jp
-  );
-  --typography-text-font-family: var(
-    --typography-font-family-sans-jp
-  );
-  --typography-display-font-family: var(
-    --typography-font-family-sans-jp
-  );
+[data-bezier-theme='dark']:lang(ja),
+[data-bezier-theme='light']:lang(ja) {
+  --typography-heading-font-family: var(--typography-font-family-sans-jp);
+  --typography-text-font-family: var(--typography-font-family-sans-jp);
+  --typography-display-font-family: var(--typography-font-family-sans-jp);
 }
 
 code {
