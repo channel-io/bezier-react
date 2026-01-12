@@ -1,5 +1,12 @@
 # bezier-figma-plugin
 
+## 0.7.20
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-react@3.6.1
+
 ## 0.7.19
 
 ### Patch Changes
