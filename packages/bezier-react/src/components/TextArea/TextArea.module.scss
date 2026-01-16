@@ -39,12 +39,12 @@
   }
 
   &:focus {
-    background-color: var(--color-surface);
+    background-color: var(--color-fill-grey-light);
     box-shadow: var(--state-input-active);
   }
 
   &[aria-invalid='true'] {
-    background-color: var(--color-surface);
+    background-color: var(--color-fill-grey-light);
     box-shadow: var(--state-input-error);
   }
 
