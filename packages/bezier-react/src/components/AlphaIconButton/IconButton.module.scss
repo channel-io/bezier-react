@@ -185,9 +185,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       @each $color in $chromatic-colors {
         &:where(.color-#{'' + $color}) {
           /* stylelint-disable-next-line bezier/validate-token */
-          background-color: var(
-            --color-fill-accent-#{$color}-heavier-hovered
-          );
+          background-color: var(--color-fill-accent-#{$color}-heavier-hovered);
         }
       }
 
@@ -224,15 +222,11 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       }
 
       &:where(.color-dark-grey, .color-light-grey) {
-        background-color: var(
-          --color-fill-neutral-lighter-transparent-hovered
-        );
+        background-color: var(--color-fill-neutral-transparent-hovered);
       }
 
       &:where(.color-white-absolute) {
-        background-color: var(
-          --color-fill-absolute-white-transparent-hovered
-        );
+        background-color: var(--color-fill-absolute-white-transparent-hovered);
       }
     }
 

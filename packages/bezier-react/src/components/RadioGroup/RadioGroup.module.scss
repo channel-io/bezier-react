@@ -45,7 +45,7 @@ $inner-indicator-size: 8px;
     box-sizing: border-box;
     margin: $outer-indicator-margin;
 
-    background-color: var(--color-surface);
+    background-color: var(--color-fill-grey-light);
     border-radius: 50%;
     outline: none;
     box-shadow: inset 0 0 0 2px var(--color-border-neutral-heavy);

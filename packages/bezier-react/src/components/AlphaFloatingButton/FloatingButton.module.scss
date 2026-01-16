@@ -108,7 +108,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   }
 
   &:where(.variant-secondary) {
-    background-color: var(--color-surface-highest);
+    background-color: var(--color-fill-grey);
   }
 
   /* color */
