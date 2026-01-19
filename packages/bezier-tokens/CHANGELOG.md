@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.4.1
+
+### Patch Changes
+
+- Add fill-grey-light color token and update component background colors: TextField-primary and TextArea focus states, RadioGroup and Checkbox defaults, and some buttons. ([#2782](https://github.com/channel-io/bezier-react/pull/2782)) by @timok1m
+
 ## 0.4.0
 
 ### Minor Changes
