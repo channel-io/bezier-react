@@ -317,6 +317,10 @@
         }
       },
       "grey": {
+        "light": {
+          "value": "{color.grey.900}",
+          "type": "color"
+        },
         "normal": {
           "value": "{color.grey.850}",
           "type": "color"

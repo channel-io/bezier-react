@@ -80,7 +80,7 @@
       :has(.TextFieldInput[aria-invalid='true']),
       :has(.TextFieldInput:not(:disabled, :read-only):focus)
     ) {
-    background-color: var(--color-surface);
+    background-color: var(--color-fill-grey-light);
   }
 
   &:where(.variant-primary:has(.TextFieldInput:read-only)) {
