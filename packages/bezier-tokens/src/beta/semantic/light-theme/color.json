@@ -722,6 +722,52 @@
         "value": "{color.white.12}",
         "type": "color"
       }
+    },
+    "chart": {
+      "theme": {
+        "default": {
+          "01": {
+            "value": "#7c72fd",
+            "type": "color"
+          },
+          "02": {
+            "value": "#81dfdd",
+            "type": "color"
+          },
+          "03": {
+            "value": "#fc9783",
+            "type": "color"
+          },
+          "04": {
+            "value": "#b1596a",
+            "type": "color"
+          },
+          "05": {
+            "value": "#fe71ba",
+            "type": "color"
+          },
+          "06": {
+            "value": "#c971ec",
+            "type": "color"
+          },
+          "07": {
+            "value": "#4a75e3",
+            "type": "color"
+          },
+          "08": {
+            "value": "#80b6fd",
+            "type": "color"
+          },
+          "09": {
+            "value": "#fb90f1",
+            "type": "color"
+          },
+          "10": {
+            "value": "#b4d6e5",
+            "type": "color"
+          }
+        }
+      }
     }
   }
 }
