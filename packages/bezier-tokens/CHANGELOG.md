@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.5.0
+
+### Minor Changes
+
+- Add chart tokens and bezier-react story for v3 foundation color tokens. ([#2784](https://github.com/channel-io/bezier-react/pull/2784)) by @timok1m
+
 ## 0.4.1
 
 ### Patch Changes
