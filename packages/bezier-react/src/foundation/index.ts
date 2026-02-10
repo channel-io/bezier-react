@@ -11,6 +11,9 @@ export * from './Border'
 export * from './Typography'
 export * from './Mixins'
 
+// Beta Tokens (v3)
+export * from './BetaTokens'
+
 // Theme
 export * from './ThemeVars'
 
