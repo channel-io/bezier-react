@@ -147,14 +147,14 @@ function svgBuild(options = {}) {
         },
       },
       /**
-       * Remove `fill-opacity` and `opacity` attributes from all elements.
-       * Since icon colors are controlled via `currentColor`, any opacity
+       * Remove `fill-opacity` attributes from all elements.
+       * Since icon colors are controlled via `currentColor`, any `fill-opacity`
        * embedded in the SVG source would unintentionally make icons transparent.
        */
       {
         name: 'removeAttrs',
         params: {
-          attrs: ['fill-opacity', 'opacity'],
+          attrs: ['fill-opacity'],
         },
       },
     ],
