@@ -18715,13 +18715,13 @@ __metadata:
   linkType: hard
 
 "typescript-transform-paths@npm:^3.5.2":
-  version: 3.5.5
-  resolution: "typescript-transform-paths@npm:3.5.5"
+  version: 3.5.6
+  resolution: "typescript-transform-paths@npm:3.5.6"
   dependencies:
     minimatch: "npm:^9.0.5"
   peerDependencies:
     typescript: ">=3.6.5"
-  checksum: 10/9d952db35c94d2b9ecb89e0cf85188106d0366eb1b534e663c811eef5567018f1b0f93540eb58ef0e997d06000d0be0a80942d196180e683f2265395bf95ebb9
+  checksum: 10/2b40e0fe526d59931778334e41869f818e46db64d7c2d8df6666e639b31198d8f8b8a21fc513f6b52330a3fbefc354029c71d3cb12a1157cb75a8fcc262bfadd
   languageName: node
   linkType: hard
 
