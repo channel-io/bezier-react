@@ -1,5 +1,33 @@
 # @channel.io/bezier-icons
 
+## 0.56.0
+
+### Minor Changes
+
+- Update icons ([#2802](https://github.com/channel-io/bezier-react/pull/2802)) by @wes5510
+
+  Modified
+
+  - call-incoming.svg
+  - sorting.svg
+  - zoom-in.svg
+
+  Added
+
+  - email-edit.svg
+  - sort-ascending.svg
+  - sort-descending.svg
+
+  Deleted
+
+  - pointer.svg
+
+- Update icons ([#2804](https://github.com/channel-io/bezier-react/pull/2804)) by @wes5510
+
+  Added
+
+  - pointer.svg
+
 ## 0.55.0
 
 ### Minor Changes
