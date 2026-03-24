@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.6.0
+
+### Minor Changes
+
+- Add color-fill-neutral semantic token, and typography-font-weight-500, 600 global tokens ([#2806](https://github.com/channel-io/bezier-react/pull/2806)) by @timok1m
+
 ## 0.5.0
 
 ### Minor Changes
