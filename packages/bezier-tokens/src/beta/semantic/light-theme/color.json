@@ -197,6 +197,10 @@
     },
     "fill": {
       "neutral": {
+        "normal": {
+          "value": "{color.black.8}",
+          "type": "color"
+        },
         "heaviest": {
           "value": "{color.black.85}",
           "type": "color"
