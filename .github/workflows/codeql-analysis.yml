@@ -16,10 +16,12 @@ on:
     branches:
       - main
       - alpha
+      - v4
   pull_request:
     branches:
       - main
       - alpha
+      - v4
   schedule:
     #        ┌───────────── minute (0 - 59)
     #        │  ┌───────────── hour (0 - 23)
