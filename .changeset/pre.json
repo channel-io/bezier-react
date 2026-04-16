@@ -1,0 +1,15 @@
+{
+  "mode": "pre",
+  "tag": "next",
+  "initialVersions": {
+    "eslint-config-bezier": "0.0.1",
+    "tsconfig": "0.0.1",
+    "@channel.io/bezier-codemod": "0.5.0",
+    "bezier-figma-plugin": "0.7.30",
+    "@channel.io/bezier-icons": "0.57.0",
+    "@channel.io/bezier-react": "3.6.6",
+    "@channel.io/bezier-tokens": "0.6.0",
+    "@channel.io/stylelint-bezier": "0.3.3"
+  },
+  "changesets": []
+}
