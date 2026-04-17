@@ -88,9 +88,6 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       }
     }
 
-    &:where(.color-blue) {
-      background-color: var(--color-fill-neutral-heaviest);
-    }
   }
 
   &:where(.variant-secondary) {
@@ -142,6 +139,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
     &:where(.color-blue) {
       color: var(--color-text-inverse);
+      background-color: var(--color-fill-neutral-heaviest);
 
       & :is(.ButtonIcon, .ButtonLoader) {
         color: var(--color-icon-inverse-heavier);
@@ -184,7 +182,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       color: var(--color-text-neutral);
 
       & :is(.ButtonIcon, .ButtonLoader) {
-        color: var(--color-text-neutral-heavier);
+        color: var(--color-icon-neutral-heavy);
       }
     }
 

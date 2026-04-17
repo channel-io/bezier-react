@@ -106,17 +106,11 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       }
     }
 
-    &:where(.color-blue) {
-      background-color: var(--color-fill-neutral-heaviest);
-    }
   }
 
   &:where(.variant-secondary) {
     background-color: var(--color-fill-grey);
 
-    &:where(.color-blue) {
-      background-color: var(--color-fill-neutral-light);
-    }
   }
 
   /* color */
@@ -130,6 +124,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
     &:where(.color-blue) {
       color: var(--color-text-inverse);
+      background-color: var(--color-fill-neutral-heaviest);
 
       & :is(.ButtonIcon, .ButtonLoader) {
         color: var(--color-icon-inverse-heavier);
@@ -155,9 +150,10 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
     &:where(.color-blue) {
       color: var(--color-text-neutral);
+      background-color: var(--color-fill-neutral-light);
 
       & :is(.ButtonIcon, .ButtonLoader) {
-        color: var(--color-text-neutral-heavier);
+        color: var(--color-icon-neutral-heavy);
       }
     }
   }
@@ -187,11 +183,11 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     }
 
     &:where(.variant-secondary.color-blue) {
+      color: var(--color-text-neutral-hovered);
       background-color: var(--color-fill-neutral-light-hovered);
-      color: var(--color-text-neutral);
 
       & :is(.ButtonIcon, .ButtonLoader) {
-        color: var(--color-text-neutral-heavier);
+        color: var(--color-icon-neutral-heavy-hovered);
       }
     }
   }

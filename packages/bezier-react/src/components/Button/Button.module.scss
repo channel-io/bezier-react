@@ -93,14 +93,6 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       }
     }
 
-    &:where(.color-blue) {
-      background-color: var(--color-fill-neutral-heaviest);
-
-      &#{$active-selector} {
-        background-color: var(--color-fill-neutral-heaviest-hovered);
-      }
-    }
-
     &:where(.color-monochrome) {
       color: var(--color-text-absolute-white);
       background-color: var(--color-fill-absolute-black-light);
@@ -122,9 +114,14 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
 
     &:where(.color-blue) {
       color: var(--color-text-inverse);
+      background-color: var(--color-fill-neutral-heaviest);
 
       & :is(.ButtonIcon, .ButtonLoader) {
         color: var(--color-icon-inverse-heavier);
+      }
+
+      &#{$active-selector} {
+        background-color: var(--color-fill-neutral-heaviest-hovered);
       }
     }
   }
@@ -140,14 +137,6 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
           background-color: var(--color-fill-accent-#{$color-variant}-hovered);
         }
         /* stylelint-enable bezier/validate-token */
-      }
-    }
-
-    &:where(.color-blue) {
-      background-color: var(--color-fill-neutral-light);
-
-      &#{$active-selector} {
-        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
 
@@ -180,9 +169,14 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
 
     &:where(.color-blue) {
       color: var(--color-text-neutral);
+      background-color: var(--color-fill-neutral-light);
 
       & :is(.ButtonIcon, .ButtonLoader) {
-        color: var(--color-text-neutral-heavier);
+        color: var(--color-icon-neutral-heavy);
+      }
+
+      &#{$active-selector} {
+        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
   }
@@ -199,12 +193,6 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
           /* stylelint-disable-next-line bezier/validate-token */
           background-color: var(--color-fill-accent-#{$color-variant}-hovered);
         }
-      }
-    }
-
-    &:where(.color-blue) {
-      &#{$active-selector} {
-        background-color: var(--color-fill-neutral-heaviest-hovered);
       }
     }
 
@@ -238,10 +226,16 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       & :is(.ButtonIcon, .ButtonLoader) {
         color: var(--color-icon-neutral-heavy);
       }
+
+      &#{$active-selector} {
+        background-color: var(--color-fill-neutral-heaviest-hovered);
+      }
     }
   }
 
   &:where(.style-floating, .style-floating-alt) {
+    overflow: hidden;
+
     @each $color-variant in $chromatic-color-variants {
       &:where(.color-#{$color-variant}) {
         color: var(--color-text-absolute-white);
@@ -254,14 +248,6 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
             --color-fill-accent-#{$color-variant}-heavier-hovered
           );
         }
-      }
-    }
-
-    &:where(.color-blue) {
-      background-color: var(--color-fill-neutral-heaviest);
-
-      &#{$active-selector} {
-        background-color: var(--color-fill-neutral-heaviest-hovered);
       }
     }
 
@@ -282,9 +268,14 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
 
     &:where(.color-blue) {
       color: var(--color-text-inverse);
+      background-color: var(--color-fill-neutral-heaviest);
 
       & :is(.ButtonIcon, .ButtonLoader) {
         color: var(--color-icon-inverse-heavier);
+      }
+
+      &#{$active-selector} {
+        background-color: var(--color-fill-neutral-heaviest-hovered);
       }
     }
   }
@@ -298,10 +289,6 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       .style-floating-alt
     ) {
     border-radius: 9999px;
-  }
-
-  &:where(.style-floating, .style-floating-alt) {
-    overflow: hidden;
   }
 
   &:where(.style-primary.color-blue:focus-visible) {

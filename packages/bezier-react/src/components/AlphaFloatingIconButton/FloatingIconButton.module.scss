@@ -87,17 +87,11 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       }
     }
 
-    &:where(.color-blue) {
-      background-color: var(--color-fill-neutral-heaviest);
-    }
   }
 
   &:where(.variant-secondary) {
     background-color: var(--color-fill-grey);
 
-    &:where(.color-blue) {
-      background-color: var(--color-fill-neutral-light);
-    }
   }
 
   /* color */
@@ -115,6 +109,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
     &:where(.color-blue) {
       color: var(--color-icon-inverse-heavier);
+      background-color: var(--color-fill-neutral-heaviest);
     }
   }
 
@@ -127,7 +122,8 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     }
 
     &:where(.color-blue) {
-      color: var(--color-text-neutral-heavier);
+      color: var(--color-icon-neutral-heavy);
+      background-color: var(--color-fill-neutral-light);
     }
   }
 
@@ -157,9 +153,9 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
         }
       }
 
-      &:where(.color-blue) {
+    &:where(.color-blue) {
+        color: var(--color-icon-neutral-heavy-hovered);
         background-color: var(--color-fill-neutral-light-hovered);
-        color: var(--color-text-neutral-heavier);
       }
     }
   }
