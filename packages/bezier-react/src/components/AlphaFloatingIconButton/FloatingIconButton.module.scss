@@ -86,10 +86,18 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
         background-color: var(#{$background-color});
       }
     }
+
+    &:where(.color-blue) {
+      background-color: var(--color-fill-neutral-heaviest);
+    }
   }
 
   &:where(.variant-secondary) {
     background-color: var(--color-fill-grey);
+
+    &:where(.color-blue) {
+      background-color: var(--color-fill-neutral-light);
+    }
   }
 
   /* color */
@@ -104,6 +112,10 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     &:where(.color-light-grey) {
       color: var(--color-text-absolute-white);
     }
+
+    &:where(.color-blue) {
+      color: var(--color-icon-inverse-heavier);
+    }
   }
 
   /* stylelint-disable-next-line no-duplicate-selectors */
@@ -112,6 +124,10 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       &:where(.color-#{'' + $color}) {
         color: var(#{$icon-color});
       }
+    }
+
+    &:where(.color-blue) {
+      color: var(--color-text-neutral-heavier);
     }
   }
 
@@ -127,6 +143,10 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
           background-color: var(#{$background-color}-hovered);
         }
       }
+
+      &:where(.color-blue) {
+        background-color: var(--color-fill-neutral-heaviest-hovered);
+      }
     }
 
     &:where(.variant-secondary) {
@@ -135,6 +155,11 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
           /* stylelint-disable-next-line bezier/validate-token */
           color: var(#{$hovered-color});
         }
+      }
+
+      &:where(.color-blue) {
+        background-color: var(--color-fill-neutral-light-hovered);
+        color: var(--color-text-neutral-heavier);
       }
     }
   }
