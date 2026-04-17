@@ -87,6 +87,10 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
         background-color: var(#{$background-color});
       }
     }
+
+    &:where(.color-blue) {
+      background-color: var(--color-fill-neutral-heaviest);
+    }
   }
 
   &:where(.variant-secondary) {
@@ -94,6 +98,10 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       &:where(.color-#{'' + $color}) {
         background-color: var(#{$background-color});
       }
+    }
+
+    &:where(.color-blue) {
+      background-color: var(--color-fill-neutral-light);
     }
   }
 
@@ -112,6 +120,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     &:where(.color-white-absolute) {
       background-color: var(--color-fill-absolute-white-transparent);
     }
+
   }
 
   /* color */
@@ -129,6 +138,14 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
     &:where(.color-white-absolute) {
       color: var(--color-text-absolute-black);
+    }
+
+    &:where(.color-blue) {
+      color: var(--color-text-inverse);
+
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-icon-inverse-heavier);
+      }
     }
   }
 
@@ -162,6 +179,22 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
         color: var(--color-icon-neutral);
       }
     }
+
+    &:where(.variant-secondary.color-blue) {
+      color: var(--color-text-neutral);
+
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-text-neutral-heavier);
+      }
+    }
+
+    &:where(.variant-tertiary.color-blue) {
+      color: var(--color-text-neutral-light);
+
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-icon-neutral-heavy);
+      }
+    }
   }
 
   &:where(.variant-tertiary, .variant-secondary):where(.color-white-absolute) {
@@ -176,19 +209,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
   /* border-radius */
   &:where(.variant-primary, .variant-secondary, .variant-tertiary) {
-    $border-radius-by-size: (
-      xs: var(--radius-6),
-      s: var(--radius-7),
-      m: var(--radius-10),
-      l: var(--radius-12),
-      xl: var(--radius-14),
-    );
-
-    @each $size, $border-radius in $border-radius-by-size {
-      &:where(.size-#{$size}) {
-        border-radius: $border-radius;
-      }
-    }
+    border-radius: 9999px;
   }
 
   /* TODO: use v2 token when design is specified */
@@ -201,6 +222,10 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
           background-color: var(#{$background-color}-hovered);
         }
       }
+
+      &:where(.color-blue) {
+        background-color: var(--color-fill-neutral-heaviest-hovered);
+      }
     }
 
     &:where(.variant-secondary) {
@@ -208,6 +233,10 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
         &:where(.color-#{'' + $color}) {
           background-color: var(#{$background-color}-hovered);
         }
+      }
+
+      &:where(.color-blue) {
+        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
 
@@ -227,6 +256,10 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
       &:where(.color-white-absolute) {
         background-color: var(--color-fill-absolute-white-transparent-hovered);
+      }
+
+      &:where(.color-blue) {
+        background-color: var(--color-fill-neutral-heaviest-hovered);
       }
     }
 
