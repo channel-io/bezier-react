@@ -13,7 +13,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   &:where(.size-xs) {
     min-width: 20px;
     height: 20px;
-    padding: 0 2px;
+    padding: 0 4px;
 
     &:where(.style-floating, .style-floating-alt) {
       padding: 0 7px;
@@ -23,7 +23,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   &:where(.size-s) {
     min-width: 24px;
     height: 24px;
-    padding: 0 4px;
+    padding: 0 6px;
 
     &:where(.style-floating, .style-floating-alt) {
       padding: 0 9px;
@@ -93,6 +93,19 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       }
     }
 
+    &:where(.color-blue) {
+      color: var(--color-text-inverse);
+      background-color: var(--color-fill-neutral-heaviest);
+
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-icon-inverse);
+      }
+
+      &#{$active-selector} {
+        background-color: var(--color-fill-neutral-heaviest-hovered);
+      }
+    }
+
     &:where(.color-monochrome) {
       color: var(--color-text-absolute-white);
       background-color: var(--color-fill-absolute-black-light);
@@ -124,6 +137,19 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
           background-color: var(--color-fill-accent-#{$color-variant}-hovered);
         }
         /* stylelint-enable bezier/validate-token */
+      }
+    }
+
+    &:where(.color-blue) {
+      color: var(--color-text-neutral);
+      background-color: var(--color-fill-neutral-light);
+
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-text-neutral-heavier);
+      }
+
+      &#{$active-selector} {
+        background-color: var(--color-fill-neutral-light-hovered);
       }
     }
 
@@ -170,6 +196,18 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       }
     }
 
+    &:where(.color-blue) {
+      color: var(--color-text-neutral-light);
+
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-icon-neutral-heavy);
+      }
+
+      &#{$active-selector} {
+        background-color: var(--color-fill-neutral-heaviest-hovered);
+      }
+    }
+
     &:where(.color-monochrome) {
       color: var(--color-text-neutral);
 
@@ -211,6 +249,19 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       }
     }
 
+    &:where(.color-blue) {
+      color: var(--color-text-inverse);
+      background-color: var(--color-fill-neutral-heaviest);
+
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-icon-inverse);
+      }
+
+      &#{$active-selector} {
+        background-color: var(--color-fill-neutral-heaviest-hovered);
+      }
+    }
+
     &:where(.color-monochrome) {
       color: var(--color-text-neutral);
       background-color: var(--color-fill-bright);
@@ -228,31 +279,18 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   }
 
   /* Effect */
-  &:where(.style-primary, .style-secondary, .style-tertiary) {
-    &:where(.size-xs) {
-      border-radius: var(--radius-6);
-    }
-
-    &:where(.size-s, .size-m) {
-      border-radius: var(--radius-8);
-    }
-
-    &:where(.size-l) {
-      border-radius: var(--radius-12);
-    }
-
-    &:where(.size-xl) {
-      border-radius: var(--radius-16);
-    }
-  }
-
-  &:where(.style-floating) {
-    overflow: hidden;
+  &:where(
+      .style-primary,
+      .style-secondary,
+      .style-tertiary,
+      .style-floating,
+      .style-floating-alt
+    ) {
     border-radius: 9999px;
   }
 
-  &:where(.style-floating-alt) {
-    border-radius: var(--radius-8);
+  &:where(.style-floating, .style-floating-alt) {
+    overflow: hidden;
   }
 
   &:where(.style-primary.color-blue:focus-visible) {
