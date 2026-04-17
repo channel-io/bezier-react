@@ -94,12 +94,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     }
 
     &:where(.color-blue) {
-      color: var(--color-text-inverse);
       background-color: var(--color-fill-neutral-heaviest);
-
-      & :is(.ButtonIcon, .ButtonLoader) {
-        color: var(--color-icon-inverse);
-      }
 
       &#{$active-selector} {
         background-color: var(--color-fill-neutral-heaviest-hovered);
@@ -124,6 +119,14 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       color: var(--color-text-inverse);
       background-color: var(--color-fill-neutral-heaviest);
     }
+
+    &:where(.color-blue) {
+      color: var(--color-text-inverse);
+
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-icon-inverse-heavier);
+      }
+    }
   }
 
   &:where(.style-secondary) {
@@ -141,12 +144,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     }
 
     &:where(.color-blue) {
-      color: var(--color-text-neutral);
       background-color: var(--color-fill-neutral-light);
-
-      & :is(.ButtonIcon, .ButtonLoader) {
-        color: var(--color-text-neutral-heavier);
-      }
 
       &#{$active-selector} {
         background-color: var(--color-fill-neutral-light-hovered);
@@ -179,6 +177,14 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
         background-color: var(--color-fill-neutral-light-hovered);
       }
     }
+
+    &:where(.color-blue) {
+      color: var(--color-text-neutral);
+
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-text-neutral-heavier);
+      }
+    }
   }
 
   &:where(.style-tertiary) {
@@ -197,12 +203,6 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     }
 
     &:where(.color-blue) {
-      color: var(--color-text-neutral-light);
-
-      & :is(.ButtonIcon, .ButtonLoader) {
-        color: var(--color-icon-neutral-heavy);
-      }
-
       &#{$active-selector} {
         background-color: var(--color-fill-neutral-heaviest-hovered);
       }
@@ -229,6 +229,14 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
 
       &#{$active-selector} {
         background-color: var(--color-fill-neutral-light-hovered);
+      }
+    }
+
+    &:where(.color-blue) {
+      color: var(--color-text-neutral-light);
+
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-icon-neutral-heavy);
       }
     }
   }
@@ -250,12 +258,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     }
 
     &:where(.color-blue) {
-      color: var(--color-text-inverse);
       background-color: var(--color-fill-neutral-heaviest);
-
-      & :is(.ButtonIcon, .ButtonLoader) {
-        color: var(--color-icon-inverse);
-      }
 
       &#{$active-selector} {
         background-color: var(--color-fill-neutral-heaviest-hovered);
@@ -275,6 +278,14 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     &:where(.color-monochrome-dark) {
       color: var(--color-text-neutral);
       background-color: var(--color-fill-bright);
+    }
+
+    &:where(.color-blue) {
+      color: var(--color-text-inverse);
+
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-icon-inverse-heavier);
+      }
     }
   }
 
