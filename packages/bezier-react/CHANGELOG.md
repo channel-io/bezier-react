@@ -1,5 +1,18 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.0
+
+### Major Changes
+
+- Start the v4 prerelease channel for upcoming breaking changes in bezier-react and bezier-tokens. ([#2811](https://github.com/channel-io/bezier-react/pull/2811)) by @timok1m
+
+  Use the `next` prereleases to validate migrations before the stable v4 release.
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@1.0.0-next.0
+
 ## 3.6.6
 
 ### Patch Changes
