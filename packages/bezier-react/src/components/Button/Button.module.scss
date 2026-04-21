@@ -228,7 +228,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       }
 
       &#{$active-selector} {
-        background-color: var(--color-fill-neutral-heaviest-hovered);
+        background-color: var(--color-fill-neutral-transparent-hovered);
       }
     }
   }
