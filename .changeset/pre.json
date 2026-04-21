@@ -11,5 +11,7 @@
     "@channel.io/bezier-tokens": "0.6.0",
     "@channel.io/stylelint-bezier": "0.3.3"
   },
-  "changesets": []
+  "changesets": [
+    "thirty-onions-end"
+  ]
 }
