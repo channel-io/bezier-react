@@ -38,6 +38,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(
       typo = '15',
       color,
       bold,
+      fontWeight,
       italic,
       truncated,
       align,
@@ -51,6 +52,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(
         ref: forwardedRef,
         style: {
           '--b-text-color': colorTokenCssVar(color),
+          '--b-text-font-weight': fontWeight,
           '--b-text-line-clamp': isMultiLineTruncated ? truncated : undefined,
           ...marginStyles.style,
           ...style,

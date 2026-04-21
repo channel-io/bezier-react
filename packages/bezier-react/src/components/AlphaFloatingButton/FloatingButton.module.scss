@@ -57,7 +57,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     height: 20px;
     padding: 0 6px;
 
-    & :where(.ButtonText) {
+    & .ButtonText {
       padding: 0 3px;
     }
   }
@@ -66,7 +66,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     height: 24px;
     padding: 0 8px;
 
-    & :where(.ButtonText) {
+    & .ButtonText {
       padding: 0 4px;
     }
   }
@@ -75,7 +75,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     height: 36px;
     padding: 0 12px;
 
-    & :where(.ButtonText) {
+    & .ButtonText {
       padding: 0 4px;
     }
   }
@@ -84,7 +84,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     height: 44px;
     padding: 0 14px;
 
-    & :where(.ButtonText) {
+    & .ButtonText {
       padding: 0 6px;
     }
   }
@@ -93,7 +93,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     height: 54px;
     padding: 0 18px;
 
-    & :where(.ButtonText) {
+    & .ButtonText {
       padding: 0 6px;
     }
   }

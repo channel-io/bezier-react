@@ -61,7 +61,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   }
 
   &:where(.size-xs, .size-s) {
-    & :where(.ButtonText) {
+    & .ButtonText {
       padding: 0 3px;
     }
   }
@@ -71,7 +71,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       gap: 2px;
     }
 
-    & :where(.ButtonText) {
+    & .ButtonText {
       padding: 0 4px;
     }
   }

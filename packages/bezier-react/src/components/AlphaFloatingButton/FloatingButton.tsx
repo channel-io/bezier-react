@@ -107,7 +107,7 @@ export const FloatingButton = forwardRef<
         <Text
           className={styles.ButtonText}
           typo={getTypography(size)}
-          bold
+          fontWeight={500}
         >
           {text}
         </Text>
