@@ -29,6 +29,19 @@ describe('Text', () => {
     expect(rendered).toHaveClass(styles.italic)
   })
 
+  it('should receives font weight style', () => {
+    const { getByText } = renderComponent({ fontWeight: 500 })
+    const rendered = getByText(TEXT)
+    expect(rendered).toHaveStyle('--b-text-font-weight: 500')
+  })
+
+  it('should prioritize font weight over bold', () => {
+    const { getByText } = renderComponent({ bold: true, fontWeight: 500 })
+    const rendered = getByText(TEXT)
+    expect(rendered).toHaveClass(styles.bold)
+    expect(rendered).toHaveStyle('--b-text-font-weight: 500')
+  })
+
   it('should receives truncated style', () => {
     const { getByText } = renderComponent({ truncated: true })
     const rendered = getByText(TEXT)

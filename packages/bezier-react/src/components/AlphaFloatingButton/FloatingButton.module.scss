@@ -57,7 +57,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     height: 20px;
     padding: 0 6px;
 
-    & :where(.ButtonText) {
+    & .ButtonText {
       padding: 0 3px;
     }
   }
@@ -66,7 +66,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     height: 24px;
     padding: 0 8px;
 
-    & :where(.ButtonText) {
+    & .ButtonText {
       padding: 0 4px;
     }
   }
@@ -75,7 +75,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     height: 36px;
     padding: 0 12px;
 
-    & :where(.ButtonText) {
+    & .ButtonText {
       padding: 0 4px;
     }
   }
@@ -84,7 +84,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     height: 44px;
     padding: 0 14px;
 
-    & :where(.ButtonText) {
+    & .ButtonText {
       padding: 0 6px;
     }
   }
@@ -93,7 +93,7 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     height: 54px;
     padding: 0 18px;
 
-    & :where(.ButtonText) {
+    & .ButtonText {
       padding: 0 6px;
     }
   }
@@ -105,10 +105,12 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
         background-color: var(#{$background-color});
       }
     }
+
   }
 
   &:where(.variant-secondary) {
     background-color: var(--color-fill-grey);
+
   }
 
   /* color */
@@ -118,6 +120,15 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
 
     &:where(.color-dark-grey) {
       color: var(--color-text-inverse);
+    }
+
+    &:where(.color-blue) {
+      color: var(--color-text-inverse);
+      background-color: var(--color-fill-neutral-heaviest);
+
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-icon-inverse-heavier);
+      }
     }
   }
 
@@ -136,6 +147,15 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
         }
       }
     }
+
+    &:where(.color-blue) {
+      color: var(--color-text-neutral);
+      background-color: var(--color-fill-neutral-light);
+
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-icon-neutral-heavy);
+      }
+    }
   }
 
   /* visual effect on interaction */
@@ -148,6 +168,10 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
       }
     }
 
+    &:where(.variant-primary.color-blue) {
+      background-color: var(--color-fill-neutral-heaviest-hovered);
+    }
+
     @each $button-color, $color in $hovered-color-map {
       &:where(.variant-secondary.color-#{'' + $button-color}) {
         color: var(#{$color});
@@ -155,6 +179,15 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
         & :is(.ButtonIcon) {
           color: var(#{$color});
         }
+      }
+    }
+
+    &:where(.variant-secondary.color-blue) {
+      color: var(--color-text-neutral-hovered);
+      background-color: var(--color-fill-neutral-light-hovered);
+
+      & :is(.ButtonIcon, .ButtonLoader) {
+        color: var(--color-icon-neutral-heavy-hovered);
       }
     }
   }

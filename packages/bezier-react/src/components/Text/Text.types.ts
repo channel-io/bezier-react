@@ -22,6 +22,7 @@ type Typography =
   | '36'
 
 type TextAlign = 'left' | 'center' | 'right'
+type TextFontWeight = 400 | 500 | 600 | 700
 
 interface TextOwnProps {
   /**
@@ -38,6 +39,13 @@ interface TextOwnProps {
    * @default false
    */
   bold?: boolean
+  /**
+   * Font weight of the text.
+   * If `bold` and `fontWeight` are used together, `fontWeight` takes precedence.
+   * This prop is currently intended for internal Bezier component usage.
+   * @internal
+   */
+  fontWeight?: TextFontWeight
   /**
    * Whether the text is italic.
    * @default false

@@ -109,7 +109,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           <Text
             className={styles.ButtonText}
             typo={getTypography(size)}
-            bold
+            fontWeight={500}
           >
             {text}
           </Text>
