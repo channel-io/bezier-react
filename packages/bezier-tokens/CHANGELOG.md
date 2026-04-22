@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 1.0.0-next.1
+
+### Patch Changes
+
+- Fix duplicated beta chart color token and restore chart theme 06 to #80B6FD. ([#2816](https://github.com/channel-io/bezier-react/pull/2816)) by @timok1m
+
 ## 1.0.0-next.0
 
 ### Major Changes
