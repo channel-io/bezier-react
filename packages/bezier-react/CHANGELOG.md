@@ -1,5 +1,14 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.1
+
+### Patch Changes
+
+- Adjust tertiary hover colors for redesigned Button and AlphaButton blue variants. ([#2817](https://github.com/channel-io/bezier-react/pull/2817)) by @timok1m
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@1.0.0-next.1
+
 ## 4.0.0-next.0
 
 ### Major Changes
