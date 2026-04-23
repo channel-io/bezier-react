@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.3
+
+### Patch Changes
+
+- Tighten horizontal text padding for medium-sized Button, AlphaButton, and AlphaFloatingButton. ([#2821](https://github.com/channel-io/bezier-react/pull/2821)) by @timok1m
+
 ## 4.0.0-next.2
 
 ### Patch Changes
