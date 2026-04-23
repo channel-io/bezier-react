@@ -12,7 +12,9 @@
     "@channel.io/stylelint-bezier": "0.3.3"
   },
   "changesets": [
+    "calm-poets-visit",
     "fifty-turkeys-wish",
+    "sour-pens-sing",
     "young-regions-thank"
   ]
 }
