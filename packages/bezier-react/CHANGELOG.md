@@ -1,5 +1,14 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.2
+
+### Patch Changes
+
+- Update the temporary v1 and v2 button style overrides used for redesign validation. ([#2819](https://github.com/channel-io/bezier-react/pull/2819)) by @timok1m
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@1.0.0-next.2
+
 ## 4.0.0-next.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 1.0.0-next.2
+
+### Patch Changes
+
+- Update beta chart theme colors. ([#2819](https://github.com/channel-io/bezier-react/pull/2819)) by @timok1m
+
 ## 1.0.0-next.1
 
 ### Patch Changes
