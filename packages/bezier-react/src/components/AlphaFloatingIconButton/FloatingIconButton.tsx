@@ -67,6 +67,7 @@ export const FloatingIconButton = forwardRef<
           <Icon
             size={getIconSize(size)}
             source={content}
+            className={styles.ButtonIcon}
           />
         ) : (
           content
