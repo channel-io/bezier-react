@@ -42,6 +42,11 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
     & .ButtonText {
       padding: 0 3px;
     }
+
+    & :is(.ButtonIcon, .Loader) {
+      width: 14px;
+      height: 14px;
+    }
   }
 
   &:where(.size-s) {
@@ -54,20 +59,30 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   }
 
   &:where(.size-m) {
-    height: 36px;
+    height: 32px;
     padding: 0 10px;
 
     & .ButtonText {
       padding: 0 4px;
     }
+
+    & :is(.ButtonIcon, .Loader) {
+      width: 18px;
+      height: 18px;
+    }
   }
 
   &:where(.size-l) {
-    height: 44px;
-    padding: 0 14px;
+    height: 40px;
+    padding: 0 12px;
 
     & .ButtonText {
       padding: 0 6px;
+    }
+
+    & :is(.ButtonIcon, .Loader) {
+      width: 20px;
+      height: 20px;
     }
   }
 

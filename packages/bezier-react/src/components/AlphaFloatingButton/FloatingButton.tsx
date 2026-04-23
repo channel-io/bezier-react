@@ -49,10 +49,10 @@ function getIconSize(size: FloatingButtonSize) {
 function getTypography(size: FloatingButtonSize) {
   return (
     {
-      xs: '13',
+      xs: '12',
       s: '13',
-      m: '14',
-      l: '15',
+      m: '13',
+      l: '14',
       xl: '18',
     } as const
   )[size]

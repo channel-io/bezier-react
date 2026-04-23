@@ -22,10 +22,10 @@ export const BUTTON_TEST_ID = 'bezier-button'
 function getTypography(size: ButtonSize) {
   return (
     {
-      xs: '13',
+      xs: '12',
       s: '13',
-      m: '14',
-      l: '15',
+      m: '13',
+      l: '14',
       xl: '18',
     } as const
   )[size]
@@ -161,7 +161,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
         {loading && (
           <div className={styles.ButtonLoader}>
-            <Spinner size={getSpinnerSize(size)} />
+            <Spinner
+              size={getSpinnerSize(size)}
+              className={styles.ButtonSpinner}
+            />
           </div>
         )}
       </Comp>

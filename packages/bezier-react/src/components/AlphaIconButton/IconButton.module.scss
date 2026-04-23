@@ -13,7 +13,12 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   &:where(.size-xs) {
     @include dimension.square(20px);
 
-    padding: 2px;
+    padding: 3px;
+
+    & :is(.ButtonIcon, .Loader) {
+      width: 14px;
+      height: 14px;
+    }
   }
 
   &:where(.size-s) {
@@ -23,15 +28,25 @@ $chromatic-colors: 'blue', 'red', 'green', 'cobalt', 'orange', 'pink', 'purple';
   }
 
   &:where(.size-m) {
-    @include dimension.square(36px);
+    @include dimension.square(32px);
 
-    padding: 8px;
+    padding: 7px;
+
+    & :is(.ButtonIcon, .Loader) {
+      width: 18px;
+      height: 18px;
+    }
   }
 
   &:where(.size-l) {
-    @include dimension.square(44px);
+    @include dimension.square(40px);
 
-    padding: 12px;
+    padding: 10px;
+
+    & :is(.ButtonIcon, .Loader) {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   &:where(.size-xl) {
