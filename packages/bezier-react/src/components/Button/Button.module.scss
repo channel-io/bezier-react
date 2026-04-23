@@ -44,6 +44,14 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
       padding: 0 14px;
     }
 
+    & :where(.ButtonContent) {
+      gap: 2px;
+    }
+
+    & .ButtonText {
+      padding: 0 3px;
+    }
+
     & :is(.ButtonIcon, .ButtonSpinner) {
       width: 18px;
       height: 18px;
@@ -81,7 +89,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     }
   }
 
-  &:where(.size-m, .size-l, .size-xl) {
+  &:where(.size-l, .size-xl) {
     & :where(.ButtonContent) {
       gap: 2px;
     }
