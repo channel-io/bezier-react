@@ -4,6 +4,8 @@
 
 ### Patch Changes
 
+- Update chart colors.
+
 - Update bezier-react v1/v2 button style overrides for redesign validation.
 
 - Adjust tertiary hover colors for redesigned Button and AlphaButton blue variants. ([#2817](https://github.com/channel-io/bezier-react/pull/2817)) by @timok1m
