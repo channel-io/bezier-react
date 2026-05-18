@@ -1,5 +1,48 @@
 # @channel.io/bezier-icons
 
+## 0.58.0
+
+### Minor Changes
+
+- Update icons ([#2824](https://github.com/channel-io/bezier-react/pull/2824)) by @wes5510
+
+  Added
+
+  - arrow-left-small.svg
+  - arrow-right-small.svg
+  - minus-small.svg
+  - moon-sleep.svg
+
+  Modified
+
+  - bookmark-filled.svg
+  - bookmark.svg
+  - chat-error-filled.svg
+  - chat-error.svg
+  - chat-info.svg
+  - chat-question-filled.svg
+  - chat-question.svg
+  - dialog-down.svg
+  - dialog-up.svg
+  - error-filled.svg
+  - error-triangle-filled.svg
+  - error-triangle.svg
+  - error.svg
+  - help-filled.svg
+  - help.svg
+  - info-filled.svg
+  - info.svg
+  - send-filled.svg
+  - send-forward-failed-filled.svg
+  - send-forward-failed.svg
+  - send-forward-filled.svg
+  - send-forward.svg
+  - send.svg
+  - split-left-filled.svg
+  - split-left.svg
+  - split-right-filled.svg
+  - split-right.svg
+
 ## 0.57.0
 
 ### Minor Changes
