@@ -1,5 +1,20 @@
 # @channel.io/bezier-icons
 
+## 0.59.0
+
+### Minor Changes
+
+- Update icons ([#2827](https://github.com/channel-io/bezier-react/pull/2827)) by @wes5510
+
+  Modified
+
+  - bookmark.svg
+  - chat-question.svg
+
+  Added
+
+  - notebook-cos.svg
+
 ## 0.58.0
 
 ### Minor Changes
