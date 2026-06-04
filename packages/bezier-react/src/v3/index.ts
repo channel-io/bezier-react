@@ -2,5 +2,7 @@
 // Root exports are kept for compatibility with older component APIs.
 export * from './Box'
 export * from './Divider'
+export * from './HStack'
 export * from './Spinner'
 export * from './Text'
+export * from './VStack'
