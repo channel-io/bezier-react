@@ -1,4 +1,3 @@
-// Bezier v3 components entry (`@channel.io/bezier-react/v3`).
-// Re-export v3 wrapping components here. Populated incrementally by
-// component tasks (WEBTECH-7745 etc.).
-export {}
+// Prefer this subpath for new Bezier React usage.
+// Root exports are kept for compatibility with older component APIs.
+export * from './Box'
