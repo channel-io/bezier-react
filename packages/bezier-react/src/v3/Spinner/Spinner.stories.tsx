@@ -11,7 +11,7 @@ const meta: Meta<typeof Spinner> = {
       control: {
         type: 'radio',
       },
-      options: ['xl', 'l', 'm', 's', 'xs'],
+      options: ['xs', 's', 'm', 'l', 'xl'],
     },
   },
 }
