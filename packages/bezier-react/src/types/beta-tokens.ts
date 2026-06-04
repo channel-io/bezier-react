@@ -33,6 +33,14 @@ export type BetaGlobalColor = RemovePrefix<
 >
 
 /**
+ * Global typography font weight tokens
+ */
+export type BetaTypographyFontWeight = RemovePrefix<
+  'typography-font-weight',
+  Extract<keyof BetaGlobalToken['typography'], string>
+>
+
+/**
  * Semantic color tokens (for props)
  */
 export type BetaSemanticColor = RemovePrefix<
