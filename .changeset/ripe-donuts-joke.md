@@ -1,10 +1,6 @@
 ---
-'@channel.io/bezier-react': minor
+"@channel.io/bezier-react": minor
 ---
-
----
-
-## "@channel.io/bezier-react": minor
 
 Add v3 composite components: `Avatar`, `AvatarGroup`, `Badge`, `Status`, and supporting `BaseTagBadge`.
 
