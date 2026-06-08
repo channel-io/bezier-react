@@ -1,8 +1,7 @@
 import { render } from '~/src/utils/test'
+import styles from '~/src/v3/BaseStack/BaseStack.module.scss'
 
 import { VStack } from './VStack'
-
-import styles from '~/src/v3/BaseStack/BaseStack.module.scss'
 
 describe('VStack', () => {
   it('should render vertical stack', () => {

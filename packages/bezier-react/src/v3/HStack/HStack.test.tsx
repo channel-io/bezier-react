@@ -1,8 +1,7 @@
 import { render } from '~/src/utils/test'
+import styles from '~/src/v3/BaseStack/BaseStack.module.scss'
 
 import { HStack } from './HStack'
-
-import styles from '~/src/v3/BaseStack/BaseStack.module.scss'
 
 describe('HStack', () => {
   it('should render horizontal stack', () => {
