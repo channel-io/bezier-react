@@ -5,8 +5,8 @@ import {
 import {
   type BezierComponentProps,
   type ChildrenProps,
-  type MarginProps,
   type PolymorphicProps,
+  type V3MarginProps,
 } from '~/src/types/props'
 
 type Typography =
@@ -66,5 +66,5 @@ export interface TextProps
   extends Omit<BezierComponentProps, keyof TextOwnProps>,
     PolymorphicProps,
     ChildrenProps,
-    MarginProps,
+    V3MarginProps,
     TextOwnProps {}

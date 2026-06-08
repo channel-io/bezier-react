@@ -464,6 +464,17 @@ export interface LayoutProps {
 export type V3MarginProps = MarginProps
 
 /**
+ * v3 color props mirror ColorProps but only allow beta (v3) semantic color tokens.
+ * TODO: Fold this into ColorProps when legacy token unions are removed for 4.0.0.
+ */
+export interface V3ColorProps {
+  /**
+   * Color from the design system's semantic color.
+   */
+  color?: BetaSemanticColor
+}
+
+/**
  * v3 layout props mirror LayoutProps while keeping token-typed fields narrow.
  * TODO: Fold this into LayoutProps when legacy token unions are removed for 4.0.0.
  */
