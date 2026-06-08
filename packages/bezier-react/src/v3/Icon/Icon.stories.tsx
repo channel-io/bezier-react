@@ -157,7 +157,6 @@ export const AllIcons: Story = {
           <Icon
             source={source}
             size="24"
-            color="icon-neutral-heavier"
           />
           <Text
             typo="12"
