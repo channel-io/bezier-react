@@ -272,6 +272,9 @@ export interface MarginProps {
 type Position = 'absolute' | 'fixed' | 'relative' | 'sticky'
 type Overflow = 'auto' | 'hidden' | 'scroll' | 'visible'
 
+export type V3Position = Position
+export type V3Overflow = Overflow
+
 /**
  * Props for defining layout-related properties of a component, such as padding, size, and position.
  */
@@ -456,6 +459,55 @@ export interface LayoutProps {
    * @default initial
    */
   overflowY?: Overflow
+}
+
+export type V3MarginProps = MarginProps
+
+/**
+ * v3 color props mirror ColorProps but only allow beta (v3) semantic color tokens.
+ * TODO: Fold this into ColorProps when legacy token unions are removed for 4.0.0.
+ */
+export interface V3ColorProps {
+  /**
+   * Color from the design system's semantic color.
+   */
+  color?: BetaSemanticColor
+}
+
+/**
+ * v3 layout props mirror LayoutProps while keeping token-typed fields narrow.
+ * TODO: Fold this into LayoutProps when legacy token unions are removed for 4.0.0.
+ */
+export interface V3LayoutProps
+  extends Omit<
+    LayoutProps,
+    'backgroundColor' | 'borderColor' | 'borderRadius' | 'elevation' | 'zIndex'
+  > {
+  /**
+   * the background color of an element.
+   * @default initial
+   */
+  backgroundColor?: BetaBackgroundSemanticColor
+  /**
+   * the border color of an element.
+   * @default initial
+   */
+  borderColor?: BetaBorderSemanticColor
+  /**
+   * the border radius of an element.
+   * @default initial
+   */
+  borderRadius?: BetaRadius
+  /**
+   * the elevation of an element. (box-shadow)
+   * @default initial
+   */
+  elevation?: BetaElevation
+  /**
+   * the z-index of an element.
+   * @default initial
+   */
+  zIndex?: BetaZIndex
 }
 
 /**

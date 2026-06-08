@@ -17,7 +17,13 @@ import {
   type BetaRadius,
   type BetaZIndex,
 } from './beta-tokens'
-import { type FormFieldSize, type LayoutProps, type MarginProps } from './props'
+import {
+  type FormFieldSize,
+  type LayoutProps,
+  type MarginProps,
+  type V3LayoutProps,
+  type V3MarginProps,
+} from './props'
 import { type Elevation, type Radius, type ZIndex } from './tokens'
 
 export const splitByMarginProps = <Props extends MarginProps>({
@@ -119,6 +125,16 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
   },
   rest,
 ]
+
+export const splitByV3MarginProps = <Props extends V3MarginProps>(
+  props: Props
+): [V3MarginProps, Omit<Props, keyof V3MarginProps>] =>
+  splitByMarginProps(props)
+
+export const splitByV3LayoutProps = <Props extends V3LayoutProps>(
+  props: Props
+): [V3LayoutProps, Omit<Props, keyof V3LayoutProps>] =>
+  splitByLayoutProps(props) as [V3LayoutProps, Omit<Props, keyof V3LayoutProps>]
 
 function getElevationClassName(elevation: Elevation | BetaElevation) {
   return elevationStyles[`elevation-${elevation}`]
@@ -231,6 +247,11 @@ export const getLayoutStyles = ({
     zIndex && getZIndexClassName(zIndex)
   ),
 })
+
+export const getV3MarginStyles = getMarginStyles
+
+export const getV3LayoutStyles = (props: V3LayoutProps) =>
+  getLayoutStyles(props)
 
 export function getFormFieldSizeClassName(size: FormFieldSize) {
   return formFieldSizeStyles[`size-${size}`]

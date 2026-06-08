@@ -1,0 +1,81 @@
+'use client'
+
+import { createElement, forwardRef } from 'react'
+
+import classNames from 'classnames'
+
+import { getMarginStyles, splitByMarginProps } from '~/src/types/props-helpers'
+import { colorTokenCssVar } from '~/src/utils/style'
+import { isNumber } from '~/src/utils/type'
+
+import { type TextProps } from './Text.types'
+
+import styles from './Text.module.scss'
+
+function fontWeightTokenCssVar(fontWeight?: TextProps['fontWeight']) {
+  return fontWeight ? `var(--typography-font-weight-${fontWeight})` : undefined
+}
+
+/**
+ * `Text` is a component for representing the typography of a design system.
+ * @example
+ *
+ * ```tsx
+ * <Text
+ *   typo="15"
+ *   color="text-neutral"
+ * >
+ *   Hello, Channel!
+ * </Text>
+ * ```
+ */
+export const Text = forwardRef<HTMLElement, TextProps>(
+  function Text(props, forwardedRef) {
+    const [marginProps, marginRest] = splitByMarginProps(props)
+    const marginStyles = getMarginStyles(marginProps)
+
+    const {
+      children,
+      style,
+      className,
+      as = 'span',
+      typo = '15',
+      color,
+      bold,
+      fontWeight,
+      italic,
+      truncated,
+      align,
+      ...rest
+    } = marginRest
+    const isMultiLineTruncated = isNumber(truncated) && truncated >= 1
+
+    return createElement(
+      as,
+      {
+        ref: forwardedRef,
+        style: {
+          '--b-text-color': colorTokenCssVar(color),
+          '--b-text-font-weight': fontWeightTokenCssVar(fontWeight),
+          '--b-text-line-clamp': isMultiLineTruncated ? truncated : undefined,
+          ...marginStyles.style,
+          ...style,
+        },
+        className: classNames(
+          styles.Text,
+          styles[`typo-${typo}`],
+          bold && styles.bold,
+          italic && styles.italic,
+          truncated === true
+            ? styles.truncated
+            : isMultiLineTruncated && styles['multi-line-truncated'],
+          align && styles[`align-${align}`],
+          marginStyles.className,
+          className
+        ),
+        ...rest,
+      },
+      children
+    )
+  }
+)
