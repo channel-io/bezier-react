@@ -1,0 +1,91 @@
+.BaseTagBadge {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+  padding: 1px 4px;
+
+  color: var(--b-tag-badge-color);
+
+  background-color: var(--b-tag-badge-background-color);
+  border-radius: var(--radius-32);
+
+  &:where(.variant-default) {
+    --b-tag-badge-background-color: var(--color-fill-neutral-light);
+    --b-tag-badge-color: var(--color-text-neutral);
+  }
+
+  &:where(.variant-neutral-light) {
+    --b-tag-badge-background-color: var(--color-fill-neutral-light);
+    --b-tag-badge-color: var(--color-text-neutral-lighter);
+  }
+
+  &:where(.variant-neutral-dark) {
+    --b-tag-badge-background-color: var(--color-fill-neutral-heavier);
+    --b-tag-badge-color: var(--color-text-absolute-white);
+  }
+
+  &:where(.variant-blue) {
+    --b-tag-badge-background-color: var(--color-fill-accent-blue-heavy);
+    --b-tag-badge-color: var(--color-text-accent-blue);
+  }
+
+  &:where(.variant-cobalt) {
+    --b-tag-badge-background-color: var(--color-fill-accent-cobalt-heavy);
+    --b-tag-badge-color: var(--color-text-accent-cobalt);
+  }
+
+  &:where(.variant-teal) {
+    --b-tag-badge-background-color: var(--color-fill-accent-teal-heavy);
+    --b-tag-badge-color: var(--color-text-accent-teal);
+  }
+
+  &:where(.variant-green) {
+    --b-tag-badge-background-color: var(--color-fill-accent-green-heavy);
+    --b-tag-badge-color: var(--color-text-accent-green);
+  }
+
+  &:where(.variant-olive) {
+    --b-tag-badge-background-color: var(--color-fill-accent-olive-heavy);
+    --b-tag-badge-color: var(--color-fill-accent-olive-heavier);
+  }
+
+  &:where(.variant-pink) {
+    --b-tag-badge-background-color: var(--color-fill-accent-pink-heavy);
+    --b-tag-badge-color: var(--color-text-accent-pink);
+  }
+
+  &:where(.variant-navy) {
+    --b-tag-badge-background-color: var(--color-fill-accent-navy-heavy);
+    --b-tag-badge-color: var(--color-text-accent-navy);
+  }
+
+  &:where(.variant-yellow) {
+    --b-tag-badge-background-color: var(--color-fill-accent-yellow-heavy);
+    --b-tag-badge-color: var(--color-text-accent-yellow);
+  }
+
+  &:where(.variant-orange) {
+    --b-tag-badge-background-color: var(--color-fill-accent-orange-heavy);
+    --b-tag-badge-color: var(--color-text-accent-orange);
+  }
+
+  &:where(.variant-red) {
+    --b-tag-badge-background-color: var(--color-fill-accent-red-heavy);
+    --b-tag-badge-color: var(--color-text-accent-red);
+  }
+
+  &:where(.variant-purple) {
+    --b-tag-badge-background-color: var(--color-fill-accent-purple-heavy);
+    --b-tag-badge-color: var(--color-text-accent-purple);
+  }
+}
+
+.label {
+  padding: 0 4px;
+}
+
+.label-xs {
+  padding: 0 2px;
+}
