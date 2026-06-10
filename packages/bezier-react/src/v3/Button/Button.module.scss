@@ -1,0 +1,207 @@
+@use '../../styles/mixins/dimension';
+
+$active-selector: ':where(.active, :hover):where(:not(:disabled))';
+
+.ButtonText {
+  flex: 0 1 auto;
+}
+
+.Button {
+  --b-v3-button-content-gap: 0;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  color: var(--b-v3-button-text-color);
+
+  background-color: var(--b-v3-button-background-color);
+  border: none;
+  border-radius: 9999px;
+  box-shadow: var(--b-v3-button-box-shadow, none);
+
+  transition:
+    color var(--motion-transition-fast),
+    background-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast);
+
+  &:where(.size-xs) {
+    min-width: 20px;
+    height: 20px;
+    padding: 2px 4px;
+
+    & .ButtonText {
+      padding: 0 3px;
+    }
+  }
+
+  &:where(.size-s) {
+    min-width: 24px;
+    height: 24px;
+    padding: 3px 6px;
+
+    & .ButtonText {
+      padding: 0 3px;
+    }
+  }
+
+  &:where(.size-m) {
+    --b-v3-button-content-gap: 2px;
+
+    min-width: 36px;
+    height: 32px;
+    padding: 7px 10px;
+
+    & .ButtonText {
+      padding: 0 4px;
+    }
+  }
+
+  &:where(.size-l) {
+    --b-v3-button-content-gap: 2px;
+
+    min-width: 44px;
+    height: 44px;
+    padding: 13px 12px;
+
+    & .ButtonText {
+      padding: 0 4px;
+    }
+  }
+
+  &:where(.variant-filled.semantic-primary) {
+    --b-v3-button-text-color: var(--color-text-inverse);
+    --b-v3-button-icon-color: var(--color-icon-inverse-heavier);
+    --b-v3-button-spinner-color: var(--color-fill-bright);
+    --b-v3-button-background-color: var(--color-fill-neutral-heaviest);
+
+    &#{$active-selector} {
+      --b-v3-button-background-color: var(--color-fill-neutral-heaviest-hovered);
+    }
+  }
+
+  &:where(.variant-filled.semantic-secondary) {
+    --b-v3-button-text-color: var(--color-text-neutral);
+    --b-v3-button-icon-color: var(--color-icon-neutral-heavy);
+    --b-v3-button-spinner-color: var(--color-fill-bright);
+    --b-v3-button-background-color: var(--color-fill-neutral-light);
+
+    &#{$active-selector} {
+      --b-v3-button-background-color: var(--color-fill-neutral-light-hovered);
+    }
+  }
+
+  &:where(.variant-filled.semantic-destructive) {
+    --b-v3-button-text-color: var(--color-text-inverse);
+    --b-v3-button-icon-color: var(--color-icon-inverse-heavier);
+    --b-v3-button-spinner-color: var(--color-fill-bright);
+    --b-v3-button-background-color: var(--color-fill-accent-red-heavier);
+
+    &#{$active-selector} {
+      --b-v3-button-background-color: var(
+        --color-fill-accent-red-heavier-hovered
+      );
+    }
+  }
+
+  &:where(.variant-outlined) {
+    --b-v3-button-background-color: var(--color-fill-neutral-transparent);
+    --b-v3-button-box-shadow: inset 0 0 0 1px var(--color-border-neutral);
+
+    &#{$active-selector} {
+      --b-v3-button-background-color: var(
+        --color-fill-neutral-transparent-hovered
+      );
+    }
+  }
+
+  &:where(.variant-outlined.semantic-primary) {
+    --b-v3-button-text-color: var(--color-text-neutral-heaviest);
+    --b-v3-button-icon-color: var(--color-icon-neutral-heavier);
+    --b-v3-button-spinner-color: var(--b-v3-button-text-color);
+  }
+
+  &:where(.variant-outlined.semantic-secondary) {
+    --b-v3-button-text-color: var(--color-text-neutral-light);
+    --b-v3-button-icon-color: var(--color-icon-neutral);
+    --b-v3-button-spinner-color: var(--b-v3-button-text-color);
+  }
+
+  &:where(.variant-outlined.semantic-destructive) {
+    --b-v3-button-text-color: var(--color-text-accent-red);
+    --b-v3-button-icon-color: var(--color-icon-accent-red);
+    --b-v3-button-spinner-color: var(--b-v3-button-text-color);
+  }
+
+  &:where(.variant-ghost) {
+    --b-v3-button-background-color: var(--color-fill-neutral-transparent);
+
+    &#{$active-selector} {
+      --b-v3-button-background-color: var(
+        --color-fill-neutral-transparent-hovered
+      );
+    }
+  }
+
+  &:where(.variant-ghost.semantic-primary) {
+    --b-v3-button-text-color: var(--color-text-neutral-light);
+    --b-v3-button-icon-color: var(--color-icon-neutral-heavy);
+    --b-v3-button-spinner-color: var(--b-v3-button-text-color);
+  }
+
+  &:where(.variant-ghost.semantic-secondary) {
+    --b-v3-button-text-color: var(--color-text-neutral-lighter);
+    --b-v3-button-icon-color: var(--color-icon-neutral);
+    --b-v3-button-spinner-color: var(--b-v3-button-text-color);
+  }
+
+  &:where(.variant-ghost.semantic-destructive) {
+    --b-v3-button-text-color: var(--color-text-accent-red);
+    --b-v3-button-icon-color: var(--color-icon-accent-red);
+    --b-v3-button-spinner-color: var(--b-v3-button-text-color);
+  }
+
+  &:where(.loading) {
+    pointer-events: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+}
+
+.ButtonContent {
+  display: flex;
+  gap: var(--b-v3-button-content-gap);
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+
+  &:where(.loading) {
+    visibility: hidden;
+  }
+}
+
+.ButtonIcon {
+  @include dimension.square(16px);
+
+  flex: 0 0 auto;
+  color: var(--b-v3-button-icon-color);
+}
+
+.ButtonLoader {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--b-v3-button-spinner-color);
+}
