@@ -61,7 +61,7 @@ function ButtonSideContentElement({ content }: { content?: ButtonSideContent }) 
  *
  * ```tsx
  * <Button
- *   text="Button"
+ *   label="Button"
  *   variant="filled"
  *   semantic="primary"
  * />
@@ -72,7 +72,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     {
       as = BaseButton,
       className,
-      text,
+      label,
       loading = false,
       disabled: disabledProp = false,
       active = false,
@@ -123,7 +123,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             }
             truncated
           >
-            {text}
+            {label}
           </Text>
 
           <ButtonSideContentElement content={trailingContent} />

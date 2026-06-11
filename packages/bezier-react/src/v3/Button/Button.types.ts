@@ -27,9 +27,9 @@ interface ButtonOwnProps {
    */
   type?: 'button' | 'reset' | 'submit'
   /**
-   * The text content in the button.
+   * The label content in the button.
    */
-  text: string
+  label: string
   /**
    * If `loading` is true, spinner will be shown, replacing the content. Also, the button will be disabled.
    * @default false

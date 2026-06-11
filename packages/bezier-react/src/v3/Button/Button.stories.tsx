@@ -40,7 +40,7 @@ export const Primary: StoryObj<ButtonProps> = {
   render: Template,
 
   args: {
-    text: 'Button',
+    label: 'Button',
     variant: 'filled',
     semantic: 'primary',
     size: 'm',
@@ -78,7 +78,7 @@ export const Variants: StoryObj<ButtonProps> = {
   ),
 
   args: {
-    text: 'Button',
+    label: 'Button',
     size: 'm',
     active: false,
     loading: false,
@@ -118,7 +118,7 @@ export const Sizes: StoryObj<ButtonProps> = {
   ),
 
   args: {
-    text: 'Button',
+    label: 'Button',
     variant: 'filled',
     semantic: 'primary',
     active: false,
@@ -144,7 +144,7 @@ export const Loading: StoryObj<ButtonProps> = {
       {(['xs', 's', 'm', 'l'] as const).map((size) => (
         <Button
           key={size}
-          text="Button"
+          label="Button"
           size={size}
           loading
         />

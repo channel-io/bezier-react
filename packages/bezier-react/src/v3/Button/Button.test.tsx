@@ -6,14 +6,14 @@ import { render } from '~/src/utils/test'
 import { Button } from './Button'
 
 describe('Button', () => {
-  it('should render text', () => {
-    const { getByRole } = render(<Button text="Button" />)
+  it('should render label', () => {
+    const { getByRole } = render(<Button label="Button" />)
 
     expect(getByRole('button', { name: 'Button' })).toBeInTheDocument()
   })
 
   it('should have type="button" by default', () => {
-    const { getByRole } = render(<Button text="Button" />)
+    const { getByRole } = render(<Button label="Button" />)
 
     expect(getByRole('button')).toHaveAttribute('type', 'button')
   })
@@ -21,7 +21,7 @@ describe('Button', () => {
   it('should be able to change the button type', () => {
     const { getByRole } = render(
       <Button
-        text="Submit"
+        label="Submit"
         type="submit"
       />
     )
@@ -34,7 +34,7 @@ describe('Button', () => {
     const onClick = jest.fn()
     const { getByRole } = render(
       <Button
-        text="Button"
+        label="Button"
         onClick={onClick}
       />
     )
@@ -47,7 +47,7 @@ describe('Button', () => {
   it('should be disabled when disabled prop is true', () => {
     const { getByRole } = render(
       <Button
-        text="Button"
+        label="Button"
         disabled
       />
     )
@@ -58,7 +58,7 @@ describe('Button', () => {
   it('should be disabled and busy when loading prop is true', () => {
     const { getByRole } = render(
       <Button
-        text="Button"
+        label="Button"
         loading
       />
     )
@@ -70,7 +70,7 @@ describe('Button', () => {
   it('should render leading and trailing icons as decorative content', () => {
     const { container } = render(
       <Button
-        text="Button"
+        label="Button"
         leadingContent={PlusIcon}
         trailingContent={PlusIcon}
       />
