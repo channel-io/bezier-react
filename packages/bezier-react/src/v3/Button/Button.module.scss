@@ -8,6 +8,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
 
 .Button {
   --b-v3-button-content-gap: 0;
+  --b-v3-button-spinner-color: var(--b-v3-button-text-color);
 
   position: relative;
 
@@ -76,7 +77,6 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   &:where(.variant-filled.semantic-primary) {
     --b-v3-button-text-color: var(--color-text-inverse);
     --b-v3-button-icon-color: var(--color-icon-inverse-heavier);
-    --b-v3-button-spinner-color: var(--color-fill-bright);
     --b-v3-button-background-color: var(--color-fill-neutral-heaviest);
 
     &#{$active-selector} {
@@ -87,7 +87,6 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   &:where(.variant-filled.semantic-secondary) {
     --b-v3-button-text-color: var(--color-text-neutral);
     --b-v3-button-icon-color: var(--color-icon-neutral-heavy);
-    --b-v3-button-spinner-color: var(--color-fill-bright);
     --b-v3-button-background-color: var(--color-fill-neutral-light);
 
     &#{$active-selector} {
@@ -98,7 +97,6 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   &:where(.variant-filled.semantic-destructive) {
     --b-v3-button-text-color: var(--color-text-inverse);
     --b-v3-button-icon-color: var(--color-icon-inverse-heavier);
-    --b-v3-button-spinner-color: var(--color-fill-bright);
     --b-v3-button-background-color: var(--color-fill-accent-red-heavier);
 
     &#{$active-selector} {
@@ -122,19 +120,16 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   &:where(.variant-outlined.semantic-primary) {
     --b-v3-button-text-color: var(--color-text-neutral-heaviest);
     --b-v3-button-icon-color: var(--color-icon-neutral-heavier);
-    --b-v3-button-spinner-color: var(--b-v3-button-text-color);
   }
 
   &:where(.variant-outlined.semantic-secondary) {
     --b-v3-button-text-color: var(--color-text-neutral-light);
     --b-v3-button-icon-color: var(--color-icon-neutral);
-    --b-v3-button-spinner-color: var(--b-v3-button-text-color);
   }
 
   &:where(.variant-outlined.semantic-destructive) {
     --b-v3-button-text-color: var(--color-text-accent-red);
     --b-v3-button-icon-color: var(--color-icon-accent-red);
-    --b-v3-button-spinner-color: var(--b-v3-button-text-color);
   }
 
   &:where(.variant-ghost) {
@@ -150,19 +145,16 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   &:where(.variant-ghost.semantic-primary) {
     --b-v3-button-text-color: var(--color-text-neutral-light);
     --b-v3-button-icon-color: var(--color-icon-neutral-heavy);
-    --b-v3-button-spinner-color: var(--b-v3-button-text-color);
   }
 
   &:where(.variant-ghost.semantic-secondary) {
     --b-v3-button-text-color: var(--color-text-neutral-lighter);
     --b-v3-button-icon-color: var(--color-icon-neutral);
-    --b-v3-button-spinner-color: var(--b-v3-button-text-color);
   }
 
   &:where(.variant-ghost.semantic-destructive) {
     --b-v3-button-text-color: var(--color-text-accent-red);
     --b-v3-button-icon-color: var(--color-icon-accent-red);
-    --b-v3-button-spinner-color: var(--b-v3-button-text-color);
   }
 
   &:where(.loading) {
