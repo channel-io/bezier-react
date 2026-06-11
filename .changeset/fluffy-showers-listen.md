@@ -8,7 +8,7 @@ Add v3 interactive primitive components: `Checkbox`, `Button`, and `IconButton`.
 
 `Checkbox` provides the v3 checkbox API with a fixed medium size, form-field integration, and beta-token-based visual states.
 
-`Button` adds v3 `filled`, `outlined`, and `ghost` variants with `primary`, `secondary`, and `destructive` semantics, leading/trailing content, active and loading states, and beta-token-based colors.
+`Button` adds v3 `filled`, `outlined`, and `ghost` variants with `primary`, `secondary`, and `destructive` semantics, label, leading/trailing content, active and loading states, and beta-token-based colors. Loading spinners follow the label color.
 
 `IconButton` adds the icon-only v3 button API with the same variant and semantic model as `Button`, accessible-name support through native button props, and loading states.
 
