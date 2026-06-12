@@ -41,8 +41,10 @@ export const Icon = memo(
       color = DEFAULT_ICON_COLOR,
       source: SourceElement,
       style,
+      role,
       ...rest
     } = marginRest
+    const accessible = rest['aria-label'] != null || rest['aria-labelledby'] != null
 
     return (
       <SourceElement
@@ -60,6 +62,9 @@ export const Icon = memo(
           marginStyles.className,
           className
         )}
+        aria-hidden={accessible ? undefined : true}
+        role={accessible ? (role ?? 'img') : role}
+        focusable={accessible ? undefined : false}
         {...rest}
       />
     )

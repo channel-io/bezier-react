@@ -28,6 +28,9 @@ describe('Icon', () => {
     expect(rendered).toHaveStyle(
       `--b-v3-icon-color: ${colorTokenCssVar('icon-neutral')}`
     )
+    expect(rendered).toHaveAttribute('aria-hidden', 'true')
+    expect(rendered).toHaveAttribute('focusable', 'false')
+    expect(rendered).not.toHaveAttribute('role')
   })
 
   it('should forward ref', () => {
@@ -60,5 +63,31 @@ describe('Icon', () => {
     )
     expect(rendered).toHaveStyle('display: block')
     expect(rendered).toHaveStyle('--b-margin-top: 10px')
+  })
+
+  it('should expose meaningful icons when an accessible name is provided', () => {
+    const { container } = renderIcon({
+      'aria-label': 'All items',
+    })
+    const rendered = container.querySelector('svg')
+
+    expect(rendered).toHaveAttribute('aria-label', 'All items')
+    expect(rendered).toHaveAttribute('role', 'img')
+    expect(rendered).not.toHaveAttribute('aria-hidden')
+    expect(rendered).not.toHaveAttribute('focusable')
+  })
+
+  it('should preserve explicit accessibility props', () => {
+    const { container } = renderIcon({
+      'aria-label': 'All items',
+      'aria-hidden': true,
+      role: 'presentation',
+      focusable: false,
+    })
+    const rendered = container.querySelector('svg')
+
+    expect(rendered).toHaveAttribute('aria-hidden', 'true')
+    expect(rendered).toHaveAttribute('role', 'presentation')
+    expect(rendered).toHaveAttribute('focusable', 'false')
   })
 })

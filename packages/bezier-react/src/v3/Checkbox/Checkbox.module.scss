@@ -35,7 +35,8 @@
   }
 
   &[data-invalid] {
-    box-shadow: var(--state-input-error);
+    // TODO(@timo): Replace the hardcoded error border with the input state token after the token value is aligned.
+    box-shadow: 0 0 0 1.5px #e67f2b;
   }
 
   &:where([data-state='checked'], [data-state='indeterminate']) {
