@@ -16,6 +16,8 @@
   display: inline-block;
   flex-shrink: 0;
 
+  box-sizing: border-box;
+
   border-style: solid;
   border-top-color: transparent;
   border-right-color: var(--b-v3-spinner-color);
@@ -27,32 +29,32 @@
   animation: spin 1s linear infinite;
 
   &:where(.size-xl) {
-    @include dimension.square(50px);
+    @include dimension.square(48px);
 
-    border-width: 4px;
-  }
-
-  &:where(.size-l, .size-m) {
-    border-width: 3px;
+    border-width: 6px;
   }
 
   &:where(.size-l) {
     @include dimension.square(24px);
+
+    border-width: 3px;
   }
 
   &:where(.size-m) {
     @include dimension.square(20px);
-  }
 
-  &:where(.size-s, .size-xs) {
-    border-width: 2px;
+    border-width: 2.5px;
   }
 
   &:where(.size-s) {
     @include dimension.square(16px);
+
+    border-width: 2px;
   }
 
   &:where(.size-xs) {
     @include dimension.square(12px);
+
+    border-width: 1.5px;
   }
 }

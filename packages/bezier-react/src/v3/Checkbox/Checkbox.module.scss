@@ -1,0 +1,88 @@
+@use '../../styles/mixins/dimension';
+@use '../../styles/mixins/interaction';
+
+.CheckIcon {
+  transition: none;
+
+  &:where([data-state='unchecked']) {
+    visibility: hidden;
+  }
+}
+
+.Checkbox {
+  cursor: inherit;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--color-fill-grey-light);
+  border-radius: var(--radius-8);
+  box-shadow: inset 0 0 0 2px var(--color-border-neutral-heavy);
+
+  /* stylelint-disable-next-line order/order */
+  @include dimension.square(18px);
+
+  /* stylelint-disable-next-line order/order */
+  @include interaction.touchable-hover {
+    &:where(:not([data-disabled], [data-state='unchecked'])) {
+      background-color: var(--color-fill-neutral-heaviest-hovered);
+    }
+
+    &:where(:not([data-disabled])[data-state='unchecked']) .CheckIcon {
+      visibility: visible;
+    }
+  }
+
+  &[data-invalid] {
+    // TODO(@timo): Replace the hardcoded error border with the input state token after the token value is aligned.
+    box-shadow: 0 0 0 1.5px #e67f2b;
+  }
+
+  &:where([data-state='checked'], [data-state='indeterminate']) {
+    background-color: var(--color-fill-neutral-heaviest);
+
+    &:where(:not([data-invalid])) {
+      box-shadow: none;
+    }
+  }
+
+  &:where([data-disabled]) {
+    background-color: var(--color-fill-neutral-heavy);
+    box-shadow: none;
+  }
+
+  &:where(:focus-visible) {
+    &:where(:not([data-disabled])[data-state='unchecked']) .CheckIcon {
+      visibility: visible;
+    }
+  }
+}
+
+.Container {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+
+  &:where(:has(.Checkbox[data-disabled])) {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:where(:has(.Label)) {
+    height: var(--b-form-field-size);
+  }
+}
+
+.Label {
+  cursor: inherit;
+
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+  padding-left: 12px;
+
+  color: var(--color-text-neutral);
+}
