@@ -1,0 +1,70 @@
+.TextArea {
+  --b-v3-text-area-background-color: var(--color-fill-grey);
+  --b-v3-text-area-box-shadow: inset 0 0 0 1.5px
+    var(--color-border-neutral);
+
+  resize: none;
+
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 8px 12px;
+
+  font-family: var(--typography-text-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--color-text-neutral);
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+
+  background-color: var(--b-v3-text-area-background-color);
+  border: none;
+  border-radius: var(--radius-12);
+  outline: none;
+  box-shadow: var(
+    --b-v3-text-area-state-box-shadow,
+    var(--b-v3-text-area-box-shadow, none)
+  );
+
+  transition:
+    background-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast),
+    opacity var(--motion-transition-fast);
+
+  &::placeholder {
+    color: var(--color-text-neutral-lighter);
+    opacity: 1;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:focus {
+    // TODO(@timo): Replace the hardcoded active border with the input state token after the token value is aligned.
+    --b-v3-text-area-background-color: var(--color-fill-grey-light);
+    --b-v3-text-area-state-box-shadow:
+      inset 0 0 0 1.5px #000,
+      0 1px 2px 0 var(--color-elevation-base);
+  }
+
+  &[aria-invalid='true'] {
+    // TODO(@timo): Replace the hardcoded error border with the input state token after the token value is aligned.
+    --b-v3-text-area-background-color: var(--color-fill-grey-light);
+    --b-v3-text-area-state-box-shadow:
+      inset 0 0 0 1.5px #e67f2b,
+      0 1px 2px 0 var(--color-elevation-base);
+  }
+
+  &:read-only {
+    --b-v3-text-area-background-color: var(--color-fill-grey-heavy);
+
+    color: var(--color-text-neutral-light);
+  }
+}
