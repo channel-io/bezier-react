@@ -39,7 +39,7 @@ const CheckIcon = forwardRef<SVGSVGElement, CheckIconProps>(
         ref={forwardedRef}
         source={!isIndeterminate ? CheckBoldIcon : HyphenBoldIcon}
         size="16"
-        color={isUnchecked ? 'fill-neutral-heavy' : 'text-absolute-white'}
+        color={isUnchecked ? 'fill-neutral-heavy' : 'icon-inverse-heavier'}
         {...props}
       />
     )

@@ -1,0 +1,18 @@
+@mixin error($radius, $gap: 3px, $thickness: 1.5px) {
+  &::after {
+    pointer-events: none;
+    content: '';
+
+    position: absolute;
+    inset: calc(-1 * (#{$gap} + #{$thickness}));
+
+    // TODO(@timo): Replace the hardcoded error border with the input state token after the token value is aligned.
+    border: $thickness solid #e67f2b;
+    border-radius: calc(#{$radius} + #{$gap} + #{$thickness});
+  }
+}
+
+@mixin focus($color: var(--color-border-neutral-heavier), $gap: 3px, $thickness: 1.5px) {
+  outline: $thickness solid $color;
+  outline-offset: $gap;
+}

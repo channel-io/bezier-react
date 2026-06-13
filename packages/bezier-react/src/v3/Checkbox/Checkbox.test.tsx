@@ -120,6 +120,17 @@ describe('Checkbox', () => {
       expect(checkbox).toBeChecked()
     })
 
+    it('should toggle checkbox when user presses space key on a focused checkbox', async () => {
+      const { getByRole } = renderCheckboxes()
+      const checkbox = getByRole('checkbox', { name: VALUES[0] })
+      await user.tab()
+      expect(checkbox).toHaveFocus()
+      await user.keyboard('{ }')
+      expect(checkbox).toBeChecked()
+      await user.keyboard('{ }')
+      expect(checkbox).not.toBeChecked()
+    })
+
     it('should call the checked change event handler user presses space key on a focused checkbox', async () => {
       const onCheckedChange = jest.fn()
       const { getByRole } = renderCheckboxes({ onCheckedChange })
