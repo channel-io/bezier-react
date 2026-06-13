@@ -31,12 +31,43 @@ describe('Banner', () => {
   })
 
   it('renders link if hasLink = true', () => {
-    const { queryByRole } = renderBanner({
+    const { getByRole } = renderBanner({
       hasLink: true,
       linkText: 'foo',
       linkTo: 'https://google.com',
     })
-    expect(queryByRole('link')).toBeInTheDocument()
+    const link = getByRole('link', { name: 'foo' })
+
+    expect(link).toHaveAttribute('href', 'https://google.com')
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+  })
+
+  it('renders custom link if renderLink is provided', () => {
+    const renderLink = jest.fn(({ content, linkTo }) => (
+      <button
+        type="button"
+        data-link-to={linkTo}
+      >
+        {content}
+      </button>
+    ))
+
+    const { getByRole } = renderBanner({
+      hasLink: true,
+      linkText: 'foo',
+      linkTo: 'custom-link',
+      renderLink,
+    })
+
+    expect(renderLink).toHaveBeenCalledWith({
+      content: expect.anything(),
+      linkTo: 'custom-link',
+    })
+    expect(getByRole('button', { name: 'foo' })).toHaveAttribute(
+      'data-link-to',
+      'custom-link'
+    )
   })
 
   it('renders action button if actionIcon is correct value', () => {
@@ -58,5 +89,15 @@ describe('Banner', () => {
   it('does not render leading icon if leadingIcon is null', () => {
     const { container } = renderBanner({ leadingIcon: null })
     expect(container.querySelector('svg')).toBeNull()
+  })
+
+  it('forwards HTML attributes to the root element', () => {
+    const { container } = renderBanner({
+      className: 'custom-class',
+      id: 'banner',
+    })
+    const banner = container.querySelector('#banner')
+
+    expect(banner).toHaveClass('custom-class')
   })
 })
