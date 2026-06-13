@@ -21,7 +21,6 @@ import {
   useKeyboardActionLockerWhileComposing,
 } from '~/src/hooks/useKeyboardActionLockerWhileComposing'
 
-import { useFormFieldProps } from '~/src/components/FormControl'
 import { useWindow } from '~/src/components/WindowProvider'
 
 import type {
@@ -57,6 +56,8 @@ export const BaseTextInput = forwardRef<TextInputRef, BaseTextInputProps>(
       style,
       inputClassName,
       inputStyle,
+      disabled = false,
+      readOnly = false,
       leadingSlot,
       trailingSlot,
       withoutLeadingSlotWrapper = false,
@@ -67,25 +68,16 @@ export const BaseTextInput = forwardRef<TextInputRef, BaseTextInputProps>(
       onChange,
       onKeyDown,
       onKeyUp,
+      id: idProp,
+      defaultValue,
+      placeholder,
+      value,
       ...rest
     },
     forwardedRef
   ) {
     const { window } = useWindow()
-    const {
-      disabled,
-      readOnly,
-      hasError,
-      size: formFieldSize,
-      id: fieldId,
-      ...ownProps
-    } = useFormFieldProps(rest)
-    const {
-      defaultValue,
-      placeholder,
-      value,
-      ...inputProps
-    } = ownProps
+    const inputProps = rest
 
     const focusTimeout = useRef<ReturnType<Window['setTimeout']>>(undefined)
     const blurTimeout = useRef<ReturnType<Window['setTimeout']>>(undefined)
@@ -94,8 +86,8 @@ export const BaseTextInput = forwardRef<TextInputRef, BaseTextInputProps>(
       hasInputValue(value ?? defaultValue)
     )
 
-    const size = normalizeSize(sizeProp ?? formFieldSize)
-    const id = useId(fieldId, 'bezier-text-input')
+    const size = normalizeSize(sizeProp)
+    const id = useId(idProp, 'bezier-text-input')
     const activeInput = !disabled && !readOnly
 
     const focus = useCallback(

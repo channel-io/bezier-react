@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
+import type { FormFieldProps } from '~/src/types/props'
 import type {
   BaseTextInputProps,
   TextInputElementType,
@@ -32,6 +33,7 @@ type OmittedBaseTextInputProps =
 
 export interface TextInputProps
   extends Omit<BaseTextInputProps, OmittedBaseTextInputProps>,
+    FormFieldProps,
     TextInputOwnProps {}
 
 export type { TextInputRef }

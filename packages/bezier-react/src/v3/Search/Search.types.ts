@@ -16,6 +16,7 @@ type OmittedBaseTextInputProps =
   | 'withoutTrailingSlotWrapper'
   | 'hasError'
   | 'readOnly'
+  | 'required'
 
 export interface SearchProps
   extends Omit<BaseTextInputProps, OmittedBaseTextInputProps>,

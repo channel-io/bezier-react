@@ -1,6 +1,5 @@
 import type {
   BezierComponentProps,
-  FormFieldProps,
   SizeProps,
 } from '~/src/types/props'
 
@@ -35,9 +34,6 @@ export interface TextInputRef {
 type OmittedInputHTMLAttributes =
   | 'type'
   | 'size'
-  | 'disabled'
-  | 'readOnly'
-  | 'required'
   | 'className'
   | 'style'
   | 'onFocus'
@@ -65,6 +61,5 @@ interface BaseTextInputOwnProps {
 
 export interface BaseTextInputProps
   extends Omit<BezierComponentProps<'input'>, OmittedInputHTMLAttributes>,
-    FormFieldProps,
     SizeProps<TextInputSize>,
     BaseTextInputOwnProps {}

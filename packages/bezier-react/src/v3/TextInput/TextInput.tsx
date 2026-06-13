@@ -9,6 +9,8 @@ import { BaseTextInput, type TextInputRef } from '~/src/v3/BaseTextInput'
 import { Icon } from '~/src/v3/Icon'
 import { Text } from '~/src/v3/Text'
 
+import { useFormFieldProps } from '~/src/components/FormControl'
+
 import type { TextInputProps, TextInputSideContent } from './TextInput.types'
 
 import styles from './TextInput.module.scss'
@@ -44,6 +46,10 @@ function TextInputSideContentElement({
   return <>{content}</>
 }
 
+function normalizeFormFieldSize(size?: string) {
+  return size === 'l' ? 'l' : 'm'
+}
+
 /**
  * `TextInput` is a single-line text input.
  * Use `Search` for search inputs with a fixed search icon and clear behavior.
@@ -61,7 +67,7 @@ export const TextInput = forwardRef<TextInputRef, TextInputProps>(
     {
       className,
       type = 'text',
-      size = 'm',
+      size,
       variant = 'primary',
       leadingContent,
       trailingContent,
@@ -71,6 +77,14 @@ export const TextInput = forwardRef<TextInputRef, TextInputProps>(
     },
     forwardedRef
   ) {
+    const {
+      disabled,
+      readOnly,
+      hasError: _hasError,
+      size: formFieldSize,
+      ...inputProps
+    } = useFormFieldProps(rest)
+    const inputSize = size ?? normalizeFormFieldSize(formFieldSize)
     const leadingSlot =
       leadingContent != null ? (
         <TextInputSideContentElement content={leadingContent} />
@@ -89,12 +103,14 @@ export const TextInput = forwardRef<TextInputRef, TextInputProps>(
           className
         )}
         type={type}
-        size={size}
+        size={inputSize}
+        disabled={disabled}
+        readOnly={readOnly}
         leadingSlot={leadingSlot}
         trailingSlot={trailingSlot}
         withoutLeadingSlotWrapper={withoutLeadingContentWrapper}
         withoutTrailingSlotWrapper={withoutTrailingContentWrapper}
-        {...rest}
+        {...inputProps}
       />
     )
   }
