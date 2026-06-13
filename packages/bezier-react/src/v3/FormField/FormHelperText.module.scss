@@ -1,0 +1,13 @@
+.FormHelperText {
+  min-width: 0;
+}
+
+.FormErrorMessage {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.ErrorIcon {
+  flex: 0 0 auto;
+}
