@@ -87,10 +87,10 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
   &:where(.variant-filled.semantic-secondary) {
     --b-v3-button-text-color: var(--color-text-neutral);
     --b-v3-button-icon-color: var(--color-icon-neutral-heavy);
-    --b-v3-button-background-color: var(--color-fill-neutral-light);
+    --b-v3-button-background-color: var(--color-fill-neutral);
 
     &#{$active-selector} {
-      --b-v3-button-background-color: var(--color-fill-neutral-light-hovered);
+      --b-v3-button-background-color: var(--color-fill-neutral-hovered);
     }
   }
 
