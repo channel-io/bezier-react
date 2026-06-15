@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import { type Meta, type StoryFn } from '@storybook/react'
 
 import { Checkbox } from './Checkbox'
@@ -22,8 +24,34 @@ const Template: StoryFn<CheckboxProps<CheckedState>> = ({
   ...otherCheckboxProps
 }) => <Checkbox {...otherCheckboxProps}>{children}</Checkbox>
 
+const ControlledTemplate: StoryFn<CheckboxProps<CheckedState>> = ({
+  children,
+  checked = false,
+  onCheckedChange,
+  ...otherCheckboxProps
+}) => {
+  const [currentChecked, setCurrentChecked] = useState(checked)
+
+  useEffect(() => {
+    setCurrentChecked(checked)
+  }, [checked])
+
+  return (
+    <Checkbox
+      {...otherCheckboxProps}
+      checked={currentChecked}
+      onCheckedChange={(nextChecked) => {
+        setCurrentChecked(nextChecked)
+        onCheckedChange?.(nextChecked)
+      }}
+    >
+      {children}
+    </Checkbox>
+  )
+}
+
 export const Controlled = {
-  render: Template,
+  render: ControlledTemplate,
 
   args: {
     checked: true,

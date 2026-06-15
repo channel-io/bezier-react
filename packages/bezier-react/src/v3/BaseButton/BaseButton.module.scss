@@ -1,3 +1,5 @@
+@use '../../styles/mixins/state';
+
 :where(.BaseButton) {
   cursor: pointer;
 
@@ -11,8 +13,7 @@
   border: none;
 
   &:where(:focus-visible) {
-    outline: 1.5px solid var(--color-border-neutral-heavier);
-    outline-offset: 3px;
+    @include state.focus;
   }
 
   &:where(:focus:not(:focus-visible)) {

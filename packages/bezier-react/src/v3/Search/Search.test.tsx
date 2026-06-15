@@ -2,6 +2,8 @@ import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
 
+import { FormControl } from '~/src/components/FormControl'
+
 import { Search } from './Search'
 import type { SearchProps } from './Search.types'
 
@@ -65,5 +67,20 @@ describe('Search', () => {
 
     expect(input.value).toBe('')
     expect(queryByLabelText('Clear search')).not.toBeInTheDocument()
+  })
+
+  it('does not consume form field context', () => {
+    const { getByRole } = render(
+      <FormControl
+        hasError
+        required
+      >
+        <Search placeholder="Search by customer name" />
+      </FormControl>
+    )
+    const input = getByRole('searchbox')
+
+    expect(input).not.toHaveAttribute('aria-invalid')
+    expect(input).not.toHaveAttribute('aria-required')
   })
 })
