@@ -1,0 +1,172 @@
+import type React from 'react'
+
+import { type BezierIcon } from '@channel.io/bezier-icons'
+import type * as TabsPrimitive from '@radix-ui/react-tabs'
+
+import {
+  type BezierComponentProps,
+  type ChildrenProps,
+  type DisableProps,
+  type FormFieldProps,
+  type SizeProps,
+} from '~/src/types/props'
+
+export type SegmentedControlSize = 's' | 'm'
+
+export type SegmentedControlType = 'radiogroup' | 'tabs'
+
+export type SegmentedControlItemSideContent = BezierIcon | React.ReactNode
+
+export type SegmentedControlItemIconContent = BezierIcon | React.ReactNode
+
+type SegmentedControlNonValueProps<Type extends SegmentedControlType> = {
+  /**
+   * The element type of segmented control.
+   * It can be either `radiogroup` or `tabs`.
+   * @default 'radiogroup'
+   */
+  type?: Type
+  /**
+   * The width of the segmented control.
+   * @default '100%'
+   */
+  width?: React.CSSProperties['width']
+}
+
+type SegmentedControlValueProps<Value extends string> = {
+  /**
+   * The controlled value of the item to check.
+   * It should be used in conjunction with `onValueChange`.
+   */
+  value?: Value
+  /**
+   * The value of the segmented control that should be checked when initially rendered.
+   * Use when you do not need to control the state of the items.
+   */
+  defaultValue?: Value
+  /**
+   * Event handler called when the value changes.
+   */
+  onValueChange?: (value: Value) => void
+}
+
+type SegmentedControlRadioGroupSpecificProps = FormFieldProps & {
+  /**
+   * The name of the group.
+   * Submitted with its owning form as part of a name/value pair.
+   */
+  name?: string
+}
+
+interface SegmentedControlItemBaseOwnProps<Value extends string> {
+  /**
+   * The value of the item.
+   *
+   * If the type of `SegmentedControl` is `radiogroup`, it is the value given as data when submitted with `SegmentedControlProps.name`.
+   *
+   * If the type of `SegmentedControl` is `tabs`, it is the value that associates the item with a content.
+   */
+  value: Value
+}
+
+interface SegmentedControlItemLabelOwnProps<Value extends string>
+  extends SegmentedControlItemBaseOwnProps<Value> {
+  /**
+   * A visible text label of the item.
+   */
+  children: string
+  /**
+   * Content on the left.
+   */
+  leadingContent?: SegmentedControlItemSideContent
+  /**
+   * Content on the right. Use this for non-interactive adornments such as count badges or status marks.
+   */
+  trailingContent?: SegmentedControlItemSideContent
+  icon?: never
+  'aria-label'?: string
+}
+
+interface SegmentedControlItemIconOnlyOwnProps<Value extends string>
+  extends SegmentedControlItemBaseOwnProps<Value> {
+  /**
+   * Icon-only content. `aria-label` is required because this is the only visible content.
+   */
+  icon: SegmentedControlItemIconContent
+  children?: never
+  leadingContent?: never
+  trailingContent?: never
+  'aria-label': string
+}
+
+type SegmentedControlItemOwnProps<Value extends string> =
+  | SegmentedControlItemLabelOwnProps<Value>
+  | SegmentedControlItemIconOnlyOwnProps<Value>
+
+interface SegmentedControlTabContentOwnProps<Value extends string> {
+  /**
+   * A unique value that associates the item with a content.
+   */
+  value: Value
+}
+
+type SegmentedControlOwnProps<
+  Type extends SegmentedControlType,
+  Value extends string,
+> = (Type extends 'radiogroup' ? SegmentedControlRadioGroupSpecificProps : {}) &
+  SegmentedControlNonValueProps<Type> &
+  SegmentedControlValueProps<Value>
+
+type RadixTabsPredefinedPropKeys = 'dir'
+
+export type SegmentedControlProps<
+  Type extends SegmentedControlType,
+  Value extends string,
+> = Omit<BezierComponentProps<'div'>, RadixTabsPredefinedPropKeys> &
+  ChildrenProps &
+  SizeProps<SegmentedControlSize> &
+  SegmentedControlOwnProps<Type, Value>
+
+export interface SegmentedControlRadioGroupProps<Value extends string>
+  extends Omit<
+    SegmentedControlProps<'radiogroup', Value>,
+    keyof SegmentedControlNonValueProps<'radiogroup'>
+  > {}
+
+export interface SegmentedControlTabsProps<Value extends string>
+  extends Omit<
+    SegmentedControlProps<'tabs', Value>,
+    keyof SegmentedControlNonValueProps<'tabs'>
+  > {}
+
+type RadixTabListPredefinedPropKeys = 'defaultValue'
+
+export interface SegmentedControlTabListProps
+  extends Omit<BezierComponentProps<'div'>, RadixTabListPredefinedPropKeys>,
+    ChildrenProps {}
+
+export type SegmentedControlItemListProps<
+  Type extends SegmentedControlType,
+  Value extends string,
+> = Type extends 'radiogroup'
+  ? SegmentedControlRadioGroupProps<Value>
+  : SegmentedControlTabListProps
+
+export type SegmentedControlItemProps<Value extends string> = Omit<
+  BezierComponentProps<'button'>,
+  keyof SegmentedControlItemOwnProps<Value> | 'color'
+> &
+  DisableProps &
+  SegmentedControlItemOwnProps<Value>
+
+export interface SegmentedControlTabContentProps<Value extends string>
+  extends BezierComponentProps<'div'>,
+    ChildrenProps,
+    Pick<TabsPrimitive.TabsContentProps, 'forceMount'>,
+    SegmentedControlTabContentOwnProps<Value> {}
+
+export interface SegmentedControlContextValue {
+  size: SegmentedControlSize
+  type: SegmentedControlType
+  width: React.CSSProperties['width']
+}
