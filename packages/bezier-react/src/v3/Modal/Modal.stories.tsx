@@ -120,7 +120,6 @@ export const WithSubtitle: StoryObj<typeof Modal> = {
         <ModalHeader
           subtitle="Workspace settings"
           title="Invite members"
-          description="Invite teammates to collaborate in this workspace."
         />
         <ModalBody>
           <Text>Modal body content</Text>
