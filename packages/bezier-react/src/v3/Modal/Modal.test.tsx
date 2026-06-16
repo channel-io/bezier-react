@@ -20,6 +20,8 @@ import {
   type ModalProps,
 } from './Modal.types'
 
+import * as ModalIndex from './index'
+
 const TRIGGER_TEXT = 'Open'
 const CLOSE_TEXT = 'Close'
 const TITLE_TEXT = 'Title'
@@ -186,6 +188,24 @@ describe('Modal', () => {
           getByRole('dialog', { description: DESCRIPTION_TEXT })
         ).toBeInTheDocument()
       })
+
+      it('should render modal content when children include fragments and non-elements', () => {
+        const { getByRole } = render(
+          <Modal defaultShow>
+            <ModalContent aria-describedby={undefined}>
+              plain text
+              <>
+                <ModalHeader title={TITLE_TEXT} />
+                <ModalBody>
+                  <input type="text" />
+                </ModalBody>
+              </>
+            </ModalContent>
+          </Modal>
+        )
+
+        expect(getByRole('dialog', { name: TITLE_TEXT })).toBeInTheDocument()
+      })
     })
 
     describe('User Interactions', () => {
@@ -220,6 +240,20 @@ describe('Modal', () => {
         const { queryByRole } = renderOpenedModal()
         await user.keyboard('{Escape}')
         expect(queryByRole('dialog')).not.toBeInTheDocument()
+      })
+    })
+
+    describe('Style', () => {
+      it('should set numeric collision padding as px value', () => {
+        const { getByRole } = renderOpenedModal({
+          modalContentProps: {
+            collisionPadding: 24,
+          },
+        })
+
+        expect(getByRole('dialog').parentElement).toHaveStyle({
+          '--b-modal-collision-padding': '24px',
+        })
       })
     })
   })
@@ -299,6 +333,36 @@ describe('Modal', () => {
       const { getByRole } = renderModalWithAutoFocus()
       await user.click(getByRole('button', { name: TRIGGER_TEXT }))
       expect(getByRole('button', { name: CLOSE_TEXT })).toHaveFocus()
+    })
+  })
+
+  describe('useModalContainerContext', () => {
+    function ModalContainerContextConsumer() {
+      const container = ModalIndex.useModalContainerContext()
+
+      return <span>{container instanceof HTMLElement ? 'mounted' : 'empty'}</span>
+    }
+
+    it('should provide modal content element to descendants', () => {
+      const { getByText } = render(
+        <Modal defaultShow>
+          <ModalContent aria-describedby={undefined}>
+            <ModalHeader title={TITLE_TEXT} />
+            <ModalBody>
+              <ModalContainerContextConsumer />
+            </ModalBody>
+          </ModalContent>
+        </Modal>
+      )
+
+      expect(getByText('mounted')).toBeInTheDocument()
+    })
+  })
+
+  describe('index', () => {
+    it('should export modal components and hooks', () => {
+      expect(ModalIndex.ModalBody).toBe(ModalBody)
+      expect(ModalIndex.useModalContainerContext).toEqual(expect.any(Function))
     })
   })
 })

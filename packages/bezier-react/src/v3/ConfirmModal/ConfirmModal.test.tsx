@@ -5,6 +5,7 @@ import { render } from '~/src/utils/test'
 
 import {
   ConfirmModal,
+  ConfirmModalBody,
   ConfirmModalClose,
   ConfirmModalContent,
   ConfirmModalFooter,
@@ -21,6 +22,7 @@ const CANCEL_TEXT = 'Cancel'
 const ACTION_TEXT = 'Action'
 const TITLE_TEXT = 'Title'
 const DESCRIPTION_TEXT = 'Description'
+const BODY_TEXT = 'Body'
 
 describe('ConfirmModal', () => {
   const renderModal = ({
@@ -173,6 +175,21 @@ describe('ConfirmModal', () => {
     it('should render the confirm title with medium modal title size', () => {
       const { getByRole } = renderOpenedModal()
       expect(getByRole('heading', { name: TITLE_TEXT })).toHaveClass('typo-16')
+    })
+  })
+
+  describe('ConfirmModalBody', () => {
+    it('should render body content', () => {
+      const { getByText } = render(
+        <ConfirmModal defaultShow>
+          <ConfirmModalContent aria-describedby={undefined}>
+            <ConfirmModalHeader title={TITLE_TEXT} />
+            <ConfirmModalBody>{BODY_TEXT}</ConfirmModalBody>
+          </ConfirmModalContent>
+        </ConfirmModal>
+      )
+
+      expect(getByText(BODY_TEXT)).toBeInTheDocument()
     })
   })
 
