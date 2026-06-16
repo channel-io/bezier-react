@@ -66,19 +66,9 @@ $close-icon-button-margin: -6;
     animation: content-show var(--motion-transition-default);
   }
 
-  &:has(.ModalBody) .ModalFooter {
-    margin-top: #{$footer-top-gap - $modal-padding}px;
-    padding-top: 0;
-  }
-
-  &:has(.ModalHeader:not([data-hidden])) .ModalBody {
-    padding-top: #{$header-body-gap}px;
-  }
-
   &:focus {
     outline: none;
   }
-
 }
 
 .ModalSection {
@@ -113,11 +103,17 @@ $close-icon-button-margin: -6;
   padding: #{$footer-top-gap}px #{$modal-padding}px #{$modal-padding}px;
 }
 
+.ModalFooterAfterBody {
+  margin-top: #{$footer-top-gap - $modal-padding}px;
+  padding-top: 0;
+}
+
 .TitleContainer {
   display: flex;
   flex-direction: row;
   gap: 8px;
   align-items: flex-start;
+
   width: 100%;
 }
 
@@ -149,9 +145,12 @@ $close-icon-button-margin: -6;
 
 .CloseIconButtonSpacer {
   pointer-events: none;
+
   flex: 0 0 auto;
+
   margin-top: #{$close-icon-button-margin}px;
   margin-right: #{$close-icon-button-margin}px;
+
   visibility: hidden;
 }
 

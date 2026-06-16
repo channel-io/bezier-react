@@ -147,4 +147,6 @@ export interface ModalTriggerProps extends ChildrenProps<React.ReactElement> {}
 export interface ModalCloseProps extends ChildrenProps<React.ReactElement> {}
 
 export interface ModalContentPropsContextValue
-  extends Required<Pick<ModalContentOwnProps, 'showCloseIcon' | 'type'>> {}
+  extends Required<Pick<ModalContentOwnProps, 'showCloseIcon' | 'type'>> {
+  hasBody: boolean
+}

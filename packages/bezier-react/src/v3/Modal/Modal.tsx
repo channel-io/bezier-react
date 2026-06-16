@@ -17,6 +17,8 @@ import { getZIndexClassName } from '~/src/types/props-helpers'
 import { createContext } from '~/src/utils/react'
 import { cssDimension } from '~/src/utils/style'
 import { isNil, isNumber } from '~/src/utils/type'
+import { IconButton } from '~/src/v3/IconButton'
+import { Text } from '~/src/v3/Text'
 
 import {
   AlphaDialogPrimitive,
@@ -32,8 +34,6 @@ import {
 import { ThemeProvider, useThemeName } from '~/src/components/ThemeProvider'
 import { VisuallyHidden } from '~/src/components/VisuallyHidden'
 import { useRootElement } from '~/src/components/WindowProvider'
-import { IconButton } from '~/src/v3/IconButton'
-import { Text } from '~/src/v3/Text'
 
 import type {
   ModalBodyProps,
@@ -57,27 +57,43 @@ export { useModalContainerContext }
 
 const [ModalContentPropsContextProvider, useModalContentPropsContext] =
   createContext<ModalContentPropsContextValue>({
+    hasBody: false,
     showCloseIcon: false,
     type: 'default',
   })
 
-function hasHiddenModalHeader(children: React.ReactNode): boolean {
+function hasModalChild(
+  children: React.ReactNode,
+  predicate: (child: React.ReactElement) => boolean
+): boolean {
   return React.Children.toArray(children).some((child) => {
     if (
       !isValidElement<{
         children?: React.ReactNode
-        hidden?: boolean
       }>(child)
     ) {
       return false
     }
 
     if (child.type === React.Fragment) {
-      return hasHiddenModalHeader(child.props.children)
+      return hasModalChild(child.props.children, predicate)
     }
 
-    return child.type === ModalHeader && child.props.hidden === true
+    return predicate(child)
   })
+}
+
+function hasHiddenModalHeader(children: React.ReactNode): boolean {
+  return hasModalChild(
+    children,
+    (child) =>
+      child.type === ModalHeader &&
+      (child.props as { hidden?: boolean }).hidden === true
+  )
+}
+
+function hasModalBody(children: React.ReactNode): boolean {
+  return hasModalChild(children, (child) => child.type === ModalBody)
 }
 
 /**
@@ -141,6 +157,7 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
     const container = givenContainer ?? rootElement
     const [contentContainer, setContentContainer] = useState<HTMLElement>()
     const shouldShowCloseIcon = showCloseIcon && !hasHiddenModalHeader(children)
+    const hasBody = hasModalBody(children)
 
     const contentRef = useMergeRefs(
       forwardedRef,
@@ -173,10 +190,11 @@ export const ModalContent = forwardRef<HTMLDivElement, ModalContentProps>(
 
     const propsContextValue = useMemo(
       (): ModalContentPropsContextValue => ({
+        hasBody,
         showCloseIcon: shouldShowCloseIcon,
         type,
       }),
-      [shouldShowCloseIcon, type]
+      [hasBody, shouldShowCloseIcon, type]
     )
 
     return (
@@ -413,10 +431,16 @@ export const ModalFooter = forwardRef<HTMLElement, ModalFooterProps>(
     { className, leftContent, rightContent, ...rest },
     forwardedRef
   ) {
+    const { hasBody } = useModalContentPropsContext()
+
     return (
       <footer
         ref={forwardedRef}
-        className={classNames(styles.ModalFooter, className)}
+        className={classNames(
+          styles.ModalFooter,
+          hasBody && styles.ModalFooterAfterBody,
+          className
+        )}
         {...rest}
       >
         {leftContent && (

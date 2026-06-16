@@ -1,8 +1,9 @@
 import { isInaccessible } from '@testing-library/react'
 import userEvent, { PointerEventsCheckLevel } from '@testing-library/user-event'
 
-import { AutoFocus } from '~/src/components/AutoFocus'
 import { render } from '~/src/utils/test'
+
+import { AutoFocus } from '~/src/components/AutoFocus'
 
 import {
   Modal,
