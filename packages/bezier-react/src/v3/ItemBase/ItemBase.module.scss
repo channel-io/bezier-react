@@ -1,0 +1,129 @@
+@use '../../styles/mixins/state';
+
+.Icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--color-icon-neutral-heavy);
+}
+
+.ItemBase {
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+
+  color: var(--color-text-neutral);
+  text-align: inherit;
+  text-decoration: none;
+
+  background-color: transparent;
+  border: 0;
+  border-radius: var(--radius-8);
+  outline: none;
+
+  transition:
+    background-color var(--motion-transition-fast),
+    color var(--motion-transition-fast);
+
+  &:where(.size-m) {
+    min-height: 32px;
+    padding: 4px 8px;
+  }
+
+  &:where(.size-l) {
+    min-height: 36px;
+    padding: 6px 8px;
+  }
+
+  &:where(.interactive) {
+    cursor: pointer;
+  }
+
+  &:where(.active, [data-highlighted]) {
+    background-color: var(--color-fill-neutral-lighter);
+  }
+
+  &:where(.disabled) {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:where(.destructive) {
+    color: var(--color-text-critical);
+
+    .Icon {
+      color: var(--color-icon-critical);
+    }
+  }
+
+  &:where(:focus-visible) {
+    @include state.focus;
+  }
+
+  &:where(.interactive:not(.disabled, .active, [data-highlighted])) {
+    &:hover {
+      background-color: var(--color-fill-neutral-lighter);
+    }
+  }
+}
+
+.Content {
+  display: grid;
+  grid-template-columns: fit-content(100%) minmax(0, 1fr);
+  gap: 0 8px;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.LeadingContent {
+  display: flex;
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  align-items: center;
+  align-self: flex-start;
+
+  width: 20px;
+  height: 20px;
+}
+
+.MainContent {
+  display: flex;
+  grid-column: 2;
+  grid-row: 1;
+  align-items: center;
+
+  min-width: 0;
+}
+
+.Description {
+  display: flex;
+  grid-column: 2;
+  grid-row: 2;
+  align-items: center;
+
+  min-width: 0;
+  margin-top: 2px;
+}
+
+.Content:where(.without-leading-content) {
+  grid-template-columns: minmax(0, 1fr);
+
+  .MainContent,
+  .Description {
+    grid-column: 1;
+  }
+}
+
+.TrailingContent {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+
+  margin-left: 8px;
+
+  color: var(--color-text-neutral-light);
+  white-space: nowrap;
+}
