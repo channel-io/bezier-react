@@ -67,7 +67,7 @@ describe('positionUtils Test >', () => {
 
     const mockOverlay = {
       getBoundingClientRect: () => MOCK_OVERLAY_RECT,
-    }
+    } as HTMLElement
 
     const mockArgs = {
       containerRect: MOCK_CONTAINER_RECT,

@@ -1,4 +1,5 @@
 import { Fragment, useState } from 'react'
+import type { ReactElement } from 'react'
 
 import { PlusIcon, TrashIcon } from '@channel.io/bezier-icons'
 import { act, fireEvent, waitFor, within } from '@testing-library/react'
@@ -102,7 +103,9 @@ describe('DropdownMenu', () => {
   it('returns null when DropdownMenuTrigger does not receive a valid element', () => {
     const { queryByText } = render(
       <DropdownMenu>
-        <DropdownMenuTrigger>More</DropdownMenuTrigger>
+        <DropdownMenuTrigger>
+          {'More' as unknown as ReactElement}
+        </DropdownMenuTrigger>
         <DropdownMenuItem content="Open" />
       </DropdownMenu>
     )
