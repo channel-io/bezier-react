@@ -1,2 +1,7 @@
 export { Overlay } from './Overlay'
-export type { OverlayPosition, OverlayProps } from './Overlay.types'
+export type {
+  OverlayPosition,
+  OverlayProps,
+  OverlayTarget,
+  OverlayVirtualTarget,
+} from './Overlay.types'

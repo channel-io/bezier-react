@@ -16,6 +16,7 @@ import useEventHandler from '~/src/hooks/useEventHandler'
 import { useIsomorphicLayoutEffect } from '~/src/hooks/useIsomorphicLayoutEffect'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { getZIndexClassName } from '~/src/types/props-helpers'
+import { assert } from '~/src/utils/assert'
 import { useModalContainerContext } from '~/src/v3/Modal'
 
 import { ThemeProvider, useThemeName } from '~/src/components/ThemeProvider'
@@ -111,13 +112,20 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       if (!target) {
         return
       }
+      const targetClientRect = target.getBoundingClientRect()
       const {
         width: targetWidth,
         height: targetHeight,
         top: targetTop,
         left: targetLeft,
-      } = target.getBoundingClientRect()
-      const { clientTop, clientLeft } = target
+      } = targetClientRect
+      const clientTop = target.clientTop ?? 0
+      const clientLeft = target.clientLeft ?? 0
+
+      assert(
+        [targetWidth, targetHeight, targetTop, targetLeft].every(Number.isFinite),
+        'Overlay target.getBoundingClientRect() must return finite width, height, top, and left values.'
+      )
 
       targetRect.current = {
         targetWidth,

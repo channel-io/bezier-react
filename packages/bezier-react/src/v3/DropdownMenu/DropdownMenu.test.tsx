@@ -177,6 +177,29 @@ describe('DropdownMenu', () => {
     expect(getByRole('button', { name: 'Target' })).toBeInTheDocument()
   })
 
+  it('supports virtual target based usage', () => {
+    const virtualTarget = {
+      getBoundingClientRect: () => ({
+        width: 0,
+        height: 0,
+        top: 100,
+        left: 200,
+      }),
+    }
+
+    const { getByRole } = render(
+      <DropdownMenu
+        show
+        target={virtualTarget}
+        offset={0}
+      >
+        <DropdownMenuItem content="Open" />
+      </DropdownMenu>
+    )
+
+    expect(getByRole('menuitem', { name: 'Open' })).toBeInTheDocument()
+  })
+
   it('moves focus with arrow keys and skips disabled items', async () => {
     const user = userEvent.setup()
 

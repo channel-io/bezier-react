@@ -242,6 +242,25 @@ describe('Overlay', () => {
         })
       })
 
+      describe('target', () => {
+        it('supports virtual target rect', () => {
+          const getBoundingClientRect = jest.fn(() => ({
+            width: 0,
+            height: 0,
+            top: 100,
+            left: 200,
+          }))
+
+          renderRootOverlay({
+            target: {
+              getBoundingClientRect,
+            },
+          })
+
+          expect(getBoundingClientRect).toHaveBeenCalled()
+        })
+      })
+
       describe('enableClickOutside', () => {
         document.onclick = jest.fn()
         const onHide = jest.fn()

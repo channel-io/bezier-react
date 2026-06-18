@@ -14,7 +14,7 @@ import type {
   ItemBaseSize,
   ItemBaseVariant,
 } from '~/src/v3/ItemBase/ItemBase.types'
-import type { OverlayPosition } from '~/src/v3/Overlay'
+import type { OverlayPosition, OverlayTarget } from '~/src/v3/Overlay'
 
 export type DropdownMenuSize = ItemBaseSize
 
@@ -45,7 +45,7 @@ interface DropdownMenuOwnProps {
    * Use `target` as an escape hatch for externally controlled triggers,
    * hover-open policies, or migration from lower-level `Overlay` usage.
    */
-  target?: HTMLElement | null
+  target?: OverlayTarget | null
   /**
    * Position of the menu from the target.
    * @default 'bottom-left'

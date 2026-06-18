@@ -23,6 +23,24 @@ export interface TargetRectAttr {
   clientLeft: number
 }
 
+export interface OverlayVirtualTarget {
+  /**
+   * Returns the rectangle used as the overlay positioning target.
+   *
+   * Use this for virtual positioning targets, such as a context-menu point
+   * derived from a pointer event, when there is no concrete HTMLElement to
+   * attach the overlay to.
+   */
+  getBoundingClientRect: () => Pick<
+    DOMRect,
+    'width' | 'height' | 'top' | 'left'
+  >
+  clientTop?: number
+  clientLeft?: number
+}
+
+export type OverlayTarget = HTMLElement | OverlayVirtualTarget
+
 export type OverlayPosition =
   | 'top-center'
   | 'top-left'
@@ -49,7 +67,7 @@ interface OverlayOwnProps {
    * @default document.body
    */
   container?: HTMLElement | null
-  target?: HTMLElement | null
+  target?: OverlayTarget | null
   position?: OverlayPosition
   marginX?: number
   marginY?: number
