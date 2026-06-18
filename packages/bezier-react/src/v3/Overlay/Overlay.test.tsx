@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { fireEvent } from '@testing-library/dom'
+import { fireEvent, waitFor } from '@testing-library/dom'
 import { getWindow } from 'ssr-window'
 
 import { render } from '~/src/utils/test'
@@ -282,6 +282,36 @@ describe('Overlay', () => {
           const overlay = getByTestId(OVERLAY_TEST_ID)
           expect(overlay).toHaveClass(styles.transition)
         })
+
+        it('keeps rendering until transition ends when show becomes false', async () => {
+          const onTransitionEnd = jest.fn()
+          const { getByTestId, queryByTestId, rerender } = render(
+            <RootOverlay
+              {...props}
+              show
+              withTransition
+              onTransitionEnd={onTransitionEnd}
+            />
+          )
+
+          const overlay = getByTestId(OVERLAY_TEST_ID)
+
+          rerender(
+            <RootOverlay
+              {...props}
+              show={false}
+              withTransition
+              onTransitionEnd={onTransitionEnd}
+            />
+          )
+
+          fireEvent.transitionEnd(overlay)
+
+          expect(onTransitionEnd).toHaveBeenCalledTimes(1)
+          await waitFor(() => {
+            expect(queryByTestId(OVERLAY_TEST_ID)).not.toBeInTheDocument()
+          })
+        })
       })
     })
 
@@ -339,6 +369,19 @@ describe('Overlay', () => {
           const button = getByRole('button')
           fireEvent.click(button)
           expect(onHide).not.toHaveBeenCalled()
+        })
+      })
+
+      describe('wheel', () => {
+        it('stops propagation from the overlay container', () => {
+          const { getByTestId } = renderRootOverlay()
+          const container = getByTestId(CONTAINER_TEST_ID)
+          const event = new WheelEvent('wheel', { bubbles: true })
+          const stopPropagation = jest.spyOn(event, 'stopPropagation')
+
+          container.dispatchEvent(event)
+
+          expect(stopPropagation).toHaveBeenCalledTimes(1)
         })
       })
     })

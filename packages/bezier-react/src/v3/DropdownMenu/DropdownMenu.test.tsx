@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 
 import { PlusIcon, TrashIcon } from '@channel.io/bezier-icons'
 import { act, fireEvent, waitFor, within } from '@testing-library/react'
@@ -77,6 +77,68 @@ describe('DropdownMenu', () => {
     ).not.toBeInTheDocument()
   })
 
+  it('flattens Fragment children before splitting trigger and menu items', async () => {
+    const user = userEvent.setup()
+
+    const { getByRole } = render(
+      <DropdownMenu>
+        <Fragment>
+          <DropdownMenuTrigger>
+            <IconButton
+              aria-label="More"
+              content={PlusIcon}
+            />
+          </DropdownMenuTrigger>
+          <DropdownMenuItem content="Open" />
+        </Fragment>
+      </DropdownMenu>
+    )
+
+    await user.click(getByRole('button', { name: 'More' }))
+
+    expect(getByRole('menuitem', { name: 'Open' })).toBeInTheDocument()
+  })
+
+  it('returns null when DropdownMenuTrigger does not receive a valid element', () => {
+    const { queryByText } = render(
+      <DropdownMenu>
+        <DropdownMenuTrigger>More</DropdownMenuTrigger>
+        <DropdownMenuItem content="Open" />
+      </DropdownMenu>
+    )
+
+    expect(queryByText('More')).not.toBeInTheDocument()
+  })
+
+  it('opens from a native trigger by keyboard and passes DOM active state', async () => {
+    const user = userEvent.setup()
+    const onKeyDown = jest.fn()
+
+    const { getByRole } = render(
+      <DropdownMenu>
+        <DropdownMenuTrigger>
+          <button
+            type="button"
+            onKeyDown={onKeyDown}
+          >
+            More
+          </button>
+        </DropdownMenuTrigger>
+        <DropdownMenuItem content="Open" />
+      </DropdownMenu>
+    )
+
+    const trigger = getByRole('button', { name: 'More' })
+
+    await user.tab()
+    await user.keyboard('{ArrowDown}')
+
+    expect(onKeyDown).toHaveBeenCalled()
+    expect(trigger).toHaveAttribute('data-active', 'true')
+    expect(trigger).toHaveAttribute('aria-expanded', 'true')
+    expect(getByRole('menuitem', { name: 'Open' })).toHaveFocus()
+  })
+
   it('supports controlled target based usage', async () => {
     const user = userEvent.setup()
     const onHide = jest.fn()
@@ -135,6 +197,32 @@ describe('DropdownMenu', () => {
     expect(thirdItem).toHaveFocus()
   })
 
+  it('moves focus with ArrowUp, Home, and End keys', async () => {
+    const user = userEvent.setup()
+
+    const { getByRole } = render(
+      <DropdownMenu defaultShow>
+        <DropdownMenuItem content="First" />
+        <DropdownMenuItem content="Second" />
+        <DropdownMenuItem content="Third" />
+      </DropdownMenu>
+    )
+
+    const firstItem = getByRole('menuitem', { name: 'First' })
+    const secondItem = getByRole('menuitem', { name: 'Second' })
+    const thirdItem = getByRole('menuitem', { name: 'Third' })
+
+    secondItem.focus()
+    await user.keyboard('{Home}')
+    expect(firstItem).toHaveFocus()
+
+    await user.keyboard('{End}')
+    expect(thirdItem).toHaveFocus()
+
+    await user.keyboard('{ArrowUp}')
+    expect(secondItem).toHaveFocus()
+  })
+
   it('selects the focused item with Enter and closes the menu', async () => {
     const user = userEvent.setup()
     const onSelect = jest.fn()
@@ -157,6 +245,64 @@ describe('DropdownMenu', () => {
 
     expect(onSelect).toHaveBeenCalledTimes(1)
     expect(queryByRole('menu')).not.toBeInTheDocument()
+  })
+
+  it('selects the focused item with Space', async () => {
+    const user = userEvent.setup()
+    const onSelect = jest.fn()
+
+    const { getByRole } = render(
+      <DropdownMenu defaultShow>
+        <DropdownMenuItem
+          content="Open"
+          onSelect={onSelect}
+        />
+      </DropdownMenu>
+    )
+
+    act(() => {
+      getByRole('menuitem', { name: 'Open' }).focus()
+    })
+    await user.keyboard('[Space]')
+
+    expect(onSelect).toHaveBeenCalledTimes(1)
+  })
+
+  it('does not select disabled items', async () => {
+    const user = userEvent.setup()
+    const onSelect = jest.fn()
+
+    const { getByRole } = render(
+      <DropdownMenu defaultShow>
+        <DropdownMenuItem
+          content="Open"
+          disabled
+          onSelect={onSelect}
+        />
+      </DropdownMenu>
+    )
+
+    await user.click(getByRole('menuitem', { name: 'Open' }))
+
+    expect(onSelect).not.toHaveBeenCalled()
+    expect(getByRole('menu')).toBeInTheDocument()
+  })
+
+  it('keeps the menu open when selection is prevented', async () => {
+    const user = userEvent.setup()
+
+    const { getByRole } = render(
+      <DropdownMenu defaultShow>
+        <DropdownMenuItem
+          content="Open"
+          onSelect={(event) => event.preventDefault()}
+        />
+      </DropdownMenu>
+    )
+
+    await user.click(getByRole('menuitem', { name: 'Open' }))
+
+    expect(getByRole('menu')).toBeInTheDocument()
   })
 
   it('renders separators outside menuitem collection', () => {
@@ -206,6 +352,34 @@ describe('DropdownMenu', () => {
     })
   })
 
+  it('does not open submenu when sub trigger keyboard event is prevented', async () => {
+    const user = userEvent.setup()
+
+    const { getByRole, queryByRole } = render(
+      <DropdownMenu
+        show
+        target={document.body}
+      >
+        <DropdownMenuSub>
+          <DropdownMenuSubTrigger
+            content="Move to"
+            onKeyDown={(event) => event.preventDefault()}
+          />
+          <DropdownMenuSubContent>
+            <DropdownMenuItem content="Inbox" />
+          </DropdownMenuSubContent>
+        </DropdownMenuSub>
+      </DropdownMenu>
+    )
+
+    act(() => {
+      getByRole('menuitem', { name: 'Move to' }).focus()
+    })
+    await user.keyboard('{ArrowRight}')
+
+    expect(queryByRole('menuitem', { name: 'Inbox' })).not.toBeInTheDocument()
+  })
+
   it('closes submenu when pointer leaves both sub trigger and sub content', async () => {
     const { getByRole, queryByRole } = render(
       <DropdownMenu
@@ -233,6 +407,33 @@ describe('DropdownMenu', () => {
         queryByRole('menuitem', { name: 'Inbox' })
       ).not.toBeInTheDocument()
     })
+  })
+
+  it('keeps submenu open while pointer moves from trigger to sub content', async () => {
+    const { getAllByTestId, getByRole } = render(
+      <DropdownMenu
+        show
+        target={document.body}
+      >
+        <DropdownMenuSub>
+          <DropdownMenuSubTrigger content="Move to" />
+          <DropdownMenuSubContent>
+            <DropdownMenuItem content="Inbox" />
+          </DropdownMenuSubContent>
+        </DropdownMenuSub>
+      </DropdownMenu>
+    )
+
+    const trigger = getByRole('menuitem', { name: 'Move to' })
+
+    fireEvent.pointerEnter(trigger)
+    const subContentOverlay = getAllByTestId(OVERLAY_TEST_ID)[1]
+
+    fireEvent.pointerLeave(trigger, { relatedTarget: subContentOverlay })
+    fireEvent.pointerEnter(subContentOverlay)
+    fireEvent.pointerLeave(subContentOverlay, { relatedTarget: trigger })
+
+    expect(getByRole('menuitem', { name: 'Inbox' })).toBeInTheDocument()
   })
 
   it('closes submenu with ArrowLeft and returns focus to sub trigger', async () => {

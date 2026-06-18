@@ -253,5 +253,50 @@ describe('positionUtils Test >', () => {
       expect(translateX).toEqual(-155)
       expect(translateY).toEqual(-70)
     })
+
+    it('flips vertical position when overlay overflows top side', () => {
+      const { translateX, translateY } = getOverlayTranslation({
+        ...mockArgs,
+        targetRect: {
+          ...MOCK_TARGET_RECT,
+          targetTop: 110,
+        },
+        position: 'top-left',
+        keepInContainer: true,
+      })
+
+      expect(translateX).toEqual(5)
+      expect(translateY).toEqual(60)
+    })
+
+    it('flips horizontal position when overlay overflows left side', () => {
+      const { translateX, translateY } = getOverlayTranslation({
+        ...mockArgs,
+        targetRect: {
+          ...MOCK_TARGET_RECT,
+          targetLeft: 210,
+        },
+        position: 'left-top',
+        keepInContainer: true,
+      })
+
+      expect(translateX).toEqual(105)
+      expect(translateY).toEqual(10)
+    })
+
+    it('flips horizontal position when overlay overflows right side', () => {
+      const { translateX, translateY } = getOverlayTranslation({
+        ...mockArgs,
+        targetRect: {
+          ...MOCK_TARGET_RECT,
+          targetLeft: 580,
+        },
+        position: 'right-top',
+        keepInContainer: true,
+      })
+
+      expect(translateX).toEqual(-265)
+      expect(translateY).toEqual(10)
+    })
   })
 })
