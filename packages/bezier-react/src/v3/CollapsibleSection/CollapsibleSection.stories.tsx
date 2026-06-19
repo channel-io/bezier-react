@@ -8,11 +8,11 @@ import {
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Box } from '~/src/v3/Box'
-import { SectionItem } from '~/src/v3/Section'
 import { Text } from '~/src/v3/Text'
 
 import {
   CollapsibleSection,
+  CollapsibleSectionItem,
   CollapsibleSectionTrigger,
 } from './CollapsibleSection'
 
@@ -38,7 +38,7 @@ function ControlledExample() {
           content="Controlled section"
           trailingContent={open ? ChevronUpIcon : ChevronDownIcon}
         />
-        <SectionItem
+        <CollapsibleSectionItem
           content="Profile"
           description="This section is controlled externally."
         />
@@ -57,11 +57,11 @@ export const Primary: Story = {
           trailingContent="Optional"
           help="These settings apply to the section."
         />
-        <SectionItem
+        <CollapsibleSectionItem
           content="Profile"
           description="Update name and avatar"
         />
-        <SectionItem
+        <CollapsibleSectionItem
           content="Notifications"
           description="Email, push, and desktop alerts"
         />

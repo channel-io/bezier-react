@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 
 import type { ChildrenProps } from '~/src/types/props'
 import type { CollapsibleProps } from '~/src/v3/Collapsible'
-import type { SectionProps } from '~/src/v3/Section'
+import type { SectionItemProps, SectionProps } from '~/src/v3/Section'
 import type { SectionLabelProps } from '~/src/v3/Section/Section.types'
 
 export interface CollapsibleSectionProps
@@ -24,5 +24,7 @@ export interface CollapsibleSectionTriggerProps
    */
   disabled?: boolean
 }
+
+export type CollapsibleSectionItemProps = SectionItemProps
 
 export type CollapsibleSectionChild = ReactNode

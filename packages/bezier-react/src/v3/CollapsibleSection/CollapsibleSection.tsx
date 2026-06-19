@@ -8,9 +8,10 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from '~/src/v3/Collapsible'
-import { Section, SectionLabel } from '~/src/v3/Section'
+import { Section, SectionItem, SectionLabel } from '~/src/v3/Section'
 
 import type {
+  CollapsibleSectionItemProps,
   CollapsibleSectionProps,
   CollapsibleSectionTriggerProps,
 } from './CollapsibleSection.types'
@@ -145,3 +146,14 @@ export function CollapsibleSectionTrigger({
     </CollapsibleTrigger>
   )
 }
+
+/**
+ * `CollapsibleSectionItem` is a row inside `CollapsibleSection`.
+ *
+ * It shares the same implementation as `SectionItem`; this alias keeps the
+ * `CollapsibleSection` component family self-contained without duplicating row
+ * behavior or styles.
+ */
+export const CollapsibleSectionItem = SectionItem as React.ForwardRefExoticComponent<
+  CollapsibleSectionItemProps & React.RefAttributes<HTMLElement>
+>
