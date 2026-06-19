@@ -42,6 +42,11 @@ export const Primary: Story = {
           leadingContent={InfoIcon}
           trailingContent={ChevronSmallRightIcon}
         />
+        <SectionItem
+          content="Security"
+          leadingContent={CheckIcon}
+          trailingContent={ChevronSmallRightIcon}
+        />
       </Section>
     </Box>
   ),

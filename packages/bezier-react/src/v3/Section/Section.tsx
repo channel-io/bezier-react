@@ -99,6 +99,7 @@ export const SectionItem = forwardRef<HTMLElement, SectionItemProps>(
       ...rest
     } = props
     const hasLeadingContent = leadingContent != null
+    const hasDescription = description != null
     const isLink = 'href' in rest && rest.href != null
     const isButton = 'onClick' in rest && rest.onClick != null
     const isInteractive = isLink || isButton
@@ -140,7 +141,8 @@ export const SectionItem = forwardRef<HTMLElement, SectionItemProps>(
         <div
           className={classNames(
             styles.ItemContent,
-            !hasLeadingContent && styles['without-leading-content']
+            !hasLeadingContent && styles['without-leading-content'],
+            hasDescription && styles['has-description']
           )}
         >
           {hasLeadingContent && (
