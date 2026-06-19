@@ -6,8 +6,7 @@ import { HelpFilledIcon } from '@channel.io/bezier-icons'
 
 import { isEmpty } from '~/src/utils/type'
 import { Icon } from '~/src/v3/Icon'
-
-import { Tooltip } from '~/src/components/Tooltip'
+import { Tooltip } from '~/src/v3/Tooltip'
 
 import { type HelpProps } from './Help.types'
 
