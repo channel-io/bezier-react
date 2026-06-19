@@ -1,0 +1,9 @@
+.Collapsible {
+  display: contents;
+}
+
+.CollapsibleContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

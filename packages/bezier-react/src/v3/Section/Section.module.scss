@@ -1,0 +1,212 @@
+@use '../../styles/mixins/state';
+
+.Section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+
+.SectionHeader {
+  min-width: 0;
+  margin-bottom: 6px;
+  padding: 0 6px;
+}
+
+.SectionLabelRow {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-width: 0;
+  height: 28px;
+
+  &:where([role='button']) {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &:where([aria-disabled='true']) {
+    cursor: not-allowed;
+  }
+}
+
+.SectionLabel {
+  min-width: 0;
+}
+
+.LabelIcon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--color-icon-neutral-heavy);
+}
+
+.SectionHeading {
+  min-width: 0;
+  margin: 0;
+}
+
+.SectionLabelLeadingContent {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  margin-right: 6px;
+}
+
+.SectionHelp {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  margin-left: 8px;
+}
+
+.SectionLabelTrailingContent {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+
+  margin-left: auto;
+
+  color: var(--color-text-neutral-light);
+  white-space: nowrap;
+}
+
+.SectionBody {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.ItemIcon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--color-icon-neutral-heavy);
+}
+
+.SectionItem {
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+
+  font: inherit;
+  color: var(--color-text-neutral);
+  text-align: inherit;
+  text-decoration: none;
+
+  background-color: transparent;
+  border: 0;
+  border-radius: var(--radius-8);
+  outline: none;
+
+  transition:
+    background-color var(--motion-transition-fast),
+    color var(--motion-transition-fast);
+
+  &:where(.size-m) {
+    min-height: 32px;
+    padding: 4px 8px;
+  }
+
+  &:where(.size-l) {
+    min-height: 40px;
+    padding: 7px 8px;
+  }
+
+  &:where(.interactive) {
+    cursor: pointer;
+  }
+
+  &:where(.active) {
+    background-color: var(--color-fill-neutral-light);
+
+    .ItemIcon {
+      color: var(--color-icon-neutral-heavier);
+    }
+  }
+
+  &:where(.disabled) {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:where(:focus-visible) {
+    @include state.focus;
+  }
+
+  &:where(.interactive:not(.disabled, .active)) {
+    &:hover {
+      background-color: var(--color-fill-neutral-lighter);
+    }
+  }
+}
+
+.ItemContent {
+  display: grid;
+  grid-template-columns: fit-content(100%) minmax(0, 1fr);
+  gap: 0 8px;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.ItemLeadingContent {
+  display: flex;
+  grid-column: 1;
+  grid-row: 1;
+  align-items: center;
+  align-self: center;
+
+  width: 20px;
+  height: 20px;
+}
+
+.ItemContent:where(.has-description) {
+  .ItemLeadingContent {
+    grid-row: 1 / span 2;
+    align-self: flex-start;
+  }
+}
+
+.ItemMainContent {
+  display: flex;
+  grid-column: 2;
+  grid-row: 1;
+  align-items: center;
+
+  min-width: 0;
+}
+
+.ItemDescription {
+  display: flex;
+  grid-column: 2;
+  grid-row: 2;
+  align-items: center;
+
+  min-width: 0;
+  margin-top: 2px;
+}
+
+.ItemContent:where(.without-leading-content) {
+  grid-template-columns: minmax(0, 1fr);
+
+  .ItemMainContent,
+  .ItemDescription {
+    grid-column: 1;
+  }
+}
+
+.ItemTrailingContent {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+
+  margin-left: 8px;
+
+  color: var(--color-text-neutral-light);
+  white-space: nowrap;
+}
