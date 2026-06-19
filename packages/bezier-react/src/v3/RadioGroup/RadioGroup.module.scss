@@ -1,0 +1,106 @@
+@use 'sass:math';
+@use '../../styles/mixins/dimension';
+@use '../../styles/mixins/interaction';
+@use '../../styles/mixins/state';
+
+$outer-indicator-size: 18px;
+$outer-indicator-margin: 1px;
+$inner-indicator-size: 8px;
+
+.RadioGroup {
+  width: fit-content;
+}
+
+.Radio {
+  cursor: pointer;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: fit-content;
+  min-width: 0;
+
+  outline: none;
+
+  /* stylelint-disable-next-line order/order */
+  @include interaction.touchable-hover {
+    &:where(:not([data-disabled])[data-state='unchecked'])::after {
+      background-color: var(--color-fill-neutral-heavy);
+    }
+  }
+
+  &::before {
+    @include dimension.square($outer-indicator-size);
+
+    content: '';
+
+    position: relative;
+
+    flex: 0 0 auto;
+
+    box-sizing: border-box;
+    margin: $outer-indicator-margin;
+
+    background-color: var(--color-fill-grey-light);
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px var(--color-border-neutral-heavy);
+  }
+
+  &::after {
+    @include dimension.square($inner-indicator-size);
+
+    content: '';
+
+    position: absolute;
+    top: 50%;
+    left: math.div($outer-indicator-size, 2) + $outer-indicator-margin;
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+  }
+
+  &:where([data-state='checked']) {
+    &::before {
+      background-color: var(--color-fill-neutral-heaviest);
+      box-shadow: none;
+    }
+
+    &::after {
+      background-color: var(--color-text-inverse);
+    }
+  }
+
+  &:where([data-disabled]) {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+
+    &::before {
+      background-color: var(--color-fill-neutral-heavy);
+      box-shadow: none;
+    }
+  }
+
+  &:where(:focus-visible) {
+    outline: none;
+
+    &::before {
+      @include state.focus;
+    }
+
+    &:where(:not([data-disabled])[data-state='unchecked'])::after {
+      background-color: var(--color-fill-neutral-heavy);
+    }
+  }
+
+  &:where(:has(.Label)) {
+    height: var(--b-form-field-size);
+  }
+}
+
+.Label {
+  min-width: 0;
+  padding-left: 12px;
+}
