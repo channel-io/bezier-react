@@ -1,0 +1,262 @@
+'use client'
+
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
+
+import {
+  CancelIcon,
+  CheckCircleFilledIcon,
+  ErrorDiamondFilledIcon,
+  InfoFilledIcon,
+} from '@channel.io/bezier-icons'
+import classNames from 'classnames'
+
+import useIsMounted from '~/src/hooks/useIsMounted'
+import { type BetaSemanticColor } from '~/src/types/beta-tokens'
+import { getZIndexClassName } from '~/src/types/props-helpers'
+import { ariaAttr } from '~/src/utils/aria'
+import { noop } from '~/src/utils/function'
+import { createContext } from '~/src/utils/react'
+import { px } from '~/src/utils/style'
+import { isString } from '~/src/utils/type'
+import { BaseButton } from '~/src/v3/BaseButton'
+import { Icon } from '~/src/v3/Icon'
+import { Text } from '~/src/v3/Text'
+
+import { InvertedThemeProvider } from '~/src/components/ThemeProvider'
+import { useRootElement, useWindow } from '~/src/components/WindowProvider'
+
+import {
+  type ToastContextValue,
+  type ToastPlacement,
+  type ToastPreset,
+  type ToastProps,
+  type ToastProviderProps,
+  type ToastType,
+} from './Toast.types'
+import useToastProviderValues from './useToastContextValues'
+
+import styles from './Toast.module.scss'
+
+function getToastPreset(preset: ToastPreset): {
+  icon: NonNullable<ToastProps['icon']>
+  iconColor: BetaSemanticColor
+} {
+  return (
+    {
+      info: {
+        icon: InfoFilledIcon,
+        iconColor: 'icon-neutral-heavy',
+      },
+      success: {
+        icon: CheckCircleFilledIcon,
+        iconColor: 'icon-accent-green',
+      },
+      error: {
+        icon: ErrorDiamondFilledIcon,
+        iconColor: 'icon-accent-red',
+      },
+    } as const
+  )[preset]
+}
+
+export function Toast({
+  placement,
+  preset = 'info',
+  icon: iconProp,
+  content,
+  zIndex = 'toast',
+  autoDismiss = true,
+  autoDismissTimeout,
+  version = 0,
+  onDismiss,
+}: ToastProps) {
+  const { window } = useWindow()
+
+  const dismissTimer = useRef<ReturnType<Window['setTimeout']>>(undefined)
+
+  const [isSlidingOut, setIsSlidingOut] = useState(false)
+
+  const className = classNames(
+    styles.ToastElement,
+    getZIndexClassName(zIndex),
+    placement && styles[`placement-${placement}`],
+    isSlidingOut && styles['slide-out']
+  )
+
+  const runSlideOutAnimation = useCallback(() => {
+    setIsSlidingOut(true)
+  }, [])
+
+  const handleAnimationEnd = useCallback<React.AnimationEventHandler>(
+    (event) => {
+      if (
+        event.animationName === styles['slide-out-left'] ||
+        event.animationName === styles['slide-out-right']
+      ) {
+        onDismiss?.()
+      }
+    },
+    [onDismiss]
+  )
+
+  useEffect(
+    function startDismissTimer() {
+      if (autoDismiss) {
+        dismissTimer.current = window.setTimeout(
+          runSlideOutAnimation,
+          autoDismissTimeout
+        )
+      }
+
+      return function cleanup() {
+        if (dismissTimer.current != null) {
+          clearTimeout(dismissTimer.current)
+        }
+      }
+    },
+    [autoDismiss, autoDismissTimeout, runSlideOutAnimation, window, version]
+  )
+
+  const { icon, iconColor } = getToastPreset(preset)
+
+  return (
+    <div
+      role="status"
+      className={className}
+      onAnimationEnd={handleAnimationEnd}
+      aria-hidden={ariaAttr(isSlidingOut)}
+    >
+      <div className={styles.IconWrapper}>
+        <Icon
+          source={iconProp ?? icon}
+          size="20"
+          color={iconColor}
+        />
+      </div>
+
+      <div className={styles.Content}>
+        <Text
+          className={styles.EllipsisableContent}
+          typo="14"
+          color="text-neutral"
+          truncated={5}
+        >
+          {isString(content)
+            ? content.split('\n').map((str, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <Fragment key={index}>
+                  {index !== 0 && <br />}
+                  {str}
+                </Fragment>
+              ))
+            : content}
+        </Text>
+      </div>
+
+      <BaseButton
+        className={styles.Close}
+        onClick={runSlideOutAnimation}
+        aria-label="Close toast"
+      >
+        <Icon
+          source={CancelIcon}
+          size="16"
+          color="icon-neutral"
+        />
+      </BaseButton>
+    </div>
+  )
+}
+
+const [ToastContextProvider, useToastContext] =
+  createContext<ToastContextValue>({
+    add: () => '',
+    update: () => '',
+    remove: noop,
+    removeAll: noop,
+    leftToasts: [],
+    rightToasts: [],
+  })
+
+const DEFAULT_OFFSET = {
+  left: 0,
+  right: 0,
+  bottom: 0,
+}
+
+export function ToastProvider({
+  autoDismissTimeout = 3000,
+  container: givenContainer,
+  zIndex = 'toast',
+  offset = DEFAULT_OFFSET,
+  children = [],
+}: ToastProviderProps) {
+  const rootElement = useRootElement()
+  const isMounted = useIsMounted()
+
+  const toastContextValue = useToastProviderValues()
+  const { leftToasts, rightToasts, dismiss } = toastContextValue
+  const container = givenContainer ?? rootElement
+
+  const createContainer = useCallback(
+    (placement: ToastPlacement, toasts: ToastType[]) => (
+      <InvertedThemeProvider key={placement}>
+        <div
+          style={{
+            bottom: px(offset?.bottom ?? DEFAULT_OFFSET.bottom),
+            ...(placement === 'bottom-right'
+              ? { right: px(offset?.right ?? DEFAULT_OFFSET.right) }
+              : { left: px(offset?.left ?? DEFAULT_OFFSET.left) }),
+          }}
+          className={classNames(
+            styles.ToastContainer,
+            getZIndexClassName(zIndex)
+          )}
+        >
+          {toasts.map(({ id, onDismiss, ...rest }) => (
+            <Toast
+              {...rest}
+              key={id}
+              placement={placement}
+              autoDismissTimeout={autoDismissTimeout}
+              onDismiss={() => dismiss(id, onDismiss)}
+            />
+          ))}
+        </div>
+      </InvertedThemeProvider>
+    ),
+    [autoDismissTimeout, dismiss, offset, zIndex]
+  )
+
+  return (
+    <ToastContextProvider value={toastContextValue}>
+      {children}
+      {isMounted &&
+        createPortal(
+          [
+            createContainer('bottom-left', leftToasts),
+            createContainer('bottom-right', rightToasts),
+          ],
+          container
+        )}
+    </ToastContextProvider>
+  )
+}
+
+export function useToast() {
+  const context = useToastContext()
+
+  if (!context) {
+    throw Error("'useToast' must be used within 'ToastProvider'")
+  }
+
+  return {
+    addToast: context.add,
+    updateToast: context.update,
+    removeToast: context.remove,
+    removeAllToasts: context.removeAll,
+    leftToasts: context.leftToasts,
+    rightToasts: context.rightToasts,
+  }
+}
