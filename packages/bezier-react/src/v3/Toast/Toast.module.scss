@@ -1,0 +1,136 @@
+@use '../../styles/mixins/dimension';
+
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-120%);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(120%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(120%);
+  }
+}
+
+.ToastContainer {
+  pointer-events: none;
+
+  position: fixed;
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100vh;
+  padding: 16px;
+}
+
+.ToastElement {
+  pointer-events: auto;
+
+  position: relative;
+
+  display: flex;
+  align-items: flex-start;
+
+  box-sizing: border-box;
+  width: fit-content;
+  min-width: 88px;
+  max-width: 460px;
+  margin-top: 6px;
+  padding: 11px 12px;
+
+  background-color: var(--color-fill-grey-heavier);
+  border-radius: var(--radius-16);
+  box-shadow: var(--elevation-2);
+
+  &:where(.placement-bottom-left) {
+    animation: var(--motion-transition-default) slide-in-left forwards;
+
+    &:where(.slide-out) {
+      animation: var(--motion-transition-default) slide-out-left forwards;
+    }
+  }
+
+  &:where(.placement-bottom-right) {
+    animation: var(--motion-transition-default) slide-in-right forwards;
+
+    &:where(.slide-out) {
+      animation: var(--motion-transition-default) slide-out-right forwards;
+    }
+  }
+}
+
+.IconWrapper {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 24px;
+}
+
+.Content {
+  overflow: hidden;
+  display: flex;
+  flex: 1;
+
+  margin: 3px 8px;
+
+  color: var(--color-text-neutral);
+}
+
+.EllipsisableContent {
+  flex: 1;
+  word-break: break-word;
+}
+
+.Close {
+  @include dimension.square(24px);
+
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: auto;
+
+  color: var(--color-icon-neutral);
+
+  border-radius: var(--radius-12);
+
+  &:hover {
+    background-color: var(--color-fill-neutral-light);
+  }
+}
