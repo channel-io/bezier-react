@@ -1,3 +1,9 @@
+.DropdownMenuRoot {
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+}
+
 .DropdownMenu {
   pointer-events: auto;
 
@@ -16,6 +22,30 @@
 }
 
 .DropdownMenuContent {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.DropdownMenuGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.DropdownMenuGroupLabel {
+  padding: 6px 8px 4px;
+
+  font-family: var(--typography-text-font-family);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--color-text-neutral-lighter);
+}
+
+.DropdownMenuGroupContent {
   display: flex;
   flex-direction: column;
   align-items: stretch;

@@ -1,5 +1,6 @@
 export {
   DropdownMenu,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuSub,
@@ -8,6 +9,7 @@ export {
   DropdownMenuTrigger,
 } from './DropdownMenu'
 export type {
+  DropdownMenuGroupProps,
   DropdownMenuItemProps,
   DropdownMenuItemVariant,
   DropdownMenuProps,

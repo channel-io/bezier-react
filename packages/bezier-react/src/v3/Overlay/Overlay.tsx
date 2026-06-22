@@ -25,6 +25,7 @@ import { useWindow } from '~/src/components/WindowProvider'
 import type {
   ContainerRectAttr,
   OverlayProps,
+  OverlayTarget,
   TargetRectAttr,
 } from './Overlay.types'
 import { getOverlayStyle } from './utils'
@@ -34,6 +35,67 @@ import styles from './Overlay.module.scss'
 export const CONTAINER_TEST_ID = 'bezier-container'
 export const OVERLAY_TEST_ID = 'bezier-overlay'
 export const ESCAPE_KEY = 'Escape'
+
+function isElementTarget(
+  target: OverlayTarget | null | undefined
+): target is HTMLElement {
+  return (target as { nodeType?: number } | null | undefined)?.nodeType === 1
+}
+
+function isNode(value: unknown): value is Node {
+  return typeof (value as { nodeType?: unknown } | null | undefined)
+    ?.nodeType === 'number'
+}
+
+function isEventTargetInsideElement(
+  eventTarget: EventTarget | null,
+  element: HTMLElement
+) {
+  return (
+    isNode(eventTarget) &&
+    (eventTarget === element || element.contains(eventTarget))
+  )
+}
+
+function isScrollableElement(element: HTMLElement, window: Window) {
+  const { overflow, overflowX, overflowY } = window.getComputedStyle(element)
+
+  return /(auto|scroll|overlay)/.test(`${overflow}${overflowX}${overflowY}`)
+}
+
+function getScrollableAncestors({
+  target,
+  container,
+  rootElement,
+  window,
+}: {
+  target?: OverlayTarget | null
+  container: HTMLElement
+  rootElement: HTMLElement
+  window: Window
+}) {
+  const ancestors = new Set<HTMLElement | Window>([window])
+
+  if (container !== rootElement) {
+    ancestors.add(container)
+  }
+
+  if (!isElementTarget(target)) {
+    return Array.from(ancestors)
+  }
+
+  let element = target.parentElement
+
+  while (element && element !== rootElement) {
+    if (isScrollableElement(element, window)) {
+      ancestors.add(element)
+    }
+
+    element = element.parentElement
+  }
+
+  return Array.from(ancestors)
+}
 
 export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
   function Overlay(
@@ -71,6 +133,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
 
     const containerRef = useRef<HTMLDivElement>(null)
     const overlayRef = useRef<HTMLDivElement>(null)
+    const positionUpdateRafRef = useRef<number | null>(null)
     const mergedRef = useMergeRefs<HTMLDivElement>(overlayRef, forwardedRef)
 
     const modalContainer = useModalContainerContext()
@@ -123,7 +186,9 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       const clientLeft = target.clientLeft ?? 0
 
       assert(
-        [targetWidth, targetHeight, targetTop, targetLeft].every(Number.isFinite),
+        [targetWidth, targetHeight, targetTop, targetLeft].every(
+          Number.isFinite
+        ),
         'Overlay target.getBoundingClientRect() must return finite width, height, top, and left values.'
       )
 
@@ -145,6 +210,27 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
       },
       [show, handleTargetRect]
     )
+
+    const handleOverlayPositionUpdate = useCallback(() => {
+      if (!show) {
+        return
+      }
+
+      handleContainerRect()
+      handleTargetRect()
+      handleOverlayForceUpdate()
+    }, [handleContainerRect, handleOverlayForceUpdate, handleTargetRect, show])
+
+    const scheduleOverlayPositionUpdate = useCallback(() => {
+      if (positionUpdateRafRef.current != null) {
+        return
+      }
+
+      positionUpdateRafRef.current = window.requestAnimationFrame(() => {
+        positionUpdateRafRef.current = null
+        handleOverlayPositionUpdate()
+      })
+    }, [handleOverlayPositionUpdate, window])
 
     const handleTransitionEnd = useCallback<
       React.TransitionEventHandler<HTMLDivElement>
@@ -170,9 +256,20 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
         /**
          * NOTE: Type checking with instanceof makes it difficult to handle cases where the window object is different.
          */
+        const eventTarget = event.target
+        const isInsideOverlay =
+          isNode(eventTarget) &&
+          eventTarget.nodeType === 1 &&
+          Boolean((eventTarget as Element).closest(`.${styles.Overlay}`))
+        const isInsideTarget =
+          isElementTarget(target) &&
+          target !== document.body &&
+          target !== rootElement &&
+          isEventTargetInsideElement(eventTarget, target)
+
         if (
-          !event.target ||
-          !(event.target as HTMLElement).closest(`.${styles.Overlay}`)
+          !eventTarget ||
+          (!isInsideOverlay && !isInsideTarget)
         ) {
           onHide?.()
 
@@ -181,7 +278,7 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
           }
         }
       },
-      [enableClickOutside, onHide]
+      [document.body, enableClickOutside, onHide, rootElement, target]
     )
 
     const handleKeydown = useCallback(
@@ -195,7 +292,69 @@ export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
 
     useEventHandler(document, 'click', handleHideOverlay, show, true)
     useEventHandler(document, 'keydown', handleKeydown, show)
+    useEventHandler(window, 'resize', scheduleOverlayPositionUpdate, show, {
+      passive: true,
+    })
     useEventHandler(containerRef.current, 'wheel', handleBlockMouseWheel, show)
+
+    useEffect(() => {
+      if (!show) {
+        return
+      }
+
+      const scrollParents = getScrollableAncestors({
+        target,
+        container,
+        rootElement,
+        window,
+      })
+
+      scrollParents.forEach((scrollParent) => {
+        scrollParent.addEventListener('scroll', scheduleOverlayPositionUpdate, {
+          passive: true,
+        })
+      })
+
+      return () => {
+        scrollParents.forEach((scrollParent) => {
+          scrollParent.removeEventListener(
+            'scroll',
+            scheduleOverlayPositionUpdate
+          )
+        })
+
+        if (positionUpdateRafRef.current != null) {
+          window.cancelAnimationFrame(positionUpdateRafRef.current)
+          positionUpdateRafRef.current = null
+        }
+      }
+    }, [
+      container,
+      rootElement,
+      scheduleOverlayPositionUpdate,
+      show,
+      target,
+      window,
+    ])
+
+    useEffect(() => {
+      const ResizeObserverConstructor = (
+        window as Window & { ResizeObserver?: typeof ResizeObserver }
+      ).ResizeObserver
+
+      if (!show || !isElementTarget(target) || !ResizeObserverConstructor) {
+        return
+      }
+
+      const resizeObserver = new ResizeObserverConstructor(
+        scheduleOverlayPositionUpdate
+      )
+      resizeObserver.observe(target)
+
+      return () => {
+        resizeObserver.disconnect()
+      }
+    }, [scheduleOverlayPositionUpdate, show, target, window])
 
     useEffect(() => {
       handleOverlayForceUpdate()

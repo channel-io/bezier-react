@@ -12,6 +12,7 @@ import { OVERLAY_TEST_ID } from '~/src/v3/Overlay/Overlay'
 
 import {
   DropdownMenu,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuSub,
@@ -76,6 +77,28 @@ describe('DropdownMenu', () => {
     expect(
       within(getByRole('menu')).queryByRole('button', { name: 'More' })
     ).not.toBeInTheDocument()
+  })
+
+  it('uses its root element as the default overlay container with DropdownMenuTrigger', async () => {
+    const user = userEvent.setup()
+
+    const { getByRole, getByTestId } = render(
+      <DropdownMenu>
+        <DropdownMenuTrigger>
+          <IconButton
+            aria-label="More"
+            content={PlusIcon}
+          />
+        </DropdownMenuTrigger>
+        <DropdownMenuItem content="Open" />
+      </DropdownMenu>
+    )
+
+    await user.click(getByRole('button', { name: 'More' }))
+
+    expect(getByTestId(OVERLAY_TEST_ID).parentElement).toHaveClass(
+      'DropdownMenuRoot'
+    )
   })
 
   it('flattens Fragment children before splitting trigger and menu items', async () => {
@@ -349,6 +372,30 @@ describe('DropdownMenu', () => {
 
     expect(getAllByRole('menuitem')).toHaveLength(2)
     expect(getByRole('separator')).toBeInTheDocument()
+  })
+
+  it('supports grouped menu items without including group labels in menuitem navigation', async () => {
+    const user = userEvent.setup()
+
+    const { getByRole, getAllByRole } = render(
+      <DropdownMenu defaultShow>
+        <DropdownMenuGroup label="File">
+          <DropdownMenuItem content="Edit" />
+          <DropdownMenuItem content="Archive" />
+        </DropdownMenuGroup>
+        <DropdownMenuGroup label="Danger zone">
+          <DropdownMenuItem content="Delete" />
+        </DropdownMenuGroup>
+      </DropdownMenu>
+    )
+
+    expect(getByRole('group', { name: 'File' })).toBeInTheDocument()
+    expect(getAllByRole('menuitem')).toHaveLength(3)
+
+    getByRole('menuitem', { name: 'Archive' }).focus()
+    await user.keyboard('{ArrowDown}')
+
+    expect(getByRole('menuitem', { name: 'Delete' })).toHaveFocus()
   })
 
   it('opens submenu from keyboard', async () => {

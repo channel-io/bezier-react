@@ -17,6 +17,7 @@ import { Text } from '~/src/v3/Text'
 
 import {
   DropdownMenu,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuSub,
@@ -28,6 +29,13 @@ import {
 const meta: Meta<typeof DropdownMenu> = {
   title: 'V3 components/DropdownMenu',
   component: DropdownMenu,
+  decorators: [
+    (Story) => (
+      <div style={{ minHeight: 320 }}>
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     design: {
       type: 'figma',
@@ -112,6 +120,59 @@ function ControlledWithExternalTriggerExample() {
   )
 }
 
+function ControlledWithContainerTargetExample() {
+  const [show, setShow] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLButtonElement>(null)
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        position: 'relative',
+        overflow: 'auto',
+        width: 360,
+        height: 260,
+        padding: 24,
+        border: '1px solid #d9d9d9',
+        borderRadius: 12,
+      }}
+    >
+      <div style={{ height: 64 }} />
+      <Button
+        ref={triggerRef}
+        label="Open in container"
+        variant="outlined"
+        semantic="secondary"
+        active={show}
+        aria-haspopup="menu"
+        aria-expanded={show}
+        onClick={() => setShow((prev) => !prev)}
+      />
+      <DropdownMenu
+        show={show}
+        target={triggerRef.current}
+        container={containerRef.current}
+        onHide={() => setShow(false)}
+      >
+        <DropdownMenuItem
+          content="Rename"
+          leadingContent={EditIcon}
+        />
+        <DropdownMenuItem
+          content="Archive"
+          leadingContent={ArchiveIcon}
+        />
+        <DropdownMenuItem
+          content="Delete"
+          variant="destructive"
+          leadingContent={TrashIcon}
+        />
+      </DropdownMenu>
+    </div>
+  )
+}
+
 export const WithTrigger: Story = {
   render: () => (
     <DropdownMenu>
@@ -147,6 +208,10 @@ export const WithTrigger: Story = {
 
 export const ControlledWithExternalTrigger: Story = {
   render: () => <ControlledWithExternalTriggerExample />,
+}
+
+export const ControlledWithContainerTarget: Story = {
+  render: () => <ControlledWithContainerTargetExample />,
 }
 
 export const RichContent: Story = {
@@ -204,6 +269,31 @@ export const WithSubmenu: Story = {
         variant="destructive"
         leadingContent={TrashIcon}
       />
+    </DropdownMenuExample>
+  ),
+}
+
+export const Grouped: Story = {
+  render: () => (
+    <DropdownMenuExample>
+      <DropdownMenuGroup label="File">
+        <DropdownMenuItem
+          content="Edit"
+          leadingContent={EditIcon}
+        />
+        <DropdownMenuItem
+          content="Archive"
+          leadingContent={ArchiveIcon}
+        />
+      </DropdownMenuGroup>
+      <DropdownMenuSeparator />
+      <DropdownMenuGroup label="Danger zone">
+        <DropdownMenuItem
+          content="Delete"
+          variant="destructive"
+          leadingContent={TrashIcon}
+        />
+      </DropdownMenuGroup>
     </DropdownMenuExample>
   ),
 }
