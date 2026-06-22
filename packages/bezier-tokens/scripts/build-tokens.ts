@@ -292,7 +292,7 @@ async function main() {
     `${BUILD_PATH.BASE_ALPHA}/${BUILD_PATH.CSS}`,
     `${BUILD_PATH.BASE_BETA}/${BUILD_PATH.CSS}`,
   ]) {
-    await mergeCss(buildPath)
+    await mergeCss(buildPath, { addSystemDarkThemeFallback: true })
   }
 
   for (const buildPath of [
