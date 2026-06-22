@@ -1,0 +1,34 @@
+@use '../../styles/mixins/state';
+
+.Text.Text {
+  padding: 0 4px;
+}
+
+.DeleteButton {
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 16px;
+  height: 16px;
+  padding: 0;
+
+  color: var(--color-icon-neutral);
+
+  background: transparent;
+  border: 0;
+  border-radius: 9999px;
+  outline: none;
+
+  &:where(:focus-visible) {
+    @include state.focus;
+  }
+}
+
+.DeleteIcon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
