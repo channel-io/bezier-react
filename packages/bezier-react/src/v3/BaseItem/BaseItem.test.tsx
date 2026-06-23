@@ -2,18 +2,18 @@ import { PlusIcon } from '@channel.io/bezier-icons'
 
 import { render } from '~/src/utils/test'
 
-import { ItemBase } from './ItemBase'
+import { BaseItem } from './BaseItem'
 
-describe('ItemBase', () => {
+describe('BaseItem', () => {
   it('renders string content, description, and BezierIcon side content', () => {
     const { getByText, container } = render(
-      <ItemBase
+      <BaseItem
         leadingContent={PlusIcon}
         trailingContent="⌘K"
         description="Description"
       >
         Content
-      </ItemBase>
+      </BaseItem>
     )
 
     expect(getByText('Content')).toBeInTheDocument()
@@ -24,7 +24,7 @@ describe('ItemBase', () => {
 
   it('renders ReactNode content and applies interactive state classes', () => {
     const { getByText } = render(
-      <ItemBase
+      <BaseItem
         role="button"
         active
         disabled
@@ -33,7 +33,7 @@ describe('ItemBase', () => {
         description={<span>Custom description</span>}
       >
         <span>Custom content</span>
-      </ItemBase>
+      </BaseItem>
     )
 
     const item = getByText('Custom content').closest('div[role="button"]')

@@ -3,7 +3,7 @@
 
   width: var(--b-v3-progress-bar-width);
 
-  background-color: var(--color-fill-neutral-light);
+  background-color: var(--color-fill-neutral-heavy);
   border-radius: var(--radius-3);
 
   transition: width var(--motion-transition-fast);
@@ -17,7 +17,7 @@
   }
 
   &:where(.variant-overlaid) {
-    background-color: var(--color-fill-absolute-white);
+    background-color: var(--color-fill-grey-heavier);
   }
 }
 

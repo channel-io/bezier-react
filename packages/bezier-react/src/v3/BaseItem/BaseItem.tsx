@@ -8,14 +8,14 @@ import classNames from 'classnames'
 
 import { Text } from '~/src/v3/Text'
 
-import type { ItemBaseProps, ItemBaseSideContent } from './ItemBase.types'
+import type { BaseItemProps, BaseItemSideContent } from './BaseItem.types'
 
-import styles from './ItemBase.module.scss'
+import styles from './BaseItem.module.scss'
 
-function ItemBaseSideContentElement({
+function BaseItemSideContentElement({
   content,
 }: {
-  content?: ItemBaseSideContent
+  content?: BaseItemSideContent
 }) {
   if (isBezierIcon(content)) {
     const SourceElement = content
@@ -31,8 +31,8 @@ function ItemBaseSideContentElement({
   return content
 }
 
-export const ItemBase = forwardRef<HTMLDivElement, ItemBaseProps>(
-  function ItemBase(
+export const BaseItem = forwardRef<HTMLDivElement, BaseItemProps>(
+  function BaseItem(
     {
       className,
       children,
@@ -58,7 +58,7 @@ export const ItemBase = forwardRef<HTMLDivElement, ItemBaseProps>(
       <div
         ref={forwardedRef}
         className={classNames(
-          styles.ItemBase,
+          styles.BaseItem,
           styles[`size-${size}`],
           styles[variant],
           active && styles.active,
@@ -77,7 +77,7 @@ export const ItemBase = forwardRef<HTMLDivElement, ItemBaseProps>(
         >
           {hasLeadingContent && (
             <div className={styles.LeadingContent}>
-              <ItemBaseSideContentElement content={leadingContent} />
+              <BaseItemSideContentElement content={leadingContent} />
             </div>
           )}
 
@@ -113,7 +113,7 @@ export const ItemBase = forwardRef<HTMLDivElement, ItemBaseProps>(
 
         {trailingContent != null && (
           <div className={styles.TrailingContent}>
-            <ItemBaseSideContentElement content={trailingContent} />
+            <BaseItemSideContentElement content={trailingContent} />
           </div>
         )}
       </div>

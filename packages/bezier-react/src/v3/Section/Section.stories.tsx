@@ -152,6 +152,28 @@ export const RichContent: Story = {
   ),
 }
 
+export const RichLabel: Story = {
+  tags: ['!autodocs'],
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <Box width={360}>
+      <Section>
+        <SectionLabel
+          leadingContent={PlusIcon}
+          help="Help text"
+          content="Label"
+          trailingContent={ChevronSmallRightIcon}
+        />
+        <SectionItem
+          content="Profile"
+          description="Trailing content stays at the right edge."
+          leadingContent={EditIcon}
+        />
+      </Section>
+    </Box>
+  ),
+}
+
 export const Sizes: Story = {
   tags: ['!autodocs'],
   parameters: { controls: { disable: true } },

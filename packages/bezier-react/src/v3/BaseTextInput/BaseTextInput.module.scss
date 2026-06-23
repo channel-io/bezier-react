@@ -1,3 +1,5 @@
+@use '../../styles/mixins/state';
+
 .BaseTextInput {
   --b-v3-text-input-height: 36px;
   --b-v3-text-input-radius: var(--radius-12);
@@ -20,10 +22,9 @@
 
   background-color: var(--b-v3-text-input-background-color);
   border-radius: var(--b-v3-text-input-radius);
-  box-shadow: var(
-    --b-v3-text-input-state-box-shadow,
-    var(--b-v3-text-input-box-shadow, none)
-  );
+
+  /* stylelint-disable-next-line order/order */
+  @include state.input(var(--b-v3-text-input-radius));
 
   transition:
     box-shadow var(--motion-transition-fast),
@@ -45,17 +46,11 @@
   }
 
   &:where(:has(.Input:focus)) {
-    // TODO(@timo): Replace the hardcoded active border with the input state token after the token value is aligned.
-    --b-v3-text-input-state-box-shadow:
-      inset 0 0 0 1.5px #000,
-      0 1px 2px 0 var(--color-elevation-base);
+    @include state.input-active(var(--b-v3-text-input-radius));
   }
 
   &:where(:has(.Input[aria-invalid='true'])) {
-    // TODO(@timo): Replace the hardcoded error border with the input state token after the token value is aligned.
-    --b-v3-text-input-state-box-shadow:
-      inset 0 0 0 1.5px #e67f2b,
-      0 1px 2px 0 var(--color-elevation-base);
+    @include state.input-error(var(--b-v3-text-input-radius));
   }
 }
 

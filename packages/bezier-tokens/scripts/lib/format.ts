@@ -222,6 +222,10 @@ export const alphaCustomCss: CustomFormat = {
   },
 }
 
+function getDeprecatedMetadata(token: TransformedToken) {
+  return token.deprecated ?? token.original.deprecated ?? token.original.$deprecated
+}
+
 /**
  * A custom formatter for adding ref information to tokens for beta version.
  * TODO: Remove this formatter in the next major release.
@@ -276,6 +280,11 @@ export const betaCustomJsCjs: CustomFormat = {
                     ref,
                   }
                 : { value: token.value }
+
+              const deprecated = getDeprecatedMetadata(token)
+              if (deprecated !== undefined) {
+                Object.assign(valueObject, { deprecated })
+              }
 
               return `    "${token.name}": Object.freeze(${JSON.stringify(valueObject)}),`
             })
@@ -340,6 +349,11 @@ export const betaCustomJsEsm: CustomFormat = {
                     ref,
                   }
                 : { value: token.value }
+
+              const deprecated = getDeprecatedMetadata(token)
+              if (deprecated !== undefined) {
+                Object.assign(valueObject, { deprecated })
+              }
 
               return `    "${token.name}": Object.freeze(${JSON.stringify(valueObject)}),`
             })

@@ -9,6 +9,12 @@ $inner-indicator-size: 8px;
 
 .RadioGroup {
   width: fit-content;
+
+  &:where([aria-invalid='true']) {
+    :where(.Radio:not([data-disabled]))::before {
+      @include state.error-outline(50%);
+    }
+  }
 }
 
 .Radio {
@@ -69,7 +75,7 @@ $inner-indicator-size: 8px;
     }
 
     &::after {
-      background-color: var(--color-text-inverse);
+      background-color: var(--color-icon-inverse-heavier);
     }
   }
 
@@ -87,7 +93,7 @@ $inner-indicator-size: 8px;
     outline: none;
 
     &::before {
-      @include state.focus;
+      @include state.focus(50%);
     }
 
     &:where(:not([data-disabled])[data-state='unchecked'])::after {

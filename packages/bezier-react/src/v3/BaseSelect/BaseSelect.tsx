@@ -22,8 +22,8 @@ import { ariaAttr } from '~/src/utils/aria'
 import { createContext } from '~/src/utils/react'
 import { cssDimension } from '~/src/utils/style'
 import { isNil } from '~/src/utils/type'
+import { BaseItem } from '~/src/v3/BaseItem/BaseItem'
 import { useFormFieldProps } from '~/src/v3/FormField'
-import { ItemBase } from '~/src/v3/ItemBase/ItemBase'
 import { Overlay } from '~/src/v3/Overlay'
 
 import { useWindow } from '~/src/components/WindowProvider'
@@ -562,7 +562,7 @@ function BaseSelectOptionElement<Value extends SelectValue>({
   }, [disabled, selectValue, value])
 
   return (
-    <ItemBase
+    <BaseItem
       ref={forwardedRef}
       className={className}
       role="option"
@@ -594,7 +594,7 @@ function BaseSelectOptionElement<Value extends SelectValue>({
       }}
     >
       {optionContent}
-    </ItemBase>
+    </BaseItem>
   )
 }
 

@@ -13,7 +13,7 @@
   border: none;
 
   &:where(:focus-visible) {
-    @include state.focus;
+    @include state.focus(0);
   }
 
   &:where(:focus:not(:focus-visible)) {

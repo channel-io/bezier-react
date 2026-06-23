@@ -1,3 +1,5 @@
+@use '../../styles/mixins/state';
+
 .Slider {
   --b-v3-slider-width: initial;
   --b-v3-slider-thumb-size: 24px;
@@ -71,7 +73,7 @@
   width: var(--b-v3-slider-thumb-size);
   height: var(--b-v3-slider-thumb-size);
 
-  background-color: var(--color-fill-bright);
+  background-color: var(--color-fill-absolute-white);
   border-radius: 9999px;
   box-shadow: var(--elevation-2);
 
@@ -82,6 +84,6 @@
   }
 
   &:where(:focus-visible) {
-    outline: none;
+    @include state.focus(9999px);
   }
 }

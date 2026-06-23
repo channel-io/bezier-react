@@ -12,8 +12,6 @@ import {
 import classNames from 'classnames'
 
 import { isEmpty } from '~/src/utils/type'
-import { HStack } from '~/src/v3/HStack'
-import { Icon } from '~/src/v3/Icon'
 import { Text } from '~/src/v3/Text'
 
 import {
@@ -120,7 +118,6 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       title,
       content,
       description,
-      icon,
       placement = 'bottom-center',
       offset = 4,
       container: containerProp,
@@ -224,16 +221,12 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
                 collisionPadding={8}
                 hideWhenDetached
               >
-                <HStack
-                  spacing={4}
-                  className={classNames(styles.Tooltip, className)}
-                >
+                <div className={classNames(styles.Tooltip, className)}>
                   <div className={styles.TooltipContainer}>
                     {title && (
                       <Text
                         typo="13"
                         fontWeight="600"
-                        marginBottom={2}
                         color="text-neutral"
                       >
                         {title}
@@ -258,16 +251,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
                       </Text>
                     )}
                   </div>
-
-                  {icon && (
-                    <Icon
-                      source={icon}
-                      size="16"
-                      color="icon-neutral"
-                      className={styles.Icon}
-                    />
-                  )}
-                </HStack>
+                </div>
               </AlphaTooltipPrimitiveContent>
             </InvertedThemeProvider>
           </AlphaTooltipPrimitivePortal>

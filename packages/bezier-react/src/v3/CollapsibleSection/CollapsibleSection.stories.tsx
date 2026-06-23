@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
 import {
-  ChevronDownIcon,
-  ChevronUpIcon,
+  ChevronSmallRightIcon,
   InfoIcon,
+  PlusIcon,
 } from '@channel.io/bezier-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
@@ -34,10 +34,7 @@ function ControlledExample() {
         open={open}
         onOpenChange={setOpen}
       >
-        <CollapsibleSectionTrigger
-          content="Controlled section"
-          trailingContent={open ? ChevronUpIcon : ChevronDownIcon}
-        />
+        <CollapsibleSectionTrigger content="Controlled section" />
         <CollapsibleSectionItem
           content="Profile"
           description="This section is controlled externally."
@@ -54,7 +51,6 @@ export const Primary: Story = {
         <CollapsibleSectionTrigger
           content="General"
           leadingContent={InfoIcon}
-          trailingContent="Optional"
           help="These settings apply to the section."
         />
         <CollapsibleSectionItem
@@ -74,6 +70,27 @@ export const Controlled: Story = {
   tags: ['!autodocs'],
   parameters: { controls: { disable: true } },
   render: () => <ControlledExample />,
+}
+
+export const RichLabel: Story = {
+  tags: ['!autodocs'],
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <Box width={360}>
+      <CollapsibleSection defaultOpen>
+        <CollapsibleSectionTrigger
+          leadingContent={PlusIcon}
+          help="Help text"
+          content="Trigger"
+          trailingContent={ChevronSmallRightIcon}
+        />
+        <CollapsibleSectionItem
+          content="Profile"
+          description="Chevron stays next to the label, trailing content stays at the right edge."
+        />
+      </CollapsibleSection>
+    </Box>
+  ),
 }
 
 export const WithoutTrigger: Story = {
