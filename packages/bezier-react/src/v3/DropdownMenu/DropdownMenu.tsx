@@ -23,8 +23,8 @@ import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { createContext } from '~/src/utils/react'
 import { cssDimension } from '~/src/utils/style'
 import { isNil } from '~/src/utils/type'
+import { BaseItem } from '~/src/v3/BaseItem/BaseItem'
 import { Divider } from '~/src/v3/Divider'
-import { ItemBase } from '~/src/v3/ItemBase/ItemBase'
 import { Overlay } from '~/src/v3/Overlay'
 
 import { useWindow } from '~/src/components/WindowProvider'
@@ -478,7 +478,7 @@ export const DropdownMenuItem = forwardRef<
   )
 
   return (
-    <ItemBase
+    <BaseItem
       ref={forwardedRef}
       className={className}
       role="menuitem"
@@ -510,7 +510,7 @@ export const DropdownMenuItem = forwardRef<
       }}
     >
       {content}
-    </ItemBase>
+    </BaseItem>
   )
 })
 

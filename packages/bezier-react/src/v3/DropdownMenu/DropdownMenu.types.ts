@@ -11,14 +11,14 @@ import type {
   VariantProps,
 } from '~/src/types/props'
 import type {
-  ItemBaseSize,
-  ItemBaseVariant,
-} from '~/src/v3/ItemBase/ItemBase.types'
+  BaseItemSize,
+  BaseItemVariant,
+} from '~/src/v3/BaseItem/BaseItem.types'
 import type { OverlayPosition, OverlayTarget } from '~/src/v3/Overlay'
 
-export type DropdownMenuSize = ItemBaseSize
+export type DropdownMenuSize = BaseItemSize
 
-export type DropdownMenuItemVariant = ItemBaseVariant
+export type DropdownMenuItemVariant = BaseItemVariant
 
 type DropdownMenuItemSideContent = BezierIcon | ReactNode
 
