@@ -152,6 +152,41 @@ export const RichContent: Story = {
   ),
 }
 
+export const RichLabel: Story = {
+  tags: ['!autodocs'],
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <Box width={360}>
+      <Section>
+        <SectionLabel
+          content={
+            <Text
+              typo="13"
+              color="text-neutral-lighter"
+              bold
+            >
+              Rich <Text color="text-accent-blue">label</Text>
+            </Text>
+          }
+          trailingContent={
+            <Text
+              typo="12"
+              color="text-neutral-lighter"
+            >
+              Right
+            </Text>
+          }
+        />
+        <SectionItem
+          content="Profile"
+          description="Trailing content stays at the right edge."
+          leadingContent={EditIcon}
+        />
+      </Section>
+    </Box>
+  ),
+}
+
 export const Sizes: Story = {
   tags: ['!autodocs'],
   parameters: { controls: { disable: true } },

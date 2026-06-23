@@ -68,6 +68,40 @@ export const Controlled: Story = {
   render: () => <ControlledExample />,
 }
 
+export const RichLabel: Story = {
+  tags: ['!autodocs'],
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <Box width={360}>
+      <CollapsibleSection defaultOpen>
+        <CollapsibleSectionTrigger
+          content={
+            <Text
+              typo="13"
+              color="text-neutral-lighter"
+              bold
+            >
+              Rich <Text color="text-accent-blue">trigger</Text>
+            </Text>
+          }
+          trailingContent={
+            <Text
+              typo="12"
+              color="text-neutral-lighter"
+            >
+              Right
+            </Text>
+          }
+        />
+        <CollapsibleSectionItem
+          content="Profile"
+          description="Chevron stays next to the label, trailing content stays at the right edge."
+        />
+      </CollapsibleSection>
+    </Box>
+  ),
+}
+
 export const WithoutTrigger: Story = {
   tags: ['!autodocs'],
   parameters: { controls: { disable: true } },
