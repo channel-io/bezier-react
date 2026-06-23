@@ -12,7 +12,11 @@ Add shared state color tokens and improve v3 state styling.
   states.
 - Remove the v3 `Tooltip` icon prop, tighten Tooltip spacing, and update its
   radius.
-- Fix v3 `CollapsibleSection` trigger chevron behavior and Help tooltip
-  placement.
+- Rename the v3 row foundation component from `ItemBase` to `BaseItem` and
+  update its DropdownMenu and Select usages.
+- Fix v3 `CollapsibleSection` trigger chevron behavior, keep trigger trailing
+  content at the right edge, and add Section / CollapsibleSection rich label
+  stories for leading, help, and trailing content.
+- Update the v3 `Help` tooltip default placement.
 - Improve dark mode colors for v3 radio, switch, slider, and progress bar
   controls.
