@@ -159,23 +159,10 @@ export const RichLabel: Story = {
     <Box width={360}>
       <Section>
         <SectionLabel
-          content={
-            <Text
-              typo="13"
-              color="text-neutral-lighter"
-              bold
-            >
-              Rich <Text color="text-accent-blue">label</Text>
-            </Text>
-          }
-          trailingContent={
-            <Text
-              typo="12"
-              color="text-neutral-lighter"
-            >
-              Right
-            </Text>
-          }
+          leadingContent={PlusIcon}
+          help="Help text"
+          content="Label"
+          trailingContent={ChevronSmallRightIcon}
         />
         <SectionItem
           content="Profile"

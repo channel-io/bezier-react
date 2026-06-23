@@ -1,6 +1,10 @@
 import { useState } from 'react'
 
-import { InfoIcon } from '@channel.io/bezier-icons'
+import {
+  ChevronSmallRightIcon,
+  InfoIcon,
+  PlusIcon,
+} from '@channel.io/bezier-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Box } from '~/src/v3/Box'
@@ -75,23 +79,10 @@ export const RichLabel: Story = {
     <Box width={360}>
       <CollapsibleSection defaultOpen>
         <CollapsibleSectionTrigger
-          content={
-            <Text
-              typo="13"
-              color="text-neutral-lighter"
-              bold
-            >
-              Rich <Text color="text-accent-blue">trigger</Text>
-            </Text>
-          }
-          trailingContent={
-            <Text
-              typo="12"
-              color="text-neutral-lighter"
-            >
-              Right
-            </Text>
-          }
+          leadingContent={PlusIcon}
+          help="Help text"
+          content="Trigger"
+          trailingContent={ChevronSmallRightIcon}
         />
         <CollapsibleSectionItem
           content="Profile"

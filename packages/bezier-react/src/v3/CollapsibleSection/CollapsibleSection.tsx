@@ -13,6 +13,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from '~/src/v3/Collapsible'
+import { Help } from '~/src/v3/Help'
 import { Section, SectionItem, SectionLabel } from '~/src/v3/Section'
 import { Text } from '~/src/v3/Text'
 
@@ -101,6 +102,7 @@ export const CollapsibleSection = forwardRef<
 export function CollapsibleSectionTrigger({
   content,
   disabled: disabledProp = false,
+  help,
   trailingContent,
   ...labelProps
 }: CollapsibleSectionTriggerProps) {
@@ -143,6 +145,7 @@ export function CollapsibleSectionTrigger({
                 ) : (
                   <span className={styles.TriggerLabel}>{content}</span>
                 )}
+                {help != null && <Help>{help}</Help>}
                 {dataState === 'open' ? (
                   <ChevronSmallUpIcon
                     className={styles.TriggerChevron}
