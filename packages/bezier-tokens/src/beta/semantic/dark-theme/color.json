@@ -699,6 +699,14 @@
           "value": "{color.orange.300-30}",
           "type": "color"
         }
+      },
+      "active": {
+        "value": "{color.white.80}",
+        "type": "color"
+      },
+      "focus": {
+        "value": "{color.white.40}",
+        "type": "color"
       }
     },
     "elevation": {
