@@ -16,7 +16,11 @@ export interface CollapsibleSectionProps
 export interface CollapsibleSectionTriggerProps
   extends Omit<
     SectionLabelProps,
-    'children' | 'onClick' | 'onKeyDown' | 'role' | 'tabIndex'
+    | 'children'
+    | 'onClick'
+    | 'onKeyDown'
+    | 'role'
+    | 'tabIndex'
   > {
   /**
    * Whether the section trigger is disabled.

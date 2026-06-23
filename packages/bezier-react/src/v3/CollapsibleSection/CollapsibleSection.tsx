@@ -4,17 +4,25 @@ import { Children, Fragment, forwardRef, isValidElement } from 'react'
 import * as React from 'react'
 
 import {
+  ChevronSmallDownIcon,
+  ChevronSmallUpIcon,
+} from '@channel.io/bezier-icons'
+
+import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from '~/src/v3/Collapsible'
 import { Section, SectionItem, SectionLabel } from '~/src/v3/Section'
+import { Text } from '~/src/v3/Text'
 
 import type {
   CollapsibleSectionItemProps,
   CollapsibleSectionProps,
   CollapsibleSectionTriggerProps,
 } from './CollapsibleSection.types'
+
+import styles from './CollapsibleSection.module.scss'
 
 function isCollapsibleSectionTriggerElement(
   child: React.ReactNode
@@ -91,7 +99,9 @@ export const CollapsibleSection = forwardRef<
 })
 
 export function CollapsibleSectionTrigger({
+  content,
   disabled: disabledProp = false,
+  trailingContent,
   ...labelProps
 }: CollapsibleSectionTriggerProps) {
   return (
@@ -117,6 +127,36 @@ export function CollapsibleSectionTrigger({
             aria-disabled={ariaDisabled}
             data-state={dataState}
             data-active={dataActive}
+            content={
+              <span className={styles.TriggerContent}>
+                {typeof content === 'string' ? (
+                  <Text
+                    as="span"
+                    className={styles.TriggerLabel}
+                    typo="13"
+                    color="text-neutral-lighter"
+                    bold
+                    truncated
+                  >
+                    {content}
+                  </Text>
+                ) : (
+                  <span className={styles.TriggerLabel}>{content}</span>
+                )}
+                {dataState === 'open' ? (
+                  <ChevronSmallUpIcon
+                    className={styles.TriggerChevron}
+                    aria-hidden
+                  />
+                ) : (
+                  <ChevronSmallDownIcon
+                    className={styles.TriggerChevron}
+                    aria-hidden
+                  />
+                )}
+              </span>
+            }
+            trailingContent={trailingContent}
             role="button"
             tabIndex={disabled ? -1 : 0}
             onClick={(event: React.MouseEvent<HTMLElement>) => {
@@ -150,10 +190,18 @@ export function CollapsibleSectionTrigger({
 /**
  * `CollapsibleSectionItem` is a row inside `CollapsibleSection`.
  *
- * It shares the same implementation as `SectionItem`; this alias keeps the
- * `CollapsibleSection` component family self-contained without duplicating row
- * behavior or styles.
+ * It delegates to `SectionItem`; the wrapper keeps the `CollapsibleSection`
+ * component family self-contained without changing `SectionItem`'s component
+ * identity in Storybook source previews.
  */
-export const CollapsibleSectionItem = SectionItem as React.ForwardRefExoticComponent<
-  CollapsibleSectionItemProps & React.RefAttributes<HTMLElement>
->
+export const CollapsibleSectionItem = forwardRef<
+  HTMLElement,
+  CollapsibleSectionItemProps
+>(function CollapsibleSectionItem(props, forwardedRef) {
+  return (
+    <SectionItem
+      ref={forwardedRef}
+      {...props}
+    />
+  )
+})

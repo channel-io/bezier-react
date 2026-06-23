@@ -1,10 +1,6 @@
 import { useState } from 'react'
 
-import {
-  ChevronDownIcon,
-  ChevronUpIcon,
-  InfoIcon,
-} from '@channel.io/bezier-icons'
+import { InfoIcon } from '@channel.io/bezier-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Box } from '~/src/v3/Box'
@@ -34,10 +30,7 @@ function ControlledExample() {
         open={open}
         onOpenChange={setOpen}
       >
-        <CollapsibleSectionTrigger
-          content="Controlled section"
-          trailingContent={open ? ChevronUpIcon : ChevronDownIcon}
-        />
+        <CollapsibleSectionTrigger content="Controlled section" />
         <CollapsibleSectionItem
           content="Profile"
           description="This section is controlled externally."
@@ -54,7 +47,6 @@ export const Primary: Story = {
         <CollapsibleSectionTrigger
           content="General"
           leadingContent={InfoIcon}
-          trailingContent="Optional"
           help="These settings apply to the section."
         />
         <CollapsibleSectionItem
