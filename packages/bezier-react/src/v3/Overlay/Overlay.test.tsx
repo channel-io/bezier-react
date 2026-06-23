@@ -259,6 +259,134 @@ describe('Overlay', () => {
 
           expect(getBoundingClientRect).toHaveBeenCalled()
         })
+
+        it('updates position when the page scrolls', async () => {
+          let targetTop = 100
+          const target = {
+            getBoundingClientRect: () => ({
+              width: 50,
+              height: 30,
+              top: targetTop,
+              left: 80,
+            }),
+          } as HTMLElement
+
+          const { getByTestId } = renderRootOverlay({
+            target,
+            position: 'bottom-left',
+          })
+          const overlay = getByTestId(OVERLAY_TEST_ID)
+
+          await waitFor(() => {
+            expect(overlay).toHaveStyle('top: 100px')
+          })
+
+          targetTop = 60
+          fireEvent.scroll(window)
+
+          await waitFor(() => {
+            expect(overlay).toHaveStyle('top: 60px')
+          })
+        })
+
+        it('updates position when a scrollable ancestor scrolls', async () => {
+          let targetTop = 100
+          const scrollParent = document.createElement('div')
+          const target = document.createElement('button')
+
+          scrollParent.style.overflow = 'auto'
+          scrollParent.appendChild(target)
+          document.body.appendChild(scrollParent)
+
+          target.getBoundingClientRect = jest.fn(() => ({
+            width: 50,
+            height: 30,
+            top: targetTop,
+            left: 80,
+            right: 130,
+            bottom: targetTop + 30,
+            x: 80,
+            y: targetTop,
+            toJSON: () => {},
+          }))
+
+          const { getByTestId } = renderRootOverlay({
+            target,
+            position: 'bottom-left',
+          })
+          const overlay = getByTestId(OVERLAY_TEST_ID)
+
+          await waitFor(() => {
+            expect(overlay).toHaveStyle('top: 100px')
+          })
+
+          targetTop = 60
+          fireEvent.scroll(scrollParent)
+
+          await waitFor(() => {
+            expect(overlay).toHaveStyle('top: 60px')
+          })
+
+          scrollParent.remove()
+        })
+
+        it('updates position when the target size changes', async () => {
+          const typedWindow = window as Window & {
+            ResizeObserver?: typeof ResizeObserver
+          }
+          const originalResizeObserver = typedWindow.ResizeObserver
+          let resizeObserverCallback: ResizeObserverCallback = () => {}
+          let targetHeight = 30
+          const target = document.createElement('button')
+
+          typedWindow.ResizeObserver = jest
+            .fn()
+            .mockImplementation((callback) => {
+              resizeObserverCallback = callback
+
+              return {
+                observe: jest.fn(),
+                disconnect: jest.fn(),
+              }
+            })
+
+          target.getBoundingClientRect = jest.fn(() => ({
+            width: 50,
+            height: targetHeight,
+            top: 100,
+            left: 80,
+            right: 130,
+            bottom: 100 + targetHeight,
+            x: 80,
+            y: 100,
+            toJSON: () => {},
+          }))
+
+          const { getByTestId } = renderRootOverlay({
+            target,
+            position: 'bottom-left',
+          })
+          const overlay = getByTestId(OVERLAY_TEST_ID)
+
+          await waitFor(() => {
+            expect(overlay).toHaveStyle(
+              'transform: translateX(0px) translateY(30px)'
+            )
+          })
+
+          targetHeight = 60
+          React.act(() => {
+            resizeObserverCallback([], {} as ResizeObserver)
+          })
+
+          await waitFor(() => {
+            expect(overlay).toHaveStyle(
+              'transform: translateX(0px) translateY(60px)'
+            )
+          })
+
+          typedWindow.ResizeObserver = originalResizeObserver
+        })
       })
 
       describe('enableClickOutside', () => {
@@ -377,6 +505,33 @@ describe('Overlay', () => {
         it('calls onHide when element outside the overlay is clicked', async () => {
           renderRootOverlay({ onHide })
           fireEvent.click(document.body)
+          expect(onHide).toHaveBeenCalled()
+        })
+
+        it('does not call onHide when the target is clicked', () => {
+          const target = document.createElement('button')
+
+          document.body.appendChild(target)
+          renderRootOverlay({
+            target,
+            onHide,
+          })
+
+          fireEvent.click(target)
+
+          expect(onHide).not.toHaveBeenCalled()
+
+          target.remove()
+        })
+
+        it('calls onHide when document.body is used as the target and clicked', () => {
+          renderRootOverlay({
+            target: document.body,
+            onHide,
+          })
+
+          fireEvent.click(document.body)
+
           expect(onHide).toHaveBeenCalled()
         })
 

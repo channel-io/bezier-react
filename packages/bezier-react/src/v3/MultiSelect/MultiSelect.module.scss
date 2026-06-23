@@ -1,0 +1,50 @@
+.MultiSelect {
+  [data-b-multi-select-selected-values-trigger-overflow='ellipsis'] {
+    gap: 8px;
+  }
+
+  [data-b-multi-select-selected-values-list='true'] {
+    overflow: hidden;
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+
+    min-width: 0;
+  }
+
+  [data-b-multi-select-selected-values-list-overflow='ellipsis'] {
+    flex-wrap: nowrap;
+  }
+
+  [data-b-multi-select-selected-values-count='true'] {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 8px;
+
+    font-weight: var(--typography-font-weight-500);
+    color: var(--color-text-neutral-lighter);
+  }
+
+  [data-b-multi-select-selected-values-measure='true'] {
+    pointer-events: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    overflow: hidden;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+
+    width: max-content;
+    height: 0;
+
+    visibility: hidden;
+  }
+}

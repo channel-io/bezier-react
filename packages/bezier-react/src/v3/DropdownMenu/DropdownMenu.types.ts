@@ -58,7 +58,7 @@ interface DropdownMenuOwnProps {
   offset?: number
   /**
    * When `true`, keeps the menu inside its container.
-   * @default true
+   * @default false
    */
   keepInContainer?: boolean
   /**
@@ -102,7 +102,7 @@ interface DropdownMenuSubContentOwnProps {
   offset?: number
   /**
    * When `true`, keeps the submenu inside its container.
-   * @default true
+   * @default false
    */
   keepInContainer?: boolean
   /**
@@ -204,6 +204,18 @@ export interface DropdownMenuItemProps
     DropdownMenuItemContentProps,
     DisableProps,
     DropdownMenuItemOwnProps {}
+
+export interface DropdownMenuGroupProps
+  extends Omit<BezierComponentProps<'div'>, 'children'>,
+    ChildrenProps {
+  /**
+   * Non-interactive label that describes the menu items inside this group.
+   *
+   * The label is connected to the group semantics and is not included in menu
+   * item keyboard navigation or selection.
+   */
+  label: string
+}
 
 export interface DropdownMenuSeparatorProps
   extends BezierComponentProps<'div'> {}

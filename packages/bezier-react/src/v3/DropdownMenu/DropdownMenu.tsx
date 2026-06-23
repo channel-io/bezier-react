@@ -30,6 +30,7 @@ import { Overlay } from '~/src/v3/Overlay'
 import { useWindow } from '~/src/components/WindowProvider'
 
 import type {
+  DropdownMenuGroupProps,
   DropdownMenuItemProps,
   DropdownMenuProps,
   DropdownMenuSeparatorProps,
@@ -48,6 +49,7 @@ type DropdownMenuContextValue = {
   open: boolean
   size: NonNullable<DropdownMenuProps['size']>
   menuId: string
+  overlayContainer: HTMLElement | null
   close: () => void
 }
 
@@ -56,6 +58,7 @@ const [DropdownMenuContextProvider, useDropdownMenuContext] =
     open: false,
     size: 'm',
     menuId: '',
+    overlayContainer: null,
     close: () => {},
   })
 
@@ -262,7 +265,7 @@ export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
       target,
       position = 'bottom-left',
       offset = 6,
-      keepInContainer = true,
+      keepInContainer = false,
       width = 224,
       maxHeight,
       size = 'm',
@@ -278,10 +281,14 @@ export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
     const [triggerElement, setTriggerElement] = useState<HTMLElement | null>(
       null
     )
+    const [rootElement, setRootElement] = useState<HTMLDivElement | null>(null)
     const controlled = !isNil(show)
     const open = controlled ? Boolean(show) : uncontrolledOpen
     const overlayTarget = target ?? triggerElement
     const { trigger, items } = splitDropdownMenuChildren(children)
+    const hasInternalTrigger = isValidElement(trigger)
+    const overlayContainer =
+      container ?? (hasInternalTrigger ? rootElement : null)
 
     const setOpen = useCallback(
       (nextOpen: boolean) => {
@@ -308,46 +315,64 @@ export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
         open,
         size,
         menuId,
+        overlayContainer,
         close,
       }),
-      [close, menuId, open, size]
+      [close, menuId, open, overlayContainer, size]
     )
 
     const overlayMargins = getOverlayMargins({ position, offset })
 
+    const triggerElementNode = hasInternalTrigger
+      ? cloneElement(trigger, {
+          setTriggerElement,
+          setOpen,
+        } as DropdownMenuTriggerInjectedProps)
+      : trigger
+
+    const overlayElement = (
+      <Overlay
+        ref={forwardedRef}
+        className={classNames(styles.DropdownMenu, className)}
+        style={
+          {
+            '--b-v3-dropdown-menu-width': cssDimension(width),
+            '--b-v3-dropdown-menu-max-height': maxHeight
+              ? cssDimension(maxHeight)
+              : 'none',
+            ...style,
+          } as React.CSSProperties
+        }
+        show={open}
+        target={overlayTarget}
+        container={overlayContainer}
+        position={position}
+        marginX={overlayMargins.marginX}
+        marginY={overlayMargins.marginY}
+        keepInContainer={keepInContainer}
+        onHide={close}
+        {...rest}
+      >
+        <DropdownMenuContent autoFocusOnMount>{items}</DropdownMenuContent>
+      </Overlay>
+    )
+
     return (
       <DropdownMenuContextProvider value={contextValue}>
-        {isValidElement(trigger)
-          ? cloneElement(trigger, {
-              setTriggerElement,
-              setOpen,
-            } as DropdownMenuTriggerInjectedProps)
-          : trigger}
-
-        <Overlay
-          ref={forwardedRef}
-          className={classNames(styles.DropdownMenu, className)}
-          style={
-            {
-              '--b-v3-dropdown-menu-width': cssDimension(width),
-              '--b-v3-dropdown-menu-max-height': maxHeight
-                ? cssDimension(maxHeight)
-                : 'none',
-              ...style,
-            } as React.CSSProperties
-          }
-          show={open}
-          target={overlayTarget}
-          container={container}
-          position={position}
-          marginX={overlayMargins.marginX}
-          marginY={overlayMargins.marginY}
-          keepInContainer={keepInContainer}
-          onHide={close}
-          {...rest}
-        >
-          <DropdownMenuContent autoFocusOnMount>{items}</DropdownMenuContent>
-        </Overlay>
+        {hasInternalTrigger ? (
+          <div
+            ref={setRootElement}
+            className={styles.DropdownMenuRoot}
+          >
+            {triggerElementNode}
+            {overlayElement}
+          </div>
+        ) : (
+          <>
+            {triggerElementNode}
+            {overlayElement}
+          </>
+        )}
       </DropdownMenuContextProvider>
     )
   }
@@ -486,6 +511,34 @@ export const DropdownMenuItem = forwardRef<
     >
       {content}
     </ItemBase>
+  )
+})
+
+export const DropdownMenuGroup = forwardRef<
+  HTMLDivElement,
+  DropdownMenuGroupProps
+>(function DropdownMenuGroup(
+  { children, className, label, ...rest },
+  forwardedRef
+) {
+  const generatedId = useId()
+
+  return (
+    <div
+      ref={forwardedRef}
+      className={classNames(styles.DropdownMenuGroup, className)}
+      role="group"
+      aria-labelledby={generatedId}
+      {...rest}
+    >
+      <div
+        id={generatedId}
+        className={styles.DropdownMenuGroupLabel}
+      >
+        {label}
+      </div>
+      <div className={styles.DropdownMenuGroupContent}>{children}</div>
+    </div>
   )
 })
 
@@ -644,7 +697,7 @@ export const DropdownMenuSubContent = forwardRef<
     container,
     position = 'right-top',
     offset = 4,
-    keepInContainer = true,
+    keepInContainer = false,
     width = 224,
     maxHeight,
     size,
@@ -719,7 +772,7 @@ export const DropdownMenuSubContent = forwardRef<
       }
       show={open}
       target={trigger}
-      container={container}
+      container={container ?? rootContext.overlayContainer}
       containerClassName={styles.SubmenuOverlayContainer}
       position={position}
       marginX={overlayMargins.marginX}
