@@ -45,15 +45,13 @@ describe('Tooltip', () => {
   })
 
   it('renders optional title, description, and custom class name', () => {
-    const { getAllByText, getByRole } = renderTooltip({
+    const { getAllByText } = renderTooltip({
       defaultShow: true,
       title: 'Tooltip title',
       content: 'Tooltip content',
       description: 'Tooltip description',
       className: 'custom-tooltip',
     })
-
-    const tooltip = getByRole('tooltip')
 
     expect(document.querySelector('.custom-tooltip')).toBeInTheDocument()
     expect(getAllByText('Tooltip title')).toHaveLength(2)

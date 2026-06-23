@@ -11,7 +11,7 @@ $inner-indicator-size: 8px;
   width: fit-content;
 
   &:where([aria-invalid='true']) {
-    .Radio:where(:not([data-disabled]))::before {
+    :where(.Radio:not([data-disabled]))::before {
       @include state.error-outline(50%);
     }
   }
