@@ -13,18 +13,18 @@
   word-wrap: break-word;
 
   background-color: var(--color-fill-grey-heavier);
-  border-radius: var(--radius-8);
+  border-radius: 10px;
   box-shadow: var(--elevation-2);
 }
 
 .TooltipContainer {
   overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .TooltipContent {
   white-space: pre-wrap;
-}
-
-.Icon {
-  flex-shrink: 0;
 }

@@ -1,7 +1,5 @@
 import { type ReactElement, type ReactNode } from 'react'
 
-import { type BezierIcon } from '@channel.io/bezier-icons'
-
 import {
   type BezierComponentProps,
   type ChildrenProps,
@@ -36,10 +34,6 @@ interface TooltipOwnProps {
    * An element that sits below the tooltip content.
    */
   description?: ReactNode
-  /**
-   * A decorative icon that sits right of the tooltip content.
-   */
-  icon?: BezierIcon
   /**
    * Options to determine the location from the trigger.
    * @default 'bottom-center'

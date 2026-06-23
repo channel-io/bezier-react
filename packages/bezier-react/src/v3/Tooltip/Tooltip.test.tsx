@@ -1,4 +1,3 @@
-import { CheckIcon } from '@channel.io/bezier-icons'
 import { isInaccessible, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
@@ -45,13 +44,12 @@ describe('Tooltip', () => {
     expect(getByRole('tooltip')).toHaveTextContent('Tooltip content')
   })
 
-  it('renders optional title, description, icon, and custom class name', () => {
+  it('renders optional title, description, and custom class name', () => {
     const { getAllByText, getByRole } = renderTooltip({
       defaultShow: true,
       title: 'Tooltip title',
       content: 'Tooltip content',
       description: 'Tooltip description',
-      icon: CheckIcon,
       className: 'custom-tooltip',
     })
 
@@ -61,7 +59,6 @@ describe('Tooltip', () => {
     expect(getAllByText('Tooltip title')).toHaveLength(2)
     expect(getAllByText('Tooltip content')).toHaveLength(2)
     expect(getAllByText('Tooltip description')).toHaveLength(2)
-    expect(tooltip.querySelector('svg')).toBeInTheDocument()
   })
 
   it('connects trigger and tooltip with aria-describedby', () => {

@@ -1,4 +1,3 @@
-import { TranslateIcon } from '@channel.io/bezier-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Button } from '~/src/v3/Button'
@@ -43,7 +42,6 @@ export const RichContent: Story = {
       title="Title"
       content="Tooltip content"
       description="Description"
-      icon={TranslateIcon}
     >
       <Button label="Button" />
     </Tooltip>
