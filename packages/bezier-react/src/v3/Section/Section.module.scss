@@ -135,7 +135,7 @@
   }
 
   &:where(:focus-visible) {
-    @include state.focus;
+    @include state.focus(var(--radius-8));
   }
 
   &:where(.interactive:not(.disabled, .active)) {

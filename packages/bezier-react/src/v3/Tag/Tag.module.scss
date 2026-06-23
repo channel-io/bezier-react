@@ -23,7 +23,7 @@
   outline: none;
 
   &:where(:focus-visible) {
-    @include state.focus;
+    @include state.focus(9999px);
   }
 }
 

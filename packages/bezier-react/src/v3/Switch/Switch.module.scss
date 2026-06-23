@@ -29,7 +29,7 @@
 
   position: relative;
 
-  overflow: hidden;
+  overflow: visible;
   flex: 0 0 auto;
 
   width: var(--b-v3-switch-width);
@@ -54,7 +54,11 @@
   }
 
   &:where(:focus-visible) {
-    @include state.focus;
+    @include state.focus(9999px);
+  }
+
+  &:where([data-invalid]:not([data-disabled])) {
+    @include state.error(9999px);
   }
 }
 
