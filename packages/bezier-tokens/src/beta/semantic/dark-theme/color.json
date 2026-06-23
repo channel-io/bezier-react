@@ -683,11 +683,13 @@
       "action": {
         "normal": {
           "value": "{color.blue.300}",
-          "type": "color"
+          "type": "color",
+          "$deprecated": "This token is no longer used due to the redesign."
         },
         "light": {
           "value": "{color.blue.300-45}",
-          "type": "color"
+          "type": "color",
+          "$deprecated": "This token is no longer used due to the redesign."
         }
       },
       "warning": {
@@ -697,7 +699,8 @@
         },
         "light": {
           "value": "{color.orange.300-30}",
-          "type": "color"
+          "type": "color",
+          "$deprecated": "This token is no longer used due to the redesign."
         }
       },
       "active": {

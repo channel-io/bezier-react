@@ -39,7 +39,7 @@ export const sortNumericLeafEntries = (entries) => {
   return [...entries].sort((a, b) => Number(a[0]) - Number(b[0]))
 }
 
-export const ColorSwatch = ({ name, value, reference }) => {
+export const ColorSwatch = ({ name, value, reference, deprecated }) => {
   const [isHovered, setIsHovered] = useState(false)
   const cssVar = `--${name}`
   const color = isHovered
@@ -47,6 +47,12 @@ export const ColorSwatch = ({ name, value, reference }) => {
     : `var(${cssVar})`
   const displayValue = reference || value
   const isReferenced = Boolean(reference)
+  const deprecatedMessage =
+    typeof deprecated === 'string'
+      ? deprecated
+      : deprecated
+        ? 'Deprecated'
+        : null
 
   return (
     <VStack spacing={6} style={{ width: 160 }}>
@@ -65,8 +71,34 @@ export const ColorSwatch = ({ name, value, reference }) => {
           setIsHovered(false)
         }}
       />
-      <div style={{ fontSize: 11, color: 'var(--color-text-neutral, #1a1a1a)' }}>
-        {name}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 4,
+          fontSize: 14,
+          color: 'var(--color-text-neutral, #1a1a1a)',
+        }}
+      >
+        <span style={{ minWidth: 0, overflowWrap: 'anywhere' }}>{name}</span>
+        {deprecatedMessage && (
+          <span
+            title={deprecatedMessage}
+            style={{
+              flex: '0 0 auto',
+              padding: '1px 4px',
+              borderRadius: 3,
+              border: '1px solid var(--color-border-warning, #f5b849)',
+              backgroundColor: 'var(--color-fill-warning-light, #fff6d6)',
+              color: 'var(--color-text-warning, #8a5a00)',
+              fontSize: 10,
+              fontWeight: 600,
+              lineHeight: '14px',
+            }}
+          >
+            Deprecated
+          </span>
+        )}
       </div>
       <div
         style={{
@@ -147,6 +179,7 @@ export const TokenGroup = ({
                 name={tokenName}
                 value={token.value || value.value}
                 reference={token.ref}
+                deprecated={token.deprecated}
               />
             )
           })}
@@ -256,4 +289,3 @@ export const Primary = () => (
 # Color
 
 <Primary />
-

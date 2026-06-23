@@ -9,7 +9,8 @@
         "blur": "0",
         "spread": "{dimension.1}"
       },
-      "type": "shadow"
+      "type": "shadow",
+      "$deprecated": "This token is no longer used due to the redesign."
     },
     "active": {
       "value": {
@@ -20,7 +21,8 @@
         "blur": "0",
         "spread": "{dimension.1}"
       },
-      "type": "shadow"
+      "type": "shadow",
+      "$deprecated": "This token is no longer used due to the redesign."
     },
     "input": {
       "default": {
@@ -42,7 +44,8 @@
             "spread": "{dimension.1}"
           }
         ],
-        "type": "shadow"
+        "type": "shadow",
+        "$deprecated": "This token is no longer used due to the redesign."
       },
       "hovered": {
         "value": [
@@ -63,7 +66,8 @@
             "spread": "{dimension.1}"
           }
         ],
-        "type": "shadow"
+        "type": "shadow",
+        "$deprecated": "This token is no longer used due to the redesign."
       },
       "active": {
         "value": [
@@ -92,7 +96,8 @@
             "spread": "{dimension.1}"
           }
         ],
-        "type": "shadow"
+        "type": "shadow",
+        "$deprecated": "This token is no longer used due to the redesign."
       },
       "error": {
         "value": [
@@ -121,7 +126,8 @@
             "spread": "{dimension.1}"
           }
         ],
-        "type": "shadow"
+        "type": "shadow",
+        "$deprecated": "This token is no longer used due to the redesign."
       }
     }
   }

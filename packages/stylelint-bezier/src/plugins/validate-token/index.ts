@@ -69,6 +69,41 @@ function flattenBetaToken(obj: object, result: Record<string, unknown> = {}) {
   return result
 }
 
+interface BetaTokenMetadata {
+  value: unknown
+  deprecated?: boolean | string
+}
+
+function isBetaTokenMetadata(value: unknown): value is BetaTokenMetadata {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    !Array.isArray(value) &&
+    'value' in value
+  )
+}
+
+function flattenDeprecatedBetaToken(
+  obj: object,
+  result: Record<string, boolean | string> = {}
+) {
+  for (const [key, value] of Object.entries(obj)) {
+    if (isBetaTokenMetadata(value)) {
+      if (value.deprecated !== undefined) {
+        result[key] = value.deprecated
+      }
+    } else if (
+      typeof value === 'object' &&
+      value !== null &&
+      !Array.isArray(value)
+    ) {
+      flattenDeprecatedBetaToken(value, result)
+    }
+  }
+
+  return result
+}
+
 const allTokens = {
   ...flattenObject(tokens.global),
   ...flattenObject(tokens.lightTheme),
@@ -78,11 +113,20 @@ const allTokens = {
   ...flattenBetaToken(betaTokens.lightTheme),
 }
 
+const deprecatedBetaTokens = {
+  ...flattenDeprecatedBetaToken(betaTokens.global),
+  ...flattenDeprecatedBetaToken(betaTokens.lightTheme),
+}
+
 const ruleName = 'bezier/validate-token'
 
 const messages = ruleMessages(ruleName, {
   rejected: (token) =>
     `Invalid token: "${token}". Only tokens from @channel.io/bezier-tokens are allowed.`,
+  deprecated: (token, reason) =>
+    reason === true
+      ? `Deprecated token: "${token}". Use a replacement token instead.`
+      : `Deprecated token: "${token}". ${reason}`,
 })
 
 const pluginRule: Rule<boolean> = (primary, secondaryOptions = {}) => {
@@ -116,32 +160,46 @@ const pluginRule: Rule<boolean> = (primary, secondaryOptions = {}) => {
         return
       }
 
-      const matches = value.match(/var\(--([^)]+)\)/)
+      const matches = value.matchAll(/var\(--([^)]+)\)/g)
 
-      if (!matches) {
-        return
-      }
+      for (const match of matches) {
+        const [, tokenName] = match
 
-      const [, tokenName] = matches
+        const hasTemplateLiteral = tokenName.includes('${')
 
-      const hasTemplateLiteral = tokenName.includes('${')
+        if (hasTemplateLiteral) {
+          continue
+        }
 
-      if (hasTemplateLiteral) {
-        return
-      }
+        if (
+          ignorePrefix.some((prefix: string) => tokenName.startsWith(prefix))
+        ) {
+          continue
+        }
 
-      if (ignorePrefix.some((prefix: string) => tokenName.startsWith(prefix))) {
-        return
-      }
+        if (allTokens[tokenName as keyof typeof allTokens] === undefined) {
+          // Token not found in the design tokens
+          report({
+            message: messages.rejected(tokenName),
+            node: decl,
+            result,
+            ruleName,
+          })
+          continue
+        }
 
-      if (allTokens[tokenName as keyof typeof allTokens] === undefined) {
-        // Token not found in the design tokens
-        report({
-          message: messages.rejected(tokenName),
-          node: decl,
-          result,
-          ruleName,
-        })
+        const deprecatedReason =
+          deprecatedBetaTokens[tokenName as keyof typeof deprecatedBetaTokens]
+
+        if (deprecatedReason !== undefined) {
+          report({
+            message: messages.deprecated(tokenName, deprecatedReason),
+            node: decl,
+            result,
+            ruleName,
+            severity: 'warning',
+          })
+        }
       }
     })
   }
