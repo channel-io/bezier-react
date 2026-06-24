@@ -1,9 +1,6 @@
-export {
-  FormField,
-  useFormFieldContext,
-  useFormFieldProps,
-} from './FormField'
+export { Form, FormField, useFormFieldContext, useFormFieldProps } from './Form'
 export type {
+  FormProps,
   FormFieldAriaProps,
   FormFieldContextValue,
   FormFieldLabelPosition,
@@ -13,7 +10,7 @@ export type {
   FormGroupProps,
   FormHelperTextProps,
   FormLabelProps,
-} from './FormField.types'
+} from './Form.types'
 export { FormLabel } from './FormLabel'
 export { FormHelperText, FormErrorMessage } from './FormHelperText'
 export { FormGroup } from './FormGroup'

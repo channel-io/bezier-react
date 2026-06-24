@@ -12,6 +12,19 @@ export type FormFieldLabelPosition = 'top' | 'left'
 
 export type FormFieldSize = 'm' | 'l'
 
+interface FormOwnProps {
+  /**
+   * Whether to render dividers between fields.
+   * @default true
+   */
+  showDividers?: boolean
+}
+
+export interface FormProps
+  extends BezierComponentProps<'form'>,
+    ChildrenProps,
+    FormOwnProps {}
+
 export interface FormFieldAriaProps {
   'aria-labelledby'?: string
   'aria-describedby'?: string

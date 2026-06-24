@@ -1,0 +1,81 @@
+.Settings {
+  width: 100%;
+}
+
+.WithDividers {
+  display: flex;
+  flex-direction: column;
+}
+
+.WithoutDividers {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.SettingsDivider {
+  width: 100%;
+}
+
+.SettingsField {
+  box-sizing: border-box;
+  width: 100%;
+  padding-top: 4px;
+  padding-bottom: 8px;
+}
+
+.LabelLeft {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.LabelTop {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.SettingsFieldLabelArea {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 4px;
+
+  min-width: 0;
+}
+
+.SettingsFieldLabelRow {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.SettingsFieldLabel {
+  min-width: 0;
+}
+
+.SettingsFieldDescription {
+  width: 100%;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.SettingsFieldControl {
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  align-items: flex-end;
+
+  min-width: 0;
+  max-width: 200px;
+}
+
+.LabelTop .SettingsFieldControl {
+  align-items: stretch;
+  width: 100%;
+  max-width: none;
+}

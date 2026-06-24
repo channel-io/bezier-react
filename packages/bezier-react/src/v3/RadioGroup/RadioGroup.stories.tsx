@@ -2,10 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
-import {
-  FormField,
-  FormLabel,
-} from '~/src/v3/FormField'
+import { FormField, FormLabel } from '~/src/v3/Form'
 
 import { Radio, RadioGroup } from './RadioGroup'
 import { type RadioGroupProps } from './RadioGroup.types'

@@ -77,9 +77,7 @@ function getExampleItems() {
   ]
 }
 
-export const Primary: StoryObj<
-  SegmentedControlProps<'radiogroup', string>
-> = {
+export const Primary: StoryObj<SegmentedControlProps<'radiogroup', string>> = {
   render: (args) => (
     <SegmentedControl {...args}>{getExampleItems()}</SegmentedControl>
   ),

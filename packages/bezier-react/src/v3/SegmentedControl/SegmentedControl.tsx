@@ -24,7 +24,7 @@ import { createContext } from '~/src/utils/react'
 import { cssDimension } from '~/src/utils/style'
 import { isNil } from '~/src/utils/type'
 import { BaseButton } from '~/src/v3/BaseButton'
-import { useFormFieldContext } from '~/src/v3/FormField'
+import { useFormFieldContext } from '~/src/v3/Form'
 import { Text } from '~/src/v3/Text'
 
 import {
@@ -350,21 +350,16 @@ function SegmentedControlItemContentElement({
   }
 
   return content ? (
-    <span className={classNames(styles.SegmentedControlItemAdornment, className)}>
+    <span
+      className={classNames(styles.SegmentedControlItemAdornment, className)}
+    >
       {content}
     </span>
   ) : null
 }
 
 const Item = forwardRef<HTMLButtonElement, ItemProps>(function Item(
-  {
-    children,
-    icon,
-    leadingContent,
-    trailingContent,
-    className,
-    ...rest
-  },
+  { children, icon, leadingContent, trailingContent, className, ...rest },
   forwardedRef
 ) {
   const { type, size } = useSegmentedControlContext()

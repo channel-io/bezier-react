@@ -3,10 +3,7 @@ import { useEffect, useState } from 'react'
 import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { Box } from '~/src/v3/Box'
-import {
-  FormField,
-  FormLabel,
-} from '~/src/v3/FormField'
+import { FormField, FormLabel } from '~/src/v3/Form'
 
 import { Switch } from './Switch'
 import { type SwitchProps } from './Switch.types'

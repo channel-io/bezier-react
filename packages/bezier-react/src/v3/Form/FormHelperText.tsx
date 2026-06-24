@@ -11,14 +11,14 @@ import { isEmpty } from '~/src/utils/type'
 import { Icon } from '~/src/v3/Icon'
 import { Text } from '~/src/v3/Text'
 
-import { useFormFieldContext } from './FormField'
+import { useFormFieldContext } from './Form'
 import type {
   BaseHelperTextProps,
   FormErrorMessageProps,
   FormHelperTextProps,
-} from './FormField.types'
+} from './Form.types'
 
-import styles from './FormField.module.scss'
+import styles from './Form.module.scss'
 
 const FORM_HELPER_TEXT_TEST_ID = 'bezier-v3-form-helper-text'
 const FORM_ERROR_MESSAGE_TEST_ID = 'bezier-v3-form-error-message'
@@ -91,19 +91,18 @@ const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(
 /**
  * `FormHelperText` describes a field inside `FormField`.
  */
-export const FormHelperText = forwardRef<
-  HTMLSpanElement,
-  FormHelperTextProps
->(function FormHelperText(props, forwardedRef) {
-  return (
-    <BaseHelperText
-      type="info"
-      ref={forwardedRef}
-      data-testid={FORM_HELPER_TEXT_TEST_ID}
-      {...props}
-    />
-  )
-})
+export const FormHelperText = forwardRef<HTMLSpanElement, FormHelperTextProps>(
+  function FormHelperText(props, forwardedRef) {
+    return (
+      <BaseHelperText
+        type="info"
+        ref={forwardedRef}
+        data-testid={FORM_HELPER_TEXT_TEST_ID}
+        {...props}
+      />
+    )
+  }
+)
 
 /**
  * `FormErrorMessage` shows a field error inside `FormField`.

@@ -1,6 +1,8 @@
 'use client'
 
 import {
+  Children,
+  Fragment,
   forwardRef,
   useCallback,
   useMemo,
@@ -14,6 +16,7 @@ import type { FormFieldProps as BaseFormFieldProps } from '~/src/types/props'
 import { ariaAttr } from '~/src/utils/aria'
 import { createContext } from '~/src/utils/react'
 import { isNil } from '~/src/utils/type'
+import { Divider } from '~/src/v3/Divider'
 
 import type {
   ErrorMessagePropsGetter,
@@ -22,12 +25,13 @@ import type {
   FormFieldContextValue,
   FormFieldProps,
   FormFieldSize,
+  FormProps,
   GroupPropsGetter,
   HelperTextPropsGetter,
   LabelPropsGetter,
-} from './FormField.types'
+} from './Form.types'
 
-import styles from './FormField.module.scss'
+import styles from './Form.module.scss'
 
 const [FormFieldContextProvider, useFormFieldContext] = createContext<
   FormFieldContextValue | undefined
@@ -38,6 +42,48 @@ export { useFormFieldContext }
 function normalizeFormFieldSize(size?: string): FormFieldSize {
   return size === 'l' ? 'l' : 'm'
 }
+
+function renderFieldsWithDividers(children: FormProps['children']) {
+  const childArray = Children.toArray(children)
+
+  return childArray.map((child, index) => (
+    <Fragment key={index}>
+      {index > 0 && (
+        <Divider
+          className={styles.FormDivider}
+          withoutSideIndent
+        />
+      )}
+      {child}
+    </Fragment>
+  ))
+}
+
+/**
+ * `Form` renders a native `form` element with Bezier field layout.
+ */
+export const Form = forwardRef<HTMLFormElement, FormProps>(function Form(
+  { children, className, showDividers = true, ...rest },
+  forwardedRef
+) {
+  if (!children) {
+    return null
+  }
+
+  return (
+    <form
+      ref={forwardedRef}
+      className={classNames(
+        styles.Form,
+        showDividers ? styles.WithDividers : styles.WithoutDividers,
+        className
+      )}
+      {...rest}
+    >
+      {showDividers ? renderFieldsWithDividers(children) : children}
+    </form>
+  )
+})
 
 const FormFieldContainer = forwardRef<HTMLDivElement, FormFieldContainerProps>(
   function FormFieldContainer(

@@ -9,10 +9,10 @@ import { Help } from '~/src/v3/Help'
 import { HELP_DISPLAY_NAME } from '~/src/v3/Help/Help'
 import { Text } from '~/src/v3/Text'
 
-import { useFormFieldContext } from './FormField'
-import { type FormLabelProps } from './FormField.types'
+import { useFormFieldContext } from './Form'
+import { type FormLabelProps } from './Form.types'
 
-import styles from './FormField.module.scss'
+import styles from './Form.module.scss'
 
 export const FORM_LABEL_TEST_ID = 'bezier-v3-form-label'
 

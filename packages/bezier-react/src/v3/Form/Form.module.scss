@@ -1,5 +1,27 @@
-.FormField {
+.Form {
   width: 100%;
+}
+
+.WithDividers {
+  display: flex;
+  flex-direction: column;
+}
+
+.WithoutDividers {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.FormDivider {
+  width: 100%;
+}
+
+.FormField {
+  box-sizing: border-box;
+  width: 100%;
+  padding-top: 4px;
+  padding-bottom: 8px;
 }
 
 .LabelTop {

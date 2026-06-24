@@ -1,19 +1,14 @@
 import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
-import {
-  FormField,
-  FormLabel,
-} from '~/src/v3/FormField'
+import { FormField, FormLabel } from '~/src/v3/Form'
 
 import { Switch } from './Switch'
 import { type SwitchProps } from './Switch.types'
 
 describe('Switch', () => {
-  const renderSwitch = ({
-    children,
-    ...props
-  }: SwitchProps = {}) => render(<Switch {...props}>{children}</Switch>)
+  const renderSwitch = ({ children, ...props }: SwitchProps = {}) =>
+    render(<Switch {...props}>{children}</Switch>)
 
   let user: ReturnType<typeof userEvent.setup>
 
