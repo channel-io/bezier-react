@@ -123,7 +123,8 @@ const pluginRule: Rule<boolean> = (primary, secondaryOptions = {}) => {
       const matches = value.matchAll(/var\(--([^)]+)\)/g)
 
       for (const match of matches) {
-        const [, tokenName] = match
+        const [, tokenNameWithFallback] = match
+        const tokenName = tokenNameWithFallback.split(',')[0].trim()
 
         const hasTemplateLiteral = tokenName.includes('${')
 
