@@ -1,5 +1,149 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.5
+
+### Minor Changes
+
+- Add v3 `DropdownMenu`, v3 `Overlay`, and an internal shared v3 item foundation. ([#2841](https://github.com/channel-io/bezier-react/pull/2841)) by @timok1m
+
+  `DropdownMenu` provides an action menu surface with optional `DropdownMenuTrigger`, controlled `show` / `target` usage, `DropdownMenuItem`, `DropdownMenuSeparator`, and submenu composition through `DropdownMenuSub`, `DropdownMenuSubTrigger`, and `DropdownMenuSubContent`.
+
+  `DropdownMenuItem` uses `content` for the primary label/content and `onSelect` for action handling so pointer and keyboard selection follow the same path. The v3 API also uses `offset` for trigger-to-menu spacing, defaults `keepInContainer` to `true`, supports `leadingContent` / `trailingContent`, and keeps lower-level overlay controls such as `zIndex`, `containerStyle`, `enableClickOutside`, and `withTransition` out of the first public DropdownMenu API.
+
+  `Overlay` and `DropdownMenu` targets can also be virtual positioning targets, which is useful when a menu needs to be positioned from an event-derived point rather than a concrete HTMLElement.
+
+- Add v3 `Form` and `Settings` components. ([#2850](https://github.com/channel-io/bezier-react/pull/2850)) by @timok1m
+
+  `Form` renders a native form element and owns the layout rhythm between `FormField` children, including default dividers.
+
+  `Settings` provides independently saved setting rows through `SettingsField`, with label, description, help, and child control slots.
+
+- Add v3 interactive primitive components: `Checkbox`, `Button`, and `IconButton`. ([#2833](https://github.com/channel-io/bezier-react/pull/2833)) by @timok1m
+
+  `BaseButton` is added as an internal foundation for v3 button-like components, with reset styles, default `type="button"`, and v3 focus-visible styling.
+
+  `Checkbox` provides the v3 checkbox API with a fixed medium size, form-field integration, and beta-token-based visual states. The error state draws an outer ring so the checkbox content area is not visually reduced.
+
+  `Button` adds v3 `filled`, `outlined`, and `ghost` variants with `primary`, `secondary`, and `destructive` semantics, label, leading/trailing content, active and loading states, and beta-token-based colors. Loading spinners follow the label color.
+
+  `IconButton` adds the icon-only v3 button API with the same variant and semantic model as `Button`, accessible-name support through native button props, and loading states.
+
+  `Spinner` now uses border-box sizing so each size maps to its visual bounding box, updates `xl` to 48px, and aligns stroke widths to the v3 design.
+
+- Add v3 `Toast`. ([#2844](https://github.com/channel-io/bezier-react/pull/2844)) by @timok1m
+
+  The v3 toast keeps the existing provider and hook workflow while narrowing the
+  semantic preset surface to `info`, `success`, and `error`. Presets now control
+  the fixed icon color, and `icon` remains available only as an icon-shape
+  override.
+
+  The visual treatment now follows v3 tokens with `color/fill/grey/heavier`,
+  `elevation-2`, 16px radius, fit-content width, 88px minimum width, and 460px
+  maximum width.
+
+- Add v3 Select and MultiSelect components, and extend DropdownMenu with grouped items. ([#2847](https://github.com/channel-io/bezier-react/pull/2847)) by @timok1m
+
+- Add the v3 `Modal`, `ConfirmModal`, and `ButtonGroup` components. ([#2838](https://github.com/channel-io/bezier-react/pull/2838)) by @timok1m
+
+- Add v3 composite components: `Tabs` and `Banner`. ([#2836](https://github.com/channel-io/bezier-react/pull/2836)) by @timok1m
+
+  `Tabs` supports `s` and `m` sizes from the root `Tabs` component, optional leading and trailing content on `TabItem`, right-aligned `TabActions`, and truncated tab labels.
+
+  `Banner` keeps the existing color-based variant API except for the removed `alt` variant, renames the leading icon prop to `leadingIcon`, and renders action icons with v3 `IconButton` styling so the action icon follows the variant icon color.
+
+  Improve v3 `Checkbox` state styling with shared state mixins, an outer error ring, keyboard-toggle story coverage, and inverse icon color for checked and indeterminate states.
+
+- Add v3 `Section` and `CollapsibleSection` components. ([#2842](https://github.com/channel-io/bezier-react/pull/2842)) by @timok1m
+
+  `Section` provides the static grouped-list surface with `SectionLabel` and `SectionItem`, replacing the general-purpose role previously covered by `ListItem` and standalone `SectionLabel`.
+
+  `CollapsibleSection` adds a purpose-built disclosure section built on an internal `Collapsible` primitive, with a label-style trigger and `SectionItem`-compatible content.
+
+- Add v3 composite components: `Avatar`, `AvatarGroup`, `Badge`, `Status`, and supporting `BaseTagBadge`. ([#2832](https://github.com/channel-io/bezier-react/pull/2832)) by @timok1m
+
+  Notable v3 differences:
+
+  - `Avatar` and `AvatarGroup` use v3 primitives internally and beta semantic tokens.
+  - `Avatar` status values use `online-dnd` and `offline-dnd`.
+  - `Badge` variants use `neutral-light` and `neutral-dark` naming.
+
+- Add v3 input components: `TextInput`, `Search`, and `TextArea`. ([#2835](https://github.com/channel-io/bezier-react/pull/2835)) by @timok1m
+
+  `BaseTextInput` is added as an internal foundation for single-line v3 input components, with generated IDs, IME key handling, native input props, and v3 focus/error styling.
+
+  `TextInput` adds the v3 single-line text input API with form-field integration, `primary` and `secondary` variants, `m` and `l` sizes, leading/trailing content slots, and native text input attributes.
+
+  `Search` adds a strict v3 search input with a fixed leading search icon and optional clear button behavior. It does not consume form-field context.
+
+  `TextArea` keeps the existing autosizing row API while aligning focus, error, readonly, disabled, and form-field behavior with the v3 input styling.
+
+- Add v3 Slider and ProgressBar components. ([#2848](https://github.com/channel-io/bezier-react/pull/2848)) by @timok1m
+
+- Add v3 Tag and Emoji components. ([#2846](https://github.com/channel-io/bezier-react/pull/2846)) by @timok1m
+
+- Add v3 form field components: `FormField`, `FormLabel`, `FormHelperText`, `FormErrorMessage`, `FormGroup`, and `Help`. ([#2837](https://github.com/channel-io/bezier-react/pull/2837)) by @timok1m
+
+  `FormField` replaces the v3 form-field role previously handled by `FormControl`, with `m` and `l` sizes, label/helper/error accessibility wiring, grouped control support, and flat exports under the v3 subpath.
+
+  `Help` keeps the existing tooltip-based behavior while using v3 icon styling and the v3 hover icon color.
+
+### Patch Changes
+
+- Update v3 Overlay auto-update handling and align v3 Spinner source size options. ([#2851](https://github.com/channel-io/bezier-react/pull/2851)) by @timok1m
+
+  `Overlay` now keeps position updates in an internal hook that watches resize, scroll, target resize, floating element resize, and container resize.
+
+  `Spinner` now uses source-size values from the v3 design spec: `10`, `12`, `16`, `20`, `24`, `30`, `36`, `42`, and `48`.
+
+- Add the v3 `SegmentedControl` components. ([#2840](https://github.com/channel-io/bezier-react/pull/2840)) by @timok1m
+
+  The v3 API keeps the existing `value`, `defaultValue`, `onValueChange`, and
+  `radiogroup` / `tabs` composition model, while aligning the item content model
+  with other v3 controls:
+
+  - `SegmentedControlItem` now supports `leadingContent` and `trailingContent`.
+  - Icon-only items are expressed with the `icon` prop and require `aria-label`.
+  - Label item children are treated as the visible string label instead of a
+    custom layout slot.
+  - Supported sizes are narrowed to `s` and `m`.
+
+  Also align v3 Tabs focus-visible styling with the shared `state.focus` style.
+
+- Add v3 `Tooltip`, `RadioGroup`, and `Switch` components. ([#2843](https://github.com/channel-io/bezier-react/pull/2843)) by @timok1m
+
+  `Tooltip` keeps the existing trigger-as-children and content-as-prop API while
+  aligning the visual treatment with v3 tokens. The v3 `Help` component now uses
+  this v3 `Tooltip` internally.
+
+  `RadioGroup` keeps the existing `value`, `defaultValue`, `onValueChange`, and
+  `Radio` composition model, uses the internal v3 stack layout, and defaults item
+  spacing by direction: 0 for vertical groups and 20 for horizontal groups.
+
+  `Switch` keeps the existing checked-state API, adds optional inline label
+  content through `children`, and follows the single-size v3 form control policy.
+
+- Add shared state color tokens and improve v3 state styling. ([#2849](https://github.com/channel-io/bezier-react/pull/2849)) by @timok1m
+
+  - Add semantic state color tokens and surface deprecated token warnings through
+    `stylelint-bezier`.
+  - Add shared v3 state ring mixins and apply them to input and non-input control
+    states.
+  - Remove the v3 `Tooltip` icon prop, tighten Tooltip spacing, and update its
+    radius.
+  - Rename the v3 row foundation component from `ItemBase` to `BaseItem` and
+    update its DropdownMenu and Select usages.
+  - Fix v3 `CollapsibleSection` trigger chevron behavior, keep trigger trailing
+    content at the right edge, and add Section / CollapsibleSection rich label
+    stories for leading, help, and trailing content.
+  - Update the v3 `Help` tooltip default placement.
+  - Improve dark mode colors for v3 radio, switch, slider, and progress bar
+    controls.
+
+- Update v3 secondary filled Button and IconButton background tokens. ([#2836](https://github.com/channel-io/bezier-react/pull/2836)) by @timok1m
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@1.0.0-next.3
+
 ## 4.0.0-next.4
 
 ### Minor Changes
