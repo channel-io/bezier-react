@@ -14,22 +14,6 @@ import type { SettingsFieldProps, SettingsProps } from './Settings.types'
 
 import styles from './Settings.module.scss'
 
-function renderSettingsFieldsWithDividers(children: SettingsProps['children']) {
-  const childArray = Children.toArray(children)
-
-  return childArray.map((child, index) => (
-    <Fragment key={index}>
-      {index > 0 && (
-        <Divider
-          className={styles.SettingsDivider}
-          withoutSideIndent
-        />
-      )}
-      {child}
-    </Fragment>
-  ))
-}
-
 function SettingsFieldHelp({ help }: Pick<SettingsFieldProps, 'help'>) {
   if (isEmpty(help)) {
     return null
@@ -49,10 +33,7 @@ function SettingsFieldHelp({ help }: Pick<SettingsFieldProps, 'help'>) {
  * `Settings` groups independently saved setting fields.
  */
 export const Settings = forwardRef<HTMLDivElement, SettingsProps>(
-  function Settings(
-    { children, className, showDividers = true, ...rest },
-    forwardedRef
-  ) {
+  function Settings({ children, className, ...rest }, forwardedRef) {
     if (!children) {
       return null
     }
@@ -60,14 +41,20 @@ export const Settings = forwardRef<HTMLDivElement, SettingsProps>(
     return (
       <div
         ref={forwardedRef}
-        className={classNames(
-          styles.Settings,
-          showDividers ? styles.WithDividers : styles.WithoutDividers,
-          className
-        )}
+        className={classNames(styles.Settings, className)}
         {...rest}
       >
-        {showDividers ? renderSettingsFieldsWithDividers(children) : children}
+        {Children.map(children, (child, index) => (
+          <Fragment key={index}>
+            {index > 0 && (
+              <Divider
+                className={styles.SettingsDivider}
+                withoutSideIndent
+              />
+            )}
+            {child}
+          </Fragment>
+        ))}
       </div>
     )
   }

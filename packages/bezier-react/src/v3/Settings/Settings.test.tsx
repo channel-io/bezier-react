@@ -18,21 +18,6 @@ describe('Settings', () => {
 
     expect(getAllByRole('separator')).toHaveLength(1)
   })
-
-  it('can hide dividers between fields', () => {
-    const { queryByRole } = render(
-      <Settings showDividers={false}>
-        <SettingsField label="Notifications">
-          <Switch />
-        </SettingsField>
-        <SettingsField label="Auto assignment">
-          <Switch />
-        </SettingsField>
-      </Settings>
-    )
-
-    expect(queryByRole('separator')).toBeNull()
-  })
 })
 
 describe('SettingsField', () => {

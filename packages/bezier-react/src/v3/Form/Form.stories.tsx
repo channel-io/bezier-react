@@ -23,11 +23,6 @@ const meta: Meta<FormProps & FormFieldProps> = {
   title: 'V3 components/Form',
   component: Form,
   argTypes: {
-    showDividers: {
-      control: {
-        type: 'boolean',
-      },
-    },
     labelPosition: {
       control: {
         type: 'radio',
@@ -47,10 +42,7 @@ export default meta
 
 export const Primary: StoryObj<FormProps & FormFieldProps> = {
   render: (args) => (
-    <Form
-      style={{ width: FIELD_WIDTH }}
-      showDividers={args.showDividers}
-    >
+    <Form style={{ width: FIELD_WIDTH }}>
       <BezierFormField
         labelPosition={args.labelPosition}
         size={args.size}
@@ -108,7 +100,6 @@ export const Primary: StoryObj<FormProps & FormFieldProps> = {
   ),
 
   args: {
-    showDividers: true,
     labelPosition: 'top',
     size: 'm',
     hasError: false,

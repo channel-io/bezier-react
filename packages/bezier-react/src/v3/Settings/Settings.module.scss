@@ -1,16 +1,7 @@
 .Settings {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-}
-
-.WithDividers {
-  display: flex;
-  flex-direction: column;
-}
-
-.WithoutDividers {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
 .SettingsDivider {

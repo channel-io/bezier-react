@@ -1,18 +1,9 @@
 import type { BezierComponentProps, ChildrenProps } from '~/src/types/props'
 import type { FormFieldLabelPosition } from '~/src/v3/Form'
 
-interface SettingsOwnProps {
-  /**
-   * Whether to render dividers between settings fields.
-   * @default true
-   */
-  showDividers?: boolean
-}
-
 export interface SettingsProps
   extends BezierComponentProps<'div'>,
-    ChildrenProps,
-    SettingsOwnProps {}
+    ChildrenProps {}
 
 interface SettingsFieldOwnProps {
   /**

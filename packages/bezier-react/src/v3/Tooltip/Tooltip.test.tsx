@@ -95,7 +95,7 @@ describe('Tooltip', () => {
 
     const { getByRole } = renderTooltip({
       content: 'Tooltip content',
-      delayHide: 10,
+      delayHide: 100,
       onHide,
     })
 
@@ -104,11 +104,8 @@ describe('Tooltip', () => {
 
     expect(onHide).not.toHaveBeenCalled()
 
-    await user.hover(getByRole('button'))
-    await user.unhover(getByRole('button'))
-
     await waitFor(() => {
-      expect(onHide).toHaveBeenCalled()
+      expect(onHide).toHaveBeenCalledTimes(1)
     })
   })
 

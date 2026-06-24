@@ -41,26 +41,6 @@ describe('Form', () => {
 
     expect(getAllByRole('separator')).toHaveLength(1)
   })
-
-  it('can hide dividers between fields', () => {
-    const { queryByRole } = render(
-      <Form
-        aria-label="Profile"
-        showDividers={false}
-      >
-        <FormField>
-          <FormLabel>Email</FormLabel>
-          <TextInput />
-        </FormField>
-        <FormField>
-          <FormLabel>Name</FormLabel>
-          <TextInput />
-        </FormField>
-      </Form>
-    )
-
-    expect(queryByRole('separator')).toBeNull()
-  })
 })
 
 describe('FormField', () => {

@@ -12,11 +12,6 @@ const meta: Meta<SettingsProps & SettingsFieldProps> = {
   title: 'V3 components/Settings',
   component: Settings,
   argTypes: {
-    showDividers: {
-      control: {
-        type: 'boolean',
-      },
-    },
     labelPosition: {
       control: {
         type: 'radio',
@@ -30,10 +25,7 @@ export default meta
 
 export const Primary: StoryObj<SettingsProps & SettingsFieldProps> = {
   render: (args) => (
-    <Settings
-      style={{ width: SETTINGS_WIDTH }}
-      showDividers={args.showDividers}
-    >
+    <Settings style={{ width: SETTINGS_WIDTH }}>
       <SettingsField
         label="Workspace name"
         description="Shown to members in this workspace."
@@ -65,47 +57,6 @@ export const Primary: StoryObj<SettingsProps & SettingsFieldProps> = {
   ),
 
   args: {
-    showDividers: true,
     labelPosition: 'left',
-  },
-}
-
-export const WithoutDividers: StoryObj<SettingsProps & SettingsFieldProps> = {
-  render: (args) => (
-    <Settings
-      style={{ width: SETTINGS_WIDTH }}
-      showDividers={false}
-    >
-      <SettingsField
-        label="Workspace name"
-        description="Shown to members in this workspace."
-        labelPosition={args.labelPosition}
-      >
-        <TextInput
-          defaultValue="Channel"
-          style={{ width: 160 }}
-        />
-      </SettingsField>
-
-      <SettingsField
-        label="Notifications"
-        description="Receive updates for new conversations."
-        labelPosition={args.labelPosition}
-      >
-        <Switch defaultChecked />
-      </SettingsField>
-    </Settings>
-  ),
-
-  args: {
-    labelPosition: 'left',
-  },
-
-  argTypes: {
-    showDividers: {
-      table: {
-        disable: true,
-      },
-    },
   },
 }

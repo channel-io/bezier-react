@@ -43,27 +43,11 @@ function normalizeFormFieldSize(size?: string): FormFieldSize {
   return size === 'l' ? 'l' : 'm'
 }
 
-function renderFieldsWithDividers(children: FormProps['children']) {
-  const childArray = Children.toArray(children)
-
-  return childArray.map((child, index) => (
-    <Fragment key={index}>
-      {index > 0 && (
-        <Divider
-          className={styles.FormDivider}
-          withoutSideIndent
-        />
-      )}
-      {child}
-    </Fragment>
-  ))
-}
-
 /**
  * `Form` renders a native `form` element with Bezier field layout.
  */
 export const Form = forwardRef<HTMLFormElement, FormProps>(function Form(
-  { children, className, showDividers = true, ...rest },
+  { children, className, ...rest },
   forwardedRef
 ) {
   if (!children) {
@@ -73,14 +57,20 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(function Form(
   return (
     <form
       ref={forwardedRef}
-      className={classNames(
-        styles.Form,
-        showDividers ? styles.WithDividers : styles.WithoutDividers,
-        className
-      )}
+      className={classNames(styles.Form, className)}
       {...rest}
     >
-      {showDividers ? renderFieldsWithDividers(children) : children}
+      {Children.map(children, (child, index) => (
+        <Fragment key={index}>
+          {index > 0 && (
+            <Divider
+              className={styles.FormDivider}
+              withoutSideIndent
+            />
+          )}
+          {child}
+        </Fragment>
+      ))}
     </form>
   )
 })
