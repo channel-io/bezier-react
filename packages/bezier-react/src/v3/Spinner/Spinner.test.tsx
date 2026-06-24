@@ -16,7 +16,7 @@ describe('Spinner', () => {
     const spinner = getByRole('status', { name: 'Loading' })
 
     expect(spinner).toHaveClass(styles.Spinner)
-    expect(spinner).toHaveClass(styles['size-m'])
+    expect(spinner).toHaveClass(styles['size-20'])
     expect(spinner).toHaveStyle(
       `--b-v3-spinner-color: ${colorTokenCssVar('icon-neutral')}`
     )
@@ -53,11 +53,11 @@ describe('Spinner', () => {
   it('should receive color and size', () => {
     const { getByRole } = renderSpinner({
       color: 'icon-neutral-heavier',
-      size: 'xl',
+      size: '48',
     })
     const spinner = getByRole('status')
 
-    expect(spinner).toHaveClass(styles['size-xl'])
+    expect(spinner).toHaveClass(styles['size-48'])
     expect(spinner).toHaveStyle(
       `--b-v3-spinner-color: ${colorTokenCssVar('icon-neutral-heavier')}`
     )

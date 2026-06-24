@@ -19,19 +19,15 @@ import styles from './IconButton.module.scss'
 function getSpinnerSize(size: IconButtonSize) {
   return (
     {
-      xs: 'xs',
-      s: 'xs',
-      m: 'xs',
-      l: 's',
+      xs: '12',
+      s: '12',
+      m: '12',
+      l: '16',
     } as const
   )[size]
 }
 
-function IconButtonContentElement({
-  content,
-}: {
-  content: IconButtonContent
-}) {
+function IconButtonContentElement({ content }: { content: IconButtonContent }) {
   if (isBezierIcon(content)) {
     const SourceElement = content
 
@@ -108,7 +104,8 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
               size={getSpinnerSize(size)}
               style={
                 {
-                  '--b-v3-spinner-color': 'var(--b-v3-icon-button-spinner-color)',
+                  '--b-v3-spinner-color':
+                    'var(--b-v3-icon-button-spinner-color)',
                 } as CSSProperties
               }
             />
