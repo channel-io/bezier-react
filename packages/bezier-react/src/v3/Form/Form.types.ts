@@ -12,6 +12,10 @@ export type FormFieldLabelPosition = 'top' | 'left'
 
 export type FormFieldSize = 'm' | 'l'
 
+export interface FormProps
+  extends BezierComponentProps<'form'>,
+    ChildrenProps {}
+
 export interface FormFieldAriaProps {
   'aria-labelledby'?: string
   'aria-describedby'?: string

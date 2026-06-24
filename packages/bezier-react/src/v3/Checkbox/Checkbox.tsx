@@ -10,7 +10,7 @@ import classNames from 'classnames'
 import useId from '~/src/hooks/useId'
 import { getFormFieldSizeClassName } from '~/src/types/props-helpers'
 import { BaseButton } from '~/src/v3/BaseButton'
-import { useFormFieldProps } from '~/src/v3/FormField'
+import { useFormFieldProps } from '~/src/v3/Form'
 import { Icon } from '~/src/v3/Icon'
 import { Text } from '~/src/v3/Text'
 

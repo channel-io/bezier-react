@@ -6,7 +6,7 @@ import { isBezierIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 import { BaseTextInput, type TextInputRef } from '~/src/v3/BaseTextInput'
-import { useFormFieldProps } from '~/src/v3/FormField'
+import { useFormFieldProps } from '~/src/v3/Form'
 import { Icon } from '~/src/v3/Icon'
 import { Text } from '~/src/v3/Text'
 

@@ -23,7 +23,7 @@ import { createContext } from '~/src/utils/react'
 import { cssDimension } from '~/src/utils/style'
 import { isNil } from '~/src/utils/type'
 import { BaseItem } from '~/src/v3/BaseItem/BaseItem'
-import { useFormFieldProps } from '~/src/v3/FormField'
+import { useFormFieldProps } from '~/src/v3/Form'
 import { Overlay } from '~/src/v3/Overlay'
 
 import { useWindow } from '~/src/components/WindowProvider'
@@ -82,10 +82,7 @@ type InternalSelectTrigger =
 function isSelectTriggerElement(
   child: React.ReactNode
 ): child is InternalSelectTrigger {
-  return (
-    isValidElement(child) &&
-    child.type === BaseSelectTrigger
-  )
+  return isValidElement(child) && child.type === BaseSelectTrigger
 }
 
 function isSelectOptionElement(
@@ -627,10 +624,7 @@ export const BaseSelectGroup = forwardRef<HTMLDivElement, SelectGroupProps>(
 
 export const BaseSelect = forwardRef(function BaseSelect<
   Value extends SelectValue,
->(
-  props: SelectProps<Value>,
-  forwardedRef: React.Ref<HTMLDivElement>
-) {
+>(props: SelectProps<Value>, forwardedRef: React.Ref<HTMLDivElement>) {
   return SelectImpl(props, forwardedRef)
 }) as <Value extends SelectValue = SelectValue>(
   props: SelectProps<Value> & {

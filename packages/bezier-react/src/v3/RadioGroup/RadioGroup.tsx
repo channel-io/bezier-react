@@ -12,13 +12,10 @@ import { ariaAttr } from '~/src/utils/aria'
 import { noop } from '~/src/utils/function'
 import { BaseButton } from '~/src/v3/BaseButton'
 import { BaseStack } from '~/src/v3/BaseStack/BaseStack'
-import { useFormFieldContext } from '~/src/v3/FormField'
+import { useFormFieldContext } from '~/src/v3/Form'
 import { Text } from '~/src/v3/Text'
 
-import {
-  type RadioGroupProps,
-  type RadioProps,
-} from './RadioGroup.types'
+import { type RadioGroupProps, type RadioProps } from './RadioGroup.types'
 
 import styles from './RadioGroup.module.scss'
 

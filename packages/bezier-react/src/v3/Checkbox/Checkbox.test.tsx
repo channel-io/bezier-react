@@ -4,10 +4,7 @@ import { isInaccessible } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
-import {
-  FormField,
-  type FormFieldProps,
-} from '~/src/v3/FormField'
+import { FormField, type FormFieldProps } from '~/src/v3/Form'
 
 import { Checkbox } from './Checkbox'
 import { type CheckboxProps, type CheckedState } from './Checkbox.types'

@@ -6,8 +6,8 @@ import useMergeRefs from '~/src/hooks/useMergeRefs'
 import { noop } from '~/src/utils/function'
 import { BaseStack } from '~/src/v3/BaseStack/BaseStack'
 
-import { useFormFieldContext } from './FormField'
-import { type FormGroupProps } from './FormField.types'
+import { useFormFieldContext } from './Form'
+import { type FormGroupProps } from './Form.types'
 
 export const FORM_GROUP_TEST_ID = 'bezier-v3-form-group'
 
@@ -16,13 +16,7 @@ export const FORM_GROUP_TEST_ID = 'bezier-v3-form-group'
  */
 export const FormGroup = forwardRef<HTMLDivElement, FormGroupProps>(
   function FormGroup(
-    {
-      spacing,
-      direction = 'vertical',
-      role = 'group',
-      children,
-      ...rest
-    },
+    { spacing, direction = 'vertical', role = 'group', children, ...rest },
     forwardedRef
   ) {
     const contextValue = useFormFieldContext()

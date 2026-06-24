@@ -6,21 +6,22 @@ import { TextArea } from '~/src/v3/TextArea'
 import { TextInput } from '~/src/v3/TextInput'
 import { VStack } from '~/src/v3/VStack'
 
-import type { FormFieldProps } from './FormField.types'
+import type { FormFieldProps, FormProps } from './Form.types'
 
 import {
   FormErrorMessage as BezierFormErrorMessage,
+  FormField as BezierFormField,
   FormGroup as BezierFormGroup,
   FormHelperText as BezierFormHelperText,
   FormLabel as BezierFormLabel,
-  FormField,
+  Form,
 } from './index'
 
 const FIELD_WIDTH = 360
 
-const meta: Meta<typeof FormField> = {
-  title: 'V3 components/FormField',
-  component: FormField,
+const meta: Meta<FormProps & FormFieldProps> = {
+  title: 'V3 components/Form',
+  component: Form,
   argTypes: {
     labelPosition: {
       control: {
@@ -39,43 +40,31 @@ const meta: Meta<typeof FormField> = {
 
 export default meta
 
-export const Primary: StoryObj<FormFieldProps> = {
+export const Primary: StoryObj<FormProps & FormFieldProps> = {
   render: (args) => (
-    <FormField
-      style={{ width: FIELD_WIDTH }}
-      {...args}
-    >
-      <BezierFormLabel help="This is help text.">Email</BezierFormLabel>
-      <TextInput placeholder="name@company.com" />
-      <BezierFormHelperText>Enter your work email.</BezierFormHelperText>
-      <BezierFormErrorMessage>Email is required.</BezierFormErrorMessage>
-    </FormField>
-  ),
-
-  args: {
-    labelPosition: 'top',
-    size: 'm',
-    hasError: false,
-    disabled: false,
-    readOnly: false,
-    required: false,
-  },
-}
-
-export const Fields: StoryObj<FormFieldProps> = {
-  render: (args) => (
-    <VStack
-      spacing={20}
-      width={FIELD_WIDTH}
-    >
-      <FormField {...args}>
+    <Form style={{ width: FIELD_WIDTH }}>
+      <BezierFormField
+        labelPosition={args.labelPosition}
+        size={args.size}
+        hasError={args.hasError}
+        disabled={args.disabled}
+        readOnly={args.readOnly}
+        required={args.required}
+      >
         <BezierFormLabel help="This is help text.">Email</BezierFormLabel>
         <TextInput placeholder="name@company.com" />
         <BezierFormHelperText>Enter your work email.</BezierFormHelperText>
         <BezierFormErrorMessage>Email is required.</BezierFormErrorMessage>
-      </FormField>
+      </BezierFormField>
 
-      <FormField {...args}>
+      <BezierFormField
+        labelPosition={args.labelPosition}
+        size={args.size}
+        hasError={args.hasError}
+        disabled={args.disabled}
+        readOnly={args.readOnly}
+        required={args.required}
+      >
         <BezierFormLabel>Message</BezierFormLabel>
         <TextArea
           placeholder="Enter a message"
@@ -84,9 +73,16 @@ export const Fields: StoryObj<FormFieldProps> = {
         />
         <BezierFormHelperText>Write a short message.</BezierFormHelperText>
         <BezierFormErrorMessage>Message is required.</BezierFormErrorMessage>
-      </FormField>
+      </BezierFormField>
 
-      <FormField {...args}>
+      <BezierFormField
+        labelPosition={args.labelPosition}
+        size={args.size}
+        hasError={args.hasError}
+        disabled={args.disabled}
+        readOnly={args.readOnly}
+        required={args.required}
+      >
         <BezierFormLabel>Notifications</BezierFormLabel>
         <BezierFormGroup direction="horizontal">
           <Checkbox>Email</Checkbox>
@@ -99,8 +95,8 @@ export const Fields: StoryObj<FormFieldProps> = {
         <BezierFormErrorMessage>
           Select a notification channel.
         </BezierFormErrorMessage>
-      </FormField>
-    </VStack>
+      </BezierFormField>
+    </Form>
   ),
 
   args: {
@@ -119,23 +115,23 @@ export const LabelPosition: StoryObj<FormFieldProps> = {
       spacing={20}
       width={FIELD_WIDTH}
     >
-      <FormField
+      <BezierFormField
         {...args}
         labelPosition="top"
       >
         <BezierFormLabel>Top label</BezierFormLabel>
         <TextInput placeholder="Placeholder" />
         <BezierFormHelperText>Description</BezierFormHelperText>
-      </FormField>
+      </BezierFormField>
 
-      <FormField
+      <BezierFormField
         {...args}
         labelPosition="left"
       >
         <BezierFormLabel>Left label</BezierFormLabel>
         <TextInput placeholder="Placeholder" />
         <BezierFormHelperText>Description</BezierFormHelperText>
-      </FormField>
+      </BezierFormField>
     </VStack>
   ),
 
@@ -162,7 +158,7 @@ export const Error: StoryObj<FormFieldProps> = {
       spacing={16}
       align="start"
     >
-      <FormField
+      <BezierFormField
         style={{ width: FIELD_WIDTH }}
         {...args}
         hasError={false}
@@ -171,9 +167,9 @@ export const Error: StoryObj<FormFieldProps> = {
         <TextInput placeholder="name@company.com" />
         <BezierFormHelperText>Enter your work email.</BezierFormHelperText>
         <BezierFormErrorMessage>Email is required.</BezierFormErrorMessage>
-      </FormField>
+      </BezierFormField>
 
-      <FormField
+      <BezierFormField
         style={{ width: FIELD_WIDTH }}
         {...args}
         hasError
@@ -182,7 +178,7 @@ export const Error: StoryObj<FormFieldProps> = {
         <TextInput placeholder="name@company.com" />
         <BezierFormHelperText>Enter your work email.</BezierFormHelperText>
         <BezierFormErrorMessage>Email is required.</BezierFormErrorMessage>
-      </FormField>
+      </BezierFormField>
     </HStack>
   ),
 
@@ -200,6 +196,29 @@ export const Error: StoryObj<FormFieldProps> = {
         disable: true,
       },
     },
+  },
+}
+
+export const FormField: StoryObj<FormFieldProps> = {
+  render: (args) => (
+    <BezierFormField
+      style={{ width: FIELD_WIDTH }}
+      {...args}
+    >
+      <BezierFormLabel help="This is help text.">Email</BezierFormLabel>
+      <TextInput placeholder="name@company.com" />
+      <BezierFormHelperText>Enter your work email.</BezierFormHelperText>
+      <BezierFormErrorMessage>Email is required.</BezierFormErrorMessage>
+    </BezierFormField>
+  ),
+
+  args: {
+    labelPosition: 'top',
+    size: 'm',
+    hasError: false,
+    disabled: false,
+    readOnly: false,
+    required: false,
   },
 }
 
@@ -225,7 +244,7 @@ export const FormErrorMessage = {
 
 export const FormGroup = {
   render: () => (
-    <FormField style={{ width: FIELD_WIDTH }}>
+    <BezierFormField style={{ width: FIELD_WIDTH }}>
       <BezierFormLabel>Notifications</BezierFormLabel>
       <BezierFormGroup direction="horizontal">
         <Checkbox>Email</Checkbox>
@@ -233,6 +252,6 @@ export const FormGroup = {
         <Checkbox>Push</Checkbox>
       </BezierFormGroup>
       <BezierFormHelperText>Select at least one channel.</BezierFormHelperText>
-    </FormField>
+    </BezierFormField>
   ),
 }

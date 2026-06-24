@@ -3,12 +3,45 @@ import { Checkbox } from '~/src/v3/Checkbox'
 import { TextInput } from '~/src/v3/TextInput'
 
 import {
+  Form,
   FormErrorMessage,
   FormField,
   FormGroup,
   FormHelperText,
   FormLabel,
 } from './index'
+
+describe('Form', () => {
+  it('renders a native form element', () => {
+    const { getByRole } = render(
+      <Form aria-label="Profile">
+        <FormField>
+          <FormLabel>Email</FormLabel>
+          <TextInput />
+        </FormField>
+      </Form>
+    )
+
+    expect(getByRole('form', { name: 'Profile' })).toBeInTheDocument()
+  })
+
+  it('renders dividers between fields by default', () => {
+    const { getAllByRole } = render(
+      <Form aria-label="Profile">
+        <FormField>
+          <FormLabel>Email</FormLabel>
+          <TextInput />
+        </FormField>
+        <FormField>
+          <FormLabel>Name</FormLabel>
+          <TextInput />
+        </FormField>
+      </Form>
+    )
+
+    expect(getAllByRole('separator')).toHaveLength(1)
+  })
+})
 
 describe('FormField', () => {
   it('connects label and helper text to a single field', () => {
@@ -117,5 +150,4 @@ describe('FormField', () => {
 
     expect(getByTestId('bezier-v3-help')).toBeInTheDocument()
   })
-
 })

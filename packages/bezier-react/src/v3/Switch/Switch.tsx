@@ -8,7 +8,7 @@ import classNames from 'classnames'
 import useId from '~/src/hooks/useId'
 import { getFormFieldSizeClassName } from '~/src/types/props-helpers'
 import { BaseButton } from '~/src/v3/BaseButton'
-import { useFormFieldProps } from '~/src/v3/FormField'
+import { useFormFieldProps } from '~/src/v3/Form'
 import { Text } from '~/src/v3/Text'
 
 import { type SwitchProps } from './Switch.types'
@@ -44,10 +44,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
 
     return (
       <div
-        className={classNames(
-          styles.Container,
-          getFormFieldSizeClassName('m')
-        )}
+        className={classNames(styles.Container, getFormFieldSizeClassName('m'))}
       >
         <SwitchPrimitive.Root
           asChild
