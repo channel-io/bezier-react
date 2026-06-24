@@ -5,6 +5,18 @@ import { HStack } from '~/src/v3/HStack'
 import { Spinner } from './Spinner'
 import { type SpinnerProps } from './Spinner.types'
 
+const SPINNER_SIZES = [
+  '10',
+  '12',
+  '16',
+  '20',
+  '24',
+  '30',
+  '36',
+  '42',
+  '48',
+] as const
+
 const meta: Meta<typeof Spinner> = {
   title: 'V3 components/Spinner',
   component: Spinner,
@@ -13,7 +25,7 @@ const meta: Meta<typeof Spinner> = {
       control: {
         type: 'radio',
       },
-      options: ['xs', 's', 'm', 'l', 'xl'],
+      options: SPINNER_SIZES,
     },
   },
 }
@@ -25,7 +37,7 @@ export const Primary = {
   render: Template,
 
   args: {
-    size: 'm',
+    size: '20',
   },
 }
 
@@ -35,7 +47,7 @@ export const Sizes: StoryObj<SpinnerProps> = {
       spacing={16}
       align="center"
     >
-      {(['xs', 's', 'm', 'l', 'xl'] as const).map((size) => (
+      {SPINNER_SIZES.map((size) => (
         <Spinner
           key={size}
           {...args}

@@ -20,7 +20,7 @@ const DEFAULT_SPINNER_COLOR = 'icon-neutral' satisfies BetaSemanticColor
  *
  * ```tsx
  * <Spinner
- *   size="m"
+ *   size="20"
  *   color="icon-neutral"
  * />
  * ```
@@ -30,7 +30,7 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
     {
       style,
       className,
-      size = 'm',
+      size = '20',
       color = DEFAULT_SPINNER_COLOR,
       role = 'status',
       'aria-label': ariaLabel,

@@ -31,15 +31,19 @@ function getTypography(size: ButtonSize) {
 function getSpinnerSize(size: ButtonSize) {
   return (
     {
-      xs: 'xs',
-      s: 'xs',
-      m: 'xs',
-      l: 's',
+      xs: '12',
+      s: '12',
+      m: '12',
+      l: '16',
     } as const
   )[size]
 }
 
-function ButtonSideContentElement({ content }: { content?: ButtonSideContent }) {
+function ButtonSideContentElement({
+  content,
+}: {
+  content?: ButtonSideContent
+}) {
   if (isBezierIcon(content)) {
     const SourceElement = content
 
