@@ -1,5 +1,11 @@
 # @channel.io/stylelint-bezier
 
+## 0.4.0-next.4
+
+### Patch Changes
+
+- Handle CSS variable fallbacks when validating design token names. ([#2853](https://github.com/channel-io/bezier-react/pull/2853)) by @timok1m
+
 ## 0.4.0-next.3
 
 ### Minor Changes
