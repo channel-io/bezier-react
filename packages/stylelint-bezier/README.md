@@ -30,7 +30,7 @@ Extend @channel.io/stylelint-bezier in your stylelint config.
 
 ### validate-token
 
-Disallows use of tokens not in bezier-tokens. It also reports beta tokens marked as deprecated in bezier-tokens metadata as warnings.
+Disallows use of tokens not in the beta(v3) bezier-tokens set. It also reports beta tokens marked as deprecated in bezier-tokens metadata as warnings.
 
 If you want to use css variable other than bezier design token, you can set a specific prefix and add it to ignorePrefix.
 
