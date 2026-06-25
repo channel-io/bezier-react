@@ -1,0 +1,65 @@
+@use '../../styles/mixins/state';
+
+.TextArea {
+  --b-beta-text-area-background-color: var(--color-fill-grey);
+
+  resize: none;
+
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 8px 12px;
+
+  font-family: var(--typography-text-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--color-text-neutral);
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+
+  background-color: var(--b-beta-text-area-background-color);
+  border: none;
+  border-radius: var(--radius-12);
+  outline: none;
+
+  /* stylelint-disable-next-line order/order */
+  @include state.input(var(--radius-12));
+
+  transition:
+    background-color var(--motion-transition-fast),
+    box-shadow var(--motion-transition-fast),
+    opacity var(--motion-transition-fast);
+
+  &::placeholder {
+    color: var(--color-text-neutral-lighter);
+    opacity: 1;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:focus {
+    --b-beta-text-area-background-color: var(--color-fill-grey-light);
+
+    @include state.input-active(var(--radius-12));
+  }
+
+  &[aria-invalid='true'] {
+    --b-beta-text-area-background-color: var(--color-fill-grey-light);
+
+    @include state.input-error(var(--radius-12));
+  }
+
+  &:read-only {
+    --b-beta-text-area-background-color: var(--color-fill-grey-heavy);
+
+    color: var(--color-text-neutral-light);
+  }
+}

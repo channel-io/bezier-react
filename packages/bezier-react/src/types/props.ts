@@ -272,8 +272,8 @@ export interface MarginProps {
 type Position = 'absolute' | 'fixed' | 'relative' | 'sticky'
 type Overflow = 'auto' | 'hidden' | 'scroll' | 'visible'
 
-export type V3Position = Position
-export type V3Overflow = Overflow
+export type BetaPosition = Position
+export type BetaOverflow = Overflow
 
 /**
  * Props for defining layout-related properties of a component, such as padding, size, and position.
@@ -391,7 +391,7 @@ export interface LayoutProps {
   grow?: React.CSSProperties['flexGrow']
   /**
    * the background color of an element.
-   * @todo @timo BetaTextSemanticColor is included for v1 component compatibility. v3 components should use only BetaBackgroundSemanticColor for proper semantic usage.
+   * @todo @timo BetaTextSemanticColor is included for v1 component compatibility. beta components should use only BetaBackgroundSemanticColor for proper semantic usage.
    * @default initial
    */
   backgroundColor?:
@@ -461,13 +461,13 @@ export interface LayoutProps {
   overflowY?: Overflow
 }
 
-export type V3MarginProps = MarginProps
+export type BetaMarginProps = MarginProps
 
 /**
- * v3 color props mirror ColorProps but only allow beta (v3) semantic color tokens.
+ * Beta color props mirror ColorProps but only allow beta semantic color tokens.
  * TODO: Fold this into ColorProps when legacy token unions are removed for 4.0.0.
  */
-export interface V3ColorProps {
+export interface BetaColorProps {
   /**
    * Color from the design system's semantic color.
    */
@@ -475,10 +475,10 @@ export interface V3ColorProps {
 }
 
 /**
- * v3 layout props mirror LayoutProps while keeping token-typed fields narrow.
+ * Beta layout props mirror LayoutProps while keeping token-typed fields narrow.
  * TODO: Fold this into LayoutProps when legacy token unions are removed for 4.0.0.
  */
-export interface V3LayoutProps
+export interface BetaLayoutProps
   extends Omit<
     LayoutProps,
     'backgroundColor' | 'borderColor' | 'borderRadius' | 'elevation' | 'zIndex'

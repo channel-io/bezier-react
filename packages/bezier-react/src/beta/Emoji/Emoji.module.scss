@@ -1,0 +1,24 @@
+@use '../../styles/mixins/dimension';
+
+$emoji-sizes: '16', '20', '24', '30', '36', '42', '48', '60', '72', '90', '120';
+
+.Emoji {
+  --b-beta-emoji-size: initial;
+  --b-beta-emoji-inner-size: initial;
+
+  @include dimension.square(var(--b-beta-emoji-size));
+
+  flex: 0 0 auto;
+
+  background-image: var(--b-beta-emoji-background-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: var(--b-beta-emoji-inner-size)
+    var(--b-beta-emoji-inner-size);
+
+  @each $size in $emoji-sizes {
+    &:where(.size-#{$size}) {
+      --b-beta-emoji-size: #{$size}px;
+    }
+  }
+}

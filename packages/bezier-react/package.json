@@ -16,10 +16,10 @@
       "require": "./dist/cjs/index.js",
       "import": "./dist/esm/index.mjs"
     },
-    "./v3": {
-      "types": "./dist/types/v3/index.d.ts",
-      "require": "./dist/cjs/v3/index.js",
-      "import": "./dist/esm/v3/index.mjs"
+    "./beta": {
+      "types": "./dist/types/beta/index.d.ts",
+      "require": "./dist/cjs/beta/index.js",
+      "import": "./dist/esm/beta/index.mjs"
     },
     "./styles.css": {
       "require": "./dist/cjs/styles.css",

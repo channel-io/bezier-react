@@ -1,0 +1,52 @@
+.Divider {
+  --b-beta-divider-indent-size: 6px;
+  --b-beta-divider-thickness: 1px;
+
+  flex-shrink: 0;
+  background-color: var(--color-border-neutral);
+  border-radius: var(--b-beta-divider-thickness);
+
+  &:where(.horizontal) {
+    width: calc(100% - 2 * var(--b-beta-divider-indent-size));
+    height: var(--b-beta-divider-thickness);
+    margin: var(--b-beta-divider-indent-size);
+
+    &:where(.without-indent) {
+      width: 100%;
+      margin: 0;
+    }
+
+    &:where(.without-side-indent) {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    &:where(.without-parallel-indent) {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &:where(.vertical) {
+    width: var(--b-beta-divider-thickness);
+    height: calc(100% - 2 * var(--b-beta-divider-indent-size));
+    margin: var(--b-beta-divider-indent-size);
+
+    &:where(.without-indent) {
+      height: 100%;
+      margin: 0;
+    }
+
+    &:where(.without-side-indent) {
+      height: 100%;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    &:where(.without-parallel-indent) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+}
