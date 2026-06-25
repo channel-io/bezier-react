@@ -5,6 +5,8 @@ import { KeyValueItem, KeyValueMultiLineItem } from './KeyValueItem'
 import { type KeyValueItemProps } from './KeyValueItem.types'
 
 const meta: Meta<typeof KeyValueItem> = {
+  title: 'Deprecated v1 components/KeyValueItem',
+  tags: ['deprecated'],
   component: KeyValueItem,
 }
 

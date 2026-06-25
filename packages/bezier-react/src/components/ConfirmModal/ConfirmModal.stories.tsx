@@ -85,6 +85,8 @@ function ConfirmModalComposition({
 }
 
 const meta: Meta<typeof ConfirmModalComposition> = {
+  title: 'Deprecated v1 components/ConfirmModal',
+  tags: ['deprecated'],
   component: ConfirmModalComposition,
   argTypes: {
     width: {

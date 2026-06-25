@@ -4,6 +4,8 @@ import { Switch } from './Switch'
 import { type SwitchProps } from './Switch.types'
 
 const meta: Meta<typeof Switch> = {
+  title: 'Deprecated v1 components/Switch',
+  tags: ['deprecated'],
   component: Switch,
   argTypes: {
     checked: {

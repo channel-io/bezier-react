@@ -41,13 +41,14 @@ import mdx from './Icon.mdx'
 import { type IconProps } from './Icon.types'
 
 const meta: Meta<typeof Icon> = {
+  title: 'Deprecated v1 components/Icon',
   component: Icon,
   parameters: {
     docs: {
       page: mdx,
     },
   },
-  tags: ['!autodocs'],
+  tags: ['deprecated', '!autodocs'],
 }
 
 export default meta

@@ -6,6 +6,8 @@ import { StatusBadge } from './StatusBadge'
 import { type StatusBadgeProps } from './StatusBadge.types'
 
 const meta: Meta<typeof StatusBadge> = {
+  title: 'Deprecated v2 components/AlphaStatusBadge',
+  tags: ['deprecated'],
   component: StatusBadge,
 }
 

@@ -8,6 +8,8 @@ import { NavGroup } from './NavGroup'
 import type { NavGroupProps } from './NavGroup.types'
 
 const meta: Meta<typeof NavGroup> = {
+  title: 'Deprecated v1 components/NavGroup',
+  tags: ['deprecated'],
   component: NavGroup,
 }
 export default meta

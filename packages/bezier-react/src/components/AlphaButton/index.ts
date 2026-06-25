@@ -1,4 +1,6 @@
+/** @deprecated v2 components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export { Button as AlphaButton } from './Button'
+/** @deprecated v2 components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export type {
   ButtonColor as AlphaButtonColor,
   ButtonProps as AlphaButtonProps,

@@ -10,6 +10,8 @@ import {
 } from './Toast.types'
 
 const meta: Meta<ToastProps> = {
+  title: 'Deprecated v1 components/Toast',
+  tags: ['deprecated'],
   component: ToastProvider,
 }
 

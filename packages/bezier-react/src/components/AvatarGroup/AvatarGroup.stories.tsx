@@ -7,6 +7,8 @@ import { type AvatarGroupProps } from './AvatarGroup.types'
 import MOCK_AVATAR_LIST from './__mocks__/avatarList'
 
 const meta: Meta<typeof AvatarGroup> = {
+  title: 'Deprecated v1 components/AvatarGroup',
+  tags: ['deprecated'],
   component: AvatarGroup,
   argTypes: {
     max: {

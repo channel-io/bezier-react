@@ -4,6 +4,8 @@ import { Center } from './Center'
 import { type CenterProps } from './Center.types'
 
 const meta: Meta<typeof Center> = {
+  title: 'Deprecated v1 components/Center',
+  tags: ['deprecated'],
   component: Center,
 }
 

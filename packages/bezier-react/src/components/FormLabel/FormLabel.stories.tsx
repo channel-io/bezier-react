@@ -4,6 +4,8 @@ import { FormLabel } from './FormLabel'
 import { type FormLabelProps } from './FormLabel.types'
 
 const meta: Meta<typeof FormLabel> = {
+  title: 'Deprecated v1 components/FormLabel',
+  tags: ['deprecated'],
   component: FormLabel,
   argTypes: {
     children: {

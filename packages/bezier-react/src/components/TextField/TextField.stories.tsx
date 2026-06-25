@@ -8,6 +8,8 @@ import { TextField } from './TextField'
 import { type TextFieldProps, type TextFieldRef } from './TextField.types'
 
 const meta: Meta<typeof TextField> = {
+  title: 'Deprecated v1 components/TextField',
+  tags: ['deprecated'],
   component: TextField,
 }
 export default meta

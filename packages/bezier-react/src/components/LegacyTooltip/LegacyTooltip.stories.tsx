@@ -6,6 +6,8 @@ import { LegacyTooltip } from './LegacyTooltip'
 import { type LegacyTooltipProps } from './LegacyTooltip.types'
 
 const meta: Meta<typeof LegacyTooltip> = {
+  title: 'Deprecated v1 components/LegacyTooltip',
+  tags: ['deprecated'],
   component: LegacyTooltip,
   argTypes: {
     content: {

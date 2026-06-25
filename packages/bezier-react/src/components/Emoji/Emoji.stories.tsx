@@ -4,6 +4,8 @@ import { Emoji } from './Emoji'
 import { type EmojiProps } from './Emoji.types'
 
 const meta = {
+  title: 'Deprecated v1 components/Emoji',
+  tags: ['deprecated'],
   component: Emoji,
 } satisfies Meta<EmojiProps>
 

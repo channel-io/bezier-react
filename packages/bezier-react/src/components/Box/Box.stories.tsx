@@ -4,6 +4,8 @@ import { Box } from './Box'
 import { type BoxProps } from './Box.types'
 
 const meta: Meta<typeof Box> = {
+  title: 'Deprecated v1 components/Box',
+  tags: ['deprecated'],
   component: Box,
 }
 

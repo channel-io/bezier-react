@@ -12,6 +12,8 @@ import { Box } from '~/src/components/Box'
 import { ToggleButtonGroup } from './ToggleButtonGroup'
 
 const meta = {
+  title: 'Deprecated v2 components/AlphaToggleButtonGroup',
+  tags: ['deprecated'],
   component: ToggleButtonGroup,
 } satisfies Meta<typeof ToggleButtonGroup>
 

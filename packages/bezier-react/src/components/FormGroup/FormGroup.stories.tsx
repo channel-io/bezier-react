@@ -6,6 +6,8 @@ import { FormGroup } from './FormGroup'
 import { type FormGroupProps } from './FormGroup.types'
 
 const meta: Meta<typeof FormGroup> = {
+  title: 'Deprecated v1 components/FormGroup',
+  tags: ['deprecated'],
   component: FormGroup,
   argTypes: {
     spacing: {

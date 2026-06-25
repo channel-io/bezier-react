@@ -11,6 +11,8 @@ const meta: Meta<
     wrapperSize: number
   }
 > = {
+  title: 'Deprecated v1 components/Select',
+  tags: ['deprecated'],
   component: Select,
   argTypes: {
     wrapperSize: {

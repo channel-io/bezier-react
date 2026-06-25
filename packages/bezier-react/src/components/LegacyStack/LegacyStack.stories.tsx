@@ -16,6 +16,7 @@ const meta: Meta<
     containerSize: number
   }
 > = {
+  title: 'Deprecated v1 components/LegacyStack',
   component: LegacyStack,
   parameters: {
     docs: {
@@ -58,7 +59,7 @@ const meta: Meta<
       },
     },
   },
-  tags: ['!autodocs'],
+  tags: ['deprecated', '!autodocs'],
 }
 export default meta
 

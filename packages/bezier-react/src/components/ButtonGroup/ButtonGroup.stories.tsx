@@ -9,13 +9,14 @@ import mdx from './ButtonGroup.mdx'
 import type { ButtonGroupProps } from './ButtonGroup.types'
 
 const meta: Meta<typeof ButtonGroup> = {
+  title: 'Deprecated v1 components/ButtonGroup',
   component: ButtonGroup,
   parameters: {
     docs: {
       page: mdx,
     },
   },
-  tags: ['!autodocs'],
+  tags: ['deprecated', '!autodocs'],
 }
 
 export default meta

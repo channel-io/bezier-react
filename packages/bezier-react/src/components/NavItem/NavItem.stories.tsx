@@ -7,6 +7,8 @@ import { NavItem } from './NavItem'
 import type { NavItemProps } from './NavItem.types'
 
 const meta: Meta = {
+  title: 'Deprecated v1 components/NavItem',
+  tags: ['deprecated'],
   component: NavItem,
 }
 export default meta

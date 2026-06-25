@@ -26,8 +26,9 @@ function TooltipComposition() {
 }
 
 const meta: Meta<typeof TooltipComposition> = {
+  title: 'Deprecated v2 components/AlphaTooltipPrimitive',
   component: TooltipComposition,
-  tags: ['!autodocs'],
+  tags: ['deprecated', '!autodocs'],
 }
 
 export const Primary: StoryObj = {}

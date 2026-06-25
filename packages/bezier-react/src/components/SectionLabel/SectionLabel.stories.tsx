@@ -5,6 +5,8 @@ import { SectionLabel } from './SectionLabel'
 import type { SectionLabelProps } from './SectionLabel.types'
 
 const meta: Meta<typeof SectionLabel> = {
+  title: 'Deprecated v1 components/SectionLabel',
+  tags: ['deprecated'],
   component: SectionLabel,
 }
 

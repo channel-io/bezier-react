@@ -9,6 +9,8 @@ import { ListItem } from './ListItem'
 import { type ListItemProps } from './ListItem.types'
 
 const meta: Meta<typeof ListItem> = {
+  title: 'Deprecated v1 components/ListItem',
+  tags: ['deprecated'],
   component: ListItem,
 }
 

@@ -4,6 +4,8 @@ import { SmoothCornersBox } from './SmoothCornersBox'
 import { type SmoothCornersBoxProps } from './SmoothCornersBox.types'
 
 const meta: Meta = {
+  title: 'Deprecated v1 components/SmoothCornersBox',
+  tags: ['deprecated'],
   component: SmoothCornersBox,
 }
 

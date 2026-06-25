@@ -10,6 +10,8 @@ import { Text } from '~/src/components/Text'
 import { Stack } from './Stack'
 
 const meta = {
+  title: 'Deprecated v1 components/Stack',
+  tags: ['deprecated'],
   component: Stack,
 } satisfies Meta<typeof Stack>
 

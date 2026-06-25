@@ -14,6 +14,8 @@ import type {
 } from './ToggleEmojiButtonGroup.types'
 
 const meta: Meta<typeof ToggleEmojiButtonGroup> = {
+  title: 'Deprecated v2 components/AlphaToggleEmojiButtonGroup',
+  tags: ['deprecated'],
   component: ToggleEmojiButtonGroup,
 }
 export default meta

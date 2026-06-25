@@ -4,6 +4,8 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { AlphaToggleButton } from '~/src/components/AlphaToggleButton'
 
 const meta = {
+  title: 'Deprecated v2 components/AlphaToggleButton',
+  tags: ['deprecated'],
   component: AlphaToggleButton,
   argTypes: {
     onClick: { action: 'onClick' },
