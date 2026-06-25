@@ -12,7 +12,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { noop } from '~/src/utils/function'
 import { Box } from '~/src/v3/Box'
 import { Text } from '~/src/v3/Text'
-import { VStack } from '~/src/v3/VStack'
 
 import { Section, SectionItem, SectionLabel } from './Section'
 
@@ -171,36 +170,5 @@ export const RichLabel: Story = {
         />
       </Section>
     </Box>
-  ),
-}
-
-export const Sizes: Story = {
-  tags: ['!autodocs'],
-  parameters: { controls: { disable: true } },
-  render: () => (
-    <VStack spacing={16}>
-      <Box width={320}>
-        <Section>
-          <SectionLabel content="Size m" />
-          <SectionItem
-            size="m"
-            content="Default item"
-            description="32px minimum height."
-            leadingContent={InfoIcon}
-          />
-        </Section>
-      </Box>
-      <Box width={320}>
-        <Section>
-          <SectionLabel content="Size l" />
-          <SectionItem
-            size="l"
-            content="Large item"
-            description="For roomier list rows."
-            leadingContent={InfoIcon}
-          />
-        </Section>
-      </Box>
-    </VStack>
   ),
 }

@@ -11,7 +11,7 @@ export type {
   MultiSelectOptionSideContent,
   MultiSelectProps,
   MultiSelectSelectedValuesOverflow,
-  MultiSelectSize,
+  MultiSelectTriggerSize,
   MultiSelectTriggerProps,
   MultiSelectTriggerRenderProps,
   MultiSelectValue,

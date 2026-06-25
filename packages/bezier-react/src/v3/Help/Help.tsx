@@ -19,7 +19,7 @@ export const HELP_DISPLAY_NAME = 'Help'
  * `Help` shows a help icon with tooltip content.
  */
 export const Help = forwardRef<HTMLDivElement, HelpProps>(function Help(
-  { children, placement = 'top-center', ...rest },
+  { children, ...rest },
   forwardedRef
 ) {
   if (isEmpty(children)) {
@@ -31,7 +31,6 @@ export const Help = forwardRef<HTMLDivElement, HelpProps>(function Help(
       {...rest}
       ref={forwardedRef}
       content={children}
-      placement={placement}
     >
       <div className={styles.Help}>
         <Icon

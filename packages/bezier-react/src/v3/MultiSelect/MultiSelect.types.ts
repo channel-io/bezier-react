@@ -6,14 +6,14 @@ import type {
   BaseSelectOptionData,
   BaseSelectOptionProps,
   BaseSelectOptionSideContent,
-  BaseSelectSize,
+  BaseSelectTriggerSize,
   BaseSelectTriggerVisualProps,
   BaseSelectValue,
 } from '~/src/v3/BaseSelect/BaseSelect.types'
 
 export type MultiSelectValue = BaseSelectValue
 
-export type MultiSelectSize = BaseSelectSize
+export type MultiSelectTriggerSize = BaseSelectTriggerSize
 
 export type MultiSelectOptionSideContent = BaseSelectOptionSideContent
 

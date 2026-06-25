@@ -76,7 +76,7 @@ export const Select = forwardRef(function Select<Value extends SelectValue>(
         triggerProps,
         open,
         selectedOption,
-        size,
+        triggerSize,
         readOnly,
         hasError,
       }) => {
@@ -88,6 +88,7 @@ export const Select = forwardRef(function Select<Value extends SelectValue>(
             open,
             selectedOption: selectedOption as SelectOptionData<Value> | null,
             placeholder,
+            triggerSize,
           })
         }
 
@@ -95,7 +96,7 @@ export const Select = forwardRef(function Select<Value extends SelectValue>(
           <DefaultSelectTrigger
             triggerProps={triggerProps}
             open={open}
-            size={size}
+            triggerSize={triggerSize}
             readOnly={readOnly}
             invalid={hasError}
             selectedOption={selectedOption}
@@ -135,7 +136,7 @@ function SelectSideContentElement({
 function DefaultSelectTrigger({
   triggerProps,
   open,
-  size,
+  triggerSize,
   invalid,
   readOnly,
   selectedOption,
@@ -145,7 +146,7 @@ function DefaultSelectTrigger({
 }: {
   triggerProps: SelectTriggerRenderProps['triggerProps']
   open: boolean
-  size: SelectProps['size']
+  triggerSize: NonNullable<SelectProps['triggerSize']>
   invalid?: boolean
   readOnly?: boolean
   selectedOption: SelectOptionData | null
@@ -162,7 +163,7 @@ function DefaultSelectTrigger({
       ref={triggerRef}
       className={classNames(
         baseStyles.Trigger,
-        baseStyles[`size-${size}`],
+        baseStyles[`size-${triggerSize}`],
         open && baseStyles.open,
         invalid && baseStyles.invalid,
         readOnly && baseStyles.readonly,

@@ -108,7 +108,7 @@ export const MultiSelect = forwardRef(function MultiSelect<
         triggerProps,
         open,
         selectedOptions,
-        size,
+        triggerSize,
         disabled,
         readOnly,
         hasError,
@@ -123,6 +123,7 @@ export const MultiSelect = forwardRef(function MultiSelect<
               selectedOptions as readonly MultiSelectOptionData<Value>[],
             value: selectedValues,
             placeholder,
+            triggerSize,
             onValueChange: handleValueChange,
           })
         }
@@ -131,7 +132,7 @@ export const MultiSelect = forwardRef(function MultiSelect<
           <DefaultMultiSelectTrigger
             triggerProps={triggerProps}
             open={open}
-            size={size}
+            triggerSize={triggerSize}
             disabled={disabled}
             readOnly={readOnly}
             invalid={hasError}
@@ -319,7 +320,7 @@ function useEllipsisSelectedValues({
 function DefaultMultiSelectTrigger<Value extends MultiSelectValue>({
   triggerProps,
   open,
-  size,
+  triggerSize,
   disabled,
   invalid,
   readOnly,
@@ -333,7 +334,7 @@ function DefaultMultiSelectTrigger<Value extends MultiSelectValue>({
 }: {
   triggerProps: MultiSelectTriggerRenderProps['triggerProps']
   open: boolean
-  size: MultiSelectProps['size']
+  triggerSize: NonNullable<MultiSelectProps['triggerSize']>
   disabled?: boolean
   invalid?: boolean
   readOnly?: boolean
@@ -379,7 +380,7 @@ function DefaultMultiSelectTrigger<Value extends MultiSelectValue>({
       tabIndex={disabled ? undefined : 0}
       className={classNames(
         baseStyles.Trigger,
-        baseStyles[`size-${size}`],
+        baseStyles[`size-${triggerSize}`],
         open && baseStyles.open,
         invalid && baseStyles.invalid,
         readOnly && baseStyles.readonly,
@@ -412,7 +413,7 @@ function DefaultMultiSelectTrigger<Value extends MultiSelectValue>({
               {visibleSelectedOptions.map((option) => (
                 <Tag
                   key={option.value}
-                  size={size === 'l' ? 'l' : 'm'}
+                  size={triggerSize === 'l' ? 'l' : 'm'}
                   variant="default"
                   onDelete={(event) => {
                     event.preventDefault()
@@ -434,7 +435,7 @@ function DefaultMultiSelectTrigger<Value extends MultiSelectValue>({
                       data-b-select-measure-tag="true"
                     >
                       <Tag
-                        size={size === 'l' ? 'l' : 'm'}
+                        size={triggerSize === 'l' ? 'l' : 'm'}
                         variant="default"
                         onDelete={noop}
                       >

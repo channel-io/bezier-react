@@ -24,7 +24,7 @@ export const Primary: Story = {
   render: (args) => <Tooltip {...args} />,
   args: {
     defaultShow: false,
-    placement: 'bottom-center',
+    placement: 'top-center',
     offset: 4,
     disabled: false,
     keepInContainer: true,

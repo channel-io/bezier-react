@@ -7,13 +7,12 @@ import type {
   ChildrenProps,
   DisableProps,
   FormFieldProps,
-  SizeProps,
 } from '~/src/types/props'
 import type { OverlayPosition } from '~/src/v3/Overlay'
 
 export type BaseSelectValue = string
 
-export type BaseSelectSize = 'm' | 'l'
+export type BaseSelectTriggerSize = 'm' | 'l'
 
 export type BaseSelectOptionSideContent = BezierIcon | ReactNode
 
@@ -107,8 +106,16 @@ export interface BaseSelectCommonProps
     >,
     ChildrenProps,
     FormFieldProps,
-    SizeProps<BaseSelectSize>,
-    BaseSelectOverlayProps {}
+    BaseSelectOverlayProps {
+  /**
+   * Size of the default trigger.
+   *
+   * Option rows are fixed to the design-system item size. This value is only
+   * used by the built-in trigger, and is passed to custom trigger render
+   * functions for consumers that want to mirror the same sizing.
+   */
+  triggerSize?: BaseSelectTriggerSize
+}
 
 interface BaseSelectOptionCommonProps<Value extends BaseSelectValue>
   extends DisableProps {
@@ -213,6 +220,7 @@ export interface BaseSelectTriggerRenderProps<
   open: boolean
   selectedOption: BaseSelectOptionData<Value> | null
   placeholder: ReactNode
+  triggerSize: NonNullable<BaseSelectCommonProps['triggerSize']>
 }
 
 export interface BaseMultiSelectTriggerRenderProps<
@@ -248,7 +256,7 @@ export interface BaseSelectRenderTriggerProps<
   open: boolean
   selectedOption: BaseSelectOptionData<Value> | null
   selectedOptions: readonly BaseSelectOptionData<Value>[]
-  size: NonNullable<BaseSelectCommonProps['size']>
+  triggerSize: NonNullable<BaseSelectCommonProps['triggerSize']>
   disabled: boolean
   readOnly: boolean
   hasError: boolean

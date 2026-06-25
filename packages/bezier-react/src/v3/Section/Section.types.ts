@@ -8,11 +8,8 @@ import type {
   ChildrenProps,
   ContentProps,
   DisableProps,
-  SizeProps,
   V3MarginProps,
 } from '~/src/types/props'
-
-export type SectionItemSize = 'm' | 'l'
 
 export type SectionItemSideContent = BezierIcon | ReactNode
 
@@ -51,17 +48,11 @@ interface SectionItemContentProps extends ContentProps<ReactNode> {
 interface SectionItemOwnProps
   extends SectionItemContentProps,
     DisableProps,
-    ActivatableProps,
-    SizeProps<SectionItemSize> {
+    ActivatableProps {
   /**
    * Content below the main content.
    */
   description?: ReactNode
-  /**
-   * Max line count for string descriptions.
-   * @default 2
-   */
-  descriptionMaxLines?: number
   /**
    * Content on the left.
    */

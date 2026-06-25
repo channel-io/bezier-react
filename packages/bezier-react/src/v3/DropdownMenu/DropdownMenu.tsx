@@ -47,7 +47,6 @@ const MENU_ITEM_SELECTOR =
 
 type DropdownMenuContextValue = {
   open: boolean
-  size: NonNullable<DropdownMenuProps['size']>
   menuId: string
   overlayContainer: HTMLElement | null
   close: () => void
@@ -56,7 +55,6 @@ type DropdownMenuContextValue = {
 const [DropdownMenuContextProvider, useDropdownMenuContext] =
   createContext<DropdownMenuContextValue>({
     open: false,
-    size: 'm',
     menuId: '',
     overlayContainer: null,
     close: () => {},
@@ -268,7 +266,6 @@ export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
       keepInContainer = false,
       width = 224,
       maxHeight,
-      size = 'm',
       onShow,
       onHide,
       ...rest
@@ -313,12 +310,11 @@ export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
     const contextValue = useMemo(
       (): DropdownMenuContextValue => ({
         open,
-        size,
         menuId,
         overlayContainer,
         close,
       }),
-      [close, menuId, open, overlayContainer, size]
+      [close, menuId, open, overlayContainer]
     )
 
     const overlayMargins = getOverlayMargins({ position, offset })
@@ -454,7 +450,7 @@ export const DropdownMenuItem = forwardRef<
   },
   forwardedRef
 ) {
-  const { size, close } = useDropdownMenuContext()
+  const { close } = useDropdownMenuContext()
 
   const handleSelect = useCallback(
     (
@@ -486,7 +482,6 @@ export const DropdownMenuItem = forwardRef<
       aria-disabled={disabled || undefined}
       data-b-dropdown-menu-item="true"
       disabled={disabled}
-      size={size}
       variant={variant}
       description={description}
       leadingContent={leadingContent}
@@ -700,14 +695,12 @@ export const DropdownMenuSubContent = forwardRef<
     keepInContainer = false,
     width = 224,
     maxHeight,
-    size,
     onHide,
     ...rest
   },
   forwardedRef
 ) {
   const rootContext = useDropdownMenuContext()
-  const { size: rootSize } = rootContext
   const {
     open,
     focusOnOpen,
@@ -794,12 +787,7 @@ export const DropdownMenuSubContent = forwardRef<
       }}
       {...rest}
     >
-      <DropdownMenuContextProvider
-        value={{
-          ...rootContext,
-          size: size ?? rootSize,
-        }}
-      >
+      <DropdownMenuContextProvider value={rootContext}>
         <DropdownMenuContent autoFocusOnMount={focusOnOpen}>
           {children}
         </DropdownMenuContent>

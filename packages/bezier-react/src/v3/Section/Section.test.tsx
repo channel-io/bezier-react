@@ -3,6 +3,7 @@ import { waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
+import textStyles from '~/src/v3/Text/Text.module.scss'
 
 import {
   SECTION_ITEM_TEST_ID,
@@ -147,6 +148,9 @@ describe('Section', () => {
         (_content, element) => element?.textContent === 'First lineSecond line'
       )
     ).not.toHaveLength(0)
+    expect(getByText('First line', { exact: false })).not.toHaveClass(
+      textStyles['multi-line-truncated']
+    )
   })
 
   it('prevents disabled anchor item interaction', async () => {

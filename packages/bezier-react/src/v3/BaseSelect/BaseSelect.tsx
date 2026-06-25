@@ -64,7 +64,6 @@ type SelectTriggerInjectedProps =
 
 interface SelectContextValue {
   open: boolean
-  size: NonNullable<SelectProps['size']>
   listboxId: string
   selectedValues: readonly string[]
   selectValue: (value: string) => void
@@ -179,6 +178,10 @@ function getOverlayMargins({
   return isSidePosition(position)
     ? { marginX: offset, marginY: 0 }
     : { marginX: 0, marginY: offset }
+}
+
+function isSelectTriggerSize(size: unknown): size is 'm' | 'l' {
+  return size === 'm' || size === 'l'
 }
 
 function getFocusableOptions(container: HTMLElement | null) {
@@ -311,7 +314,7 @@ function SelectImpl<Value extends SelectValue>(
     keepInContainer = false,
     dropdownWidth,
     dropdownMaxHeight,
-    size = 'm',
+    triggerSize,
     onShow,
     onHide,
     ...rest
@@ -327,7 +330,8 @@ function SelectImpl<Value extends SelectValue>(
     size: formFieldSize,
     ...triggerOwnProps
   } = useFormFieldProps(rest)
-  const selectSize = size ?? formFieldSize ?? 'm'
+  const resolvedTriggerSize =
+    triggerSize ?? (isSelectTriggerSize(formFieldSize) ? formFieldSize : 'm')
   const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultShow)
   const [selectElement, setSelectElement] = useState<HTMLDivElement | null>(
     null
@@ -399,7 +403,6 @@ function SelectImpl<Value extends SelectValue>(
   const contextValue = useMemo(
     (): SelectContextValue => ({
       open,
-      size: selectSize,
       listboxId,
       selectedValues: resolvedSelectedValues,
       selectValue,
@@ -412,7 +415,6 @@ function SelectImpl<Value extends SelectValue>(
       open,
       registerOption,
       resolvedSelectedValues,
-      selectSize,
       selectValue,
     ]
   )
@@ -474,7 +476,7 @@ function SelectImpl<Value extends SelectValue>(
           open,
           selectedOption: selectedOption as SelectOptionData<Value> | null,
           selectedOptions: selectedOptions as SelectOptionData<Value>[],
-          size: selectSize,
+          triggerSize: resolvedTriggerSize,
           disabled,
           readOnly,
           hasError,
@@ -528,7 +530,7 @@ function BaseSelectOptionElement<Value extends SelectValue>({
     onKeyDown,
     ...rest
   } = props
-  const { size, selectedValues, selectValue, registerOption } =
+  const { selectedValues, selectValue, registerOption } =
     useSelectContext('SelectOption')
   const optionLabel = getOptionLabel({ value, label, content })
   const selected = selectedValues.includes(value)
@@ -568,7 +570,6 @@ function BaseSelectOptionElement<Value extends SelectValue>({
       aria-disabled={disabled || undefined}
       data-b-select-option="true"
       disabled={disabled}
-      size={size}
       description={description}
       leadingContent={leadingContent}
       trailingContent={optionTrailingContent}

@@ -14,7 +14,6 @@ export type {
   DropdownMenuItemVariant,
   DropdownMenuProps,
   DropdownMenuSeparatorProps,
-  DropdownMenuSize,
   DropdownMenuSubContentProps,
   DropdownMenuSubProps,
   DropdownMenuSubTriggerProps,

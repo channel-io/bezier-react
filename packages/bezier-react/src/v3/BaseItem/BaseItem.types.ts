@@ -11,7 +11,7 @@ import type {
   VariantProps,
 } from '~/src/types/props'
 
-export type BaseItemSize = 'm' | 'l'
+export type BaseItemSize = 'm'
 
 export type BaseItemVariant = 'neutral' | 'destructive'
 
