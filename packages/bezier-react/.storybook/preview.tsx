@@ -29,7 +29,14 @@ const preview: Preview = {
     layout: 'centered',
     options: {
       storySort: {
-        order: ['ReadMe', 'Changelog', '*', 'components'],
+        order: [
+          'ReadMe',
+          'Changelog',
+          'Beta components',
+          'Deprecated v2 components',
+          'Deprecated v1 components',
+          '*',
+        ],
       },
     },
   },

@@ -109,6 +109,8 @@ function TabsComposition({
 }
 
 const meta: Meta<TabsCompositionProps> = {
+  title: 'Deprecated v1 components/Tabs',
+  tags: ['deprecated'],
   component: TabsComposition,
   argTypes: {
     size: {

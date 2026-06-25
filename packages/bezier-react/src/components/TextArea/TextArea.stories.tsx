@@ -7,6 +7,8 @@ import { TextArea } from './TextArea'
 import type { TextAreaProps } from './TextArea.types'
 
 const meta: Meta<typeof TextArea> = {
+  title: 'Deprecated v1 components/TextArea',
+  tags: ['deprecated'],
   component: TextArea,
 }
 export default meta

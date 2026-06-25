@@ -43,8 +43,9 @@ function DialogComposition() {
 }
 
 const meta: Meta<typeof DialogComposition> = {
+  title: 'Deprecated v2 components/AlphaDialogPrimitive',
   component: DialogComposition,
-  tags: ['!autodocs'],
+  tags: ['deprecated', '!autodocs'],
 }
 
 export const Primary: StoryObj = {}

@@ -7,6 +7,8 @@ const MOCK_AVATAR_URL =
   'https://cf.channel.io/thumb/200x200/pub-file/1/65fc43ee585607b276f6/tmp-3329819395'
 
 const meta: Meta<typeof Avatar> = {
+  title: 'Deprecated v1 components/Avatar',
+  tags: ['deprecated'],
   component: Avatar,
   argTypes: {
     onClick: {

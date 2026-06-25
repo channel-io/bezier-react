@@ -11,6 +11,8 @@ import {
 import { type SegmentedControlProps } from './SegmentedControl.types'
 
 const meta: Meta<typeof SegmentedControl> = {
+  title: 'Deprecated v1 components/SegmentedControl',
+  tags: ['deprecated'],
   component: SegmentedControl,
   argTypes: {
     type: {

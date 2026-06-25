@@ -6,6 +6,8 @@ import { Loader } from './Loader'
 import { type LoaderProps } from './Loader.types'
 
 const meta = {
+  title: 'Deprecated v2 components/AlphaLoader',
+  tags: ['deprecated'],
   component: Loader,
 } satisfies Meta<typeof Loader>
 

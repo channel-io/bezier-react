@@ -3,6 +3,8 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { Slider } from './Slider'
 
 const meta: Meta<typeof Slider> = {
+  title: 'Deprecated v1 components/Slider',
+  tags: ['deprecated'],
   component: Slider,
   argTypes: {
     minStepsBetweenThumbs: {

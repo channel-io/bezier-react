@@ -4,6 +4,8 @@ import { CheckableAvatar } from './CheckableAvatar'
 import type { CheckableAvatarProps } from './CheckableAvatar.types'
 
 const meta: Meta<typeof CheckableAvatar> = {
+  title: 'Deprecated v1 components/CheckableAvatar',
+  tags: ['deprecated'],
   component: CheckableAvatar,
   argTypes: {
     checked: {

@@ -10,6 +10,8 @@ import { Overlay } from './Overlay'
 import type { OverlayProps } from './Overlay.types'
 
 const meta: Meta<OverlayProps> = {
+  title: 'Deprecated v1 components/Overlay',
+  tags: ['deprecated'],
   component: Overlay,
   argTypes: {
     position: {

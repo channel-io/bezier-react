@@ -20,6 +20,7 @@ import mdx from './Banner.mdx'
 import { type BannerProps } from './Banner.types'
 
 const meta: Meta<typeof Banner> = {
+  title: 'Deprecated v1 components/Banner',
   component: Banner,
   parameters: {
     docs: {
@@ -43,7 +44,7 @@ const meta: Meta<typeof Banner> = {
       },
     },
   },
-  tags: ['!autodocs'],
+  tags: ['deprecated', '!autodocs'],
 }
 export default meta
 

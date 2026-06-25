@@ -1,3 +1,4 @@
+/** @deprecated v2 components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export {
   DialogPrimitive as AlphaDialogPrimitive,
   DialogPrimitiveClose as AlphaDialogPrimitiveClose,
@@ -8,6 +9,7 @@ export {
   DialogPrimitiveTitle as AlphaDialogPrimitiveTitle,
   DialogPrimitiveTrigger as AlphaDialogPrimitiveTrigger,
 } from './DialogPrimitive'
+/** @deprecated v2 components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export type {
   DialogPrimitiveProps as AlphaDialogPrimitiveProps,
   DialogPrimitiveCloseProps as AlphaDialogPrimitiveCloseProps,

@@ -6,6 +6,8 @@ import { Text } from './Text'
 import { type TextProps } from './Text.types'
 
 const meta: Meta<typeof Text> = {
+  title: 'Deprecated v1 components/Text',
+  tags: ['deprecated'],
   component: Text,
 }
 

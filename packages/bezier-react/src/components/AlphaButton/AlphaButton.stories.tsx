@@ -7,6 +7,8 @@ import {
 } from '~/src/components/AlphaButton'
 
 const meta: Meta<typeof AlphaButton> = {
+  title: 'Deprecated v2 components/AlphaButton',
+  tags: ['deprecated'],
   component: AlphaButton,
   argTypes: {
     onClick: { action: 'onClick' },

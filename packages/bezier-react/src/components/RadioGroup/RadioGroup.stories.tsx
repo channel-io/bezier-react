@@ -12,6 +12,8 @@ enum Theme {
 }
 
 const meta: Meta<typeof RadioGroup> = {
+  title: 'Deprecated v1 components/RadioGroup',
+  tags: ['deprecated'],
   component: RadioGroup,
   argTypes: {
     direction: {

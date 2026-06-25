@@ -16,6 +16,7 @@ import mdx from './ProgressBar.mdx'
 import type { ProgressBarProps } from './ProgressBar.types'
 
 const meta: Meta<typeof ProgressBar> = {
+  title: 'Deprecated v1 components/ProgressBar',
   component: ProgressBar,
   parameters: {
     docs: {
@@ -47,7 +48,7 @@ const meta: Meta<typeof ProgressBar> = {
       },
     },
   },
-  tags: ['!autodocs'],
+  tags: ['deprecated', '!autodocs'],
 }
 
 export default meta

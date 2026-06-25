@@ -3,6 +3,8 @@ import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 import { Tag } from './Tag'
 
 const meta: Meta<typeof Tag> = {
+  title: 'Deprecated v1 components/Tag',
+  tags: ['deprecated'],
   component: Tag,
 }
 

@@ -7,6 +7,8 @@ import { Tooltip } from './Tooltip'
 import { type TooltipProps } from './Tooltip.types'
 
 const meta: Meta<typeof Tooltip> = {
+  title: 'Deprecated v1 components/Tooltip',
+  tags: ['deprecated'],
   component: Tooltip,
   argTypes: {
     offset: {

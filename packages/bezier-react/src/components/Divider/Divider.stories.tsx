@@ -9,6 +9,8 @@ import { Divider } from './Divider'
 import { type DividerProps } from './Divider.types'
 
 const meta = {
+  title: 'Deprecated v1 components/Divider',
+  tags: ['deprecated'],
   component: Divider,
   argTypes: {
     orientation: {

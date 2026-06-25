@@ -21,6 +21,8 @@ import { FormControl } from './FormControl'
 import { type FormControlProps } from './FormControl.types'
 
 const meta: Meta<typeof FormControl> = {
+  title: 'Deprecated v1 components/FormControl',
+  tags: ['deprecated'],
   component: FormControl,
   argTypes: {
     labelPosition: {

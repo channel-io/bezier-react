@@ -5,6 +5,8 @@ import { OutlineItem } from './OutlineItem'
 import { type OutlineItemProps } from './OutlineItem.types'
 
 const meta: Meta<typeof OutlineItem> = {
+  title: 'Deprecated v1 components/OutlineItem',
+  tags: ['deprecated'],
   component: OutlineItem,
 }
 

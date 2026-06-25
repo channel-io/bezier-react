@@ -7,6 +7,8 @@ import {
 } from './FormHelperText.types'
 
 const meta: Meta<typeof FormHelperText> = {
+  title: 'Deprecated v1 components/FormHelperText',
+  tags: ['deprecated'],
   component: FormHelperText,
 }
 export default meta

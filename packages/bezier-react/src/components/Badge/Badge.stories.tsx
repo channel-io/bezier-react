@@ -7,6 +7,8 @@ import { Badge } from './Badge'
 import { type BadgeProps } from './Badge.types'
 
 const meta: Meta<typeof Badge> = {
+  title: 'Deprecated v1 components/Badge',
+  tags: ['deprecated'],
   component: Badge,
 }
 

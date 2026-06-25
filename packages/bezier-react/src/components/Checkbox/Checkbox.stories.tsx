@@ -4,6 +4,8 @@ import { Checkbox } from './Checkbox'
 import { type CheckboxProps, type CheckedState } from './Checkbox.types'
 
 const meta: Meta<typeof Checkbox> = {
+  title: 'Deprecated v1 components/Checkbox',
+  tags: ['deprecated'],
   component: Checkbox,
   argTypes: {
     checked: {

@@ -44,6 +44,7 @@ import type {
 } from './Button.types'
 
 const meta: Meta<typeof Button> = {
+  title: 'Deprecated v1 components/Button',
   component: Button,
   parameters: {
     docs: {
@@ -53,7 +54,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     onClick: { action: 'onClick' },
   },
-  tags: ['!autodocs'],
+  tags: ['deprecated', '!autodocs'],
 }
 export default meta
 

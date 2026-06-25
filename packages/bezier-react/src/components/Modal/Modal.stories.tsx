@@ -112,6 +112,8 @@ function ModalComposition({
 }
 
 const meta: Meta<typeof ModalComposition> = {
+  title: 'Deprecated v1 components/Modal',
+  tags: ['deprecated'],
   component: ModalComposition,
   argTypes: {
     width: {

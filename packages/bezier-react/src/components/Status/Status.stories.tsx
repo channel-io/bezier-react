@@ -6,6 +6,8 @@ import { Status } from './Status'
 import { type StatusProps } from './Status.types'
 
 const meta: Meta<typeof Status> = {
+  title: 'Deprecated v1 components/Status',
+  tags: ['deprecated'],
   component: Status,
 }
 

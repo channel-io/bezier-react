@@ -4,6 +4,8 @@ import { Spinner } from './Spinner'
 import { type SpinnerProps } from './Spinner.types'
 
 const meta: Meta<typeof Spinner> = {
+  title: 'Deprecated v1 components/Spinner',
+  tags: ['deprecated'],
   component: Spinner,
   argTypes: {
     size: {
