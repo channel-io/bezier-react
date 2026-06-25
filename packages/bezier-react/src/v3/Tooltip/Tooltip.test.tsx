@@ -45,7 +45,7 @@ describe('Tooltip', () => {
   })
 
   it('renders optional title, description, and custom class name', () => {
-    const { getAllByText } = renderTooltip({
+    const { getAllByText, getByRole } = renderTooltip({
       defaultShow: true,
       title: 'Tooltip title',
       content: 'Tooltip content',
@@ -57,6 +57,21 @@ describe('Tooltip', () => {
     expect(getAllByText('Tooltip title')).toHaveLength(2)
     expect(getAllByText('Tooltip content')).toHaveLength(2)
     expect(getAllByText('Tooltip description')).toHaveLength(2)
+
+    expect(getByRole('tooltip').textContent).toContain(
+      'Tooltip titleTooltip descriptionTooltip content'
+    )
+  })
+
+  it('uses top-center placement by default', () => {
+    const { getByRole } = renderTooltip({
+      defaultShow: true,
+      content: 'Tooltip content',
+    })
+    const tooltipPositioner = getByRole('tooltip').closest('[data-side]')
+
+    expect(tooltipPositioner).toHaveAttribute('data-side', 'top')
+    expect(tooltipPositioner).toHaveAttribute('data-align', 'center')
   })
 
   it('connects trigger and tooltip with aria-describedby', () => {

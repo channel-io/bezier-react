@@ -92,6 +92,8 @@
 
   box-sizing: border-box;
   width: 100%;
+  min-height: 32px;
+  padding: 4px 8px;
 
   font: inherit;
   color: var(--color-text-neutral);
@@ -106,16 +108,6 @@
   transition:
     background-color var(--motion-transition-fast),
     color var(--motion-transition-fast);
-
-  &:where(.size-m) {
-    min-height: 32px;
-    padding: 4px 8px;
-  }
-
-  &:where(.size-l) {
-    min-height: 40px;
-    padding: 7px 8px;
-  }
 
   &:where(.interactive) {
     cursor: pointer;

@@ -90,10 +90,8 @@ export const SectionItem = forwardRef<HTMLElement, SectionItemProps>(
       className,
       content,
       description,
-      descriptionMaxLines = 2,
       leadingContent,
       trailingContent,
-      size = 'm',
       active = false,
       disabled = false,
       ...rest
@@ -121,7 +119,6 @@ export const SectionItem = forwardRef<HTMLElement, SectionItemProps>(
         ref={forwardedRef as React.Ref<HTMLElement>}
         className={classNames(
           styles.SectionItem,
-          styles[`size-${size}`],
           active && styles.active,
           disabled && styles.disabled,
           isInteractive && styles.interactive,
@@ -154,7 +151,7 @@ export const SectionItem = forwardRef<HTMLElement, SectionItemProps>(
           <div className={styles.ItemMainContent}>
             {typeof content === 'string' ? (
               <Text
-                typo={size === 'l' ? '15' : '14'}
+                typo="14"
                 truncated
               >
                 {content}
@@ -170,7 +167,6 @@ export const SectionItem = forwardRef<HTMLElement, SectionItemProps>(
                 <Text
                   typo="12"
                   color="text-neutral-light"
-                  truncated={descriptionMaxLines}
                 >
                   {renderTextWithNewLine(description)}
                 </Text>

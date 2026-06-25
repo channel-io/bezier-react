@@ -31,12 +31,12 @@ interface TooltipOwnProps {
    */
   title?: ReactNode
   /**
-   * An element that sits below the tooltip content.
+   * An element that sits above the tooltip content.
    */
   description?: ReactNode
   /**
    * Options to determine the location from the trigger.
-   * @default 'bottom-center'
+   * @default 'top-center'
    */
   placement?: TooltipPosition
   /**

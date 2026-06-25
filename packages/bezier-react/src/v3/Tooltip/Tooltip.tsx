@@ -118,7 +118,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       title,
       content,
       description,
-      placement = 'bottom-center',
+      placement = 'top-center',
       offset = 4,
       container: containerProp,
       keepInContainer = true,
@@ -233,15 +233,6 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
                       </Text>
                     )}
 
-                    <Text
-                      typo="13"
-                      color="text-neutral"
-                      truncated={20}
-                      className={styles.TooltipContent}
-                    >
-                      {content}
-                    </Text>
-
                     {description && (
                       <Text
                         typo="12"
@@ -250,6 +241,15 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
                         {description}
                       </Text>
                     )}
+
+                    <Text
+                      typo="13"
+                      color="text-neutral"
+                      truncated={20}
+                      className={styles.TooltipContent}
+                    >
+                      {content}
+                    </Text>
                   </div>
                 </div>
               </AlphaTooltipPrimitiveContent>

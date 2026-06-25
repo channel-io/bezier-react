@@ -26,7 +26,7 @@ const meta: Meta<typeof Select> = {
   ],
   args: {
     placeholder: 'Select option',
-    size: 'm',
+    triggerSize: 'm',
     position: 'bottom-left',
     offset: 6,
     withoutChevron: false,
@@ -34,7 +34,7 @@ const meta: Meta<typeof Select> = {
     dropdownMaxHeight: undefined,
   },
   argTypes: {
-    size: {
+    triggerSize: {
       control: 'select',
       options: ['m', 'l'],
     },
@@ -97,10 +97,11 @@ function CustomTriggerExample() {
       dropdownWidth={188}
     >
       <SelectTrigger>
-        {({ triggerProps, open, selectedOption, placeholder }) => (
+        {({ triggerProps, open, selectedOption, placeholder, triggerSize }) => (
           <Button
             {...triggerProps}
             label={selectedOption?.label ?? String(placeholder ?? '')}
+            size={triggerSize}
             variant="filled"
             semantic="secondary"
             active={open}
@@ -193,10 +194,11 @@ function CustomTriggerExample() {
         dropdownWidth={188}
       >
         <SelectTrigger>
-          {({ triggerProps, open, selectedOption, placeholder }) => (
+          {({ triggerProps, open, selectedOption, placeholder, triggerSize }) => (
             <Button
               {...triggerProps}
               label={selectedOption?.label ?? String(placeholder ?? '')}
+              size={triggerSize}
               variant="filled"
               semantic="secondary"
               active={open}

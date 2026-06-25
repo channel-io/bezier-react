@@ -29,7 +29,7 @@ const meta: Meta<typeof MultiSelect> = {
   ],
   args: {
     placeholder: 'Select tags',
-    size: 'm',
+    triggerSize: 'm',
     position: 'bottom-left',
     offset: 6,
     withoutChevron: false,
@@ -38,7 +38,7 @@ const meta: Meta<typeof MultiSelect> = {
     selectedValuesOverflow: 'wrap',
   },
   argTypes: {
-    size: {
+    triggerSize: {
       control: 'select',
       options: ['m', 'l'],
     },
@@ -105,7 +105,7 @@ function CustomTriggerExample() {
       dropdownWidth={188}
     >
       <MultiSelectTrigger>
-        {({ triggerProps, open, selectedOptions, placeholder }) => {
+        {({ triggerProps, open, selectedOptions, placeholder, triggerSize }) => {
           const label =
             selectedOptions.length > 0
               ? selectedOptions.map((option) => option.label).join(', ')
@@ -115,6 +115,7 @@ function CustomTriggerExample() {
             <Button
               {...triggerProps}
               label={String(label ?? '')}
+              size={triggerSize}
               variant="filled"
               semantic="secondary"
               active={open}
@@ -173,7 +174,7 @@ function CustomTriggerExample() {
         dropdownWidth={188}
       >
         <MultiSelectTrigger>
-          {({ triggerProps, open, selectedOptions, placeholder }) => {
+          {({ triggerProps, open, selectedOptions, placeholder, triggerSize }) => {
             const label =
               selectedOptions.length > 0
                 ? selectedOptions.map((option) => option.label).join(', ')
@@ -183,6 +184,7 @@ function CustomTriggerExample() {
               <Button
                 {...triggerProps}
                 label={String(label ?? '')}
+                size={triggerSize}
                 variant="filled"
                 semantic="secondary"
                 active={open}

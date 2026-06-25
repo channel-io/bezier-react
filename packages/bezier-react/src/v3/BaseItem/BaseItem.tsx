@@ -84,7 +84,7 @@ export const BaseItem = forwardRef<HTMLDivElement, BaseItemProps>(
           <div className={styles.MainContent}>
             {typeof children === 'string' ? (
               <Text
-                typo={size === 'l' ? '15' : '14'}
+                typo="14"
                 truncated
               >
                 {children}
@@ -100,7 +100,6 @@ export const BaseItem = forwardRef<HTMLDivElement, BaseItemProps>(
                 <Text
                   typo="12"
                   color="text-neutral-light"
-                  truncated={2}
                 >
                   {description}
                 </Text>

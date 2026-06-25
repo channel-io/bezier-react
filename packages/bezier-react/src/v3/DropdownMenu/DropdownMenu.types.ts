@@ -7,16 +7,10 @@ import type {
   ChildrenProps,
   ContentProps,
   DisableProps,
-  SizeProps,
   VariantProps,
 } from '~/src/types/props'
-import type {
-  BaseItemSize,
-  BaseItemVariant,
-} from '~/src/v3/BaseItem/BaseItem.types'
+import type { BaseItemVariant } from '~/src/v3/BaseItem/BaseItem.types'
 import type { OverlayPosition, OverlayTarget } from '~/src/v3/Overlay'
-
-export type DropdownMenuSize = BaseItemSize
 
 export type DropdownMenuItemVariant = BaseItemVariant
 
@@ -170,7 +164,6 @@ interface DropdownMenuItemOwnProps
 export interface DropdownMenuProps
   extends Omit<BezierComponentProps<'div'>, 'children'>,
     ChildrenProps,
-    SizeProps<DropdownMenuSize>,
     DropdownMenuOwnProps {}
 
 /**
@@ -251,5 +244,4 @@ export interface DropdownMenuSubTriggerProps
 export interface DropdownMenuSubContentProps
   extends Omit<BezierComponentProps<'div'>, 'children'>,
     ChildrenProps,
-    SizeProps<DropdownMenuSize>,
     DropdownMenuSubContentOwnProps {}

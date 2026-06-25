@@ -32,11 +32,6 @@
     padding: 4px 8px;
   }
 
-  &:where(.size-l) {
-    min-height: 36px;
-    padding: 6px 8px;
-  }
-
   &:where(.interactive) {
     cursor: pointer;
   }

@@ -5,7 +5,7 @@ export type {
   SelectOptionProps,
   SelectOptionSideContent,
   SelectProps,
-  SelectSize,
+  SelectTriggerSize,
   SelectTriggerProps,
   SelectTriggerRenderProps,
   SelectValue,
