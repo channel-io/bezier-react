@@ -1,0 +1,161 @@
+@use '../../styles/mixins/state';
+
+.BaseSelect {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+}
+
+.Trigger {
+  --b-beta-select-trigger-height: 36px;
+  --b-beta-select-trigger-radius: var(--radius-12);
+  --b-beta-select-trigger-font-size: 14px;
+  --b-beta-select-trigger-line-height: 18px;
+
+  cursor: pointer;
+
+  display: flex;
+  gap: 6px;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  min-height: var(--b-beta-select-trigger-height);
+  padding: 0 12px;
+
+  font-family: var(--typography-text-font-family);
+  font-size: var(--b-beta-select-trigger-font-size);
+  line-height: var(--b-beta-select-trigger-line-height);
+  color: var(--color-text-neutral);
+  text-align: left;
+
+  background-color: var(--color-fill-grey);
+  border: 0;
+  border-radius: var(--b-beta-select-trigger-radius);
+  outline: none;
+
+  /* stylelint-disable-next-line order/order */
+  @include state.input(var(--b-beta-select-trigger-radius));
+
+  transition:
+    box-shadow var(--motion-transition-fast),
+    opacity var(--motion-transition-fast);
+
+  &:where(.size-l) {
+    --b-beta-select-trigger-height: 44px;
+    --b-beta-select-trigger-radius: var(--radius-14);
+    --b-beta-select-trigger-font-size: 15px;
+    --b-beta-select-trigger-line-height: 20px;
+  }
+
+  &:where(.open, :focus-visible) {
+    @include state.input-active(var(--b-beta-select-trigger-radius));
+
+    background-color: var(--color-fill-grey-light);
+  }
+
+  &:where(.invalid) {
+    @include state.input-error(var(--b-beta-select-trigger-radius));
+  }
+
+  &:where(.readonly) {
+    cursor: default;
+    background-color: var(--color-fill-grey-heavy);
+  }
+
+  &:where(.disabled, :disabled) {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+}
+
+.TriggerMain {
+  position: relative;
+
+  overflow: hidden;
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+
+  min-width: 0;
+  padding: 8px 0;
+}
+
+.SingleValue {
+  overflow: hidden;
+  min-width: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.Placeholder {
+  color: var(--color-text-neutral-lighter);
+}
+
+.SideContent,
+.Chevron {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  color: var(--color-icon-neutral);
+}
+
+.SideIcon,
+.ChevronIcon,
+.OptionCheckIcon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.Dropdown {
+  pointer-events: auto;
+
+  overflow: hidden auto;
+
+  box-sizing: border-box;
+  width: var(--b-beta-select-dropdown-width);
+  max-height: var(--b-beta-select-dropdown-max-height);
+  padding: 6px;
+
+  background-color: var(--color-surface-highest);
+  border-radius: var(--radius-16);
+  box-shadow:
+    var(--elevation-2),
+    inset 0 0 2px 0 var(--color-elevation-base-inner);
+}
+
+.Listbox {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.Group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.GroupLabel {
+  padding: 6px 8px 4px;
+
+  font-family: var(--typography-text-font-family);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--color-text-neutral-lighter);
+}
+
+.GroupContent {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.OptionCheckIcon {
+  color: var(--color-icon-neutral-heavier);
+}

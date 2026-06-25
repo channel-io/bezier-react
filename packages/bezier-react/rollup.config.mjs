@@ -56,7 +56,7 @@ function minifycss() {
 
 const generateConfig = ({ output = [], plugins = [] }) =>
   defineConfig({
-    input: ['src/index.ts', 'src/v3/index.ts'],
+    input: ['src/index.ts', 'src/beta/index.ts'],
     output,
     plugins: [
       alias({

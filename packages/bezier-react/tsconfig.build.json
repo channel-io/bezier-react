@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/index.ts", "src/v3/index.ts", "src/custom.d.ts"],
+  "include": ["src/index.ts", "src/beta/index.ts", "src/custom.d.ts"],
   "compilerOptions": {
     "outDir": "dist/types",
     "emitDeclarationOnly": true,

@@ -1,0 +1,17 @@
+.TextInput {
+  &:where(.variant-primary) {
+    --b-beta-text-input-background-color: var(--color-fill-grey);
+
+    &:where(:has(input:focus)) {
+      --b-beta-text-input-background-color: var(--color-fill-grey-light);
+    }
+
+    &:where(:has(input:read-only)) {
+      --b-beta-text-input-background-color: var(--color-fill-grey-heavy);
+    }
+  }
+
+  &:where(.variant-secondary) {
+    --b-beta-text-input-background-color: var(--color-fill-neutral-light);
+  }
+}

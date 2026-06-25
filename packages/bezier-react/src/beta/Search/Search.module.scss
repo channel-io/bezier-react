@@ -1,0 +1,36 @@
+.Search {
+  --b-beta-text-input-background-color: var(--color-fill-grey);
+  --b-beta-text-input-radius: var(--radius-12);
+
+  gap: 6px;
+}
+
+.SearchIcon {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  color: var(--color-icon-neutral);
+}
+
+.ClearButton {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+
+  color: var(--color-icon-neutral);
+
+  visibility: hidden;
+
+  &:hover {
+    color: var(--color-icon-neutral-heavy);
+  }
+}
+
+.Search:where(:hover, :has(input:focus), :has(.ClearButton:focus-visible))
+  .ClearButton {
+  visibility: visible;
+}

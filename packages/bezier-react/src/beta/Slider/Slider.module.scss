@@ -1,0 +1,89 @@
+@use '../../styles/mixins/state';
+
+.Slider {
+  --b-beta-slider-width: initial;
+  --b-beta-slider-thumb-size: 24px;
+  --b-beta-slider-track-height: 6px;
+
+  touch-action: none;
+  cursor: pointer;
+  user-select: none;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: var(--b-beta-slider-width);
+  height: var(--b-beta-slider-thumb-size);
+
+  transition: opacity var(--motion-transition-fast);
+
+  &:where([data-disabled]) {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+}
+
+.SliderPrimitiveTrack {
+  position: relative;
+
+  flex: 1;
+
+  height: var(--b-beta-slider-track-height);
+
+  background-color: var(--color-fill-neutral-heavy);
+  border-radius: var(--radius-3);
+}
+
+.SliderPrimitiveRange {
+  position: absolute;
+  height: 100%;
+  background-color: var(--color-fill-neutral-heaviest);
+  border-radius: inherit;
+}
+
+.GuideContainer {
+  --b-beta-slider-guide-height: 8px;
+
+  position: absolute;
+  top: calc(-1 * (var(--b-beta-slider-guide-height) + 7px));
+  left: calc(var(--b-beta-slider-thumb-size) / 2);
+  width: calc(100% - var(--b-beta-slider-thumb-size));
+}
+
+.SliderGuide {
+  --b-beta-slider-guide-left: 0;
+
+  position: absolute;
+  top: 0;
+  left: var(--b-beta-slider-guide-left);
+  transform: translateX(-50%);
+
+  width: 2px;
+  height: var(--b-beta-slider-guide-height);
+
+  background-color: var(--color-fill-neutral-heavy);
+  border-radius: 1px;
+}
+
+.SliderThumb {
+  display: block;
+
+  width: var(--b-beta-slider-thumb-size);
+  height: var(--b-beta-slider-thumb-size);
+
+  background-color: var(--color-fill-absolute-white);
+  border-radius: 9999px;
+  box-shadow: var(--elevation-2);
+
+  transition: box-shadow var(--motion-transition-fast);
+
+  &:where(:hover) {
+    box-shadow: var(--elevation-3);
+  }
+
+  &:where(:focus-visible) {
+    @include state.focus(9999px);
+  }
+}

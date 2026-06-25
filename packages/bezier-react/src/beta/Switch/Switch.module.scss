@@ -1,0 +1,93 @@
+@use '../../styles/mixins/state';
+
+.Container {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+
+  width: fit-content;
+  min-width: 0;
+
+  &:where(:has(.Switch[data-disabled])) {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:where(:has(.Label)) {
+    height: var(--b-form-field-size);
+  }
+}
+
+.Switch {
+  --b-beta-switch-width: 28px;
+  --b-beta-switch-height: 18px;
+  --b-beta-switch-thumb-size: 12px;
+  --b-beta-switch-thumb-padding: 3px;
+
+  cursor: inherit;
+
+  position: relative;
+
+  overflow: visible;
+  flex: 0 0 auto;
+
+  width: var(--b-beta-switch-width);
+  height: var(--b-beta-switch-height);
+
+  background-color: var(--color-fill-neutral-heavy);
+  border-radius: 9999px;
+  outline: none;
+
+  transition: background-color var(--motion-transition-fast);
+
+  &:where([data-state='checked']) {
+    background-color: var(--color-fill-neutral-heaviest);
+  }
+
+  &:where(:not([data-disabled])[data-state='unchecked']:hover) {
+    background-color: var(--color-fill-neutral-heavy-hovered);
+  }
+
+  &:where(:not([data-disabled])[data-state='checked']:hover) {
+    background-color: var(--color-fill-neutral-heaviest-hovered);
+  }
+
+  &:where(:focus-visible) {
+    @include state.focus(9999px);
+  }
+
+  &:where([data-invalid]:not([data-disabled])) {
+    @include state.error(9999px);
+  }
+}
+
+.SwitchThumb {
+  position: absolute;
+  top: var(--b-beta-switch-thumb-padding);
+  left: var(--b-beta-switch-thumb-padding);
+
+  width: var(--b-beta-switch-thumb-size);
+  height: var(--b-beta-switch-thumb-size);
+
+  background-color: var(--color-icon-inverse-heavier);
+  border-radius: 9999px;
+  box-shadow: var(--elevation-2);
+
+  transition: transform var(--motion-transition-fast);
+
+  &:where([data-state='checked']) {
+    transform: translateX(
+      calc(
+        var(--b-beta-switch-width) - var(--b-beta-switch-thumb-size) -
+          (var(--b-beta-switch-thumb-padding) * 2)
+      )
+    );
+  }
+}
+
+.Label {
+  cursor: inherit;
+  min-width: 0;
+  padding-left: 12px;
+}

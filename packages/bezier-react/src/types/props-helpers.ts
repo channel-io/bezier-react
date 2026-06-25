@@ -1,9 +1,10 @@
 import classNames from 'classnames'
 
-import { colorTokenCssVar, cssDimension } from '~/src/utils/style'
 
 // NOTE: 'typescript-plugin-css-modules' does not support path alias
 /* eslint-disable no-restricted-imports */
+import { colorTokenCssVar, cssDimension } from '~/src/utils/style'
+
 import elevationStyles from '../styles/components/elevation.module.scss'
 import formFieldSizeStyles from '../styles/components/form-field-size.module.scss'
 import layoutStyles from '../styles/components/layout.module.scss'
@@ -18,13 +19,14 @@ import {
   type BetaZIndex,
 } from './beta-tokens'
 import {
+  type BetaLayoutProps,
+  type BetaMarginProps,
   type FormFieldSize,
   type LayoutProps,
   type MarginProps,
-  type V3LayoutProps,
-  type V3MarginProps,
 } from './props'
 import { type Elevation, type Radius, type ZIndex } from './tokens'
+
 
 export const splitByMarginProps = <Props extends MarginProps>({
   margin,
@@ -126,15 +128,15 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
   rest,
 ]
 
-export const splitByV3MarginProps = <Props extends V3MarginProps>(
+export const splitByBetaMarginProps = <Props extends BetaMarginProps>(
   props: Props
-): [V3MarginProps, Omit<Props, keyof V3MarginProps>] =>
+): [BetaMarginProps, Omit<Props, keyof BetaMarginProps>] =>
   splitByMarginProps(props)
 
-export const splitByV3LayoutProps = <Props extends V3LayoutProps>(
+export const splitByBetaLayoutProps = <Props extends BetaLayoutProps>(
   props: Props
-): [V3LayoutProps, Omit<Props, keyof V3LayoutProps>] =>
-  splitByLayoutProps(props) as [V3LayoutProps, Omit<Props, keyof V3LayoutProps>]
+): [BetaLayoutProps, Omit<Props, keyof BetaLayoutProps>] =>
+  splitByLayoutProps(props) as [BetaLayoutProps, Omit<Props, keyof BetaLayoutProps>]
 
 function getElevationClassName(elevation: Elevation | BetaElevation) {
   return elevationStyles[`elevation-${elevation}`]
@@ -248,9 +250,9 @@ export const getLayoutStyles = ({
   ),
 })
 
-export const getV3MarginStyles = getMarginStyles
+export const getBetaMarginStyles = getMarginStyles
 
-export const getV3LayoutStyles = (props: V3LayoutProps) =>
+export const getBetaLayoutStyles = (props: BetaLayoutProps) =>
   getLayoutStyles(props)
 
 export function getFormFieldSizeClassName(size: FormFieldSize) {

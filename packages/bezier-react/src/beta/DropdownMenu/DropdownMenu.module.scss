@@ -1,0 +1,69 @@
+.DropdownMenuRoot {
+  position: relative;
+  display: inline-flex;
+  max-width: 100%;
+}
+
+.DropdownMenu {
+  pointer-events: auto;
+
+  overflow: hidden auto;
+
+  box-sizing: border-box;
+  width: var(--b-beta-dropdown-menu-width);
+  max-height: var(--b-beta-dropdown-menu-max-height);
+  padding: 6px;
+
+  background-color: var(--color-surface-highest);
+  border-radius: var(--radius-16);
+  box-shadow:
+    var(--elevation-2),
+    inset 0 0 2px 0 var(--color-elevation-base-inner);
+}
+
+.DropdownMenuContent {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.DropdownMenuGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.DropdownMenuGroupLabel {
+  padding: 6px 8px 4px;
+
+  font-family: var(--typography-text-font-family);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--color-text-neutral-lighter);
+}
+
+.DropdownMenuGroupContent {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+
+.DropdownMenuSeparator {
+  flex-shrink: 0;
+  margin: 4px 0;
+}
+
+.SubChevron {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--color-icon-neutral);
+}
+
+.SubmenuOverlayContainer {
+  pointer-events: none;
+}

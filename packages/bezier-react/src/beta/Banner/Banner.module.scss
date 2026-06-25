@@ -1,0 +1,104 @@
+.Banner {
+  --b-beta-banner-color: initial;
+  --b-beta-banner-icon-color: var(--b-beta-banner-color);
+  --b-beta-banner-background-color: initial;
+
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: flex-start;
+
+  box-sizing: border-box;
+  min-width: 200px;
+  padding: 12px;
+
+  color: var(--b-beta-banner-color);
+  text-align: left;
+
+  background-color: var(--b-beta-banner-background-color);
+  border-radius: var(--radius-12);
+
+  &:where(.variant-default) {
+    --b-beta-banner-color: var(--color-text-neutral-light);
+    --b-beta-banner-background-color: var(--color-fill-neutral-light);
+  }
+
+  &:where(.variant-blue) {
+    --b-beta-banner-color: var(--color-text-accent-blue);
+    --b-beta-banner-background-color: var(--color-fill-accent-blue);
+  }
+
+  &:where(.variant-cobalt) {
+    --b-beta-banner-color: var(--color-text-accent-cobalt);
+    --b-beta-banner-background-color: var(--color-fill-accent-cobalt);
+  }
+
+  &:where(.variant-green) {
+    --b-beta-banner-color: var(--color-text-accent-green);
+    --b-beta-banner-background-color: var(--color-fill-accent-green);
+  }
+
+  &:where(.variant-orange) {
+    --b-beta-banner-color: var(--color-text-accent-orange);
+    --b-beta-banner-background-color: var(--color-fill-accent-orange);
+  }
+
+  &:where(.variant-red) {
+    --b-beta-banner-color: var(--color-text-accent-red);
+    --b-beta-banner-background-color: var(--color-fill-accent-red);
+  }
+
+  & + & {
+    margin-top: 6px;
+  }
+}
+
+.IconWrapper,
+.ActionWrapper {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+
+  height: 24px;
+}
+
+.Content {
+  display: flex;
+  flex: 1 0 0;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: flex-start;
+
+  min-width: 1px;
+  padding: 3px 0;
+
+  word-break: break-word;
+}
+
+.Message {
+  flex: 1 0 0;
+  min-width: 1px;
+}
+
+.Icon {
+  color: var(--b-beta-banner-icon-color);
+}
+
+.Text,
+.Link {
+  color: var(--b-beta-banner-color);
+}
+
+.Anchor {
+  color: inherit;
+  text-decoration: none;
+}
+
+.Link {
+  cursor: pointer;
+  flex: 0 0 auto;
+  text-decoration: underline;
+  white-space: nowrap;
+}
