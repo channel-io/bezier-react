@@ -1,13 +1,10 @@
 import { PlusIcon } from '@channel.io/bezier-icons'
 import userEvent from '@testing-library/user-event'
 
+import { BaseButton } from '~/src/beta/BaseButton'
 import { render } from '~/src/utils/test'
 
-import { BaseButton } from '~/src/beta/BaseButton'
-
 import { IconButton } from './IconButton'
-
-
 
 describe('IconButton', () => {
   it('should render an accessible icon-only button', () => {

@@ -529,7 +529,6 @@ export interface BetaLayoutProps
 
 /**
  * Enumeration of form field sizes. (TextField, Select)
- *
  * @deprecated Legacy form field sizes are deprecated. Use beta component size
  * types from `@channel.io/bezier-react/beta` instead.
  */
