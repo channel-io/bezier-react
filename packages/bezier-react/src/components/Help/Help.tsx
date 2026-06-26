@@ -16,6 +16,9 @@ import styles from './Help.module.scss'
 export const HELP_TEST_ID = 'bezier-help'
 export const HELP_DISPLAY_NAME = 'Help'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const Help = forwardRef<HTMLDivElement, HelpProps>(function Help(
   { children, ...rest },
   forwardedRef

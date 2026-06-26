@@ -7,6 +7,9 @@ import {
   type DisableProps,
 } from '~/src/types/props'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type TooltipPosition =
   | 'top-center'
   | 'top-left'
@@ -97,6 +100,9 @@ interface TooltipOwnProps {
   ) => void
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface TooltipProps
   extends Omit<
       BezierComponentProps<'div'>,

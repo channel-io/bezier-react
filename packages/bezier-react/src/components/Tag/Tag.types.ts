@@ -10,8 +10,14 @@ import {
   type BaseTagBadgeVariant,
 } from '~/src/components/BaseTagBadge'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type TagSize = BaseTagBadgeSize
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type TagVariant = BaseTagBadgeVariant
 
 interface TagOwnProps {
@@ -23,6 +29,9 @@ interface TagOwnProps {
   onDelete?: React.MouseEventHandler
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface TagProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,

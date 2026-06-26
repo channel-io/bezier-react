@@ -8,6 +8,7 @@ import type { ButtonGroupProps } from './ButtonGroup.types'
 
 /**
  * `ButtonGroup` is a component that groups buttons together.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  * ```tsx
  * <ButtonGroup>

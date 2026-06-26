@@ -9,8 +9,14 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type ButtonColor =
   | 'blue'
   | 'cobalt'
@@ -23,6 +29,9 @@ export type ButtonColor =
   | 'light-grey'
   | 'white-absolute'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type ButtonSize = 'xs' | 's' | 'm' | 'l' | 'xl'
 
 interface ButtonOwnProps {
@@ -67,6 +76,9 @@ interface ButtonOwnProps {
   suffixContent?: BezierIcon | ReactNode
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ButtonProps
   extends Omit<BezierComponentProps<'button'>, 'color'>,
     PolymorphicProps,

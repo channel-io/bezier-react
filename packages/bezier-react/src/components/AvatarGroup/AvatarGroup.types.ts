@@ -7,6 +7,9 @@ import type {
 
 import { type AvatarSize } from '~/src/components/Avatar'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type AvatarGroupEllipsisType = 'icon' | 'count'
 
 type MouseEventHandler = React.MouseEventHandler<HTMLDivElement>
@@ -43,6 +46,9 @@ interface AvatarGroupOwnProps {
   onMouseLeaveEllipsis?: MouseEventHandler
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface AvatarGroupProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,

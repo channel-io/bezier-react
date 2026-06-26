@@ -106,6 +106,7 @@ type ReturnTypeOfCheckboxImpl<Checked extends CheckedState> = ReturnType<
 /**
  * `Checkbox` is a control that allows the user to toggle between checked and not checked.
  * It can be used with labels or standalone.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx

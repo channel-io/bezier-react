@@ -20,6 +20,9 @@ interface LegacyTooltipOptions {
   lazy?: boolean
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface LegacyTooltipProps
   extends Omit<BezierComponentProps<'div'>, keyof ContentProps>,
     PolymorphicProps,
@@ -29,6 +32,9 @@ export interface LegacyTooltipProps
     AdditionalOverridableStyleProps<'content' | 'contentWrapper'>,
     LegacyTooltipOptions {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface LegacyTooltipContentProps
   extends Pick<
       LegacyTooltipOptions,
@@ -58,6 +64,9 @@ export interface GetReplacement
   rootElement: HTMLElement
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type LegacyTooltipPosition =
   | 'top-center'
   | 'top-left'

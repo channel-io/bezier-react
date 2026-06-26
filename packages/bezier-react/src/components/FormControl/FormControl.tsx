@@ -30,11 +30,14 @@ import {
 
 import styles from './FormControl.module.scss'
 
-const [FormControlContextProvider, useFormControlContext] = createContext<
+const [FormControlContextProvider, _useFormControlContext] = createContext<
   FormControlContextValue | undefined
 >(undefined)
 
-export { useFormControlContext }
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
+export const useFormControlContext = _useFormControlContext
 
 const FORM_CONTROL_TEST_ID = 'bezier-form-control'
 
@@ -69,6 +72,9 @@ const Container = forwardRef<HTMLElement, ContainerProps>(function Container(
   }
 })
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const FormControl = forwardRef<HTMLElement, FormControlProps>(
   function FormControl(
     {
@@ -238,6 +244,9 @@ export const FormControl = forwardRef<HTMLElement, FormControlProps>(
   }
 )
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export function useFormFieldProps<
   Props extends FormFieldProps & SizeProps<FormFieldSize>,
 >(props?: Props) {

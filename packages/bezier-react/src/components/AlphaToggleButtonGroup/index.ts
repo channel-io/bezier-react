@@ -1,6 +1,6 @@
-/** @deprecated v2 components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
+/** @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export { ToggleButtonGroup } from './ToggleButtonGroup'
-/** @deprecated v2 components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
+/** @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export type {
   ToggleButtonMultipleGroupProps,
   ToggleButtonSingleGroupProps,

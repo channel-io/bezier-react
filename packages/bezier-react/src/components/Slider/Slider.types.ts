@@ -67,6 +67,9 @@ interface SliderOwnProps {
   onValueCommit?: (value: number[]) => void
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface SliderProps
   extends Omit<BezierComponentProps<'span'>, keyof SliderOwnProps>,
     DisableProps,

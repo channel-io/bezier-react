@@ -8,6 +8,9 @@ import {
 // TODO: Replace this with AlphaStatusBadgeType
 import { type StatusType } from '~/src/components/Status'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type AvatarSize =
   | '16'
   | '20'
@@ -56,6 +59,9 @@ interface AvatarOwnProps {
   smoothCorners?: boolean
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface AvatarProps
   extends BezierComponentProps<'div'>,
     SizeProps<AvatarSize>,

@@ -17,6 +17,7 @@ import styles from './Center.module.scss'
 
 /**
  * `Center` is a layout component that centers its child within itself.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx

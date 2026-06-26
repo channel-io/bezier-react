@@ -14,6 +14,9 @@ interface LoaderOwnProps {
   variant?: 'primary' | 'secondary' | 'on-overlay'
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface LoaderProps
   extends Omit<BezierComponentProps<'span'>, keyof ColorProps>,
     Required<SizeProps<LoaderSize>>,

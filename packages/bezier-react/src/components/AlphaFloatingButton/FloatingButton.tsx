@@ -58,6 +58,9 @@ function getTypography(size: FloatingButtonSize) {
   )[size]
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const FloatingButton = forwardRef<
   HTMLButtonElement,
   FloatingButtonProps

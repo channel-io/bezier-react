@@ -5,6 +5,9 @@ import {
 } from '~/src/types/props'
 import { type ZIndex } from '~/src/types/tokens'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type ModalTitleSize = 'l' | 'm'
 
 type BoxSide = 'top' | 'right' | 'bottom' | 'left'
@@ -112,27 +115,48 @@ type ModalFooterSideContent = React.ReactNode
 interface ModalFooterOwnProps
   extends SideContentProps<ModalFooterSideContent, ModalFooterSideContent> {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ModalProps extends ChildrenProps, ModalOwnProps {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ModalContentProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,
     ModalContentOwnProps {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ModalHeaderProps
   extends Omit<BezierComponentProps<'header'>, keyof ModalHeaderOwnProps>,
     ModalHeaderOwnProps {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ModalBodyProps
   extends BezierComponentProps<'div'>,
     ChildrenProps {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ModalFooterProps
   extends BezierComponentProps<'footer'>,
     ModalFooterOwnProps {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ModalTriggerProps extends ChildrenProps<React.ReactElement> {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ModalCloseProps extends ChildrenProps<React.ReactElement> {}
 
 export interface ModalContentPropsContextValue

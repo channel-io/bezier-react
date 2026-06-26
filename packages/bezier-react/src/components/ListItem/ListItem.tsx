@@ -27,6 +27,9 @@ function renderNewLineComponent(value: string) {
 
 export const LIST_ITEM_TEST_ID = 'bezier-list-item'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const ListItem = forwardRef<HTMLElement, ListItemProps>(
   function ListItem(
     {

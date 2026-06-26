@@ -52,6 +52,7 @@ function RadioGroupImpl<Value extends string>(
  *
  * `RadioGroup` is a context of the `Radio` components. also, it renders an element which has the 'radiogroup' role.
  * It controls all the parts of a radio group.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx
@@ -105,6 +106,7 @@ function RadioImpl<Value extends string>(
 /**
  * `Radio` is a checkable button, known as a radio button.
  * It should be a child of `RadioGroup`.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export const Radio = forwardRef(RadioImpl) as <Value extends string>(
   props: RadioProps<Value> & { ref?: React.ForwardedRef<HTMLButtonElement> }

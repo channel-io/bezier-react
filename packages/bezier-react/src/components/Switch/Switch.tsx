@@ -19,6 +19,7 @@ const SWITCH_TEST_ID = 'bezier-switch'
 
 /**
  * `Switch` is an input component where user can toggle checked state of the element.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  * ```tsx
  * <Switch

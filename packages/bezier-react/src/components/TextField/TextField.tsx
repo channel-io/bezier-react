@@ -161,6 +161,9 @@ function TextFieldRightContent({
   )
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const TextField = forwardRef<TextFieldRef, TextFieldProps>(
   function TextField(
     {

@@ -31,6 +31,9 @@ const DEFAULT_INDENT = 16
 
 export const OUTLINE_ITEM_TEST_ID = 'bezier-outline-item'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const OutlineItem = forwardRef<HTMLElement, OutlineItemProps>(
   function OutlineItem(
     {

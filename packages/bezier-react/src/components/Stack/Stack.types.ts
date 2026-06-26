@@ -46,6 +46,9 @@ interface StackOwnProps {
   wrap?: boolean
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface StackProps
   extends BezierComponentProps,
     PolymorphicProps,
@@ -54,6 +57,12 @@ export interface StackProps
     MarginProps,
     StackOwnProps {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface HStackProps extends Omit<StackProps, 'direction'> {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface VStackProps extends Omit<StackProps, 'direction'> {}

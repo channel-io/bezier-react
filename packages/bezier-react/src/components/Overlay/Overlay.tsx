@@ -34,6 +34,9 @@ export const CONTAINER_TEST_ID = 'bezier-container'
 export const OVERLAY_TEST_ID = 'bezier-overlay'
 export const ESCAPE_KEY = 'Escape'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const Overlay = forwardRef<HTMLDivElement, OverlayProps>(
   function Overlay(
     {

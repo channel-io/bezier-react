@@ -1,5 +1,8 @@
 import type { BezierComponentProps, SizeProps } from '~/src/types/props'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type EmojiSize =
   | '16'
   | '20'
@@ -25,6 +28,9 @@ interface EmojiOwnProps {
   imageUrl?: string
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface EmojiProps
   extends BezierComponentProps<'div'>,
     SizeProps<EmojiSize>,

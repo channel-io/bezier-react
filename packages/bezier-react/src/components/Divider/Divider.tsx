@@ -16,6 +16,7 @@ const DIVIDER_TEST_ID = 'bezier-divider'
 
 /**
  * `Divider` is a component to visually or semantically separate content.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx

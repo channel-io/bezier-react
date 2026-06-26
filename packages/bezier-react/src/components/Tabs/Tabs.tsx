@@ -35,6 +35,7 @@ import styles from './Tabs.module.scss'
  * `Tabs` is a set of layered section of content.
  *
  * `Tabs` is a context of the Tab-related components and gives accessibility properties to Tab-related components.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx
@@ -76,6 +77,7 @@ const [TabListContextProvider, useTabListContext] =
 
 /**
  * `TabList` gives size context to its children and decides the layout of `TabItems` and `TabActions`.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export const TabList = forwardRef<HTMLDivElement, TabListProps>(
   function TabList({ className, children, size = 'm', ...rest }, forwardedRef) {
@@ -106,6 +108,7 @@ export const TabList = forwardRef<HTMLDivElement, TabListProps>(
 
 /**
  * `TabItems` is a flex container which has `TabItem` flex items.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export const TabItems = forwardRef<HTMLDivElement, TabItemsProps>(
   function TabItems({ className, children, ...rest }, forwardedRef) {
@@ -185,6 +188,7 @@ const TabItemButton = forwardRef<HTMLButtonElement, TabItemProps>(
 
 /**
  * `TabItem` is a button that activates its associated content.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
   function TabItem(
@@ -219,6 +223,7 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
 
 /**
  * `TabContent` has content associated with `TabItem`.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export const TabContent = forwardRef<HTMLDivElement, TabContentProps>(
   function TabContent({ children, value, ...rest }, forwardedRef) {
@@ -237,6 +242,7 @@ export const TabContent = forwardRef<HTMLDivElement, TabContentProps>(
 /**
  * `TabActions` is a flex container which has `TabAction` flex items.
  *  It also gives accessibility properties to its children.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export const TabActions = forwardRef<HTMLDivElement, TabActionsProps>(
   function TabActions({ className, dir, children, ...rest }, forwardedRef) {
@@ -277,6 +283,7 @@ function getIconSizeBy(size: TabSize) {
 /**
  * `TabAction` is a button for more action to open a new link or navigate to a different url.
  * If it has `href` props, it should act as a link.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export const TabAction = forwardRef<
   TabActionElement<string | undefined>,

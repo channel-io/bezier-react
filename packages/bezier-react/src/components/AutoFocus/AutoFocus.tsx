@@ -13,6 +13,7 @@ import { type AutoFocusProps } from './AutoFocus.types'
  * `AutoFocus` is a component that automatically focuses its child element when they are added to the document.
  * It is useful when you want to focus on a specific element when the component is mounted.
  * It doesn't render any DOM node.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx

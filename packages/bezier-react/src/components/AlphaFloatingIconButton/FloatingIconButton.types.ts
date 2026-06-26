@@ -56,6 +56,9 @@ interface FloatingIconButtonOwnProps {
   content: BezierIcon | ReactNode
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface FloatingIconButtonProps
   extends Omit<BezierComponentProps<'button'>, 'color' | 'content'>,
     PolymorphicProps,

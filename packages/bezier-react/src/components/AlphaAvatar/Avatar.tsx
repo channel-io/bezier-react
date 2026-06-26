@@ -47,6 +47,9 @@ function getShadow(size: AvatarSize): SmoothCornersBoxProps['shadow'] {
   }
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export function useAvatarRadiusToken() {
   return '42%' as const
 }
@@ -57,6 +60,7 @@ const STATUS_WRAPPER_TEST_ID = 'bezier-status-wrapper'
 
 /**
  * `Avatar` is a component for representing some profile image.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx

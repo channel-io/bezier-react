@@ -17,6 +17,9 @@ interface FormControlClassNameProps {
   className: string
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface FormControlAriaProps {
   'aria-labelledby'?: string
   'aria-describedby'?: string
@@ -49,6 +52,9 @@ export type HelperTextPropsGetter = PropsGetter<
 
 export type ErrorMessagePropsGetter = HelperTextPropsGetter
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface FormControlContextValue extends FormFieldProps {
   id: string
   labelId: string
@@ -66,6 +72,9 @@ export interface ContainerProps
     ChildrenProps,
     Pick<FormControlOwnProps, 'labelPosition'> {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface FormControlProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,

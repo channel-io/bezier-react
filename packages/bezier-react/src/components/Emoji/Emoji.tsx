@@ -22,6 +22,7 @@ const getEmojiUrl = (name: EmojiProps['name'], size: '160' | '80' | '44') => {
 
 /**
  * `Emoji` is a component for representing emoji with variant size.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  * ```tsx
  * <Emoji

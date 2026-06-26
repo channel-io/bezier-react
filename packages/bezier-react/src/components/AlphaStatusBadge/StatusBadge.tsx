@@ -18,6 +18,7 @@ import styles from './StatusBadge.module.scss'
 
 /**
  * `StatusBadge` is a component to indicate user status.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx

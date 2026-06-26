@@ -19,6 +19,7 @@ import styles from './CheckableAvatar.module.scss'
 
 /**
  * `CheckableAvatar` is a checkbox component that looks like `Avatar`.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx

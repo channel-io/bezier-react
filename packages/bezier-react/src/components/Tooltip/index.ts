@@ -1,4 +1,4 @@
-/** @deprecated v1 components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
+/** @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export { Tooltip } from './Tooltip'
-/** @deprecated v1 components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
+/** @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export type { TooltipPosition, TooltipProps } from './Tooltip.types'

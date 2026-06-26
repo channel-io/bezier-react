@@ -116,6 +116,9 @@ function ActionButtonGroup({
   )
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const KeyValueItem = forwardRef<HTMLDivElement, KeyValueItemProps>(
   function KeyValueListItem(
     {
@@ -179,6 +182,9 @@ export const KeyValueItem = forwardRef<HTMLDivElement, KeyValueItemProps>(
   }
 )
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const KeyValueMultiLineItem = forwardRef<
   HTMLDivElement,
   KeyValueItemProps

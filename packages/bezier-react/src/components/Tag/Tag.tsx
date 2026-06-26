@@ -25,6 +25,7 @@ const TAG_DELETE_TEST_ID = 'bezier-tag-delete-icon'
 
 /**
  * `Tag` is a component for representing tag, which shows close icon when `onDelete` property is specified.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  * ```tsx
  * <Tag

@@ -1,4 +1,4 @@
-/** @deprecated v2 components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
+/** @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export {
   TooltipPrimitive as AlphaTooltipPrimitive,
   TooltipPrimitiveArrow as AlphaTooltipPrimitiveArrow,
@@ -7,7 +7,7 @@ export {
   TooltipPrimitiveProvider as AlphaTooltipPrimitiveProvider,
   TooltipPrimitiveTrigger as AlphaTooltipPrimitiveTrigger,
 } from './TooltipPrimitive'
-/** @deprecated v2 components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
+/** @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export type {
   TooltipPrimitiveArrowProps as AlphaTooltipPrimitiveArrowProps,
   TooltipPrimitiveContentProps as AlphaTooltipPrimitiveContentProps,

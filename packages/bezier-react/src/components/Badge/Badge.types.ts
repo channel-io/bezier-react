@@ -12,8 +12,14 @@ import {
   type BaseTagBadgeVariant,
 } from '~/src/components/BaseTagBadge'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type BadgeSize = BaseTagBadgeSize
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type BadgeVariant = BaseTagBadgeVariant
 
 interface BadgeOwnProps {
@@ -29,6 +35,9 @@ interface BadgeOwnProps {
   truncated?: boolean | number
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface BadgeProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,

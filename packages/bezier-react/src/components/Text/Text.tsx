@@ -14,6 +14,7 @@ import styles from './Text.module.scss'
 
 /**
  * `Text` is a component for representing the typography of a design system.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx
