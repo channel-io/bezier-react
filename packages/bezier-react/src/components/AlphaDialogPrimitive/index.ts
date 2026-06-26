@@ -1,4 +1,4 @@
-/** @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
+// TODO(beta): Remove the Alpha prefix when alpha components are removed; this primitive will be exposed as DialogPrimitive.
 export {
   DialogPrimitive as AlphaDialogPrimitive,
   DialogPrimitiveClose as AlphaDialogPrimitiveClose,
@@ -9,7 +9,6 @@ export {
   DialogPrimitiveTitle as AlphaDialogPrimitiveTitle,
   DialogPrimitiveTrigger as AlphaDialogPrimitiveTrigger,
 } from './DialogPrimitive'
-/** @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export type {
   DialogPrimitiveProps as AlphaDialogPrimitiveProps,
   DialogPrimitiveCloseProps as AlphaDialogPrimitiveCloseProps,
