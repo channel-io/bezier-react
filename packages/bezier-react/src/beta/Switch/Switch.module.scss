@@ -54,11 +54,11 @@
   }
 
   &:where(:focus-visible) {
-    @include state.focus(9999px);
+    @include state.focus-ring;
   }
 
   &:where([data-invalid]:not([data-disabled])) {
-    @include state.error(9999px);
+    @include state.error-ring;
   }
 }
 

@@ -84,6 +84,6 @@
   }
 
   &:where(:focus-visible) {
-    @include state.focus(9999px);
+    @include state.focus-ring;
   }
 }

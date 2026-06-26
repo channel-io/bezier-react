@@ -1,5 +1,3 @@
-@use '../../styles/mixins/state';
-
 .BaseTextInput {
   --b-beta-text-input-height: 36px;
   --b-beta-text-input-radius: var(--radius-12);
@@ -22,9 +20,7 @@
 
   background-color: var(--b-beta-text-input-background-color);
   border-radius: var(--b-beta-text-input-radius);
-
-  /* stylelint-disable-next-line order/order */
-  @include state.input(var(--b-beta-text-input-radius));
+  box-shadow: var(--state-default);
 
   transition:
     box-shadow var(--motion-transition-fast),
@@ -46,11 +42,11 @@
   }
 
   &:where(:has(.Input:focus)) {
-    @include state.input-active(var(--b-beta-text-input-radius));
+    box-shadow: var(--state-active);
   }
 
   &:where(:has(.Input[aria-invalid='true'])) {
-    @include state.input-error(var(--b-beta-text-input-radius));
+    box-shadow: var(--state-warning);
   }
 }
 

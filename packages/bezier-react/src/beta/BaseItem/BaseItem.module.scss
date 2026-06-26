@@ -54,7 +54,7 @@
   }
 
   &:where(:focus-visible) {
-    @include state.focus(var(--radius-8), $gap: 0);
+    @include state.focus-ring($gap: 0);
   }
 
   &:where(.interactive:not(.disabled, .active, [data-highlighted])) {

@@ -1,38 +1,9 @@
-@mixin error($radius, $gap: 3px, $thickness: 2px) {
-  &::after {
-    pointer-events: none;
-    content: '';
-
-    position: absolute;
-    inset: calc(-1 * (#{$gap} + #{$thickness}));
-
-    border: $thickness solid var(--color-state-warning);
-    border-radius: calc(#{$radius} + #{$gap} + #{$thickness});
-  }
-}
-
-@mixin error-outline($radius, $gap: 3px, $thickness: 2px) {
-  outline: $thickness solid var(--color-state-warning);
-  outline-offset: $gap;
-}
-
-@mixin focus($radius, $gap: 3px, $thickness: 1.5px) {
+@mixin focus-ring($gap: 3px, $thickness: 1.5px) {
   outline: $thickness solid var(--color-state-focus);
   outline-offset: $gap;
 }
 
-@mixin input($radius, $gap: 0, $thickness: 1.5px) {
-  box-shadow: inset 0 0 0 $thickness var(--color-border-neutral);
-}
-
-@mixin input-active($radius, $gap: 0, $thickness: 1.5px) {
-  box-shadow:
-    inset 0 0 0 $thickness var(--color-state-active),
-    0 1px 2px 0 var(--color-elevation-base);
-}
-
-@mixin input-error($radius, $gap: 0, $thickness: 1.5px) {
-  box-shadow:
-    inset 0 0 0 $thickness var(--color-state-warning),
-    0 1px 2px 0 var(--color-elevation-base);
+@mixin error-ring($gap: 3px, $thickness: 1.5px) {
+  outline: $thickness solid var(--color-state-warning);
+  outline-offset: $gap;
 }
