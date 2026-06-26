@@ -1,8 +1,7 @@
-import type { JSX, ReactNode } from 'react'
+import type { JSX, MouseEventHandler, ReactNode } from 'react'
 
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
-import type { IconButtonProps } from '~/src/beta/IconButton'
 import type {
   BezierComponentProps,
   ContentProps,
@@ -69,7 +68,7 @@ interface BannerOwnProps {
   /**
    * Handler to be executed when the action icon button is clicked.
    */
-  onClickAction?: IconButtonProps['onClick']
+  onClickAction?: MouseEventHandler<HTMLButtonElement>
 }
 
 export interface BannerProps

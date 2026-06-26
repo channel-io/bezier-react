@@ -10,7 +10,6 @@ import {
 import {
   type BezierComponentProps,
   type DisableProps,
-  type PolymorphicProps,
   type SizeProps,
 } from '~/src/types/props'
 
@@ -23,14 +22,6 @@ export type IconButtonSize = ButtonSize
 export type IconButtonContent = BezierIcon | ReactNode
 
 interface IconButtonOwnProps {
-  /**
-   * `type` attribute of typical HTML button.
-   *
-   * You may want to set `type` to `submit` to the button
-   * which is used as a submit button in `<form>` component.
-   * @default 'button'
-   */
-  type?: 'button' | 'reset' | 'submit'
   /**
    * Icon content inside the button.
    */
@@ -59,12 +50,46 @@ interface IconButtonOwnProps {
   semantic?: IconButtonSemantic
 }
 
-export interface IconButtonProps
+interface IconButtonButtonProps
   extends Omit<
-      BezierComponentProps<'button'>,
-      'children' | 'color' | 'content'
-    >,
-    PolymorphicProps,
-    SizeProps<IconButtonSize>,
-    DisableProps,
-    IconButtonOwnProps {}
+    BezierComponentProps<'button'>,
+    keyof IconButtonOwnProps | 'children' | 'color' | 'as'
+  > {
+  as?: 'button'
+  /**
+   * `type` attribute of typical HTML button.
+   *
+   * You may want to set `type` to `submit` to the button
+   * which is used as a submit button in `<form>` component.
+   * @default 'button'
+   */
+  type?: 'button' | 'reset' | 'submit'
+}
+
+interface IconButtonAnchorProps
+  extends Omit<
+    BezierComponentProps<'a'>,
+    keyof IconButtonOwnProps | 'children' | 'color' | 'as' | 'type'
+  > {
+  as: 'a'
+  type?: never
+}
+
+interface IconButtonCustomElementProps
+  extends Omit<
+    BezierComponentProps,
+    keyof IconButtonOwnProps | 'children' | 'color' | 'as'
+  > {
+  /**
+   * Custom element type to render.
+   *
+   * Prefer the default button or `as="a"` when possible. Custom elements are
+   * kept as an escape hatch for wrapper components.
+   */
+  as: React.ElementType
+}
+
+export type IconButtonProps = IconButtonOwnProps &
+  SizeProps<IconButtonSize> &
+  DisableProps &
+  (IconButtonButtonProps | IconButtonAnchorProps | IconButtonCustomElementProps)

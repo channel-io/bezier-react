@@ -3,6 +3,8 @@ import userEvent from '@testing-library/user-event'
 
 import { render } from '~/src/utils/test'
 
+import { BaseButton } from '~/src/beta/BaseButton'
+
 import { Button } from './Button'
 
 
@@ -44,6 +46,55 @@ describe('Button', () => {
     await user.click(getByRole('button', { name: 'Button' }))
 
     expect(onClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('should render as a link when as is anchor', () => {
+    const { getByRole } = render(
+      <Button
+        as="a"
+        href="/settings"
+        label="Settings"
+      />
+    )
+
+    expect(getByRole('link', { name: 'Settings' })).toHaveAttribute(
+      'href',
+      '/settings'
+    )
+  })
+
+  it('should render with a custom component when as is provided', () => {
+    const { getByRole } = render(
+      <Button
+        as={BaseButton}
+        label="Custom"
+      />
+    )
+
+    expect(getByRole('button', { name: 'Custom' })).toBeInTheDocument()
+  })
+
+  it('should prevent anchor activation when disabled', async () => {
+    const user = userEvent.setup()
+    const onClick = jest.fn()
+    const { getByRole } = render(
+      <Button
+        as="a"
+        href="/settings"
+        label="Settings"
+        disabled
+        onClick={onClick}
+      />
+    )
+
+    const link = getByRole('link', { name: 'Settings' })
+
+    expect(link).toHaveAttribute('aria-disabled', 'true')
+    expect(link).toHaveAttribute('tabindex', '-1')
+
+    await user.click(link)
+
+    expect(onClick).not.toHaveBeenCalled()
   })
 
   it('should be disabled when disabled prop is true', () => {

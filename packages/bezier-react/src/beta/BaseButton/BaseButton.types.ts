@@ -1,8 +1,25 @@
 import {
   type BezierComponentProps,
   type ChildrenProps,
+  type DisableProps,
 } from '~/src/types/props'
 
-export interface BaseButtonProps
-  extends BezierComponentProps<'button'>,
-    ChildrenProps {}
+interface BaseButtonOwnProps extends ChildrenProps, DisableProps {}
+
+type BaseButtonButtonProps = Omit<
+  BezierComponentProps<'button'>,
+  keyof BaseButtonOwnProps | 'as'
+> & {
+  as?: 'button'
+}
+
+type BaseButtonAnchorProps = Omit<
+  BezierComponentProps<'a'>,
+  keyof BaseButtonOwnProps | 'as' | 'type'
+> & {
+  as: 'a'
+  type?: never
+}
+
+export type BaseButtonProps = BaseButtonOwnProps &
+  (BaseButtonButtonProps | BaseButtonAnchorProps)

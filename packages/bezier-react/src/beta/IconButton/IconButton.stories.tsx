@@ -56,7 +56,7 @@ export const Primary: StoryObj<IconButtonProps> = {
 }
 
 export const Variants: StoryObj<IconButtonProps> = {
-  render: (args) => (
+  render: (args: IconButtonProps) => (
     <VStack spacing={16}>
       {(['filled', 'outlined', 'ghost'] as const).map((variant) => (
         <HStack
@@ -107,7 +107,7 @@ export const Variants: StoryObj<IconButtonProps> = {
 }
 
 export const Sizes: StoryObj<IconButtonProps> = {
-  render: (args) => (
+  render: (args: IconButtonProps) => (
     <HStack
       spacing={8}
       align="center"
@@ -147,7 +147,7 @@ export const Sizes: StoryObj<IconButtonProps> = {
 }
 
 export const Loading: StoryObj<IconButtonProps> = {
-  render: (args) => (
+  render: (args: IconButtonProps) => (
     <HStack
       spacing={8}
       align="center"

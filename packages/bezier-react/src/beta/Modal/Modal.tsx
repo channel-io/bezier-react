@@ -379,11 +379,8 @@ export const ModalHeader = forwardRef<HTMLElement, ModalHeaderProps>(
               )}
 
               {showCloseIcon && (
-                <IconButton
+                <div
                   className={styles.CloseIconButtonSpacer}
-                  as="div"
-                  size="m"
-                  content={CancelIcon}
                   aria-hidden
                 />
               )}
