@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.7
+
+### Patch Changes
+
+- Fix legacy component deprecation annotations so TypeScript consumers can see them at usage sites. ([#2860](https://github.com/channel-io/bezier-react/pull/2860)) by @timok1m
+
 ## 4.0.0-next.6
 
 ### Patch Changes
