@@ -71,7 +71,6 @@ export function Toast({
   preset = 'info',
   icon: iconProp,
   content,
-  zIndex = 'toast',
   autoDismiss = true,
   autoDismissTimeout,
   version = 0,
@@ -85,7 +84,6 @@ export function Toast({
 
   const className = classNames(
     styles.ToastElement,
-    getZIndexClassName(zIndex),
     placement && styles[`placement-${placement}`],
     isSlidingOut && styles['slide-out']
   )

@@ -57,10 +57,13 @@ function IconButtonContentElement({ content }: { content: IconButtonContent }) {
  * />
  * ```
  */
-export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
+export const IconButton = forwardRef<
+  HTMLAnchorElement | HTMLButtonElement,
+  IconButtonProps
+>(
   function IconButton(
     {
-      as = BaseButton,
+      as = 'button',
       className,
       content,
       loading = false,
@@ -73,24 +76,38 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     },
     forwardedRef
   ) {
-    const Comp = as as typeof BaseButton
     const disabled = loading || disabledProp
+    const iconButtonClassName = classNames(
+      styles.IconButton,
+      styles[`size-${size}`],
+      styles[`variant-${variant}`],
+      styles[`semantic-${semantic}`],
+      active && styles.active,
+      loading && styles.loading,
+      className
+    )
+    const isNativeButton = as === 'button'
+    const isNativeAnchor = as === 'a'
+    const Comp = isNativeButton || isNativeAnchor ? BaseButton : as
+    const compProps = isNativeAnchor
+      ? {
+          ...(rest as React.AnchorHTMLAttributes<HTMLAnchorElement>),
+          as: 'a' as const,
+        }
+      : isNativeButton
+        ? {
+            ...(rest as React.ButtonHTMLAttributes<HTMLButtonElement>),
+            as: 'button' as const,
+          }
+        : rest
 
     return (
       <Comp
         ref={forwardedRef}
-        className={classNames(
-          styles.IconButton,
-          styles[`size-${size}`],
-          styles[`variant-${variant}`],
-          styles[`semantic-${semantic}`],
-          active && styles.active,
-          loading && styles.loading,
-          className
-        )}
+        {...compProps}
+        className={iconButtonClassName}
         disabled={disabled}
         aria-busy={loading || undefined}
-        {...rest}
       >
         <div
           className={classNames(

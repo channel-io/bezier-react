@@ -55,7 +55,7 @@ export const Primary: StoryObj<ButtonProps> = {
 }
 
 export const Variants: StoryObj<ButtonProps> = {
-  render: (args) => (
+  render: (args: ButtonProps) => (
     <VStack spacing={16}>
       {(['filled', 'outlined', 'ghost'] as const).map((variant) => (
         <HStack
@@ -102,7 +102,7 @@ export const Variants: StoryObj<ButtonProps> = {
 }
 
 export const Sizes: StoryObj<ButtonProps> = {
-  render: (args) => (
+  render: (args: ButtonProps) => (
     <HStack
       spacing={8}
       align="center"

@@ -15,7 +15,6 @@ export * from '~/src/components/AlphaAvatar'
 export * from '~/src/components/AlphaAvatarGroup'
 /** @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export * from '~/src/components/AlphaButton'
-/** @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export * from '~/src/components/AlphaDialogPrimitive'
 /** @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export * from '~/src/components/AlphaFloatingButton'

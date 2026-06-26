@@ -75,10 +75,13 @@ function ButtonSideContentElement({
  * />
  * ```
  */
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<
+  HTMLAnchorElement | HTMLButtonElement,
+  ButtonProps
+>(
   function Button(
     {
-      as = BaseButton,
+      as = 'button',
       className,
       label,
       loading = false,
@@ -93,25 +96,32 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     forwardedRef
   ) {
-    const Comp = as as typeof BaseButton
     const disabled = loading || disabledProp
-
-    return (
-      <Comp
-        ref={forwardedRef}
-        className={classNames(
-          styles.Button,
-          styles[`size-${size}`],
-          styles[`variant-${variant}`],
-          styles[`semantic-${semantic}`],
-          active && styles.active,
-          loading && styles.loading,
-          className
-        )}
-        disabled={disabled}
-        aria-busy={loading || undefined}
-        {...rest}
-      >
+    const buttonClassName = classNames(
+      styles.Button,
+      styles[`size-${size}`],
+      styles[`variant-${variant}`],
+      styles[`semantic-${semantic}`],
+      active && styles.active,
+      loading && styles.loading,
+      className
+    )
+    const isNativeButton = as === 'button'
+    const isNativeAnchor = as === 'a'
+    const Comp = isNativeButton || isNativeAnchor ? BaseButton : as
+    const compProps = isNativeAnchor
+      ? {
+          ...(rest as React.AnchorHTMLAttributes<HTMLAnchorElement>),
+          as: 'a' as const,
+        }
+      : isNativeButton
+        ? {
+            ...(rest as React.ButtonHTMLAttributes<HTMLButtonElement>),
+            as: 'button' as const,
+          }
+        : rest
+    const buttonContent = (
+      <>
         <div
           className={classNames(
             styles.ButtonContent,
@@ -149,6 +159,18 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             />
           </div>
         )}
+      </>
+    )
+
+    return (
+      <Comp
+        ref={forwardedRef}
+        {...compProps}
+        className={buttonClassName}
+        disabled={disabled}
+        aria-busy={loading || undefined}
+      >
+        {buttonContent}
       </Comp>
     )
   }

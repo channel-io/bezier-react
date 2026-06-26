@@ -8,6 +8,7 @@ import {
   type ChildrenProps,
   type DisableProps,
   type FormFieldProps,
+  type LeadingTrailingContentProps,
   type SizeProps,
 } from '~/src/types/props'
 
@@ -70,19 +71,12 @@ interface SegmentedControlItemBaseOwnProps<Value extends string> {
 }
 
 interface SegmentedControlItemLabelOwnProps<Value extends string>
-  extends SegmentedControlItemBaseOwnProps<Value> {
+  extends SegmentedControlItemBaseOwnProps<Value>,
+    LeadingTrailingContentProps<SegmentedControlItemSideContent> {
   /**
    * A visible text label of the item.
    */
   children: string
-  /**
-   * Content on the left.
-   */
-  leadingContent?: SegmentedControlItemSideContent
-  /**
-   * Content on the right. Use this for non-interactive adornments such as count badges or status marks.
-   */
-  trailingContent?: SegmentedControlItemSideContent
   icon?: never
   'aria-label'?: string
 }

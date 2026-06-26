@@ -18,10 +18,6 @@ interface ToastOwnProps {
    */
   preset?: ToastPreset
   icon?: BezierIcon
-  /**
-   * @deprecated Use `zIndex` of `ToastProvider` instead.
-   */
-  zIndex?: ZIndex
   autoDismiss?: boolean
   autoDismissTimeout?: number
   /**
@@ -63,7 +59,7 @@ export type OnDismissCallback = (id: ToastId) => void
 
 export type ToastOptions = Pick<
   ToastProps,
-  'preset' | 'icon' | 'autoDismiss' | 'zIndex'
+  'preset' | 'icon' | 'autoDismiss'
 > & {
   rightSide?: boolean
   onDismiss?: OnDismissCallback

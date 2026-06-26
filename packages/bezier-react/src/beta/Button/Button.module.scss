@@ -1,6 +1,6 @@
 @use '../../styles/mixins/dimension';
 
-$active-selector: ':where(.active, :hover):where(:not(:disabled))';
+$active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled="true"]))';
 
 .ButtonText {
   flex: 0 1 auto;
@@ -161,7 +161,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled))';
     pointer-events: none;
   }
 
-  &:disabled {
+  &:where(:disabled, [aria-disabled='true']) {
     cursor: not-allowed;
     opacity: var(--opacity-disabled);
   }

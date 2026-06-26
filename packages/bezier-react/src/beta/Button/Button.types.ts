@@ -3,9 +3,12 @@ import { type ReactNode } from 'react'
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import {
-  type BezierComponentProps,
+  type BaseButtonAnchorProps,
+  type BaseButtonButtonProps,
+} from '~/src/beta/BaseButton'
+import {
   type DisableProps,
-  type PolymorphicProps,
+  type LeadingTrailingContentProps,
   type SizeProps,
 } from '~/src/types/props'
 
@@ -17,15 +20,8 @@ export type ButtonSize = 'xs' | 's' | 'm' | 'l'
 
 export type ButtonSideContent = BezierIcon | ReactNode
 
-interface ButtonOwnProps {
-  /**
-   * `type` attribute of typical HTML button.
-   *
-   * You may want to set `type` to `submit` to the button
-   * which is used as a submit button in `<form>` component.
-   * @default 'button'
-   */
-  type?: 'button' | 'reset' | 'submit'
+interface ButtonOwnProps
+  extends LeadingTrailingContentProps<ButtonSideContent> {
   /**
    * The label content in the button.
    */
@@ -52,19 +48,45 @@ interface ButtonOwnProps {
    * @default 'primary'
    */
   semantic?: ButtonSemantic
-  /**
-   * Content on the left.
-   */
-  leadingContent?: ButtonSideContent
-  /**
-   * Content on the right.
-   */
-  trailingContent?: ButtonSideContent
 }
 
-export interface ButtonProps
-  extends Omit<BezierComponentProps<'button'>, 'children' | 'color'>,
-    PolymorphicProps,
-    SizeProps<ButtonSize>,
-    DisableProps,
-    ButtonOwnProps {}
+interface ButtonButtonProps
+  extends Omit<
+    BaseButtonButtonProps,
+    keyof ButtonOwnProps | 'color' | 'type'
+  > {
+  as?: 'button'
+  /**
+   * `type` attribute of typical HTML button.
+   *
+   * You may want to set `type` to `submit` to the button
+   * which is used as a submit button in `<form>` component.
+   * @default 'button'
+   */
+  type?: 'button' | 'reset' | 'submit'
+}
+
+interface ButtonAnchorProps
+  extends Omit<
+    BaseButtonAnchorProps,
+    keyof ButtonOwnProps | 'color'
+  > {}
+
+interface ButtonCustomElementProps
+  extends Omit<
+    React.HTMLAttributes<HTMLElement>,
+    keyof ButtonOwnProps | 'children' | 'color' | 'as'
+  > {
+  /**
+   * Custom element type to render.
+   *
+   * Prefer the default button or `as="a"` when possible. Custom elements are
+   * kept as an escape hatch for wrapper components.
+   */
+  as: React.ElementType
+}
+
+export type ButtonProps = ButtonOwnProps &
+  SizeProps<ButtonSize> &
+  DisableProps &
+  (ButtonButtonProps | ButtonAnchorProps | ButtonCustomElementProps)

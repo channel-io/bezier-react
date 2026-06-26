@@ -1,2 +1,6 @@
 export { BaseButton } from './BaseButton'
-export type { BaseButtonProps } from './BaseButton.types'
+export type {
+  BaseButtonAnchorProps,
+  BaseButtonButtonProps,
+  BaseButtonProps,
+} from './BaseButton.types'
