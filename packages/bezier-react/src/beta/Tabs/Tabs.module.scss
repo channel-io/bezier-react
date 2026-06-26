@@ -85,7 +85,7 @@ $tab-item-indicator-height: 3px;
   }
 
   &:where(:focus-visible) {
-    @include state.focus(var(--radius-8));
+    @include state.focus-ring($gap: 0);
   }
 
   &:where(.size-s) {
@@ -166,7 +166,7 @@ $tab-item-indicator-height: 3px;
   }
 
   &:where(:focus-visible) {
-    @include state.focus(var(--radius-8));
+    @include state.focus-ring;
   }
 
   &:hover {

@@ -41,10 +41,6 @@
     box-shadow: inset 0 0 0 2px var(--color-border-neutral-heavy);
   }
 
-  &:where([data-invalid]:not([data-disabled])) {
-    @include state.error(var(--radius-8));
-  }
-
   &:where([data-state='checked'], [data-state='indeterminate']) {
     background-color: var(--color-fill-neutral-heaviest);
 
@@ -63,11 +59,15 @@
   }
 
   &:where(:focus-visible) {
-    @include state.focus(var(--radius-8));
+    @include state.focus-ring;
 
     &:where(:not([data-disabled])[data-state='unchecked']) .CheckIcon {
       visibility: visible;
     }
+  }
+
+  &:where([data-invalid]:not([data-disabled])) {
+    @include state.error-ring;
   }
 }
 

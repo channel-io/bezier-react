@@ -1,28 +1,67 @@
 {
   "state": {
-    "error": {
-      "value": {
-        "color": "{color.state.warning.normal}",
-        "type": "dropShadow",
-        "offsetX": "0",
-        "offsetY": "0",
-        "blur": "0",
-        "spread": "{dimension.1}"
-      },
-      "type": "shadow",
-      "$deprecated": "This token is no longer used due to the redesign."
+    "default": {
+      "value": [
+        {
+          "color": "{color.elevation.base}",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "{dimension.1}",
+          "blur": "{dimension.2}",
+          "spread": "0"
+        },
+        {
+          "color": "{color.state.default}",
+          "type": "innerShadow",
+          "offsetX": "0",
+          "offsetY": "0",
+          "blur": "0",
+          "spread": "{dimension.1}"
+        }
+      ],
+      "type": "shadow"
     },
     "active": {
-      "value": {
-        "color": "{color.state.action.normal}",
-        "type": "dropShadow",
-        "offsetX": "0",
-        "offsetY": "0",
-        "blur": "0",
-        "spread": "{dimension.1}"
-      },
-      "type": "shadow",
-      "$deprecated": "This token is no longer used due to the redesign."
+      "value": [
+        {
+          "color": "{color.elevation.base}",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "{dimension.1}",
+          "blur": "{dimension.2}",
+          "spread": "0"
+        },
+        {
+          "color": "{color.state.active}",
+          "type": "innerShadow",
+          "offsetX": "0",
+          "offsetY": "0",
+          "blur": "0",
+          "spread": "{dimension.1}"
+        }
+      ],
+      "type": "shadow"
+    },
+    "warning": {
+      "value": [
+        {
+          "color": "{color.elevation.base}",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "{dimension.1}",
+          "blur": "{dimension.2}",
+          "spread": "0"
+        },
+        {
+          "color": "{color.state.warning.normal}",
+          "type": "innerShadow",
+          "offsetX": "0",
+          "offsetY": "0",
+          "blur": "0",
+          "spread": "{dimension.1}"
+        }
+      ],
+      "type": "shadow"
     },
     "input": {
       "default": {
@@ -45,29 +84,7 @@
           }
         ],
         "type": "shadow",
-        "$deprecated": "This token is no longer used due to the redesign."
-      },
-      "hovered": {
-        "value": [
-          {
-            "color": "{color.elevation.base}",
-            "type": "dropShadow",
-            "offsetX": "0",
-            "offsetY": "{dimension.2}",
-            "blur": "{dimension.6}",
-            "spread": "0"
-          },
-          {
-            "color": "{color.state.action.normal}",
-            "type": "innerShadow",
-            "offsetX": "0",
-            "offsetY": "0",
-            "blur": "0",
-            "spread": "{dimension.1}"
-          }
-        ],
-        "type": "shadow",
-        "$deprecated": "This token is no longer used due to the redesign."
+        "$deprecated": "Use state.default instead."
       },
       "active": {
         "value": [
@@ -75,20 +92,12 @@
             "color": "{color.elevation.base}",
             "type": "dropShadow",
             "offsetX": "0",
-            "offsetY": "{dimension.2}",
-            "blur": "{dimension.6}",
+            "offsetY": "{dimension.1}",
+            "blur": "{dimension.2}",
             "spread": "0"
           },
           {
-            "color": "{color.state.action.light}",
-            "type": "dropShadow",
-            "offsetX": "0",
-            "offsetY": "0",
-            "blur": "0",
-            "spread": "{dimension.3}"
-          },
-          {
-            "color": "{color.state.action.normal}",
+            "color": "{color.state.active}",
             "type": "innerShadow",
             "offsetX": "0",
             "offsetY": "0",
@@ -97,7 +106,7 @@
           }
         ],
         "type": "shadow",
-        "$deprecated": "This token is no longer used due to the redesign."
+        "$deprecated": "Use state.active instead."
       },
       "error": {
         "value": [
@@ -105,17 +114,9 @@
             "color": "{color.elevation.base}",
             "type": "dropShadow",
             "offsetX": "0",
-            "offsetY": "{dimension.2}",
-            "blur": "{dimension.6}",
+            "offsetY": "{dimension.1}",
+            "blur": "{dimension.2}",
             "spread": "0"
-          },
-          {
-            "color": "{color.state.warning.light}",
-            "type": "dropShadow",
-            "offsetX": "0",
-            "offsetY": "0",
-            "blur": "0",
-            "spread": "{dimension.3}"
           },
           {
             "color": "{color.state.warning.normal}",
@@ -127,7 +128,7 @@
           }
         ],
         "type": "shadow",
-        "$deprecated": "This token is no longer used due to the redesign."
+        "$deprecated": "Use state.warning instead."
       }
     }
   }

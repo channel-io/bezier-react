@@ -1,5 +1,3 @@
-@use '../../styles/mixins/state';
-
 .BaseSelect {
   position: relative;
   display: inline-flex;
@@ -33,9 +31,7 @@
   border: 0;
   border-radius: var(--b-beta-select-trigger-radius);
   outline: none;
-
-  /* stylelint-disable-next-line order/order */
-  @include state.input(var(--b-beta-select-trigger-radius));
+  box-shadow: var(--state-default);
 
   transition:
     box-shadow var(--motion-transition-fast),
@@ -49,13 +45,12 @@
   }
 
   &:where(.open, :focus-visible) {
-    @include state.input-active(var(--b-beta-select-trigger-radius));
-
     background-color: var(--color-fill-grey-light);
+    box-shadow: var(--state-active);
   }
 
   &:where(.invalid) {
-    @include state.input-error(var(--b-beta-select-trigger-radius));
+    box-shadow: var(--state-warning);
   }
 
   &:where(.readonly) {

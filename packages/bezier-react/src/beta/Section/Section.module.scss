@@ -24,6 +24,12 @@
   &:where([role='button']) {
     cursor: pointer;
     user-select: none;
+    border-radius: var(--radius-8);
+    outline: none;
+
+    &:where(:focus-visible) {
+      @include state.focus-ring;
+    }
   }
 
   &:where([aria-disabled='true']) {
@@ -127,7 +133,7 @@
   }
 
   &:where(:focus-visible) {
-    @include state.focus(var(--radius-8));
+    @include state.focus-ring($gap: 0);
   }
 
   &:where(.interactive:not(.disabled, .active)) {
