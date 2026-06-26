@@ -32,6 +32,7 @@ const preview: Preview = {
         order: [
           'ReadMe',
           'Changelog',
+          'Foundation',
           'Beta components',
           'Deprecated v2 components',
           'Deprecated v1 components',
