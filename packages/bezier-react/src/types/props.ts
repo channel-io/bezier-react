@@ -132,6 +132,23 @@ export interface SideContentProps<
 }
 
 /**
+ * Props for components that have content before and after their main content.
+ */
+export interface LeadingTrailingContentProps<
+  LeadingContent = React.ReactNode,
+  TrailingContent = LeadingContent,
+> {
+  /**
+   * Content to be displayed before the main content.
+   */
+  leadingContent?: LeadingContent
+  /**
+   * Content to be displayed after the main content.
+   */
+  trailingContent?: TrailingContent
+}
+
+/**
  * Props for components that can be disabled.
  */
 export interface DisableProps {
@@ -512,6 +529,9 @@ export interface BetaLayoutProps
 
 /**
  * Enumeration of form field sizes. (TextField, Select)
+ *
+ * @deprecated Legacy form field sizes are deprecated. Use beta component size
+ * types from `@channel.io/bezier-react/beta` instead.
  */
 export type FormFieldSize = 'xl' | 'l' | 'm' | 'xs'
 

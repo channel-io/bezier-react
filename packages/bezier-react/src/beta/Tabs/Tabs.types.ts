@@ -8,6 +8,7 @@ import {
   type BezierComponentProps,
   type ChildrenProps,
   type DisableProps,
+  type LeadingTrailingContentProps,
   type SizeProps,
 } from '~/src/types/props'
 
@@ -51,19 +52,15 @@ interface TabsOwnProps {
   onValueChange?: (value: string) => void
 }
 
-interface TabItemOwnProps {
+interface TabItemOwnProps
+  extends LeadingTrailingContentProps<
+    TabItemLeadingContent,
+    TabItemTrailingContent
+  > {
   /**
    * A unique value that associates the trigger with a content.
    */
   value: string
-  /**
-   * Content on the left.
-   */
-  leadingContent?: TabItemLeadingContent
-  /**
-   * Content on the right. Use this for non-interactive adornments such as count badges or status marks.
-   */
-  trailingContent?: TabItemTrailingContent
   maxWidth?: CSSProperties['maxWidth']
 }
 

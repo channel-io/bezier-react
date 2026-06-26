@@ -7,7 +7,10 @@ import type {
   TextInputElementType,
   TextInputRef,
 } from '~/src/beta/BaseTextInput'
-import type { FormFieldProps } from '~/src/types/props'
+import type {
+  FormFieldProps,
+  LeadingTrailingContentProps,
+} from '~/src/types/props'
 
 export type TextInputType = Exclude<TextInputElementType, 'search'>
 
@@ -15,11 +18,10 @@ export type TextInputVariant = 'primary' | 'secondary'
 
 export type TextInputSideContent = string | BezierIcon | ReactNode
 
-interface TextInputOwnProps {
+interface TextInputOwnProps
+  extends LeadingTrailingContentProps<TextInputSideContent> {
   type?: TextInputType
   variant?: TextInputVariant
-  leadingContent?: TextInputSideContent
-  trailingContent?: TextInputSideContent
   withoutLeadingContentWrapper?: boolean
   withoutTrailingContentWrapper?: boolean
 }

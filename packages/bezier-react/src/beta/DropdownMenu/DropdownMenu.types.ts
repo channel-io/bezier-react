@@ -9,6 +9,7 @@ import type {
   ChildrenProps,
   ContentProps,
   DisableProps,
+  LeadingTrailingContentProps,
   VariantProps,
 } from '~/src/types/props'
 
@@ -126,19 +127,12 @@ interface DropdownMenuItemContentProps extends ContentProps<ReactNode> {
 }
 
 interface DropdownMenuItemOwnProps
-  extends VariantProps<DropdownMenuItemVariant> {
+  extends VariantProps<DropdownMenuItemVariant>,
+    LeadingTrailingContentProps<DropdownMenuItemSideContent> {
   /**
    * Content below the main content.
    */
   description?: ReactNode
-  /**
-   * Content on the left.
-   */
-  leadingContent?: DropdownMenuItemSideContent
-  /**
-   * Content on the right.
-   */
-  trailingContent?: DropdownMenuItemSideContent
   /**
    * Whether selecting the item closes the menu.
    * @default true

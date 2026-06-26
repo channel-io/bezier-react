@@ -7,6 +7,7 @@ import type {
   BezierComponentProps,
   ChildrenProps,
   DisableProps,
+  LeadingTrailingContentProps,
   SizeProps,
   VariantProps,
 } from '~/src/types/props'
@@ -24,19 +25,12 @@ export type BaseItemSideContent = BezierIcon | ReactNode
  * Purpose-built components such as `DropdownMenuItem` should own roles,
  * keyboard interaction, and selection behavior.
  */
-interface BaseItemOwnProps {
+interface BaseItemOwnProps
+  extends LeadingTrailingContentProps<BaseItemSideContent> {
   /**
    * Additional content below the main content.
    */
   description?: ReactNode
-  /**
-   * Content on the left.
-   */
-  leadingContent?: BaseItemSideContent
-  /**
-   * Content on the right.
-   */
-  trailingContent?: BaseItemSideContent
 }
 
 export interface BaseItemProps

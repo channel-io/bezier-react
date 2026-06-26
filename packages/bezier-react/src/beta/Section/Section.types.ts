@@ -9,25 +9,20 @@ import type {
   ChildrenProps,
   ContentProps,
   DisableProps,
+  LeadingTrailingContentProps,
 } from '~/src/types/props'
 
 export type SectionItemSideContent = BezierIcon | ReactNode
 
 export type SectionLabelSideContent = BezierIcon | ReactNode
 
-interface SectionLabelOwnProps extends ContentProps<ReactNode> {
+interface SectionLabelOwnProps
+  extends ContentProps<ReactNode>,
+    LeadingTrailingContentProps<SectionLabelSideContent> {
   /**
    * Primary visible content of the section label.
    */
   content: ReactNode
-  /**
-   * Content on the left side of the section label.
-   */
-  leadingContent?: SectionLabelSideContent
-  /**
-   * Content on the right side of the section label.
-   */
-  trailingContent?: SectionLabelSideContent
   /**
    * Tooltip content rendered next to the section label.
    */
@@ -48,19 +43,12 @@ interface SectionItemContentProps extends ContentProps<ReactNode> {
 interface SectionItemOwnProps
   extends SectionItemContentProps,
     DisableProps,
-    ActivatableProps {
+    ActivatableProps,
+    LeadingTrailingContentProps<SectionItemSideContent> {
   /**
    * Content below the main content.
    */
   description?: ReactNode
-  /**
-   * Content on the left.
-   */
-  leadingContent?: SectionItemSideContent
-  /**
-   * Content on the right.
-   */
-  trailingContent?: SectionItemSideContent
 }
 
 export interface SectionProps
