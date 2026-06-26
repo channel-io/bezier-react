@@ -17,6 +17,9 @@ import { type ZIndex } from '~/src/types/tokens'
 
 import type { OverlayProps } from '~/src/components/Overlay'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface SelectRef {
   handleClickTrigger(event: React.MouseEvent): void
   handleHideDropdown(): void
@@ -38,6 +41,9 @@ interface SelectOwnProps {
   onHideDropdown?: () => void
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface SelectProps
   extends BezierComponentProps<'button'>,
     ChildrenProps,

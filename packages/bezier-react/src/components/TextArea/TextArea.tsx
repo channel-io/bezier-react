@@ -18,6 +18,9 @@ import type { TextAreaProps } from './TextArea.types'
 
 import styles from './TextArea.module.scss'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   function TextArea(
     {

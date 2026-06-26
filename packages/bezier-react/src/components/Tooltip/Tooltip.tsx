@@ -106,6 +106,7 @@ function getSideAndAlign(
  * `Tooltip` is a component that shows additional information when the mouse hovers or the keyboard is focused.
  *
  * Components that pass to children **must spread props and forward ref.**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  * ```tsx
  * // Your component must spread props and forward ref.

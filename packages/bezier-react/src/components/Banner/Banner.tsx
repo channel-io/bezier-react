@@ -49,6 +49,7 @@ const externalLinkRenderer: RenderLinkFunc = ({ content, linkTo }) => (
 
 /**
  * `Banner` is a component you use when you want to communicate instructions, warnings, recommendations, and other information well.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  * ```tsx
  * <Banner

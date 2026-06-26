@@ -54,6 +54,9 @@ interface RadioOwnProps<Value extends string> {
 
 type RadioFormComponentProps = Pick<FormFieldProps, 'disabled' | 'required'>
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface RadioGroupProps<Value extends string>
   extends Omit<
       BezierComponentProps<'div'>,
@@ -64,6 +67,9 @@ export interface RadioGroupProps<Value extends string>
     RadioFormComponentProps,
     RadioGroupOwnProps<Value> {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface RadioProps<Value extends string>
   extends Omit<BezierComponentProps<'button'>, keyof RadioOwnProps<Value>>,
     ChildrenProps,

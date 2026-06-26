@@ -8,6 +8,9 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type TabSize = 'l' | 'm' | 's'
 
 export interface TabListContextValue {
@@ -63,11 +66,17 @@ interface TabContentOwnProps {
   value: string
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface TabsProps
   extends Omit<BezierComponentProps<'div'>, keyof TabsOwnProps>,
     ChildrenProps,
     TabsOwnProps {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface TabListProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,
@@ -77,6 +86,9 @@ export interface TabItemsProps
   extends BezierComponentProps<'div'>,
     ChildrenProps {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface TabItemProps
   extends Omit<BezierComponentProps<'button'>, keyof TabItemOwnProps>,
     ChildrenProps,
@@ -91,6 +103,9 @@ export type TabActionElement<Link> = [Link] extends [string]
   ? HTMLAnchorElement
   : HTMLButtonElement
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface TabActionProps<Link extends string | undefined>
   extends Omit<BezierComponentProps, keyof React.HTMLAttributes<HTMLElement>>,
     ChildrenProps,

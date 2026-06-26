@@ -11,6 +11,9 @@ import type {
 
 import type { ButtonProps } from '~/src/components/Button'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type BannerVariant =
   | 'default'
   | 'blue'
@@ -76,6 +79,9 @@ interface BannerOwnProps {
   onClickAction?: ButtonProps['onClick']
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface BannerProps
   extends Omit<BezierComponentProps<'div'>, keyof ContentProps>,
     ContentProps,

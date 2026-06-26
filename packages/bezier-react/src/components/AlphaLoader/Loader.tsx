@@ -10,6 +10,9 @@ import styles from './Loader.module.scss'
 
 export const LOADER_TEST_ID = 'bezier-loader'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const Loader = forwardRef<HTMLSpanElement, LoaderProps>(function Loader(
   { className, size, variant = 'secondary', ...rest },
   forwardedRef

@@ -17,6 +17,7 @@ import styles from './Box.module.scss'
 
 /**
  * `Box` is a primitive layout component. It provides an easy way to access design tokens.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx

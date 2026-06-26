@@ -30,6 +30,9 @@ interface AvatarGroupOwnProps {
   ellipsisType?: AvatarGroupEllipsisType
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface AvatarGroupProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,

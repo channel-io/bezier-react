@@ -9,8 +9,14 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type FloatingButtonVariant = 'primary' | 'secondary'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type FloatingButtonColor =
   | 'blue'
   | 'cobalt'
@@ -22,6 +28,9 @@ export type FloatingButtonColor =
   | 'dark-grey'
   | 'light-grey'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type FloatingButtonSize = 'xs' | 's' | 'm' | 'l' | 'xl'
 
 interface FloatingButtonOwnProps {
@@ -65,6 +74,9 @@ interface FloatingButtonOwnProps {
   suffixContent?: BezierIcon | ReactNode
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface FloatingButtonProps
   extends Omit<BezierComponentProps<'button'>, 'color'>,
     PolymorphicProps,

@@ -28,6 +28,7 @@ import {
  * `ConfirmModal` is a context of the ConfirmModal-related components. It doesn't render any DOM node.
  * It controls the visibility of the entire component and provides
  * handlers and accessibility properties to ConfirmModal-related components.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx
@@ -50,6 +51,7 @@ export function ConfirmModal({ children, ...rest }: ConfirmModalProps) {
  * `ConfirmModalContent` is a container of the modal content.
  * It creates a portal to render the modal content outside of the DOM tree
  * and renders overlay behind the modal content too.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export const ConfirmModalContent = forwardRef(function ConfirmModalContent(
   { children, ...rest }: ConfirmModalContentProps,
@@ -70,6 +72,7 @@ export const ConfirmModalContent = forwardRef(function ConfirmModalContent(
 /**
  * `ConfirmModalHeader` is a header of the modal content.
  * It renders the accessible title and description of the modal.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export const ConfirmModalHeader = forwardRef(function ConfirmModalHeader(
   props: ConfirmModalHeaderProps,
@@ -87,6 +90,7 @@ export const ConfirmModalHeader = forwardRef(function ConfirmModalHeader(
 
 /**
  * `ConfirmModalBody` is a simple wrapper of the main modal content.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export const ConfirmModalBody = forwardRef(function ConfirmModalBody(
   { children, ...rest }: ConfirmModalBodyProps,
@@ -105,6 +109,7 @@ export const ConfirmModalBody = forwardRef(function ConfirmModalBody(
 /**
  * `ConfirmModalFooter` is a simple wrapper of the footer of the modal content.
  * Usually, it contains the action buttons of the modal.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export const ConfirmModalFooter = forwardRef(function ConfirmModalFooter(
   props: ConfirmModalFooterProps,
@@ -123,6 +128,7 @@ export const ConfirmModalFooter = forwardRef(function ConfirmModalFooter(
  * It passes the handler that opens the modal and accessibility properties to the children.
  *
  * It **must** be placed outside of the `ConfirmModalContent`.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export function ConfirmModalTrigger({ children }: ConfirmModalTriggerProps) {
   return <ModalTrigger>{children}</ModalTrigger>
@@ -131,6 +137,7 @@ export function ConfirmModalTrigger({ children }: ConfirmModalTriggerProps) {
 /**
  * `ConfirmModalClose` is a button that closes the modal. **It doesn't render any DOM node.**
  * It passes the handler that closes the modal to the children.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export function ConfirmModalClose({ children }: ConfirmModalCloseProps) {
   return <ModalClose>{children}</ModalClose>

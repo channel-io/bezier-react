@@ -21,6 +21,7 @@ export const FORM_LABEL_TEST_ID = 'bezier-form-label'
 /**
  * `FormLabel` is a component to show label.
  * `FormControl` component can handle its layout by `position` props.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  * ```tsx
  * <FormControl position="top">

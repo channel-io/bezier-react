@@ -205,6 +205,7 @@ const SegmentedControlRadioGroup = forwardRef(
  * It can be used only when `SegmentedControl` component is used as the `tabs` type.
  *
  * It must be used as a child of `SegmentedControl`.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export const SegmentedControlTabList = SegmentedControlItemList as (
   props: SegmentedControlTabListProps & {
@@ -217,6 +218,7 @@ export const SegmentedControlTabList = SegmentedControlItemList as (
  * It can be used only when `SegmentedControl` component is used as the `tabs` type.
  *
  * It must be used as a child of `SegmentedControl`.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export const SegmentedControlTabContent = TabsPrimitive.Content as <
   Value extends string,
@@ -277,6 +279,7 @@ function SegmentedControlImpl<
  * If you have more than five items, use a different element, such as a dropdown.
  *
  * `SegmentedControl` can be used as a radio group, tabs element depending on its `type`.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx
@@ -406,6 +409,7 @@ function SegmentedControlItemImpl<Value extends string>(
  *
  * If the type of `SegmentedControl` is `tabs`, this component acts as a tab item.
  * In this case, it must be used as a child of `SegmentedControlTabList`.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export const SegmentedControlItem = forwardRef(SegmentedControlItemImpl) as <
   Value extends string,

@@ -18,6 +18,7 @@ import styles from './Stack.module.scss'
 
 /**
  * `Stack` is a layout component used to group elements together and apply a space between them.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx
@@ -84,6 +85,7 @@ export const Stack = forwardRef<HTMLElement, StackProps>(
 
 /**
  * `HStack` is a shorthand component equivalent to `Stack` with a horizontal direction property.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @see Stack
  */
 export const HStack = forwardRef<HTMLElement, HStackProps>(
@@ -98,6 +100,7 @@ export const HStack = forwardRef<HTMLElement, HStackProps>(
 
 /**
  * `VStack` is a shorthand component equivalent to `Stack` with a vertical direction property.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @see Stack
  */
 export const VStack = forwardRef<HTMLElement, VStackProps>(

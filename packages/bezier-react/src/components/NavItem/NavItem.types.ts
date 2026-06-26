@@ -14,6 +14,9 @@ interface NavItemOwnProps {
   onClick?: (e?: React.MouseEvent, name?: string) => void
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface NavItemProps
   extends Omit<
       BezierComponentProps<'a'>,

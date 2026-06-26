@@ -13,6 +13,9 @@ import type {
   VariantProps,
 } from '~/src/types/props'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type TextFieldType =
   | 'search'
   | 'text'
@@ -25,6 +28,9 @@ export type TextFieldType =
 
 export type SelectionRangeDirections = 'forward' | 'backward' | 'none'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type TextFieldVariant = 'primary' | 'secondary'
 
 export type TextFieldItemProps =
@@ -34,6 +40,9 @@ export type TextFieldItemProps =
     } & AdditionalColorProps<'icon'>)
   | React.ReactElement
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface TextFieldRef {
   focus(options?: FocusOptions): void
   blur(): void
@@ -72,6 +81,9 @@ type OmittedInputHTMLAttributes =
   | 'disabled'
   | 'onFocus'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface TextFieldProps
   extends Omit<BezierComponentProps<'input'>, OmittedInputHTMLAttributes>,
     AdditionalOverridableStyleProps<['wrapper', 'leftWrapper', 'rightWrapper']>,

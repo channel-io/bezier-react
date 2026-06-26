@@ -13,6 +13,9 @@ import type { ProgressBarProps } from './ProgressBar.types'
 
 import styles from './ProgressBar.module.scss'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
   function ProgressBar(
     {

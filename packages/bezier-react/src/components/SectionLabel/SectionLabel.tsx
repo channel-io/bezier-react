@@ -101,6 +101,9 @@ function RightContent({ children }: { children: SectionLabelRightContent }) {
   )
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const SectionLabel = forwardRef<HTMLElement, SectionLabelProps>(
   function SectionLabel(
     {

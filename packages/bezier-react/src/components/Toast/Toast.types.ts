@@ -5,10 +5,19 @@ import { type BezierIcon } from '@channel.io/bezier-icons'
 import { type ChildrenProps, type ContentProps } from '~/src/types/props'
 import { type ZIndex } from '~/src/types/tokens'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type ToastPlacement = 'bottom-left' | 'bottom-right'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type ToastAppearance = 'success' | 'warning' | 'error' | 'info'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type ToastPreset = 'default' | 'success' | 'error' | 'offline' | 'online'
 
 interface ToastOwnProps {
@@ -30,8 +39,14 @@ interface ToastOwnProps {
   onDismiss?: () => void
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type ToastContent = NonNullable<React.ReactNode>
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ToastProps extends ContentProps<ToastContent>, ToastOwnProps {}
 
 type Offset = {
@@ -50,15 +65,24 @@ interface ToastProviderOwnProps {
   zIndex?: ZIndex
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ToastProviderProps
   extends ChildrenProps,
     Pick<ToastProps, 'autoDismissTimeout'>,
     ToastProviderOwnProps {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type ToastId = string
 
 export type OnDismissCallback = (id: ToastId) => void
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type ToastOptions = Pick<
   ToastProps,
   'preset' | 'icon' | 'appearance' | 'autoDismiss' | 'zIndex'
@@ -67,6 +91,9 @@ export type ToastOptions = Pick<
   onDismiss?: OnDismissCallback
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type ToastType = ToastOptions & {
   id: ToastId
   content: ToastContent

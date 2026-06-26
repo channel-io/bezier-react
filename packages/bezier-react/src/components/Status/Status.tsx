@@ -30,6 +30,7 @@ const statusColor: Readonly<Record<StatusType, BetaSemanticColor>> = {
 
 /**
  * `Status` is a component to indicate user status.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  */
 export const Status = memo(
   forwardRef<HTMLDivElement, StatusProps>(function Status(

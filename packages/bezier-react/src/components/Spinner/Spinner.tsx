@@ -13,6 +13,9 @@ import styles from './Spinner.module.scss'
 
 export const SPINNER_TEST_ID = 'bezier-spinner'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
   function Spinner(
     { style, className, size = 'm', color, ...rest },

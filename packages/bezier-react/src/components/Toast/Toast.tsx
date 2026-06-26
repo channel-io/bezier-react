@@ -194,6 +194,9 @@ const DEFAULT_OFFSET = {
   bottom: 0,
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export function ToastProvider({
   autoDismissTimeout = 3000,
   container: givenContainer,
@@ -253,6 +256,9 @@ export function ToastProvider({
   )
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export function useToast() {
   const context = useToastContext()
 

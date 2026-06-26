@@ -49,10 +49,16 @@ interface ToggleEmojiButtonGroupOwnProps {
   onValueChange?: (value: string) => void
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ToggleEmojiButtonGroupProps
   extends Omit<BezierComponentProps<'div'>, 'dir' | 'defaultValue'>,
     ToggleEmojiButtonGroupOwnProps {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ToggleEmojiButtonSourceProps
   extends Omit<
       BezierComponentProps<'button'>,

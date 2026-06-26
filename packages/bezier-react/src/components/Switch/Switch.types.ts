@@ -6,6 +6,9 @@ import type {
   SizeProps,
 } from '~/src/types/props'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type SwitchSize = 'm' | 's'
 
 interface SwitchOwnProps extends Omit<SwitchPrimitiveProps, 'asChild'> {
@@ -49,6 +52,9 @@ interface SwitchOwnProps extends Omit<SwitchPrimitiveProps, 'asChild'> {
   value?: string
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface SwitchProps
   extends Omit<BezierComponentProps<'button'>, keyof SwitchOwnProps>,
     SizeProps<SwitchSize>,

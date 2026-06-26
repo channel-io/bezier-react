@@ -1,5 +1,8 @@
 import type { BezierComponentProps, SizeProps } from '~/src/types/props'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type StatusBadgeSize = 'm' | 'l'
 
 interface StatusBadgeOwnProps {
@@ -20,6 +23,9 @@ interface StatusBadgeOwnProps {
   doNotDisturb?: boolean
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface StatusBadgeProps
   extends BezierComponentProps<'div'>,
     SizeProps<StatusBadgeSize>,

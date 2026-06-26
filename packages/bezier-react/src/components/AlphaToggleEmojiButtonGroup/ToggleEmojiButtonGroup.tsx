@@ -27,6 +27,7 @@ const EMOJI_SIZE = 30
 /**
  * Toggle Button that contains `Emoji` component with size fixed to 30.
  * It should be used with `ToggleEmojiButtonGroup` component.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  * ```tsx
  * <ToggleEmojiButtonSource
@@ -74,6 +75,7 @@ export const ToggleEmojiButtonSource = forwardRef<
 
 /**
  * Component for grouping `ToggleEmojiButtonSource`.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  * ```tsx
  * <ToggleEmojiButtonGroup

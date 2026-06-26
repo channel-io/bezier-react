@@ -29,6 +29,9 @@ interface CheckableAvatarPropsOwnProps {
   onCheckedChange?: (checked: boolean) => void
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface CheckableAvatarProps
   extends Omit<AvatarProps, keyof React.HTMLAttributes<HTMLDivElement>>,
     React.HTMLAttributes<HTMLButtonElement>,

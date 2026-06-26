@@ -23,6 +23,7 @@ const NAV_ITEM_LEFT_ICON_TEST_ID = 'bezier-nav-item-left-icon'
 
 /**
  * `NavItem` is a component for an item where you can navigate to another link.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  * ```tsx
  * <NavItem

@@ -10,6 +10,9 @@ export type ItemActionWithIcon = {
   onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type KeyValueItemAction = ItemActionWithIcon | React.ReactElement
 
 interface KeyValueItemOwnProps {
@@ -20,6 +23,9 @@ interface KeyValueItemOwnProps {
   onClickValue?: React.MouseEventHandler<HTMLDivElement>
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface KeyValueItemProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,

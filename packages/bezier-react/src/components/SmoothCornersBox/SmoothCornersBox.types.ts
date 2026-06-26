@@ -63,6 +63,9 @@ interface SmoothCornersBoxOwnProps {
   backgroundImage?: string
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface SmoothCornersBoxProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,

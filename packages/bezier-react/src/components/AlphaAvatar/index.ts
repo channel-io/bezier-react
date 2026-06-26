@@ -1,9 +1,9 @@
-/** @deprecated v2 components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
+/** @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export {
   Avatar as AlphaAvatar,
   useAvatarRadiusToken as useAlphaAvatarRadiusToken,
 } from './Avatar'
-/** @deprecated v2 components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
+/** @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export type {
   AvatarProps as AlphaAvatarProps,
   AvatarSize as AlphaAvatarSize,

@@ -67,6 +67,7 @@ const SliderThumb = forwardRef<
 /**
  * An input component where the user selects a value from within a given range.
  * The value of the slider is shown in a tooltip, and in some cases you can add a guide scale.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx

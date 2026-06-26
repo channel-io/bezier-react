@@ -7,6 +7,9 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type IconSize = 'xl' | 'l' | 'm' | 's' | 'xs' | 'xxs' | 'xxxs'
 
 interface IconOwnProps {
@@ -24,6 +27,9 @@ interface IconOwnProps {
   source: BezierIcon
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface IconProps
   extends Omit<BezierComponentProps<'svg'>, keyof ColorProps>,
     MarginProps,

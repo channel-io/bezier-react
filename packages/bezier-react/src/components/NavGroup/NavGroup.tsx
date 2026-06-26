@@ -31,6 +31,9 @@ const NAV_GROUP_TEST_ID = 'bezier-nav-group'
  */
 const NAV_GROUP_LEFT_ICON_TEST_ID = 'bezier-nav-group-left-icon'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const NavGroup = forwardRef<HTMLButtonElement, NavGroupProps>(
   function NavGroup(
     {

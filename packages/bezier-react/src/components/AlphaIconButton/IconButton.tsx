@@ -25,6 +25,9 @@ function getIconSize(size: ButtonSize) {
   )[size]
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const IconButton = forwardRef<HTMLButtonElement, AlphaIconButtonProps>(
   function IconButton(
     {

@@ -20,6 +20,9 @@ interface OutlineItemOwnProps {
   disableChevron?: boolean
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface OutlineItemProps
   extends Omit<BezierComponentProps, keyof ContentProps>,
     PolymorphicProps,

@@ -13,6 +13,7 @@ const BADGE_TEST_ID = 'bezier-badge'
 
 /**
  * `Badge` is a component for representing badge, which consists of text and icon.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  * ```tsx
  * <Badge

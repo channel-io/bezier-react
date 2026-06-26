@@ -62,6 +62,9 @@ interface ToggleButtonOwnProps {
   onSelectedChange?: (selected: boolean) => void
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ToggleButtonProps
   extends Omit<BezierComponentProps<'button'>, keyof ToggleButtonOwnProps>,
     PolymorphicProps,

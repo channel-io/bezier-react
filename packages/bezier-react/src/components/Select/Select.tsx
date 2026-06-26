@@ -33,6 +33,9 @@ import styles from './Select.module.scss'
 
 export const SELECT_DROPDOWN_TEST_ID = 'bezier-select-dropdown'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const Select = forwardRef<SelectRef, SelectProps>(function Select(
   {
     children,

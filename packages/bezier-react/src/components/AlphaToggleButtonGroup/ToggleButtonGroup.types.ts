@@ -47,6 +47,9 @@ interface ToggleButtonGroupOwnProps<T extends string = 'single' | 'multiple'> {
     : (value: string[]) => void
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ToggleButtonSingleGroupProps
   extends Omit<
       BezierComponentProps<'div'>,
@@ -56,6 +59,9 @@ export interface ToggleButtonSingleGroupProps
     PolymorphicProps,
     ToggleButtonGroupOwnProps<'single'> {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ToggleButtonMultipleGroupProps
   extends Omit<
       BezierComponentProps<'div'>,

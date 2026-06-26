@@ -5,8 +5,14 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type CheckedState = boolean | 'indeterminate'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type CheckboxSize = 's' | 'm'
 
 interface CheckboxOwnProps<Checked extends CheckedState> {
@@ -41,6 +47,9 @@ interface CheckboxOwnProps<Checked extends CheckedState> {
   onCheckedChange?: (checked: Checked) => void
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface CheckboxProps<Checked extends CheckedState>
   extends Omit<BezierComponentProps<'button'>, keyof CheckboxOwnProps<Checked>>,
     ChildrenProps,

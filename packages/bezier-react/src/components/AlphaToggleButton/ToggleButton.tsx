@@ -33,6 +33,9 @@ function SideContent({
   )
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const ToggleButton = forwardRef<HTMLButtonElement, ToggleButtonProps>(
   function ToggleButton(
     {

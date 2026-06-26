@@ -23,6 +23,9 @@ export interface TargetRectAttr {
   clientLeft: number
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type OverlayPosition =
   | 'top-center'
   | 'top-left'
@@ -65,6 +68,9 @@ interface OverlayOwnProps {
   zIndex?: ZIndex
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface OverlayProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,

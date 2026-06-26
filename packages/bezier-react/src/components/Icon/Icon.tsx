@@ -13,6 +13,9 @@ import styles from './Icon.module.scss'
 
 export const ICON_TEST_ID = 'bezier-icon'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const Icon = memo(
   forwardRef<SVGSVGElement, IconProps>(function Icon(props, forwardedRef) {
     const [marginProps, marginRest] = splitByMarginProps(props)

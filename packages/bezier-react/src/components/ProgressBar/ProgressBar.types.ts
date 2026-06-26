@@ -4,8 +4,14 @@ import type {
   VariantProps,
 } from '~/src/types/props'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type ProgressBarSize = 'm' | 's'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type ProgressBarVariant = 'green' | 'green-alt' | 'monochrome'
 
 interface ProgressBarOwnProps {
@@ -23,6 +29,9 @@ interface ProgressBarOwnProps {
   value?: number
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ProgressBarProps
   extends BezierComponentProps<'div'>,
     SizeProps<ProgressBarSize>,

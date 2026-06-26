@@ -79,6 +79,7 @@ const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(
 /**
  * `FormHelperText` is a component to show the description of the input element.
  * `FormControl` component can handle its layout by `position` props.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  * ```tsx
  * <FormControl position="top">
@@ -113,6 +114,7 @@ export const FormHelperText = forwardRef<HTMLSpanElement, FormHelperTextProps>(
 /**
  * `FormErrorMessage` is a component to show error message when form values are invalid.
  * It should be used with `FormControl` component.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  * ```tsx
  * <FormControl>

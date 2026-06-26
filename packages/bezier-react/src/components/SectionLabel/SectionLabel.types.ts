@@ -25,6 +25,9 @@ interface SectionLabelOwnProps {
   help?: React.ReactNode
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface SectionLabelProps
   extends Omit<BezierComponentProps, keyof ContentProps>,
     ContentProps,

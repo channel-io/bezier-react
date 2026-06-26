@@ -16,6 +16,7 @@ import styles from './SmoothCornersBox.module.scss'
 /**
  * `SmoothCornersBox` is a simple `div` element with smooth corners.
  * It is available by enabling the `SmoothCornersFeature`.
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx

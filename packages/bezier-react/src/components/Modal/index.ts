@@ -1,4 +1,4 @@
-/** @deprecated v1 components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
+/** @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export {
   Modal,
   ModalBody,
@@ -9,7 +9,7 @@ export {
   ModalTrigger,
   useModalContainerContext,
 } from './Modal'
-/** @deprecated v1 components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
+/** @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
 export type {
   ModalBodyProps,
   ModalCloseProps,

@@ -15,8 +15,14 @@ import type {
   VariantProps,
 } from '~/src/types/props'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type ListItemSize = 'xs' | 's' | 'm' | 'l'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type ListItemVariant = 'blue' | 'red' | 'green' | 'cobalt' | 'monochrome'
 
 interface ListItemOwnProps {
@@ -24,6 +30,9 @@ interface ListItemOwnProps {
   descriptionMaxLines?: number
 }
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface ListItemProps
   extends Omit<BezierComponentProps, keyof ContentProps>,
     ContentProps,

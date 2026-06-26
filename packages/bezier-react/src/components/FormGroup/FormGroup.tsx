@@ -12,6 +12,9 @@ import { type FormGroupProps } from './FormGroup.types'
 
 const FORM_GROUP_TEST_ID = 'bezier-form-group'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export const FormGroup = forwardRef<HTMLDivElement, FormGroupProps>(
   function FormGroup(
     { spacing = 6, direction = 'vertical', role = 'group', children, ...rest },

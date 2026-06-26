@@ -11,6 +11,9 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type SegmentedControlSize = 'xs' | 's' | 'm' | 'l'
 
 export type SegmentedControlType = 'radiogroup' | 'tabs'
@@ -81,6 +84,9 @@ type SegmentedControlOwnProps<
 
 type RadixTabsPredefinedPropKeys = 'dir'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export type SegmentedControlProps<
   Type extends SegmentedControlType,
   Value extends string,
@@ -103,6 +109,9 @@ export interface SegmentedControlTabsProps<Value extends string>
 
 type RadixTabListPredefinedPropKeys = 'defaultValue'
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface SegmentedControlTabListProps
   extends Omit<BezierComponentProps<'div'>, RadixTabListPredefinedPropKeys>,
     ChildrenProps {}
@@ -114,6 +123,9 @@ export type SegmentedControlItemListProps<
   ? SegmentedControlRadioGroupProps<Value>
   : SegmentedControlTabListProps
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface SegmentedControlItemProps<Value extends string>
   extends Omit<
       BezierComponentProps<'button'>,
@@ -124,6 +136,9 @@ export interface SegmentedControlItemProps<Value extends string>
     SideContentProps,
     SegmentedControlItemOwnProps<Value> {}
 
+/**
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
+ */
 export interface SegmentedControlTabContentProps<Value extends string>
   extends BezierComponentProps<'div'>,
     ChildrenProps,

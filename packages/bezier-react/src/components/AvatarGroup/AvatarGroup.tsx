@@ -68,6 +68,7 @@ function getProperTypoSize(avatarSize: AvatarSize) {
 
 /**
  * `AvatarGroup` is a component for grouping `Avatar` components
+ * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
  * @example
  *
  * ```tsx
