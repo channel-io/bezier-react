@@ -1,5 +1,32 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.6
+
+### Patch Changes
+
+- Rename the next-generation component subpath and source directory from v3 to beta. ([#2857](https://github.com/channel-io/bezier-react/pull/2857)) by @timok1m
+
+- Update beta state tokens and state ring styling. ([#2859](https://github.com/channel-io/bezier-react/pull/2859)) by @timok1m
+
+  - Add beta `state.default`, `state.active`, and `state.warning` shadow tokens for input state styling, and keep the previous `state.input.*` tokens as deprecated aliases.
+  - Add beta typography `label` and `caption` tokens, and add `xx*` typography aliases while deprecating the previous `2x*` names.
+  - Replace beta input state mixins with direct state token usage.
+  - Rename beta non-input ring mixins to `focus-ring` and `error-ring`, and use outline-based rings.
+  - Update the Foundation color Storybook page ordering, swatch sizing, and text readability.
+
+- Mark v1 and v2 component/token exports and Storybook entries as deprecated. ([#2858](https://github.com/channel-io/bezier-react/pull/2858)) by @timok1m
+
+- Refine v3 tooltip, menu, select, and item row APIs. ([#2855](https://github.com/channel-io/bezier-react/pull/2855)) by @timok1m
+
+  Tooltip now defaults to `top-center` placement and renders description above content. `Help` follows the Tooltip default placement unless a placement is explicitly provided.
+
+  DropdownMenu item rows are fixed to the design-system medium item size. Select and MultiSelect option rows are also fixed to medium, while their root `size` prop has been replaced with `triggerSize` to describe the default trigger size explicitly.
+
+  String descriptions in BaseItem and SectionItem no longer apply multiline truncation by default.
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@1.0.0-next.4
+
 ## 4.0.0-next.5
 
 ### Minor Changes
