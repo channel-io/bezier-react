@@ -3,7 +3,10 @@ import { type ReactNode } from 'react'
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import {
-  type BezierComponentProps,
+  type BaseButtonAnchorProps,
+  type BaseButtonButtonProps,
+} from '~/src/beta/BaseButton'
+import {
   type DisableProps,
   type LeadingTrailingContentProps,
   type SizeProps,
@@ -49,8 +52,8 @@ interface ButtonOwnProps
 
 interface ButtonButtonProps
   extends Omit<
-    BezierComponentProps<'button'>,
-    keyof ButtonOwnProps | 'children' | 'color' | 'as'
+    BaseButtonButtonProps,
+    keyof ButtonOwnProps | 'color' | 'type'
   > {
   as?: 'button'
   /**
@@ -65,16 +68,13 @@ interface ButtonButtonProps
 
 interface ButtonAnchorProps
   extends Omit<
-    BezierComponentProps<'a'>,
-    keyof ButtonOwnProps | 'children' | 'color' | 'as' | 'type'
-  > {
-  as: 'a'
-  type?: never
-}
+    BaseButtonAnchorProps,
+    keyof ButtonOwnProps | 'color'
+  > {}
 
 interface ButtonCustomElementProps
   extends Omit<
-    BezierComponentProps,
+    React.HTMLAttributes<HTMLElement>,
     keyof ButtonOwnProps | 'children' | 'color' | 'as'
   > {
   /**

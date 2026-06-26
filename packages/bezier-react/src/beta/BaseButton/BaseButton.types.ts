@@ -6,14 +6,14 @@ import {
 
 interface BaseButtonOwnProps extends ChildrenProps, DisableProps {}
 
-type BaseButtonButtonProps = Omit<
+export type BaseButtonButtonProps = Omit<
   BezierComponentProps<'button'>,
   keyof BaseButtonOwnProps | 'as'
 > & {
   as?: 'button'
 }
 
-type BaseButtonAnchorProps = Omit<
+export type BaseButtonAnchorProps = Omit<
   BezierComponentProps<'a'>,
   keyof BaseButtonOwnProps | 'as' | 'type'
 > & {
