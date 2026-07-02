@@ -51,6 +51,12 @@ const SELECT_SELECTED_VALUE_COUNT_GAP = 8
 
 const noop = () => {}
 
+function getMultiSelectTagSize(
+  triggerSize: NonNullable<MultiSelectProps['triggerSize']>
+) {
+  return triggerSize === 'l' ? 'm' : 's'
+}
+
 export const MultiSelect = forwardRef(function MultiSelect<
   Value extends MultiSelectValue,
 >(
@@ -373,6 +379,7 @@ function DefaultMultiSelectTrigger<Value extends MultiSelectValue>({
   const triggerRef = useMergeRefs(
     triggerProps.ref as React.RefCallback<HTMLDivElement>
   )
+  const tagSize = getMultiSelectTagSize(triggerSize)
 
   return (
     <div
@@ -415,7 +422,7 @@ function DefaultMultiSelectTrigger<Value extends MultiSelectValue>({
               {visibleSelectedOptions.map((option) => (
                 <Tag
                   key={option.value}
-                  size={triggerSize === 'l' ? 'l' : 'm'}
+                  size={tagSize}
                   variant="default"
                   onDelete={(event) => {
                     event.preventDefault()
@@ -437,7 +444,7 @@ function DefaultMultiSelectTrigger<Value extends MultiSelectValue>({
                       data-b-select-measure-tag="true"
                     >
                       <Tag
-                        size={triggerSize === 'l' ? 'l' : 'm'}
+                        size={tagSize}
                         variant="default"
                         onDelete={noop}
                       >

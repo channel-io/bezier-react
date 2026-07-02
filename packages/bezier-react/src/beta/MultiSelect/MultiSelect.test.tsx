@@ -1,6 +1,7 @@
 import { TagIcon } from '@channel.io/bezier-icons'
 import userEvent from '@testing-library/user-event'
 
+import baseTagBadgeStyles from '~/src/beta/BaseTagBadge/BaseTagBadge.module.scss'
 import { render } from '~/src/utils/test'
 
 import {
@@ -61,7 +62,7 @@ describe('MultiSelect', () => {
     const user = userEvent.setup()
     const onValueChange = jest.fn()
 
-    const { getAllByRole } = render(
+    const { getAllByRole, getByText } = render(
       <MultiSelect
         value={['sales', 'support']}
         onValueChange={onValueChange}
@@ -77,9 +78,31 @@ describe('MultiSelect', () => {
       </MultiSelect>
     )
 
+    expect(getByText('Sales').parentElement).toHaveClass(
+      baseTagBadgeStyles['size-s']
+    )
+
     await user.click(getAllByRole('button', { name: 'Delete tag' })[0])
 
     expect(onValueChange).toHaveBeenCalledWith(['support'])
+  })
+
+  it('renders selected values with medium tags when trigger size is large', () => {
+    const { getByText } = render(
+      <MultiSelect
+        value={['sales']}
+        triggerSize="l"
+      >
+        <MultiSelectOption
+          value="sales"
+          label="Sales"
+        />
+      </MultiSelect>
+    )
+
+    expect(getByText('Sales').parentElement).toHaveClass(
+      baseTagBadgeStyles['size-m']
+    )
   })
 
   it('keeps the dropdown open when a selected tag is removed from the default trigger', async () => {

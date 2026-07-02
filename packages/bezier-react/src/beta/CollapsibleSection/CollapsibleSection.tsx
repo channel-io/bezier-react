@@ -7,6 +7,7 @@ import {
   ChevronSmallDownIcon,
   ChevronSmallUpIcon,
 } from '@channel.io/bezier-icons'
+import classNames from 'classnames'
 
 
 
@@ -104,6 +105,7 @@ export const CollapsibleSection = forwardRef<
 })
 
 export function CollapsibleSectionTrigger({
+  className,
   content,
   disabled: disabledProp = false,
   help,
@@ -128,6 +130,7 @@ export function CollapsibleSectionTrigger({
           <SectionLabel
             {...labelProps}
             id={id}
+            className={classNames(styles.Trigger, className)}
             aria-controls={ariaControls}
             aria-expanded={ariaExpanded}
             aria-disabled={ariaDisabled}

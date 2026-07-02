@@ -1,3 +1,11 @@
+.Trigger {
+  &:where(:not([aria-disabled='true'])) {
+    &:hover {
+      background-color: var(--color-fill-neutral-lighter);
+    }
+  }
+}
+
 .TriggerContent {
   display: inline-flex;
   gap: 8px;

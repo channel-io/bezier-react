@@ -4,6 +4,7 @@ import { AllIcon } from '@channel.io/bezier-icons'
 
 
 import baseTagBadgeStyles from '~/src/beta/BaseTagBadge/BaseTagBadge.module.scss'
+import { colorTokenCssVar } from '~/src/utils/style'
 import { render } from '~/src/utils/test'
 
 import { Badge } from './Badge'
@@ -32,10 +33,16 @@ describe('Badge', () => {
   })
 
   it('should render icon when icon is given', () => {
-    const { container } = renderBadge({ icon: AllIcon })
+    const { container } = renderBadge({
+      icon: AllIcon,
+      variant: 'blue',
+    })
     const icon = container.querySelector('svg')
 
     expect(icon).toBeInTheDocument()
+    expect(icon).toHaveStyle(
+      `--b-beta-icon-color: ${colorTokenCssVar('icon-accent-blue')}`
+    )
   })
 
   it('should render without text when children is empty', () => {
