@@ -1,5 +1,22 @@
 # @channel.io/bezier-icons
 
+## 0.60.0
+
+### Minor Changes
+
+- Update icons ([#2867](https://github.com/channel-io/bezier-react/pull/2867)) by @wes5510
+
+  Added
+
+  - chat-bubble-private.svg
+  - database-filled.svg
+  - database.svg
+  - plug.svg
+
+  Modified
+
+  - notebook-cos.svg
+
 ## 0.59.0
 
 ### Minor Changes
