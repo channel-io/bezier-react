@@ -49,7 +49,7 @@ const meta: Meta<typeof Icon> = {
         defaultValue: { summary: '"24"' },
       },
     },
-    // `color` accepts any beta semantic color token (`BetaColorProps`), so it is
+    // `color` accepts any beta semantic color token (`ColorProps`), so it is
     // left as a free-text control rather than a restricted option list.
     color: {
       control: 'text',

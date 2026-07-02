@@ -1,8 +1,8 @@
 import type {
-  BetaLayoutProps,
-  BetaMarginProps,
   BezierComponentProps,
   ChildrenProps,
+  LayoutProps,
+  MarginProps,
   PolymorphicProps,
 } from '~/src/types/props'
 
@@ -19,6 +19,6 @@ export interface BoxProps
   extends Omit<BezierComponentProps<'div'>, keyof BoxOwnProps>,
     PolymorphicProps,
     ChildrenProps,
-    BetaMarginProps,
-    BetaLayoutProps,
+    MarginProps,
+    LayoutProps,
     BoxOwnProps {}

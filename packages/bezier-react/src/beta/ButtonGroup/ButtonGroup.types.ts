@@ -1,8 +1,8 @@
 import { type HStackProps } from '~/src/beta/HStack'
 import type {
-  BetaMarginProps,
   BezierComponentProps,
   ChildrenProps,
+  MarginProps,
 } from '~/src/types/props'
 
 interface ButtonGroupOwnProps {
@@ -16,6 +16,6 @@ interface ButtonGroupOwnProps {
 export interface ButtonGroupProps
   extends Omit<BezierComponentProps<'div'>, 'role'>,
     ChildrenProps,
-    BetaMarginProps,
+    MarginProps,
     Pick<HStackProps, 'justify'>,
     ButtonGroupOwnProps {}

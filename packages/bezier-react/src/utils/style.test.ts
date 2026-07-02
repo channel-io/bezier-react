@@ -91,17 +91,6 @@ describe('style', () => {
       )
     })
 
-    it('formats v1 semantic color tokens without color- prefix', () => {
-      expect(colorTokenCssVar('bg-black-light' as any)).toBe(
-        'var(--bg-black-light)'
-      )
-      expect(colorTokenCssVar('bgtxt-blue-normal' as any)).toBe(
-        'var(--bgtxt-blue-normal)'
-      )
-      expect(colorTokenCssVar('bdr-black-dark' as any)).toBe(
-        'var(--bdr-black-dark)'
-      )
-    })
   })
 
   describe('cssUrl', () => {

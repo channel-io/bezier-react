@@ -1,6 +1,6 @@
 import type {
-  BetaColorProps,
   BezierComponentProps,
+  ColorProps,
   SizeProps,
 } from '~/src/types/props'
 
@@ -16,6 +16,6 @@ export type SpinnerSize =
   | '48'
 
 export interface SpinnerProps
-  extends Omit<BezierComponentProps<'div'>, keyof BetaColorProps>,
+  extends Omit<BezierComponentProps<'div'>, keyof ColorProps>,
     SizeProps<SpinnerSize>,
-    BetaColorProps {}
+    ColorProps {}

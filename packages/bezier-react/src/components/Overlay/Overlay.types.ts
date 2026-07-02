@@ -1,9 +1,9 @@
+import { type BetaZIndex } from '~/src/types/beta-tokens'
 import {
   type AdditionalOverridableStyleProps,
   type BezierComponentProps,
   type ChildrenProps,
 } from '~/src/types/props'
-import { type ZIndex } from '~/src/types/tokens'
 
 export interface ContainerRectAttr {
   containerWidth: number
@@ -65,7 +65,7 @@ interface OverlayOwnProps {
    * z-index of the overlay.
    * @default 'overlay'
    */
-  zIndex?: ZIndex
+  zIndex?: BetaZIndex
 }
 
 /**

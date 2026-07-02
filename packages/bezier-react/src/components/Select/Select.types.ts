@@ -13,7 +13,6 @@ import type {
   SideContentProps,
   SizeProps,
 } from '~/src/types/props'
-import { type ZIndex } from '~/src/types/tokens'
 
 import type { OverlayProps } from '~/src/components/Overlay'
 
@@ -34,7 +33,7 @@ interface SelectOwnProps {
   dropdownContainer?: HTMLElement | null
   dropdownMarginX?: OverlayProps['marginX']
   dropdownMarginY?: OverlayProps['marginY']
-  dropdownZIndex?: ZIndex | BetaZIndex
+  dropdownZIndex?: BetaZIndex
   dropdownPosition?: OverlayProps['position']
   dropdownKeepInContainer?: OverlayProps['keepInContainer']
   onClickTrigger?: React.MouseEventHandler

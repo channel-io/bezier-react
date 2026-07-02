@@ -9,15 +9,6 @@ import type {
   BetaTextSemanticColor,
   BetaZIndex,
 } from './beta-tokens'
-import type {
-  BackgroundSemanticColor,
-  BackgroundTextSemanticColor,
-  BorderSemanticColor,
-  Elevation,
-  Radius,
-  SemanticColor,
-  ZIndex,
-} from './tokens'
 
 /**
  * Props for overriding default styles of components. Intended for exceptional use cases where default styles need customization.
@@ -166,7 +157,7 @@ export interface ColorProps {
   /**
    * Color from the design system's semantic color.
    */
-  color?: SemanticColor | BetaSemanticColor
+  color?: BetaSemanticColor
 }
 
 /**
@@ -205,7 +196,7 @@ export type AdditionalOverridableStyleProps<ElementName extends PropNameType> =
  * Props for adding color properties to named elements within a component.
  */
 export type AdditionalColorProps<ElementName extends PropNameType> =
-  AdditionalProps<ElementName, 'color', SemanticColor | BetaSemanticColor>
+  AdditionalProps<ElementName, 'color', BetaSemanticColor>
 
 /**
  * Props for components that can be activated or deactivated.
@@ -286,11 +277,8 @@ export interface MarginProps {
   marginLeft?: React.CSSProperties['marginLeft']
 }
 
-type Position = 'absolute' | 'fixed' | 'relative' | 'sticky'
-type Overflow = 'auto' | 'hidden' | 'scroll' | 'visible'
-
-export type BetaPosition = Position
-export type BetaOverflow = Overflow
+export type Position = 'absolute' | 'fixed' | 'relative' | 'sticky'
+export type Overflow = 'auto' | 'hidden' | 'scroll' | 'visible'
 
 /**
  * Props for defining layout-related properties of a component, such as padding, size, and position.
@@ -408,24 +396,22 @@ export interface LayoutProps {
   grow?: React.CSSProperties['flexGrow']
   /**
    * the background color of an element.
-   * @todo @timo BetaTextSemanticColor is included for v1 component compatibility. beta components should use only BetaBackgroundSemanticColor for proper semantic usage.
+   * @todo @timo BetaTextSemanticColor is included for existing component compatibility. components should use only BetaBackgroundSemanticColor for proper semantic usage.
    * @default initial
    */
   backgroundColor?:
-    | BackgroundSemanticColor
-    | BackgroundTextSemanticColor
     | BetaBackgroundSemanticColor
     | BetaTextSemanticColor
   /**
    * the border color of an element.
    * @default initial
    */
-  borderColor?: BorderSemanticColor | BetaBorderSemanticColor
+  borderColor?: BetaBorderSemanticColor
   /**
    * the border radius of an element.
    * @default initial
    */
-  borderRadius?: Radius | BetaRadius
+  borderRadius?: BetaRadius
   /**
    * the border width of an element.
    * @default 0
@@ -455,12 +441,12 @@ export interface LayoutProps {
    * the elevation of an element. (box-shadow)
    * @default initial
    */
-  elevation?: Elevation | BetaElevation
+  elevation?: BetaElevation
   /**
    * the z-index of an element.
    * @default initial
    */
-  zIndex?: ZIndex | BetaZIndex
+  zIndex?: BetaZIndex
   /**
    * the overflow of an element.
    * @default initial
@@ -476,55 +462,6 @@ export interface LayoutProps {
    * @default initial
    */
   overflowY?: Overflow
-}
-
-export type BetaMarginProps = MarginProps
-
-/**
- * Beta color props mirror ColorProps but only allow beta semantic color tokens.
- * TODO: Fold this into ColorProps when legacy token unions are removed for 4.0.0.
- */
-export interface BetaColorProps {
-  /**
-   * Color from the design system's semantic color.
-   */
-  color?: BetaSemanticColor
-}
-
-/**
- * Beta layout props mirror LayoutProps while keeping token-typed fields narrow.
- * TODO: Fold this into LayoutProps when legacy token unions are removed for 4.0.0.
- */
-export interface BetaLayoutProps
-  extends Omit<
-    LayoutProps,
-    'backgroundColor' | 'borderColor' | 'borderRadius' | 'elevation' | 'zIndex'
-  > {
-  /**
-   * the background color of an element.
-   * @default initial
-   */
-  backgroundColor?: BetaBackgroundSemanticColor
-  /**
-   * the border color of an element.
-   * @default initial
-   */
-  borderColor?: BetaBorderSemanticColor
-  /**
-   * the border radius of an element.
-   * @default initial
-   */
-  borderRadius?: BetaRadius
-  /**
-   * the elevation of an element. (box-shadow)
-   * @default initial
-   */
-  elevation?: BetaElevation
-  /**
-   * the z-index of an element.
-   * @default initial
-   */
-  zIndex?: BetaZIndex
 }
 
 /**

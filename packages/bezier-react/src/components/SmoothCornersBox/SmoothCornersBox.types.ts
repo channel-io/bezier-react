@@ -4,7 +4,6 @@ import type {
   ChildrenProps,
   DisableProps,
 } from '~/src/types/props'
-import { type SemanticColor } from '~/src/types/tokens'
 
 /**
  * NOTE: The `inset` property is not currently supported.
@@ -34,7 +33,7 @@ interface BoxShadow {
    * The color of the shadow.
    * @default transparent
    */
-  color?: SemanticColor | BetaSemanticColor
+  color?: BetaSemanticColor
 }
 
 interface SmoothCornersBoxOwnProps {
@@ -56,7 +55,7 @@ interface SmoothCornersBoxOwnProps {
    * The background color of an element.
    * @default 'transparent'
    */
-  backgroundColor?: SemanticColor | BetaSemanticColor
+  backgroundColor?: BetaSemanticColor
   /**
    * The background image url of an element.
    */

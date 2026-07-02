@@ -7,10 +7,10 @@ import classNames from 'classnames'
 
 
 import {
-  getBetaLayoutStyles,
-  getBetaMarginStyles,
-  splitByBetaLayoutProps,
-  splitByBetaMarginProps,
+  getLayoutStyles,
+  getMarginStyles,
+  splitByLayoutProps,
+  splitByMarginProps,
 } from '~/src/types/props-helpers'
 
 import type { BoxProps } from './Box.types'
@@ -36,10 +36,10 @@ import styles from './Box.module.scss'
  */
 export const Box = forwardRef<HTMLElement, BoxProps>(
   function Box(props, forwardedRef) {
-    const [marginProps, marginRest] = splitByBetaMarginProps(props)
-    const [layoutProps, layoutRest] = splitByBetaLayoutProps(marginRest)
-    const marginStyles = getBetaMarginStyles(marginProps)
-    const layoutStyles = getBetaLayoutStyles(layoutProps)
+    const [marginProps, marginRest] = splitByMarginProps(props)
+    const [layoutProps, layoutRest] = splitByLayoutProps(marginRest)
+    const marginStyles = getMarginStyles(marginProps)
+    const layoutStyles = getLayoutStyles(layoutProps)
 
     const {
       children,

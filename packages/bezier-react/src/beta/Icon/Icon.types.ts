@@ -1,9 +1,9 @@
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
 import {
-  type BetaColorProps,
-  type BetaMarginProps,
   type BezierComponentProps,
+  type ColorProps,
+  type MarginProps,
   type SizeProps,
 } from '~/src/types/props'
 
@@ -25,8 +25,8 @@ interface IconOwnProps {
 }
 
 export interface IconProps
-  extends Omit<BezierComponentProps<'svg'>, keyof BetaColorProps>,
-    BetaMarginProps,
+  extends Omit<BezierComponentProps<'svg'>, keyof ColorProps>,
+    MarginProps,
     SizeProps<IconSize>,
-    BetaColorProps,
+    ColorProps,
     IconOwnProps {}

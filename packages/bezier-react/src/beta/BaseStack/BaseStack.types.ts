@@ -1,8 +1,8 @@
 import {
-  type BetaLayoutProps,
-  type BetaMarginProps,
   type BezierComponentProps,
   type ChildrenProps,
+  type LayoutProps,
+  type MarginProps,
   type PolymorphicProps,
 } from '~/src/types/props'
 
@@ -50,8 +50,8 @@ export interface BaseStackProps
   extends BezierComponentProps,
     PolymorphicProps,
     ChildrenProps,
-    BetaLayoutProps,
-    BetaMarginProps,
+    LayoutProps,
+    MarginProps,
     BaseStackOwnProps {}
 
 export interface HStackProps extends Omit<BaseStackProps, 'direction'> {}

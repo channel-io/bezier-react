@@ -4,12 +4,12 @@ import type { BezierIcon } from '@channel.io/bezier-icons'
 
 import type {
   ActivatableProps,
-  BetaMarginProps,
   BezierComponentProps,
   ChildrenProps,
   ContentProps,
   DisableProps,
   LeadingTrailingContentProps,
+  MarginProps,
 } from '~/src/types/props'
 
 export type SectionItemSideContent = BezierIcon | ReactNode
@@ -54,7 +54,7 @@ interface SectionItemOwnProps
 export interface SectionProps
   extends Omit<BezierComponentProps<'section'>, 'children'>,
     ChildrenProps,
-    BetaMarginProps {}
+    MarginProps {}
 
 export interface SectionLabelProps
   extends Omit<

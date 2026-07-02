@@ -2,8 +2,8 @@ import type React from 'react'
 
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
+import { type BetaZIndex } from '~/src/types/beta-tokens'
 import { type ChildrenProps, type ContentProps } from '~/src/types/props'
-import { type ZIndex } from '~/src/types/tokens'
 
 /**
  * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
@@ -28,7 +28,7 @@ interface ToastOwnProps {
   /**
    * @deprecated Use `zIndex` of `ToastProvider` instead
    */
-  zIndex?: ZIndex
+  zIndex?: BetaZIndex
   autoDismiss?: boolean
   autoDismissTimeout?: number
   /**
@@ -62,7 +62,7 @@ interface ToastProviderOwnProps {
    * z-index level of the Toast container
    * @default 'toast'
    */
-  zIndex?: ZIndex
+  zIndex?: BetaZIndex
 }
 
 /**

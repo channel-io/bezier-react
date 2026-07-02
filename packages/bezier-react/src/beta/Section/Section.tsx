@@ -11,8 +11,8 @@ import classNames from 'classnames'
 import { Help } from '~/src/beta/Help'
 import { Text } from '~/src/beta/Text'
 import {
-  getBetaMarginStyles,
-  splitByBetaMarginProps,
+  getMarginStyles,
+  splitByMarginProps,
 } from '~/src/types/props-helpers'
 import { createContext } from '~/src/utils/react'
 
@@ -261,8 +261,8 @@ export const SectionLabel = forwardRef<HTMLDivElement, SectionLabelProps>(
 
 const SectionRoot = forwardRef<HTMLElement, SectionProps>(
   function Section(props, forwardedRef) {
-    const [marginProps, marginRest] = splitByBetaMarginProps(props)
-    const marginStyles = getBetaMarginStyles(marginProps)
+    const [marginProps, marginRest] = splitByMarginProps(props)
+    const marginStyles = getMarginStyles(marginProps)
     const generatedLabelId = useId()
     const [labelCount, setLabelCount] = useState(0)
 

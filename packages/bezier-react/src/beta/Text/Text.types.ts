@@ -3,9 +3,9 @@ import {
   type BetaTypographyFontWeight,
 } from '~/src/types/beta-tokens'
 import {
-  type BetaMarginProps,
   type BezierComponentProps,
   type ChildrenProps,
+  type MarginProps,
   type PolymorphicProps,
 } from '~/src/types/props'
 
@@ -66,5 +66,5 @@ export interface TextProps
   extends Omit<BezierComponentProps, keyof TextOwnProps>,
     PolymorphicProps,
     ChildrenProps,
-    BetaMarginProps,
+    MarginProps,
     TextOwnProps {}

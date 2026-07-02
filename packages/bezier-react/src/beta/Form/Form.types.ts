@@ -1,10 +1,10 @@
 import { type TextProps } from '~/src/beta/Text'
 import type {
   FormFieldProps as BaseFormFieldProps,
-  BetaMarginProps,
   BezierComponentProps,
   ChildrenProps,
   IdentifierProps,
+  MarginProps,
   SizeProps,
 } from '~/src/types/props'
 
@@ -91,7 +91,7 @@ interface FormLabelOwnProps {
 }
 
 export interface FormLabelProps
-  extends Omit<TextProps, keyof BetaMarginProps>,
+  extends Omit<TextProps, keyof MarginProps>,
     ChildrenProps,
     Partial<IdentifierProps>,
     FormLabelOwnProps {}
@@ -101,7 +101,7 @@ interface BaseHelperTextOwnProps {
 }
 
 export interface BaseHelperTextProps
-  extends Omit<TextProps, keyof BetaMarginProps>,
+  extends Omit<TextProps, keyof MarginProps>,
     ChildrenProps,
     Partial<IdentifierProps>,
     BaseHelperTextOwnProps {}
