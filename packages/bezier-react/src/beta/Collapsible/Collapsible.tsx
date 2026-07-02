@@ -27,9 +27,6 @@ import type {
 
 import styles from './Collapsible.module.scss'
 
-
-
-
 export const COLLAPSIBLE_TEST_ID = 'bezier-beta-collapsible'
 export const COLLAPSIBLE_CONTENT_TEST_ID = 'bezier-beta-collapsible-content'
 
@@ -82,14 +79,6 @@ function getButtonTriggerProps({
   }
 }
 
-/**
- * Internal disclosure primitive for purpose-built components such as
- * `CollapsibleSection`.
- *
- * Keep this out of the public beta barrel until concrete product usage proves
- * that a low-level escape hatch is needed. Adding a public primitive later is
- * cheap, but removing it after consumers depend on it is not.
- */
 export const Collapsible = forwardRef<HTMLDivElement, CollapsibleProps>(
   function Collapsible(
     {

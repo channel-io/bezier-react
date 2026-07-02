@@ -1,0 +1,192 @@
+@use '../../styles/mixins/state';
+
+@mixin navigation-row-surface {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 32px;
+  padding: 6px 8px;
+
+  color: var(--color-text-neutral);
+  text-align: inherit;
+  text-decoration: none;
+
+  background-color: transparent;
+  border: 0;
+  border-radius: var(--radius-8);
+  outline: none;
+
+  transition:
+    background-color var(--motion-transition-fast),
+    color var(--motion-transition-fast);
+
+  &:where(.interactive) {
+    cursor: pointer;
+  }
+
+  &:where(.disabled) {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:where(:focus-visible) {
+    @include state.focus-ring($gap: 0);
+  }
+}
+
+.Icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--color-icon-neutral-heavy);
+}
+
+.NavigationList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.NavigationGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.NavigationGroupContent {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 36px;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 18px;
+
+    width: 1px;
+
+    background-color: var(--color-border-neutral);
+  }
+}
+
+.NavigationItem {
+  @include navigation-row-surface;
+
+  &:where(.active) {
+    background-color: var(--color-fill-neutral-light);
+  }
+
+  &:where(.interactive:not(.disabled, .active)) {
+    &:hover {
+      background-color: var(--color-fill-neutral-lighter);
+    }
+  }
+}
+
+.NavigationGroupTrigger {
+  @include navigation-row-surface;
+
+  &:where(.interactive:not(.disabled)) {
+    &:hover {
+      background-color: var(--color-fill-neutral-lighter);
+    }
+  }
+}
+
+.ItemContent,
+.GroupTriggerContent {
+  overflow: hidden;
+  display: grid;
+  gap: 0 8px;
+  min-width: 0;
+}
+
+.ItemContent {
+  grid-template-columns: fit-content(100%) minmax(0, 1fr);
+  flex: 1 1 auto;
+}
+
+.GroupTriggerContent {
+  grid-template-columns: fit-content(100%) minmax(0, max-content) fit-content(
+      100%
+    );
+  flex: 0 1 auto;
+}
+
+.LeadingContent {
+  display: flex;
+  grid-column: 1;
+  grid-row: 1;
+  align-items: center;
+
+  width: 20px;
+  height: 20px;
+}
+
+.MainContent {
+  overflow: hidden;
+  display: flex;
+  grid-column: 2;
+  grid-row: 1;
+  align-items: center;
+
+  min-width: 0;
+}
+
+.ItemContent:where(.without-leading-content) {
+  grid-template-columns: minmax(0, 1fr);
+
+  .MainContent {
+    grid-column: 1;
+  }
+}
+
+.ContentSuffix {
+  display: flex;
+  grid-column: 3;
+  grid-row: 1;
+  align-items: center;
+}
+
+.GroupTriggerContent:where(.without-leading-content) {
+  grid-template-columns: minmax(0, max-content) fit-content(100%);
+
+  .MainContent {
+    grid-column: 1;
+  }
+
+  .ContentSuffix {
+    grid-column: 2;
+  }
+}
+
+.TrailingContent {
+  display: flex;
+  flex-shrink: 0;
+  gap: 8px;
+  align-items: center;
+
+  margin-left: auto;
+
+  color: var(--color-text-neutral-light);
+  white-space: nowrap;
+}
+
+.Chevron {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--color-icon-neutral-heavy);
+}
