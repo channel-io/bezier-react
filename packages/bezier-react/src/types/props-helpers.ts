@@ -1,6 +1,5 @@
 import classNames from 'classnames'
 
-
 // NOTE: 'typescript-plugin-css-modules' does not support path alias
 /* eslint-disable no-restricted-imports */
 import { colorTokenCssVar, cssDimension } from '~/src/utils/style'
@@ -18,15 +17,7 @@ import {
   type BetaRadius,
   type BetaZIndex,
 } from './beta-tokens'
-import {
-  type BetaLayoutProps,
-  type BetaMarginProps,
-  type FormFieldSize,
-  type LayoutProps,
-  type MarginProps,
-} from './props'
-import { type Elevation, type Radius, type ZIndex } from './tokens'
-
+import { type FormFieldSize, type LayoutProps, type MarginProps } from './props'
 
 export const splitByMarginProps = <Props extends MarginProps>({
   margin,
@@ -128,25 +119,15 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
   rest,
 ]
 
-export const splitByBetaMarginProps = <Props extends BetaMarginProps>(
-  props: Props
-): [BetaMarginProps, Omit<Props, keyof BetaMarginProps>] =>
-  splitByMarginProps(props)
-
-export const splitByBetaLayoutProps = <Props extends BetaLayoutProps>(
-  props: Props
-): [BetaLayoutProps, Omit<Props, keyof BetaLayoutProps>] =>
-  splitByLayoutProps(props) as [BetaLayoutProps, Omit<Props, keyof BetaLayoutProps>]
-
-function getElevationClassName(elevation: Elevation | BetaElevation) {
+function getElevationClassName(elevation: BetaElevation) {
   return elevationStyles[`elevation-${elevation}`]
 }
 
-function getRadiusClassName(radius: Radius | BetaRadius) {
+function getRadiusClassName(radius: BetaRadius) {
   return radiusStyles[`radius-${radius}`]
 }
 
-export function getZIndexClassName(zIndex: ZIndex | BetaZIndex) {
+export function getZIndexClassName(zIndex: BetaZIndex) {
   return zIndexStyles[`z-index-${zIndex}`]
 }
 
@@ -249,11 +230,6 @@ export const getLayoutStyles = ({
     zIndex && getZIndexClassName(zIndex)
   ),
 })
-
-export const getBetaMarginStyles = getMarginStyles
-
-export const getBetaLayoutStyles = (props: BetaLayoutProps) =>
-  getLayoutStyles(props)
 
 export function getFormFieldSizeClassName(size: FormFieldSize) {
   return formFieldSizeStyles[`size-${size}`]

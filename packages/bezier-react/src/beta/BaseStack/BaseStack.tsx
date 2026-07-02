@@ -5,10 +5,10 @@ import { createElement, forwardRef } from 'react'
 import classNames from 'classnames'
 
 import {
-  getBetaLayoutStyles,
-  getBetaMarginStyles,
-  splitByBetaLayoutProps,
-  splitByBetaMarginProps,
+  getLayoutStyles,
+  getMarginStyles,
+  splitByLayoutProps,
+  splitByMarginProps,
 } from '~/src/types/props-helpers'
 import { cssDimension } from '~/src/utils/style'
 
@@ -24,10 +24,10 @@ import styles from './BaseStack.module.scss'
  */
 export const BaseStack = forwardRef<HTMLElement, BaseStackProps>(
   function BaseStack(props, forwardedRef) {
-    const [marginProps, marginRest] = splitByBetaMarginProps(props)
-    const [layoutProps, layoutRest] = splitByBetaLayoutProps(marginRest)
-    const marginStyles = getBetaMarginStyles(marginProps)
-    const layoutStyles = getBetaLayoutStyles(layoutProps)
+    const [marginProps, marginRest] = splitByMarginProps(props)
+    const [layoutProps, layoutRest] = splitByLayoutProps(marginRest)
+    const marginStyles = getMarginStyles(marginProps)
+    const layoutStyles = getLayoutStyles(layoutProps)
 
     const {
       children,

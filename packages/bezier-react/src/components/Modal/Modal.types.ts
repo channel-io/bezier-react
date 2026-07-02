@@ -1,9 +1,9 @@
+import { type BetaZIndex } from '~/src/types/beta-tokens'
 import {
   type BezierComponentProps,
   type ChildrenProps,
   type SideContentProps,
 } from '~/src/types/props'
-import { type ZIndex } from '~/src/types/tokens'
 
 /**
  * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.
@@ -72,7 +72,7 @@ interface ModalContentOwnProps {
    * Rather than using this option, Please check modal is positioned in the proper stacking context.
    * @default 'modal'
    */
-  zIndex?: ZIndex
+  zIndex?: BetaZIndex
 
   /**
    * Determine padding of overlay that contains modal content.

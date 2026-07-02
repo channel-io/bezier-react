@@ -2,7 +2,6 @@ import type {
   BetaFlattenAllToken,
   BetaSemanticColor,
 } from '~/src/types/beta-tokens'
-import type { FlattenAllToken, SemanticColor } from '~/src/types/tokens'
 
 import { isNil, isString } from './type'
 
@@ -54,7 +53,6 @@ export function cssVar<PropertyName extends string | undefined>(
  */
 export function tokenCssVar<
   PropertyName extends
-    | FlattenAllToken
     | Exclude<BetaFlattenAllToken, BetaSemanticColor>
     | undefined,
 >(propertyName: PropertyName) {
@@ -67,28 +65,10 @@ export function tokenCssVar<
  * (e.g. `text-neutral` -> `var(--color-text-neutral)`).
  */
 export function colorTokenCssVar<
-  PropertyName extends SemanticColor | BetaSemanticColor | undefined,
+  PropertyName extends BetaSemanticColor | undefined,
 >(propertyName: PropertyName) {
   if (!propertyName) {
     return undefined
-  }
-
-  const betaColorTokenPrefixes = [
-    'text',
-    'icon',
-    'fill',
-    'border',
-    'surface',
-    'dim',
-    'state',
-    'elevation',
-  ]
-
-  /** @todo @timo Remove this condition in the next major release. */
-  if (
-    !betaColorTokenPrefixes.some((prefix) => propertyName.startsWith(prefix))
-  ) {
-    return cssVar(`${propertyName}`)
   }
 
   return cssVar(`color-${propertyName}`)

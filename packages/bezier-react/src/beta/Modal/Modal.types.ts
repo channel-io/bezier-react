@@ -1,9 +1,9 @@
+import { type BetaZIndex } from '~/src/types/beta-tokens'
 import {
   type BezierComponentProps,
   type ChildrenProps,
   type SideContentProps,
 } from '~/src/types/props'
-import { type ZIndex } from '~/src/types/tokens'
 
 export type ModalTitleSize = 'l' | 'm'
 export type ModalContentType = 'default' | 'confirm'
@@ -80,7 +80,7 @@ interface ModalContentOwnProps {
    * Rather than using this option, Please check modal is positioned in the proper stacking context.
    * @default 'modal'
    */
-  zIndex?: ZIndex
+  zIndex?: BetaZIndex
 
   /**
    * Determine padding of overlay that contains modal content.
