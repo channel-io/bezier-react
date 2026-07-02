@@ -36,13 +36,20 @@
 }
 
 .DropdownMenuGroupLabel {
-  padding: 6px 8px 4px;
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+  height: 32px;
+  padding: 0 8px;
 
   font-family: var(--typography-text-font-family);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
-  line-height: 16px;
+  line-height: 18px;
   color: var(--color-text-neutral-lighter);
+
+  border-radius: var(--radius-8);
 }
 
 .DropdownMenuGroupContent {

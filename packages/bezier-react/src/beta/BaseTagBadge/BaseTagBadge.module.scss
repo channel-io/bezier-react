@@ -4,6 +4,7 @@
   align-items: center;
 
   box-sizing: border-box;
+  height: var(--b-tag-badge-height);
   padding: 1px 4px;
 
   color: var(--b-tag-badge-color);
@@ -79,6 +80,22 @@
   &:where(.variant-purple) {
     --b-tag-badge-background-color: var(--color-fill-accent-purple-heavy);
     --b-tag-badge-color: var(--color-text-accent-purple);
+  }
+
+  &:where(.size-xs) {
+    --b-tag-badge-height: 16px;
+  }
+
+  &:where(.size-s) {
+    --b-tag-badge-height: 20px;
+  }
+
+  &:where(.size-m) {
+    --b-tag-badge-height: 22px;
+  }
+
+  &:where(.size-l) {
+    --b-tag-badge-height: 24px;
   }
 }
 

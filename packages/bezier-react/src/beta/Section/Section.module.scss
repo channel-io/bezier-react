@@ -10,16 +10,17 @@
 .SectionHeader {
   min-width: 0;
   margin-bottom: 6px;
-  padding: 0 6px;
 }
 
 .SectionLabelRow {
   display: flex;
   align-items: center;
 
+  box-sizing: border-box;
   width: 100%;
   min-width: 0;
-  height: 28px;
+  height: 32px;
+  padding: 0 8px;
 
   &:where([role='button']) {
     cursor: pointer;
@@ -28,12 +29,12 @@
     outline: none;
 
     &:where(:focus-visible) {
-      @include state.focus-ring;
+      @include state.focus-ring($gap: 0);
     }
-  }
 
-  &:where([aria-disabled='true']) {
-    cursor: not-allowed;
+    &:where([aria-disabled='true']) {
+      cursor: not-allowed;
+    }
   }
 }
 
