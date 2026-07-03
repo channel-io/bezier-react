@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.10
+
+### Minor Changes
+
+- Add beta NavigationList components and align item-like beta rows on BaseItem. ([#2872](https://github.com/channel-io/bezier-react/pull/2872)) by @timok1m
+
+- Add shared beta BaseGroupLabel styles and expose group label variants across Section, CollapsibleSection, DropdownMenu, Select, and MultiSelect. ([#2874](https://github.com/channel-io/bezier-react/pull/2874)) by @timok1m
+
 ## 4.0.0-next.9
 
 ### Patch Changes
