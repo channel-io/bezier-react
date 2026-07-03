@@ -12,8 +12,10 @@
     "@channel.io/stylelint-bezier": "0.3.3"
   },
   "changesets": [
+    "beta-alignment-patch",
     "bright-betas-rename",
     "calm-poets-visit",
+    "clean-token-props",
     "curly-menus-serve",
     "early-forms-rest",
     "few-bars-tie",

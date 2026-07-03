@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.9
+
+### Patch Changes
+
+- Align beta Tag, Badge, MultiSelect, Section, Select, and DropdownMenu styles with v3 specs. ([#2869](https://github.com/channel-io/bezier-react/pull/2869)) by @timok1m
+
+- Restrict component token props to beta tokens. ([#2865](https://github.com/channel-io/bezier-react/pull/2865)) by @timok1m
+
 ## 4.0.0-next.8
 
 ### Patch Changes
