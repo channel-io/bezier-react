@@ -1,4 +1,4 @@
-import { tokens as betaTokens } from '@channel.io/bezier-tokens/beta'
+import { tokens } from '@channel.io/bezier-tokens'
 import stylelint, { type Rule } from 'stylelint'
 
 const {
@@ -10,7 +10,7 @@ function isString(value: unknown): value is string {
   return typeof value === 'string'
 }
 
-function flattenBetaToken(obj: object, result: Record<string, unknown> = {}) {
+function flattenToken(obj: object, result: Record<string, unknown> = {}) {
   for (const [key, value] of Object.entries(obj)) {
     if (
       typeof value === 'object' &&
@@ -26,19 +26,19 @@ function flattenBetaToken(obj: object, result: Record<string, unknown> = {}) {
       value !== null &&
       !Array.isArray(value)
     ) {
-      flattenBetaToken(value, result)
+      flattenToken(value, result)
     }
   }
 
   return result
 }
 
-interface BetaTokenMetadata {
+interface TokenMetadata {
   value: unknown
   deprecated?: boolean | string
 }
 
-function isBetaTokenMetadata(value: unknown): value is BetaTokenMetadata {
+function isTokenMetadata(value: unknown): value is TokenMetadata {
   return (
     typeof value === 'object' &&
     value !== null &&
@@ -47,12 +47,12 @@ function isBetaTokenMetadata(value: unknown): value is BetaTokenMetadata {
   )
 }
 
-function flattenDeprecatedBetaToken(
+function flattenDeprecatedToken(
   obj: object,
   result: Record<string, boolean | string> = {}
 ) {
   for (const [key, value] of Object.entries(obj)) {
-    if (isBetaTokenMetadata(value)) {
+    if (isTokenMetadata(value)) {
       if (value.deprecated !== undefined) {
         result[key] = value.deprecated
       }
@@ -61,7 +61,7 @@ function flattenDeprecatedBetaToken(
       value !== null &&
       !Array.isArray(value)
     ) {
-      flattenDeprecatedBetaToken(value, result)
+      flattenDeprecatedToken(value, result)
     }
   }
 
@@ -69,13 +69,13 @@ function flattenDeprecatedBetaToken(
 }
 
 const allTokens = {
-  ...flattenBetaToken(betaTokens.global),
-  ...flattenBetaToken(betaTokens.lightTheme),
+  ...flattenToken(tokens.global),
+  ...flattenToken(tokens.lightTheme),
 }
 
-const deprecatedBetaTokens = {
-  ...flattenDeprecatedBetaToken(betaTokens.global),
-  ...flattenDeprecatedBetaToken(betaTokens.lightTheme),
+const deprecatedTokens = {
+  ...flattenDeprecatedToken(tokens.global),
+  ...flattenDeprecatedToken(tokens.lightTheme),
 }
 
 const ruleName = 'bezier/validate-token'
@@ -150,7 +150,7 @@ const pluginRule: Rule<boolean> = (primary, secondaryOptions = {}) => {
         }
 
         const deprecatedReason =
-          deprecatedBetaTokens[tokenName as keyof typeof deprecatedBetaTokens]
+          deprecatedTokens[tokenName as keyof typeof deprecatedTokens]
 
         if (deprecatedReason !== undefined) {
           report({
