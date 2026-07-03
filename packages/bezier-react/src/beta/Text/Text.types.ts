@@ -1,13 +1,13 @@
 import {
-  type TextSemanticColor,
-  type TypographyFontWeight,
-} from '~/src/types/tokens'
-import {
   type BezierComponentProps,
   type ChildrenProps,
   type MarginProps,
   type PolymorphicProps,
 } from '~/src/types/props'
+import {
+  type TextSemanticColor,
+  type TypographyFontWeight,
+} from '~/src/types/tokens'
 
 type Typography =
   | '11'

@@ -1,9 +1,9 @@
-import { type ZIndex } from '~/src/types/tokens'
 import {
   type BezierComponentProps,
   type ChildrenProps,
   type SideContentProps,
 } from '~/src/types/props'
+import { type ZIndex } from '~/src/types/tokens'
 
 export type ModalTitleSize = 'l' | 'm'
 export type ModalContentType = 'default' | 'confirm'

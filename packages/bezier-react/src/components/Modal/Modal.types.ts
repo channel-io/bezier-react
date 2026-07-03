@@ -1,9 +1,9 @@
-import { type ZIndex } from '~/src/types/tokens'
 import {
   type BezierComponentProps,
   type ChildrenProps,
   type SideContentProps,
 } from '~/src/types/props'
+import { type ZIndex } from '~/src/types/tokens'
 
 /**
  * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.

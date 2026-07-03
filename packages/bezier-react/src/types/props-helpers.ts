@@ -12,12 +12,12 @@ import radiusStyles from '../styles/components/radius.module.scss'
 import zIndexStyles from '../styles/components/z-index.module.scss'
 /* eslint-enable no-restricted-imports */
 
+import { type FormFieldSize, type LayoutProps, type MarginProps } from './props'
 import {
   type Elevation,
   type Radius,
   type ZIndex,
 } from './tokens'
-import { type FormFieldSize, type LayoutProps, type MarginProps } from './props'
 
 export const splitByMarginProps = <Props extends MarginProps>({
   margin,

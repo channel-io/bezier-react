@@ -2,8 +2,8 @@ import type React from 'react'
 
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
-import { type ZIndex } from '~/src/types/tokens'
 import { type ChildrenProps, type ContentProps } from '~/src/types/props'
+import { type ZIndex } from '~/src/types/tokens'
 
 /**
  * @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead.

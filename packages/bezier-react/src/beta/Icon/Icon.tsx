@@ -7,8 +7,8 @@ import classNames from 'classnames'
 
 
 
-import { type SemanticColor } from '~/src/types/tokens'
 import { getMarginStyles, splitByMarginProps } from '~/src/types/props-helpers'
+import { type SemanticColor } from '~/src/types/tokens'
 import { colorTokenCssVar } from '~/src/utils/style'
 
 import { type IconProps } from './Icon.types'

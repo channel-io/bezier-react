@@ -2,7 +2,6 @@ import { type ReactNode } from 'react'
 
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
-import { type ZIndex } from '~/src/types/tokens'
 import type {
   AdditionalColorProps,
   AdditionalOverridableStyleProps,
@@ -13,6 +12,7 @@ import type {
   SideContentProps,
   SizeProps,
 } from '~/src/types/props'
+import { type ZIndex } from '~/src/types/tokens'
 
 import type { OverlayProps } from '~/src/components/Overlay'
 

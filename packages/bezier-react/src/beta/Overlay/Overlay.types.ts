@@ -1,9 +1,9 @@
-import { type ZIndex } from '~/src/types/tokens'
 import {
   type AdditionalOverridableStyleProps,
   type BezierComponentProps,
   type ChildrenProps,
 } from '~/src/types/props'
+import { type ZIndex } from '~/src/types/tokens'
 
 export interface ContainerRectAttr {
   containerWidth: number

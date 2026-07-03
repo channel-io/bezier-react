@@ -2,8 +2,8 @@ import type React from 'react'
 
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
-import { type ZIndex } from '~/src/types/tokens'
 import { type ChildrenProps, type ContentProps } from '~/src/types/props'
+import { type ZIndex } from '~/src/types/tokens'
 
 export type ToastPlacement = 'bottom-left' | 'bottom-right'
 
