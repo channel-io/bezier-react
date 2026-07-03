@@ -6,20 +6,10 @@ type CustomTransform = Named<Transform<unknown>>
 type Transforms = Record<string, CustomTransform>
 
 export const CSSTransforms = {
-  alphaNamespace: {
-    name: 'custom/alpha/namespace',
-    type: 'name',
-    matcher: (token) => token.filePath.startsWith('src/alpha/'),
-    transformer: ({ name }) => `alpha-${name}`,
-  },
   removeNormalSuffix: {
     name: 'custom/remove-normal-suffix',
     type: 'name',
     matcher: (token) => {
-      /** TODO: Remove beta condition in the next major release. */
-      if (!token.filePath.startsWith('src/beta/')) {
-        return false
-      }
       const path = token.path || []
       const lastSegment = path[path.length - 1]
       return lastSegment === 'normal' && path.length > 1
@@ -29,12 +19,10 @@ export const CSSTransforms = {
     },
   },
   dimensionPx: {
-    name: 'custom/css/dimension/beta-px',
+    name: 'custom/css/dimension/px',
     type: 'value',
     transitive: true,
-    matcher: (token) =>
-      /** TODO: Remove beta condition in the next major release. */
-      token.type === 'dimension' && token.filePath.startsWith('src/beta/'),
+    matcher: (token) => token.type === 'dimension',
     transformer: ({ value }) => {
       if (typeof value !== 'string') {
         return value as string

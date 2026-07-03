@@ -8,12 +8,7 @@ import StyleDictionary, {
 import { buildJsIndex } from './build-js-index'
 import { buildScssIndex } from './build-scss-index'
 import {
-  alphaCustomCss,
-  alphaCustomJsCjs,
-  alphaCustomJsEsm,
-  betaCustomCss,
-  betaCustomJsCjs,
-  betaCustomJsEsm,
+  customCss,
   customJsCjs,
   customJsEsm,
 } from './lib/format'
@@ -25,8 +20,6 @@ const CustomTransforms = [...Object.values(CSSTransforms)]
 
 const BUILD_PATH = {
   BASE: 'dist',
-  BASE_ALPHA: 'dist/alpha',
-  BASE_BETA: 'dist/beta',
   CJS: 'cjs',
   ESM: 'esm',
   CSS: 'css',
@@ -39,22 +32,7 @@ const TokenBuilder = CustomTransforms.reduce(
 )
   .registerFormat(customJsCjs)
   .registerFormat(customJsEsm)
-
-const AlphaTokenBuilder = CustomTransforms.reduce(
-  (builder, transform) => builder.registerTransform(transform),
-  StyleDictionary
-)
-  .registerFormat(alphaCustomJsCjs)
-  .registerFormat(alphaCustomJsEsm)
-  .registerFormat(alphaCustomCss)
-
-const BetaTokenBuilder = CustomTransforms.reduce(
-  (builder, transform) => builder.registerTransform(transform),
-  StyleDictionary
-)
-  .registerFormat(betaCustomJsCjs)
-  .registerFormat(betaCustomJsEsm)
-  .registerFormat(betaCustomCss)
+  .registerFormat(customCss)
 
 function defineWebPlatform({
   options,
@@ -73,16 +51,6 @@ function defineWebPlatform({
 }
 
 interface DefineConfigOptions {
-  /**
-   * Whether to use the alpha version of the custom formatter
-   * TODO: Remove this option in the next major release.
-   */
-  useAlpha?: boolean
-  /**
-   * Whether to use the beta version of the custom formatter
-   * TODO: Remove this option in the next major release.
-   */
-  useBeta?: boolean
   source: string[]
   reference?: string[]
   basePath: string
@@ -93,8 +61,6 @@ interface DefineConfigOptions {
 }
 
 function defineConfig({
-  useAlpha = false,
-  useBeta = false,
   source,
   reference = [],
   basePath,
@@ -111,11 +77,7 @@ function defineConfig({
         files: [
           {
             destination: `${destination}.js`,
-            format: useBeta
-              ? betaCustomJsCjs.name
-              : useAlpha
-                ? alphaCustomJsCjs.name
-                : customJsCjs.name,
+            format: customJsCjs.name,
             filter: ({ filePath }) =>
               source.some((src) => minimatch(filePath, src)),
           },
@@ -127,11 +89,7 @@ function defineConfig({
         files: [
           {
             destination: `${destination}.mjs`,
-            format: useBeta
-              ? betaCustomJsEsm.name
-              : useAlpha
-                ? alphaCustomJsEsm.name
-                : customJsEsm.name,
+            format: customJsEsm.name,
             filter: ({ filePath }) =>
               source.some((src) => minimatch(filePath, src)),
           },
@@ -143,11 +101,7 @@ function defineConfig({
         files: [
           {
             destination: `${destination}.css`,
-            format: useBeta
-              ? betaCustomCss.name
-              : useAlpha
-                ? alphaCustomCss.name
-                : 'css/variables',
+            format: customCss.name,
             filter: ({ filePath }) =>
               source.some((src) => minimatch(filePath, src)),
             options: {
@@ -207,109 +161,21 @@ async function main() {
         options: { cssSelector: '[data-bezier-theme="dark"]' },
       })
     ),
-    AlphaTokenBuilder.extend(
-      defineConfig({
-        useAlpha: true,
-        source: ['src/alpha/global/*.json'],
-        basePath: BUILD_PATH.BASE_ALPHA,
-        destination: 'global',
-        options: { cssSelector: ':where(:root, :host)' },
-      })
-    ),
-    AlphaTokenBuilder.extend(
-      defineConfig({
-        useAlpha: true,
-        source: [
-          'src/alpha/functional/*.json',
-          'src/alpha/functional/light-theme/*.json',
-          'src/alpha/semantic/*.json',
-        ],
-        reference: ['src/alpha/global/*.json'],
-        basePath: BUILD_PATH.BASE_ALPHA,
-        destination: 'lightTheme',
-        options: {
-          cssSelector: ':where(:root, :host), [data-bezier-theme="light"]',
-        },
-      })
-    ),
-    AlphaTokenBuilder.extend(
-      defineConfig({
-        useAlpha: true,
-        source: [
-          'src/alpha/functional/*.json',
-          'src/alpha/functional/dark-theme/*.json',
-          'src/alpha/semantic/*.json',
-        ],
-        reference: ['src/alpha/global/*.json'],
-        basePath: BUILD_PATH.BASE_ALPHA,
-        destination: 'darkTheme',
-        options: { cssSelector: '[data-bezier-theme="dark"]' },
-      })
-    ),
-    BetaTokenBuilder.extend(
-      defineConfig({
-        useBeta: true,
-        source: ['src/beta/global/*.json'],
-        basePath: BUILD_PATH.BASE_BETA,
-        destination: 'global',
-        options: { cssSelector: ':where(:root, :host)' },
-      })
-    ),
-    BetaTokenBuilder.extend(
-      defineConfig({
-        useBeta: true,
-        source: [
-          'src/beta/semantic/*.json',
-          'src/beta/semantic/light-theme/*.json',
-        ],
-        reference: ['src/beta/global/*.json'],
-        basePath: BUILD_PATH.BASE_BETA,
-        destination: 'lightTheme',
-        options: {
-          cssSelector: ':where(:root, :host), [data-bezier-theme="light"]',
-        },
-      })
-    ),
-    BetaTokenBuilder.extend(
-      defineConfig({
-        useBeta: true,
-        source: [
-          'src/beta/semantic/*.json',
-          'src/beta/semantic/dark-theme/*.json',
-        ],
-        reference: ['src/beta/global/*.json'],
-        basePath: BUILD_PATH.BASE_BETA,
-        destination: 'darkTheme',
-        options: { cssSelector: '[data-bezier-theme="dark"]' },
-      })
-    ),
   ].forEach((builder) => {
     builder.buildAllPlatforms()
   })
 
-  for (const buildPath of [
-    `${BUILD_PATH.BASE}/${BUILD_PATH.CSS}`,
-    `${BUILD_PATH.BASE_ALPHA}/${BUILD_PATH.CSS}`,
-    `${BUILD_PATH.BASE_BETA}/${BUILD_PATH.CSS}`,
-  ]) {
+  for (const buildPath of [`${BUILD_PATH.BASE}/${BUILD_PATH.CSS}`]) {
     await mergeCss(buildPath, { addSystemDarkThemeFallback: true })
   }
 
-  for (const buildPath of [
-    `${BUILD_PATH.BASE}/${BUILD_PATH.SCSS}`,
-    `${BUILD_PATH.BASE_ALPHA}/${BUILD_PATH.SCSS}`,
-    `${BUILD_PATH.BASE_BETA}/${BUILD_PATH.SCSS}`,
-  ]) {
+  for (const buildPath of [`${BUILD_PATH.BASE}/${BUILD_PATH.SCSS}`]) {
     await buildScssIndex({ buildPath })
   }
 
   for (const options of [
     { buildPath: `${BUILD_PATH.BASE}/${BUILD_PATH.CJS}`, isCjs: true },
-    { buildPath: `${BUILD_PATH.BASE_ALPHA}/${BUILD_PATH.CJS}`, isCjs: true },
-    { buildPath: `${BUILD_PATH.BASE_BETA}/${BUILD_PATH.CJS}`, isCjs: true },
     { buildPath: `${BUILD_PATH.BASE}/${BUILD_PATH.ESM}`, isCjs: false },
-    { buildPath: `${BUILD_PATH.BASE_ALPHA}/${BUILD_PATH.ESM}`, isCjs: false },
-    { buildPath: `${BUILD_PATH.BASE_BETA}/${BUILD_PATH.ESM}`, isCjs: false },
   ]) {
     await buildJsIndex(options)
   }

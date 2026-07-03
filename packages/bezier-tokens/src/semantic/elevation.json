@@ -1,113 +1,175 @@
 {
-  "ev": {
-    "inner": {
-      "value": {
-        "offsetX": "0px",
-        "offsetY": "0px",
-        "blur": "2px",
-        "spread": "0px",
-        "color": "{shdw.inner.base}",
-        "type": "innerShadow"
-      },
-      "type": "shadow"
-    },
-    "base": {
-      "value": {
-        "offsetX": "0px",
-        "offsetY": "0px",
-        "blur": "2px",
-        "spread": "0px",
-        "color": "{shdw.base}",
-        "type": "dropShadow"
-      },
-      "type": "shadow"
-    },
+  "elevation": {
     "1": {
       "value": [
-        "{ev.inner}",
-        "{ev.base}",
         {
-          "offsetX": "0px",
-          "offsetY": "1px",
-          "blur": "2px",
-          "spread": "0px",
-          "color": "{shdw.small}",
-          "type": "dropShadow"
+          "color": "{color.elevation.small}",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "{dimension.1}",
+          "blur": "{dimension.2}",
+          "spread": "0"
+        },
+        {
+          "color": "{color.elevation.base}",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "0",
+          "blur": "{dimension.2}",
+          "spread": "{dimension.1}"
+        },
+        {
+          "color": "{color.elevation.base-inner}",
+          "type": "innerShadow",
+          "offsetX": "0",
+          "offsetY": "0",
+          "blur": "{dimension.2}",
+          "spread": "0"
         }
       ],
       "type": "shadow"
     },
     "2": {
       "value": [
-        "{ev.inner}",
-        "{ev.base}",
         {
-          "offsetX": "0px",
-          "offsetY": "2px",
-          "blur": "6px",
-          "spread": "0px",
-          "color": "{shdw.small}",
-          "type": "dropShadow"
+          "color": "{color.elevation.small}",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "{dimension.2}",
+          "blur": "{dimension.6}",
+          "spread": "0"
+        },
+        {
+          "color": "{color.elevation.base}",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "0",
+          "blur": "{dimension.2}",
+          "spread": "{dimension.1}"
+        },
+        {
+          "color": "{color.elevation.base-inner}",
+          "type": "innerShadow",
+          "offsetX": "0",
+          "offsetY": "0",
+          "blur": "{dimension.2}",
+          "spread": "0"
         }
       ],
       "type": "shadow"
     },
     "3": {
       "value": [
-        "{ev.inner}",
-        "{ev.base}",
         {
-          "offsetX": "0px",
-          "offsetY": "4px",
-          "blur": "12px",
-          "spread": "0px",
-          "color": "{shdw.medium}",
-          "type": "dropShadow"
+          "color": "{color.elevation.small}",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "{dimension.4}",
+          "blur": "{dimension.12}",
+          "spread": "0"
+        },
+        {
+          "color": "{color.elevation.base}",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "0",
+          "blur": "{dimension.2}",
+          "spread": "{dimension.1}"
+        },
+        {
+          "color": "{color.elevation.base-inner}",
+          "type": "innerShadow",
+          "offsetX": "0",
+          "offsetY": "0",
+          "blur": "{dimension.2}",
+          "spread": "0"
         }
       ],
       "type": "shadow"
     },
     "4": {
       "value": [
-        "{ev.inner}",
-        "{ev.base}",
         {
-          "offsetX": "0px",
-          "offsetY": "4px",
-          "blur": "20px",
-          "spread": "0px",
-          "color": "{shdw.large}",
-          "type": "dropShadow"
+          "color": "{color.elevation.small}",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "{dimension.4}",
+          "blur": "{dimension.24}",
+          "spread": "0"
+        },
+        {
+          "color": "{color.elevation.base}",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "0",
+          "blur": "{dimension.2}",
+          "spread": "{dimension.1}"
+        },
+        {
+          "color": "{color.elevation.base-inner}",
+          "type": "innerShadow",
+          "offsetX": "0",
+          "offsetY": "0",
+          "blur": "{dimension.2}",
+          "spread": "0"
         }
       ],
       "type": "shadow"
     },
     "5": {
       "value": [
-        "{ev.inner}",
-        "{ev.base}",
         {
-          "offsetX": "0px",
-          "offsetY": "6px",
-          "blur": "40px",
-          "spread": "0px",
-          "color": "{shdw.xlarge}",
-          "type": "dropShadow"
+          "color": "{color.elevation.small}",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "{dimension.6}",
+          "blur": "{dimension.40}",
+          "spread": "0"
+        },
+        {
+          "color": "{color.elevation.base}",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "0",
+          "blur": "{dimension.2}",
+          "spread": "{dimension.1}"
+        },
+        {
+          "color": "{color.elevation.base-inner}",
+          "type": "innerShadow",
+          "offsetX": "0",
+          "offsetY": "0",
+          "blur": "{dimension.2}",
+          "spread": "0"
         }
       ],
       "type": "shadow"
     },
     "6": {
       "value": [
-        "{ev.inner}",
-        "{ev.base}",
         {
-          "offsetX": "0px",
-          "offsetY": "12px",
-          "blur": "60px",
-          "spread": "0px",
-          "color": "{shdw.xlarge}",
-          "type": "dropShadow"
+          "color": "{color.elevation.small}",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "{dimension.12}",
+          "blur": "{dimension.60}",
+          "spread": "0"
+        },
+        {
+          "color": "{color.elevation.base}",
+          "type": "dropShadow",
+          "offsetX": "0",
+          "offsetY": "0",
+          "blur": "{dimension.2}",
+          "spread": "{dimension.1}"
+        },
+        {
+          "color": "{color.elevation.base-inner}",
+          "type": "innerShadow",
+          "offsetX": "0",
+          "offsetY": "0",
+          "blur": "{dimension.2}",
+          "spread": "0"
         }
       ],
       "type": "shadow"
