@@ -7,6 +7,7 @@ import { render } from '~/src/utils/test'
 
 import {
   CollapsibleSection,
+  CollapsibleSectionItem,
   CollapsibleSectionTrigger,
 } from './CollapsibleSection'
 
@@ -94,5 +95,24 @@ describe('CollapsibleSection', () => {
     expect(trigger).toHaveAttribute('aria-disabled', 'true')
     expect(trigger).toHaveAttribute('tabindex', '-1')
     expect(queryByText('Profile')).toBeInTheDocument()
+  })
+
+  it('renders clickable items', async () => {
+    const user = userEvent.setup()
+    const onClick = jest.fn()
+
+    const { getByRole } = render(
+      <CollapsibleSection defaultOpen>
+        <CollapsibleSectionTrigger content="General" />
+        <CollapsibleSectionItem
+          content="Profile"
+          onClick={onClick}
+        />
+      </CollapsibleSection>
+    )
+
+    await user.click(getByRole('button', { name: 'Profile' }))
+
+    expect(onClick).toHaveBeenCalledTimes(1)
   })
 })

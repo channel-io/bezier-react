@@ -1,0 +1,197 @@
+@use '../../styles/mixins/state';
+
+@mixin navigation-row-surface {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 32px;
+  padding: 6px 8px;
+
+  color: var(--color-text-neutral);
+  text-align: inherit;
+  text-decoration: none;
+
+  background-color: transparent;
+  border: 0;
+  border-radius: var(--radius-8);
+  outline: none;
+
+  transition:
+    background-color var(--motion-transition-fast),
+    color var(--motion-transition-fast);
+
+  &:where(.interactive) {
+    cursor: pointer;
+  }
+
+  &:where(.disabled) {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:where(:focus-visible) {
+    @include state.focus-ring($gap: 0);
+  }
+}
+
+.Icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--color-icon-neutral-heavy);
+}
+
+.NavigationList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.NavigationGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.NavigationGroupContent {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 20px;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+
+    width: 1px;
+
+    background-color: var(--color-border-neutral);
+  }
+
+  &:where(.has-leading-content) {
+    padding-left: 28px;
+
+    &::before {
+      content: none;
+    }
+  }
+}
+
+.NavigationItem {
+  display: block;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+
+  color: inherit;
+  text-align: inherit;
+  text-decoration: none;
+
+  background-color: transparent;
+  border: 0;
+  border-radius: var(--radius-8);
+  outline: none;
+
+  &:where(:focus-visible) {
+    @include state.focus-ring($gap: 0);
+  }
+
+  &:where(.interactive) {
+    cursor: pointer;
+  }
+
+  &:where(.disabled) {
+    cursor: not-allowed;
+  }
+
+  &:where(.interactive:not(.disabled, .active):hover) {
+    :where(.NavigationItemBase) {
+      background-color: var(--color-fill-neutral-lighter);
+    }
+  }
+
+  &:where(.active) {
+    :where(.NavigationItemBase) {
+      background-color: var(--color-fill-neutral-light);
+    }
+  }
+}
+
+.NavigationItemBase {
+  pointer-events: none;
+}
+
+.NavigationGroupTrigger {
+  @include navigation-row-surface;
+
+  &:where(.interactive:not(.disabled)) {
+    &:hover {
+      background-color: var(--color-fill-neutral-lighter);
+    }
+  }
+}
+
+.GroupTriggerContent {
+  overflow: hidden;
+  display: flex;
+  flex: 0 1 auto;
+  gap: 8px;
+  align-items: center;
+
+  min-width: 0;
+}
+
+.LeadingContent {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+}
+
+.MainContent {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.ContentSuffix {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+.TrailingContent {
+  display: flex;
+  flex-shrink: 0;
+  gap: 8px;
+  align-items: center;
+
+  margin-left: auto;
+
+  color: var(--color-text-neutral-light);
+  white-space: nowrap;
+}
+
+.Chevron {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--color-icon-neutral-heavy);
+}

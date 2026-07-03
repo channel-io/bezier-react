@@ -8,6 +8,7 @@ import classNames from 'classnames'
 
 
 
+import { BaseItem } from '~/src/beta/BaseItem/BaseItem'
 import { Help } from '~/src/beta/Help'
 import { Text } from '~/src/beta/Text'
 import {
@@ -18,7 +19,6 @@ import { createContext } from '~/src/utils/react'
 
 import type {
   SectionItemProps,
-  SectionItemSideContent,
   SectionLabelProps,
   SectionLabelSideContent,
   SectionProps,
@@ -48,25 +48,6 @@ function renderTextWithNewLine(value: string) {
       {line}
     </Fragment>
   ))
-}
-
-function SectionItemSideContentElement({
-  content,
-}: {
-  content?: SectionItemSideContent
-}) {
-  if (isBezierIcon(content)) {
-    const SourceElement = content
-
-    return (
-      <SourceElement
-        className={styles.ItemIcon}
-        aria-hidden
-      />
-    )
-  }
-
-  return content
 }
 
 function SectionLabelSideContentElement({
@@ -100,8 +81,6 @@ export const SectionItem = forwardRef<HTMLElement, SectionItemProps>(
       disabled = false,
       ...rest
     } = props
-    const hasLeadingContent = leadingContent != null
-    const hasDescription = description != null
     const isLink = 'href' in rest && rest.href != null
     const isButton = 'onClick' in rest && rest.onClick != null
     const isInteractive = isLink || isButton
@@ -139,53 +118,26 @@ export const SectionItem = forwardRef<HTMLElement, SectionItemProps>(
         })}
         {...(isButton && { disabled })}
       >
-        <div
-          className={classNames(
-            styles.ItemContent,
-            !hasLeadingContent && styles['without-leading-content'],
-            hasDescription && styles['has-description']
-          )}
-        >
-          {hasLeadingContent && (
-            <div className={styles.ItemLeadingContent}>
-              <SectionItemSideContentElement content={leadingContent} />
-            </div>
-          )}
-
-          <div className={styles.ItemMainContent}>
-            {typeof content === 'string' ? (
+        <BaseItem
+          className={styles.SectionItemBase}
+          leadingContent={leadingContent}
+          trailingContent={trailingContent}
+          description={
+            typeof description === 'string' ? (
               <Text
-                typo="14"
-                truncated
+                typo="12"
+                color="text-neutral-lighter"
               >
-                {content}
+                {renderTextWithNewLine(description)}
               </Text>
             ) : (
-              content
-            )}
-          </div>
-
-          {description != null && (
-            <div className={styles.ItemDescription}>
-              {typeof description === 'string' ? (
-                <Text
-                  typo="12"
-                  color="text-neutral-light"
-                >
-                  {renderTextWithNewLine(description)}
-                </Text>
-              ) : (
-                description
-              )}
-            </div>
-          )}
-        </div>
-
-        {trailingContent != null && (
-          <div className={styles.ItemTrailingContent}>
-            <SectionItemSideContentElement content={trailingContent} />
-          </div>
-        )}
+              description
+            )
+          }
+          disabled={disabled}
+        >
+          {content}
+        </BaseItem>
       </Component>
     )
   }

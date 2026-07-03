@@ -71,50 +71,53 @@ export const BaseItem = forwardRef<HTMLDivElement, BaseItemProps>(
         aria-disabled={disabled || undefined}
         {...rest}
       >
-        <div
-          className={classNames(
-            styles.Content,
-            !hasLeadingContent && styles['without-leading-content']
-          )}
-        >
+        <div className={styles.Content}>
           {hasLeadingContent && (
             <div className={styles.LeadingContent}>
               <BaseItemSideContentElement content={leadingContent} />
             </div>
           )}
 
-          <div className={styles.MainContent}>
-            {typeof children === 'string' ? (
-              <Text
-                typo="14"
-                truncated
-              >
-                {children}
-              </Text>
-            ) : (
-              children
-            )}
-          </div>
-
-          {description != null && (
-            <div className={styles.Description}>
-              {typeof description === 'string' ? (
+          <div className={styles.ContentBody}>
+            <div className={styles.MainContent}>
+              {typeof children === 'string' ? (
                 <Text
-                  typo="12"
-                  color="text-neutral-light"
+                  typo="14"
+                  fontWeight="500"
+                  truncated
                 >
-                  {description}
+                  {children}
                 </Text>
               ) : (
-                description
+                children
               )}
+            </div>
+          </div>
+
+          {trailingContent != null && (
+            <div className={styles.TrailingContent}>
+              <BaseItemSideContentElement content={trailingContent} />
             </div>
           )}
         </div>
 
-        {trailingContent != null && (
-          <div className={styles.TrailingContent}>
-            <BaseItemSideContentElement content={trailingContent} />
+        {description != null && (
+          <div
+            className={classNames(
+              styles.Description,
+              hasLeadingContent && styles['has-leading-content']
+            )}
+          >
+            {typeof description === 'string' ? (
+              <Text
+                typo="12"
+                color="text-neutral-lighter"
+              >
+                {description}
+              </Text>
+            ) : (
+              description
+            )}
           </div>
         )}
       </div>
