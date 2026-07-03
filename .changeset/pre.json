@@ -12,6 +12,7 @@
     "@channel.io/stylelint-bezier": "0.3.3"
   },
   "changesets": [
+    "beige-navigation-list",
     "beta-alignment-patch",
     "bright-betas-rename",
     "calm-poets-visit",
@@ -31,6 +32,7 @@
     "neat-segments-focus",
     "neat-tabs-wave",
     "quiet-deprecations-warn",
+    "quiet-group-labels",
     "quiet-items-breathe",
     "quiet-sections-fold",
     "ripe-donuts-joke",
