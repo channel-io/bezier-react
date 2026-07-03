@@ -6,6 +6,7 @@ import * as React from 'react'
 import {
   ChevronSmallDownIcon,
   ChevronSmallUpIcon,
+  isBezierIcon,
 } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
@@ -16,9 +17,8 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from '~/src/beta/Collapsible'
-import { Help } from '~/src/beta/Help'
 import { Section, SectionItem, SectionLabel } from '~/src/beta/Section'
-import { Text } from '~/src/beta/Text'
+import type { SectionLabelSideContent } from '~/src/beta/Section/Section.types'
 
 import type {
   CollapsibleSectionItemProps,
@@ -70,6 +70,25 @@ function splitCollapsibleSectionChildren(children: React.ReactNode) {
   )
 }
 
+function CollapsibleSectionTriggerTrailingContentElement({
+  content,
+}: {
+  content: SectionLabelSideContent
+}) {
+  if (isBezierIcon(content)) {
+    const SourceElement = content
+
+    return (
+      <SourceElement
+        className={styles.TriggerTrailingIcon}
+        aria-hidden
+      />
+    )
+  }
+
+  return content
+}
+
 export const CollapsibleSection = forwardRef<
   HTMLElement,
   CollapsibleSectionProps
@@ -110,6 +129,7 @@ export function CollapsibleSectionTrigger({
   disabled: disabledProp = false,
   help,
   trailingContent,
+  variant = 'neutral-dark',
   ...labelProps
 }: CollapsibleSectionTriggerProps) {
   return (
@@ -125,6 +145,8 @@ export function CollapsibleSectionTrigger({
           'data-state': dataState,
           'data-active': dataActive,
         } = triggerProps
+        const ChevronIcon =
+          dataState === 'open' ? ChevronSmallUpIcon : ChevronSmallDownIcon
 
         return (
           <SectionLabel
@@ -136,37 +158,22 @@ export function CollapsibleSectionTrigger({
             aria-disabled={ariaDisabled}
             data-state={dataState}
             data-active={dataActive}
-            content={
-              <span className={styles.TriggerContent}>
-                {typeof content === 'string' ? (
-                  <Text
-                    as="span"
-                    className={styles.TriggerLabel}
-                    typo="13"
-                    color="text-neutral-lighter"
-                    bold
-                    truncated
-                  >
-                    {content}
-                  </Text>
-                ) : (
-                  <span className={styles.TriggerLabel}>{content}</span>
-                )}
-                {help != null && <Help>{help}</Help>}
-                {dataState === 'open' ? (
-                  <ChevronSmallUpIcon
-                    className={styles.TriggerChevron}
-                    aria-hidden
-                  />
-                ) : (
-                  <ChevronSmallDownIcon
-                    className={styles.TriggerChevron}
-                    aria-hidden
+            content={content}
+            help={help}
+            variant={variant}
+            trailingContent={
+              <span className={styles.TriggerTrailingContent}>
+                {trailingContent != null && (
+                  <CollapsibleSectionTriggerTrailingContentElement
+                    content={trailingContent}
                   />
                 )}
+                <ChevronIcon
+                  className={styles.TriggerChevron}
+                  aria-hidden
+                />
               </span>
             }
-            trailingContent={trailingContent}
             role="button"
             tabIndex={disabled ? -1 : 0}
             onClick={(event: React.MouseEvent<HTMLElement>) => {

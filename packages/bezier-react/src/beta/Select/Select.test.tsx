@@ -2,6 +2,7 @@ import { PeopleIcon } from '@channel.io/bezier-icons'
 import { waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
+import baseGroupLabelStyles from '~/src/beta/BaseGroupLabel/BaseGroupLabel.module.scss'
 import { render } from '~/src/utils/test'
 
 import { Select, SelectGroup, SelectOption, SelectTrigger } from './'
@@ -110,7 +111,10 @@ describe('Select', () => {
             label="Email"
           />
         </SelectGroup>
-        <SelectGroup label="Broadcast">
+        <SelectGroup
+          label="Broadcast"
+          variant="neutral-dark"
+        >
           <SelectOption
             value="sms"
             label="SMS"
@@ -120,6 +124,9 @@ describe('Select', () => {
     )
 
     expect(getByRole('group', { name: 'Messaging' })).toBeInTheDocument()
+    expect(getByRole('group', { name: 'Broadcast' }).firstChild).toHaveClass(
+      baseGroupLabelStyles['variant-neutral-dark']
+    )
     expect(getAllByRole('option')).toHaveLength(3)
 
     await user.keyboard('{ArrowDown}')

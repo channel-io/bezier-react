@@ -115,4 +115,23 @@ describe('CollapsibleSection', () => {
 
     expect(onClick).toHaveBeenCalledTimes(1)
   })
+
+  it('renders trailing content with the trigger chevron', () => {
+    const { container, getByRole, getByText } = render(
+      <CollapsibleSection defaultOpen>
+        <CollapsibleSectionTrigger
+          content="General"
+          trailingContent="Optional"
+        />
+        <SectionItem content="Profile" />
+      </CollapsibleSection>
+    )
+
+    expect(getByRole('button', { name: /General/ })).toHaveAttribute(
+      'aria-expanded',
+      'true'
+    )
+    expect(getByText('Optional')).toBeInTheDocument()
+    expect(container.querySelector('svg')).toHaveAttribute('aria-hidden', 'true')
+  })
 })

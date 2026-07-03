@@ -8,8 +8,8 @@ import classNames from 'classnames'
 
 
 
+import { BaseGroupLabel } from '~/src/beta/BaseGroupLabel'
 import { BaseItem } from '~/src/beta/BaseItem/BaseItem'
-import { Help } from '~/src/beta/Help'
 import { Text } from '~/src/beta/Text'
 import {
   getMarginStyles,
@@ -148,9 +148,9 @@ export const SectionLabel = forwardRef<HTMLDivElement, SectionLabelProps>(
     {
       className,
       content,
-      leadingContent,
       trailingContent,
       help,
+      variant,
       ...rest
     },
     forwardedRef
@@ -161,51 +161,22 @@ export const SectionLabel = forwardRef<HTMLDivElement, SectionLabelProps>(
 
     return (
       <div className={styles.SectionHeader}>
-        <div
+        <BaseGroupLabel
           ref={forwardedRef}
-          className={classNames(styles.SectionLabelRow, className)}
+          className={classNames(styles.SectionLabel, className)}
           data-testid={SECTION_LABEL_TEST_ID}
-          {...rest}
-        >
-          {leadingContent != null && (
-            <div className={styles.SectionLabelLeadingContent}>
-              <SectionLabelSideContentElement content={leadingContent} />
-            </div>
-          )}
-
-          {typeof content === 'string' ? (
-            <Text
-              id={labelId}
-              as="h3"
-              className={styles.SectionHeading}
-              typo="13"
-              color="text-neutral-lighter"
-              bold
-              truncated
-            >
-              {content}
-            </Text>
-          ) : (
-            <div
-              id={labelId}
-              className={styles.SectionLabel}
-            >
-              {content}
-            </div>
-          )}
-
-          {help != null && (
-            <div className={styles.SectionHelp}>
-              <Help>{help}</Help>
-            </div>
-          )}
-
-          {trailingContent != null && (
-            <div className={styles.SectionLabelTrailingContent}>
+          content={content}
+          contentAs="h3"
+          contentId={labelId}
+          help={help}
+          trailingContent={
+            trailingContent != null ? (
               <SectionLabelSideContentElement content={trailingContent} />
-            </div>
-          )}
-        </div>
+            ) : undefined
+          }
+          variant={variant}
+          {...rest}
+        />
       </div>
     )
   }

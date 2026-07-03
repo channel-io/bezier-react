@@ -2,8 +2,6 @@ import { useState } from 'react'
 
 import {
   ChevronSmallRightIcon,
-  InfoIcon,
-  PlusIcon,
 } from '@channel.io/bezier-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
@@ -52,7 +50,6 @@ export const Primary: Story = {
       <CollapsibleSection defaultOpen>
         <CollapsibleSectionTrigger
           content="General"
-          leadingContent={InfoIcon}
           help="These settings apply to the section."
         />
         <CollapsibleSectionItem
@@ -81,7 +78,6 @@ export const RichLabel: Story = {
     <Box width={360}>
       <CollapsibleSection defaultOpen>
         <CollapsibleSectionTrigger
-          leadingContent={PlusIcon}
           help="Help text"
           content="Trigger"
           trailingContent={ChevronSmallRightIcon}

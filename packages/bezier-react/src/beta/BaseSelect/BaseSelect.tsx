@@ -20,6 +20,7 @@ import classNames from 'classnames'
 
 
 
+import { BaseGroupLabel } from '~/src/beta/BaseGroupLabel'
 import { BaseItem } from '~/src/beta/BaseItem/BaseItem'
 import { useFormFieldProps } from '~/src/beta/Form'
 import { Overlay } from '~/src/beta/Overlay'
@@ -604,7 +605,7 @@ function BaseSelectOptionElement<Value extends SelectValue>({
 
 export const BaseSelectGroup = forwardRef<HTMLDivElement, SelectGroupProps>(
   function BaseSelectGroup(
-    { children, className, label, ...rest },
+    { children, className, label, variant = 'neutral-light', ...rest },
     forwardedRef
   ) {
     const generatedId = useId()
@@ -617,12 +618,11 @@ export const BaseSelectGroup = forwardRef<HTMLDivElement, SelectGroupProps>(
         aria-labelledby={generatedId}
         {...rest}
       >
-        <div
-          id={generatedId}
-          className={styles.GroupLabel}
-        >
-          {label}
-        </div>
+        <BaseGroupLabel
+          content={label}
+          contentId={generatedId}
+          variant={variant}
+        />
         <div className={styles.GroupContent}>{children}</div>
       </div>
     )
