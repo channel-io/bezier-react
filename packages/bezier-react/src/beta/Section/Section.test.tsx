@@ -3,6 +3,7 @@ import { waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 
+import { HELP_TEST_ID } from '~/src/beta/Help/Help'
 import textStyles from '~/src/beta/Text/Text.module.scss'
 import { render } from '~/src/utils/test'
 
@@ -33,12 +34,11 @@ describe('Section', () => {
     expect(getByText('Profile')).toBeInTheDocument()
   })
 
-  it('renders label side content and help', () => {
-    const { container, getByTestId, getByText } = render(
+  it('renders label trailing content and help', () => {
+    const { getByTestId, getByText } = render(
       <Section>
         <SectionLabel
           content="General"
-          leadingContent={CheckIcon}
           trailingContent="Optional"
           help="Help content"
         />
@@ -47,7 +47,7 @@ describe('Section', () => {
 
     expect(getByTestId(SECTION_TEST_ID)).toBeInTheDocument()
     expect(getByText('Optional')).toBeInTheDocument()
-    expect(container.querySelectorAll('svg')).toHaveLength(2)
+    expect(getByTestId(HELP_TEST_ID)).toBeInTheDocument()
   })
 
   it('preserves an explicit aria-labelledby value', () => {

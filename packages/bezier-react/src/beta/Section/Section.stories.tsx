@@ -61,7 +61,6 @@ export const WithHelp: Story = {
       <Section>
         <SectionLabel
           content="Assignment"
-          leadingContent={InfoIcon}
           trailingContent={
             <Text
               typo="12"
@@ -160,7 +159,6 @@ export const RichLabel: Story = {
     <Box width={360}>
       <Section>
         <SectionLabel
-          leadingContent={PlusIcon}
           help="Help text"
           content="Label"
           trailingContent={ChevronSmallRightIcon}

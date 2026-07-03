@@ -2,6 +2,7 @@ import type { MouseEventHandler, ReactNode } from 'react'
 
 import type { BezierIcon } from '@channel.io/bezier-icons'
 
+import type { BaseGroupLabelVariant } from '~/src/beta/BaseGroupLabel'
 import type {
   ActivatableProps,
   BezierComponentProps,
@@ -16,9 +17,12 @@ export type SectionItemSideContent = BezierIcon | ReactNode
 
 export type SectionLabelSideContent = BezierIcon | ReactNode
 
-interface SectionLabelOwnProps
-  extends ContentProps<ReactNode>,
-    LeadingTrailingContentProps<SectionLabelSideContent> {
+interface SectionLabelOwnProps extends ContentProps<ReactNode> {
+  /**
+   * Visual variant of the section label.
+   * @default 'neutral-dark'
+   */
+  variant?: BaseGroupLabelVariant
   /**
    * Primary visible content of the section label.
    */
@@ -27,6 +31,10 @@ interface SectionLabelOwnProps
    * Tooltip content rendered next to the section label.
    */
   help?: ReactNode
+  /**
+   * Content rendered at the end of the section label.
+   */
+  trailingContent?: SectionLabelSideContent
 }
 
 interface SectionItemContentProps extends ContentProps<ReactNode> {

@@ -6,6 +6,7 @@ import { act, fireEvent, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 
+import baseGroupLabelStyles from '~/src/beta/BaseGroupLabel/BaseGroupLabel.module.scss'
 import { Button } from '~/src/beta/Button'
 import { IconButton } from '~/src/beta/IconButton'
 import { OVERLAY_TEST_ID } from '~/src/beta/Overlay/Overlay'
@@ -385,13 +386,19 @@ describe('DropdownMenu', () => {
           <DropdownMenuItem content="Edit" />
           <DropdownMenuItem content="Archive" />
         </DropdownMenuGroup>
-        <DropdownMenuGroup label="Danger zone">
+        <DropdownMenuGroup
+          label="Danger zone"
+          variant="neutral-dark"
+        >
           <DropdownMenuItem content="Delete" />
         </DropdownMenuGroup>
       </DropdownMenu>
     )
 
     expect(getByRole('group', { name: 'File' })).toBeInTheDocument()
+    expect(getByRole('group', { name: 'Danger zone' }).firstChild).toHaveClass(
+      baseGroupLabelStyles['variant-neutral-dark']
+    )
     expect(getAllByRole('menuitem')).toHaveLength(3)
 
     getByRole('menuitem', { name: 'Archive' }).focus()

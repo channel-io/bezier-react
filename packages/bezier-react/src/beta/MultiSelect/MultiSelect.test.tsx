@@ -1,6 +1,7 @@
 import { TagIcon } from '@channel.io/bezier-icons'
 import userEvent from '@testing-library/user-event'
 
+import baseGroupLabelStyles from '~/src/beta/BaseGroupLabel/BaseGroupLabel.module.scss'
 import baseTagBadgeStyles from '~/src/beta/BaseTagBadge/BaseTagBadge.module.scss'
 import { render } from '~/src/utils/test'
 
@@ -393,7 +394,10 @@ describe('MultiSelect', () => {
         value={['sales']}
         defaultShow
       >
-        <MultiSelectGroup label="Teams">
+        <MultiSelectGroup
+          label="Teams"
+          variant="neutral-dark"
+        >
           <MultiSelectOption
             value="sales"
             label="Sales"
@@ -407,6 +411,9 @@ describe('MultiSelect', () => {
     )
 
     expect(getByRole('group', { name: 'Teams' })).toBeInTheDocument()
+    expect(getByRole('group', { name: 'Teams' }).firstChild).toHaveClass(
+      baseGroupLabelStyles['variant-neutral-dark']
+    )
     expect(getByRole('button', { name: 'Delete tag' })).toBeInTheDocument()
     expect(getByRole('combobox')).toHaveTextContent('Sales')
     expect(getAllByRole('option')).toHaveLength(2)

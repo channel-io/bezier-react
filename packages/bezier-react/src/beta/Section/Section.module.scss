@@ -12,20 +12,10 @@
   margin-bottom: 6px;
 }
 
-.SectionLabelRow {
-  display: flex;
-  align-items: center;
-
-  box-sizing: border-box;
-  width: 100%;
-  min-width: 0;
-  height: 32px;
-  padding: 0 8px;
-
+.SectionLabel {
   &:where([role='button']) {
     cursor: pointer;
     user-select: none;
-    border-radius: var(--radius-8);
     outline: none;
 
     &:where(:focus-visible) {
@@ -38,45 +28,11 @@
   }
 }
 
-.SectionLabel {
-  min-width: 0;
-}
-
 .LabelIcon {
   flex-shrink: 0;
   width: 16px;
   height: 16px;
   color: var(--color-icon-neutral-heavy);
-}
-
-.SectionHeading {
-  min-width: 0;
-  margin: 0;
-}
-
-.SectionLabelLeadingContent {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  margin-right: 6px;
-}
-
-.SectionHelp {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  margin-left: 8px;
-}
-
-.SectionLabelTrailingContent {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-
-  margin-left: auto;
-
-  color: var(--color-text-neutral-light);
-  white-space: nowrap;
 }
 
 .SectionBody {

@@ -21,6 +21,7 @@ import classNames from 'classnames'
 
 
 
+import { BaseGroupLabel } from '~/src/beta/BaseGroupLabel'
 import { BaseItem } from '~/src/beta/BaseItem/BaseItem'
 import { Divider } from '~/src/beta/Divider'
 import { Overlay } from '~/src/beta/Overlay'
@@ -519,7 +520,7 @@ export const DropdownMenuGroup = forwardRef<
   HTMLDivElement,
   DropdownMenuGroupProps
 >(function DropdownMenuGroup(
-  { children, className, label, ...rest },
+  { children, className, label, variant = 'neutral-light', ...rest },
   forwardedRef
 ) {
   const generatedId = useId()
@@ -532,12 +533,11 @@ export const DropdownMenuGroup = forwardRef<
       aria-labelledby={generatedId}
       {...rest}
     >
-      <div
-        id={generatedId}
-        className={styles.DropdownMenuGroupLabel}
-      >
-        {label}
-      </div>
+      <BaseGroupLabel
+        content={label}
+        contentId={generatedId}
+        variant={variant}
+      />
       <div className={styles.DropdownMenuGroupContent}>{children}</div>
     </div>
   )

@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 
 import type { BezierIcon } from '@channel.io/bezier-icons'
 
+import type { BaseGroupLabelVariant } from '~/src/beta/BaseGroupLabel'
 import type { OverlayPosition } from '~/src/beta/Overlay'
 import type {
   BezierComponentProps,
@@ -208,6 +209,11 @@ export interface BaseSelectGroupProps
    * option keyboard navigation or selection.
    */
   label: string
+  /**
+   * Visual variant of the group label.
+   * @default 'neutral-light'
+   */
+  variant?: BaseGroupLabelVariant
 }
 
 export interface BaseSelectTriggerRenderProps<

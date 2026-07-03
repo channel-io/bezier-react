@@ -1,0 +1,55 @@
+.BaseGroupLabel {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 32px;
+  padding: 0 8px;
+
+  color: var(--b-beta-base-group-label-color);
+
+  border-radius: var(--radius-8);
+}
+
+.variant-neutral-dark {
+  --b-beta-base-group-label-color: var(--color-text-neutral);
+}
+
+.variant-neutral-light {
+  --b-beta-base-group-label-color: var(--color-text-neutral-lighter);
+}
+
+.MainContent {
+  display: inline-flex;
+  flex: 1 1 auto;
+  gap: 8px;
+  align-items: center;
+
+  min-width: 0;
+}
+
+.Content {
+  min-width: 0;
+  max-width: 200px;
+  margin: 0;
+}
+
+.Help {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.TrailingContent {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+
+  margin-left: auto;
+
+  color: var(--b-beta-base-group-label-color);
+  white-space: nowrap;
+}
