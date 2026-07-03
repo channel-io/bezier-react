@@ -1,7 +1,7 @@
 import type {
-  BetaFlattenAllToken,
-  BetaSemanticColor,
-} from '~/src/types/beta-tokens'
+  FlattenAllToken,
+  SemanticColor,
+} from '~/src/types/tokens'
 
 import { isNil, isString } from './type'
 
@@ -53,7 +53,7 @@ export function cssVar<PropertyName extends string | undefined>(
  */
 export function tokenCssVar<
   PropertyName extends
-    | Exclude<BetaFlattenAllToken, BetaSemanticColor>
+    | Exclude<FlattenAllToken, SemanticColor>
     | undefined,
 >(propertyName: PropertyName) {
   return cssVar(propertyName)
@@ -65,7 +65,7 @@ export function tokenCssVar<
  * (e.g. `text-neutral` -> `var(--color-text-neutral)`).
  */
 export function colorTokenCssVar<
-  PropertyName extends BetaSemanticColor | undefined,
+  PropertyName extends SemanticColor | undefined,
 >(propertyName: PropertyName) {
   if (!propertyName) {
     return undefined

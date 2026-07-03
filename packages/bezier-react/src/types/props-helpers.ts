@@ -13,10 +13,10 @@ import zIndexStyles from '../styles/components/z-index.module.scss'
 /* eslint-enable no-restricted-imports */
 
 import {
-  type BetaElevation,
-  type BetaRadius,
-  type BetaZIndex,
-} from './beta-tokens'
+  type Elevation,
+  type Radius,
+  type ZIndex,
+} from './tokens'
 import { type FormFieldSize, type LayoutProps, type MarginProps } from './props'
 
 export const splitByMarginProps = <Props extends MarginProps>({
@@ -119,15 +119,15 @@ export const splitByLayoutProps = <Props extends LayoutProps>({
   rest,
 ]
 
-function getElevationClassName(elevation: BetaElevation) {
+function getElevationClassName(elevation: Elevation) {
   return elevationStyles[`elevation-${elevation}`]
 }
 
-function getRadiusClassName(radius: BetaRadius) {
+function getRadiusClassName(radius: Radius) {
   return radiusStyles[`radius-${radius}`]
 }
 
-export function getZIndexClassName(zIndex: BetaZIndex) {
+export function getZIndexClassName(zIndex: ZIndex) {
   return zIndexStyles[`z-index-${zIndex}`]
 }
 

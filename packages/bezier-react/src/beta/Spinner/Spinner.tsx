@@ -5,7 +5,7 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 
-import type { BetaSemanticColor } from '~/src/types/beta-tokens'
+import type { SemanticColor } from '~/src/types/tokens'
 import { colorTokenCssVar } from '~/src/utils/style'
 
 import type { SpinnerProps } from './Spinner.types'
@@ -15,7 +15,7 @@ import styles from './Spinner.module.scss'
 
 
 
-const DEFAULT_SPINNER_COLOR = 'icon-neutral' satisfies BetaSemanticColor
+const DEFAULT_SPINNER_COLOR = 'icon-neutral' satisfies SemanticColor
 
 /**
  * `Spinner` is a component for indicating loading state.

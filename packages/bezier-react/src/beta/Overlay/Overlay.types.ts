@@ -1,4 +1,4 @@
-import { type BetaZIndex } from '~/src/types/beta-tokens'
+import { type ZIndex } from '~/src/types/tokens'
 import {
   type AdditionalOverridableStyleProps,
   type BezierComponentProps,
@@ -80,7 +80,7 @@ interface OverlayOwnProps {
    * z-index of the overlay.
    * @default 'overlay'
    */
-  zIndex?: BetaZIndex
+  zIndex?: ZIndex
 }
 
 export interface OverlayProps

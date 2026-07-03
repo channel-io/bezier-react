@@ -5,7 +5,7 @@ import { forwardRef } from 'react'
 
 import { BaseTagBadge, BaseTagBadgeText } from '~/src/beta/BaseTagBadge'
 import { Icon } from '~/src/beta/Icon'
-import { type BetaIconSemanticColor } from '~/src/types/beta-tokens'
+import { type IconSemanticColor } from '~/src/types/tokens'
 import { isEmpty } from '~/src/utils/type'
 
 import { type BadgeProps, type BadgeVariant } from './Badge.types'
@@ -26,7 +26,7 @@ const BADGE_ICON_COLOR_BY_VARIANT = {
   orange: 'icon-accent-orange',
   red: 'icon-accent-red',
   purple: 'icon-accent-purple',
-} satisfies Record<BadgeVariant, BetaIconSemanticColor>
+} satisfies Record<BadgeVariant, IconSemanticColor>
 
 
 /**

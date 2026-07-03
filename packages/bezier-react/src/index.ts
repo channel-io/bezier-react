@@ -2,11 +2,7 @@
 import '~/src/styles/index.scss'
 
 /* --------------------------------- TOKENS --------------------------------- */
-/** @deprecated v1 tokens are deprecated. Use beta tokens instead. */
 export { tokens } from '@channel.io/bezier-tokens'
-/** @deprecated v2 tokens are deprecated. Use beta tokens instead. */
-export { tokens as alphaTokens } from '@channel.io/bezier-tokens/alpha'
-export { tokens as betaTokens } from '@channel.io/bezier-tokens/beta'
 
 /* ------------------------------- COMPONENTS ------------------------------- */
 /** @deprecated These components are deprecated. Use beta components from `@channel.io/bezier-react/beta` instead. */
@@ -141,8 +137,4 @@ export * from '~/src/hooks/useKeyboardActionLockerWhileComposing'
 
 /* ---------------------------------- TYPES --------------------------------- */
 export type * from '~/src/types/props'
-/** @deprecated v1 token types are deprecated. Use beta token types instead. */
 export type * from '~/src/types/tokens'
-/** @deprecated v2 token types are deprecated. Use beta token types instead. */
-export type * as AlphaTokens from '~/src/types/alpha-tokens'
-export type * from '~/src/types/beta-tokens'

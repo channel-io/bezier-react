@@ -18,7 +18,7 @@ import { BaseButton } from '~/src/beta/BaseButton'
 import { Icon } from '~/src/beta/Icon'
 import { Text } from '~/src/beta/Text'
 import useIsMounted from '~/src/hooks/useIsMounted'
-import { type BetaSemanticColor } from '~/src/types/beta-tokens'
+import { type SemanticColor } from '~/src/types/tokens'
 import { getZIndexClassName } from '~/src/types/props-helpers'
 import { ariaAttr } from '~/src/utils/aria'
 import { noop } from '~/src/utils/function'
@@ -46,7 +46,7 @@ import styles from './Toast.module.scss'
 
 function getToastPreset(preset: ToastPreset): {
   icon: NonNullable<ToastProps['icon']>
-  iconColor: BetaSemanticColor
+  iconColor: SemanticColor
 } {
   return (
     {

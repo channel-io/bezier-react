@@ -18,28 +18,96 @@ export type FlattenSemanticToken = ExtractKeys<
 >
 export type FlattenAllToken = FlattenGlobalToken | FlattenSemanticToken
 
-export type GlobalColor = keyof GlobalToken['color']
-export type Font = RemovePrefix<'font', keyof GlobalToken['font']>
-export type Opacity = RemovePrefix<'opacity', keyof GlobalToken['opacity']>
-export type Radius = RemovePrefix<'radius', keyof GlobalToken['radius']>
-export type Transition = RemovePrefix<
-  'transition',
-  keyof GlobalToken['transition']
->
-export type ZIndex = RemovePrefix<'z-index', keyof GlobalToken['z-index']>
+/**
+ * Global color tokens (internal use only, not for props)
+ */
+export type GlobalColor = RemovePrefix<'color', keyof GlobalToken['color']>
 
-export type SemanticColor = keyof SemanticToken['color']
-export type BackgroundSemanticColor = StartsWithPrefix<'bg', SemanticColor>
-export type BackgroundTextSemanticColor = StartsWithPrefix<
-  'bgtxt',
+/**
+ * Global typography font weight tokens
+ */
+export type TypographyFontWeight = RemovePrefix<
+  'typography-font-weight',
+  Extract<keyof GlobalToken['typography'], string>
+>
+
+/**
+ * Semantic color tokens (for props)
+ */
+export type SemanticColor = RemovePrefix<
+  'color',
+  keyof SemanticToken['color']
+>
+
+/**
+ * Text semantic color tokens
+ */
+export type TextSemanticColor = StartsWithPrefix<'text', SemanticColor>
+
+/**
+ * Icon semantic color tokens
+ */
+export type IconSemanticColor = StartsWithPrefix<'icon', SemanticColor>
+
+/**
+ * Fill semantic color tokens (for background)
+ */
+type FillSemanticColor = StartsWithPrefix<'fill', SemanticColor>
+/**
+ * Surface semantic color tokens (for background)
+ */
+type SurfaceSemanticColor = StartsWithPrefix<'surface', SemanticColor>
+/**
+ * Dim semantic color tokens (for background)
+ */
+type DimSemanticColor = StartsWithPrefix<'dim', SemanticColor>
+/**
+ * Background semantic color tokens (for props)
+ */
+export type BackgroundSemanticColor =
+  | FillSemanticColor
+  | SurfaceSemanticColor
+  | DimSemanticColor
+/**
+ * Border semantic color tokens
+ */
+export type BorderSemanticColor = StartsWithPrefix<'border', SemanticColor>
+
+/**
+ * State semantic color tokens
+ */
+export type StateSemanticColor = StartsWithPrefix<'state', SemanticColor>
+
+/**
+ * Elevation semantic color tokens
+ */
+export type ElevationSemanticColor = StartsWithPrefix<
+  'elevation',
   SemanticColor
 >
-export type TextSemanticColor = StartsWithPrefix<'txt', SemanticColor>
-export type BorderSemanticColor = StartsWithPrefix<'bdr', SemanticColor>
-export type ShadowSemanticColor = StartsWithPrefix<'shdw', SemanticColor>
 
-export type Elevation = Exclude<
-  RemovePrefix<'ev', keyof SemanticToken['elevation']>,
-  'base' | 'inner'
+/**
+ * Semantic radius tokens (for props)
+ */
+export type Radius = RemovePrefix<'radius', keyof SemanticToken['radius']>
+
+/**
+ * Semantic opacity tokens (for props)
+ */
+export type Opacity = RemovePrefix<'opacity', keyof SemanticToken['opacity']>
+
+/**
+ * Semantic elevation tokens (for props)
+ */
+export type Elevation = RemovePrefix<
+  'elevation',
+  keyof SemanticToken['elevation']
 >
-export type InputShadow = RemovePrefix<'input', keyof SemanticToken['input']>
+
+/**
+ * Semantic z-index tokens (for props)
+ */
+export type ZIndex = RemovePrefix<
+  'layer-z-index',
+  keyof SemanticToken['layer']
+>

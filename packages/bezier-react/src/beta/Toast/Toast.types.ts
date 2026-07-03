@@ -2,7 +2,7 @@ import type React from 'react'
 
 import { type BezierIcon } from '@channel.io/bezier-icons'
 
-import { type BetaZIndex } from '~/src/types/beta-tokens'
+import { type ZIndex } from '~/src/types/tokens'
 import { type ChildrenProps, type ContentProps } from '~/src/types/props'
 
 export type ToastPlacement = 'bottom-left' | 'bottom-right'
@@ -45,7 +45,7 @@ interface ToastProviderOwnProps {
    * z-index level of the Toast container.
    * @default 'toast'
    */
-  zIndex?: BetaZIndex
+  zIndex?: ZIndex
 }
 
 export interface ToastProviderProps

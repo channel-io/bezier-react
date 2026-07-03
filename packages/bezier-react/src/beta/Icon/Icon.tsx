@@ -7,7 +7,7 @@ import classNames from 'classnames'
 
 
 
-import { type BetaSemanticColor } from '~/src/types/beta-tokens'
+import { type SemanticColor } from '~/src/types/tokens'
 import { getMarginStyles, splitByMarginProps } from '~/src/types/props-helpers'
 import { colorTokenCssVar } from '~/src/utils/style'
 
@@ -17,7 +17,7 @@ import styles from './Icon.module.scss'
 
 
 
-const DEFAULT_ICON_COLOR = 'icon-neutral' satisfies BetaSemanticColor
+const DEFAULT_ICON_COLOR = 'icon-neutral' satisfies SemanticColor
 
 /**
  * `Icon` renders a Bezier icon as an SVG element.
