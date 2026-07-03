@@ -8,8 +8,10 @@
 }
 
 .BaseItem {
+  overflow: hidden;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 
   box-sizing: border-box;
   width: 100%;
@@ -65,9 +67,10 @@
 }
 
 .Content {
-  display: grid;
-  grid-template-columns: fit-content(100%) minmax(0, 1fr);
-  gap: 0 8px;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  align-items: flex-start;
 
   width: 100%;
   min-width: 0;
@@ -75,40 +78,41 @@
 
 .LeadingContent {
   display: flex;
-  grid-column: 1;
-  grid-row: 1 / span 2;
+  flex: 0 0 auto;
   align-items: center;
-  align-self: flex-start;
+  justify-content: center;
 
   width: 20px;
   height: 20px;
 }
 
+.ContentBody {
+  overflow: hidden;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-width: 0;
+}
+
 .MainContent {
   display: flex;
-  grid-column: 2;
-  grid-row: 1;
   align-items: center;
-
   min-width: 0;
 }
 
 .Description {
+  overflow: hidden;
   display: flex;
-  grid-column: 2;
-  grid-row: 2;
-  align-items: center;
+  align-items: flex-start;
 
+  box-sizing: border-box;
+  width: 100%;
   min-width: 0;
-  margin-top: 2px;
-}
 
-.Content:where(.without-leading-content) {
-  grid-template-columns: minmax(0, 1fr);
-
-  .MainContent,
-  .Description {
-    grid-column: 1;
+  &:where(.has-leading-content) {
+    padding-left: 28px;
   }
 }
 
@@ -117,7 +121,7 @@
   flex-shrink: 0;
   align-items: center;
 
-  margin-left: 8px;
+  min-height: 20px;
 
   color: var(--color-text-neutral-light);
   white-space: nowrap;
