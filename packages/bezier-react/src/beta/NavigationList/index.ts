@@ -10,6 +10,5 @@ export {
 export type {
   NavigationGroupProps,
   NavigationItemProps,
-  NavigationListContent,
   NavigationListProps,
 } from './NavigationList.types'

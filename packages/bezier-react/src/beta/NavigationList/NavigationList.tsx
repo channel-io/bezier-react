@@ -9,19 +9,20 @@ import {
 import * as React from 'react'
 
 import {
+  type BezierIcon,
   ChevronSmallDownIcon,
   ChevronSmallRightIcon,
   isBezierIcon,
 } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
+import { BaseItem } from '~/src/beta/BaseItem/BaseItem'
 import { Text } from '~/src/beta/Text'
 import { isNil } from '~/src/utils/type'
 
 import type {
   NavigationGroupProps,
   NavigationItemProps,
-  NavigationListContent,
   NavigationListProps,
 } from './NavigationList.types'
 
@@ -36,7 +37,7 @@ export const NAVIGATION_GROUP_CONTENT_TEST_ID =
 function NavigationSideContent({
   content,
 }: {
-  content?: NavigationListContent
+  content?: BezierIcon | React.ReactNode
 }) {
   if (isBezierIcon(content)) {
     const SourceElement = content
@@ -97,7 +98,6 @@ export const NavigationItem = forwardRef<HTMLElement, NavigationItemProps>(
     } = props
     const isLink = 'href' in rest && rest.href != null
     const Component = (isLink ? 'a' : 'button') as React.ElementType
-    const hasLeadingContent = leadingContent != null
 
     const handleDisabledLinkClick = (
       event: React.MouseEvent<HTMLAnchorElement>
@@ -132,28 +132,14 @@ export const NavigationItem = forwardRef<HTMLElement, NavigationItemProps>(
           disabled,
         })}
       >
-        <div
-          className={classNames(
-            styles.ItemContent,
-            !hasLeadingContent && styles['without-leading-content']
-          )}
+        <BaseItem
+          className={styles.NavigationItemBase}
+          leadingContent={leadingContent}
+          trailingContent={trailingContent}
+          disabled={disabled}
         >
-          {hasLeadingContent && (
-            <div className={styles.LeadingContent}>
-              <NavigationSideContent content={leadingContent} />
-            </div>
-          )}
-
-          <div className={styles.MainContent}>
-            <NavigationContentText content={content} />
-          </div>
-        </div>
-
-        {trailingContent != null && (
-          <div className={styles.TrailingContent}>
-            <NavigationSideContent content={trailingContent} />
-          </div>
-        )}
+          {content}
+        </BaseItem>
       </Component>
     )
   }
@@ -167,7 +153,7 @@ export const NavigationGroup = forwardRef<
     className,
     style,
     children,
-    content,
+    label,
     leadingContent,
     trailingContent,
     disabled = false,
@@ -184,7 +170,6 @@ export const NavigationGroup = forwardRef<
   const controlled = !isNil(openProp)
   const open = controlled ? Boolean(openProp) : uncontrolledOpen
   const ChevronIcon = open ? ChevronSmallDownIcon : ChevronSmallRightIcon
-  const hasLeadingContent = leadingContent != null
 
   const setOpen = useCallback(
     (nextOpen: boolean) => {
@@ -230,20 +215,15 @@ export const NavigationGroup = forwardRef<
           }
         }}
       >
-        <div
-          className={classNames(
-            styles.GroupTriggerContent,
-            !hasLeadingContent && styles['without-leading-content']
-          )}
-        >
-          {hasLeadingContent && (
+        <div className={styles.GroupTriggerContent}>
+          {leadingContent != null && (
             <div className={styles.LeadingContent}>
               <NavigationSideContent content={leadingContent} />
             </div>
           )}
 
           <div className={styles.MainContent}>
-            <NavigationContentText content={content} />
+            <NavigationContentText content={label} />
           </div>
 
           <div className={styles.ContentSuffix}>
@@ -264,7 +244,10 @@ export const NavigationGroup = forwardRef<
       {open && (
         <div
           id={contentId}
-          className={styles.NavigationGroupContent}
+          className={classNames(
+            styles.NavigationGroupContent,
+            leadingContent != null && styles['has-leading-content']
+          )}
           data-testid={NAVIGATION_GROUP_CONTENT_TEST_ID}
         >
           {children}

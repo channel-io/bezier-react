@@ -57,7 +57,7 @@ describe('NavigationList', () => {
 
     const { getByRole, queryByText } = render(
       <NavigationList>
-        <NavigationGroup content="General">
+        <NavigationGroup label="General">
           <NavigationItem
             href="/settings/profile"
             content="Profile"
@@ -84,7 +84,7 @@ describe('NavigationList', () => {
     const { getByRole, queryByTestId } = render(
       <NavigationList>
         <NavigationGroup
-          content="General"
+          label="General"
           open={false}
           onOpenChange={onOpenChange}
         >
@@ -111,7 +111,7 @@ describe('NavigationList', () => {
     const { getByRole } = render(
       <NavigationList>
         <NavigationGroup
-          content="General"
+          label="General"
           defaultOpen
           {...externalButtonProps}
         >
@@ -136,7 +136,7 @@ describe('NavigationList', () => {
     const { getByRole, queryByText } = render(
       <NavigationList>
         <NavigationGroup
-          content="General"
+          label="General"
           disabled
           defaultOpen
           onOpenChange={onOpenChange}
@@ -184,13 +184,32 @@ describe('NavigationList', () => {
     const { container } = render(
       <NavigationList>
         <NavigationGroup
-          content="General"
+          label="General"
           leadingContent={SettingsIcon}
         />
       </NavigationList>
     )
 
     expect(container.querySelector('svg')).toHaveAttribute('aria-hidden', 'true')
+  })
+
+  it('renders ReactNode leading content for both items and groups', () => {
+    const { getByTestId } = render(
+      <NavigationList>
+        <NavigationItem
+          href="/settings/profile"
+          content="Profile"
+          leadingContent={<span data-testid="item-leading" />}
+        />
+        <NavigationGroup
+          label="General"
+          leadingContent={<span data-testid="group-leading" />}
+        />
+      </NavigationList>
+    )
+
+    expect(getByTestId('item-leading')).toBeInTheDocument()
+    expect(getByTestId('group-leading')).toBeInTheDocument()
   })
 
   it('renders chevron only for groups', () => {
@@ -200,7 +219,7 @@ describe('NavigationList', () => {
           href="/settings/profile"
           content="Profile"
         />
-        <NavigationGroup content="General" />
+        <NavigationGroup label="General" />
       </NavigationList>
     )
 
@@ -217,7 +236,7 @@ describe('NavigationList', () => {
           trailingContent={<span data-testid="item-trailing">Item meta</span>}
         />
         <NavigationGroup
-          content="General"
+          label="General"
           trailingContent={<span data-testid="group-trailing">Group meta</span>}
         />
       </NavigationList>
@@ -230,7 +249,7 @@ describe('NavigationList', () => {
   it('renders group test id on the wrapper', () => {
     const { getByTestId } = render(
       <NavigationList>
-        <NavigationGroup content="General" />
+        <NavigationGroup label="General" />
       </NavigationList>
     )
 

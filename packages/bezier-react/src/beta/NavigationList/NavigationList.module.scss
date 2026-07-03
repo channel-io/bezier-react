@@ -65,7 +65,7 @@
 
   box-sizing: border-box;
   width: 100%;
-  padding-left: 36px;
+  padding-left: 20px;
 
   &::before {
     content: '';
@@ -73,26 +73,65 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 18px;
+    left: 10px;
 
     width: 1px;
 
     background-color: var(--color-border-neutral);
   }
+
+  &:where(.has-leading-content) {
+    padding-left: 28px;
+
+    &::before {
+      content: none;
+    }
+  }
 }
 
 .NavigationItem {
-  @include navigation-row-surface;
+  display: block;
 
-  &:where(.active) {
-    background-color: var(--color-fill-neutral-light);
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0;
+
+  color: inherit;
+  text-align: inherit;
+  text-decoration: none;
+
+  background-color: transparent;
+  border: 0;
+  border-radius: var(--radius-8);
+  outline: none;
+
+  &:where(:focus-visible) {
+    @include state.focus-ring($gap: 0);
   }
 
-  &:where(.interactive:not(.disabled, .active)) {
-    &:hover {
+  &:where(.interactive) {
+    cursor: pointer;
+  }
+
+  &:where(.disabled) {
+    cursor: not-allowed;
+  }
+
+  &:where(.interactive:not(.disabled, .active):hover) {
+    :where(.NavigationItemBase) {
       background-color: var(--color-fill-neutral-lighter);
     }
   }
+
+  &:where(.active) {
+    :where(.NavigationItemBase) {
+      background-color: var(--color-fill-neutral-light);
+    }
+  }
+}
+
+.NavigationItemBase {
+  pointer-events: none;
 }
 
 .NavigationGroupTrigger {
@@ -105,31 +144,21 @@
   }
 }
 
-.ItemContent,
 .GroupTriggerContent {
   overflow: hidden;
-  display: grid;
-  gap: 0 8px;
-  min-width: 0;
-}
-
-.ItemContent {
-  grid-template-columns: fit-content(100%) minmax(0, 1fr);
-  flex: 1 1 auto;
-}
-
-.GroupTriggerContent {
-  grid-template-columns: fit-content(100%) minmax(0, max-content) fit-content(
-      100%
-    );
+  display: flex;
   flex: 0 1 auto;
+  gap: 8px;
+  align-items: center;
+
+  min-width: 0;
 }
 
 .LeadingContent {
   display: flex;
-  grid-column: 1;
-  grid-row: 1;
+  flex: 0 0 auto;
   align-items: center;
+  justify-content: center;
 
   width: 20px;
   height: 20px;
@@ -138,38 +167,14 @@
 .MainContent {
   overflow: hidden;
   display: flex;
-  grid-column: 2;
-  grid-row: 1;
   align-items: center;
-
   min-width: 0;
-}
-
-.ItemContent:where(.without-leading-content) {
-  grid-template-columns: minmax(0, 1fr);
-
-  .MainContent {
-    grid-column: 1;
-  }
 }
 
 .ContentSuffix {
   display: flex;
-  grid-column: 3;
-  grid-row: 1;
+  flex: 0 0 auto;
   align-items: center;
-}
-
-.GroupTriggerContent:where(.without-leading-content) {
-  grid-template-columns: minmax(0, max-content) fit-content(100%);
-
-  .MainContent {
-    grid-column: 1;
-  }
-
-  .ContentSuffix {
-    grid-column: 2;
-  }
 }
 
 .TrailingContent {

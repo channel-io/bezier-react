@@ -10,8 +10,6 @@ import type {
   DisableProps,
 } from '~/src/types/props'
 
-export type NavigationListContent = BezierIcon | ReactNode
-
 interface NavigationContentProps extends ContentProps<ReactNode> {
   /**
    * Primary visible content of the navigation item.
@@ -24,26 +22,28 @@ interface NavigationItemOwnProps
     DisableProps,
     ActivatableProps {
   /**
-   * Icon to be shown before the content.
+   * Content to be shown before the content.
    */
-  leadingContent?: BezierIcon
+  leadingContent?: BezierIcon | ReactNode
   /**
    * Content to be shown in the right content area.
    */
-  trailingContent?: NavigationListContent
+  trailingContent?: BezierIcon | ReactNode
 }
 
-interface NavigationGroupOwnProps
-  extends NavigationContentProps,
-    DisableProps {
+interface NavigationGroupOwnProps extends DisableProps {
   /**
-   * Icon to be shown before the content.
+   * Primary visible label of the navigation group.
    */
-  leadingContent?: BezierIcon
+  label: string
+  /**
+   * Content to be shown before the label.
+   */
+  leadingContent?: BezierIcon | ReactNode
   /**
    * Content to be shown in the right content area.
    */
-  trailingContent?: NavigationListContent
+  trailingContent?: BezierIcon | ReactNode
 }
 
 type NavigationItemBaseProps =

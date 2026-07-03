@@ -33,7 +33,7 @@ export const Primary: Story = {
         leadingContent={ChatProgressIcon}
       />
       <NavigationGroup
-        content="General"
+        label="General"
         leadingContent={SettingsIcon}
         defaultOpen
       >
@@ -57,7 +57,7 @@ export const Primary: Story = {
         />
       </NavigationGroup>
       <NavigationGroup
-        content="Integrations"
+        label="Integrations"
         leadingContent={AppsIcon}
       >
         <NavigationItem
@@ -76,7 +76,7 @@ export const Nested: Story = {
       style={{ width: 260 }}
     >
       <NavigationGroup
-        content="Workspace"
+        label="Workspace"
         leadingContent={SettingsIcon}
         defaultOpen
       >
@@ -85,7 +85,7 @@ export const Nested: Story = {
           content="Overview"
         />
         <NavigationGroup
-          content="Members"
+          label="Members"
           defaultOpen
           trailingContent={
             <Icon
@@ -111,7 +111,7 @@ export const Nested: Story = {
             }
           />
           <NavigationGroup
-            content="Permissions"
+            label="Permissions"
             defaultOpen
           >
             <NavigationItem
@@ -132,5 +132,154 @@ export const Nested: Story = {
         />
       </NavigationGroup>
     </NavigationList>
+  ),
+}
+
+export const IndentStyle: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: 40 }}>
+      <div style={{ width: 260 }}>
+        <div style={{ marginBottom: 12, fontSize: 16, fontWeight: 500 }}>
+          With Icon
+        </div>
+        <NavigationList aria-label="Navigation group with icon">
+          <NavigationGroup
+            label="Workspace"
+            leadingContent={SettingsIcon}
+            defaultOpen
+          >
+            <NavigationItem
+              href="/with-icon/overview"
+              content="Overview"
+              active
+              aria-current="page"
+            />
+            <NavigationItem
+              href="/with-icon/activity"
+              content="Recent activity"
+            />
+            <NavigationGroup
+              label="Members"
+              defaultOpen
+              trailingContent={
+                <Icon
+                  source={DotIcon}
+                  size="16"
+                  color="icon-accent-orange"
+                />
+              }
+            >
+              <NavigationItem
+                href="/with-icon/members/all"
+                content="All members"
+              />
+              <NavigationItem
+                href="/with-icon/members/invited"
+                content="Invited"
+                trailingContent={
+                  <Icon
+                    source={ErrorFilledIcon}
+                    size="16"
+                    color="icon-accent-orange"
+                  />
+                }
+              />
+              <NavigationGroup
+                label="Roles"
+                leadingContent={AppsIcon}
+                defaultOpen
+              >
+                <NavigationItem
+                  href="/with-icon/members/roles/admin"
+                  content="Admins"
+                />
+                <NavigationItem
+                  href="/with-icon/members/roles/guest"
+                  content="Guests"
+                />
+              </NavigationGroup>
+            </NavigationGroup>
+            <NavigationGroup
+              label="Settings"
+              leadingContent={AppsIcon}
+            >
+              <NavigationItem
+                href="/with-icon/settings/apps"
+                content="Apps"
+              />
+            </NavigationGroup>
+          </NavigationGroup>
+        </NavigationList>
+      </div>
+
+      <div style={{ width: 260 }}>
+        <div style={{ marginBottom: 12, fontSize: 16, fontWeight: 500 }}>
+          Text Only
+        </div>
+        <NavigationList aria-label="Navigation group text only">
+          <NavigationGroup
+            label="Workspace"
+            defaultOpen
+          >
+            <NavigationItem
+              href="/text-only/overview"
+              content="Overview"
+              active
+              aria-current="page"
+            />
+            <NavigationItem
+              href="/text-only/activity"
+              content="Recent activity"
+            />
+            <NavigationGroup
+              label="Members"
+              defaultOpen
+              trailingContent={
+                <Icon
+                  source={DotIcon}
+                  size="16"
+                  color="icon-accent-orange"
+                />
+              }
+            >
+              <NavigationItem
+                href="/text-only/members/all"
+                content="All members"
+              />
+              <NavigationItem
+                href="/text-only/members/invited"
+                content="Invited"
+                trailingContent={
+                  <Icon
+                    source={ErrorFilledIcon}
+                    size="16"
+                    color="icon-accent-orange"
+                  />
+                }
+              />
+              <NavigationGroup
+                label="Roles"
+                defaultOpen
+              >
+                <NavigationItem
+                  href="/text-only/members/roles/admin"
+                  content="Admins"
+                />
+                <NavigationItem
+                  href="/text-only/members/roles/guest"
+                  content="Guests"
+                />
+              </NavigationGroup>
+            </NavigationGroup>
+            <NavigationGroup label="Settings">
+              <NavigationItem
+                href="/text-only/settings/apps"
+                content="Apps"
+              />
+            </NavigationGroup>
+          </NavigationGroup>
+        </NavigationList>
+      </div>
+    </div>
   ),
 }
