@@ -6,10 +6,39 @@
   }
 }
 
-.TriggerTrailingContent {
+.TriggerContent {
+  overflow: hidden;
   display: inline-flex;
+  flex: 0 1 auto;
   gap: 8px;
   align-items: center;
+
+  min-width: 0;
+}
+
+.TriggerMainContent {
+  overflow: hidden;
+
+  min-width: 0;
+
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  color: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.TriggerHelp,
+.TriggerContentSuffix,
+.TriggerTrailingContent {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+}
+
+.TriggerTrailingContent {
+  gap: 8px;
   min-width: 0;
 }
 

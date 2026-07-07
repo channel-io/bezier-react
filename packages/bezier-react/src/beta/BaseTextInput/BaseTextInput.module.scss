@@ -9,6 +9,7 @@
 
   overflow: hidden;
   display: flex;
+  gap: 8px;
   align-items: center;
 
   box-sizing: border-box;
@@ -128,12 +129,5 @@
   display: flex;
   flex: 0 0 auto;
   align-items: center;
-}
-
-.LeadingSlot {
-  padding-right: 6px;
-}
-
-.TrailingSlot {
-  padding-right: 2px;
+  justify-content: center;
 }

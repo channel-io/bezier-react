@@ -11,6 +11,8 @@ import {
   CollapsibleSectionTrigger,
 } from './CollapsibleSection'
 
+import styles from './CollapsibleSection.module.scss'
+
 
 describe('CollapsibleSection', () => {
   it('renders a labelled collapsible section', async () => {
@@ -132,6 +134,11 @@ describe('CollapsibleSection', () => {
       'true'
     )
     expect(getByText('Optional')).toBeInTheDocument()
-    expect(container.querySelector('svg')).toHaveAttribute('aria-hidden', 'true')
+    expect(getByText('Optional')).toHaveClass(styles.TriggerTrailingContent)
+
+    const chevron = container.querySelector('svg')
+
+    expect(chevron).toHaveAttribute('aria-hidden', 'true')
+    expect(chevron?.parentElement).toHaveClass(styles.TriggerContentSuffix)
   })
 })

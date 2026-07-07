@@ -17,6 +17,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from '~/src/beta/Collapsible'
+import { Help } from '~/src/beta/Help'
 import { Section, SectionItem, SectionLabel } from '~/src/beta/Section'
 import type { SectionLabelSideContent } from '~/src/beta/Section/Section.types'
 
@@ -158,21 +159,31 @@ export function CollapsibleSectionTrigger({
             aria-disabled={ariaDisabled}
             data-state={dataState}
             data-active={dataActive}
-            content={content}
-            help={help}
+            content={
+              <span className={styles.TriggerContent}>
+                <span className={styles.TriggerMainContent}>{content}</span>
+                {help != null && (
+                  <span className={styles.TriggerHelp}>
+                    <Help>{help}</Help>
+                  </span>
+                )}
+                <span className={styles.TriggerContentSuffix}>
+                  <ChevronIcon
+                    className={styles.TriggerChevron}
+                    aria-hidden
+                  />
+                </span>
+              </span>
+            }
             variant={variant}
             trailingContent={
-              <span className={styles.TriggerTrailingContent}>
-                {trailingContent != null && (
+              trailingContent != null ? (
+                <span className={styles.TriggerTrailingContent}>
                   <CollapsibleSectionTriggerTrailingContentElement
                     content={trailingContent}
                   />
-                )}
-                <ChevronIcon
-                  className={styles.TriggerChevron}
-                  aria-hidden
-                />
-              </span>
+                </span>
+              ) : undefined
             }
             role="button"
             tabIndex={disabled ? -1 : 0}
