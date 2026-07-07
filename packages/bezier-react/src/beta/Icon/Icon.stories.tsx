@@ -5,14 +5,14 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { HStack } from '~/src/beta/HStack'
 import { Text } from '~/src/beta/Text'
 import { VStack } from '~/src/beta/VStack'
-import { type BetaSemanticColor } from '~/src/types/beta-tokens'
+import { type SemanticColor } from '~/src/types/tokens'
 
 import { Icon } from './Icon'
 import { type IconProps, type IconSize } from './Icon.types'
 
 const SIZES: IconSize[] = ['10', '12', '16', '20', '24', '36', '44']
 
-const COLORS: BetaSemanticColor[] = [
+const COLORS: SemanticColor[] = [
   'icon-neutral',
   'icon-neutral-heavier',
   'icon-accent-blue',

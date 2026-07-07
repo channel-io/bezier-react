@@ -1,13 +1,13 @@
 import {
-  type BetaTextSemanticColor,
-  type BetaTypographyFontWeight,
-} from '~/src/types/beta-tokens'
-import {
   type BezierComponentProps,
   type ChildrenProps,
   type MarginProps,
   type PolymorphicProps,
 } from '~/src/types/props'
+import {
+  type TextSemanticColor,
+  type TypographyFontWeight,
+} from '~/src/types/tokens'
 
 type Typography =
   | '11'
@@ -34,7 +34,7 @@ interface TextOwnProps {
   /**
    * Color of the text. If no value is specified, it inherits the color of the parent element.
    */
-  color?: BetaTextSemanticColor
+  color?: TextSemanticColor
   /**
    * Whether the text is bold.
    * @default false
@@ -44,7 +44,7 @@ interface TextOwnProps {
    * Font weight of the text.
    * If `bold` and `fontWeight` are used together, `fontWeight` takes precedence.
    */
-  fontWeight?: BetaTypographyFontWeight
+  fontWeight?: TypographyFontWeight
   /**
    * Whether the text is italic.
    * @default false

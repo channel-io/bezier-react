@@ -5,7 +5,7 @@ import { type CSSProperties, forwardRef, memo } from 'react'
 import { LockIcon, MoonFilledIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-import { type BetaSemanticColor } from '~/src/types/beta-tokens'
+import { type SemanticColor } from '~/src/types/tokens'
 import { colorTokenCssVar } from '~/src/utils/style'
 
 import { Icon } from '~/src/components/Icon'
@@ -20,7 +20,7 @@ const statusTypesWithIcon: Readonly<StatusType[]> = [
   'lock',
 ]
 
-const statusColor: Readonly<Record<StatusType, BetaSemanticColor>> = {
+const statusColor: Readonly<Record<StatusType, SemanticColor>> = {
   online: 'text-accent-green',
   offline: 'fill-neutral-heavy',
   'online-crescent': 'text-accent-green',

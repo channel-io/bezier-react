@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '../../../../../node_modules/@channel.io/bezier-tokens/dist/beta/scss' as *;
+@use '../../../../../node_modules/@channel.io/bezier-tokens/dist/scss' as *;
 
 @each $z-index in map.keys(map.get($tokens, 'light-theme', 'layer', 'z-index')) {
   :where(.z-index-#{$z-index}) {

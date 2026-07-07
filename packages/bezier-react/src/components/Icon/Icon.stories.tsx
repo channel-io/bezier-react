@@ -22,7 +22,7 @@ import {
 } from '@channel.io/bezier-icons'
 import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
-import { type BetaSemanticColor } from '~/src/types/beta-tokens'
+import { type SemanticColor } from '~/src/types/tokens'
 import { camelCase } from '~/src/utils/string'
 
 import {
@@ -34,7 +34,7 @@ import { ListItem } from '~/src/components/ListItem'
 import { Select } from '~/src/components/Select'
 import { Stack } from '~/src/components/Stack'
 import { Text } from '~/src/components/Text'
-import { useBetaTokens } from '~/src/components/ThemeProvider'
+import { useTokens } from '~/src/components/ThemeProvider'
 
 import { Icon } from './Icon'
 import mdx from './Icon.mdx'
@@ -180,7 +180,7 @@ export const Overview: StoryFn<{}> = () => (
 )
 
 function ColorIcon() {
-  const [color, setColor] = useState<BetaSemanticColor>('icon-accent-blue')
+  const [color, setColor] = useState<SemanticColor>('icon-accent-blue')
 
   return (
     <LegacyVStack spacing={16}>
@@ -197,11 +197,11 @@ function ColorIcon() {
           style={{ width: 200 }}
         >
           <div style={{ padding: 6, maxHeight: 200, overflowY: 'auto' }}>
-            {Object.keys(useBetaTokens().semantic.color).map((semanticName) => (
+            {Object.keys(useTokens().semantic.color).map((semanticName) => (
               <ListItem
                 key={semanticName}
                 content={semanticName}
-                onClick={() => setColor(semanticName as BetaSemanticColor)}
+                onClick={() => setColor(semanticName as SemanticColor)}
               />
             ))}
           </div>

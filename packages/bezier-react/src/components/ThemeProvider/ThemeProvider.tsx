@@ -4,14 +4,6 @@ import { forwardRef } from 'react'
 
 import { Slot } from '@radix-ui/react-slot'
 
-import {
-  AlphaTokenProvider,
-  useAlphaTokenContext,
-} from '~/src/components/AlphaTokenProvider'
-import {
-  BetaTokenProvider,
-  useBetaTokenContext,
-} from '~/src/components/BetaTokenProvider'
 import { TokenProvider, useTokenContext } from '~/src/components/TokenProvider'
 
 import {
@@ -34,22 +26,6 @@ export function useTokens() {
 }
 
 /**
- * `useAlphaTokens` is a hook that returns the alpha tokens of the current theme.
- * @internal
- */
-export function useAlphaTokens() {
-  return useAlphaTokenContext('useAlphaTokens').tokens
-}
-
-/**
- * `useBetaTokens` is a hook that returns the beta tokens of the current theme.
- * @internal
- */
-export function useBetaTokens() {
-  return useBetaTokenContext('useBetaTokens').tokens
-}
-
-/**
  * `ThemeProvider` is a wrapper component that provides theme context.
  *
  * Components that pass to children **must spread props and forward ref.**
@@ -58,18 +34,14 @@ export const ThemeProvider = forwardRef<HTMLElement, ThemeProviderProps>(
   function ThemeProvider({ themeName, children, ...rest }, forwardedRef) {
     return (
       <TokenProvider themeName={themeName}>
-        <AlphaTokenProvider themeName={themeName}>
-          <BetaTokenProvider themeName={themeName}>
-            <Slot
-              ref={forwardedRef}
-              // TODO: Change data attribute constant to import from bezier-tokens
-              data-bezier-theme={themeName}
-              {...rest}
-            >
-              {children}
-            </Slot>
-          </BetaTokenProvider>
-        </AlphaTokenProvider>
+        <Slot
+          ref={forwardedRef}
+          // TODO: Change data attribute constant to import from bezier-tokens
+          data-bezier-theme={themeName}
+          {...rest}
+        >
+          {children}
+        </Slot>
       </TokenProvider>
     )
   }

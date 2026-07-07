@@ -29,7 +29,7 @@ import '@channel.io/bezier-tokens/css/styles.css'
 
 ```css
 .foo {
-  background-color: var(--bg-black-dark);
+  background-color: var(--color-fill-neutral);
 }
 ```
 
@@ -42,8 +42,8 @@ While CSS variables are recommended, you can also use SCSS variables directly if
 @use "pkg:@channel.io/bezier-tokens" as *;
 
 div {
-  border-radius: map.get($tokens, "global", "radius", "4"); // ...px
-  background-color: map.get($tokens, "light-theme", "bg", "black", "dark"); // #...
+  border-radius: map.get($tokens, "light-theme", "radius", "4"); // ...px
+  background-color: map.get($tokens, "light-theme", "color", "fill", "neutral"); // #...
 }
 ```
 
@@ -55,7 +55,7 @@ You can access and use values by token group.
 import { tokens } from '@channel.io/bezier-tokens'
 
 console.log(tokens.global.color['blue-300']) // "#..."
-console.log(tokens.lightTheme.color['bg-black-dark']) // "#..."
+console.log(tokens.lightTheme.color['color-fill-neutral'].value) // "#..."
 ```
 
 ## Contributing

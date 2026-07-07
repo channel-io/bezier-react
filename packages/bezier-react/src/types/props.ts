@@ -1,14 +1,14 @@
 import type { JSX } from 'react'
 
 import type {
-  BetaBackgroundSemanticColor,
-  BetaBorderSemanticColor,
-  BetaElevation,
-  BetaRadius,
-  BetaSemanticColor,
-  BetaTextSemanticColor,
-  BetaZIndex,
-} from './beta-tokens'
+  BackgroundSemanticColor,
+  BorderSemanticColor,
+  Elevation,
+  Radius,
+  SemanticColor,
+  TextSemanticColor,
+  ZIndex,
+} from './tokens'
 
 /**
  * Props for overriding default styles of components. Intended for exceptional use cases where default styles need customization.
@@ -157,7 +157,7 @@ export interface ColorProps {
   /**
    * Color from the design system's semantic color.
    */
-  color?: BetaSemanticColor
+  color?: SemanticColor
 }
 
 /**
@@ -196,7 +196,7 @@ export type AdditionalOverridableStyleProps<ElementName extends PropNameType> =
  * Props for adding color properties to named elements within a component.
  */
 export type AdditionalColorProps<ElementName extends PropNameType> =
-  AdditionalProps<ElementName, 'color', BetaSemanticColor>
+  AdditionalProps<ElementName, 'color', SemanticColor>
 
 /**
  * Props for components that can be activated or deactivated.
@@ -396,22 +396,22 @@ export interface LayoutProps {
   grow?: React.CSSProperties['flexGrow']
   /**
    * the background color of an element.
-   * @todo @timo BetaTextSemanticColor is included for existing component compatibility. components should use only BetaBackgroundSemanticColor for proper semantic usage.
+   * @todo @timo TextSemanticColor is included for existing component compatibility. components should use only BackgroundSemanticColor for proper semantic usage.
    * @default initial
    */
   backgroundColor?:
-    | BetaBackgroundSemanticColor
-    | BetaTextSemanticColor
+    | BackgroundSemanticColor
+    | TextSemanticColor
   /**
    * the border color of an element.
    * @default initial
    */
-  borderColor?: BetaBorderSemanticColor
+  borderColor?: BorderSemanticColor
   /**
    * the border radius of an element.
    * @default initial
    */
-  borderRadius?: BetaRadius
+  borderRadius?: Radius
   /**
    * the border width of an element.
    * @default 0
@@ -441,12 +441,12 @@ export interface LayoutProps {
    * the elevation of an element. (box-shadow)
    * @default initial
    */
-  elevation?: BetaElevation
+  elevation?: Elevation
   /**
    * the z-index of an element.
    * @default initial
    */
-  zIndex?: BetaZIndex
+  zIndex?: ZIndex
   /**
    * the overflow of an element.
    * @default initial

@@ -5,8 +5,6 @@ export {
   ThemeProvider,
   useThemeName,
   useTokens,
-  useAlphaTokens,
-  useBetaTokens,
 } from './ThemeProvider'
 export {
   type FixedThemeProviderProps,

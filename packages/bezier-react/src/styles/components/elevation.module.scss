@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '../../../../../node_modules/@channel.io/bezier-tokens/dist/beta/scss' as *;
+@use '../../../../../node_modules/@channel.io/bezier-tokens/dist/scss' as *;
 
 @each $ev in map.keys(map.get($tokens, 'light-theme', 'elevation')) {
   :where(.elevation-#{$ev}) {

@@ -28,6 +28,7 @@ import interpolationToCssVariableTypography from './transforms/v2-interpolation-
 import interpolationToCssVariableZIndex from './transforms/v2-interpolation-to-css-variable/zIndex.js'
 import removeAlphaFromAlphaComponents from './transforms/v2-remove-alpha-from-alpha-components/transform.js'
 import textComponentInterface from './transforms/v2-text-component-interface/transform.js'
+import betaTokenToStableToken from './transforms/v3-beta-token-to-stable-token/transform.js'
 
 enum Step {
   SelectTransformer,
@@ -59,6 +60,8 @@ enum Option {
   V2RemoveAlphaFromAlphaComponents = 'v2-remove-alpha-from-alpha-components',
   V2TextComponentInterface = 'v2-text-component-interface',
   V2ImportFromBezierToStyledComponents = 'v2-import-from-bezier-to-styled-components',
+
+  V3BetaTokenToStableToken = 'v3-beta-token-to-stable-token',
   Exit = 'Exit',
 }
 
@@ -91,6 +94,8 @@ const transformMap = {
     importFromBezierToStyledComponents,
   [Option.V2RemoveAlphaFromAlphaComponents]: removeAlphaFromAlphaComponents,
   [Option.V2TextComponentInterface]: textComponentInterface,
+
+  [Option.V3BetaTokenToStableToken]: betaTokenToStableToken,
 }
 
 const options = (Object.keys(transformMap) as Option[])

@@ -12,6 +12,48 @@ npx @channel.io/bezier-codemod
 
 ## Transformations
 
+### v3 beta token to stable token
+
+**`v3-beta-token-to-stable-token`**
+
+Promote beta(v3) token API usage to stable token API names after v3 tokens become the default.
+
+For example:
+
+```tsx
+import { betaTokens, type BetaSemanticColor } from '@channel.io/bezier-tokens/beta'
+import { useBetaTokens } from '@channel.io/bezier-react'
+import '@channel.io/bezier-tokens/dist/beta/css/styles.css'
+
+const color: BetaSemanticColor = 'text-neutral'
+const allTokens = betaTokens
+```
+
+Transforms into:
+
+```tsx
+import { tokens, type SemanticColor } from '@channel.io/bezier-tokens'
+import { useTokens } from '@channel.io/bezier-react'
+import '@channel.io/bezier-tokens/css/styles.css'
+
+const color: SemanticColor = 'text-neutral'
+const allTokens = tokens
+```
+
+It rewrites:
+
+- `@channel.io/bezier-tokens/beta` to `@channel.io/bezier-tokens`
+- `@channel.io/bezier-tokens/beta/css/*` to `@channel.io/bezier-tokens/css/*`
+- `@channel.io/bezier-tokens/beta/scss` to `@channel.io/bezier-tokens/scss`
+- `@channel.io/bezier-tokens/dist/beta/css/*` to `@channel.io/bezier-tokens/css/*`
+- `@channel.io/bezier-tokens/dist/beta/scss` to `@channel.io/bezier-tokens/dist/scss`
+- `betaTokens` to `tokens`
+- `useBetaTokens` to `useTokens`
+- `BetaTokenProvider` to `TokenProvider`
+- exported beta token type names such as `BetaSemanticColor`, `BetaRadius`, `BetaZIndex` to stable names
+
+Run this after existing `useTokens` / `tokens` usage has been audited, because those names currently refer to v1 token APIs before v3 promotion.
+
 ### Icons to Bezier icons
 
 **`icons-to-bezier-icons`**

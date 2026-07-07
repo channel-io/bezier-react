@@ -8,7 +8,7 @@ import classNames from 'classnames'
 
 
 import { Icon } from '~/src/beta/Icon'
-import { type BetaSemanticColor } from '~/src/types/beta-tokens'
+import { type SemanticColor } from '~/src/types/tokens'
 import { colorTokenCssVar } from '~/src/utils/style'
 
 import { type StatusProps, type StatusType } from './Status.types'
@@ -23,7 +23,7 @@ const statusTypesWithIcon: Readonly<StatusType[]> = [
   'lock',
 ]
 
-const statusColor: Readonly<Record<StatusType, BetaSemanticColor>> = {
+const statusColor: Readonly<Record<StatusType, SemanticColor>> = {
   online: 'text-accent-green',
   offline: 'fill-neutral-heavy',
   'online-dnd': 'text-accent-green',
