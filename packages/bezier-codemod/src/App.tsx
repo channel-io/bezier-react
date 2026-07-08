@@ -9,12 +9,26 @@ import {
 } from '@inkjs/ui'
 import { Box, Text, useApp } from 'ink'
 
-import {
-  Option,
-  type TransformName,
-  runTransform,
-  transformOptions,
-} from './transformers.js'
+import project from './project.js'
+import iconNameToBezierIcon from './transforms/icon-name-to-bezier-icons/transform.js'
+import iconsToBezierIcons from './transforms/icons-to-bezier-icons/transform.js'
+import enumMemberToStringLiteral from './transforms/v2-enum-member-to-string-literal/transform.js'
+import foundationToCssVariableBorder from './transforms/v2-foundation-to-css-variable/border.js'
+import foundationToCssVariableElevation from './transforms/v2-foundation-to-css-variable/elevation.js'
+import foundationToCssVariableRounding from './transforms/v2-foundation-to-css-variable/rounding.js'
+import foundationToCssVariableSpacing from './transforms/v2-foundation-to-css-variable/spacing.js'
+import foundationToCssVariableTheme from './transforms/v2-foundation-to-css-variable/theme.js'
+import foundationToCssVariable from './transforms/v2-foundation-to-css-variable/transform.js'
+import foundationToCssVariableTransition from './transforms/v2-foundation-to-css-variable/transition.js'
+import importFromBezierToStyledComponents from './transforms/v2-import-from-bezier-to-styled-components/transform.js'
+import interpolationToCssVariableInput from './transforms/v2-interpolation-to-css-variable/input.js'
+import interpolationToCssVariableRounding from './transforms/v2-interpolation-to-css-variable/rounding.js'
+import interpolationToCssVariable from './transforms/v2-interpolation-to-css-variable/transform.js'
+import interpolationToCssVariableTypography from './transforms/v2-interpolation-to-css-variable/typography.js'
+import interpolationToCssVariableZIndex from './transforms/v2-interpolation-to-css-variable/zIndex.js'
+import removeAlphaFromAlphaComponents from './transforms/v2-remove-alpha-from-alpha-components/transform.js'
+import textComponentInterface from './transforms/v2-text-component-interface/transform.js'
+import betaTokenToStableToken from './transforms/v3-beta-token-to-stable-token/transform.js'
 
 enum Step {
   SelectTransformer,
@@ -22,6 +36,77 @@ enum Step {
   Transforming,
   Done,
 }
+
+enum Option {
+  IconsToBezierIcons = 'icons-to-bezier-icons',
+  IconNameToBezierIcon = 'icon-name-to-bezier-icon',
+
+  V2EnumMemberToStringLiteral = 'v2-enum-member-to-string-literal',
+
+  V2FoundationToCssVariable = 'v2-foundation-to-css-variable',
+  V2FoundationToCssVariableTheme = 'v2-foundation-to-css-variable-theme',
+  V2FoundationToCssVariableBorder = 'v2-foundation-to-css-variable-border',
+  V2FoundationToCssVariableElevation = 'v2-foundation-to-css-variable-elevation',
+  V2FoundationToCssVariableRounding = 'v2-foundation-to-css-variable-rounding',
+  V2FoundationToCssVariableTransition = 'v2-foundation-to-css-variable-transition',
+  V2FoundationToCssVariableSpacing = 'v2-foundation-to-css-variable-spacing',
+
+  V2InterpolationToCssVariable = 'v2-interpolation-to-css-variable',
+  V2InterpolationToCssVariableInput = 'v2-interpolation-to-css-variable-input',
+  V2InterpolationToCssVariableTypography = 'v2-interpolation-to-css-variable-typography',
+  V2InterpolationToCssVariableZIndex = 'v2-interpolation-to-css-variable-z-index',
+  V2InterpolationToCssVariableRounding = 'v2-interpolation-to-css-variable-rounding',
+
+  V2RemoveAlphaFromAlphaComponents = 'v2-remove-alpha-from-alpha-components',
+  V2TextComponentInterface = 'v2-text-component-interface',
+  V2ImportFromBezierToStyledComponents = 'v2-import-from-bezier-to-styled-components',
+
+  V3BetaTokenToStableToken = 'v3-beta-token-to-stable-token',
+  Exit = 'Exit',
+}
+
+type TransformName = Exclude<Option, Option.Exit>
+
+const transformMap = {
+  [Option.IconsToBezierIcons]: iconsToBezierIcons,
+  [Option.IconNameToBezierIcon]: iconNameToBezierIcon,
+
+  [Option.V2EnumMemberToStringLiteral]: enumMemberToStringLiteral,
+
+  [Option.V2FoundationToCssVariableTheme]: foundationToCssVariableTheme,
+  [Option.V2FoundationToCssVariableBorder]: foundationToCssVariableBorder,
+  [Option.V2FoundationToCssVariableElevation]: foundationToCssVariableElevation,
+  [Option.V2FoundationToCssVariableRounding]: foundationToCssVariableRounding,
+  [Option.V2FoundationToCssVariableTransition]:
+    foundationToCssVariableTransition,
+  [Option.V2FoundationToCssVariableSpacing]: foundationToCssVariableSpacing,
+  [Option.V2FoundationToCssVariable]: foundationToCssVariable,
+
+  [Option.V2InterpolationToCssVariable]: interpolationToCssVariable,
+  [Option.V2InterpolationToCssVariableInput]: interpolationToCssVariableInput,
+  [Option.V2InterpolationToCssVariableTypography]:
+    interpolationToCssVariableTypography,
+  [Option.V2InterpolationToCssVariableRounding]:
+    interpolationToCssVariableRounding,
+  [Option.V2InterpolationToCssVariableZIndex]: interpolationToCssVariableZIndex,
+
+  [Option.V2ImportFromBezierToStyledComponents]:
+    importFromBezierToStyledComponents,
+  [Option.V2RemoveAlphaFromAlphaComponents]: removeAlphaFromAlphaComponents,
+  [Option.V2TextComponentInterface]: textComponentInterface,
+
+  [Option.V3BetaTokenToStableToken]: betaTokenToStableToken,
+}
+
+const options = (Object.keys(transformMap) as Option[])
+  .map((transformName) => ({
+    label: transformName,
+    value: transformName,
+  }))
+  .concat({
+    label: Option.Exit,
+    value: Option.Exit,
+  })
 
 function formatExecutionTime(executionTime: number) {
   const seconds = Math.round((executionTime / 1000) * 1000) / 1000
@@ -74,24 +159,28 @@ function App() {
         const startTime = performance.now()
 
         async function transformSourceFiles() {
-          if (!transformName) {
-            return
-          }
+          const sourceFiles = project.addSourceFilesAtPaths(filePath)
 
-          const { errors } = await runTransform({
-            transformName,
-            filePath,
-            onFileTransformed: () => {
-              setTransformedFileNum((prev) => prev + 1)
-            },
-          })
-
-          errors.forEach(({ error, filePath: errorFilePath }) => {
-            /* eslint-disable no-console */
-            console.log(error)
-            console.log(errorFilePath)
-            /* eslint-enable no-console */
-          })
+          await Promise.all(
+            sourceFiles.map(async (sourceFile) => {
+              if (!transformName) {
+                return
+              }
+              const oldSourceFileText = sourceFile.getText()
+              try {
+                transformMap[transformName](sourceFile)
+                if (sourceFile.getText() !== oldSourceFileText) {
+                  setTransformedFileNum((prev) => prev + 1)
+                }
+              } catch (e) {
+                /* eslint-disable no-console */
+                console.log(e)
+                console.log(sourceFile.getFilePath())
+                /* eslint-enable no-console */
+              }
+              await sourceFile.save()
+            })
+          )
 
           const endTime = performance.now()
           const totalExecutionTime = endTime - startTime
@@ -111,7 +200,7 @@ function App() {
         <>
           <Text bold>💬 Please select the transformer:</Text>
           <Select
-            options={transformOptions}
+            options={options}
             onChange={onSelectTransform as SelectProps['onChange']}
           />
         </>
