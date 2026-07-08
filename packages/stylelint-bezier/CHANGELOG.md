@@ -1,5 +1,14 @@
 # @channel.io/stylelint-bezier
 
+## 0.4.0-next.6
+
+### Patch Changes
+
+- Use stable v3 token exports for token validation. ([#2875](https://github.com/channel-io/bezier-react/pull/2875)) by @timok1m
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@1.0.0-next.5
+
 ## 0.4.0-next.5
 
 ### Patch Changes

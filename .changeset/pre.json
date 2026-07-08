@@ -21,6 +21,7 @@
     "early-forms-rest",
     "few-bars-tie",
     "fifty-turkeys-wish",
+    "fix-stylelint-stable-tokens",
     "fluffy-showers-listen",
     "fresh-rings-smile",
     "gentle-toasts-appear",
@@ -42,12 +43,15 @@
     "smart-walls-bow",
     "soft-controls-glow",
     "sour-pens-sing",
+    "stable-v3-tokens",
     "sweet-timers-drum",
     "tame-buttons-drive",
     "theme-fallback-system-dark",
     "twelve-tags-wave",
     "twenty-books-shout",
+    "v3-token-codemod",
     "warm-fields-join",
+    "web-input-section-layout",
     "young-regions-thank"
   ]
 }
