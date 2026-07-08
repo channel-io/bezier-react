@@ -233,7 +233,7 @@ function App() {
           flexDirection="column"
         >
           <StatusMessage variant="success">
-            <Text bold>Transformation complete</Text>
+            Transformation complete
           </StatusMessage>
           <Box
             paddingLeft={2}
