@@ -1,10 +1,7 @@
 import { useState } from 'react'
 
-import {
-  ChevronSmallRightIcon,
-} from '@channel.io/bezier-icons'
+import { ChevronSmallRightIcon, PlusIcon } from '@channel.io/bezier-icons'
 import type { Meta, StoryObj } from '@storybook/react'
-
 
 import { Box } from '~/src/beta/Box'
 import { Text } from '~/src/beta/Text'
@@ -14,7 +11,6 @@ import {
   CollapsibleSectionItem,
   CollapsibleSectionTrigger,
 } from './CollapsibleSection'
-
 
 const meta: Meta<typeof CollapsibleSection> = {
   title: 'Beta components/CollapsibleSection',
@@ -80,7 +76,7 @@ export const RichLabel: Story = {
         <CollapsibleSectionTrigger
           help="Help text"
           content="Trigger"
-          trailingContent={ChevronSmallRightIcon}
+          trailingContent={PlusIcon}
         />
         <CollapsibleSectionItem
           content="Profile"
