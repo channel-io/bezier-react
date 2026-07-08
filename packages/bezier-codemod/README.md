@@ -10,6 +10,12 @@ In your terminal, navigate into your project's folder, then run:
 npx @channel.io/bezier-codemod
 ```
 
+You can also run a transform directly without the interactive UI:
+
+```bash
+npx @channel.io/bezier-codemod --transform <transform-name> --path "src/**/*.{ts,tsx}"
+```
+
 ## Transformations
 
 ### v3 beta token to stable token
@@ -53,6 +59,10 @@ It rewrites:
 - exported beta token type names such as `BetaSemanticColor`, `BetaRadius`, `BetaZIndex` to stable names
 
 Run this after existing `useTokens` / `tokens` usage has been audited, because those names currently refer to v1 token APIs before v3 promotion.
+
+```bash
+npx @channel.io/bezier-codemod --transform v3-beta-token-to-stable-token --path "src/**/*.{ts,tsx}"
+```
 
 ### Icons to Bezier icons
 
