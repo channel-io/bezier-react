@@ -1,5 +1,18 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.11
+
+### Major Changes
+
+- Promote v3 tokens to the stable token API and remove alpha/beta token entrypoints. ([#2875](https://github.com/channel-io/bezier-react/pull/2875)) by @timok1m
+
+### Patch Changes
+
+- Align beta input/select spacing with the BaseInput spec and place the `CollapsibleSection` chevron next to the trigger label. ([#2877](https://github.com/channel-io/bezier-react/pull/2877)) by @timok1m
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@1.0.0-next.5
+
 ## 4.0.0-next.10
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 1.0.0-next.5
+
+### Major Changes
+
+- Promote v3 tokens to the stable token API and remove alpha/beta token entrypoints. ([#2875](https://github.com/channel-io/bezier-react/pull/2875)) by @timok1m
+
 ## 1.0.0-next.4
 
 ### Patch Changes

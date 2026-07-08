@@ -1,5 +1,11 @@
 # @channel.io/bezier-codemod
 
+## 0.5.1-next.0
+
+### Patch Changes
+
+- Add a transform to promote beta token API usage to stable token names. ([#2875](https://github.com/channel-io/bezier-react/pull/2875)) by @timok1m
+
 ## 0.5.0
 
 ### Minor Changes
@@ -29,21 +35,21 @@
   This transforms
 
   ```tsx
-  import { styled } from "@channel.io/bezier-react";
+  import { styled } from '@channel.io/bezier-react'
 
   export const Wrapper = styled.div`
     padding: ${({ foundation }) => foundation?.spacing.s5};
-  `;
+  `
   ```
 
   into
 
   ```tsx
-  import { styled } from "@channel.io/bezier-react";
+  import { styled } from '@channel.io/bezier-react'
 
   export const Wrapper = styled.div`
     padding: 12px;
-  `;
+  `
   ```
 
 - Changes in `v2-**-interpolation-to-css-variable` transform. ([#1928](https://github.com/channel-io/bezier-react/pull/1928)) by @yangwooseong
@@ -89,10 +95,10 @@
 
   ```tsx
   // As-is
-  import { css } from "@channel.io/bezier-react";
+  import { css } from '@channel.io/bezier-react'
 
   // To-be
-  import { css } from "styled-components";
+  import { css } from 'styled-components'
   ```
 
 - Fix `hasNamedImportInImportDeclaration` util to check all named imports ([#2060](https://github.com/channel-io/bezier-react/pull/2060)) by @yangwooseong
@@ -133,10 +139,10 @@
 
   ```tsx
   // As-is
-  import { css } from "@channel.io/bezier-react";
+  import { css } from '@channel.io/bezier-react'
 
   // To-be
-  import { css } from "styled-components";
+  import { css } from 'styled-components'
   ```
 
 ## 0.5.0-alpha.5
@@ -166,21 +172,21 @@
   This transforms
 
   ```tsx
-  import { styled } from "@channel.io/bezier-react";
+  import { styled } from '@channel.io/bezier-react'
 
   export const Wrapper = styled.div`
     padding: ${({ foundation }) => foundation?.spacing.s5};
-  `;
+  `
   ```
 
   into
 
   ```tsx
-  import { styled } from "@channel.io/bezier-react";
+  import { styled } from '@channel.io/bezier-react'
 
   export const Wrapper = styled.div`
     padding: 12px;
-  `;
+  `
   ```
 
 - Add `inputPlaceholderStyle` migration logic to `v2-input-interpolation-to-css-variable` codemod ([#1926](https://github.com/channel-io/bezier-react/pull/1926)) by @yangwooseong
