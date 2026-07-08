@@ -1,4 +1,4 @@
-import type { ReactElement, ReactNode } from 'react'
+import type { MouseEvent, ReactElement, ReactNode } from 'react'
 
 import type { BezierIcon } from '@channel.io/bezier-icons'
 
@@ -11,6 +11,7 @@ import type {
   ContentProps,
   DisableProps,
   LeadingTrailingContentProps,
+  LinkProps,
   VariantProps,
 } from '~/src/types/props'
 
@@ -76,9 +77,7 @@ interface DropdownMenuOwnProps {
   onHide?: () => void
 }
 
-type DropdownMenuItemSelectEvent =
-  | React.MouseEvent<HTMLDivElement>
-  | React.KeyboardEvent<HTMLDivElement>
+type DropdownMenuItemSelectEvent = MouseEvent<HTMLDivElement>
 
 interface DropdownMenuSubContentOwnProps {
   /**
@@ -127,13 +126,16 @@ interface DropdownMenuItemContentProps extends ContentProps<ReactNode> {
   content?: ReactNode
 }
 
-interface DropdownMenuItemOwnProps
+interface DropdownMenuItemBaseOwnProps
   extends VariantProps<DropdownMenuItemVariant>,
     LeadingTrailingContentProps<DropdownMenuItemSideContent> {
   /**
    * Content below the main content.
    */
   description?: ReactNode
+}
+
+interface DropdownMenuItemActionOwnProps extends DropdownMenuItemBaseOwnProps {
   /**
    * Whether selecting the item closes the menu.
    * @default true
@@ -147,6 +149,29 @@ interface DropdownMenuItemOwnProps
    */
   onSelect?: (event: DropdownMenuItemSelectEvent) => void
 }
+
+type DropdownMenuItemBaseOmitKeys =
+  | keyof DropdownMenuItemActionOwnProps
+  | keyof DropdownMenuItemContentProps
+  | keyof DisableProps
+  | 'children'
+  | 'onClick'
+  | 'type'
+
+type DropdownMenuItemActionProps = Omit<
+  BezierComponentProps<'div'>,
+  DropdownMenuItemBaseOmitKeys
+> & {
+  href?: never
+}
+
+type DropdownMenuItemAnchorProps = Omit<
+  BezierComponentProps<'a'>,
+  DropdownMenuItemBaseOmitKeys
+> & {
+  closeOnSelect?: never
+  onSelect?: never
+} & Required<LinkProps>
 
 /**
  * Root action menu surface.
@@ -181,17 +206,12 @@ export interface DropdownMenuTriggerProps extends ChildrenProps<ReactElement> {}
  * `DropdownMenuSubTrigger`. Arbitrary children can be rendered inside
  * `DropdownMenu`, but they are not treated as menu items.
  */
-export interface DropdownMenuItemProps
-  extends Omit<
-      BezierComponentProps<'div'>,
-      | keyof DropdownMenuItemOwnProps
-      | keyof DropdownMenuItemContentProps
-      | 'children'
-      | 'onClick'
-    >,
-    DropdownMenuItemContentProps,
-    DisableProps,
-    DropdownMenuItemOwnProps {}
+export type DropdownMenuItemProps = DropdownMenuItemContentProps &
+  DisableProps &
+  (
+    | (DropdownMenuItemActionOwnProps & DropdownMenuItemActionProps)
+    | (DropdownMenuItemBaseOwnProps & DropdownMenuItemAnchorProps)
+  )
 
 export interface DropdownMenuGroupProps
   extends Omit<BezierComponentProps<'div'>, 'children'>,
@@ -228,11 +248,13 @@ export interface DropdownMenuSubProps extends ChildrenProps {}
  * This is not an action item, so use `DropdownMenuItem` when you need
  * `onSelect` handling.
  */
-export interface DropdownMenuSubTriggerProps
-  extends Omit<
-    DropdownMenuItemProps,
-    'trailingContent' | 'closeOnSelect' | 'onSelect'
-  > {}
+export type DropdownMenuSubTriggerProps = Omit<
+  DropdownMenuItemContentProps &
+    DisableProps &
+    DropdownMenuItemActionOwnProps &
+    DropdownMenuItemActionProps,
+  'trailingContent' | 'closeOnSelect' | 'onSelect'
+>
 
 /**
  * Floating content boundary for nested submenu items.

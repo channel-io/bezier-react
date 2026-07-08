@@ -97,7 +97,6 @@ export const NavigationItem = forwardRef<HTMLElement, NavigationItemProps>(
       ...rest
     } = props
     const isLink = 'href' in rest && rest.href != null
-    const Component = (isLink ? 'a' : 'button') as React.ElementType
 
     const handleDisabledLinkClick = (
       event: React.MouseEvent<HTMLAnchorElement>
@@ -108,39 +107,53 @@ export const NavigationItem = forwardRef<HTMLElement, NavigationItemProps>(
       }
     }
 
-    return (
-      <Component
-        ref={forwardedRef}
-        className={classNames(
-          styles.NavigationItem,
-          active && styles.active,
-          disabled && styles.disabled,
-          styles.interactive,
-          className
-        )}
-        style={style}
-        data-testid={NAVIGATION_ITEM_TEST_ID}
-        aria-disabled={disabled || undefined}
-        {...rest}
-        {...(isLink && {
-          draggable: false,
-          tabIndex: disabled ? -1 : rest.tabIndex,
-          onClick: handleDisabledLinkClick,
-        })}
-        {...(!isLink && {
-          type: rest.type ?? 'button',
-          disabled,
-        })}
-      >
+    if (isLink) {
+      const { href, ...anchorRest } = rest
+
+      return (
         <BaseItem
-          className={styles.NavigationItemBase}
+          as="a"
+          ref={forwardedRef as React.Ref<HTMLAnchorElement>}
+          className={className}
+          style={style}
+          data-testid={NAVIGATION_ITEM_TEST_ID}
+          aria-disabled={disabled || undefined}
+          href={href}
+          draggable={false}
+          active={active}
+          interactive
+          contentMaxLines={1}
           leadingContent={leadingContent}
           trailingContent={trailingContent}
           disabled={disabled}
+          {...anchorRest}
+          tabIndex={disabled ? -1 : anchorRest.tabIndex}
+          onClick={handleDisabledLinkClick}
         >
           {content}
         </BaseItem>
-      </Component>
+      )
+    }
+
+    return (
+      <BaseItem
+        as="button"
+        ref={forwardedRef as React.Ref<HTMLButtonElement>}
+        className={className}
+        style={style}
+        data-testid={NAVIGATION_ITEM_TEST_ID}
+        aria-disabled={disabled || undefined}
+        type={rest.type ?? 'button'}
+        active={active}
+        interactive
+        contentMaxLines={1}
+        leadingContent={leadingContent}
+        trailingContent={trailingContent}
+        disabled={disabled}
+        {...rest}
+      >
+        {content}
+      </BaseItem>
     )
   }
 )

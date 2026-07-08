@@ -8,6 +8,7 @@ import type {
   ChildrenProps,
   ContentProps,
   DisableProps,
+  LinkProps,
 } from '~/src/types/props'
 
 interface NavigationContentProps extends ContentProps<ReactNode> {
@@ -49,11 +50,10 @@ interface NavigationGroupOwnProps extends DisableProps {
 type NavigationItemBaseProps =
   | (Omit<
       BezierComponentProps<'a'>,
-      keyof NavigationItemOwnProps | 'children' | 'onClick'
+      keyof NavigationItemOwnProps | 'children' | 'onClick' | 'type'
     > & {
-      href: string
       onClick?: never
-    })
+    } & Required<LinkProps>)
   | (Omit<
       BezierComponentProps<'button'>,
       keyof NavigationItemOwnProps | 'children'

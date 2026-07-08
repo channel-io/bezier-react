@@ -5,7 +5,6 @@ import { PlusIcon, TrashIcon } from '@channel.io/bezier-icons'
 import { act, fireEvent, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-
 import baseGroupLabelStyles from '~/src/beta/BaseGroupLabel/BaseGroupLabel.module.scss'
 import { Button } from '~/src/beta/Button'
 import { IconButton } from '~/src/beta/IconButton'
@@ -22,7 +21,6 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from './DropdownMenu'
-
 
 describe('DropdownMenu', () => {
   it('opens with DropdownMenuTrigger and selects an item', async () => {
@@ -57,7 +55,9 @@ describe('DropdownMenu', () => {
     await user.click(getByRole('menuitem', { name: 'Edit' }))
 
     expect(onSelect).toHaveBeenCalledTimes(1)
-    expect(queryByRole('menu')).not.toBeInTheDocument()
+    await waitFor(() => {
+      expect(queryByRole('menu')).not.toBeInTheDocument()
+    })
   })
 
   it('does not render DropdownMenuTrigger inside the menu content', async () => {
@@ -80,6 +80,38 @@ describe('DropdownMenu', () => {
     expect(
       within(getByRole('menu')).queryByRole('button', { name: 'More' })
     ).not.toBeInTheDocument()
+  })
+
+  it('renders a div menu item by default', () => {
+    const { getByRole } = render(
+      <DropdownMenu defaultShow>
+        <DropdownMenuItem content="Open" />
+      </DropdownMenu>
+    )
+
+    const item = getByRole('menuitem', { name: 'Open' })
+
+    expect(item.tagName).toBe('DIV')
+  })
+
+  it('renders an anchor menu item when href is provided', () => {
+    const { getByRole } = render(
+      <DropdownMenu defaultShow>
+        <DropdownMenuItem
+          content="Billing"
+          href="/billing"
+          target="_blank"
+          rel="noreferrer"
+        />
+      </DropdownMenu>
+    )
+
+    const item = getByRole('menuitem', { name: 'Billing' })
+
+    expect(item.tagName).toBe('A')
+    expect(item).toHaveAttribute('href', '/billing')
+    expect(item).toHaveAttribute('target', '_blank')
+    expect(item).toHaveAttribute('rel', 'noreferrer')
   })
 
   it('uses its root element as the default overlay container with DropdownMenuTrigger', async () => {
@@ -296,7 +328,9 @@ describe('DropdownMenu', () => {
     await user.keyboard('{Enter}')
 
     expect(onSelect).toHaveBeenCalledTimes(1)
-    expect(queryByRole('menu')).not.toBeInTheDocument()
+    await waitFor(() => {
+      expect(queryByRole('menu')).not.toBeInTheDocument()
+    })
   })
 
   it('selects the focused item with Space', async () => {
@@ -485,9 +519,7 @@ describe('DropdownMenu', () => {
     fireEvent.pointerLeave(trigger, { relatedTarget: document.body })
 
     await waitFor(() => {
-      expect(
-        queryByRole('menuitem', { name: 'Inbox' })
-      ).not.toBeInTheDocument()
+      expect(queryByRole('menuitem', { name: 'Inbox' })).not.toBeInTheDocument()
     })
   })
 
@@ -549,9 +581,7 @@ describe('DropdownMenu', () => {
     fireEvent.keyDown(getAllByTestId(OVERLAY_TEST_ID)[1], { key: 'ArrowLeft' })
 
     await waitFor(() => {
-      expect(
-        queryByRole('menuitem', { name: 'Inbox' })
-      ).not.toBeInTheDocument()
+      expect(queryByRole('menuitem', { name: 'Inbox' })).not.toBeInTheDocument()
     })
     expect(trigger).toHaveFocus()
   })

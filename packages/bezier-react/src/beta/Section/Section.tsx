@@ -83,10 +83,6 @@ export const SectionItem = forwardRef<HTMLElement, SectionItemProps>(
     } = props
     const isLink = 'href' in rest && rest.href != null
     const isButton = 'onClick' in rest && rest.onClick != null
-    const isInteractive = isLink || isButton
-    const Component = (
-      isLink ? 'a' : isButton ? 'button' : 'div'
-    ) as React.ElementType
 
     const handleDisabledLinkClick = (
       event: React.MouseEvent<HTMLAnchorElement>
@@ -97,48 +93,88 @@ export const SectionItem = forwardRef<HTMLElement, SectionItemProps>(
       }
     }
 
-    return (
-      <Component
-        ref={forwardedRef as React.Ref<HTMLElement>}
-        className={classNames(
-          styles.SectionItem,
-          active && styles.active,
-          disabled && styles.disabled,
-          isInteractive && styles.interactive,
-          className
-        )}
-        data-testid={SECTION_ITEM_TEST_ID}
-        aria-disabled={disabled || undefined}
-        {...(isButton && { type: rest.type ?? 'button' })}
-        {...rest}
-        {...(isLink && {
-          draggable: false,
-          tabIndex: disabled ? -1 : rest.tabIndex,
-          onClick: handleDisabledLinkClick,
-        })}
-        {...(isButton && { disabled })}
-      >
+    const itemClassName = classNames(
+      styles.SectionItem,
+      active && styles.active,
+      className
+    )
+    const itemDescription =
+      typeof description === 'string' ? (
+        <Text
+          typo="12"
+          color="text-neutral-lighter"
+        >
+          {renderTextWithNewLine(description)}
+        </Text>
+      ) : (
+        description
+      )
+
+    if (isLink) {
+      const { href, ...anchorRest } = rest
+
+      return (
         <BaseItem
-          className={styles.SectionItemBase}
+          as="a"
+          ref={forwardedRef as React.Ref<HTMLAnchorElement>}
+          className={itemClassName}
+          data-testid={SECTION_ITEM_TEST_ID}
+          aria-disabled={disabled || undefined}
+          href={href}
+          draggable={false}
+          active={active}
+          disabled={disabled}
+          interactive
           leadingContent={leadingContent}
           trailingContent={trailingContent}
-          description={
-            typeof description === 'string' ? (
-              <Text
-                typo="12"
-                color="text-neutral-lighter"
-              >
-                {renderTextWithNewLine(description)}
-              </Text>
-            ) : (
-              description
-            )
-          }
-          disabled={disabled}
+          description={itemDescription}
+          {...anchorRest}
+          tabIndex={disabled ? -1 : anchorRest.tabIndex}
+          onClick={handleDisabledLinkClick}
         >
           {content}
         </BaseItem>
-      </Component>
+      )
+    }
+
+    if (isButton) {
+      return (
+        <BaseItem
+          as="button"
+          ref={forwardedRef as React.Ref<HTMLButtonElement>}
+          className={itemClassName}
+          data-testid={SECTION_ITEM_TEST_ID}
+          aria-disabled={disabled || undefined}
+          type={rest.type ?? 'button'}
+          active={active}
+          disabled={disabled}
+          interactive
+          leadingContent={leadingContent}
+          trailingContent={trailingContent}
+          description={itemDescription}
+          {...rest}
+        >
+          {content}
+        </BaseItem>
+      )
+    }
+
+    return (
+      <BaseItem
+        as="div"
+        ref={forwardedRef as React.Ref<HTMLDivElement>}
+        className={itemClassName}
+        data-testid={SECTION_ITEM_TEST_ID}
+        aria-disabled={disabled || undefined}
+        active={active}
+        disabled={disabled}
+        leadingContent={leadingContent}
+        trailingContent={trailingContent}
+        description={itemDescription}
+        {...rest}
+      >
+        {content}
+      </BaseItem>
     )
   }
 )

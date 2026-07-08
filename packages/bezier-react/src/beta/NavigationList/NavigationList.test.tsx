@@ -1,6 +1,7 @@
 import { SettingsIcon } from '@channel.io/bezier-icons'
 import userEvent from '@testing-library/user-event'
 
+import textStyles from '~/src/beta/Text/Text.module.scss'
 import { render } from '~/src/utils/test'
 
 import {
@@ -50,6 +51,22 @@ describe('NavigationList', () => {
     await user.click(getByRole('button', { name: 'Open modal' }))
 
     expect(onClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('keeps long item content single-line truncated', () => {
+    const longContent =
+      'Channel profile with a very long navigation item label that should be truncated'
+
+    const { getByText } = render(
+      <NavigationList>
+        <NavigationItem
+          href="/settings/profile"
+          content={longContent}
+        />
+      </NavigationList>
+    )
+
+    expect(getByText(longContent)).toHaveClass(textStyles.truncated)
   })
 
   it('toggles group content from the parent trigger', async () => {

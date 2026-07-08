@@ -43,55 +43,9 @@
 }
 
 .SectionItem {
-  display: block;
-
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0;
-
-  font: inherit;
-  color: inherit;
-  text-align: inherit;
-  text-decoration: none;
-
-  background-color: transparent;
-  border: 0;
-  border-radius: var(--radius-8);
-  outline: none;
-
-  transition:
-    background-color var(--motion-transition-fast),
-    color var(--motion-transition-fast);
-
-  &:where(.interactive) {
-    cursor: pointer;
-  }
-
-  &:where(.disabled) {
-    cursor: not-allowed;
-  }
-
-  &:where(:focus-visible) {
-    @include state.focus-ring($gap: 0);
-  }
-
-  &:where(.interactive:not(.disabled, .active):hover) {
-    :where(.SectionItemBase) {
-      background-color: var(--color-fill-neutral-lighter);
-    }
-  }
-
   &:where(.active) {
-    :where(.SectionItemBase) {
-      background-color: var(--color-fill-neutral-light);
-    }
-
-    :where(.SectionItemBase svg) {
+    :where(svg) {
       color: var(--color-icon-neutral-heavier);
     }
   }
-}
-
-.SectionItemBase {
-  pointer-events: none;
 }
