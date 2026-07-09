@@ -167,7 +167,7 @@ type DropdownMenuItemActionProps = Omit<
 
 type DropdownMenuItemAnchorProps = Omit<
   BezierComponentProps<'a'>,
-  DropdownMenuItemBaseOmitKeys
+  Exclude<DropdownMenuItemBaseOmitKeys, 'onClick'>
 > & {
   closeOnSelect?: never
   onSelect?: never

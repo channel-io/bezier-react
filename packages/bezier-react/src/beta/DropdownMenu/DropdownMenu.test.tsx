@@ -1,5 +1,5 @@
 import { Fragment, useState } from 'react'
-import type { ReactElement } from 'react'
+import type { MouseEvent, ReactElement } from 'react'
 
 import { PlusIcon, TrashIcon } from '@channel.io/bezier-icons'
 import { act, fireEvent, waitFor, within } from '@testing-library/react'
@@ -112,6 +112,30 @@ describe('DropdownMenu', () => {
     expect(item).toHaveAttribute('href', '/billing')
     expect(item).toHaveAttribute('target', '_blank')
     expect(item).toHaveAttribute('rel', 'noreferrer')
+  })
+
+  it('closes an anchor menu item after an intercepted click', async () => {
+    const user = userEvent.setup()
+    const onClick = jest.fn((event: MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault()
+    })
+
+    const { getByRole, queryByRole } = render(
+      <DropdownMenu defaultShow>
+        <DropdownMenuItem
+          content="Billing"
+          href="/billing"
+          onClick={onClick}
+        />
+      </DropdownMenu>
+    )
+
+    await user.click(getByRole('menuitem', { name: 'Billing' }))
+
+    expect(onClick).toHaveBeenCalledTimes(1)
+    await waitFor(() => {
+      expect(queryByRole('menu')).not.toBeInTheDocument()
+    })
   })
 
   it('uses its root element as the default overlay container with DropdownMenuTrigger', async () => {

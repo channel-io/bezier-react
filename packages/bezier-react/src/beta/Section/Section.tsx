@@ -84,15 +84,6 @@ export const SectionItem = forwardRef<HTMLElement, SectionItemProps>(
     const isLink = 'href' in rest && rest.href != null
     const isButton = 'onClick' in rest && rest.onClick != null
 
-    const handleDisabledLinkClick = (
-      event: React.MouseEvent<HTMLAnchorElement>
-    ) => {
-      if (disabled) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
-    }
-
     const itemClassName = classNames(
       styles.SectionItem,
       active && styles.active,
@@ -108,10 +99,10 @@ export const SectionItem = forwardRef<HTMLElement, SectionItemProps>(
         </Text>
       ) : (
         description
-      )
+    )
 
     if (isLink) {
-      const { href, ...anchorRest } = rest
+      const { href, onClick, ...anchorRest } = rest
 
       return (
         <BaseItem
@@ -130,7 +121,15 @@ export const SectionItem = forwardRef<HTMLElement, SectionItemProps>(
           description={itemDescription}
           {...anchorRest}
           tabIndex={disabled ? -1 : anchorRest.tabIndex}
-          onClick={handleDisabledLinkClick}
+          onClick={(event: React.MouseEvent<HTMLAnchorElement>) => {
+            if (disabled) {
+              event.preventDefault()
+              event.stopPropagation()
+              return
+            }
+
+            onClick?.(event)
+          }}
         >
           {content}
         </BaseItem>

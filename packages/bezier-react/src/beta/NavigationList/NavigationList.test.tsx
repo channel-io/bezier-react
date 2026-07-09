@@ -1,3 +1,5 @@
+import type { MouseEvent } from 'react'
+
 import { SettingsIcon } from '@channel.io/bezier-icons'
 import userEvent from '@testing-library/user-event'
 
@@ -33,6 +35,27 @@ describe('NavigationList', () => {
     expect(getByTestId(NAVIGATION_ITEM_TEST_ID)).toBe(item)
     expect(item).toHaveAttribute('href', '/settings/profile')
     expect(item).toHaveAttribute('aria-current', 'page')
+  })
+
+  it('calls anchor item onClick when href is provided', async () => {
+    const user = userEvent.setup()
+    const onClick = jest.fn((event: MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault()
+    })
+
+    const { getByRole } = render(
+      <NavigationList>
+        <NavigationItem
+          href="/settings/profile"
+          content="Profile"
+          onClick={onClick}
+        />
+      </NavigationList>
+    )
+
+    await user.click(getByRole('link', { name: 'Profile' }))
+
+    expect(onClick).toHaveBeenCalledTimes(1)
   })
 
   it('renders button items when onClick is provided', async () => {
@@ -185,6 +208,7 @@ describe('NavigationList', () => {
           href="/settings/profile"
           content="Profile"
           disabled
+          onClick={onClick}
         />
       </div>
     )

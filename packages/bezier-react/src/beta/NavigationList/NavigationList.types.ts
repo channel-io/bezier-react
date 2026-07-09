@@ -50,10 +50,9 @@ interface NavigationGroupOwnProps extends DisableProps {
 type NavigationItemBaseProps =
   | (Omit<
       BezierComponentProps<'a'>,
-      keyof NavigationItemOwnProps | 'children' | 'onClick' | 'type'
-    > & {
-      onClick?: never
-    } & Required<LinkProps>)
+      keyof NavigationItemOwnProps | 'children' | 'type'
+    > &
+      Required<LinkProps>)
   | (Omit<
       BezierComponentProps<'button'>,
       keyof NavigationItemOwnProps | 'children'

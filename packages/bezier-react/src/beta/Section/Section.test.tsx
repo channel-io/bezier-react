@@ -1,3 +1,5 @@
+import type { MouseEvent } from 'react'
+
 import { CheckIcon } from '@channel.io/bezier-icons'
 import { waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -114,6 +116,25 @@ describe('Section', () => {
     )
   })
 
+  it('calls anchor item onClick when href is provided', async () => {
+    const user = userEvent.setup()
+    const onClick = jest.fn((event: MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault()
+    })
+
+    const { getByRole } = render(
+      <SectionItem
+        content="Billing"
+        href="/billing"
+        onClick={onClick}
+      />
+    )
+
+    await user.click(getByRole('link', { name: 'Billing' }))
+
+    expect(onClick).toHaveBeenCalledTimes(1)
+  })
+
   it('renders a non-interactive item by default', () => {
     const { getByTestId, queryByRole } = render(
       <SectionItem content="Read only" />
@@ -165,6 +186,7 @@ describe('Section', () => {
           content="Billing"
           disabled
           href="/billing"
+          onClick={onClick}
         />
       </div>
     )

@@ -505,12 +505,14 @@ export const DropdownMenuItem = forwardRef<HTMLElement, DropdownMenuItemProps>(
     }
 
     if (isLink) {
+      const { onClick, ...anchorRest } = rest
+
       return (
         <BaseItem
           as="a"
           ref={forwardedRef as React.Ref<HTMLAnchorElement>}
           {...commonProps}
-          {...rest}
+          {...anchorRest}
           draggable={false}
           onClick={(event: React.MouseEvent<HTMLAnchorElement>) => {
             if (disabled) {
@@ -519,10 +521,7 @@ export const DropdownMenuItem = forwardRef<HTMLElement, DropdownMenuItemProps>(
               return
             }
 
-            if (event.defaultPrevented) {
-              return
-            }
-
+            onClick?.(event)
             close()
           }}
           onKeyDown={(event: React.KeyboardEvent<HTMLAnchorElement>) => {

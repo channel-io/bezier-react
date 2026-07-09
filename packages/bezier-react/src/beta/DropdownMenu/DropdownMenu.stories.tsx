@@ -117,6 +117,9 @@ export const WithTrigger: Story = {
         href="https://github.com/channel-io/bezier-react"
         target="_blank"
         rel="noreferrer"
+        onClick={(event) => {
+          event.preventDefault()
+        }}
       />
       <DropdownMenuSeparator />
       <DropdownMenuItem

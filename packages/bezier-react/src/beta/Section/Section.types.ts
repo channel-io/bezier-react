@@ -89,10 +89,9 @@ type SectionItemBaseProps =
     })
   | (Omit<
       BezierComponentProps<'a'>,
-      keyof SectionItemOwnProps | 'children' | 'onClick' | 'type'
-    > & {
-      onClick?: never
-    } & Required<LinkProps>)
+      keyof SectionItemOwnProps | 'children' | 'type'
+    > &
+      Required<LinkProps>)
 
 /**
  * General row inside `Section`.

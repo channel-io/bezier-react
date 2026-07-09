@@ -98,17 +98,8 @@ export const NavigationItem = forwardRef<HTMLElement, NavigationItemProps>(
     } = props
     const isLink = 'href' in rest && rest.href != null
 
-    const handleDisabledLinkClick = (
-      event: React.MouseEvent<HTMLAnchorElement>
-    ) => {
-      if (disabled) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
-    }
-
     if (isLink) {
-      const { href, ...anchorRest } = rest
+      const { href, onClick, ...anchorRest } = rest
 
       return (
         <BaseItem
@@ -128,7 +119,15 @@ export const NavigationItem = forwardRef<HTMLElement, NavigationItemProps>(
           disabled={disabled}
           {...anchorRest}
           tabIndex={disabled ? -1 : anchorRest.tabIndex}
-          onClick={handleDisabledLinkClick}
+          onClick={(event: React.MouseEvent<HTMLAnchorElement>) => {
+            if (disabled) {
+              event.preventDefault()
+              event.stopPropagation()
+              return
+            }
+
+            onClick?.(event)
+          }}
         >
           {content}
         </BaseItem>
