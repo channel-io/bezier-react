@@ -457,10 +457,6 @@ export const DropdownMenuItem = forwardRef<HTMLElement, DropdownMenuItemProps>(
 
     const handleSelect = useCallback(
       (event: React.MouseEvent<HTMLDivElement>) => {
-        if (disabled) {
-          return false
-        }
-
         onSelect?.(event)
 
         if ('defaultPrevented' in event && event.defaultPrevented) {
@@ -473,7 +469,7 @@ export const DropdownMenuItem = forwardRef<HTMLElement, DropdownMenuItemProps>(
 
         return true
       },
-      [close, closeOnSelect, disabled, onSelect]
+      [close, closeOnSelect, onSelect]
     )
 
     const commonProps = {
