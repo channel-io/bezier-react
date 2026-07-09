@@ -1,5 +1,11 @@
 # @channel.io/bezier-codemod
 
+## 0.5.1-next.1
+
+### Patch Changes
+
+- Update the Ink CLI runtime for React 19 compatibility. ([#2878](https://github.com/channel-io/bezier-react/pull/2878)) by @timok1m
+
 ## 0.5.1-next.0
 
 ### Patch Changes
