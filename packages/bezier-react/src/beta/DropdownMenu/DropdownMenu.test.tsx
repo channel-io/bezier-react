@@ -60,6 +60,37 @@ describe('DropdownMenu', () => {
     })
   })
 
+  it('closes the menu with Tab without restoring focus to the trigger', async () => {
+    const user = userEvent.setup()
+
+    const { getByRole, queryByRole } = render(
+      <>
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <Button
+              label="More"
+              variant="outlined"
+              semantic="secondary"
+            />
+          </DropdownMenuTrigger>
+          <DropdownMenuItem content="Edit" />
+        </DropdownMenu>
+        <button type="button">Next</button>
+      </>
+    )
+
+    await user.click(getByRole('button', { name: 'More' }))
+    await waitFor(() => {
+      expect(getByRole('menuitem', { name: 'Edit' })).toHaveFocus()
+    })
+    await user.tab()
+
+    await waitFor(() => {
+      expect(queryByRole('menu')).not.toBeInTheDocument()
+    })
+    expect(getByRole('button', { name: 'Next' })).toHaveFocus()
+  })
+
   it('does not render DropdownMenuTrigger inside the menu content', async () => {
     const user = userEvent.setup()
 

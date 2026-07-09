@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import type { CSSProperties, ReactNode } from 'react'
+import type { CSSProperties, MouseEvent, ReactNode } from 'react'
 
 import {
   ArchiveIcon,
@@ -90,46 +90,49 @@ function ControlledMenu({
 }
 
 export const WithTrigger: Story = {
-  render: () => (
-    <DropdownMenu>
-      <DropdownMenuTrigger>
-        <IconButton
-          aria-label="More"
-          content={PlusIcon}
-          variant="outlined"
-          semantic="secondary"
-        />
-      </DropdownMenuTrigger>
+  render: () => {
+    const handleDocumentationClick = (event: MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault()
+      window.history.pushState({}, '', '#dropdown-menu-documentation')
+    }
 
-      <DropdownMenuItem
-        content="Edit"
-        leadingContent={EditIcon}
-        onSelect={() => {}}
-      />
-      <DropdownMenuItem
-        content="Archive"
-        leadingContent={ArchiveIcon}
-        onSelect={() => {}}
-      />
-      <DropdownMenuItem
-        content="Open documentation in new page"
-        leadingContent={ArrowRightUpSmallIcon}
-        href="https://github.com/channel-io/bezier-react"
-        target="_blank"
-        rel="noreferrer"
-        onClick={(event) => {
-          event.preventDefault()
-        }}
-      />
-      <DropdownMenuSeparator />
-      <DropdownMenuItem
-        content="Delete"
-        variant="destructive"
-        leadingContent={TrashIcon}
-        onSelect={() => {}}
-      />
-    </DropdownMenu>
-  ),
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger>
+          <IconButton
+            aria-label="More"
+            content={PlusIcon}
+            variant="outlined"
+            semantic="secondary"
+          />
+        </DropdownMenuTrigger>
+
+        <DropdownMenuItem
+          content="Edit"
+          leadingContent={EditIcon}
+          onSelect={() => {}}
+        />
+        <DropdownMenuItem
+          content="Archive"
+          leadingContent={ArchiveIcon}
+          onSelect={() => {}}
+        />
+        <DropdownMenuItem
+          content="Open documentation route"
+          leadingContent={ArrowRightUpSmallIcon}
+          href="#dropdown-menu-documentation"
+          onClick={handleDocumentationClick}
+        />
+        <DropdownMenuSeparator />
+        <DropdownMenuItem
+          content="Delete"
+          variant="destructive"
+          leadingContent={TrashIcon}
+          onSelect={() => {}}
+        />
+      </DropdownMenu>
+    )
+  },
 }
 
 export const ItemContent: Story = {

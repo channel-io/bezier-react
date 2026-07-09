@@ -45,18 +45,28 @@ import styles from './DropdownMenu.module.scss'
 
 const MENU_ITEM_SELECTOR =
   '[data-b-dropdown-menu-item="true"]:not([aria-disabled="true"])'
+const TABBABLE_SELECTOR = [
+  'a[href]',
+  'button:not([disabled])',
+  'input:not([disabled])',
+  'select:not([disabled])',
+  'textarea:not([disabled])',
+  '[tabindex]:not([tabindex="-1"])',
+].join(',')
 
 type DropdownMenuContextValue = {
   open: boolean
   menuId: string
+  focusReferenceElement: HTMLElement | null
   overlayContainer: HTMLElement | null
-  close: () => void
+  close: (options?: { restoreFocus?: boolean }) => void
 }
 
 const [DropdownMenuContextProvider, useDropdownMenuContext] =
   createContext<DropdownMenuContextValue>({
     open: false,
     menuId: '',
+    focusReferenceElement: null,
     overlayContainer: null,
     close: () => {},
   })
@@ -139,6 +149,12 @@ function isSidePosition(position: NonNullable<DropdownMenuProps['position']>) {
   return position.startsWith('left') || position.startsWith('right')
 }
 
+function isElementTarget(
+  target: DropdownMenuProps['target'] | null | undefined
+): target is HTMLElement {
+  return (target as { nodeType?: number } | null | undefined)?.nodeType === 1
+}
+
 function getOverlayMargins({
   position,
   offset,
@@ -157,6 +173,32 @@ function getFocusableItems(container: HTMLElement | null) {
   }
 
   return Array.from(container.querySelectorAll<HTMLElement>(MENU_ITEM_SELECTOR))
+}
+
+function getTabbableElements(document: Document) {
+  return Array.from(
+    document.querySelectorAll<HTMLElement>(TABBABLE_SELECTOR)
+  ).filter(
+    (element) =>
+      element.tabIndex >= 0 &&
+      element.getAttribute('aria-hidden') !== 'true' &&
+      element.getAttribute('aria-disabled') !== 'true'
+  )
+}
+
+function focusAdjacentTabbableElement(
+  referenceElement: HTMLElement | null,
+  reverse: boolean
+) {
+  if (!referenceElement) {
+    return
+  }
+
+  const tabbableElements = getTabbableElements(referenceElement.ownerDocument)
+  const currentIndex = tabbableElements.indexOf(referenceElement)
+  const nextIndex = reverse ? currentIndex - 1 : currentIndex + 1
+
+  tabbableElements[nextIndex]?.focus()
 }
 
 function focusItem(container: HTMLElement | null, index: number) {
@@ -185,14 +227,14 @@ function moveFocus(container: HTMLElement | null, delta: number) {
 
 function DropdownMenuContent({
   children,
-  autoFocusOnMount = false,
+  autoFocusOnOpen = false,
   onKeyDown,
 }: {
   children: React.ReactNode
-  autoFocusOnMount?: boolean
+  autoFocusOnOpen?: boolean
   onKeyDown?: React.KeyboardEventHandler<HTMLDivElement>
 }) {
-  const { menuId } = useDropdownMenuContext()
+  const { open, menuId, focusReferenceElement, close } = useDropdownMenuContext()
   const { window } = useWindow()
   const contentRef = useRef<HTMLDivElement>(null)
 
@@ -226,18 +268,24 @@ function DropdownMenuContent({
           items[items.length - 1]?.focus()
           break
         }
+        case 'Tab': {
+          event.preventDefault()
+          focusAdjacentTabbableElement(focusReferenceElement, event.shiftKey)
+          close({ restoreFocus: false })
+          break
+        }
       }
     },
-    [onKeyDown]
+    [close, focusReferenceElement, onKeyDown]
   )
 
   useEffect(() => {
-    if (autoFocusOnMount) {
+    if (autoFocusOnOpen && open) {
       window.requestAnimationFrame(() => {
         focusItem(contentRef.current, 0)
       })
     }
-  }, [autoFocusOnMount, window])
+  }, [autoFocusOnOpen, open, window])
 
   return (
     <div
@@ -283,6 +331,8 @@ export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
     const controlled = !isNil(show)
     const open = controlled ? Boolean(show) : uncontrolledOpen
     const overlayTarget = target ?? triggerElement
+    const focusReferenceElement =
+      triggerElement ?? (isElementTarget(overlayTarget) ? overlayTarget : null)
     const { trigger, items } = splitDropdownMenuChildren(children)
     const hasInternalTrigger = isValidElement(trigger)
     const overlayContainer =
@@ -303,19 +353,22 @@ export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
       [controlled, onHide, onShow]
     )
 
-    const close = useCallback(() => {
+    const close = useCallback((options?: { restoreFocus?: boolean }) => {
       setOpen(false)
-      triggerElement?.focus()
+      if (options?.restoreFocus !== false) {
+        triggerElement?.focus()
+      }
     }, [setOpen, triggerElement])
 
     const contextValue = useMemo(
       (): DropdownMenuContextValue => ({
         open,
         menuId,
+        focusReferenceElement,
         overlayContainer,
         close,
       }),
-      [close, menuId, open, overlayContainer]
+      [close, focusReferenceElement, menuId, open, overlayContainer]
     )
 
     const overlayMargins = getOverlayMargins({ position, offset })
@@ -350,7 +403,7 @@ export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
         onHide={close}
         {...rest}
       >
-        <DropdownMenuContent autoFocusOnMount>{items}</DropdownMenuContent>
+        <DropdownMenuContent autoFocusOnOpen>{items}</DropdownMenuContent>
       </Overlay>
     )
 
@@ -848,7 +901,7 @@ export const DropdownMenuSubContent = forwardRef<
       {...rest}
     >
       <DropdownMenuContextProvider value={rootContext}>
-        <DropdownMenuContent autoFocusOnMount={focusOnOpen}>
+        <DropdownMenuContent autoFocusOnOpen={focusOnOpen}>
           {children}
         </DropdownMenuContent>
       </DropdownMenuContextProvider>
