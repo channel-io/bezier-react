@@ -10,8 +10,8 @@
 .BaseItem {
   overflow: hidden;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  gap: 8px;
+  align-items: center;
 
   box-sizing: border-box;
   width: 100%;
@@ -38,7 +38,11 @@
     cursor: pointer;
   }
 
-  &:where(.active, [data-highlighted]) {
+  &:where(.active) {
+    background-color: var(--color-fill-neutral-light);
+  }
+
+  &:where([data-highlighted]) {
     background-color: var(--color-fill-neutral-lighter);
   }
 
@@ -59,11 +63,21 @@
     @include state.focus-ring($gap: 0);
   }
 
-  &:where(.interactive:not(.disabled, .active, [data-highlighted])) {
+  &:where(.interactive:not(.disabled, .active, [data-highlighted], :disabled)) {
     &:hover {
       background-color: var(--color-fill-neutral-lighter);
     }
   }
+}
+
+.ContentWrapper {
+  overflow: hidden;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+
+  min-width: 0;
 }
 
 .Content {
@@ -74,6 +88,10 @@
 
   width: 100%;
   min-width: 0;
+
+  &:where(.single-line) {
+    align-items: center;
+  }
 }
 
 .LeadingContent {
@@ -97,9 +115,18 @@
 }
 
 .MainContent {
+  overflow: hidden;
   display: flex;
+  flex: 1 1 auto;
   align-items: center;
+
+  width: 100%;
   min-width: 0;
+
+  > * {
+    min-width: 0;
+    max-width: 100%;
+  }
 }
 
 .Description {

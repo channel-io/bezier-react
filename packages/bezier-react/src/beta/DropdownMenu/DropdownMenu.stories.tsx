@@ -1,8 +1,9 @@
-import { useCallback, useRef, useState } from 'react'
-import type { CSSProperties, ReactNode } from 'react'
+import { useCallback, useState } from 'react'
+import type { CSSProperties, MouseEvent, ReactNode } from 'react'
 
 import {
   ArchiveIcon,
+  ArrowRightUpIcon,
   CheckIcon,
   EditIcon,
   PlusIcon,
@@ -10,7 +11,6 @@ import {
   TrashIcon,
 } from '@channel.io/bezier-icons'
 import type { Meta, StoryObj } from '@storybook/react'
-
 
 import { Button } from '~/src/beta/Button'
 import { IconButton } from '~/src/beta/IconButton'
@@ -26,7 +26,6 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from './DropdownMenu'
-
 
 const meta: Meta<typeof DropdownMenu> = {
   title: 'Beta components/DropdownMenu',
@@ -50,11 +49,15 @@ export default meta
 
 type Story = StoryObj<typeof DropdownMenu>
 
-function DropdownMenuExample({
+const README_STORY_PATH = '?path=/docs/readme--docs'
+
+function ControlledMenu({
   children,
+  label = 'Open menu',
   maxHeight,
 }: {
   children: ReactNode
+  label?: string
   maxHeight?: CSSProperties['maxHeight']
 }) {
   const [show, setShow] = useState(false)
@@ -67,7 +70,7 @@ function DropdownMenuExample({
     <>
       <Button
         ref={setTargetRef}
-        label="Open menu"
+        label={label}
         variant="outlined"
         semantic="secondary"
         leadingContent={PlusIcon}
@@ -88,137 +91,65 @@ function DropdownMenuExample({
   )
 }
 
-function ControlledWithExternalTriggerExample() {
-  const [show, setShow] = useState(false)
-  const triggerRef = useRef<HTMLButtonElement>(null)
+export const WithTrigger: Story = {
+  render: () => {
+    const handleHistoryClick = (event: MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault()
 
-  return (
-    <>
-      <Button
-        ref={triggerRef}
-        label="Open menu"
-        variant="outlined"
-        semantic="secondary"
-        active={show}
-        aria-haspopup="menu"
-        aria-expanded={show}
-        onClick={() => setShow((prev) => !prev)}
-      />
-      <DropdownMenu
-        show={show}
-        target={triggerRef.current}
-        onHide={() => setShow(false)}
-      >
+      const targetWindow = window.top ?? window
+
+      targetWindow.history.pushState({}, '', README_STORY_PATH)
+      targetWindow.dispatchEvent(new PopStateEvent('popstate'))
+    }
+
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger>
+          <IconButton
+            aria-label="More"
+            content={PlusIcon}
+            variant="outlined"
+            semantic="secondary"
+          />
+        </DropdownMenuTrigger>
+
         <DropdownMenuItem
-          content="Rename"
+          content="Edit"
           leadingContent={EditIcon}
+          onSelect={() => {}}
         />
         <DropdownMenuItem
           content="Archive"
           leadingContent={ArchiveIcon}
-        />
-      </DropdownMenu>
-    </>
-  )
-}
-
-function ControlledWithContainerTargetExample() {
-  const [show, setShow] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const triggerRef = useRef<HTMLButtonElement>(null)
-
-  return (
-    <div
-      ref={containerRef}
-      style={{
-        position: 'relative',
-        overflow: 'auto',
-        width: 360,
-        height: 260,
-        padding: 24,
-        border: '1px solid #d9d9d9',
-        borderRadius: 12,
-      }}
-    >
-      <div style={{ height: 64 }} />
-      <Button
-        ref={triggerRef}
-        label="Open in container"
-        variant="outlined"
-        semantic="secondary"
-        active={show}
-        aria-haspopup="menu"
-        aria-expanded={show}
-        onClick={() => setShow((prev) => !prev)}
-      />
-      <DropdownMenu
-        show={show}
-        target={triggerRef.current}
-        container={containerRef.current}
-        onHide={() => setShow(false)}
-      >
-        <DropdownMenuItem
-          content="Rename"
-          leadingContent={EditIcon}
+          onSelect={() => {}}
         />
         <DropdownMenuItem
-          content="Archive"
-          leadingContent={ArchiveIcon}
+          content="Go to README by href"
+          leadingContent={ArrowRightUpIcon}
+          href={README_STORY_PATH}
+          target="_top"
         />
+        <DropdownMenuItem
+          content="Go to README with onClick"
+          leadingContent={ArrowRightUpIcon}
+          href={README_STORY_PATH}
+          onClick={handleHistoryClick}
+        />
+        <DropdownMenuSeparator />
         <DropdownMenuItem
           content="Delete"
           variant="destructive"
           leadingContent={TrashIcon}
+          onSelect={() => {}}
         />
       </DropdownMenu>
-    </div>
-  )
+    )
+  },
 }
 
-export const WithTrigger: Story = {
+export const ItemContent: Story = {
   render: () => (
-    <DropdownMenu>
-      <DropdownMenuTrigger>
-        <IconButton
-          aria-label="More"
-          content={PlusIcon}
-          variant="outlined"
-          semantic="secondary"
-        />
-      </DropdownMenuTrigger>
-
-      <DropdownMenuItem
-        content="Edit"
-        leadingContent={EditIcon}
-        onSelect={() => {}}
-      />
-      <DropdownMenuItem
-        content="Archive"
-        leadingContent={ArchiveIcon}
-        onSelect={() => {}}
-      />
-      <DropdownMenuSeparator />
-      <DropdownMenuItem
-        content="Delete"
-        variant="destructive"
-        leadingContent={TrashIcon}
-        onSelect={() => {}}
-      />
-    </DropdownMenu>
-  ),
-}
-
-export const ControlledWithExternalTrigger: Story = {
-  render: () => <ControlledWithExternalTriggerExample />,
-}
-
-export const ControlledWithContainerTarget: Story = {
-  render: () => <ControlledWithContainerTargetExample />,
-}
-
-export const RichContent: Story = {
-  render: () => (
-    <DropdownMenuExample>
+    <ControlledMenu>
       <DropdownMenuItem
         content={
           <Text typo="14">
@@ -243,50 +174,34 @@ export const RichContent: Story = {
           </Text>
         }
       />
-    </DropdownMenuExample>
+      <DropdownMenuItem
+        content="Archive"
+        leadingContent={ArchiveIcon}
+        disabled
+      />
+    </ControlledMenu>
   ),
 }
 
-export const WithSubmenu: Story = {
+export const GroupsAndSubmenus: Story = {
   render: () => (
-    <DropdownMenuExample>
-      <DropdownMenuItem
-        content="Edit"
-        leadingContent={EditIcon}
-      />
-      <DropdownMenuSub>
-        <DropdownMenuSubTrigger
-          content="Move to"
-          leadingContent={SendForwardIcon}
-        />
-        <DropdownMenuSubContent>
-          <DropdownMenuItem content="Inbox" />
-          <DropdownMenuItem content="Archive" />
-          <DropdownMenuItem content="Trash" />
-        </DropdownMenuSubContent>
-      </DropdownMenuSub>
-      <DropdownMenuSeparator />
-      <DropdownMenuItem
-        content="Delete"
-        variant="destructive"
-        leadingContent={TrashIcon}
-      />
-    </DropdownMenuExample>
-  ),
-}
-
-export const Grouped: Story = {
-  render: () => (
-    <DropdownMenuExample>
+    <ControlledMenu>
       <DropdownMenuGroup label="File">
         <DropdownMenuItem
           content="Edit"
           leadingContent={EditIcon}
         />
-        <DropdownMenuItem
-          content="Archive"
-          leadingContent={ArchiveIcon}
-        />
+        <DropdownMenuSub>
+          <DropdownMenuSubTrigger
+            content="Move to"
+            leadingContent={SendForwardIcon}
+          />
+          <DropdownMenuSubContent>
+            <DropdownMenuItem content="Inbox" />
+            <DropdownMenuItem content="Archive" />
+            <DropdownMenuItem content="Trash" />
+          </DropdownMenuSubContent>
+        </DropdownMenuSub>
       </DropdownMenuGroup>
       <DropdownMenuSeparator />
       <DropdownMenuGroup label="Danger zone">
@@ -296,41 +211,39 @@ export const Grouped: Story = {
           leadingContent={TrashIcon}
         />
       </DropdownMenuGroup>
-    </DropdownMenuExample>
+    </ControlledMenu>
   ),
 }
 
-export const DisabledAndDestructive: Story = {
+export const ControlledTarget: Story = {
   render: () => (
-    <DropdownMenuExample>
+    <ControlledMenu label="Open controlled menu">
       <DropdownMenuItem
-        content="Edit"
+        content="Rename"
         leadingContent={EditIcon}
       />
       <DropdownMenuItem
         content="Archive"
         leadingContent={ArchiveIcon}
-        disabled
       />
-      <DropdownMenuSeparator />
       <DropdownMenuItem
         content="Delete"
         variant="destructive"
         leadingContent={TrashIcon}
       />
-    </DropdownMenuExample>
+    </ControlledMenu>
   ),
 }
 
 export const Scrollable: Story = {
   render: () => (
-    <DropdownMenuExample maxHeight={180}>
+    <ControlledMenu maxHeight={180}>
       {Array.from({ length: 12 }, (_, index) => (
         <DropdownMenuItem
           key={index}
           content={`Menu item ${index + 1}`}
         />
       ))}
-    </DropdownMenuExample>
+    </ControlledMenu>
   ),
 }

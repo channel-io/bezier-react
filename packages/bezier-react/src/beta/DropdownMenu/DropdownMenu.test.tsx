@@ -1,10 +1,15 @@
 import { Fragment, useState } from 'react'
-import type { ReactElement } from 'react'
+import type { MouseEvent, ReactElement } from 'react'
 
 import { PlusIcon, TrashIcon } from '@channel.io/bezier-icons'
-import { act, fireEvent, waitFor, within } from '@testing-library/react'
+import {
+  act,
+  createEvent,
+  fireEvent,
+  waitFor,
+  within,
+} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-
 
 import baseGroupLabelStyles from '~/src/beta/BaseGroupLabel/BaseGroupLabel.module.scss'
 import { Button } from '~/src/beta/Button'
@@ -22,7 +27,6 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from './DropdownMenu'
-
 
 describe('DropdownMenu', () => {
   it('opens with DropdownMenuTrigger and selects an item', async () => {
@@ -57,7 +61,46 @@ describe('DropdownMenu', () => {
     await user.click(getByRole('menuitem', { name: 'Edit' }))
 
     expect(onSelect).toHaveBeenCalledTimes(1)
-    expect(queryByRole('menu')).not.toBeInTheDocument()
+    await waitFor(() => {
+      expect(queryByRole('menu')).not.toBeInTheDocument()
+    })
+  })
+
+  it('closes the menu with Tab without restoring focus to the trigger', async () => {
+    const user = userEvent.setup()
+
+    const { getByRole, queryByRole } = render(
+      <>
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <Button
+              label="More"
+              variant="outlined"
+              semantic="secondary"
+            />
+          </DropdownMenuTrigger>
+          <DropdownMenuItem content="Edit" />
+        </DropdownMenu>
+        <button type="button">Next</button>
+      </>
+    )
+
+    await user.click(getByRole('button', { name: 'More' }))
+    const trigger = getByRole('button', { name: 'More' })
+    const item = getByRole('menuitem', { name: 'Edit' })
+
+    await waitFor(() => {
+      expect(item).toHaveFocus()
+    })
+
+    const event = createEvent.keyDown(item, { key: 'Tab' })
+    fireEvent(item, event)
+
+    await waitFor(() => {
+      expect(queryByRole('menu')).not.toBeInTheDocument()
+    })
+    expect(event.defaultPrevented).toBe(false)
+    expect(trigger).not.toHaveFocus()
   })
 
   it('does not render DropdownMenuTrigger inside the menu content', async () => {
@@ -80,6 +123,136 @@ describe('DropdownMenu', () => {
     expect(
       within(getByRole('menu')).queryByRole('button', { name: 'More' })
     ).not.toBeInTheDocument()
+  })
+
+  it('renders a div menu item by default', () => {
+    const { getByRole } = render(
+      <DropdownMenu defaultShow>
+        <DropdownMenuItem content="Open" />
+      </DropdownMenu>
+    )
+
+    const item = getByRole('menuitem', { name: 'Open' })
+
+    expect(item.tagName).toBe('DIV')
+  })
+
+  it('renders an anchor menu item when href is provided', () => {
+    const { getByRole } = render(
+      <DropdownMenu defaultShow>
+        <DropdownMenuItem
+          content="Billing"
+          href="/billing"
+          target="_blank"
+          rel="noreferrer"
+        />
+      </DropdownMenu>
+    )
+
+    const item = getByRole('menuitem', { name: 'Billing' })
+
+    expect(item.tagName).toBe('A')
+    expect(item).toHaveAttribute('href', '/billing')
+    expect(item).toHaveAttribute('target', '_blank')
+    expect(item).toHaveAttribute('rel', 'noreferrer')
+  })
+
+  it('closes an anchor menu item after an intercepted click', async () => {
+    const user = userEvent.setup()
+    const onClick = jest.fn((event: MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault()
+    })
+
+    const { getByRole, queryByRole } = render(
+      <DropdownMenu defaultShow>
+        <DropdownMenuItem
+          content="Billing"
+          href="/billing"
+          onClick={onClick}
+        />
+      </DropdownMenu>
+    )
+
+    await user.click(getByRole('menuitem', { name: 'Billing' }))
+
+    expect(onClick).toHaveBeenCalledTimes(1)
+    await waitFor(() => {
+      expect(queryByRole('menu')).not.toBeInTheDocument()
+    })
+  })
+
+  it('does not call anchor click handlers on disabled menu items', () => {
+    const onClick = jest.fn()
+
+    const { getByRole } = render(
+      <DropdownMenu defaultShow>
+        <DropdownMenuItem
+          content="Billing"
+          href="/billing"
+          disabled
+          onClick={onClick}
+        />
+      </DropdownMenu>
+    )
+
+    fireEvent.click(getByRole('menuitem', { name: 'Billing' }))
+
+    expect(onClick).not.toHaveBeenCalled()
+    expect(getByRole('menu')).toBeInTheDocument()
+  })
+
+  it('activates an anchor menu item with Space', async () => {
+    const user = userEvent.setup()
+    const onClick = jest.fn((event: MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault()
+    })
+    const onKeyDown = jest.fn()
+
+    const { getByRole, queryByRole } = render(
+      <DropdownMenu defaultShow>
+        <DropdownMenuItem
+          content="Billing"
+          href="/billing"
+          onClick={onClick}
+          onKeyDown={onKeyDown}
+        />
+      </DropdownMenu>
+    )
+
+    act(() => {
+      getByRole('menuitem', { name: 'Billing' }).focus()
+    })
+    await user.keyboard('[Space]')
+
+    expect(onKeyDown).toHaveBeenCalledTimes(1)
+    expect(onClick).toHaveBeenCalledTimes(1)
+    await waitFor(() => {
+      expect(queryByRole('menu')).not.toBeInTheDocument()
+    })
+  })
+
+  it('does not activate an anchor menu item when Space keydown is prevented', async () => {
+    const user = userEvent.setup()
+    const onClick = jest.fn()
+
+    const { getByRole } = render(
+      <DropdownMenu defaultShow>
+        <DropdownMenuItem
+          content="Billing"
+          href="/billing"
+          onClick={onClick}
+          onKeyDown={(event) => event.preventDefault()}
+        />
+      </DropdownMenu>
+    )
+
+    act(() => {
+      getByRole('menuitem', { name: 'Billing' }).focus()
+    })
+    await user.keyboard('[Space]')
+
+    expect(onClick).not.toHaveBeenCalled()
+    expect(getByRole('menu')).toBeInTheDocument()
   })
 
   it('uses its root element as the default overlay container with DropdownMenuTrigger', async () => {
@@ -296,7 +469,9 @@ describe('DropdownMenu', () => {
     await user.keyboard('{Enter}')
 
     expect(onSelect).toHaveBeenCalledTimes(1)
-    expect(queryByRole('menu')).not.toBeInTheDocument()
+    await waitFor(() => {
+      expect(queryByRole('menu')).not.toBeInTheDocument()
+    })
   })
 
   it('selects the focused item with Space', async () => {
@@ -354,6 +529,33 @@ describe('DropdownMenu', () => {
 
     await user.click(getByRole('menuitem', { name: 'Open' }))
 
+    expect(getByRole('menu')).toBeInTheDocument()
+  })
+
+  it('does not select an item when its click event is already prevented', () => {
+    const onSelect = jest.fn()
+
+    const { getByRole } = render(
+      <DropdownMenu defaultShow>
+        <DropdownMenuItem
+          content="Open"
+          onSelect={onSelect}
+        />
+      </DropdownMenu>
+    )
+
+    const item = getByRole('menuitem', { name: 'Open' })
+
+    item.addEventListener(
+      'click',
+      (event) => {
+        event.preventDefault()
+      },
+      { capture: true }
+    )
+    fireEvent.click(item)
+
+    expect(onSelect).not.toHaveBeenCalled()
     expect(getByRole('menu')).toBeInTheDocument()
   })
 
@@ -485,9 +687,7 @@ describe('DropdownMenu', () => {
     fireEvent.pointerLeave(trigger, { relatedTarget: document.body })
 
     await waitFor(() => {
-      expect(
-        queryByRole('menuitem', { name: 'Inbox' })
-      ).not.toBeInTheDocument()
+      expect(queryByRole('menuitem', { name: 'Inbox' })).not.toBeInTheDocument()
     })
   })
 
@@ -549,9 +749,7 @@ describe('DropdownMenu', () => {
     fireEvent.keyDown(getAllByTestId(OVERLAY_TEST_ID)[1], { key: 'ArrowLeft' })
 
     await waitFor(() => {
-      expect(
-        queryByRole('menuitem', { name: 'Inbox' })
-      ).not.toBeInTheDocument()
+      expect(queryByRole('menuitem', { name: 'Inbox' })).not.toBeInTheDocument()
     })
     expect(trigger).toHaveFocus()
   })

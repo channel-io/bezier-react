@@ -89,51 +89,6 @@
   }
 }
 
-.NavigationItem {
-  display: block;
-
-  box-sizing: border-box;
-  width: 100%;
-  padding: 0;
-
-  color: inherit;
-  text-align: inherit;
-  text-decoration: none;
-
-  background-color: transparent;
-  border: 0;
-  border-radius: var(--radius-8);
-  outline: none;
-
-  &:where(:focus-visible) {
-    @include state.focus-ring($gap: 0);
-  }
-
-  &:where(.interactive) {
-    cursor: pointer;
-  }
-
-  &:where(.disabled) {
-    cursor: not-allowed;
-  }
-
-  &:where(.interactive:not(.disabled, .active):hover) {
-    :where(.NavigationItemBase) {
-      background-color: var(--color-fill-neutral-lighter);
-    }
-  }
-
-  &:where(.active) {
-    :where(.NavigationItemBase) {
-      background-color: var(--color-fill-neutral-light);
-    }
-  }
-}
-
-.NavigationItemBase {
-  pointer-events: none;
-}
-
 .NavigationGroupTrigger {
   @include navigation-row-surface;
 

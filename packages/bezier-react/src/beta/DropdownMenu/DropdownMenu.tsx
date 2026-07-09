@@ -18,9 +18,6 @@ import * as React from 'react'
 import { ChevronSmallRightIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-
-
-
 import { BaseGroupLabel } from '~/src/beta/BaseGroupLabel'
 import { BaseItem } from '~/src/beta/BaseItem/BaseItem'
 import { Divider } from '~/src/beta/Divider'
@@ -46,9 +43,6 @@ import type {
 
 import styles from './DropdownMenu.module.scss'
 
-
-
-
 const MENU_ITEM_SELECTOR =
   '[data-b-dropdown-menu-item="true"]:not([aria-disabled="true"])'
 
@@ -56,7 +50,7 @@ type DropdownMenuContextValue = {
   open: boolean
   menuId: string
   overlayContainer: HTMLElement | null
-  close: () => void
+  close: (options?: { restoreFocus?: boolean }) => void
 }
 
 const [DropdownMenuContextProvider, useDropdownMenuContext] =
@@ -191,14 +185,14 @@ function moveFocus(container: HTMLElement | null, delta: number) {
 
 function DropdownMenuContent({
   children,
-  autoFocusOnMount = false,
+  autoFocusOnOpen = false,
   onKeyDown,
 }: {
   children: React.ReactNode
-  autoFocusOnMount?: boolean
+  autoFocusOnOpen?: boolean
   onKeyDown?: React.KeyboardEventHandler<HTMLDivElement>
 }) {
-  const { menuId } = useDropdownMenuContext()
+  const { open, menuId, close } = useDropdownMenuContext()
   const { window } = useWindow()
   const contentRef = useRef<HTMLDivElement>(null)
 
@@ -232,18 +226,22 @@ function DropdownMenuContent({
           items[items.length - 1]?.focus()
           break
         }
+        case 'Tab': {
+          close({ restoreFocus: false })
+          break
+        }
       }
     },
-    [onKeyDown]
+    [close, onKeyDown]
   )
 
   useEffect(() => {
-    if (autoFocusOnMount) {
+    if (autoFocusOnOpen && open) {
       window.requestAnimationFrame(() => {
         focusItem(contentRef.current, 0)
       })
     }
-  }, [autoFocusOnMount, window])
+  }, [autoFocusOnOpen, open, window])
 
   return (
     <div
@@ -309,9 +307,11 @@ export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
       [controlled, onHide, onShow]
     )
 
-    const close = useCallback(() => {
+    const close = useCallback((options?: { restoreFocus?: boolean }) => {
       setOpen(false)
-      triggerElement?.focus()
+      if (options?.restoreFocus !== false) {
+        triggerElement?.focus()
+      }
     }, [setOpen, triggerElement])
 
     const contextValue = useMemo(
@@ -356,7 +356,7 @@ export const DropdownMenu = forwardRef<HTMLDivElement, DropdownMenuProps>(
         onHide={close}
         {...rest}
       >
-        <DropdownMenuContent autoFocusOnMount>{items}</DropdownMenuContent>
+        <DropdownMenuContent autoFocusOnOpen>{items}</DropdownMenuContent>
       </Overlay>
     )
 
@@ -438,83 +438,143 @@ export function DropdownMenuTrigger({
   } as Partial<typeof children.props>)
 }
 
-export const DropdownMenuItem = forwardRef<
-  HTMLDivElement,
-  DropdownMenuItemProps
->(function DropdownMenuItem(
-  {
-    className,
-    content,
-    disabled = false,
-    variant = 'neutral',
-    description,
-    leadingContent,
-    trailingContent,
-    closeOnSelect = true,
-    onSelect,
-    onKeyDown,
-    ...rest
-  },
-  forwardedRef
-) {
-  const { close } = useDropdownMenuContext()
+export const DropdownMenuItem = forwardRef<HTMLElement, DropdownMenuItemProps>(
+  function DropdownMenuItem(
+    {
+      className,
+      content,
+      disabled = false,
+      variant = 'neutral',
+      description,
+      leadingContent,
+      trailingContent,
+      closeOnSelect = true,
+      onSelect,
+      onKeyDown,
+      ...rest
+    },
+    forwardedRef
+  ) {
+    const { close } = useDropdownMenuContext()
+    const isLink = 'href' in rest && rest.href != null
+    const handleKeyDownProp = onKeyDown as
+      | React.KeyboardEventHandler<HTMLElement>
+      | undefined
 
-  const handleSelect = useCallback(
-    (
-      event:
-        | React.MouseEvent<HTMLDivElement>
-        | React.KeyboardEvent<HTMLDivElement>
-    ) => {
-      if (disabled) {
-        return
-      }
+    const handleSelect = useCallback(
+      (event: React.MouseEvent<HTMLDivElement>) => {
+        onSelect?.(event)
 
-      onSelect?.(event)
+        if ('defaultPrevented' in event && event.defaultPrevented) {
+          return false
+        }
 
-      if (!('defaultPrevented' in event) || !event.defaultPrevented) {
         if (closeOnSelect) {
           close()
         }
-      }
-    },
-    [close, closeOnSelect, disabled, onSelect]
-  )
 
-  return (
-    <BaseItem
-      ref={forwardedRef}
-      className={className}
-      role="menuitem"
-      tabIndex={disabled ? undefined : -1}
-      aria-disabled={disabled || undefined}
-      data-b-dropdown-menu-item="true"
-      disabled={disabled}
-      variant={variant}
-      description={description}
-      leadingContent={leadingContent}
-      trailingContent={trailingContent}
-      {...rest}
-      onClick={(event) => {
-        if (!event.defaultPrevented) {
-          handleSelect(event)
-        }
-      }}
-      onKeyDown={(event) => {
-        onKeyDown?.(event)
-        if (event.defaultPrevented) {
-          return
-        }
+        return true
+      },
+      [close, closeOnSelect, onSelect]
+    )
 
-        if (event.key === 'Enter' || event.key === ' ') {
+    const commonProps = {
+      className,
+      role: 'menuitem',
+      tabIndex: -1,
+      'aria-disabled': disabled || undefined,
+      'data-b-dropdown-menu-item': 'true',
+      disabled,
+      interactive: true,
+      variant,
+      description,
+      leadingContent,
+      trailingContent,
+      children: content,
+    } satisfies {
+      className?: string
+      role: 'menuitem'
+      tabIndex: number
+      'aria-disabled'?: boolean
+      'data-b-dropdown-menu-item': string
+      disabled: boolean
+      interactive: boolean
+      variant: DropdownMenuItemProps['variant']
+      description: DropdownMenuItemProps['description']
+      leadingContent: DropdownMenuItemProps['leadingContent']
+      trailingContent: DropdownMenuItemProps['trailingContent']
+      children: DropdownMenuItemProps['content']
+    }
+
+    if (isLink) {
+      const { onClick, ...anchorRest } = rest
+
+      return (
+        <BaseItem
+          as="a"
+          ref={forwardedRef as React.Ref<HTMLAnchorElement>}
+          {...commonProps}
+          {...anchorRest}
+          draggable={false}
+          onClick={(event: React.MouseEvent<HTMLAnchorElement>) => {
+            if (disabled) {
+              event.preventDefault()
+              event.stopPropagation()
+              return
+            }
+
+            onClick?.(event)
+            close()
+          }}
+          onKeyDown={(event: React.KeyboardEvent<HTMLAnchorElement>) => {
+            handleKeyDownProp?.(event)
+            if (event.defaultPrevented) {
+              return
+            }
+
+            if (event.key === ' ') {
+              event.preventDefault()
+              event.currentTarget.click()
+            }
+          }}
+        />
+      )
+    }
+
+    return (
+      <BaseItem
+        as="div"
+        ref={forwardedRef as React.Ref<HTMLDivElement>}
+        {...commonProps}
+        {...rest}
+        onClick={(event: React.MouseEvent<HTMLDivElement>) => {
+          if (disabled) {
+            event.preventDefault()
+            event.stopPropagation()
+            return
+          }
+
+          if (event.defaultPrevented) {
+            return
+          }
+
           handleSelect(event)
-          event.preventDefault()
-        }
-      }}
-    >
-      {content}
-    </BaseItem>
-  )
-})
+        }}
+        onKeyDown={(event: React.KeyboardEvent<HTMLDivElement>) => {
+          handleKeyDownProp?.(event)
+          if (event.defaultPrevented) {
+            return
+          }
+
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault()
+            event.currentTarget.click()
+          }
+        }}
+      />
+    )
+  }
+)
 
 export const DropdownMenuGroup = forwardRef<
   HTMLDivElement,
@@ -794,7 +854,7 @@ export const DropdownMenuSubContent = forwardRef<
       {...rest}
     >
       <DropdownMenuContextProvider value={rootContext}>
-        <DropdownMenuContent autoFocusOnMount={focusOnOpen}>
+        <DropdownMenuContent autoFocusOnOpen={focusOnOpen}>
           {children}
         </DropdownMenuContent>
       </DropdownMenuContextProvider>

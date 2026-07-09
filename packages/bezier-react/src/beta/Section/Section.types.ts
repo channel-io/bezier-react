@@ -10,6 +10,7 @@ import type {
   ContentProps,
   DisableProps,
   LeadingTrailingContentProps,
+  LinkProps,
   MarginProps,
 } from '~/src/types/props'
 
@@ -88,11 +89,9 @@ type SectionItemBaseProps =
     })
   | (Omit<
       BezierComponentProps<'a'>,
-      keyof SectionItemOwnProps | 'children' | 'onClick'
-    > & {
-      href: string
-      onClick?: never
-    })
+      keyof SectionItemOwnProps | 'children' | 'type'
+    > &
+      Required<LinkProps>)
 
 /**
  * General row inside `Section`.

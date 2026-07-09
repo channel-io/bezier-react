@@ -17,9 +17,6 @@ import * as React from 'react'
 import { CheckIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-
-
-
 import { BaseGroupLabel } from '~/src/beta/BaseGroupLabel'
 import { BaseItem } from '~/src/beta/BaseItem/BaseItem'
 import { useFormFieldProps } from '~/src/beta/Form'
@@ -43,9 +40,6 @@ import type {
 } from './BaseSelect.types'
 
 import styles from './BaseSelect.module.scss'
-
-
-
 
 type SelectValue = BaseSelectValue
 type SelectProps<Value extends SelectValue = SelectValue> =
@@ -577,6 +571,7 @@ function BaseSelectOptionElement<Value extends SelectValue>({
       aria-disabled={disabled || undefined}
       data-b-select-option="true"
       disabled={disabled}
+      interactive
       description={description}
       leadingContent={leadingContent}
       trailingContent={optionTrailingContent}

@@ -1,6 +1,9 @@
+import type { MouseEvent } from 'react'
+
 import { SettingsIcon } from '@channel.io/bezier-icons'
 import userEvent from '@testing-library/user-event'
 
+import textStyles from '~/src/beta/Text/Text.module.scss'
 import { render } from '~/src/utils/test'
 
 import {
@@ -34,6 +37,27 @@ describe('NavigationList', () => {
     expect(item).toHaveAttribute('aria-current', 'page')
   })
 
+  it('calls anchor item onClick when href is provided', async () => {
+    const user = userEvent.setup()
+    const onClick = jest.fn((event: MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault()
+    })
+
+    const { getByRole } = render(
+      <NavigationList>
+        <NavigationItem
+          href="/settings/profile"
+          content="Profile"
+          onClick={onClick}
+        />
+      </NavigationList>
+    )
+
+    await user.click(getByRole('link', { name: 'Profile' }))
+
+    expect(onClick).toHaveBeenCalledTimes(1)
+  })
+
   it('renders button items when onClick is provided', async () => {
     const user = userEvent.setup()
     const onClick = jest.fn()
@@ -50,6 +74,22 @@ describe('NavigationList', () => {
     await user.click(getByRole('button', { name: 'Open modal' }))
 
     expect(onClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('keeps long item content single-line truncated', () => {
+    const longContent =
+      'Channel profile with a very long navigation item label that should be truncated'
+
+    const { getByText } = render(
+      <NavigationList>
+        <NavigationItem
+          href="/settings/profile"
+          content={longContent}
+        />
+      </NavigationList>
+    )
+
+    expect(getByText(longContent)).toHaveClass(textStyles.truncated)
   })
 
   it('toggles group content from the parent trigger', async () => {
@@ -168,6 +208,7 @@ describe('NavigationList', () => {
           href="/settings/profile"
           content="Profile"
           disabled
+          onClick={onClick}
         />
       </div>
     )
