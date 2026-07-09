@@ -2,7 +2,13 @@ import { Fragment, useState } from 'react'
 import type { MouseEvent, ReactElement } from 'react'
 
 import { PlusIcon, TrashIcon } from '@channel.io/bezier-icons'
-import { act, fireEvent, waitFor, within } from '@testing-library/react'
+import {
+  act,
+  createEvent,
+  fireEvent,
+  waitFor,
+  within,
+} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import baseGroupLabelStyles from '~/src/beta/BaseGroupLabel/BaseGroupLabel.module.scss'
@@ -80,15 +86,21 @@ describe('DropdownMenu', () => {
     )
 
     await user.click(getByRole('button', { name: 'More' }))
+    const trigger = getByRole('button', { name: 'More' })
+    const item = getByRole('menuitem', { name: 'Edit' })
+
     await waitFor(() => {
-      expect(getByRole('menuitem', { name: 'Edit' })).toHaveFocus()
+      expect(item).toHaveFocus()
     })
-    await user.tab()
+
+    const event = createEvent.keyDown(item, { key: 'Tab' })
+    fireEvent(item, event)
 
     await waitFor(() => {
       expect(queryByRole('menu')).not.toBeInTheDocument()
     })
-    expect(getByRole('button', { name: 'Next' })).toHaveFocus()
+    expect(event.defaultPrevented).toBe(false)
+    expect(trigger).not.toHaveFocus()
   })
 
   it('does not render DropdownMenuTrigger inside the menu content', async () => {
