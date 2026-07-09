@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react'
-import type { CSSProperties, ReactNode } from 'react'
+import type { CSSProperties, MouseEvent, ReactNode } from 'react'
 
 import {
   ArchiveIcon,
-  ArrowRightUpSmallIcon,
+  ArrowRightUpIcon,
   CheckIcon,
   EditIcon,
   PlusIcon,
@@ -49,6 +49,8 @@ export default meta
 
 type Story = StoryObj<typeof DropdownMenu>
 
+const README_STORY_PATH = '?path=/docs/readme--docs'
+
 function ControlledMenu({
   children,
   label = 'Open menu',
@@ -90,42 +92,59 @@ function ControlledMenu({
 }
 
 export const WithTrigger: Story = {
-  render: () => (
-    <DropdownMenu>
-      <DropdownMenuTrigger>
-        <IconButton
-          aria-label="More"
-          content={PlusIcon}
-          variant="outlined"
-          semantic="secondary"
-        />
-      </DropdownMenuTrigger>
+  render: () => {
+    const handleHistoryClick = (event: MouseEvent<HTMLAnchorElement>) => {
+      event.preventDefault()
 
-      <DropdownMenuItem
-        content="Edit"
-        leadingContent={EditIcon}
-        onSelect={() => {}}
-      />
-      <DropdownMenuItem
-        content="Archive"
-        leadingContent={ArchiveIcon}
-        onSelect={() => {}}
-      />
-      <DropdownMenuItem
-        content="Go to README"
-        leadingContent={ArrowRightUpSmallIcon}
-        href="?path=/docs/readme--docs"
-        target="_top"
-      />
-      <DropdownMenuSeparator />
-      <DropdownMenuItem
-        content="Delete"
-        variant="destructive"
-        leadingContent={TrashIcon}
-        onSelect={() => {}}
-      />
-    </DropdownMenu>
-  ),
+      const targetWindow = window.top ?? window
+
+      targetWindow.history.pushState({}, '', README_STORY_PATH)
+      targetWindow.dispatchEvent(new PopStateEvent('popstate'))
+    }
+
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger>
+          <IconButton
+            aria-label="More"
+            content={PlusIcon}
+            variant="outlined"
+            semantic="secondary"
+          />
+        </DropdownMenuTrigger>
+
+        <DropdownMenuItem
+          content="Edit"
+          leadingContent={EditIcon}
+          onSelect={() => {}}
+        />
+        <DropdownMenuItem
+          content="Archive"
+          leadingContent={ArchiveIcon}
+          onSelect={() => {}}
+        />
+        <DropdownMenuItem
+          content="Go to README by href"
+          leadingContent={ArrowRightUpIcon}
+          href={README_STORY_PATH}
+          target="_top"
+        />
+        <DropdownMenuItem
+          content="Go to README with onClick"
+          leadingContent={ArrowRightUpIcon}
+          href={README_STORY_PATH}
+          onClick={handleHistoryClick}
+        />
+        <DropdownMenuSeparator />
+        <DropdownMenuItem
+          content="Delete"
+          variant="destructive"
+          leadingContent={TrashIcon}
+          onSelect={() => {}}
+        />
+      </DropdownMenu>
+    )
+  },
 }
 
 export const ItemContent: Story = {
