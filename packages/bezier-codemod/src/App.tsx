@@ -10,6 +10,7 @@ import {
 import { Box, Text, useApp } from 'ink'
 
 import project from './project.js'
+import betaComponentMigration from './transforms/beta-component-migration/transform.js'
 import iconNameToBezierIcon from './transforms/icon-name-to-bezier-icons/transform.js'
 import iconsToBezierIcons from './transforms/icons-to-bezier-icons/transform.js'
 import enumMemberToStringLiteral from './transforms/v2-enum-member-to-string-literal/transform.js'
@@ -62,6 +63,7 @@ enum Option {
   V2ImportFromBezierToStyledComponents = 'v2-import-from-bezier-to-styled-components',
 
   V3BetaTokenToStableToken = 'v3-beta-token-to-stable-token',
+  BetaComponentMigration = 'beta-component-migration',
   Exit = 'Exit',
 }
 
@@ -96,6 +98,7 @@ const transformMap = {
   [Option.V2TextComponentInterface]: textComponentInterface,
 
   [Option.V3BetaTokenToStableToken]: betaTokenToStableToken,
+  [Option.BetaComponentMigration]: betaComponentMigration,
 }
 
 const options = (Object.keys(transformMap) as Option[])
