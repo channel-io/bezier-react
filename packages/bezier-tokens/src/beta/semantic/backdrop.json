@@ -1,0 +1,12 @@
+{
+  "backdrop": {
+    "large": {
+      "value": "{dimension.60}",
+      "type": "backdrop"
+    },
+    "small": {
+      "value": "{dimension.6}",
+      "type": "backdrop"
+    }
+  }
+}

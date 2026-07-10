@@ -1,0 +1,38 @@
+{
+  "layer": {
+    "z-index": {
+      "base": {
+        "value": "{layer.depth.0}",
+        "type": "z-index"
+      },
+      "floating": {
+        "value": "{layer.depth.1}",
+        "type": "z-index"
+      },
+      "overlay": {
+        "value": "{layer.depth.1000}",
+        "type": "z-index"
+      },
+      "modal": {
+        "value": "{layer.depth.1100}",
+        "type": "z-index"
+      },
+      "toast": {
+        "value": "{layer.depth.1200}",
+        "type": "z-index"
+      },
+      "tooltip": {
+        "value": "{layer.depth.1300}",
+        "type": "z-index"
+      },
+      "hidden": {
+        "value": "{layer.depth.1-m}",
+        "type": "z-index"
+      },
+      "important": {
+        "value": "{layer.depth.2000}",
+        "type": "z-index"
+      }
+    }
+  }
+}

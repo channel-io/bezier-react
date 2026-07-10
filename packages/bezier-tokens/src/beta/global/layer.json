@@ -1,0 +1,38 @@
+{
+  "layer": {
+    "depth": {
+      "1-m": {
+        "value": "-1",
+        "type": "depth"
+      },
+      "0": {
+        "value": "0",
+        "type": "depth"
+      },
+      "1": {
+        "value": "1",
+        "type": "depth"
+      },
+      "1000": {
+        "value": "1000",
+        "type": "depth"
+      },
+      "1100": {
+        "value": "1100",
+        "type": "depth"
+      },
+      "1200": {
+        "value": "1200",
+        "type": "depth"
+      },
+      "1300": {
+        "value": "1300",
+        "type": "depth"
+      },
+      "2000": {
+        "value": "2000",
+        "type": "depth"
+      }
+    }
+  }
+}
