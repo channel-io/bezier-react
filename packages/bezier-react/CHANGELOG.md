@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 2.7.0
+
+### Minor Changes
+
+- Add v3 beta tokens for v2 backward compatibility. ([#2881](https://github.com/channel-io/bezier-react/pull/2881)) by @timok1m
+
 ## 2.6.2
 
 ### Patch Changes
