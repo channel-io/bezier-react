@@ -10,6 +10,9 @@ import {
   alphaCustomCss,
   alphaCustomJsCjs,
   alphaCustomJsEsm,
+  betaCustomCss,
+  betaCustomJsCjs,
+  betaCustomJsEsm,
   customJsCjs,
   customJsEsm,
 } from './lib/format'
@@ -21,6 +24,7 @@ const CustomTransforms = [...Object.values(CSSTransforms)]
 const BUILD_PATH = {
   BASE: 'dist',
   BASE_ALPHA: 'dist/alpha',
+  BASE_BETA: 'dist/beta',
   CJS: 'cjs',
   ESM: 'esm',
   CSS: 'css',
@@ -40,6 +44,14 @@ const AlphaTokenBuilder = CustomTransforms.reduce(
   .registerFormat(alphaCustomJsCjs)
   .registerFormat(alphaCustomJsEsm)
   .registerFormat(alphaCustomCss)
+
+const BetaTokenBuilder = CustomTransforms.reduce(
+  (builder, transform) => builder.registerTransform(transform),
+  StyleDictionary
+)
+  .registerFormat(betaCustomJsCjs)
+  .registerFormat(betaCustomJsEsm)
+  .registerFormat(betaCustomCss)
 
 function defineWebPlatform({
   options,
@@ -63,6 +75,11 @@ interface DefineConfigOptions {
    * TODO: Remove this option in the next major release.
    */
   useAlpha?: boolean
+  /**
+   * Whether to use the beta version of the custom formatter
+   * TODO: Remove this option in the next major release.
+   */
+  useBeta?: boolean
   source: string[]
   reference?: string[]
   basePath: string
@@ -74,6 +91,7 @@ interface DefineConfigOptions {
 
 function defineConfig({
   useAlpha = false,
+  useBeta = false,
   source,
   reference = [],
   basePath,
@@ -90,7 +108,11 @@ function defineConfig({
         files: [
           {
             destination: `${destination}.js`,
-            format: useAlpha ? alphaCustomJsCjs.name : customJsCjs.name,
+            format: useBeta
+              ? betaCustomJsCjs.name
+              : useAlpha
+                ? alphaCustomJsCjs.name
+                : customJsCjs.name,
             filter: ({ filePath }) =>
               source.some((src) => minimatch(filePath, src)),
           },
@@ -102,7 +124,11 @@ function defineConfig({
         files: [
           {
             destination: `${destination}.mjs`,
-            format: useAlpha ? alphaCustomJsEsm.name : customJsEsm.name,
+            format: useBeta
+              ? betaCustomJsEsm.name
+              : useAlpha
+                ? alphaCustomJsEsm.name
+                : customJsEsm.name,
             filter: ({ filePath }) =>
               source.some((src) => minimatch(filePath, src)),
           },
@@ -114,7 +140,11 @@ function defineConfig({
         files: [
           {
             destination: `${destination}.css`,
-            format: useAlpha ? alphaCustomCss.name : 'css/variables',
+            format: useBeta
+              ? betaCustomCss.name
+              : useAlpha
+                ? alphaCustomCss.name
+                : 'css/variables',
             filter: ({ filePath }) =>
               source.some((src) => minimatch(filePath, src)),
             options: {
@@ -198,6 +228,43 @@ async function main() {
         options: { cssSelector: '[data-bezier-theme="dark"]' },
       })
     ),
+    BetaTokenBuilder.extend(
+      defineConfig({
+        useBeta: true,
+        source: ['src/beta/global/*.json'],
+        basePath: BUILD_PATH.BASE_BETA,
+        destination: 'global',
+        options: { cssSelector: ':where(:root, :host)' },
+      })
+    ),
+    BetaTokenBuilder.extend(
+      defineConfig({
+        useBeta: true,
+        source: [
+          'src/beta/semantic/*.json',
+          'src/beta/semantic/light-theme/*.json',
+        ],
+        reference: ['src/beta/global/*.json'],
+        basePath: BUILD_PATH.BASE_BETA,
+        destination: 'lightTheme',
+        options: {
+          cssSelector: ':where(:root, :host), [data-bezier-theme="light"]',
+        },
+      })
+    ),
+    BetaTokenBuilder.extend(
+      defineConfig({
+        useBeta: true,
+        source: [
+          'src/beta/semantic/*.json',
+          'src/beta/semantic/dark-theme/*.json',
+        ],
+        reference: ['src/beta/global/*.json'],
+        basePath: BUILD_PATH.BASE_BETA,
+        destination: 'darkTheme',
+        options: { cssSelector: '[data-bezier-theme="dark"]' },
+      })
+    ),
   ].forEach((builder) => {
     builder.buildAllPlatforms()
   })
@@ -205,6 +272,7 @@ async function main() {
   for (const buildPath of [
     `${BUILD_PATH.BASE}/${BUILD_PATH.CSS}`,
     `${BUILD_PATH.BASE_ALPHA}/${BUILD_PATH.CSS}`,
+    `${BUILD_PATH.BASE_BETA}/${BUILD_PATH.CSS}`,
   ]) {
     await mergeCss(buildPath)
   }
@@ -212,8 +280,10 @@ async function main() {
   for (const options of [
     { buildPath: `${BUILD_PATH.BASE}/${BUILD_PATH.CJS}`, isCjs: true },
     { buildPath: `${BUILD_PATH.BASE_ALPHA}/${BUILD_PATH.CJS}`, isCjs: true },
+    { buildPath: `${BUILD_PATH.BASE_BETA}/${BUILD_PATH.CJS}`, isCjs: true },
     { buildPath: `${BUILD_PATH.BASE}/${BUILD_PATH.ESM}`, isCjs: false },
     { buildPath: `${BUILD_PATH.BASE_ALPHA}/${BUILD_PATH.ESM}`, isCjs: false },
+    { buildPath: `${BUILD_PATH.BASE_BETA}/${BUILD_PATH.ESM}`, isCjs: false },
   ]) {
     await buildJsIndex(options)
   }

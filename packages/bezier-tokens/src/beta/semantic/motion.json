@@ -1,0 +1,27 @@
+{
+  "motion": {
+    "transition": {
+      "fast": {
+        "value": {
+          "duration": "{motion.duration.150}",
+          "timingFunction": "{motion.timing-function.easing}"
+        },
+        "type": "transition"
+      },
+      "default": {
+        "value": {
+          "duration": "{motion.duration.300}",
+          "timingFunction": "{motion.timing-function.easing}"
+        },
+        "type": "transition"
+      },
+      "slow": {
+        "value": {
+          "duration": "{motion.duration.450}",
+          "timingFunction": "{motion.timing-function.easing}"
+        },
+        "type": "transition"
+      }
+    }
+  }
+}
