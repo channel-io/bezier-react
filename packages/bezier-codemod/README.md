@@ -10,7 +10,59 @@ In your terminal, navigate into your project's folder, then run:
 npx @channel.io/bezier-codemod
 ```
 
+## Agent skill
+
+Install the published migration skill into the consumer repository:
+
+```bash
+npx @channel.io/bezier-codemod@<version> --install-skill
+```
+
+This creates `.agents/skills/migrate-bezier-beta` and records the exact codemod
+version that installed it. An agent can then be asked naturally, for example:
+
+```text
+$migrate-bezier-beta로 features/Document만 dry-run하고 변경점과 QA 주요 구간을 요약해줘
+```
+
+The skill searches for matching source paths, excludes generated copies,
+states the resolved scope, and invokes the codemod. It uses a matching local
+binary when available; otherwise it automatically executes the pinned package
+with `npx`. It never falls back to an unpinned latest version.
+
 ## Transformations
+
+### Root and alpha components to beta
+
+**`beta-component-migration`**
+
+Run the provenance-aware transform non-interactively and write diagnostics for
+agent-assisted cases:
+
+```bash
+npx @channel.io/bezier-codemod \
+  --transform beta-component-migration \
+  --scope src/features/Document \
+  --dry-run \
+  --report .bezier-beta-migration-report.json \
+  --summary .bezier-beta-migration-summary.md
+```
+
+`--scope` accepts one `.ts`/`.tsx` file or directory. A directory is converted
+to a TypeScript glob after the CLI verifies that it exists inside the current
+repository. Use `--files` for a reviewed explicit glob. Dry-run does not save
+source files and produces both machine-readable JSON and a Markdown summary
+with changed paths, automatic change types, diagnostic categories, and QA
+hotspots.
+
+The transform handles import aliases, literal prop mappings, typed props
+objects, native Form ownership, and the mechanical Tabs update. Structural
+migrations such as ListItem, Select, TextField, navigation, and collapsible
+sections are emitted as source-located diagnostics.
+
+The published package includes the `migrate-bezier-beta` agent skill. Invoke
+that single skill when the codemod and heuristic follow-up should run as one
+verified migration workflow.
 
 ### v3 beta token to stable token
 

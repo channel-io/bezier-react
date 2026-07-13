@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Migrate Bezier Beta'
+  short_description: 'Run codemods and resolve Bezier beta migrations'
+  default_prompt: 'Use $migrate-bezier-beta to migrate this repository from legacy Bezier components to beta.'

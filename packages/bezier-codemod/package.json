@@ -23,7 +23,8 @@
     "clean": "rm -rf dist node_modules .turbo .eslintcache .jestcache"
   },
   "files": [
-    "dist"
+    "dist",
+    "skills"
   ],
   "dependencies": {
     "@inkjs/ui": "^2.0.0",
