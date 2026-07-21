@@ -1,3 +1,5 @@
+@use '../../styles/mixins/interaction';
+
 .ListItemLeftIcon {
   transition: color var(--motion-transition-default);
 }
@@ -53,11 +55,11 @@
   }
 
   &:where(.clickable:not(.disabled, .active)) {
-    &:where(.focused, :focus-visible) {
+    @include interaction.touchable-hover {
       background-color: var(--color-fill-neutral-light);
     }
 
-    &:where(:hover) {
+    &:where(.focused, :focus-visible) {
       background-color: var(--color-fill-neutral-light);
     }
   }
