@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.13
+
+### Patch Changes
+
+- Gate `ListItem` and beta `BaseItem` hover styles behind `touchable-hover` so touch devices no longer keep a lingering hover background and instead show press (`:active`) feedback. ([#2887](https://github.com/channel-io/bezier-react/pull/2887)) by @sni-J
+
 ## 4.0.0-next.12
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @channel.io/bezier-codemod
 
+## 0.5.1-next.2
+
+### Patch Changes
+
+- Add the root and alpha component to beta migration transform, structured ([#2884](https://github.com/channel-io/bezier-react/pull/2884)) by @timok1m
+  diagnostics, scoped JSON/Markdown dry-run reporting, and the installable
+  `migrate-bezier-beta` agent skill with a pinned `npx` fallback.
+
 ## 0.5.1-next.1
 
 ### Patch Changes
