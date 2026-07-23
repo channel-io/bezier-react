@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.14
+
+### Patch Changes
+
+- Ensure stable and beta `Modal` close buttons remain positioned correctly regardless of extracted CSS rule order. ([#2888](https://github.com/channel-io/bezier-react/pull/2888)) by @timok1m
+
 ## 4.0.0-next.13
 
 ### Patch Changes
