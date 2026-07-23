@@ -24,6 +24,8 @@ const pkg = JSON.parse(
 
 const rootDir = fileURLToPath(new URL('.', import.meta.url))
 const styleSheetDir = 'styles.css'
+const buildEntryId = 'virtual:bezier-react-build-entry'
+const resolvedBuildEntryId = `\0${buildEntryId}`
 
 const extensions = [...DEFAULT_EXTENSIONS, '.ts', '.tsx']
 
@@ -54,9 +56,49 @@ function minifycss() {
   }
 }
 
+/**
+ * Create a single build-only entry so that styles from every public entry are
+ * ordered against the same module graph when they are extracted.
+ */
+function buildEntry() {
+  return {
+    name: 'build-entry',
+    resolveId(id) {
+      if (id === buildEntryId) {
+        return resolvedBuildEntryId
+      }
+
+      return null
+    },
+    load(id) {
+      if (id === resolvedBuildEntryId) {
+        return `
+          import * as stable from '~/src/index'
+          import * as beta from '~/src/beta/index'
+
+          export { beta, stable }
+        `
+      }
+
+      return null
+    },
+    generateBundle(options, bundle) {
+      Object.entries(bundle).forEach(([fileName, output]) => {
+        if (
+          output.type === 'chunk' &&
+          output.facadeModuleId === resolvedBuildEntryId
+        ) {
+          delete bundle[fileName]
+          delete bundle[`${fileName}.map`]
+        }
+      })
+    },
+  }
+}
+
 const generateConfig = ({ output = [], plugins = [] }) =>
   defineConfig({
-    input: ['src/index.ts', 'src/beta/index.ts'],
+    input: buildEntryId,
     output,
     plugins: [
       alias({
@@ -122,6 +164,7 @@ const generateConfig = ({ output = [], plugins = [] }) =>
       url(),
       visualizer({ filename: 'stats.html' }),
       minifycss(),
+      buildEntry(),
       ...plugins,
     ],
     onwarn(warning, warn) {
