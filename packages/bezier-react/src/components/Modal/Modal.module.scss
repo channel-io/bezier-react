@@ -112,6 +112,13 @@ $close-icon-button-margin-y: -6;
   flex-direction: column;
   width: 100%;
   height: 100%;
+
+  // NOTE: Keep modal placement more specific than the base button positioning rule.
+  > .CloseIconButton {
+    position: absolute;
+    top: #{$modal-padding + $close-icon-button-margin-y}px;
+    right: #{$modal-padding + $close-icon-button-margin-x}px;
+  }
 }
 
 .TitleContainer {
@@ -130,12 +137,6 @@ $close-icon-button-margin-y: -6;
 
 .Title {
   width: 100%;
-}
-
-.CloseIconButton {
-  position: absolute;
-  top: #{$modal-padding + $close-icon-button-margin-y}px;
-  right: #{$modal-padding + $close-icon-button-margin-x}px;
 }
 
 .CloseIconButtonSpacer {
