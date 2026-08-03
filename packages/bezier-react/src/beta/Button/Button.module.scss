@@ -35,6 +35,10 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
     height: 20px;
     padding: 2px 4px;
 
+    & .ButtonIcon {
+      @include dimension.square(14px);
+    }
+
     & .ButtonText {
       padding: 0 3px;
     }
@@ -44,6 +48,10 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
     min-width: 24px;
     height: 24px;
     padding: 3px 6px;
+
+    & .ButtonIcon {
+      @include dimension.square(16px);
+    }
 
     & .ButtonText {
       padding: 0 3px;
@@ -58,7 +66,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
     padding: 7px 10px;
 
     & .ButtonText {
-      padding: 0 4px;
+      padding: 0 3px;
     }
   }
 
@@ -66,8 +74,8 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
     --b-beta-button-content-gap: 2px;
 
     min-width: 44px;
-    height: 44px;
-    padding: 13px 12px;
+    height: 42px;
+    padding: 12px;
 
     & .ButtonText {
       padding: 0 4px;
@@ -80,14 +88,16 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
     --b-beta-button-background-color: var(--color-fill-neutral-heaviest);
 
     &#{$active-selector} {
-      --b-beta-button-background-color: var(--color-fill-neutral-heaviest-hovered);
+      --b-beta-button-background-color: var(
+        --color-fill-neutral-heaviest-hovered
+      );
     }
   }
 
   &:where(.variant-filled.semantic-secondary) {
     --b-beta-button-text-color: var(--color-text-neutral);
     --b-beta-button-icon-color: var(--color-icon-neutral-heavy);
-    --b-beta-button-background-color: var(--color-fill-neutral);
+    --b-beta-button-background-color: var(--color-fill-neutral-light);
 
     &#{$active-selector} {
       --b-beta-button-background-color: var(--color-fill-neutral-hovered);
@@ -95,13 +105,25 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
   }
 
   &:where(.variant-filled.semantic-destructive) {
-    --b-beta-button-text-color: var(--color-text-inverse);
-    --b-beta-button-icon-color: var(--color-icon-inverse-heavier);
+    --b-beta-button-text-color: var(--color-text-absolute-white);
+    --b-beta-button-icon-color: var(--color-icon-absolute-white);
     --b-beta-button-background-color: var(--color-fill-accent-red-heavier);
 
     &#{$active-selector} {
       --b-beta-button-background-color: var(
         --color-fill-accent-red-heavier-hovered
+      );
+    }
+  }
+
+  &:where(.variant-filled.semantic-activate) {
+    --b-beta-button-text-color: var(--color-text-absolute-white);
+    --b-beta-button-icon-color: var(--color-icon-absolute-white);
+    --b-beta-button-background-color: var(--color-fill-accent-green-heavier);
+
+    &#{$active-selector} {
+      --b-beta-button-background-color: var(
+        --color-fill-accent-green-heavier-hovered
       );
     }
   }
@@ -132,6 +154,11 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
     --b-beta-button-icon-color: var(--color-icon-accent-red);
   }
 
+  &:where(.variant-outlined.semantic-activate) {
+    --b-beta-button-text-color: var(--color-text-accent-green);
+    --b-beta-button-icon-color: var(--color-icon-accent-green);
+  }
+
   &:where(.variant-ghost) {
     --b-beta-button-background-color: var(--color-fill-neutral-transparent);
 
@@ -155,6 +182,40 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
   &:where(.variant-ghost.semantic-destructive) {
     --b-beta-button-text-color: var(--color-text-accent-red);
     --b-beta-button-icon-color: var(--color-icon-accent-red);
+  }
+
+  &:where(.variant-ghost.semantic-activate) {
+    --b-beta-button-text-color: var(--color-text-accent-green);
+    --b-beta-button-icon-color: var(--color-icon-accent-green);
+  }
+
+  &:where(.variant-floating) {
+    --b-beta-button-background-color: var(--color-fill-bright);
+    --b-beta-button-box-shadow: var(--elevation-2);
+
+    &#{$active-selector} {
+      --b-beta-button-box-shadow: var(--elevation-3);
+    }
+  }
+
+  &:where(.variant-floating.semantic-primary) {
+    --b-beta-button-text-color: var(--color-text-neutral-light);
+    --b-beta-button-icon-color: var(--color-icon-neutral-heavy);
+  }
+
+  &:where(.variant-floating.semantic-secondary) {
+    --b-beta-button-text-color: var(--color-text-neutral-lighter);
+    --b-beta-button-icon-color: var(--color-icon-neutral);
+  }
+
+  &:where(.variant-floating.semantic-destructive) {
+    --b-beta-button-text-color: var(--color-text-accent-red);
+    --b-beta-button-icon-color: var(--color-icon-accent-red);
+  }
+
+  &:where(.variant-floating.semantic-activate) {
+    --b-beta-button-text-color: var(--color-text-accent-green);
+    --b-beta-button-icon-color: var(--color-icon-accent-green);
   }
 
   &:where(.loading) {
@@ -181,7 +242,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
 }
 
 .ButtonIcon {
-  @include dimension.square(16px);
+  @include dimension.square(18px);
 
   flex: 0 0 auto;
   color: var(--b-beta-button-icon-color);

@@ -29,10 +29,10 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
   &:where(.size-xs) {
     @include dimension.square(20px);
 
-    padding: 2px;
+    padding: 3px;
 
     & .IconButtonIcon {
-      @include dimension.square(16px);
+      @include dimension.square(14px);
     }
   }
 
@@ -49,20 +49,20 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
   &:where(.size-m) {
     @include dimension.square(32px);
 
-    padding: 6px;
+    padding: 7px;
 
     & .IconButtonIcon {
-      @include dimension.square(20px);
+      @include dimension.square(18px);
     }
   }
 
   &:where(.size-l) {
-    @include dimension.square(44px);
+    @include dimension.square(42px);
 
     padding: 12px;
 
     & .IconButtonIcon {
-      @include dimension.square(20px);
+      @include dimension.square(18px);
     }
   }
 
@@ -79,7 +79,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
 
   &:where(.variant-filled.semantic-secondary) {
     --b-beta-icon-button-icon-color: var(--color-icon-neutral-heavy);
-    --b-beta-icon-button-background-color: var(--color-fill-neutral);
+    --b-beta-icon-button-background-color: var(--color-fill-neutral-light);
 
     &#{$active-selector} {
       --b-beta-icon-button-background-color: var(--color-fill-neutral-hovered);
@@ -87,7 +87,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
   }
 
   &:where(.variant-filled.semantic-destructive) {
-    --b-beta-icon-button-icon-color: var(--color-icon-inverse-heavier);
+    --b-beta-icon-button-icon-color: var(--color-icon-absolute-white);
     --b-beta-icon-button-background-color: var(--color-fill-accent-red-heavier);
 
     &#{$active-selector} {
@@ -97,8 +97,23 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
     }
   }
 
+  &:where(.variant-filled.semantic-activate) {
+    --b-beta-icon-button-icon-color: var(--color-icon-absolute-white);
+    --b-beta-icon-button-background-color: var(
+      --color-fill-accent-green-heavier
+    );
+
+    &#{$active-selector} {
+      --b-beta-icon-button-background-color: var(
+        --color-fill-accent-green-heavier-hovered
+      );
+    }
+  }
+
   &:where(.variant-outlined) {
-    --b-beta-icon-button-background-color: var(--color-fill-neutral-transparent);
+    --b-beta-icon-button-background-color: var(
+      --color-fill-neutral-transparent
+    );
     --b-beta-icon-button-box-shadow: inset 0 0 0 1px var(--color-border-neutral);
 
     &#{$active-selector} {
@@ -120,8 +135,14 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
     --b-beta-icon-button-icon-color: var(--color-icon-accent-red);
   }
 
+  &:where(.variant-outlined.semantic-activate) {
+    --b-beta-icon-button-icon-color: var(--color-icon-accent-green);
+  }
+
   &:where(.variant-ghost) {
-    --b-beta-icon-button-background-color: var(--color-fill-neutral-transparent);
+    --b-beta-icon-button-background-color: var(
+      --color-fill-neutral-transparent
+    );
 
     &#{$active-selector} {
       --b-beta-icon-button-background-color: var(
@@ -140,6 +161,35 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
 
   &:where(.variant-ghost.semantic-destructive) {
     --b-beta-icon-button-icon-color: var(--color-icon-accent-red);
+  }
+
+  &:where(.variant-ghost.semantic-activate) {
+    --b-beta-icon-button-icon-color: var(--color-icon-accent-green);
+  }
+
+  &:where(.variant-floating) {
+    --b-beta-icon-button-background-color: var(--color-fill-bright);
+    --b-beta-icon-button-box-shadow: var(--elevation-2);
+
+    &#{$active-selector} {
+      --b-beta-icon-button-box-shadow: var(--elevation-3);
+    }
+  }
+
+  &:where(.variant-floating.semantic-primary) {
+    --b-beta-icon-button-icon-color: var(--color-icon-neutral-heavy);
+  }
+
+  &:where(.variant-floating.semantic-secondary) {
+    --b-beta-icon-button-icon-color: var(--color-icon-neutral);
+  }
+
+  &:where(.variant-floating.semantic-destructive) {
+    --b-beta-icon-button-icon-color: var(--color-icon-accent-red);
+  }
+
+  &:where(.variant-floating.semantic-activate) {
+    --b-beta-icon-button-icon-color: var(--color-icon-accent-green);
   }
 
   &:where(.loading) {
