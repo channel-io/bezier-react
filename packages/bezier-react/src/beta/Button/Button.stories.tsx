@@ -7,7 +7,21 @@ import { VStack } from '~/src/beta/VStack'
 import { Button } from './Button'
 import { type ButtonProps } from './Button.types'
 
+const BUTTON_VARIANTS = ['filled', 'outlined', 'ghost', 'floating'] as const
 
+const BUTTON_SEMANTICS = [
+  'primary',
+  'secondary',
+  'destructive',
+  'activate',
+] as const
+
+const BUTTON_STATES = [
+  { label: 'Default' },
+  { label: 'Active', active: true },
+  { label: 'Disabled', disabled: true },
+  { label: 'Loading', loading: true },
+] as const
 
 const meta: Meta<typeof Button> = {
   title: 'Beta components/Button',
@@ -17,13 +31,13 @@ const meta: Meta<typeof Button> = {
       control: {
         type: 'radio',
       },
-      options: ['filled', 'outlined', 'ghost'],
+      options: BUTTON_VARIANTS,
     },
     semantic: {
       control: {
         type: 'radio',
       },
-      options: ['primary', 'secondary', 'destructive'],
+      options: BUTTON_SEMANTICS,
     },
     size: {
       control: {
@@ -57,23 +71,21 @@ export const Primary: StoryObj<ButtonProps> = {
 export const Variants: StoryObj<ButtonProps> = {
   render: (args: ButtonProps) => (
     <VStack spacing={16}>
-      {(['filled', 'outlined', 'ghost'] as const).map((variant) => (
+      {BUTTON_VARIANTS.map((variant) => (
         <HStack
           key={variant}
           spacing={8}
         >
-          {(['primary', 'secondary', 'destructive'] as const).map(
-            (semantic) => (
-              <Button
-                key={semantic}
-                {...args}
-                variant={variant}
-                semantic={semantic}
-                leadingContent={PlusIcon}
-                trailingContent={ArrowRightIcon}
-              />
-            )
-          )}
+          {BUTTON_SEMANTICS.map((semantic) => (
+            <Button
+              key={semantic}
+              {...args}
+              variant={variant}
+              semantic={semantic}
+              leadingContent={PlusIcon}
+              trailingContent={ArrowRightIcon}
+            />
+          ))}
         </HStack>
       ))}
     </VStack>
@@ -99,6 +111,31 @@ export const Variants: StoryObj<ButtonProps> = {
       },
     },
   },
+}
+
+export const States: StoryObj<ButtonProps> = {
+  render: () => (
+    <VStack spacing={16}>
+      {(['filled', 'floating'] as const).map((variant) => (
+        <HStack
+          key={variant}
+          spacing={8}
+          align="center"
+        >
+          {BUTTON_STATES.map(({ label, ...stateProps }) => (
+            <Button
+              key={label}
+              label={label}
+              variant={variant}
+              semantic="activate"
+              leadingContent={PlusIcon}
+              {...stateProps}
+            />
+          ))}
+        </HStack>
+      ))}
+    </VStack>
+  ),
 }
 
 export const Sizes: StoryObj<ButtonProps> = {

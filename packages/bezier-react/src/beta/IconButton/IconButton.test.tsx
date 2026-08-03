@@ -18,6 +18,22 @@ describe('IconButton', () => {
     expect(getByRole('button', { name: 'Add' })).toBeInTheDocument()
   })
 
+  it('should support activate floating style', () => {
+    const { getByRole } = render(
+      <IconButton
+        content={PlusIcon}
+        variant="floating"
+        semantic="activate"
+        aria-label="Activate"
+      />
+    )
+
+    expect(getByRole('button', { name: 'Activate' })).toHaveClass(
+      'variant-floating',
+      'semantic-activate'
+    )
+  })
+
   it('should have type="button" by default', () => {
     const { getByRole } = render(
       <IconButton

@@ -13,6 +13,21 @@ describe('Button', () => {
     expect(getByRole('button', { name: 'Button' })).toBeInTheDocument()
   })
 
+  it('should support activate floating style', () => {
+    const { getByRole } = render(
+      <Button
+        label="Activate"
+        variant="floating"
+        semantic="activate"
+      />
+    )
+
+    expect(getByRole('button', { name: 'Activate' })).toHaveClass(
+      'variant-floating',
+      'semantic-activate'
+    )
+  })
+
   it('should have type="button" by default', () => {
     const { getByRole } = render(<Button label="Button" />)
 

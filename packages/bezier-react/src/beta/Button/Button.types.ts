@@ -12,9 +12,13 @@ import {
   type SizeProps,
 } from '~/src/types/props'
 
-export type ButtonVariant = 'filled' | 'outlined' | 'ghost'
+export type ButtonVariant = 'filled' | 'outlined' | 'ghost' | 'floating'
 
-export type ButtonSemantic = 'primary' | 'secondary' | 'destructive'
+export type ButtonSemantic =
+  | 'primary'
+  | 'secondary'
+  | 'destructive'
+  | 'activate'
 
 export type ButtonSize = 'xs' | 's' | 'm' | 'l'
 
@@ -51,10 +55,7 @@ interface ButtonOwnProps
 }
 
 interface ButtonButtonProps
-  extends Omit<
-    BaseButtonButtonProps,
-    keyof ButtonOwnProps | 'color' | 'type'
-  > {
+  extends Omit<BaseButtonButtonProps, keyof ButtonOwnProps | 'color' | 'type'> {
   as?: 'button'
   /**
    * `type` attribute of typical HTML button.
@@ -67,10 +68,7 @@ interface ButtonButtonProps
 }
 
 interface ButtonAnchorProps
-  extends Omit<
-    BaseButtonAnchorProps,
-    keyof ButtonOwnProps | 'color'
-  > {}
+  extends Omit<BaseButtonAnchorProps, keyof ButtonOwnProps | 'color'> {}
 
 interface ButtonCustomElementProps
   extends Omit<
