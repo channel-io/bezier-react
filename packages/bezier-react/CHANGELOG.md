@@ -1,5 +1,15 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.15
+
+### Minor Changes
+
+- Align beta Button and IconButton with the latest design specification. ([#2892](https://github.com/channel-io/bezier-react/pull/2892)) by @timok1m
+
+  - Add the `activate` semantic and `floating` variant.
+  - Update component dimensions and icon sizes.
+  - Refine secondary and destructive filled colors.
+
 ## 4.0.0-next.14
 
 ### Patch Changes
