@@ -2,11 +2,10 @@ import { type Meta, type StoryObj } from '@storybook/react'
 
 import { Switch } from '~/src/beta/Switch'
 import { TextInput } from '~/src/beta/TextInput'
+import { VStack } from '~/src/beta/VStack'
 
 import { Settings, SettingsField } from './Settings'
 import type { SettingsFieldProps, SettingsProps } from './Settings.types'
-
-
 
 const SETTINGS_WIDTH = 360
 
@@ -61,4 +60,40 @@ export const Primary: StoryObj<SettingsProps & SettingsFieldProps> = {
   args: {
     labelPosition: 'left',
   },
+}
+
+export const FieldSpacing: StoryObj<SettingsProps & SettingsFieldProps> = {
+  tags: ['!autodocs'],
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <VStack spacing={24}>
+      <Settings style={{ width: SETTINGS_WIDTH }}>
+        <SettingsField label="Label left">
+          <Switch defaultChecked />
+        </SettingsField>
+        <SettingsField
+          label="Label left with description"
+          description="Each field keeps its own vertical padding."
+        >
+          <Switch />
+        </SettingsField>
+      </Settings>
+
+      <Settings style={{ width: SETTINGS_WIDTH }}>
+        <SettingsField
+          label="Label top"
+          labelPosition="top"
+        >
+          <TextInput defaultValue="Channel" />
+        </SettingsField>
+        <SettingsField
+          label="Label top with description"
+          description="Dividers stay between the padded fields."
+          labelPosition="top"
+        >
+          <TextInput defaultValue="Bezier" />
+        </SettingsField>
+      </Settings>
+    </VStack>
+  ),
 }
