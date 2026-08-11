@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.16
+
+### Patch Changes
+
+- Remove the unintended spacing below beta SectionLabel and align beta SettingsField vertical padding with the design specification. ([#2895](https://github.com/channel-io/bezier-react/pull/2895)) by @timok1m
+
 ## 4.0.0-next.15
 
 ### Minor Changes
