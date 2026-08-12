@@ -1,13 +1,13 @@
-
 import { Switch } from '~/src/beta/Switch'
 import { render } from '~/src/utils/test'
 
 import { Settings, SettingsField } from './Settings'
 
+import styles from './Settings.module.scss'
 
 describe('Settings', () => {
-  it('renders dividers between fields by default', () => {
-    const { getAllByRole } = render(
+  it('groups each field with a following divider except for the last field', () => {
+    const { container, getAllByTestId, getByRole } = render(
       <Settings>
         <SettingsField label="Notifications">
           <Switch />
@@ -18,7 +18,17 @@ describe('Settings', () => {
       </Settings>
     )
 
-    expect(getAllByRole('separator')).toHaveLength(1)
+    const fields = getAllByTestId('bezier-beta-switch')
+    const divider = getByRole('separator')
+    const wrappers = container.querySelectorAll(
+      `.${styles.SettingsFieldWrapper}`
+    )
+
+    expect(wrappers).toHaveLength(2)
+    expect(wrappers[0]).toContainElement(fields[0])
+    expect(wrappers[0]).toContainElement(divider)
+    expect(wrappers[1]).toContainElement(fields[1])
+    expect(wrappers[1]).not.toContainElement(divider)
   })
 })
 

@@ -1,10 +1,8 @@
 'use client'
 
-import { Children, Fragment, forwardRef, isValidElement } from 'react'
+import { Children, forwardRef, isValidElement } from 'react'
 
 import classNames from 'classnames'
-
-
 
 import { Divider } from '~/src/beta/Divider'
 import { Help } from '~/src/beta/Help'
@@ -36,7 +34,9 @@ function SettingsFieldHelp({ help }: Pick<SettingsFieldProps, 'help'>) {
  */
 export const Settings = forwardRef<HTMLDivElement, SettingsProps>(
   function Settings({ children, className, ...rest }, forwardedRef) {
-    if (!children) {
+    const fields = Children.toArray(children)
+
+    if (fields.length === 0) {
       return null
     }
 
@@ -46,16 +46,20 @@ export const Settings = forwardRef<HTMLDivElement, SettingsProps>(
         className={classNames(styles.Settings, className)}
         {...rest}
       >
-        {Children.map(children, (child, index) => (
-          <Fragment key={index}>
-            {index > 0 && (
+        {fields.map((field, index) => (
+          <div
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
+            className={styles.SettingsFieldWrapper}
+          >
+            {field}
+            {index < fields.length - 1 && (
               <Divider
                 className={styles.SettingsDivider}
                 withoutSideIndent
               />
             )}
-            {child}
-          </Fragment>
+          </div>
         ))}
       </div>
     )
