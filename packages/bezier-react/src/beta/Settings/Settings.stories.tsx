@@ -73,7 +73,7 @@ export const FieldSpacing: StoryObj<SettingsProps & SettingsFieldProps> = {
         </SettingsField>
         <SettingsField
           label="Label left with description"
-          description="Each field keeps its own vertical padding."
+          description="Content starts without additional top padding."
         >
           <Switch />
         </SettingsField>
@@ -88,7 +88,7 @@ export const FieldSpacing: StoryObj<SettingsProps & SettingsFieldProps> = {
         </SettingsField>
         <SettingsField
           label="Label top with description"
-          description="Dividers stay between the padded fields."
+          description="The divider follows the field spacing contract."
           labelPosition="top"
         >
           <TextInput defaultValue="Bezier" />
