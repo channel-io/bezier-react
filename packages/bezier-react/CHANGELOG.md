@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.17
+
+### Patch Changes
+
+- Correct beta SettingsField spacing around field content and dividers. ([#2897](https://github.com/channel-io/bezier-react/pull/2897)) by @timok1m
+
 ## 4.0.0-next.16
 
 ### Patch Changes
