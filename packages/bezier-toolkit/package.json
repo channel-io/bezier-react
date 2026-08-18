@@ -1,6 +1,6 @@
 {
   "name": "@channel.io/bezier-toolkit",
-  "version": "0.0.0",
+  "version": "0.1.0-next.0",
   "description": "Installed-package lookup and diagnostics for Bezier manifests.",
   "repository": {
     "type": "git",
