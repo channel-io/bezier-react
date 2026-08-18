@@ -2396,6 +2396,10 @@ __metadata:
     "@types/node": "npm:^22.10.2"
     eslint-config-bezier: "workspace:*"
     tsconfig: "workspace:*"
+  peerDependencies:
+    "@channel.io/bezier-icons": ^0.57.0 || ^0.58.0-next.0
+    "@channel.io/bezier-react": ^4.0.0-next.17
+    "@channel.io/bezier-tokens": ^1.0.0-next.5
   bin:
     bezier: ./dist/cli.js
   languageName: unknown
