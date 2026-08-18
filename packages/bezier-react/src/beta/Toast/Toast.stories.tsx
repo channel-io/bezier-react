@@ -1,6 +1,7 @@
 import { CheckIcon } from '@channel.io/bezier-icons'
 import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 import { Button } from '~/src/beta/Button'
 import { HStack } from '~/src/beta/HStack'
 
@@ -16,6 +17,13 @@ import {
 const meta: Meta<ToastProps> = {
   title: 'Beta components/Toast',
   component: ToastProvider,
+  parameters: {
+    bezier: defineBezierMetadata({
+      model: 'independent', root: 'ToastProvider',
+      parts: {},
+      independent: { Toast: {} },
+    }),
+  },
   argTypes: {
     autoDismiss: {
       control: 'boolean',

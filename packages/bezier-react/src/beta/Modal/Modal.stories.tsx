@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react'
 
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import { Button } from '~/src/beta/Button'
 import { ButtonGroup } from '~/src/beta/ButtonGroup'
@@ -19,6 +20,20 @@ import {
 const meta: Meta<typeof Modal> = {
   title: 'Beta components/Modal',
   component: Modal,
+  parameters: {
+    bezier: defineBezierMetadata({
+      model: 'compound', root: 'Modal',
+      parts: {
+        ModalTrigger: { requiresAncestor: ['Modal'] },
+        ModalContent: { requiresAncestor: ['Modal'] },
+        ModalHeader: { requiresAncestor: ['Modal', 'ModalContent'] },
+        ModalBody: { requiresAncestor: ['Modal', 'ModalContent'] },
+        ModalFooter: { requiresAncestor: ['Modal', 'ModalContent'] },
+        ModalClose: { requiresAncestor: ['Modal'] },
+      },
+      independent: {},
+    }),
+  },
 }
 
 export default meta

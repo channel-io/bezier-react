@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react'
 
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 
 import { Checkbox } from '~/src/beta/Checkbox'
@@ -26,6 +27,19 @@ const FIELD_WIDTH = 360
 const meta: Meta<FormProps & FormFieldProps> = {
   title: 'Beta components/Form',
   component: Form,
+  parameters: {
+    bezier: defineBezierMetadata({
+      model: 'compound', root: 'Form',
+      parts: {
+        FormField: { requiresAncestor: ['Form'] },
+        FormLabel: { requiresAncestor: ['Form', 'FormField'] },
+        FormHelperText: { requiresAncestor: ['Form', 'FormField'] },
+        FormErrorMessage: { requiresAncestor: ['Form', 'FormField'] },
+        FormGroup: { requiresAncestor: ['Form'] },
+      },
+      independent: {},
+    }),
+  },
   argTypes: {
     labelPosition: {
       control: {

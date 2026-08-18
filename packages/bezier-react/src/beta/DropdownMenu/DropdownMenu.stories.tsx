@@ -12,6 +12,7 @@ import {
 } from '@channel.io/bezier-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 import { Button } from '~/src/beta/Button'
 import { IconButton } from '~/src/beta/IconButton'
 import { Text } from '~/src/beta/Text'
@@ -38,6 +39,19 @@ const meta: Meta<typeof DropdownMenu> = {
     ),
   ],
   parameters: {
+    bezier: defineBezierMetadata({
+      model: 'compound', root: 'DropdownMenu',
+      parts: {
+        DropdownMenuTrigger: { requiresAncestor: ['DropdownMenu'] },
+        DropdownMenuGroup: { requiresAncestor: ['DropdownMenu'] },
+        DropdownMenuItem: { requiresAncestor: ['DropdownMenu'] },
+        DropdownMenuSeparator: { requiresAncestor: ['DropdownMenu'] },
+        DropdownMenuSub: { requiresAncestor: ['DropdownMenu'] },
+        DropdownMenuSubTrigger: { requiresAncestor: ['DropdownMenu', 'DropdownMenuSub'] },
+        DropdownMenuSubContent: { requiresAncestor: ['DropdownMenu', 'DropdownMenuSub'] },
+      },
+      independent: {},
+    }),
     design: {
       type: 'figma',
       url: 'https://www.figma.com/design/Q4eonbJMKogZHuzUGxETuQ/%F0%9F%9A%A7-Web-Components?node-id=3624-271&m=dev',

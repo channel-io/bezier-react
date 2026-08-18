@@ -1,5 +1,6 @@
 import { type Meta, type StoryObj } from '@storybook/react'
 
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import { Button } from '~/src/beta/Button'
 import { ButtonGroup } from '~/src/beta/ButtonGroup'
@@ -19,6 +20,20 @@ import {
 const meta: Meta<typeof ConfirmModal> = {
   title: 'Beta components/ConfirmModal',
   component: ConfirmModal,
+  parameters: {
+    bezier: defineBezierMetadata({
+      model: 'compound', root: 'ConfirmModal',
+      parts: {
+        ConfirmModalTrigger: { requiresAncestor: ['ConfirmModal'] },
+        ConfirmModalContent: { requiresAncestor: ['ConfirmModal'] },
+        ConfirmModalHeader: { requiresAncestor: ['ConfirmModal', 'ConfirmModalContent'] },
+        ConfirmModalBody: { requiresAncestor: ['ConfirmModal', 'ConfirmModalContent'] },
+        ConfirmModalFooter: { requiresAncestor: ['ConfirmModal', 'ConfirmModalContent'] },
+        ConfirmModalClose: { requiresAncestor: ['ConfirmModal'] },
+      },
+      independent: {},
+    }),
+  },
 }
 
 export default meta

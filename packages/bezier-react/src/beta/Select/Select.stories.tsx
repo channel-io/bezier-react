@@ -8,6 +8,7 @@ import {
 } from '@channel.io/bezier-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 import { Avatar } from '~/src/beta/Avatar'
 import { Button } from '~/src/beta/Button'
 
@@ -19,6 +20,17 @@ import type { SelectProps } from './'
 const meta: Meta<typeof Select> = {
   title: 'Beta components/Select',
   component: Select,
+  parameters: {
+    bezier: defineBezierMetadata({
+      model: 'compound', root: 'Select',
+      parts: {
+        SelectTrigger: { requiresAncestor: ['Select'] },
+        SelectGroup: { requiresAncestor: ['Select'] },
+        SelectOption: { requiresAncestor: ['Select'] },
+      },
+      independent: {},
+    }),
+  },
   decorators: [
     (Story) => (
       <div style={{ minHeight: 320 }}>

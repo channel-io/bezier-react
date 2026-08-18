@@ -24,7 +24,8 @@
     "./styles.css": {
       "require": "./dist/cjs/styles.css",
       "import": "./dist/esm/styles.css"
-    }
+    },
+    "./manifest.json": "./dist/manifest.json"
   },
   "sideEffects": [
     "**/*.css",
@@ -38,6 +39,7 @@
   "scripts": {
     "build": "run-p 'build:*'",
     "build:js": "rollup -c",
+    "build:manifest": "node ../../scripts/manifests/generate.mjs --package react",
     "build:types": "tspc -p ./tsconfig.build.json",
     "dev": "yarn storybook",
     "lint": "run-p 'lint:*'",
