@@ -1,0 +1,53 @@
+{
+  "name": "@channel.io/eslint-plugin-bezier",
+  "version": "0.0.0",
+  "description": "Opt-in ESLint rules for Bezier public API and composition contracts.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/channel-io/bezier-react",
+    "directory": "packages/eslint-plugin-bezier"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc --build --verbose",
+    "dev": "tsc --watch",
+    "lint": "TIMING=1 eslint --cache .",
+    "typecheck": "tsc --noEmit",
+    "test": "jest --coverage",
+    "clean": "rm -rf dist node_modules .turbo .eslintcache .jestcache coverage tsconfig.tsbuildinfo"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "author": "Channel Corp.",
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "@channel.io/bezier-react": "^4.0.0-next.17",
+    "@typescript-eslint/parser": ">=8.17.0 <9",
+    "eslint": ">=8.57.0 <10"
+  },
+  "peerDependenciesMeta": {
+    "@typescript-eslint/parser": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/eslint": "^8.56.12",
+    "@types/node": "^22.10.2",
+    "@typescript-eslint/parser": "8.17.0",
+    "eslint": "^8.57.1",
+    "eslint-config-bezier": "workspace:*",
+    "tsconfig": "workspace:*",
+    "typescript": "^5.7.2"
+  },
+  "keywords": [
+    "bezier",
+    "design-system",
+    "eslint"
+  ]
+}

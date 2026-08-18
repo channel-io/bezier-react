@@ -8,11 +8,18 @@
     "directory": "packages/stylelint-bezier"
   },
   "main": "dist/index.js",
+  "files": [
+    "dist",
+    "!dist/*.tsbuildinfo",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc --build --verbose",
     "dev": "tsc --watch",
     "lint": "TIMING=1 eslint --cache .",
     "typecheck": "tsc --noEmit",
+    "test": "jest --coverage",
     "clean": "run-s 'clean:*'",
     "clean:build": "rm -rf dist",
     "clean:cache": "rm -rf node_modules .turbo .eslintcache stats.html"
@@ -23,11 +30,18 @@
     "@channel.io/bezier-tokens": "1.0.0-next.5"
   },
   "devDependencies": {
+    "@types/node": "^22.10.2",
     "eslint-config-bezier": "workspace:*",
     "postcss-styled-syntax": "^0.7.0",
     "tsconfig": "workspace:*"
   },
   "peerDependencies": {
+    "@channel.io/bezier-react": "^4.0.0-next.17",
     "stylelint": ">=16.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@channel.io/bezier-react": {
+      "optional": true
+    }
   }
 }
