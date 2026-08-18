@@ -15,6 +15,7 @@ export const BEZIER_PACKAGES = [
     kind: 'token',
     name: '@channel.io/bezier-tokens',
     collection: 'tokens',
+    resolveFrom: '@channel.io/bezier-react/manifest.json',
   },
 ] as const
 

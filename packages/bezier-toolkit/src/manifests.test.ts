@@ -1,10 +1,46 @@
-import { rmSync, writeFileSync } from 'node:fs'
+import {
+  cpSync,
+  mkdirSync,
+  realpathSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs'
 import { join } from 'node:path'
 
 import { loadInstalledCatalog } from './catalog.js'
 import { defaultManifests, fixtureConsumer } from './test-utils.js'
 
 describe('installed manifest resolution', () => {
+  it('resolves tokens through the installed React dependency tree', () => {
+    const cwd = fixtureConsumer()
+    const rootTokenDirectory = join(
+      cwd,
+      'node_modules',
+      '@channel.io',
+      'bezier-tokens'
+    )
+    const nestedTokenDirectory = join(
+      cwd,
+      'node_modules',
+      '@channel.io',
+      'bezier-react',
+      'node_modules',
+      '@channel.io',
+      'bezier-tokens'
+    )
+    mkdirSync(join(nestedTokenDirectory, '..'), { recursive: true })
+    cpSync(rootTokenDirectory, nestedTokenDirectory, { recursive: true })
+
+    const result = loadInstalledCatalog(cwd)
+    expect(result).toMatchObject({ ok: true })
+    if (!result.ok) return
+    expect(
+      result.catalog.packages.find(
+        ({ name }) => name === '@channel.io/bezier-tokens'
+      )?.manifestPath
+    ).toBe(realpathSync(join(nestedTokenDirectory, 'dist', 'manifest.json')))
+  })
+
   it('reports a missing manifest without a source-checkout fallback', () => {
     const cwd = fixtureConsumer()
     rmSync(

@@ -57,10 +57,15 @@ export function readInstalledManifest(
 ): InstalledManifestResult {
   const consumerRequire = createRequire(join(resolve(cwd), 'package.json'))
   const manifestSpecifier = `${spec.name}/manifest.json`
+  let manifestRequire = consumerRequire
   let manifestPath: string
 
   try {
-    manifestPath = consumerRequire.resolve(manifestSpecifier)
+    if ('resolveFrom' in spec) {
+      const resolutionAnchor = consumerRequire.resolve(spec.resolveFrom)
+      manifestRequire = createRequire(resolutionAnchor)
+    }
+    manifestPath = manifestRequire.resolve(manifestSpecifier)
   } catch (error) {
     if (!isModuleResolutionError(error)) throw error
     return {
@@ -69,7 +74,10 @@ export function readInstalledManifest(
         code: 'missing_manifest',
         packageName: spec.name,
         path: null,
-        message: `Cannot resolve ${manifestSpecifier} from ${resolve(cwd)}.`,
+        message:
+          'resolveFrom' in spec
+            ? `Cannot resolve ${manifestSpecifier} through ${spec.resolveFrom} from ${resolve(cwd)}.`
+            : `Cannot resolve ${manifestSpecifier} from ${resolve(cwd)}.`,
       },
     }
   }
