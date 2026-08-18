@@ -2389,6 +2389,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@channel.io/bezier-toolkit@workspace:packages/bezier-toolkit":
+  version: 0.0.0-use.local
+  resolution: "@channel.io/bezier-toolkit@workspace:packages/bezier-toolkit"
+  dependencies:
+    "@types/node": "npm:^22.10.2"
+    eslint-config-bezier: "workspace:*"
+    tsconfig: "workspace:*"
+  bin:
+    bezier: ./dist/cli.js
+  languageName: unknown
+  linkType: soft
+
 "@channel.io/eslint-config@npm:^2.1.0":
   version: 2.1.0
   resolution: "@channel.io/eslint-config@npm:2.1.0"

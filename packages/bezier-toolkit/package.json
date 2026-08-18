@@ -1,0 +1,50 @@
+{
+  "name": "@channel.io/bezier-toolkit",
+  "version": "0.0.0",
+  "description": "Installed-package lookup and diagnostics for Bezier manifests.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/channel-io/bezier-react",
+    "directory": "packages/bezier-toolkit"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "bezier": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc --build --verbose",
+    "dev": "tsc --watch",
+    "lint": "TIMING=1 eslint --cache .",
+    "typecheck": "tsc --noEmit",
+    "test": "jest --coverage",
+    "clean": "rm -rf dist node_modules .turbo .eslintcache .jestcache coverage tsconfig.tsbuildinfo"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "Channel Corp.",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "eslint-config-bezier": "workspace:*",
+    "tsconfig": "workspace:*"
+  },
+  "keywords": [
+    "bezier",
+    "design-system",
+    "manifest"
+  ]
+}
