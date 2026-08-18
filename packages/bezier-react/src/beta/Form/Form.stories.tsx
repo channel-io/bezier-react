@@ -7,6 +7,7 @@ import { HStack } from '~/src/beta/HStack'
 import { TextArea } from '~/src/beta/TextArea'
 import { TextInput } from '~/src/beta/TextInput'
 import { VStack } from '~/src/beta/VStack'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import type { FormFieldProps, FormProps } from './Form.types'
 
@@ -26,6 +27,19 @@ const FIELD_WIDTH = 360
 const meta: Meta<FormProps & FormFieldProps> = {
   title: 'Beta components/Form',
   component: Form,
+  parameters: {
+    bezier: defineBezierMetadata({
+      model: 'compound', root: 'Form',
+      parts: {
+        FormField: { requiresAncestor: ['Form'] },
+        FormLabel: { requiresAncestor: ['Form', 'FormField'] },
+        FormHelperText: { requiresAncestor: ['Form', 'FormField'] },
+        FormErrorMessage: { requiresAncestor: ['Form', 'FormField'] },
+        FormGroup: { requiresAncestor: ['Form'] },
+      },
+      independent: {},
+    }),
+  },
   argTypes: {
     labelPosition: {
       control: {

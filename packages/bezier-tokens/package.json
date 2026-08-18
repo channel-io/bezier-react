@@ -22,6 +22,7 @@
       },
       "sass": "./dist/scss/index.scss"
     },
+    "./manifest.json": "./dist/manifest.json",
     "./css/*": "./dist/css/*",
     "./scss/*": "./dist/scss/*"
   },
@@ -33,9 +34,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "run-s clean:build validate:tokens build:tokens build:types",
+    "build": "run-s clean:build validate:tokens build:tokens build:types build:manifest",
     "build:tokens": "ts-node scripts/build-tokens.ts",
     "build:types": "tsc -p tsconfig.build.json",
+    "build:manifest": "node ../../scripts/manifests/generate.mjs --package tokens",
     "validate:tokens": "ts-node scripts/validate-token-references.ts",
     "lint": "TIMING=1 eslint --cache .",
     "typecheck": "tsc --noEmit",

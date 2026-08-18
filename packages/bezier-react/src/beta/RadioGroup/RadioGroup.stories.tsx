@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 
 import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
-
 import { FormField, FormLabel } from '~/src/beta/Form'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
+
 
 import { Radio, RadioGroup } from './RadioGroup'
 import { type RadioGroupProps } from './RadioGroup.types'
@@ -18,6 +19,13 @@ enum Theme {
 const meta: Meta<typeof RadioGroup> = {
   title: 'Beta components/RadioGroup',
   component: RadioGroup,
+  parameters: {
+    bezier: defineBezierMetadata({
+      model: 'compound', root: 'RadioGroup',
+      parts: { Radio: { requiresAncestor: ['RadioGroup'] } },
+      independent: {},
+    }),
+  },
   argTypes: {
     direction: {
       control: {

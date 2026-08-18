@@ -10,6 +10,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { Avatar } from '~/src/beta/Avatar'
 import { Button } from '~/src/beta/Button'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import { Select, SelectGroup, SelectOption, SelectTrigger } from './'
 import type { SelectProps } from './'
@@ -19,6 +20,17 @@ import type { SelectProps } from './'
 const meta: Meta<typeof Select> = {
   title: 'Beta components/Select',
   component: Select,
+  parameters: {
+    bezier: defineBezierMetadata({
+      model: 'compound', root: 'Select',
+      parts: {
+        SelectTrigger: { requiresAncestor: ['Select'] },
+        SelectGroup: { requiresAncestor: ['Select'] },
+        SelectOption: { requiresAncestor: ['Select'] },
+      },
+      independent: {},
+    }),
+  },
   decorators: [
     (Story) => (
       <div style={{ minHeight: 320 }}>

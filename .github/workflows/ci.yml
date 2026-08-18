@@ -35,6 +35,9 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: Check generated manifests
+        run: yarn manifest:check
+
       - name: Lint
         run: yarn lint
 

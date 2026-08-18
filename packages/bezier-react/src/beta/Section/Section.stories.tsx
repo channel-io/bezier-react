@@ -12,6 +12,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { Box } from '~/src/beta/Box'
 import { Text } from '~/src/beta/Text'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 import { noop } from '~/src/utils/function'
 
 import { Section, SectionItem, SectionLabel } from './Section'
@@ -20,6 +21,16 @@ import { Section, SectionItem, SectionLabel } from './Section'
 const meta: Meta<typeof Section> = {
   title: 'Beta components/Section',
   component: Section,
+  parameters: {
+    bezier: defineBezierMetadata({
+      model: 'compound', root: 'Section',
+      parts: {
+        SectionLabel: { requiresAncestor: ['Section'] },
+        SectionItem: { requiresAncestor: ['Section'] },
+      },
+      independent: {},
+    }),
+  },
 }
 
 export default meta

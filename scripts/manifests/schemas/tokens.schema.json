@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bezier.channel.io/schemas/tokens-manifest-1.json",
+  "title": "Bezier Tokens manifest",
+  "type": "object",
+  "required": ["schemaVersion", "package", "source", "tokens"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "package": { "type": "object" },
+    "source": { "type": "object" },
+    "tokens": { "type": "array", "items": { "type": "object" } }
+  },
+  "additionalProperties": false
+}

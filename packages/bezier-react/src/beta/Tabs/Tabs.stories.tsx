@@ -5,6 +5,7 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { Button } from '~/src/beta/Button'
 import { IconButton } from '~/src/beta/IconButton'
 import { VStack } from '~/src/beta/VStack'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import { TabActions, TabContent, TabItem, TabList, Tabs } from './Tabs'
 import { type TabSize, type TabsProps } from './Tabs.types'
@@ -39,6 +40,23 @@ function getActionButtonSize(size?: TabSize) {
 const meta: Meta<typeof Tabs> = {
   title: 'Beta components/Tabs',
   component: Tabs,
+  parameters: {
+    bezier: defineBezierMetadata({
+      model: 'compound', root: 'Tabs',
+      parts: {
+        TabList: { requiresAncestor: ['Tabs'] },
+        TabItem: { requiresAncestor: ['Tabs', 'TabList'] },
+        TabActions: { requiresAncestor: ['Tabs', 'TabList'] },
+        TabAction: { requiresAncestor: ['Tabs', 'TabActions'] },
+        TabContent: { requiresAncestor: ['Tabs'] },
+      },
+      independent: {},
+      usage: {
+        when: ['Switching between peer views'],
+        avoid: ['Sequential multi-step flows'],
+      },
+    }),
+  },
   argTypes: {
     size: {
       control: {

@@ -9,12 +9,23 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { Badge } from '~/src/beta/Badge'
 import { Icon } from '~/src/beta/Icon'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import { NavigationGroup, NavigationItem, NavigationList } from '.'
 
 const meta: Meta<typeof NavigationList> = {
   title: 'Beta components/NavigationList',
   component: NavigationList,
+  parameters: {
+    bezier: defineBezierMetadata({
+      model: 'compound', root: 'NavigationList',
+      parts: {
+        NavigationGroup: { requiresAncestor: ['NavigationList'] },
+        NavigationItem: { requiresAncestor: ['NavigationList'] },
+      },
+      independent: {},
+    }),
+  },
 }
 
 export default meta

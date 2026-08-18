@@ -7,7 +7,7 @@
     "configs/*"
   ],
   "scripts": {
-    "build": "turbo run build",
+    "build": "turbo run build && yarn manifest:generate",
     "dev": "turbo run dev --filter=@channel.io/bezier-react",
     "lint": "turbo run lint && syncpack lint",
     "format": "prettier . --write",
@@ -15,7 +15,9 @@
     "test": "turbo run test",
     "clean": "turbo run clean && rm -rf node_modules .turbo",
     "version-packages": "changeset version && yarn --mode=\"update-lockfile\"",
-    "release": "turbo run build --filter='@channel.io/*' && changeset publish",
+    "release": "turbo run build --filter='@channel.io/*' && yarn manifest:generate && changeset publish",
+    "manifest:generate": "node scripts/manifests/generate.mjs",
+    "manifest:check": "node scripts/manifests/generate.mjs --check && node --test scripts/manifests/generate.test.mjs",
     "changeset": "changeset",
     "postinstall": "husky install",
     "knip": "knip --config knip.json --workspace packages/bezier-react --cache"

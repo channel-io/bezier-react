@@ -5,6 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { Box } from '~/src/beta/Box'
 import { Text } from '~/src/beta/Text'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import {
   CollapsibleSection,
@@ -15,6 +16,16 @@ import {
 const meta: Meta<typeof CollapsibleSection> = {
   title: 'Beta components/CollapsibleSection',
   component: CollapsibleSection,
+  parameters: {
+    bezier: defineBezierMetadata({
+      model: 'compound', root: 'CollapsibleSection',
+      parts: {
+        CollapsibleSectionTrigger: { requiresAncestor: ['CollapsibleSection'] },
+        CollapsibleSectionItem: { requiresAncestor: ['CollapsibleSection'] },
+      },
+      independent: {},
+    }),
+  },
 }
 
 export default meta

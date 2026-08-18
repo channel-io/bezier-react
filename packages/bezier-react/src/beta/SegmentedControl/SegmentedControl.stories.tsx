@@ -1,8 +1,9 @@
 import { ArrowRightIcon, PlusIcon, SquaresIcon } from '@channel.io/bezier-icons'
 import { type Meta, type StoryObj } from '@storybook/react'
 
-
 import { VStack } from '~/src/beta/VStack'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
+
 
 import {
   SegmentedControl,
@@ -19,6 +20,17 @@ import {
 const meta: Meta<typeof SegmentedControl> = {
   title: 'Beta components/SegmentedControl',
   component: SegmentedControl,
+  parameters: {
+    bezier: defineBezierMetadata({
+      model: 'compound', root: 'SegmentedControl',
+      parts: {
+        SegmentedControlTabList: { requiresAncestor: ['SegmentedControl'] },
+        SegmentedControlItem: { requiresAncestor: ['SegmentedControl', 'SegmentedControlTabList'] },
+        SegmentedControlTabContent: { requiresAncestor: ['SegmentedControl'] },
+      },
+      independent: {},
+    }),
+  },
   argTypes: {
     size: {
       control: {

@@ -3,6 +3,7 @@ import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
 import { Button } from '~/src/beta/Button'
 import { HStack } from '~/src/beta/HStack'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import { ToastProvider, useToast } from './Toast'
 import {
@@ -16,6 +17,13 @@ import {
 const meta: Meta<ToastProps> = {
   title: 'Beta components/Toast',
   component: ToastProvider,
+  parameters: {
+    bezier: defineBezierMetadata({
+      model: 'independent', root: 'ToastProvider',
+      parts: {},
+      independent: { Toast: {} },
+    }),
+  },
   argTypes: {
     autoDismiss: {
       control: 'boolean',

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bezier.channel.io/schemas/react-manifest-1.json",
+  "title": "Bezier React manifest",
+  "type": "object",
+  "required": ["schemaVersion", "package", "source", "exports", "components", "types"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "package": { "$ref": "#/$defs/package" },
+    "source": { "$ref": "#/$defs/source" },
+    "exports": { "type": "array", "items": { "type": "object" } },
+    "components": { "type": "array", "items": { "type": "object" } },
+    "types": { "type": "array", "items": { "type": "object" } }
+  },
+  "$defs": {
+    "package": {
+      "type": "object",
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "type": "string" },
+        "version": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "required": ["repository", "commit", "entrypoint"],
+      "properties": {
+        "repository": { "type": "string" },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "entrypoint": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

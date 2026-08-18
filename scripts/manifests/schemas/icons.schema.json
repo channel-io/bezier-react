@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bezier.channel.io/schemas/icons-manifest-1.json",
+  "title": "Bezier Icons manifest",
+  "type": "object",
+  "required": ["schemaVersion", "package", "source", "icons"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "package": { "type": "object" },
+    "source": { "type": "object" },
+    "icons": { "type": "array", "items": { "type": "object" } }
+  },
+  "additionalProperties": false
+}

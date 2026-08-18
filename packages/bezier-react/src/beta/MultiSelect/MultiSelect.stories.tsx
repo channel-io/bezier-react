@@ -7,8 +7,9 @@ import {
 } from '@channel.io/bezier-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
-
 import { Button } from '~/src/beta/Button'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
+
 
 import {
   MultiSelect,
@@ -22,6 +23,17 @@ import type { MultiSelectProps } from './'
 const meta: Meta<typeof MultiSelect> = {
   title: 'Beta components/MultiSelect',
   component: MultiSelect,
+  parameters: {
+    bezier: defineBezierMetadata({
+      model: 'compound', root: 'MultiSelect',
+      parts: {
+        MultiSelectTrigger: { requiresAncestor: ['MultiSelect'] },
+        MultiSelectGroup: { requiresAncestor: ['MultiSelect'] },
+        MultiSelectOption: { requiresAncestor: ['MultiSelect'] },
+      },
+      independent: {},
+    }),
+  },
   decorators: [
     (Story) => (
       <div style={{ minHeight: 320 }}>
