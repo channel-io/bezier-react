@@ -7,9 +7,9 @@ import {
 } from '@channel.io/bezier-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
+import { Button } from '~/src/beta/Button'
 import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
-import { Button } from '~/src/beta/Button'
 
 import {
   MultiSelect,

@@ -1,10 +1,10 @@
 import { type Meta, type StoryObj } from '@storybook/react'
 
-import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import { Button } from '~/src/beta/Button'
 import { ButtonGroup } from '~/src/beta/ButtonGroup'
 import { Text } from '~/src/beta/Text'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import {
   Modal,

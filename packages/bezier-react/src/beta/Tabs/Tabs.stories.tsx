@@ -1,11 +1,11 @@
 import { ArrowRightIcon, OpenInNewIcon, PlusIcon } from '@channel.io/bezier-icons'
 import { type Meta, type StoryObj } from '@storybook/react'
 
-import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import { Button } from '~/src/beta/Button'
 import { IconButton } from '~/src/beta/IconButton'
 import { VStack } from '~/src/beta/VStack'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import { TabActions, TabContent, TabItem, TabList, Tabs } from './Tabs'
 import { type TabSize, type TabsProps } from './Tabs.types'

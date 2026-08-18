@@ -8,9 +8,9 @@ import {
 } from '@channel.io/bezier-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 import { Avatar } from '~/src/beta/Avatar'
 import { Button } from '~/src/beta/Button'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import { Select, SelectGroup, SelectOption, SelectTrigger } from './'
 import type { SelectProps } from './'

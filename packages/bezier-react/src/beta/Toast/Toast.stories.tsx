@@ -1,9 +1,9 @@
 import { CheckIcon } from '@channel.io/bezier-icons'
 import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 
-import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 import { Button } from '~/src/beta/Button'
 import { HStack } from '~/src/beta/HStack'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import { ToastProvider, useToast } from './Toast'
 import {

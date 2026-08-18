@@ -1,9 +1,9 @@
 import { type Meta, type StoryObj } from '@storybook/react'
 
-import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 import { Switch } from '~/src/beta/Switch'
 import { TextInput } from '~/src/beta/TextInput'
 import { VStack } from '~/src/beta/VStack'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import { Settings, SettingsField } from './Settings'
 import type { SettingsFieldProps, SettingsProps } from './Settings.types'

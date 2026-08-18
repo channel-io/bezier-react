@@ -9,10 +9,10 @@ import {
 } from '@channel.io/bezier-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import { Box } from '~/src/beta/Box'
 import { Text } from '~/src/beta/Text'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 import { noop } from '~/src/utils/function'
 
 import { Section, SectionItem, SectionLabel } from './Section'

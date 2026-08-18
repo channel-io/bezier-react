@@ -1,9 +1,9 @@
 import { ArrowRightIcon, PlusIcon, SquaresIcon } from '@channel.io/bezier-icons'
 import { type Meta, type StoryObj } from '@storybook/react'
 
+import { VStack } from '~/src/beta/VStack'
 import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
-import { VStack } from '~/src/beta/VStack'
 
 import {
   SegmentedControl,

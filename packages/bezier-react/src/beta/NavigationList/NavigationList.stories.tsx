@@ -7,9 +7,9 @@ import {
 } from '@channel.io/bezier-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 import { Badge } from '~/src/beta/Badge'
 import { Icon } from '~/src/beta/Icon'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import { NavigationGroup, NavigationItem, NavigationList } from '.'
 

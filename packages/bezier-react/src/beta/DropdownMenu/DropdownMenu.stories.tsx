@@ -12,10 +12,10 @@ import {
 } from '@channel.io/bezier-icons'
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 import { Button } from '~/src/beta/Button'
 import { IconButton } from '~/src/beta/IconButton'
 import { Text } from '~/src/beta/Text'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import {
   DropdownMenu,

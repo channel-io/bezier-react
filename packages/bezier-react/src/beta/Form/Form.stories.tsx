@@ -1,6 +1,5 @@
 import { type Meta, type StoryObj } from '@storybook/react'
 
-import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 
 import { Checkbox } from '~/src/beta/Checkbox'
@@ -8,6 +7,7 @@ import { HStack } from '~/src/beta/HStack'
 import { TextArea } from '~/src/beta/TextArea'
 import { TextInput } from '~/src/beta/TextInput'
 import { VStack } from '~/src/beta/VStack'
+import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import type { FormFieldProps, FormProps } from './Form.types'
 
