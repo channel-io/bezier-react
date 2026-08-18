@@ -2425,6 +2425,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@channel.io/eslint-plugin-bezier@workspace:packages/eslint-plugin-bezier":
+  version: 0.0.0-use.local
+  resolution: "@channel.io/eslint-plugin-bezier@workspace:packages/eslint-plugin-bezier"
+  dependencies:
+    "@types/eslint": "npm:^8.56.12"
+    "@types/node": "npm:^22.10.2"
+    "@typescript-eslint/parser": "npm:8.17.0"
+    eslint: "npm:^8.57.1"
+    eslint-config-bezier: "workspace:*"
+    tsconfig: "workspace:*"
+    typescript: "npm:^5.7.2"
+  peerDependencies:
+    "@channel.io/bezier-react": ^4.0.0-next.17
+    "@typescript-eslint/parser": ">=8.17.0 <9"
+    eslint: ">=8.57.0 <10"
+  peerDependenciesMeta:
+    "@typescript-eslint/parser":
+      optional: true
+  languageName: unknown
+  linkType: soft
+
 "@channel.io/eslint-plugin@npm:^1.2.3":
   version: 1.2.3
   resolution: "@channel.io/eslint-plugin@npm:1.2.3"
@@ -2444,11 +2465,16 @@ __metadata:
   resolution: "@channel.io/stylelint-bezier@workspace:packages/stylelint-bezier"
   dependencies:
     "@channel.io/bezier-tokens": "npm:1.0.0-next.5"
+    "@types/node": "npm:^22.10.2"
     eslint-config-bezier: "workspace:*"
     postcss-styled-syntax: "npm:^0.7.0"
     tsconfig: "workspace:*"
   peerDependencies:
+    "@channel.io/bezier-react": ^4.0.0-next.17
     stylelint: ">=16.0.0"
+  peerDependenciesMeta:
+    "@channel.io/bezier-react":
+      optional: true
   languageName: unknown
   linkType: soft
 
@@ -6447,6 +6473,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/eslint@npm:^8.56.12":
+  version: 8.56.12
+  resolution: "@types/eslint@npm:8.56.12"
+  dependencies:
+    "@types/estree": "npm:*"
+    "@types/json-schema": "npm:*"
+  checksum: 10/bd998b5d3f98ac430ec8db6223f1cff1820774c1e72eabda05463256875d97065fd357fba7379dd25e6bfbeb73296f28faff6f4dcbc320f890bb49b09087644d
+  languageName: node
+  linkType: hard
+
 "@types/estree@npm:*, @types/estree@npm:^1.0.0":
   version: 1.0.5
   resolution: "@types/estree@npm:1.0.5"
@@ -6714,7 +6750,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^8.0.1":
+"@typescript-eslint/parser@npm:8.17.0, @typescript-eslint/parser@npm:^8.0.1":
   version: 8.17.0
   resolution: "@typescript-eslint/parser@npm:8.17.0"
   dependencies:

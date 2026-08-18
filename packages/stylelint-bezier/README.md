@@ -61,6 +61,22 @@ Deprecated beta tokens should keep their token value but add `deprecated` or `$d
 }
 ```
 
+### Opt-in Bezier rules
+
+The package registers the following rules without enabling them. Consumers own
+activation and severity; extending this package continues to enable only
+`bezier/validate-token`.
+
+- `bezier/no-internal-selector`
+- `bezier/no-component-style-override`
+- `bezier/prefer-layout-component`
+- `bezier/require-suppression-reason`
+
+`no-component-style-override` reads the installed
+`@channel.io/bezier-react/manifest.json` contract only when that rule is
+enabled. Product aliases and product-specific exception policy are not part of
+this package.
+
 ## Version Matchups
 
 | @channel.io/stylelint-bezier | @channel.io/bezier-react |

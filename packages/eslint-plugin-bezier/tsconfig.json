@@ -1,7 +1,10 @@
 {
   "extends": "tsconfig/node.json",
   "compilerOptions": {
-    "outDir": "dist"
+    "outDir": "dist",
+    "rootDir": "src",
+    "declaration": true,
+    "target": "ES2022"
   },
   "include": ["src"],
   "exclude": ["src/**/*.test.ts"]
