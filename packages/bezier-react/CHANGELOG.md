@@ -1,5 +1,12 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.19
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-icons@0.62.0-next.0
+
 ## 4.0.0-next.18
 
 ### Minor Changes

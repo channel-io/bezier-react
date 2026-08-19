@@ -2255,7 +2255,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@channel.io/bezier-icons@npm:0.61.0, @channel.io/bezier-icons@workspace:packages/bezier-icons":
+"@channel.io/bezier-icons@npm:0.62.0-next.0, @channel.io/bezier-icons@workspace:packages/bezier-icons":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-icons@workspace:packages/bezier-icons"
   dependencies:
@@ -2284,7 +2284,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@channel.io/bezier-react@npm:4.0.0-next.18, @channel.io/bezier-react@workspace:packages/bezier-react":
+"@channel.io/bezier-react@npm:4.0.0-next.19, @channel.io/bezier-react@workspace:packages/bezier-react":
   version: 0.0.0-use.local
   resolution: "@channel.io/bezier-react@workspace:packages/bezier-react"
   dependencies:
@@ -2292,7 +2292,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.26.0"
     "@babel/preset-react": "npm:^7.26.3"
     "@babel/preset-typescript": "npm:^7.26.0"
-    "@channel.io/bezier-icons": "npm:0.61.0"
+    "@channel.io/bezier-icons": "npm:0.62.0-next.0"
     "@channel.io/bezier-tokens": "npm:1.0.0-next.6"
     "@chromatic-com/storybook": "npm:^3.2.2"
     "@figma/code-connect": "npm:^1.2.4"
@@ -2367,7 +2367,7 @@ __metadata:
     typescript-transform-paths: "npm:^3.5.2"
     uuid: "npm:^11.0.3"
   peerDependencies:
-    "@channel.io/bezier-icons": ">=0.58.0-next.0"
+    "@channel.io/bezier-icons": ">=0.62.0-next.0"
     react: ">=17"
     react-dom: ">=17"
   peerDependenciesMeta:
@@ -7913,8 +7913,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bezier-figma-plugin@workspace:packages/bezier-figma-plugin"
   dependencies:
-    "@channel.io/bezier-icons": "npm:0.61.0"
-    "@channel.io/bezier-react": "npm:4.0.0-next.18"
+    "@channel.io/bezier-icons": "npm:0.62.0-next.0"
+    "@channel.io/bezier-react": "npm:4.0.0-next.19"
     "@figma/plugin-typings": "npm:^1.104.0"
     "@types/react": "npm:^19.0.1"
     "@types/react-dom": "npm:^19.0.2"
