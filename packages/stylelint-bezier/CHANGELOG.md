@@ -1,5 +1,16 @@
 # @channel.io/stylelint-bezier
 
+## 0.4.0-next.7
+
+### Minor Changes
+
+- Add opt-in Bezier ESLint and Stylelint rules for public API, composition, style, layout, text, icon, and suppression contracts. ([#2903](https://github.com/channel-io/bezier-react/pull/2903)) by @timok1m
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@1.0.0-next.6
+
 ## 0.4.0-next.6
 
 ### Patch Changes

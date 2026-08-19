@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 1.0.0-next.6
+
+### Minor Changes
+
+- Add the repo-local Bezier Toolkit and publish source-derived React, icon, and token manifests for installed-package lookup and diagnostics. ([#2901](https://github.com/channel-io/bezier-react/pull/2901)) by @timok1m
+
 ## 1.0.0-next.5
 
 ### Major Changes
