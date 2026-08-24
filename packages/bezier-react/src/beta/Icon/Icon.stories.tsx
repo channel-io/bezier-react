@@ -53,9 +53,6 @@ const meta: Meta<typeof Icon> = {
     // left as a free-text control rather than a restricted option list.
     color: {
       control: 'text',
-      table: {
-        defaultValue: { summary: '"icon-neutral"' },
-      },
     },
   },
 }

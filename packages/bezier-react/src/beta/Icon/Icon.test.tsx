@@ -27,9 +27,7 @@ describe('Icon', () => {
 
     expect(rendered).toHaveClass(styles.Icon)
     expect(rendered).toHaveClass(styles['size-24'])
-    expect(rendered).toHaveStyle(
-      `--b-beta-icon-color: ${colorTokenCssVar('icon-neutral')}`
-    )
+    expect(rendered?.style.getPropertyValue('--b-beta-icon-color')).toBe('')
     expect(rendered).toHaveAttribute('aria-hidden', 'true')
     expect(rendered).toHaveAttribute('focusable', 'false')
     expect(rendered).not.toHaveAttribute('role')
