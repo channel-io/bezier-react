@@ -8,7 +8,6 @@ import classNames from 'classnames'
 
 
 import { getMarginStyles, splitByMarginProps } from '~/src/types/props-helpers'
-import { type SemanticColor } from '~/src/types/tokens'
 import { colorTokenCssVar } from '~/src/utils/style'
 
 import { type IconProps } from './Icon.types'
@@ -17,11 +16,10 @@ import styles from './Icon.module.scss'
 
 
 
-const DEFAULT_ICON_COLOR = 'icon-neutral' satisfies SemanticColor
-
 /**
  * `Icon` renders a Bezier icon as an SVG element.
  * Inject an icon component from the `@channel.io/bezier-icons` package into the `source` prop.
+ * Without `color`, the icon inherits the color of its parent.
  * @example
  *
  * ```tsx
@@ -42,7 +40,7 @@ export const Icon = memo(
     const {
       className,
       size = '24',
-      color = DEFAULT_ICON_COLOR,
+      color,
       source: SourceElement,
       style,
       role,
