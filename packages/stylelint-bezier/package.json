@@ -19,7 +19,7 @@
     "dev": "tsc --watch",
     "lint": "TIMING=1 eslint --cache .",
     "typecheck": "tsc --noEmit",
-    "test": "jest --coverage",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
     "clean": "run-s 'clean:*'",
     "clean:build": "rm -rf dist",
     "clean:cache": "rm -rf node_modules .turbo .eslintcache stats.html"
@@ -27,18 +27,19 @@
   "author": "Channel Corp.",
   "license": "Apache-2.0",
   "dependencies": {
-    "@channel.io/bezier-tokens": "1.0.0-next.6",
-    "postcss-styled-syntax": "0.7.1"
+    "@channel.io/bezier-tokens": "1.0.0-next.6"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
     "eslint-config-bezier": "workspace:*",
     "postcss": "^8.5.1",
+    "postcss-styled-syntax": "0.7.2",
     "tsconfig": "workspace:*"
   },
   "peerDependencies": {
     "@channel.io/bezier-react": "^4.0.0-next.17",
     "postcss": "^8.5.1",
+    "postcss-styled-syntax": "^0.7.2",
     "stylelint": ">=16.14.1"
   },
   "peerDependenciesMeta": {

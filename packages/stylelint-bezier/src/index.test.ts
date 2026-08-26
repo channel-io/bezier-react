@@ -1,7 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
-import postcssStyledSyntax from 'postcss-styled-syntax'
 import stylelint, { type Rule } from 'stylelint'
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
@@ -48,7 +47,7 @@ async function warnings(
     config: {
       customSyntax: codeFilename.endsWith('.css')
         ? undefined
-        : postcssStyledSyntax,
+        : 'postcss-styled-syntax',
       plugins: [{ ruleName, rule }],
       rules: { [ruleName]: true },
     },
@@ -60,16 +59,20 @@ test('the shared config activates only the existing token rule', () => {
   expect(config.rules).toEqual({ 'bezier/validate-token': true })
 })
 
-test('the shared config bundles the styled syntax implementation', () => {
-  expect(config.overrides[0]?.customSyntax).toBe(postcssStyledSyntax)
+test('the shared config delegates styled syntax loading to Stylelint', () => {
+  expect(config.overrides[0]?.customSyntax).toBe('postcss-styled-syntax')
 })
 
-test('the shared config requires a compatible PostCSS host', () => {
+test('the shared config requires compatible Stylelint runtime peers', () => {
   expect(packageJson.peerDependencies).toMatchObject({
     postcss: '^8.5.1',
+    'postcss-styled-syntax': '^0.7.2',
     stylelint: '>=16.14.1',
   })
   expect(packageJson.peerDependenciesMeta.postcss).toBeUndefined()
+  expect(
+    packageJson.peerDependenciesMeta['postcss-styled-syntax']
+  ).toBeUndefined()
 })
 
 test('validate-token preserves invalid token diagnostics', async () => {
