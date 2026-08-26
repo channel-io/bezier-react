@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+
 import postcssStyledSyntax from 'postcss-styled-syntax'
 import stylelint, { type Rule } from 'stylelint'
 
@@ -5,6 +8,12 @@ import stylelint, { type Rule } from 'stylelint'
 const config = require('./index') as {
   rules: Record<string, unknown>
   overrides: Array<{ customSyntax?: unknown }>
+}
+const packageJson = JSON.parse(
+  readFileSync(join(__dirname, '../package.json'), 'utf8')
+) as {
+  peerDependencies: Record<string, string>
+  peerDependenciesMeta: Record<string, unknown>
 }
 import {
   rule as componentOverride,
@@ -53,6 +62,14 @@ test('the shared config activates only the existing token rule', () => {
 
 test('the shared config bundles the styled syntax implementation', () => {
   expect(config.overrides[0]?.customSyntax).toBe(postcssStyledSyntax)
+})
+
+test('the shared config requires a compatible PostCSS host', () => {
+  expect(packageJson.peerDependencies).toMatchObject({
+    postcss: '^8.5.1',
+    stylelint: '>=16.14.1',
+  })
+  expect(packageJson.peerDependenciesMeta.postcss).toBeUndefined()
 })
 
 test('validate-token preserves invalid token diagnostics', async () => {
