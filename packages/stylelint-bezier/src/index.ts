@@ -1,3 +1,5 @@
+import postcssStyledSyntax from 'postcss-styled-syntax'
+
 module.exports = {
   plugins: [
     './plugins/no-component-style-override',
@@ -12,7 +14,7 @@ module.exports = {
   overrides: [
     {
       files: ['**/*.{ts,tsx}'],
-      customSyntax: 'postcss-styled-syntax',
+      customSyntax: postcssStyledSyntax,
     },
   ],
 }

@@ -2467,13 +2467,17 @@ __metadata:
     "@channel.io/bezier-tokens": "npm:1.0.0-next.6"
     "@types/node": "npm:^22.10.2"
     eslint-config-bezier: "workspace:*"
-    postcss-styled-syntax: "npm:^0.7.0"
+    postcss: "npm:^8.5.1"
+    postcss-styled-syntax: "npm:0.7.1"
     tsconfig: "workspace:*"
   peerDependencies:
     "@channel.io/bezier-react": ^4.0.0-next.17
+    postcss: ^8.5.1
     stylelint: ">=16.0.0"
   peerDependenciesMeta:
     "@channel.io/bezier-react":
+      optional: true
+    postcss:
       optional: true
   languageName: unknown
   linkType: soft
@@ -14319,12 +14323,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.3.7":
-  version: 3.3.7
-  resolution: "nanoid@npm:3.3.7"
+"nanoid@npm:^3.3.17":
+  version: 3.3.18
+  resolution: "nanoid@npm:3.3.18"
   bin:
     nanoid: bin/nanoid.cjs
-  checksum: 10/ac1eb60f615b272bccb0e2b9cd933720dad30bf9708424f691b8113826bb91aca7e9d14ef5d9415a6ba15c266b37817256f58d8ce980c82b0ba3185352565679
+  checksum: 10/1b3b4fdac831b92b56d1dbe8b1e63a372432faf86ea383134e3b53141ef8108a60b7f84343b5cefecac9550bb74edf8164da93ea07d1c4f757039bc75d8a5d9e
   languageName: node
   linkType: hard
 
@@ -15978,6 +15982,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-styled-syntax@npm:0.7.1":
+  version: 0.7.1
+  resolution: "postcss-styled-syntax@npm:0.7.1"
+  dependencies:
+    typescript: "npm:^5.7.3"
+  peerDependencies:
+    postcss: ^8.5.1
+  checksum: 10/285a714f7dd28fc4b7677fc36cd2248ae8e9f610f1f6cea46a739968562a1978d48f42cdd7c41b51764b2080ed01f9379e2c845d7ca556c8accbb6003b5a41d1
+  languageName: node
+  linkType: hard
+
 "postcss-styled-syntax@npm:^0.6.4":
   version: 0.6.4
   resolution: "postcss-styled-syntax@npm:0.6.4"
@@ -15986,17 +16001,6 @@ __metadata:
   peerDependencies:
     postcss: ^8.4.21
   checksum: 10/435bc414cc68d2d2297bb6354230226f554b88efb38610c0c35575eefc241edbabf12a4d4662957204e92091443fa25c85cb943916b61023c222e30a1127b1ff
-  languageName: node
-  linkType: hard
-
-"postcss-styled-syntax@npm:^0.7.0":
-  version: 0.7.1
-  resolution: "postcss-styled-syntax@npm:0.7.1"
-  dependencies:
-    typescript: "npm:^5.7.3"
-  peerDependencies:
-    postcss: ^8.5.1
-  checksum: 10/285a714f7dd28fc4b7677fc36cd2248ae8e9f610f1f6cea46a739968562a1978d48f42cdd7c41b51764b2080ed01f9379e2c845d7ca556c8accbb6003b5a41d1
   languageName: node
   linkType: hard
 
@@ -16030,14 +16034,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.0.0, postcss@npm:^8.4.32, postcss@npm:^8.4.33, postcss@npm:^8.4.35, postcss@npm:^8.4.49":
-  version: 8.4.49
-  resolution: "postcss@npm:8.4.49"
+"postcss@npm:^8.0.0, postcss@npm:^8.4.32, postcss@npm:^8.4.33, postcss@npm:^8.4.35, postcss@npm:^8.4.49, postcss@npm:^8.5.1":
+  version: 8.5.26
+  resolution: "postcss@npm:8.5.26"
   dependencies:
-    nanoid: "npm:^3.3.7"
+    nanoid: "npm:^3.3.17"
     picocolors: "npm:^1.1.1"
     source-map-js: "npm:^1.2.1"
-  checksum: 10/28fe1005b1339870e0a5006375ba5ac1213fd69800f79e7db09c398e074421ba6e162898e94f64942fed554037fd292db3811d87835d25ab5ef7f3c9daacb6ca
+  checksum: 10/842a624f822f77cb37264cc24f0cf97c0a69dd8d6f7b4a6d76b5a8dc95355899dd044f33a2d4e890da858293de570fce18dff453f3b629ff14cac67a3591895a
   languageName: node
   linkType: hard
 

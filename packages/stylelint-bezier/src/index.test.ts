@@ -2,7 +2,10 @@ import postcssStyledSyntax from 'postcss-styled-syntax'
 import stylelint, { type Rule } from 'stylelint'
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const config = require('./index') as { rules: Record<string, unknown> }
+const config = require('./index') as {
+  rules: Record<string, unknown>
+  overrides: Array<{ customSyntax?: unknown }>
+}
 import {
   rule as componentOverride,
   ruleName as componentOverrideName,
@@ -46,6 +49,10 @@ async function warnings(
 
 test('the shared config activates only the existing token rule', () => {
   expect(config.rules).toEqual({ 'bezier/validate-token': true })
+})
+
+test('the shared config bundles the styled syntax implementation', () => {
+  expect(config.overrides[0]?.customSyntax).toBe(postcssStyledSyntax)
 })
 
 test('validate-token preserves invalid token diagnostics', async () => {
@@ -135,8 +142,6 @@ test('suppression hygiene requires a scoped concrete reason', async () => {
     '/* stylelint-disable bezier/no-component-style-override */\n.a { color: red; }'
   const valid =
     '/* stylelint-disable-next-line bezier/no-component-style-override -- Third-party widget requires this fixed width */\n.a { width: 10px; }'
-  expect(
-    await warnings(invalid, suppressionName, suppression)
-  ).toHaveLength(1)
+  expect(await warnings(invalid, suppressionName, suppression)).toHaveLength(1)
   expect(await warnings(valid, suppressionName, suppression)).toHaveLength(0)
 })

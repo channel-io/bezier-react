@@ -27,20 +27,25 @@
   "author": "Channel Corp.",
   "license": "Apache-2.0",
   "dependencies": {
-    "@channel.io/bezier-tokens": "1.0.0-next.6"
+    "@channel.io/bezier-tokens": "1.0.0-next.6",
+    "postcss-styled-syntax": "0.7.1"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
     "eslint-config-bezier": "workspace:*",
-    "postcss-styled-syntax": "^0.7.0",
+    "postcss": "^8.5.1",
     "tsconfig": "workspace:*"
   },
   "peerDependencies": {
     "@channel.io/bezier-react": "^4.0.0-next.17",
+    "postcss": "^8.5.1",
     "stylelint": ">=16.0.0"
   },
   "peerDependenciesMeta": {
     "@channel.io/bezier-react": {
+      "optional": true
+    },
+    "postcss": {
       "optional": true
     }
   }

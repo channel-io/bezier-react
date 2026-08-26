@@ -26,6 +26,15 @@ Extend @channel.io/stylelint-bezier in your stylelint config.
 }
 ```
 
+The package bundles and directly configures `postcss-styled-syntax` for
+TypeScript and TSX files. Consumers do not need to install or configure that
+custom syntax separately. `stylelint` remains a peer dependency and must be
+installed by the consuming project.
+
+`postcss-styled-syntax` is pinned to the CommonJS-compatible `0.7.1` release.
+Upgrading to an ESM-only release requires migrating this config package away
+from CommonJS first.
+
 ## Rules
 
 ### validate-token
