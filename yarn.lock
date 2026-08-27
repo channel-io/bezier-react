@@ -2369,7 +2369,7 @@ __metadata:
     lightningcss: "npm:^1.28.2"
     minimatch: "npm:^10.0.1"
     paths.macro: "npm:^3.0.1"
-    postcss: "npm:^8.4.49"
+    postcss: "npm:^8.5.1"
     postcss-preset-env: "npm:^10.1.1"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
@@ -16120,7 +16120,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.0.0, postcss@npm:^8.4.32, postcss@npm:^8.4.33, postcss@npm:^8.4.35, postcss@npm:^8.4.49, postcss@npm:^8.5.1":
+"postcss@npm:^8.0.0, postcss@npm:^8.4.32, postcss@npm:^8.4.33, postcss@npm:^8.4.35, postcss@npm:^8.5.1":
   version: 8.5.26
   resolution: "postcss@npm:8.5.26"
   dependencies:
