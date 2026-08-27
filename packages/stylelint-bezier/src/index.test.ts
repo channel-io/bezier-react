@@ -1,8 +1,19 @@
-import postcssStyledSyntax from 'postcss-styled-syntax'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+
 import stylelint, { type Rule } from 'stylelint'
 
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-const config = require('./index') as { rules: Record<string, unknown> }
+const config = require('./index') as {
+  rules: Record<string, unknown>
+  overrides: Array<{ customSyntax?: unknown }>
+}
+const packageJson = JSON.parse(
+  readFileSync(join(__dirname, '../package.json'), 'utf8')
+) as {
+  peerDependencies: Record<string, string>
+  peerDependenciesMeta: Record<string, unknown>
+}
 import {
   rule as componentOverride,
   ruleName as componentOverrideName,
@@ -36,7 +47,7 @@ async function warnings(
     config: {
       customSyntax: codeFilename.endsWith('.css')
         ? undefined
-        : postcssStyledSyntax,
+        : 'postcss-styled-syntax',
       plugins: [{ ruleName, rule }],
       rules: { [ruleName]: true },
     },
@@ -46,6 +57,22 @@ async function warnings(
 
 test('the shared config activates only the existing token rule', () => {
   expect(config.rules).toEqual({ 'bezier/validate-token': true })
+})
+
+test('the shared config delegates styled syntax loading to Stylelint', () => {
+  expect(config.overrides[0]?.customSyntax).toBe('postcss-styled-syntax')
+})
+
+test('the shared config requires compatible Stylelint runtime peers', () => {
+  expect(packageJson.peerDependencies).toMatchObject({
+    postcss: '^8.5.1',
+    'postcss-styled-syntax': '^0.7.2',
+    stylelint: '>=16.14.1',
+  })
+  expect(packageJson.peerDependenciesMeta.postcss).toBeUndefined()
+  expect(
+    packageJson.peerDependenciesMeta['postcss-styled-syntax']
+  ).toBeUndefined()
 })
 
 test('validate-token preserves invalid token diagnostics', async () => {
@@ -135,8 +162,6 @@ test('suppression hygiene requires a scoped concrete reason', async () => {
     '/* stylelint-disable bezier/no-component-style-override */\n.a { color: red; }'
   const valid =
     '/* stylelint-disable-next-line bezier/no-component-style-override -- Third-party widget requires this fixed width */\n.a { width: 10px; }'
-  expect(
-    await warnings(invalid, suppressionName, suppression)
-  ).toHaveLength(1)
+  expect(await warnings(invalid, suppressionName, suppression)).toHaveLength(1)
   expect(await warnings(valid, suppressionName, suppression)).toHaveLength(0)
 })

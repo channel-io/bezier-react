@@ -7,13 +7,13 @@ Stylelint configuration for Bezier design system.
 ### npm
 
 ```bash
-npm i -D @channel.io/stylelint-bezier
+npm i -D @channel.io/stylelint-bezier postcss@^8.5.1 postcss-styled-syntax@^0.7.2 stylelint@^16.14.1
 ```
 
 ### yarn
 
 ```bash
-yarn add -D @channel.io/stylelint-bezier
+yarn add -D @channel.io/stylelint-bezier postcss@^8.5.1 postcss-styled-syntax@^0.7.2 stylelint@^16.14.1
 ```
 
 ## Usage
@@ -25,6 +25,12 @@ Extend @channel.io/stylelint-bezier in your stylelint config.
   "extends": ["@channel.io/stylelint-bezier"]
 }
 ```
+
+The package configures `postcss-styled-syntax` for TypeScript and TSX files.
+`postcss@^8.5.1`, `postcss-styled-syntax@^0.7.2`, and
+`stylelint@>=16.14.1` are required peer dependencies and must be installed by
+the consuming project. Stylelint loads the custom syntax from the consumer
+environment and shares the compatible PostCSS host.
 
 ## Rules
 
