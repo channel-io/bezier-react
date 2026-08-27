@@ -1,5 +1,11 @@
 # @channel.io/stylelint-bezier
 
+## 0.4.0-next.8
+
+### Patch Changes
+
+- Declare the styled-components custom syntax as a required peer so Stylelint can load it from the consumer environment for TypeScript and TSX files. Require compatible `postcss`, `postcss-styled-syntax`, and `stylelint` versions as runtime peers. ([#2909](https://github.com/channel-io/bezier-react/pull/2909)) by @timok1m
+
 ## 0.4.0-next.7
 
 ### Minor Changes
