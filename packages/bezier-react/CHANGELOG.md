@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.20
+
+### Patch Changes
+
+- Let beta `Icon` inherit its color when `color` is omitted. It previously always wrote `icon-neutral` into the inline `--b-beta-icon-color`, which shadowed the `initial` value the stylesheet relies on and left consumers unable to color an icon from its parent. ([#2907](https://github.com/channel-io/bezier-react/pull/2907)) by @sni-J
+
 ## 4.0.0-next.19
 
 ### Patch Changes
