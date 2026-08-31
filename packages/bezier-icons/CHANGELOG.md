@@ -1,5 +1,16 @@
 # @channel.io/bezier-icons
 
+## 0.62.0
+
+### Minor Changes
+
+- Update icons ([#2910](https://github.com/channel-io/bezier-react/pull/2910)) by @wes5510
+
+  Added
+
+  - notebook.svg
+  - page-empty.svg
+
 ## 0.61.0
 
 ### Minor Changes
