@@ -1,5 +1,24 @@
 # @channel.io/bezier-icons
 
+## 0.63.0
+
+### Minor Changes
+
+- Update icons ([#2915](https://github.com/channel-io/bezier-react/pull/2915)) by @wes5510
+
+  Modified
+
+  - alf-marketing.svg
+  - notebook.svg
+  - pointer.svg
+
+  Added
+
+  - in-alt.svg
+  - list-sparkle.svg
+  - search-graph.svg
+  - text-sparkle.svg
+
 ## 0.62.0
 
 ### Minor Changes
