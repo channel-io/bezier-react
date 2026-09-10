@@ -27,7 +27,7 @@
   "author": "Channel Corp.",
   "license": "Apache-2.0",
   "dependencies": {
-    "@channel.io/bezier-tokens": "1.0.0-next.6"
+    "@channel.io/bezier-tokens": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",

@@ -1,0 +1,20 @@
+packages:
+  - "packages/*"
+  - "configs/*"
+
+# 워크스페이스 멤버를 semver로 참조하는 곳이 있어 이 값이 없으면 레지스트리에서 찾다 실패한다.
+# 참조 자체도 workspace:*로 바꾼다(turbo가 의존 그래프 edge를 잃지 않도록).
+linkWorkspacePackages: true
+
+strictDepBuilds: true
+
+# as-is(yarn) 실행 집합 — T2-B 파일럿 실측
+allowBuilds:
+  esbuild: true
+  "@parcel/watcher": true
+  "@swc/core": true
+
+# as-is(yarn.lock) resolved 값 고정 — 범위 `^5.7.2`가 pnpm에서 5.9.3으로 올라가
+# 선언 emit 결과가 달라진다(T2-B 파일럿 실측).
+overrides:
+  typescript: 5.7.2

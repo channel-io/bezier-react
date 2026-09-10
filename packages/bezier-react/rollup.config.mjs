@@ -144,7 +144,13 @@ const generateConfig = ({ output = [], plugins = [] }) =>
        * @see https://github.com/Septh/rollup-plugin-node-externals#3-order-matters
        */
       nodeExternals({
-        deps: false,
+        /**
+         * pnpm에서는 node_modules가 심볼릭 링크라, deps를 번들 대상으로 두면 rollup이
+         * 링크를 실경로로 풀어 `node_modules/.pnpm/<pkg>@<ver>_<peer해시>/…`를 산출물에
+         * 써넣는다(실측: dist 30파일). 설치 해시가 들어간 경로라 소비자 환경에 없다.
+         * dependencies는 소비자가 어차피 설치하므로 external로 두고 패키지 이름으로 남긴다.
+         */
+        deps: true,
         peerDeps: true,
         packagePath: './package.json',
       }),

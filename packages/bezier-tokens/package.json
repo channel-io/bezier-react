@@ -54,6 +54,7 @@
   "author": "Channel Corp.",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@types/node": "^22.10.2",
     "@types/tinycolor2": "^1.4.6",
     "eslint-config-bezier": "workspace:*",
     "minimatch": "^10.0.1",
