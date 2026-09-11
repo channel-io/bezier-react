@@ -1,6 +1,5 @@
 node_modules
 
-.yarn
 .changeset
 
 build

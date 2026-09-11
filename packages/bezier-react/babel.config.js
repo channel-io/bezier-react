@@ -4,14 +4,17 @@ module.exports = {
       '@babel/preset-env',
       {
         bugfixes: true,
-        // 타겟을 명시하는 이유: yarn 트리에는 caniuse-lite 사본이 5개 있었고(최상위 30001716 ·
-        // browserslist 30001705 · core-js-compat 30001727 · webpack 30001667 ·
-        // helper-compilation-targets 30001667) babel은 자기 밑의 30001667을 참조했다.
-        // pnpm은 사본을 하나로 모으므로 그 구조를 재현할 수 없고, 그대로 두면 babel이 최신
-        // 데이터를 보면서 chrome 타겟이 77에서 105로 올라가 옵셔널 체이닝 다운레벨이 사라진다
-        // (실측: 빌드 산출물 315개의 지문이 갈렸다).
-        // 이관으로 인한 산출물 변화를 없애기 위해 이관 전 실측 타겟을 여기에 고정한다.
-        // 값 출처: as-is 빌드의 preset-env `debug: true` 출력.
+        // targets를 여기에 고정한 이유: 비워두면 browserslist 기본 해석이 적용되는데,
+        // 그 결과가 node_modules 구조에 따라 달라진다 — caniuse-lite 사본이 여러 벌 깔리는
+        // 설치 트리에서는 babel이 자기 밑의 옛 사본을 참조해, 같은 소스에서 다른 다운레벨
+        // 결과가 나온다. 값을 적어두면 설치 구조와 무관하게 산출물이 고정된다.
+        //
+        // 유지 제약: JS 다운레벨 범위는 여기서 정해지고, CSS 쪽은 `.browserslistrc`를
+        // postcss가 읽는다. 지원 범위를 넓히거나 좁힐 때 두 곳을 같이 본다.
+        //
+        // 제거 조건: 이 고정은 pnpm 이관 시점의 JS 산출물을 그대로 보존하려는 임시 조치다.
+        // 지원 브라우저 정책을 새로 정해 `.browserslistrc` 한 곳으로 관리하기로 하면
+        // 이 블록을 지우고 browserslist 해석에 맡긴다.
         targets: {
           android: '121',
           chrome: '77',

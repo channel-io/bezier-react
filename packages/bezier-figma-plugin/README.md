@@ -7,7 +7,7 @@ Bezier Figma Plugin is a Figma plugin that helps build Bezier design system and 
 ### 1. Build
 
 ```bash
-yarn build
+pnpm build
 ```
 
 ### 2. Import

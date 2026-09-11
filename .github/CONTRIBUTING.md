@@ -29,7 +29,7 @@ We actively welcome your pull requests:
    1. Install commitizen globally.
 
       ```bash
-      yarn dlx commitizen
+      pnpm dlx commitizen
       ```
 
    2. Commit with commitizen.
@@ -60,7 +60,7 @@ In more detail, it follows the [AngularJS's commit message convention](https://g
 We are using [changesets](https://github.com/changesets/changesets) as a tool to manage versioning and changelogs. If you think your changes should be released, [add a changeset](https://github.com/changesets/changesets/blob/7febb599167234ae071b5d223b80cbc8a9375709/docs/adding-a-changeset.md) which is a piece of information about your changes.
 
 ```bash
-yarn changeset
+pnpm changeset
 ```
 
 ## Report bugs using GitHub's [issues](https://github.com/channel-io/bezier-react/issues)

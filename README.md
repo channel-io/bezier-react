@@ -20,35 +20,35 @@
 ### Install dependencies
 
 ```bash
-yarn install
+pnpm install
 ```
 
 ### Build workspaces
 
 ```bash
-yarn build
+pnpm build
 ```
 
 ### Build a specific workspace
 
 ```bash
-yarn build --filter=<workspace>
+pnpm exec turbo run build --filter=<workspace>
 ```
 
 ### Run Storybook
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 ### Other Commands
 
 | Command                | Description                             |
 | ---------------------- | --------------------------------------- |
-| `yarn test`            | Tests all workspaces                    |
-| `yarn lint`            | Lints all workspaces                    |
-| `yarn typecheck`       | Type checks all workspaces              |
-| `yarn clean`           | Remove generated files                  |
+| `pnpm test`            | Tests all workspaces                    |
+| `pnpm lint`            | Lints all workspaces                    |
+| `pnpm typecheck`       | Type checks all workspaces              |
+| `pnpm clean`           | Remove generated files                  |
 
 ## Contributing
 
