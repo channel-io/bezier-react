@@ -32,6 +32,6 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Code Connect
-        run: pnpm workspace @channel.io/bezier-react code-connect
+        run: pnpm --filter @channel.io/bezier-react code-connect
         env:
           FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
