@@ -2,17 +2,17 @@ packages:
   - "packages/*"
   - "configs/*"
 
-# 기본값 false — 멤버를 semver로 참조하는 곳이 레지스트리를 찾다 실패한다.
+# Defaults to false, which makes semver references to workspace members resolve against the registry.
 linkWorkspacePackages: true
 
 strictDepBuilds: true
 
-# 목록 밖 패키지가 postinstall을 가지면 strictDepBuilds가 install을 거부한다.
+# A package outside this list that ships a postinstall makes strictDepBuilds reject the install.
 allowBuilds:
   esbuild: true
   "@parcel/watcher": true
   "@swc/core": true
 
-# 마이너 상향만으로 .d.ts emit 결과가 바뀐다 — 올릴 땐 산출물 변화를 확인할 것.
+# A minor bump alone changes .d.ts emit: verify the build output before raising this.
 overrides:
   typescript: 5.7.2

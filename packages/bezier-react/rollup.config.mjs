@@ -143,13 +143,17 @@ const generateConfig = ({ output = [], plugins = [] }) =>
        * If you're also using @rollup/plugin-node-resolve, make sure this plugin comes before it in the plugins array
        * @see https://github.com/Septh/rollup-plugin-node-externals#3-order-matters
        */
-      /**
-       * deps를 번들하면 pnpm 심볼릭 링크가 실경로로 풀려 `.pnpm/<pkg>@<ver>` 경로가 산출물에 박힌다.
-       * exclude는 ESM 전용 패키지 — external은 cjs에서 `require()`가 되어 `ERR_REQUIRE_ESM`이 난다.
-       */
       nodeExternals({
+        /**
+         * NOTE: Bundling dependencies resolves pnpm's symlinks, which bakes
+         * `node_modules/.pnpm/<pkg>@<ver>` paths into the output.
+         */
         deps: true,
         peerDeps: true,
+        /**
+         * NOTE: ESM-only packages have to stay in the bundle. Externals are emitted as
+         * `require()` in the cjs build, which throws `ERR_REQUIRE_ESM` on Node 20.
+         */
         exclude: ['ssr-window'],
         packagePath: './package.json',
       }),
@@ -196,7 +200,10 @@ const generateConfig = ({ output = [], plugins = [] }) =>
     },
   })
 
-/** `preserveModules`가 출력 경로로 쓰는 pnpm 실경로를 평탄화 — 설치마다 달라지는 해시를 산출물에 남기지 않는다. */
+/**
+ * Flatten the pnpm real paths that `preserveModules` uses as output paths, so
+ * install-specific hashes stay out of the build.
+ */
 const flattenPnpmPath = (name) =>
   name.replace(/node_modules\/\.pnpm\/[^/]+\/node_modules\//g, 'node_modules/')
 
