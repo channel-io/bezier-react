@@ -144,20 +144,8 @@ const generateConfig = ({ output = [], plugins = [] }) =>
        * @see https://github.com/Septh/rollup-plugin-node-externals#3-order-matters
        */
       /**
-       * dependencies를 external로 두어 산출물에 패키지 이름으로 남긴다.
-       *
-       * 이유: pnpm의 `node_modules`는 심볼릭 링크라, 번들 대상에 두면 rollup이 링크를
-       * 실경로로 풀어 설치 해시가 박힌 경로(`node_modules/.pnpm/<pkg>@<ver>_<hash>/…`)를
-       * 산출물에 써넣는다. 그 경로는 소비자 환경에 존재하지 않는다.
-       *
-       * 제약: CJS 산출물은 external을 `require()`로 남긴다. 따라서 **ESM 전용 의존성은
-       * `exclude`에 넣어 번들에 포함해야 한다** — 그러지 않으면 CJS 진입점을 `require`하는
-       * 소비자가 `ERR_REQUIRE_ESM`으로 깨진다(Node 22는 통과하지만 Node 20에서 실패).
-       * 이 패키지는 `require` 엔트리를 제공하고 소비자의 최소 Node 버전을 제한하지 않는다.
-       *
-       * exclude 갱신 조건: dependencies를 추가·변경할 때 그 패키지가 ESM 전용인지 본다.
-       * 판별은 그 패키지 `package.json`이 `"type": "module"`이면서 `exports`에 `require`
-       * 조건이 없는 것. 해당하면 여기에 더한다.
+       * deps를 번들하면 pnpm 심볼릭 링크가 실경로로 풀려 `.pnpm/<pkg>@<ver>` 경로가 산출물에 박힌다.
+       * exclude는 ESM 전용 패키지 — external은 cjs에서 `require()`가 되어 `ERR_REQUIRE_ESM`이 난다.
        */
       nodeExternals({
         deps: true,
@@ -208,12 +196,7 @@ const generateConfig = ({ output = [], plugins = [] }) =>
     },
   })
 
-/**
- * `preserveModules`는 번들에 포함된 의존성을 그 모듈의 경로 그대로 출력한다.
- * pnpm의 `node_modules`는 실경로가 `node_modules/.pnpm/<pkg>@<ver>[_<peer해시>]/node_modules/<pkg>/…`
- * 라서, 그대로 두면 설치 해시가 박힌 디렉토리가 산출물 안에 생긴다.
- * 소비자에게 의미 없는 경로이고 설치마다 달라지므로 평평하게 되돌린다.
- */
+/** `preserveModules`가 출력 경로로 쓰는 pnpm 실경로를 평탄화 — 설치마다 달라지는 해시를 산출물에 남기지 않는다. */
 const flattenPnpmPath = (name) =>
   name.replace(/node_modules\/\.pnpm\/[^/]+\/node_modules\//g, 'node_modules/')
 

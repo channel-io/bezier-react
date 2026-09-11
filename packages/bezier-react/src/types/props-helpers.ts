@@ -189,8 +189,8 @@ export const getLayoutStyles = ({
   overflowX,
   overflowY,
 }: LayoutProps): {
-  // NOTE: 추론에 맡기면 반환 타입이 전이 의존성 csstype을 설치 경로로만 이름 지을 수 있어
-  // 선언 emit이 TS2742로 실패한다. 명시 타입으로 그 참조를 끊는다.
+  // NOTE: 추론에 맡기면 반환 타입이 전이 의존성 csstype을 설치 경로로만 이름 지어
+  // 선언 emit이 TS2742로 실패한다.
   style: Record<`--b-${string}`, string | number | undefined>
   className: string
 } => ({

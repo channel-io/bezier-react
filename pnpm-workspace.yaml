@@ -2,22 +2,17 @@ packages:
   - "packages/*"
   - "configs/*"
 
-# 워크스페이스 멤버끼리의 참조를 레지스트리가 아니라 로컬 링크로 해석한다.
-# 이 값이 없으면(pnpm 기본값 false) 멤버를 semver로 참조하는 곳이 레지스트리를 찾다 실패한다.
+# 기본값 false — 멤버를 semver로 참조하는 곳이 레지스트리를 찾다 실패한다.
 linkWorkspacePackages: true
 
 strictDepBuilds: true
 
-# install script 실행을 허용할 패키지. strictDepBuilds가 켜져 있어 목록 밖 패키지가
-# postinstall을 가지면 install이 거부된다 — 의존성을 추가할 때 그 패키지가 빌드 스크립트를
-# 갖는지 확인하고, 실행이 필요하면 여기에 더한다.
+# 목록 밖 패키지가 postinstall을 가지면 strictDepBuilds가 install을 거부한다.
 allowBuilds:
   esbuild: true
   "@parcel/watcher": true
   "@swc/core": true
 
-# typescript 버전을 고정한다. 범위 지정(`^5.7.2`)으로 두면 마이너 상향이 일어나고,
-# 상향된 컴파일러가 선언 파일(.d.ts) emit 결과를 바꾼다.
-# 올릴 때는 산출물 변화를 확인한 뒤 이 값을 함께 올린다.
+# 마이너 상향만으로 .d.ts emit 결과가 바뀐다 — 올릴 땐 산출물 변화를 확인할 것.
 overrides:
   typescript: 5.7.2
