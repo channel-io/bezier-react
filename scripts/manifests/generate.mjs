@@ -51,7 +51,7 @@ function writeOrCheck(outputPath, manifest, check) {
     }
     if (readFileSync(outputPath, 'utf8') !== next) {
       throw new Error(
-        `Stale generated manifest: ${relative(rootDir, outputPath)}. Run yarn manifest:generate.`
+        `Stale generated manifest: ${relative(rootDir, outputPath)}. Run pnpm manifest:generate.`
       )
     }
     return

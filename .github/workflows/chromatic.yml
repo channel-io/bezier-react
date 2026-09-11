@@ -30,11 +30,16 @@ jobs:
           # https://www.chromatic.com/docs/turbosnap#github-pullrequest-triggers
           ref: ${{ github.event.pull_request.head.sha }}
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6.0.7
+        with:
+          version: 11.24.0
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: yarn
+          cache: 'pnpm'
 
       - name: Restore cache
         uses: actions/cache@v4
@@ -47,10 +52,10 @@ jobs:
             ${{ runner.os }}-chromatic-
 
       - name: Install dependencies
-        run: yarn
+        run: pnpm install --frozen-lockfile
 
       - name: Build bezier-react's dependencies
-        run: yarn build --filter=@channel.io/bezier-react^...
+        run: pnpm build --filter=@channel.io/bezier-react^...
 
       - name: Publish to Chromatic
         uses: chromaui/action@v11

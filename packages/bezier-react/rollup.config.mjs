@@ -144,8 +144,17 @@ const generateConfig = ({ output = [], plugins = [] }) =>
        * @see https://github.com/Septh/rollup-plugin-node-externals#3-order-matters
        */
       nodeExternals({
-        deps: false,
+        /**
+         * NOTE: Bundling dependencies resolves pnpm's symlinks, which bakes
+         * `node_modules/.pnpm/<pkg>@<ver>` paths into the output.
+         */
+        deps: true,
         peerDeps: true,
+        /**
+         * NOTE: ESM-only packages have to stay in the bundle. Externals are emitted as
+         * `require()` in the cjs build, which throws `ERR_REQUIRE_ESM` on Node 20.
+         */
+        exclude: ['ssr-window'],
         packagePath: './package.json',
       }),
       nodeResolve({ extensions }),
@@ -191,6 +200,13 @@ const generateConfig = ({ output = [], plugins = [] }) =>
     },
   })
 
+/**
+ * Flatten the pnpm real paths that `preserveModules` uses as output paths, so
+ * install-specific hashes stay out of the build.
+ */
+const flattenPnpmPath = (name) =>
+  name.replace(/node_modules\/\.pnpm\/[^/]+\/node_modules\//g, 'node_modules/')
+
 export default defineConfig([
   generateConfig({
     output: [
@@ -200,7 +216,8 @@ export default defineConfig([
         sourcemap: true,
         preserveModules: true,
         preserveModulesRoot: 'src',
-        entryFileNames: '[name].js',
+        entryFileNames: (chunk) => `${flattenPnpmPath(chunk.name)}.js`,
+        sourcemapPathTransform: flattenPnpmPath,
         exports: 'named',
       },
       {
@@ -209,7 +226,8 @@ export default defineConfig([
         sourcemap: true,
         preserveModules: true,
         preserveModulesRoot: 'src',
-        entryFileNames: '[name].mjs',
+        entryFileNames: (chunk) => `${flattenPnpmPath(chunk.name)}.mjs`,
+        sourcemapPathTransform: flattenPnpmPath,
       },
     ],
   }),

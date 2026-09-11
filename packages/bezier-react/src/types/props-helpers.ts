@@ -188,7 +188,12 @@ export const getLayoutStyles = ({
   overflow,
   overflowX,
   overflowY,
-}: LayoutProps) => ({
+}: LayoutProps): {
+  // NOTE: An inferred return type names the transitive csstype dependency by its install
+  // path only, which makes declaration emit fail with TS2742.
+  style: Record<`--b-${string}`, string | number | undefined>
+  className: string
+} => ({
   style: {
     '--b-padding': cssDimension(padding),
     '--b-padding-horizontal': cssDimension(paddingHorizontal),

@@ -1,0 +1,18 @@
+packages:
+  - "packages/*"
+  - "configs/*"
+
+# Defaults to false, which makes semver references to workspace members resolve against the registry.
+linkWorkspacePackages: true
+
+strictDepBuilds: true
+
+# A package outside this list that ships a postinstall makes strictDepBuilds reject the install.
+allowBuilds:
+  esbuild: true
+  "@parcel/watcher": true
+  "@swc/core": true
+
+# A minor bump alone changes .d.ts emit: verify the build output before raising this.
+overrides:
+  typescript: 5.7.2

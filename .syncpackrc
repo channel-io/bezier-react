@@ -8,10 +8,14 @@
       "dependencies": [
         "eslint-config-bezier",
         "tsconfig",
-        "@channel.io/stylelint-bezier"
+        "@channel.io/stylelint-bezier",
+        "@channel.io/bezier-tokens",
+        "@channel.io/bezier-icons",
+        "@channel.io/bezier-react"
       ],
       "dependencyTypes": [
-        "dev"
+        "dev",
+        "prod"
       ],
       "pinVersion": "workspace:*"
     },
