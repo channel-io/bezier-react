@@ -17,14 +17,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6.0.7
+        with:
+          version: 11.24.0
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: 'yarn'
+          cache: 'pnpm'
 
       - name: Install Dependencies
-        run: yarn install
+        run: pnpm install --frozen-lockfile
 
       - name: TurboRepo Local Server
         uses: felixmosh/turborepo-gh-artifacts@v3
@@ -33,19 +38,19 @@ jobs:
           server-token: ${{ env.TURBO_TOKEN }}
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: Check generated manifests
-        run: yarn manifest:check
+        run: pnpm manifest:check
 
       - name: Lint
-        run: yarn lint
+        run: pnpm lint
 
       - name: Typecheck
-        run: yarn typecheck
+        run: pnpm typecheck
 
       - name: Test
-        run: yarn test
+        run: pnpm test
 
       - name: Upload Coverage Reports to Codecov
         uses: codecov/codecov-action@v5

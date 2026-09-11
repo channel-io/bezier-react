@@ -18,21 +18,26 @@ jobs:
         with:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6.0.7
+        with:
+          version: 11.24.0
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
-          cache: yarn
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: yarn
+        run: pnpm install --frozen-lockfile
 
       - name: Create release Pull Request or publish to NPM
         id: changesets
         uses: changesets/action@v1
         with:
-          version: yarn version-packages
-          publish: yarn release
+          version: pnpm version-packages
+          publish: pnpm release
           commit: 'ci(changesets): version packages'
           title: 'ci(changesets): version packages'
         env:
