@@ -55,6 +55,15 @@ export const Primary: StoryObj<TextInputProps> = {
   },
 }
 
+export const Overflow: StoryObj<TextInputProps> = {
+  render: Template,
+  args: {
+    defaultValue:
+      'Please leave the package at the front desk and let me know when it arrives.',
+    style: { width: 240 },
+  },
+}
+
 export const Variants: StoryObj<TextInputProps> = {
   render: (args) => (
     <VStack spacing={12}>

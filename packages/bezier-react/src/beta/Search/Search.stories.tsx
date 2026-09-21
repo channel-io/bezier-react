@@ -45,6 +45,15 @@ export const Primary: StoryObj<SearchProps> = {
   },
 }
 
+export const Overflow: StoryObj<SearchProps> = {
+  render: Template,
+  args: {
+    defaultValue:
+      'Conversations about changing the delivery address for an upcoming order',
+    allowClear: true,
+  },
+}
+
 export const Sizes: StoryObj<SearchProps> = {
   render: (args) => (
     <HStack

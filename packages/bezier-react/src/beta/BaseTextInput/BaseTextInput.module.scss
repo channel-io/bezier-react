@@ -84,6 +84,11 @@
     opacity: 0;
   }
 
+  // Reveal the actual text while scrolling instead of moving an ellipsized image.
+  &:where([data-scrolled='true']) {
+    text-overflow: clip;
+  }
+
   &:read-only {
     color: var(--color-text-neutral-light);
   }
