@@ -5,12 +5,9 @@ import type {
   ChildrenProps,
   IdentifierProps,
   MarginProps,
-  SizeProps,
 } from '~/src/types/props'
 
 export type FormFieldLabelPosition = 'top' | 'left'
-
-export type FormFieldSize = 'm' | 'l'
 
 export interface FormProps
   extends BezierComponentProps<'form'>,
@@ -57,7 +54,6 @@ export interface FormFieldContextValue extends BaseFormFieldProps {
   labelId: string
   helperTextId: string
   errorMessageId: string
-  size?: FormFieldSize
   getGroupProps: GroupPropsGetter
   getLabelProps: LabelPropsGetter
   getFieldProps: FieldPropsGetter
@@ -82,7 +78,6 @@ export interface FormFieldProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,
     BaseFormFieldProps,
-    SizeProps<FormFieldSize>,
     FormFieldOwnProps {}
 
 interface FormLabelOwnProps {

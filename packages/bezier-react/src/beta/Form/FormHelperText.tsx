@@ -2,7 +2,7 @@
 
 import { forwardRef } from 'react'
 
-import { ErrorTriangleFilledIcon } from '@channel.io/bezier-icons'
+import { ErrorDiamondFilledIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
 
@@ -81,12 +81,12 @@ const BaseHelperText = forwardRef<HTMLSpanElement, BaseHelperTextProps>(
         {type === 'error' && (
           <Icon
             className={styles.ErrorIcon}
-            source={ErrorTriangleFilledIcon}
-            size="16"
+            source={ErrorDiamondFilledIcon}
+            size="12"
             color="icon-accent-orange"
           />
         )}
-        {children}
+        <span className={styles.HelperTextContent}>{children}</span>
       </Text>
     )
   }

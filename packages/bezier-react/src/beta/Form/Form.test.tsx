@@ -1,3 +1,7 @@
+import * as React from 'react'
+
+import { fireEvent } from '@testing-library/react'
+
 
 import { Checkbox } from '~/src/beta/Checkbox'
 import { TextInput } from '~/src/beta/TextInput'
@@ -57,14 +61,14 @@ describe('FormField', () => {
     )
 
     const input = getByLabelText('Email')
-    const helperText = getByText('Enter your work email.')
+    const helperText = getByText('Enter your work email.').closest('p')!
 
     expect(input).toHaveAttribute('aria-describedby', helperText.id)
     expect(input).not.toHaveAttribute('aria-invalid', 'true')
   })
 
   it('connects error text to a single field when hasError is true', () => {
-    const { getByLabelText, getByText, queryByText } = render(
+    const { getByLabelText, getByText } = render(
       <FormField hasError>
         <FormLabel>Email</FormLabel>
         <TextInput />
@@ -74,11 +78,15 @@ describe('FormField', () => {
     )
 
     const input = getByLabelText('Email')
-    const errorMessage = getByText('Email is required.')
+    const errorMessage = getByText('Email is required.').closest('p')!
 
     expect(input).toHaveAttribute('aria-invalid', 'true')
-    expect(input).toHaveAttribute('aria-describedby', errorMessage.id)
-    expect(queryByText('Enter your work email.')).toBeNull()
+    const description = getByText('Enter your work email.').closest('p')!
+    expect(input).toHaveAttribute(
+      'aria-describedby',
+      `${description.id} ${errorMessage.id}`
+    )
+    expect(description).toBeVisible()
   })
 
   it('connects label and description to a grouped field', () => {
@@ -95,7 +103,7 @@ describe('FormField', () => {
 
     const group = getByRole('group')
     const label = getByText('Notifications')
-    const helperText = getByText('Select at least one channel.')
+    const helperText = getByText('Select at least one channel.').closest('p')!
 
     expect(getByTestId('bezier-beta-form-group')).toBe(group)
     expect(group).toHaveAttribute('aria-labelledby', label.id)
@@ -151,5 +159,148 @@ describe('FormField', () => {
     )
 
     expect(getByTestId('bezier-beta-help')).toBeInTheDocument()
+  })
+})
+
+describe('FormField updated layout', () => {
+  it.each(['top', 'left'] as const)(
+    'keeps the description with the label and errors after controls (%s)',
+    (labelPosition) => {
+      const { getByLabelText, getByText } = render(
+        <FormField
+          labelPosition={labelPosition}
+          hasError
+        >
+          <>
+            <FormLabel>Email</FormLabel>
+            <TextInput />
+            <FormHelperText>Use your work address.</FormHelperText>
+            <FormErrorMessage>Enter a valid email.</FormErrorMessage>
+          </>
+        </FormField>
+      )
+      const label = getByText('Email')
+      const description = getByText('Use your work address.').closest('p')!
+      const input = getByLabelText('Email')
+      const error = getByText('Enter a valid email.').closest('p')!
+      const labelArea = label.parentElement!.parentElement!
+      expect(labelArea).toContainElement(description)
+      expect(labelArea).not.toContainElement(input)
+      expect(error.parentElement!.parentElement).toContainElement(input)
+      expect(
+        input.compareDocumentPosition(error) & Node.DOCUMENT_POSITION_FOLLOWING
+      ).toBeTruthy()
+    }
+  )
+
+  it('keeps the input, value, focus and description when validation changes', () => {
+    const field = (hasError: boolean) => (
+      <FormField hasError={hasError}>
+        <FormLabel>Email</FormLabel>
+        <TextInput defaultValue="first@example.com" />
+        <FormHelperText>Use your work address.</FormHelperText>
+        <FormErrorMessage>Enter a valid email.</FormErrorMessage>
+      </FormField>
+    )
+    const { getByLabelText, getByText, queryByText, rerender } = render(
+      field(false)
+    )
+    const input = getByLabelText('Email')
+    input.focus()
+    fireEvent.change(input, { target: { value: 'draft' } })
+    rerender(field(true))
+    expect(getByLabelText('Email')).toBe(input)
+    expect(input).toHaveValue('draft')
+    expect(input).toHaveFocus()
+    expect(input).toHaveAccessibleDescription(
+      'Use your work address. Enter a valid email.'
+    )
+    expect(input).toHaveAttribute('aria-invalid', 'true')
+    rerender(field(false))
+    expect(queryByText('Enter a valid email.')).toBeNull()
+    expect(getByText('Use your work address.')).toBeVisible()
+    expect(input).toHaveAccessibleDescription('Use your work address.')
+    expect(input).not.toHaveAttribute('aria-invalid')
+    expect(input).toHaveFocus()
+  })
+
+  it('preserves keyed controls in separate fragments', () => {
+    const field = (reverse: boolean) => (
+      <FormField>
+        <FormLabel>Addresses</FormLabel>
+        {reverse
+          ? [
+              <React.Fragment key="second">
+                <TextInput aria-label="Second" />
+              </React.Fragment>,
+              <React.Fragment key="first">
+                <TextInput aria-label="First" />
+              </React.Fragment>,
+            ]
+          : [
+              <React.Fragment key="first">
+                <TextInput aria-label="First" />
+              </React.Fragment>,
+              <React.Fragment key="second">
+                <TextInput aria-label="Second" />
+              </React.Fragment>,
+            ]}
+      </FormField>
+    )
+    const { getByLabelText, rerender } = render(field(false))
+    const input = getByLabelText('First')
+    fireEvent.change(input, { target: { value: 'draft' } })
+    rerender(field(true))
+    expect(getByLabelText('First')).toBe(input)
+    expect(input).toHaveValue('draft')
+  })
+
+  it('keeps grouped controls invalid and connects both description and error', () => {
+    const { getByRole, getAllByRole } = render(
+      <FormField
+        hasError
+        required
+      >
+        <FormLabel>Channels</FormLabel>
+        <FormGroup>
+          <Checkbox>Email</Checkbox>
+          <Checkbox>SMS</Checkbox>
+        </FormGroup>
+        <FormHelperText>Choose a channel.</FormHelperText>
+        <FormErrorMessage>Select at least one.</FormErrorMessage>
+      </FormField>
+    )
+    expect(getByRole('group')).toHaveAccessibleName('Channels')
+    expect(getByRole('group')).toHaveAccessibleDescription(
+      'Choose a channel. Select at least one.'
+    )
+    getAllByRole('checkbox').forEach((checkbox) => {
+      expect(checkbox).toHaveAttribute('aria-invalid', 'true')
+      expect(checkbox).toHaveAttribute('aria-required', 'true')
+    })
+  })
+
+  it('renders a required marker without including it in the accessible label', () => {
+    const { getByLabelText, getByText } = render(
+      <FormField required>
+        <FormLabel>Email</FormLabel>
+        <TextInput />
+      </FormField>
+    )
+    expect(getByText('*')).toHaveAttribute('aria-hidden', 'true')
+    expect(getByLabelText('Email')).toBeRequired()
+  })
+
+  it('does not create dividers for conditional empty fields', () => {
+    const { queryByRole } = render(
+      <Form>
+        {false}
+        <FormField>
+          <TextInput aria-label="Email" />
+        </FormField>
+        {null}
+      </Form>
+    )
+    expect(queryByRole('separator')).toBeNull()
   })
 })

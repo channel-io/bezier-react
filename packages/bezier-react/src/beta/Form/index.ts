@@ -5,7 +5,6 @@ export type {
   FormFieldContextValue,
   FormFieldLabelPosition,
   FormFieldProps,
-  FormFieldSize,
   FormErrorMessageProps,
   FormGroupProps,
   FormHelperTextProps,

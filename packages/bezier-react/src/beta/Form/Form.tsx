@@ -3,7 +3,9 @@
 import {
   Children,
   Fragment,
+  cloneElement,
   forwardRef,
+  isValidElement,
   useCallback,
   useMemo,
   useState,
@@ -18,7 +20,6 @@ import useId from '~/src/hooks/useId'
 import type { FormFieldProps as BaseFormFieldProps } from '~/src/types/props'
 import { ariaAttr } from '~/src/utils/aria'
 import { createContext } from '~/src/utils/react'
-import { isNil } from '~/src/utils/type'
 
 import type {
   ErrorMessagePropsGetter,
@@ -26,12 +27,13 @@ import type {
   FormFieldContainerProps,
   FormFieldContextValue,
   FormFieldProps,
-  FormFieldSize,
   FormProps,
   GroupPropsGetter,
   HelperTextPropsGetter,
   LabelPropsGetter,
 } from './Form.types'
+import { FormErrorMessage, FormHelperText } from './FormHelperText'
+import { FormLabel } from './FormLabel'
 
 import styles from './Form.module.scss'
 
@@ -43,8 +45,21 @@ const [FormFieldContextProvider, useFormFieldContext] = createContext<
 
 export { useFormFieldContext }
 
-function normalizeFormFieldSize(size?: string): FormFieldSize {
-  return size === 'l' ? 'l' : 'm'
+// Preserve keys across fragments so stateful controls keep their identity.
+function flattenChildren(
+  children: React.ReactNode,
+  prefix = ''
+): React.ReactNode[] {
+  return Children.toArray(children).flatMap((child, index) => {
+    const key = `${prefix}/${isValidElement(child) ? child.key : index}`
+    if (
+      isValidElement<{ children?: React.ReactNode }>(child) &&
+      child.type === Fragment
+    ) {
+      return flattenChildren(child.props.children, key)
+    }
+    return [isValidElement(child) ? cloneElement(child, { key }) : child]
+  })
 }
 
 /**
@@ -54,7 +69,9 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(function Form(
   { children, className, ...rest },
   forwardedRef
 ) {
-  if (!children) {
+  const fields = flattenChildren(children)
+
+  if (fields.length === 0) {
     return null
   }
 
@@ -64,16 +81,19 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(function Form(
       className={classNames(styles.Form, className)}
       {...rest}
     >
-      {Children.map(children, (child, index) => (
-        <Fragment key={index}>
-          {index > 0 && (
+      {fields.map((child, index) => (
+        <div
+          key={isValidElement(child) ? child.key : index}
+          className={styles.FormItem}
+        >
+          {child}
+          {index < fields.length - 1 && (
             <Divider
               className={styles.FormDivider}
               withoutSideIndent
             />
           )}
-          {child}
-        </Fragment>
+        </div>
       ))}
     </form>
   )
@@ -84,6 +104,22 @@ const FormFieldContainer = forwardRef<HTMLDivElement, FormFieldContainerProps>(
     { labelPosition, children, className, ...rest },
     forwardedRef
   ) {
+    const labels: React.ReactNode[] = []
+    const descriptions: React.ReactNode[] = []
+    const controls: React.ReactNode[] = []
+    const errors: React.ReactNode[] = []
+    flattenChildren(children).forEach((child) => {
+      if (isValidElement(child) && child.type === FormLabel) {
+        labels.push(child)
+      } else if (isValidElement(child) && child.type === FormHelperText) {
+        descriptions.push(child)
+      } else if (isValidElement(child) && child.type === FormErrorMessage) {
+        errors.push(child)
+      } else {
+        controls.push(child)
+      }
+    })
+
     return (
       <div
         ref={forwardedRef}
@@ -94,7 +130,18 @@ const FormFieldContainer = forwardRef<HTMLDivElement, FormFieldContainerProps>(
         )}
         {...rest}
       >
-        {children}
+        {(labels.length > 0 || descriptions.length > 0) && (
+          <div className={styles.LabelArea}>
+            {labels}
+            {descriptions}
+          </div>
+        )}
+        <div className={styles.ControlGroup}>
+          {controls}
+          {errors.length > 0 && (
+            <div className={styles.ErrorMessages}>{errors}</div>
+          )}
+        </div>
       </div>
     )
   }
@@ -102,6 +149,9 @@ const FormFieldContainer = forwardRef<HTMLDivElement, FormFieldContainerProps>(
 
 /**
  * `FormField` connects a form field with its label, helper text, error message, and grouped controls.
+ * Place FormLabel, FormHelperText and FormErrorMessage directly inside FormField
+ * (or a Fragment) so they can be laid out around the controls.
+ * Control sizes are set on the controls themselves.
  * It does not render a native `form` element.
  * @example
  *
@@ -120,7 +170,6 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
       children,
       id: idProp,
       labelPosition = 'top',
-      size = 'm',
       hasError = false,
       required,
       readOnly,
@@ -142,17 +191,14 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
     const helperTextId = `${id}-help-text`
     const errorMessageId = `${id}-error-message`
     const fieldId = groupNode ? undefined : id
-    const normalizedSize = normalizeFormFieldSize(size)
 
-    const describerId = useMemo(() => {
-      if (errorMessageNode) {
-        return errorMessageId
-      }
-      if (helperTextNode) {
-        return helperTextId
-      }
-      return undefined
-    }, [errorMessageNode, helperTextNode, errorMessageId, helperTextId])
+    const describerId = useMemo(
+      () =>
+        [helperTextNode && helperTextId, errorMessageNode && errorMessageId]
+          .filter(Boolean)
+          .join(' ') || undefined,
+      [errorMessageNode, helperTextNode, errorMessageId, helperTextId]
+    )
 
     const getGroupProps = useCallback<GroupPropsGetter>(
       (ownProps) => ({
@@ -169,19 +215,15 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
       (ownProps) => ({
         id: labelId,
         htmlFor: fieldId,
-        className: classNames(
-          styles.FormLabelWrapper,
-          labelPosition === 'left' && styles['position-left']
-        ),
+        className: styles.FormLabelWrapper,
         ...ownProps,
       }),
-      [fieldId, labelId, labelPosition]
+      [fieldId, labelId]
     )
 
     const getFieldProps = useCallback<FieldPropsGetter>(
       (ownProps) => ({
         id: fieldId,
-        size: normalizedSize,
         'aria-describedby': groupNode ? undefined : describerId,
         hasError,
         required,
@@ -189,44 +231,29 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
         disabled,
         ...ownProps,
       }),
-      [
-        fieldId,
-        describerId,
-        normalizedSize,
-        hasError,
-        required,
-        readOnly,
-        disabled,
-        groupNode,
-      ]
+      [fieldId, describerId, hasError, required, readOnly, disabled, groupNode]
     )
 
     const getHelperTextProps = useCallback<HelperTextPropsGetter>(
       (ownProps) => ({
         id: helperTextId,
-        visible: isNil(hasError) || !hasError,
+        visible: true,
         ref: setHelperTextNode,
-        className: classNames(
-          styles.FormHelperTextWrapper,
-          labelPosition === 'left' && styles['position-left']
-        ),
+        className: styles.FormHelperTextWrapper,
         ...ownProps,
       }),
-      [helperTextId, labelPosition, hasError]
+      [helperTextId]
     )
 
     const getErrorMessageProps = useCallback<ErrorMessagePropsGetter>(
       (ownProps) => ({
         id: errorMessageId,
-        visible: isNil(hasError) || hasError,
+        visible: hasError,
         ref: setErrorMessageNode,
-        className: classNames(
-          styles.FormHelperTextWrapper,
-          labelPosition === 'left' && styles['position-left']
-        ),
+        className: styles.FormHelperTextWrapper,
         ...ownProps,
       }),
-      [errorMessageId, labelPosition, hasError]
+      [errorMessageId, hasError]
     )
 
     const contextValue = useMemo(
@@ -240,7 +267,6 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
         getFieldProps,
         getHelperTextProps,
         getErrorMessageProps,
-        size: normalizedSize,
         hasError,
         required,
         readOnly,
@@ -256,7 +282,6 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
         getFieldProps,
         getHelperTextProps,
         getErrorMessageProps,
-        normalizedSize,
         hasError,
         required,
         readOnly,
@@ -282,9 +307,9 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
   }
 )
 
-export function useFormFieldProps<
-  Props extends BaseFormFieldProps & { size?: FormFieldSize },
->(props?: Props) {
+export function useFormFieldProps<Props extends BaseFormFieldProps>(
+  props?: Props
+) {
   const contextValue = useFormFieldContext()
 
   const formFieldProps = useMemo(() => {
@@ -295,7 +320,6 @@ export function useFormFieldProps<
       readOnly = false,
       required = false,
       hasError = false,
-      size = undefined,
       ...rest
     } = mergedProps
 
@@ -305,7 +329,6 @@ export function useFormFieldProps<
       'aria-invalid': ariaAttr(hasError),
       'aria-required': ariaAttr(required),
       'aria-readonly': ariaAttr(readOnly),
-      size,
       disabled,
       hasError,
       required,

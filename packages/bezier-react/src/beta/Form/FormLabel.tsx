@@ -25,9 +25,10 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(
   function FormLabel(
     {
       help,
-      bold = true,
+      bold,
+      fontWeight = bold === undefined ? '500' : undefined,
       color = 'text-neutral',
-      typo = '13',
+      typo = '14',
       className,
       children,
       ...rest
@@ -68,6 +69,7 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(
           htmlFor={ownProps.htmlFor}
           className={classNames(styles.LabelText, className)}
           typo={typo}
+          fontWeight={fontWeight}
           bold={bold}
           color={color}
           data-testid={FORM_LABEL_TEST_ID}
@@ -75,6 +77,17 @@ export const FormLabel = forwardRef<HTMLLabelElement, FormLabelProps>(
         >
           {children}
         </Text>
+        {contextValue?.required && (
+          <Text
+            aria-hidden="true"
+            typo={typo}
+            fontWeight={fontWeight}
+            bold={bold}
+            color="text-accent-orange"
+          >
+            *
+          </Text>
+        )}
         {HelpComponent}
       </div>
     )

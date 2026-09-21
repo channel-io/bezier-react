@@ -41,7 +41,6 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
     const {
       id: formFieldId,
       hasError,
-      size,
       ...formFieldProps
     } = useFormFieldProps(rest)
     const id = useId(idProp ?? formFieldId, 'bezier-switch')

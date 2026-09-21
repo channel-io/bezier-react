@@ -1,9 +1,14 @@
+import { useState } from 'react'
+
 import { type Meta, type StoryObj } from '@storybook/react'
 
 
 
+import { Button } from '~/src/beta/Button'
 import { Checkbox } from '~/src/beta/Checkbox'
 import { HStack } from '~/src/beta/HStack'
+import { Select, SelectOption } from '~/src/beta/Select'
+import { Text } from '~/src/beta/Text'
 import { TextArea } from '~/src/beta/TextArea'
 import { TextInput } from '~/src/beta/TextInput'
 import { VStack } from '~/src/beta/VStack'
@@ -29,7 +34,8 @@ const meta: Meta<FormProps & FormFieldProps> = {
   component: Form,
   parameters: {
     bezier: defineBezierMetadata({
-      model: 'compound', root: 'Form',
+      model: 'compound',
+      root: 'Form',
       parts: {
         FormField: { requiresAncestor: ['Form'] },
         FormLabel: { requiresAncestor: ['Form', 'FormField'] },
@@ -47,12 +53,6 @@ const meta: Meta<FormProps & FormFieldProps> = {
       },
       options: ['top', 'left'],
     },
-    size: {
-      control: {
-        type: 'radio',
-      },
-      options: ['m', 'l'],
-    },
   },
 }
 
@@ -63,7 +63,6 @@ export const Primary: StoryObj<FormProps & FormFieldProps> = {
     <Form style={{ width: FIELD_WIDTH }}>
       <BezierFormField
         labelPosition={args.labelPosition}
-        size={args.size}
         hasError={args.hasError}
         disabled={args.disabled}
         readOnly={args.readOnly}
@@ -77,7 +76,6 @@ export const Primary: StoryObj<FormProps & FormFieldProps> = {
 
       <BezierFormField
         labelPosition={args.labelPosition}
-        size={args.size}
         hasError={args.hasError}
         disabled={args.disabled}
         readOnly={args.readOnly}
@@ -95,7 +93,6 @@ export const Primary: StoryObj<FormProps & FormFieldProps> = {
 
       <BezierFormField
         labelPosition={args.labelPosition}
-        size={args.size}
         hasError={args.hasError}
         disabled={args.disabled}
         readOnly={args.readOnly}
@@ -119,7 +116,6 @@ export const Primary: StoryObj<FormProps & FormFieldProps> = {
 
   args: {
     labelPosition: 'top',
-    size: 'm',
     hasError: false,
     disabled: false,
     readOnly: false,
@@ -154,7 +150,6 @@ export const LabelPosition: StoryObj<FormFieldProps> = {
   ),
 
   args: {
-    size: 'm',
     hasError: false,
     disabled: false,
     readOnly: false,
@@ -202,7 +197,6 @@ export const Error: StoryObj<FormFieldProps> = {
 
   args: {
     labelPosition: 'top',
-    size: 'm',
     disabled: false,
     readOnly: false,
     required: false,
@@ -232,7 +226,6 @@ export const FormField: StoryObj<FormFieldProps> = {
 
   args: {
     labelPosition: 'top',
-    size: 'm',
     hasError: false,
     disabled: false,
     readOnly: false,
@@ -272,4 +265,191 @@ export const FormGroup = {
       <BezierFormHelperText>Select at least one channel.</BezierFormHelperText>
     </BezierFormField>
   ),
+}
+
+export const Layouts: StoryObj<FormFieldProps> = {
+  render: (args) => (
+    <HStack
+      spacing={32}
+      align="start"
+      wrap
+    >
+      {(['top', 'left'] as const).map((labelPosition) => (
+        <VStack
+          key={labelPosition}
+          width={labelPosition === 'top' ? 360 : 520}
+          spacing={20}
+        >
+          <Text
+            typo="16"
+            fontWeight="500"
+            color="text-neutral"
+          >
+            {labelPosition === 'top' ? 'Top labels' : 'Left labels'}
+          </Text>
+          <Form>
+            <BezierFormField
+              {...args}
+              labelPosition={labelPosition}
+              required
+            >
+              <BezierFormLabel help="Use the address you sign in with.">
+                Work email
+              </BezierFormLabel>
+              <TextInput placeholder="name@company.com" />
+              <BezierFormHelperText>
+                We will send workspace invitations to this address.
+              </BezierFormHelperText>
+              <BezierFormErrorMessage>
+                Enter a valid work email address to receive your invitation.
+              </BezierFormErrorMessage>
+            </BezierFormField>
+            <BezierFormField
+              {...args}
+              labelPosition={labelPosition}
+              hasError
+              required
+            >
+              <BezierFormLabel>Workspace name</BezierFormLabel>
+              <TextInput
+                defaultValue="My workspace"
+                size="l"
+              />
+              <BezierFormHelperText>
+                A name that your teammates will recognize.
+              </BezierFormHelperText>
+              <BezierFormErrorMessage>
+                This name is already taken. Choose a different name for your
+                workspace.
+              </BezierFormErrorMessage>
+            </BezierFormField>
+            <BezierFormField
+              {...args}
+              labelPosition={labelPosition}
+            >
+              <BezierFormLabel>Notifications</BezierFormLabel>
+              <BezierFormGroup direction="horizontal">
+                <Checkbox>Email</Checkbox>
+                <Checkbox>SMS</Checkbox>
+              </BezierFormGroup>
+              <BezierFormHelperText>
+                Choose how you want to hear from us.
+              </BezierFormHelperText>
+              <BezierFormErrorMessage>
+                Select a notification channel.
+              </BezierFormErrorMessage>
+            </BezierFormField>
+          </Form>
+        </VStack>
+      ))}
+    </HStack>
+  ),
+  args: { hasError: false },
+  argTypes: { labelPosition: { table: { disable: true } } },
+}
+
+export const ControlSizes: StoryObj<FormFieldProps> = {
+  render: (args) => (
+    <Form style={{ width: 520 }}>
+      {(['m', 'l'] as const).map((size) => (
+        <BezierFormField
+          key={size}
+          {...args}
+        >
+          <BezierFormLabel>
+            {size === 'm' ? 'Medium controls' : 'Large controls'}
+          </BezierFormLabel>
+          <BezierFormGroup spacing={8}>
+            <TextInput
+              size={size}
+              placeholder="Workspace name"
+              aria-label={`${size} workspace name`}
+            />
+            <Select
+              triggerSize={size}
+              placeholder="Choose a plan"
+              aria-label={`${size} plan`}
+            >
+              <SelectOption
+                value="standard"
+                label="Standard"
+              />
+              <SelectOption
+                value="premium"
+                label="Premium"
+              />
+            </Select>
+          </BezierFormGroup>
+          <BezierFormHelperText>
+            Each control owns its size.
+          </BezierFormHelperText>
+          <BezierFormErrorMessage>
+            Complete the workspace details.
+          </BezierFormErrorMessage>
+        </BezierFormField>
+      ))}
+    </Form>
+  ),
+  args: { labelPosition: 'left', hasError: false },
+}
+
+function ValidationExample(args: FormFieldProps) {
+  const [hasError, setHasError] = useState(false)
+  return (
+    <VStack
+      width={520}
+      spacing={20}
+    >
+      <Form
+        onSubmit={(event) => {
+          event.preventDefault()
+          setHasError(true)
+        }}
+      >
+        <BezierFormField
+          {...args}
+          hasError={hasError}
+        >
+          <BezierFormLabel>Email</BezierFormLabel>
+          <TextInput placeholder="name@company.com" />
+          <BezierFormHelperText>
+            Use your work email to join the workspace.
+          </BezierFormHelperText>
+          <BezierFormErrorMessage>
+            Enter a valid email address.
+          </BezierFormErrorMessage>
+        </BezierFormField>
+      </Form>
+      <Button
+        label={hasError ? 'Clear error' : 'Show error'}
+        onClick={() => setHasError(!hasError)}
+      />
+    </VStack>
+  )
+}
+
+export const Validation: StoryObj<FormFieldProps> = {
+  render: (args) => <ValidationExample {...args} />,
+  args: { labelPosition: 'left' },
+  argTypes: { hasError: { table: { disable: true } } },
+}
+
+export const LongContent: StoryObj<FormFieldProps> = {
+  render: (args) => (
+    <Form style={{ width: 280 }}>
+      <BezierFormField {...args}>
+        <BezierFormLabel help="Choose a name for your team.">
+          Workspace notification preferences
+        </BezierFormLabel>
+        <TextInput defaultValue="Customer support workspace" />
+        <BezierFormHelperText>
+          https://workspace.channel.io/preferences/notifications
+        </BezierFormHelperText>
+        <BezierFormErrorMessage>
+          This workspace name is already taken. Choose a different name to continue.
+        </BezierFormErrorMessage>
+      </BezierFormField>
+    </Form>
+  ),
+  args: { labelPosition: 'left', hasError: true, required: true },
 }

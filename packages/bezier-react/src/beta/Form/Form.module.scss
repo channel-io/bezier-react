@@ -4,67 +4,120 @@
   width: 100%;
 }
 
+.FormItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 12px;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
 .FormDivider {
   width: 100%;
 }
 
 .FormField {
+  display: flex;
+  align-items: flex-start;
   box-sizing: border-box;
   width: 100%;
-  padding-top: 4px;
-  padding-bottom: 8px;
+}
+
+.ControlGroup {
+  gap: 4px;
+}
+
+.LabelArea,
+.ControlGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+
+  &:empty {
+    display: none;
+  }
 }
 
 .LabelTop {
-  display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
+
+  > .LabelArea,
+  > .ControlGroup {
+    width: 100%;
+  }
+
+  > .ControlGroup > * {
+    width: 100%;
+  }
 }
 
 .LabelLeft {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 8px 12px;
-  align-items: start;
-}
+  min-height: 40px;
 
-.FormLabelWrapper {
-  min-width: 0;
+  > .LabelArea {
+    flex: 1 1 0;
+    justify-content: center;
 
-  &:where(.position-left) {
-    padding-top: 9px;
+    box-sizing: border-box;
+    min-width: 150px;
+    min-height: 36px;
+    padding-right: 8px;
+  }
+
+  > .ControlGroup {
+    flex: 1 1 0;
   }
 }
 
+.FormLabelWrapper,
 .FormHelperTextWrapper {
+  width: 100%;
   min-width: 0;
-
-  &:where(.position-left) {
-    grid-column: 2;
-  }
 }
 
 .Label {
   display: flex;
-  gap: 6px;
+  gap: 2px;
   align-items: center;
   min-width: 0;
 }
 
 .LabelText {
   min-width: 0;
+  line-height: 18px;
+  overflow-wrap: anywhere;
 }
 
 .FormHelperText {
   min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.ErrorMessages {
+  width: 100%;
+  min-width: 0;
+
+  &:empty {
+    display: none;
+  }
 }
 
 .FormErrorMessage {
-  display: inline-flex;
+  display: flex;
   gap: 4px;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .ErrorIcon {
   flex: 0 0 auto;
+  margin-top: 3px;
+}
+
+.HelperTextContent {
+  min-width: 0;
 }
