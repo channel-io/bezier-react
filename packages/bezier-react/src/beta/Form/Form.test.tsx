@@ -2,7 +2,6 @@ import * as React from 'react'
 
 import { fireEvent } from '@testing-library/react'
 
-
 import { Checkbox } from '~/src/beta/Checkbox'
 import { TextInput } from '~/src/beta/TextInput'
 import { render } from '~/src/utils/test'
@@ -15,7 +14,6 @@ import {
   FormHelperText,
   FormLabel,
 } from './index'
-
 
 describe('Form', () => {
   it('renders a native form element', () => {
@@ -164,7 +162,7 @@ describe('FormField', () => {
 
 describe('FormField updated layout', () => {
   it.each(['top', 'left'] as const)(
-    'keeps the description with the label and errors after controls (%s)',
+    'preserves the caller DOM and accessible description (%s)',
     (labelPosition) => {
       const { getByLabelText, getByText } = render(
         <FormField
@@ -183,10 +181,13 @@ describe('FormField updated layout', () => {
       const description = getByText('Use your work address.').closest('p')!
       const input = getByLabelText('Email')
       const error = getByText('Enter a valid email.').closest('p')!
-      const labelArea = label.parentElement!.parentElement!
-      expect(labelArea).toContainElement(description)
-      expect(labelArea).not.toContainElement(input)
-      expect(error.parentElement!.parentElement).toContainElement(input)
+      const field = label.parentElement!.parentElement!
+      expect(description.parentElement).toBe(field)
+      expect(error.parentElement).toBe(field)
+      expect(field).toContainElement(input)
+      expect(input).toHaveAccessibleDescription(
+        'Use your work address. Enter a valid email.'
+      )
       expect(
         input.compareDocumentPosition(error) & Node.DOCUMENT_POSITION_FOLLOWING
       ).toBeTruthy()
@@ -222,6 +223,42 @@ describe('FormField updated layout', () => {
     expect(input).toHaveAccessibleDescription('Use your work address.')
     expect(input).not.toHaveAttribute('aria-invalid')
     expect(input).toHaveFocus()
+  })
+
+  it('preserves input state when a label is wrapped, hidden or repositioned', () => {
+    const SettingsLabel = () => <FormLabel>Email</FormLabel>
+    const field = (label: React.ReactNode, labelPosition: 'top' | 'left') => (
+      <FormField labelPosition={labelPosition}>
+        {label}
+        <TextInput
+          aria-label="Email"
+          defaultValue="initial"
+        />
+        <FormHelperText>Use your work address.</FormHelperText>
+      </FormField>
+    )
+    const { getByRole, rerender } = render(
+      field(<FormLabel>Email</FormLabel>, 'left')
+    )
+    const input = getByRole('textbox') as HTMLInputElement
+    input.focus()
+    fireEvent.change(input, { target: { value: 'typed by user' } })
+    input.setSelectionRange(2, 6)
+
+    for (const label of [
+      <SettingsLabel key="wrapped" />,
+      null,
+      <FormLabel key="direct">Email</FormLabel>,
+    ]) {
+      for (const position of ['top', 'left'] as const) {
+        rerender(field(label, position))
+        expect(getByRole('textbox')).toBe(input)
+        expect(input).toHaveValue('typed by user')
+        expect(input).toHaveFocus()
+        expect([input.selectionStart, input.selectionEnd]).toEqual([2, 6])
+        expect(input).toHaveAccessibleDescription('Use your work address.')
+      }
+    }
   })
 
   it('preserves keyed controls in separate fragments', () => {

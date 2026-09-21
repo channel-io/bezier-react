@@ -2,8 +2,6 @@ import { useState } from 'react'
 
 import { type Meta, type StoryObj } from '@storybook/react'
 
-
-
 import { Button } from '~/src/beta/Button'
 import { Checkbox } from '~/src/beta/Checkbox'
 import { HStack } from '~/src/beta/HStack'
@@ -24,8 +22,6 @@ import {
   FormLabel as BezierFormLabel,
   Form,
 } from './index'
-
-
 
 const FIELD_WIDTH = 360
 
@@ -446,10 +442,88 @@ export const LongContent: StoryObj<FormFieldProps> = {
           https://workspace.channel.io/preferences/notifications
         </BezierFormHelperText>
         <BezierFormErrorMessage>
-          This workspace name is already taken. Choose a different name to continue.
+          This workspace name is already taken. Choose a different name to
+          continue.
         </BezierFormErrorMessage>
       </BezierFormField>
     </Form>
   ),
   args: { labelPosition: 'left', hasError: true, required: true },
+}
+
+// Consumer wrappers must not need to expose their React component identity.
+const SettingsLabel = ({ children }: { children: React.ReactNode }) => (
+  <BezierFormLabel>{children}</BezierFormLabel>
+)
+
+function WrappedLabelsExample(args: FormFieldProps) {
+  const [narrow, setNarrow] = useState(false)
+  return (
+    <VStack spacing={20}>
+      <Button
+        label="Toggle width"
+        onClick={() => setNarrow(!narrow)}
+      />
+      <Form style={{ width: narrow ? 320 : 520 }}>
+        <BezierFormField {...args}>
+          <SettingsLabel>Work email</SettingsLabel>
+          <TextInput placeholder="name@company.com" />
+          <BezierFormHelperText>
+            Invitations, billing notifications, and important workspace updates
+            will be sent to this address. Choose an address that your team
+            checks regularly so that you do not miss an update.
+          </BezierFormHelperText>
+          <BezierFormErrorMessage>
+            Enter a valid work email.
+          </BezierFormErrorMessage>
+        </BezierFormField>
+        <BezierFormField {...args}>
+          <SettingsLabel>Welcome message</SettingsLabel>
+          <TextArea
+            minRows={6}
+            maxRows={16}
+            placeholder="Welcome your teammates"
+          />
+          <BezierFormHelperText>Shown to new teammates.</BezierFormHelperText>
+          <BezierFormErrorMessage>
+            Enter a welcome message.
+          </BezierFormErrorMessage>
+        </BezierFormField>
+        <BezierFormField {...args}>
+          <div>
+            <SettingsLabel>Workspace name</SettingsLabel>
+            <BezierFormHelperText>Shown in invitations.</BezierFormHelperText>
+          </div>
+          <div>
+            <TextInput placeholder="Your workspace" />
+            <BezierFormErrorMessage>
+              Choose a workspace name.
+            </BezierFormErrorMessage>
+          </div>
+        </BezierFormField>
+        <BezierFormField
+          {...args}
+          style={{
+            gridTemplateColumns: '132px minmax(0, 1fr)',
+            columnGap: 8,
+            padding: 0,
+          }}
+        >
+          <SettingsLabel>Display name</SettingsLabel>
+          <TextInput placeholder="Your name" />
+        </BezierFormField>
+        <BezierFormField {...args}>
+          <TextInput
+            aria-label="Internal note"
+            placeholder="Add an internal note"
+          />
+        </BezierFormField>
+      </Form>
+    </VStack>
+  )
+}
+
+export const WrappedLabels: StoryObj<FormFieldProps> = {
+  render: (args) => <WrappedLabelsExample {...args} />,
+  args: { labelPosition: 'left', hasError: true },
 }

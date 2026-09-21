@@ -146,7 +146,6 @@ const TYPE_EXPORT_MAP: Record<string, string> = {
   FormControlProps: 'FormFieldProps',
   FormErrorMessageProps: 'FormErrorMessageProps',
   FormFieldProps: 'FormFieldProps',
-  FormFieldSize: 'FormFieldSize',
   FormGroupProps: 'FormGroupProps',
   FormHelperTextProps: 'FormHelperTextProps',
   FormLabelProps: 'FormLabelProps',
@@ -212,6 +211,8 @@ const TYPE_EXPORT_MAP: Record<string, string> = {
 const EXPORT_MAP = { ...COMPONENT_EXPORT_MAP, ...TYPE_EXPORT_MAP }
 
 export const MANUAL_EXPORTS: Record<string, string> = {
+  FormFieldSize:
+    'beta FormField has no size prop or FormFieldSize export. Use the size type of the child control, such as TextInputProps["size"] or SelectProps["triggerSize"].',
   AlphaButtonColor:
     'Choose beta Button semantic and variant from intent; the legacy color is not a beta color prop.',
   AlphaButtonVariant:
@@ -1112,14 +1113,14 @@ function transformForm(
   const nativeForms = new Set<JsxElement>()
   fields.forEach((field) => {
     const size = getAttribute(field, 'size')
-    const literal = size ? getStringAttributeInitializer(size) : undefined
-    if (size && (!literal || !['m', 'l'].includes(literal.getLiteralValue()))) {
+    if (size) {
       diagnostics.push(
         createDiagnostic(sourceFile, size, {
           code: 'form-field-size-manual',
           component: 'FormField',
-          message: 'Legacy FormControl size is not proven to be m or l.',
-          suggestion: 'Choose beta FormField size m or l.',
+          message: 'beta FormField no longer supports size.',
+          suggestion:
+            'Remove FormField.size and set size on TextInput or triggerSize on Select/MultiSelect. Preserve explicit child sizes and review unsupported legacy sizes visually.',
         })
       )
     }

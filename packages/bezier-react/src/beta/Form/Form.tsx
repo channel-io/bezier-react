@@ -13,10 +13,9 @@ import {
 
 import classNames from 'classnames'
 
-
-
 import { Divider } from '~/src/beta/Divider'
 import useId from '~/src/hooks/useId'
+import useMergeRefs from '~/src/hooks/useMergeRefs'
 import type { FormFieldProps as BaseFormFieldProps } from '~/src/types/props'
 import { ariaAttr } from '~/src/utils/aria'
 import { createContext } from '~/src/utils/react'
@@ -32,12 +31,9 @@ import type {
   HelperTextPropsGetter,
   LabelPropsGetter,
 } from './Form.types'
-import { FormErrorMessage, FormHelperText } from './FormHelperText'
-import { FormLabel } from './FormLabel'
+import { useFormFieldLayout } from './useFormFieldLayout'
 
 import styles from './Form.module.scss'
-
-
 
 const [FormFieldContextProvider, useFormFieldContext] = createContext<
   FormFieldContextValue | undefined
@@ -104,25 +100,12 @@ const FormFieldContainer = forwardRef<HTMLDivElement, FormFieldContainerProps>(
     { labelPosition, children, className, ...rest },
     forwardedRef
   ) {
-    const labels: React.ReactNode[] = []
-    const descriptions: React.ReactNode[] = []
-    const controls: React.ReactNode[] = []
-    const errors: React.ReactNode[] = []
-    flattenChildren(children).forEach((child) => {
-      if (isValidElement(child) && child.type === FormLabel) {
-        labels.push(child)
-      } else if (isValidElement(child) && child.type === FormHelperText) {
-        descriptions.push(child)
-      } else if (isValidElement(child) && child.type === FormErrorMessage) {
-        errors.push(child)
-      } else {
-        controls.push(child)
-      }
-    })
+    const layoutRef = useFormFieldLayout(labelPosition === 'left')
+    const mergedRef = useMergeRefs(layoutRef, forwardedRef)
 
     return (
       <div
-        ref={forwardedRef}
+        ref={mergedRef}
         className={classNames(
           styles.FormField,
           labelPosition === 'left' ? styles.LabelLeft : styles.LabelTop,
@@ -130,18 +113,7 @@ const FormFieldContainer = forwardRef<HTMLDivElement, FormFieldContainerProps>(
         )}
         {...rest}
       >
-        {(labels.length > 0 || descriptions.length > 0) && (
-          <div className={styles.LabelArea}>
-            {labels}
-            {descriptions}
-          </div>
-        )}
-        <div className={styles.ControlGroup}>
-          {controls}
-          {errors.length > 0 && (
-            <div className={styles.ErrorMessages}>{errors}</div>
-          )}
-        </div>
+        {children}
       </div>
     )
   }
@@ -149,8 +121,6 @@ const FormFieldContainer = forwardRef<HTMLDivElement, FormFieldContainerProps>(
 
 /**
  * `FormField` connects a form field with its label, helper text, error message, and grouped controls.
- * Place FormLabel, FormHelperText and FormErrorMessage directly inside FormField
- * (or a Fragment) so they can be laid out around the controls.
  * Control sizes are set on the controls themselves.
  * It does not render a native `form` element.
  * @example

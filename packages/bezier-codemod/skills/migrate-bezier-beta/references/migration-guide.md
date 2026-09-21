@@ -13,7 +13,7 @@ do not infer Bezier ownership from JSX tag text alone.
 | `manual-component-migration` | Use the component decision sections below.                                                          |
 | `manual-prop-migration`      | Select the beta value from semantic/visual intent, then remove the legacy prop.                     |
 | `form-owner-review`          | Confirm submission ownership. Use beta `Form` for a native form; do not create nested forms.        |
-| `form-field-size-manual`     | Choose `m` or `l`; review legacy `xs`/`xl` visually.                                                |
+| `form-field-size-manual`     | Remove `FormField.size`; set size on each control and preserve explicit child sizes.                |
 | `tabs-size-*`                | Keep one `s` or `m` size on the owning `Tabs`.                                                      |
 | `import-name-collision`      | Normalize the alias after checking all references.                                                  |
 | `transform-failed`           | Inspect the file before continuing; do not suppress the error.                                      |
@@ -47,7 +47,13 @@ move it to `CollapsibleSection` and use `CollapsibleSectionTrigger`.
   `Form`; it wraps a native form element.
 - Do not add a `Form` around a standalone `FormField` without confirming the
   submission scope.
-- Keep `size="m"` or `size="l"`. Choose a new size for legacy `xs`/`xl`.
+- Remove `FormField.size` and the beta `FormFieldSize` import. Size belongs to
+  each control (`TextInput.size`, `Select.triggerSize`, `MultiSelect.triggerSize`).
+  Preserve explicit child sizes; review inherited or unsupported legacy sizes.
+- Existing children and label wrappers can stay in place. Do not add label/control
+  area wrappers solely for migration.
+- Required fields now render a marker automatically. Remove manual required stars
+  from their labels when upgrading.
 - Use `FormErrorMessage` for error text. Do not automatically reinterpret
   arbitrary conditional `FormHelperText` as an error.
 - Use `FormGroup` only when one label describes multiple controls.
