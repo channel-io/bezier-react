@@ -134,7 +134,7 @@ const generateConfig = ({ output = [], plugins = [] }) =>
           postcssPresetEnv(),
           postcssAutoLayer({
             name: 'components',
-            path: '**/components/**/*.module.scss',
+            path: '**/{components,beta}/**/*.module.scss',
           }),
         ],
       }),
