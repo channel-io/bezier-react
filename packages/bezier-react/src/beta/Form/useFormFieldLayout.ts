@@ -24,6 +24,7 @@ export function useFormFieldLayout(enabled: boolean) {
       observed.forEach(clearOffset)
       field.style.removeProperty('--b-form-height')
       delete field.dataset.bFormLayout
+      field.removeAttribute('data-b-form-label-only')
     }
     const update = () => {
       if (view.getComputedStyle(field).display !== 'grid') {
@@ -43,6 +44,11 @@ export function useFormFieldLayout(enabled: boolean) {
             style.position !== 'fixed'
         )
         .sort((a, b) => Number(a.style.order) - Number(b.style.order))
+      field.toggleAttribute(
+        'data-b-form-label-only',
+        items.length > 0 &&
+          items.every(({ style }) => style.gridColumnStart === '1')
+      )
       const heights = [0, 0]
       const previousOrders = [-1, -1]
       const offsets = items.map(({ element, style }) => {
@@ -55,9 +61,21 @@ export function useFormFieldLayout(enabled: boolean) {
             ? 4
             : 0
         const offset = heights[column] + gap
+        // offsetHeight rounds fractional pixels; computed height also stays
+        // independent of any transform applied by a containing dialog.
+        const height =
+          parseFloat(style.height) +
+          (style.boxSizing === 'border-box'
+            ? 0
+            : [
+                style.paddingTop,
+                style.paddingBottom,
+                style.borderTopWidth,
+                style.borderBottomWidth,
+              ].reduce((total, value) => total + (parseFloat(value) || 0), 0))
         heights[column] =
           offset +
-          element.offsetHeight +
+          (Number.isNaN(height) ? element.offsetHeight : height) +
           (parseFloat(style.marginTop) || 0) +
           (parseFloat(style.marginBottom) || 0)
         previousOrders[column] = order

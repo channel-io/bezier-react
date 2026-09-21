@@ -527,3 +527,40 @@ export const WrappedLabels: StoryObj<FormFieldProps> = {
   render: (args) => <WrappedLabelsExample {...args} />,
   args: { labelPosition: 'left', hasError: true },
 }
+
+export const ContentCombinations: StoryObj<FormFieldProps> = {
+  render: (args) => (
+    <Form style={{ width: 520 }}>
+      <BezierFormField {...args}>
+        <BezierFormLabel>Invitations</BezierFormLabel>
+        <Button label="Manage invitations" />
+        <BezierFormHelperText>
+          Invite teammates to your workspace.
+        </BezierFormHelperText>
+      </BezierFormField>
+      <BezierFormField {...args}>
+        <BezierFormLabel>Workspace access</BezierFormLabel>
+        <BezierFormHelperText>
+          Your administrator manages access to this workspace.
+        </BezierFormHelperText>
+      </BezierFormField>
+      <BezierFormField
+        {...args}
+        hasError
+      >
+        <BezierFormLabel>Workspace name</BezierFormLabel>
+        <BezierFormErrorMessage>
+          This name is already taken.
+        </BezierFormErrorMessage>
+        <TextInput placeholder="Your workspace" />
+        <BezierFormHelperText>
+          Choose a name your teammates will recognize.
+        </BezierFormHelperText>
+        <BezierFormErrorMessage>
+          Use at least three characters.
+        </BezierFormErrorMessage>
+      </BezierFormField>
+    </Form>
+  ),
+  args: { labelPosition: 'left' },
+}

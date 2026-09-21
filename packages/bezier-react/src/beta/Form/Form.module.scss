@@ -96,7 +96,7 @@
     }
   }
 
-  > :where(.FormErrorMessage + .FormErrorMessage) {
+  > :where(.FormErrorMessage ~ .FormErrorMessage) {
     margin-top: -4px;
   }
 }
@@ -107,8 +107,8 @@
   // The 150px label area includes the 8px space before the control.
   grid-template-columns: minmax(calc(150px - 8px), 1fr) minmax(0, 1fr);
   column-gap: 8px;
+  place-items: start start;
   align-content: start;
-  align-items: start;
 
   min-height: 40px;
 
@@ -120,6 +120,7 @@
   > :has(.FormLabelWrapper),
   > :where(.FormHelperText:not(.FormErrorMessage)) {
     grid-column: 1;
+    justify-self: stretch;
   }
 
   &:where(
@@ -127,6 +128,10 @@
     ) {
     grid-template-columns: 0 minmax(0, 1fr);
     column-gap: 0;
+  }
+
+  &[data-b-form-label-only] {
+    grid-template-columns: minmax(0, 1fr) 0;
   }
 
   &[data-b-form-layout='measured'] {
