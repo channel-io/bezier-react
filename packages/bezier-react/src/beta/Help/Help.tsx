@@ -18,10 +18,10 @@ export const HELP_TEST_ID = 'bezier-beta-help'
 export const HELP_DISPLAY_NAME = 'Help'
 
 /**
- * `Help` shows a help icon with tooltip content.
+ * `Help` shows a help icon with tooltip content. The icon size defaults to 16px.
  */
 export const Help = forwardRef<HTMLDivElement, HelpProps>(function Help(
-  { children, ...rest },
+  { children, size = '16', ...rest },
   forwardedRef
 ) {
   if (isEmpty(children)) {
@@ -38,7 +38,7 @@ export const Help = forwardRef<HTMLDivElement, HelpProps>(function Help(
         <Icon
           className={styles.Icon}
           source={HelpFilledIcon}
-          size="16"
+          size={size}
           color="icon-neutral"
           data-testid={HELP_TEST_ID}
         />
