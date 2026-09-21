@@ -15,7 +15,6 @@ import classNames from 'classnames'
 
 import { Divider } from '~/src/beta/Divider'
 import useId from '~/src/hooks/useId'
-import useMergeRefs from '~/src/hooks/useMergeRefs'
 import type { FormFieldProps as BaseFormFieldProps } from '~/src/types/props'
 import { ariaAttr } from '~/src/utils/aria'
 import { createContext } from '~/src/utils/react'
@@ -31,7 +30,6 @@ import type {
   HelperTextPropsGetter,
   LabelPropsGetter,
 } from './Form.types'
-import { useFormFieldLayout } from './useFormFieldLayout'
 
 import styles from './Form.module.scss'
 
@@ -100,12 +98,9 @@ const FormFieldContainer = forwardRef<HTMLDivElement, FormFieldContainerProps>(
     { labelPosition, children, className, ...rest },
     forwardedRef
   ) {
-    const layoutRef = useFormFieldLayout(labelPosition === 'left')
-    const mergedRef = useMergeRefs(layoutRef, forwardedRef)
-
     return (
       <div
-        ref={mergedRef}
+        ref={forwardedRef}
         className={classNames(
           styles.FormField,
           labelPosition === 'left' ? styles.LabelLeft : styles.LabelTop,
@@ -122,6 +117,14 @@ const FormFieldContainer = forwardRef<HTMLDivElement, FormFieldContainerProps>(
 /**
  * `FormField` connects a form field with its label, helper text, error message, and grouped controls.
  * Control sizes are set on the controls themselves.
+ * With `labelPosition="left"`, direct children share CSS Grid rows. A tall label
+ * or description can push a sibling error below the control. To keep the error
+ * exactly 4px below its control, place both in the same vertical layout container
+ * (for example, `VStack width="100%" spacing={4}`), inside this `FormField`.
+ * Keep the label and description outside that container. Reuse an existing
+ * control container when possible; do not wrap every field during migration.
+ * Top layouts do not need this grouping. Use `FormGroup` for multiple controls
+ * sharing one label, not merely to wrap a single control and its error.
  * It does not render a native `form` element.
  * @example
  *

@@ -65,9 +65,14 @@ export const Primary: StoryObj<FormProps & FormFieldProps> = {
         required={args.required}
       >
         <BezierFormLabel help="This is help text.">Email</BezierFormLabel>
-        <TextInput placeholder="name@company.com" />
         <BezierFormHelperText>Enter your work email.</BezierFormHelperText>
-        <BezierFormErrorMessage>Email is required.</BezierFormErrorMessage>
+        <VStack
+          width="100%"
+          spacing={4}
+        >
+          <TextInput placeholder="name@company.com" />
+          <BezierFormErrorMessage>Email is required.</BezierFormErrorMessage>
+        </VStack>
       </BezierFormField>
 
       <BezierFormField
@@ -78,13 +83,18 @@ export const Primary: StoryObj<FormProps & FormFieldProps> = {
         required={args.required}
       >
         <BezierFormLabel>Message</BezierFormLabel>
-        <TextArea
-          placeholder="Enter a message"
-          minRows={3}
-          maxRows={3}
-        />
         <BezierFormHelperText>Write a short message.</BezierFormHelperText>
-        <BezierFormErrorMessage>Message is required.</BezierFormErrorMessage>
+        <VStack
+          width="100%"
+          spacing={4}
+        >
+          <TextArea
+            placeholder="Enter a message"
+            minRows={3}
+            maxRows={3}
+          />
+          <BezierFormErrorMessage>Message is required.</BezierFormErrorMessage>
+        </VStack>
       </BezierFormField>
 
       <BezierFormField
@@ -95,17 +105,22 @@ export const Primary: StoryObj<FormProps & FormFieldProps> = {
         required={args.required}
       >
         <BezierFormLabel>Notifications</BezierFormLabel>
-        <BezierFormGroup direction="horizontal">
-          <Checkbox>Email</Checkbox>
-          <Checkbox>SMS</Checkbox>
-          <Checkbox>Push</Checkbox>
-        </BezierFormGroup>
         <BezierFormHelperText>
           Select at least one channel.
         </BezierFormHelperText>
-        <BezierFormErrorMessage>
-          Select a notification channel.
-        </BezierFormErrorMessage>
+        <VStack
+          width="100%"
+          spacing={4}
+        >
+          <BezierFormGroup direction="horizontal">
+            <Checkbox>Email</Checkbox>
+            <Checkbox>SMS</Checkbox>
+            <Checkbox>Push</Checkbox>
+          </BezierFormGroup>
+          <BezierFormErrorMessage>
+            Select a notification channel.
+          </BezierFormErrorMessage>
+        </VStack>
       </BezierFormField>
     </Form>
   ),
@@ -173,9 +188,14 @@ export const Error: StoryObj<FormFieldProps> = {
         hasError={false}
       >
         <BezierFormLabel>Email</BezierFormLabel>
-        <TextInput placeholder="name@company.com" />
         <BezierFormHelperText>Enter your work email.</BezierFormHelperText>
-        <BezierFormErrorMessage>Email is required.</BezierFormErrorMessage>
+        <VStack
+          width="100%"
+          spacing={4}
+        >
+          <TextInput placeholder="name@company.com" />
+          <BezierFormErrorMessage>Email is required.</BezierFormErrorMessage>
+        </VStack>
       </BezierFormField>
 
       <BezierFormField
@@ -184,9 +204,14 @@ export const Error: StoryObj<FormFieldProps> = {
         hasError
       >
         <BezierFormLabel>Email</BezierFormLabel>
-        <TextInput placeholder="name@company.com" />
         <BezierFormHelperText>Enter your work email.</BezierFormHelperText>
-        <BezierFormErrorMessage>Email is required.</BezierFormErrorMessage>
+        <VStack
+          width="100%"
+          spacing={4}
+        >
+          <TextInput placeholder="name@company.com" />
+          <BezierFormErrorMessage>Email is required.</BezierFormErrorMessage>
+        </VStack>
       </BezierFormField>
     </HStack>
   ),
@@ -214,9 +239,14 @@ export const FormField: StoryObj<FormFieldProps> = {
       {...args}
     >
       <BezierFormLabel help="This is help text.">Email</BezierFormLabel>
-      <TextInput placeholder="name@company.com" />
       <BezierFormHelperText>Enter your work email.</BezierFormHelperText>
-      <BezierFormErrorMessage>Email is required.</BezierFormErrorMessage>
+      <VStack
+        width="100%"
+        spacing={4}
+      >
+        <TextInput placeholder="name@company.com" />
+        <BezierFormErrorMessage>Email is required.</BezierFormErrorMessage>
+      </VStack>
     </BezierFormField>
   ),
 
@@ -292,13 +322,18 @@ export const Layouts: StoryObj<FormFieldProps> = {
               <BezierFormLabel help="Use the address you sign in with.">
                 Work email
               </BezierFormLabel>
-              <TextInput placeholder="name@company.com" />
               <BezierFormHelperText>
                 We will send workspace invitations to this address.
               </BezierFormHelperText>
-              <BezierFormErrorMessage>
-                Enter a valid work email address to receive your invitation.
-              </BezierFormErrorMessage>
+              <VStack
+                width="100%"
+                spacing={4}
+              >
+                <TextInput placeholder="name@company.com" />
+                <BezierFormErrorMessage>
+                  Enter a valid work email address to receive your invitation.
+                </BezierFormErrorMessage>
+              </VStack>
             </BezierFormField>
             <BezierFormField
               {...args}
@@ -307,33 +342,43 @@ export const Layouts: StoryObj<FormFieldProps> = {
               required
             >
               <BezierFormLabel>Workspace name</BezierFormLabel>
-              <TextInput
-                defaultValue="My workspace"
-                size="l"
-              />
               <BezierFormHelperText>
                 A name that your teammates will recognize.
               </BezierFormHelperText>
-              <BezierFormErrorMessage>
-                This name is already taken. Choose a different name for your
-                workspace.
-              </BezierFormErrorMessage>
+              <VStack
+                width="100%"
+                spacing={4}
+              >
+                <TextInput
+                  defaultValue="My workspace"
+                  size="l"
+                />
+                <BezierFormErrorMessage>
+                  This name is already taken. Choose a different name for your
+                  workspace.
+                </BezierFormErrorMessage>
+              </VStack>
             </BezierFormField>
             <BezierFormField
               {...args}
               labelPosition={labelPosition}
             >
               <BezierFormLabel>Notifications</BezierFormLabel>
-              <BezierFormGroup direction="horizontal">
-                <Checkbox>Email</Checkbox>
-                <Checkbox>SMS</Checkbox>
-              </BezierFormGroup>
               <BezierFormHelperText>
                 Choose how you want to hear from us.
               </BezierFormHelperText>
-              <BezierFormErrorMessage>
-                Select a notification channel.
-              </BezierFormErrorMessage>
+              <VStack
+                width="100%"
+                spacing={4}
+              >
+                <BezierFormGroup direction="horizontal">
+                  <Checkbox>Email</Checkbox>
+                  <Checkbox>SMS</Checkbox>
+                </BezierFormGroup>
+                <BezierFormErrorMessage>
+                  Select a notification channel.
+                </BezierFormErrorMessage>
+              </VStack>
             </BezierFormField>
           </Form>
         </VStack>
@@ -355,33 +400,38 @@ export const ControlSizes: StoryObj<FormFieldProps> = {
           <BezierFormLabel>
             {size === 'm' ? 'Medium controls' : 'Large controls'}
           </BezierFormLabel>
-          <BezierFormGroup spacing={8}>
-            <TextInput
-              size={size}
-              placeholder="Workspace name"
-              aria-label={`${size} workspace name`}
-            />
-            <Select
-              triggerSize={size}
-              placeholder="Choose a plan"
-              aria-label={`${size} plan`}
-            >
-              <SelectOption
-                value="standard"
-                label="Standard"
-              />
-              <SelectOption
-                value="premium"
-                label="Premium"
-              />
-            </Select>
-          </BezierFormGroup>
           <BezierFormHelperText>
             Each control owns its size.
           </BezierFormHelperText>
-          <BezierFormErrorMessage>
-            Complete the workspace details.
-          </BezierFormErrorMessage>
+          <VStack
+            width="100%"
+            spacing={4}
+          >
+            <BezierFormGroup spacing={8}>
+              <TextInput
+                size={size}
+                placeholder="Workspace name"
+                aria-label={`${size} workspace name`}
+              />
+              <Select
+                triggerSize={size}
+                placeholder="Choose a plan"
+                aria-label={`${size} plan`}
+              >
+                <SelectOption
+                  value="standard"
+                  label="Standard"
+                />
+                <SelectOption
+                  value="premium"
+                  label="Premium"
+                />
+              </Select>
+            </BezierFormGroup>
+            <BezierFormErrorMessage>
+              Complete the workspace details.
+            </BezierFormErrorMessage>
+          </VStack>
         </BezierFormField>
       ))}
     </Form>
@@ -407,13 +457,18 @@ function ValidationExample(args: FormFieldProps) {
           hasError={hasError}
         >
           <BezierFormLabel>Email</BezierFormLabel>
-          <TextInput placeholder="name@company.com" />
           <BezierFormHelperText>
             Use your work email to join the workspace.
           </BezierFormHelperText>
-          <BezierFormErrorMessage>
-            Enter a valid email address.
-          </BezierFormErrorMessage>
+          <VStack
+            width="100%"
+            spacing={4}
+          >
+            <TextInput placeholder="name@company.com" />
+            <BezierFormErrorMessage>
+              Enter a valid email address.
+            </BezierFormErrorMessage>
+          </VStack>
         </BezierFormField>
       </Form>
       <Button
@@ -437,14 +492,19 @@ export const LongContent: StoryObj<FormFieldProps> = {
         <BezierFormLabel help="Choose a name for your team.">
           Workspace notification preferences
         </BezierFormLabel>
-        <TextInput defaultValue="Customer support workspace" />
         <BezierFormHelperText>
           https://workspace.channel.io/preferences/notifications
         </BezierFormHelperText>
-        <BezierFormErrorMessage>
-          This workspace name is already taken. Choose a different name to
-          continue.
-        </BezierFormErrorMessage>
+        <VStack
+          width="100%"
+          spacing={4}
+        >
+          <TextInput defaultValue="Customer support workspace" />
+          <BezierFormErrorMessage>
+            This workspace name is already taken. Choose a different name to
+            continue.
+          </BezierFormErrorMessage>
+        </VStack>
       </BezierFormField>
     </Form>
   ),
@@ -467,39 +527,52 @@ function WrappedLabelsExample(args: FormFieldProps) {
       <Form style={{ width: narrow ? 320 : 520 }}>
         <BezierFormField {...args}>
           <SettingsLabel>Work email</SettingsLabel>
-          <TextInput placeholder="name@company.com" />
           <BezierFormHelperText>
             Invitations, billing notifications, and important workspace updates
             will be sent to this address. Choose an address that your team
             checks regularly so that you do not miss an update.
           </BezierFormHelperText>
-          <BezierFormErrorMessage>
-            Enter a valid work email.
-          </BezierFormErrorMessage>
+          <VStack
+            width="100%"
+            spacing={4}
+          >
+            <TextInput placeholder="name@company.com" />
+            <BezierFormErrorMessage>
+              Enter a valid work email.
+            </BezierFormErrorMessage>
+          </VStack>
         </BezierFormField>
         <BezierFormField {...args}>
           <SettingsLabel>Welcome message</SettingsLabel>
-          <TextArea
-            minRows={6}
-            maxRows={16}
-            placeholder="Welcome your teammates"
-          />
           <BezierFormHelperText>Shown to new teammates.</BezierFormHelperText>
-          <BezierFormErrorMessage>
-            Enter a welcome message.
-          </BezierFormErrorMessage>
+          <VStack
+            width="100%"
+            spacing={4}
+          >
+            <TextArea
+              minRows={6}
+              maxRows={16}
+              placeholder="Welcome your teammates"
+            />
+            <BezierFormErrorMessage>
+              Enter a welcome message.
+            </BezierFormErrorMessage>
+          </VStack>
         </BezierFormField>
         <BezierFormField {...args}>
           <div>
             <SettingsLabel>Workspace name</SettingsLabel>
             <BezierFormHelperText>Shown in invitations.</BezierFormHelperText>
           </div>
-          <div>
+          <VStack
+            width="100%"
+            spacing={4}
+          >
             <TextInput placeholder="Your workspace" />
             <BezierFormErrorMessage>
               Choose a workspace name.
             </BezierFormErrorMessage>
-          </div>
+          </VStack>
         </BezierFormField>
         <BezierFormField
           {...args}
@@ -511,6 +584,9 @@ function WrappedLabelsExample(args: FormFieldProps) {
         >
           <SettingsLabel>Display name</SettingsLabel>
           <TextInput placeholder="Your name" />
+          <BezierFormErrorMessage>
+            Choose a display name.
+          </BezierFormErrorMessage>
         </BezierFormField>
         <BezierFormField {...args}>
           <TextInput
@@ -549,16 +625,26 @@ export const ContentCombinations: StoryObj<FormFieldProps> = {
         hasError
       >
         <BezierFormLabel>Workspace name</BezierFormLabel>
-        <BezierFormErrorMessage>
-          This name is already taken.
-        </BezierFormErrorMessage>
-        <TextInput placeholder="Your workspace" />
         <BezierFormHelperText>
           Choose a name your teammates will recognize.
         </BezierFormHelperText>
-        <BezierFormErrorMessage>
-          Use at least three characters.
-        </BezierFormErrorMessage>
+        <VStack
+          width="100%"
+          spacing={4}
+        >
+          <TextInput placeholder="Your workspace" />
+          <VStack
+            width="100%"
+            spacing={0}
+          >
+            <BezierFormErrorMessage>
+              This name is already taken.
+            </BezierFormErrorMessage>
+            <BezierFormErrorMessage>
+              Use at least three characters.
+            </BezierFormErrorMessage>
+          </VStack>
+        </VStack>
       </BezierFormField>
     </Form>
   ),

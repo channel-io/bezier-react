@@ -4,6 +4,7 @@ import { fireEvent } from '@testing-library/react'
 
 import { Checkbox } from '~/src/beta/Checkbox'
 import { TextInput } from '~/src/beta/TextInput'
+import { VStack } from '~/src/beta/VStack'
 import { render } from '~/src/utils/test'
 
 import {
@@ -194,13 +195,21 @@ describe('FormField updated layout', () => {
     }
   )
 
-  it('keeps the input, value, focus and description when validation changes', () => {
+  it('keeps grouped input state and ARIA wiring when validation changes', () => {
     const field = (hasError: boolean) => (
-      <FormField hasError={hasError}>
+      <FormField
+        labelPosition="left"
+        hasError={hasError}
+      >
         <FormLabel>Email</FormLabel>
-        <TextInput defaultValue="first@example.com" />
         <FormHelperText>Use your work address.</FormHelperText>
-        <FormErrorMessage>Enter a valid email.</FormErrorMessage>
+        <VStack
+          width="100%"
+          spacing={4}
+        >
+          <TextInput defaultValue="first@example.com" />
+          <FormErrorMessage>Enter a valid email.</FormErrorMessage>
+        </VStack>
       </FormField>
     )
     const { getByLabelText, getByText, queryByText, rerender } = render(

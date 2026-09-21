@@ -64,6 +64,9 @@ export interface FormFieldContextValue extends BaseFormFieldProps {
 interface FormFieldOwnProps {
   /**
    * Layout position of the label.
+   * Left layouts share grid rows between the label/description and controls.
+   * Group a control and its error in one vertical container with a 4px gap
+   * if the error must stay immediately below the control regardless of label height.
    * @default 'top'
    */
   labelPosition?: FormFieldLabelPosition

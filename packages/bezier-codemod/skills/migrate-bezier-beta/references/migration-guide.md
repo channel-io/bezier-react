@@ -51,12 +51,66 @@ move it to `CollapsibleSection` and use `CollapsibleSectionTrigger`.
   each control (`TextInput.size`, `Select.triggerSize`, `MultiSelect.triggerSize`).
   Preserve explicit child sizes; review inherited or unsupported legacy sizes.
 - Existing children and label wrappers can stay in place. Do not add label/control
-  area wrappers solely for migration.
+  area wrappers solely for migration. For left layouts that need independent
+  control/error spacing, follow the composition check below.
 - Required fields now render a marker automatically. Remove manual required stars
   from their labels when upgrading.
 - Use `FormErrorMessage` for error text. Do not automatically reinterpret
   arbitrary conditional `FormHelperText` as an error.
 - Use `FormGroup` only when one label describes multiple controls.
+
+### Left-label control and error composition
+
+First resolve the effective `labelPosition`, including styled `.attrs`, local
+wrappers, forwarded props, and the `top` default. Exclude legacy root
+`FormControl` from this beta layout rule. Do not apply a project-wide wrapper
+migration just because a `FormErrorMessage` appears in the file.
+
+For `labelPosition="left"`, direct children share CSS Grid rows. If the label or
+description becomes taller than the control, a sibling error (or a following
+control) can be pushed down. To keep the error exactly 4px below its control,
+reuse an existing vertical control container or group only that control and
+its error in a layout primitive:
+
+```tsx
+<FormField
+  labelPosition="left"
+  hasError={!!error}
+>
+  <FormLabel>Email</FormLabel>
+  <FormHelperText>
+    A description that may wrap onto several lines.
+  </FormHelperText>
+  <VStack
+    width="100%"
+    spacing={4}
+  >
+    <TextInput />
+    <FormErrorMessage>{error}</FormErrorMessage>
+  </VStack>
+</FormField>
+```
+
+Keep the label and description outside the control container. Keep both the
+control and error inside the same `FormField` so context-driven error visibility,
+`aria-invalid`, and `aria-describedby` still work. Preserve control props, refs,
+explicit sizes, callbacks, and conditional error rendering. A layout wrapper
+must not introduce a native form or a new `FormField`. Do not use `FormGroup`
+solely for one control and its error; it gives a group semantic to multiple
+controls sharing one label.
+
+Do not add this wrapper to top layouts, fields without a separate error, or
+controls/errors already grouped correctly solely to address this spacing issue.
+For an existing left field with a short label and no description, do not call
+migration mandatory without checking its actual layout. Review consumer CSS
+that targets direct children before adding a container; preserve existing
+column widths and control sizing.
+
+Verify the error state with long labels/descriptions, narrow widths, supported
+translations, and growing TextAreas. Check that the error gap stays 4px, the field
+contains both columns without overlap, the label still focuses its input, and
+value/focus/selection survive validation changes. Report source-level candidates
+separately from visual regressions actually reproduced in the consumer app.
 
 ## Select and TextField decisions
 

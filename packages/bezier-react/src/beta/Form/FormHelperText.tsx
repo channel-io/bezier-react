@@ -5,8 +5,6 @@ import { forwardRef } from 'react'
 import { ErrorDiamondFilledIcon } from '@channel.io/bezier-icons'
 import classNames from 'classnames'
 
-
-
 import { Icon } from '~/src/beta/Icon'
 import { Text } from '~/src/beta/Text'
 import useMergeRefs from '~/src/hooks/useMergeRefs'
@@ -21,8 +19,6 @@ import type {
 } from './Form.types'
 
 import styles from './Form.module.scss'
-
-
 
 const FORM_HELPER_TEXT_TEST_ID = 'bezier-beta-form-helper-text'
 const FORM_ERROR_MESSAGE_TEST_ID = 'bezier-beta-form-error-message'
@@ -110,6 +106,11 @@ export const FormHelperText = forwardRef<HTMLSpanElement, FormHelperTextProps>(
 
 /**
  * `FormErrorMessage` shows a field error inside `FormField`.
+ * In a left-label layout, put the error and its control in the same vertical
+ * layout container with a 4px gap when their spacing must be independent of
+ * the label/description height. Keep that container inside the same `FormField`
+ * to preserve error visibility and accessible description wiring.
+ * This grouping is optional for existing compositions and unnecessary for top layouts.
  */
 export const FormErrorMessage = forwardRef<
   HTMLSpanElement,
