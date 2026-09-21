@@ -4,6 +4,7 @@ import {
   type ChangeEvent,
   type FocusEvent,
   type KeyboardEvent,
+  type UIEvent,
   forwardRef,
   useCallback,
   useEffect,
@@ -70,6 +71,7 @@ export const BaseTextInput = forwardRef<TextInputRef, BaseTextInputProps>(
       onChange,
       onKeyDown,
       onKeyUp,
+      onScroll,
       id: idProp,
       defaultValue,
       placeholder,
@@ -87,6 +89,7 @@ export const BaseTextInput = forwardRef<TextInputRef, BaseTextInputProps>(
     const [hasValue, setHasValue] = useState(() =>
       hasInputValue(value ?? defaultValue)
     )
+    const [isScrolled, setIsScrolled] = useState(false)
 
     const size = normalizeSize(sizeProp)
     const id = useId(idProp, 'bezier-text-input')
@@ -222,6 +225,16 @@ export const BaseTextInput = forwardRef<TextInputRef, BaseTextInputProps>(
       [activeInput, onChange, value]
     )
 
+    const handleScroll = useCallback(
+      (event: UIEvent<HTMLInputElement>) => {
+        // RTL scroll offsets can be negative, and the start position can retain
+        // a fractional pixel at non-default browser zoom levels.
+        setIsScrolled(Math.abs(event.currentTarget.scrollLeft) > 1)
+        onScroll?.(event)
+      },
+      [onScroll]
+    )
+
     const {
       handleKeyDown: handleKeyDownWrappedWithComposingLocker,
       handleKeyUp: handleKeyUpWrappedWithComposingLocker,
@@ -289,10 +302,12 @@ export const BaseTextInput = forwardRef<TextInputRef, BaseTextInputProps>(
             autoComplete={autoComplete}
             disabled={disabled}
             readOnly={readOnly}
+            data-scrolled={isScrolled}
             onFocus={handleFocus}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
             onKeyUp={handleKeyUp}
+            onScroll={handleScroll}
             {...inputProps}
           />
         </div>
