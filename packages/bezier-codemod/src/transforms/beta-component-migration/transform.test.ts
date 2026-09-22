@@ -84,6 +84,43 @@ describe('beta component migration', () => {
     )
   })
 
+  it.each(['m', 'l', 'xl', '{fieldSize}'])(
+    'reports every removed FormField size for manual control-size migration (%s)',
+    (size) => {
+      const value = size.startsWith('{') ? size : `"${size}"`
+      const { diagnostics } = migrate(`
+        import { FormControl } from '@channel.io/bezier-react'
+        export const Field = () => <form><FormControl size=${value} /></form>
+      `)
+      expect(diagnostics).toEqual(
+        expect.arrayContaining([
+          expect.objectContaining({
+            code: 'form-field-size-manual',
+            suggestion: expect.stringContaining(
+              'Preserve explicit child sizes'
+            ),
+          }),
+        ])
+      )
+    }
+  )
+
+  it('does not move the removed FormFieldSize type to beta', () => {
+    const { code, diagnostics } = migrate(`
+      import type { FormFieldSize } from '@channel.io/bezier-react'
+      export type Size = FormFieldSize
+    `)
+    expect(code).not.toContain('@channel.io/bezier-react/beta')
+    expect(diagnostics).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          code: 'manual-component-migration',
+          component: 'FormFieldSize',
+        }),
+      ])
+    )
+  })
+
   it('reports a standalone FormControl instead of inventing form ownership', () => {
     const { code, diagnostics } = migrate(`
       import { FormControl } from '@channel.io/bezier-react'

@@ -49,10 +49,6 @@ function TextInputSideContentElement({
   return <>{content}</>
 }
 
-function normalizeFormFieldSize(size?: string) {
-  return size === 'l' ? 'l' : 'm'
-}
-
 /**
  * `TextInput` is a single-line text input.
  * Use `Search` for search inputs with a fixed search icon and clear behavior.
@@ -70,7 +66,7 @@ export const TextInput = forwardRef<TextInputRef, TextInputProps>(
     {
       className,
       type = 'text',
-      size,
+      size = 'm',
       variant = 'primary',
       leadingContent,
       trailingContent,
@@ -84,10 +80,8 @@ export const TextInput = forwardRef<TextInputRef, TextInputProps>(
       disabled,
       readOnly,
       hasError: _hasError,
-      size: formFieldSize,
       ...inputProps
     } = useFormFieldProps(rest)
-    const inputSize = size ?? normalizeFormFieldSize(formFieldSize)
     const leadingSlot =
       leadingContent != null ? (
         <TextInputSideContentElement content={leadingContent} />
@@ -106,7 +100,7 @@ export const TextInput = forwardRef<TextInputRef, TextInputProps>(
           className
         )}
         type={type}
-        size={inputSize}
+        size={size}
         disabled={disabled}
         readOnly={readOnly}
         leadingSlot={leadingSlot}

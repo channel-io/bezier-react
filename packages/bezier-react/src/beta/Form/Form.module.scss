@@ -1,7 +1,57 @@
+.FormLabelWrapper,
+.FormHelperTextWrapper {
+  width: 100%;
+  min-width: 0;
+}
+
+.Label {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  min-width: 0;
+}
+
+.LabelText {
+  min-width: 0;
+  line-height: 18px;
+  overflow-wrap: anywhere;
+}
+
+.FormHelperText {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.FormErrorMessage {
+  display: flex;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.ErrorIcon {
+  flex: 0 0 auto;
+  margin-top: 3px;
+}
+
+.HelperTextContent {
+  min-width: 0;
+}
+
 .Form {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.FormItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 12px;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
 }
 
 .FormDivider {
@@ -11,60 +61,123 @@
 .FormField {
   box-sizing: border-box;
   width: 100%;
-  padding-top: 4px;
-  padding-bottom: 8px;
+
+  > * {
+    order: 2;
+    min-width: 0;
+  }
+
+  > .FormLabelWrapper,
+  > :has(.FormLabelWrapper) {
+    order: 0;
+  }
+
+  > :where(.FormHelperText:not(.FormErrorMessage)) {
+    order: 1;
+  }
+
+  > .FormErrorMessage {
+    order: 3;
+  }
 }
 
 .LabelTop {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
+
+  > * {
+    width: 100%;
+  }
+
+  &:where(:has(.FormLabelWrapper)) {
+    > :where(.FormHelperText:not(.FormErrorMessage)) {
+      margin-top: -4px;
+    }
+  }
+
+  > :where(.FormErrorMessage ~ .FormErrorMessage) {
+    margin-top: -4px;
+  }
 }
 
 .LabelLeft {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 8px 12px;
-  align-items: start;
-}
+  grid-auto-flow: row dense;
 
-.FormLabelWrapper {
-  min-width: 0;
+  // The 150px label area includes the 8px space before the control.
+  grid-template-columns: minmax(calc(150px - 8px), 1fr) minmax(0, 1fr);
+  grid-template-rows: min-content minmax(0, 1fr);
+  gap: 4px 8px;
+  place-items: start start;
+  align-content: start;
 
-  &:where(.position-left) {
-    padding-top: 9px;
-  }
-}
+  min-height: 40px;
 
-.FormHelperTextWrapper {
-  min-width: 0;
-
-  &:where(.position-left) {
+  > * {
     grid-column: 2;
+    grid-row: span 2;
   }
-}
 
-.Label {
-  display: flex;
-  gap: 6px;
-  align-items: center;
-  min-width: 0;
-}
+  > .FormLabelWrapper,
+  > :has(.FormLabelWrapper),
+  > :where(.FormHelperText:not(.FormErrorMessage)) {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: stretch;
+  }
 
-.LabelText {
-  min-width: 0;
-}
+  > .FormLabelWrapper,
+  > :has(.FormLabelWrapper) {
+    grid-row: 1;
+  }
 
-.FormHelperText {
-  min-width: 0;
-}
+  &:where(:not(:has(.FormHelperText:not(.FormErrorMessage, [hidden])))) {
+    > .FormLabelWrapper,
+    > :has(.FormLabelWrapper) {
+      margin-top: 9px;
+    }
+  }
 
-.FormErrorMessage {
-  display: inline-flex;
-  gap: 4px;
-  align-items: center;
-}
+  &:where(:has(.FormLabelWrapper)) {
+    > :where(.FormHelperText:not(.FormErrorMessage)) {
+      margin-top: -4px;
+    }
+  }
 
-.ErrorIcon {
-  flex: 0 0 auto;
+  &:where(:not(:has(> .FormHelperText:not(.FormErrorMessage, [hidden])))) {
+    grid-template-rows: none;
+
+    > * {
+      grid-row: auto;
+    }
+  }
+
+  > :where(.FormHelperText:not(.FormErrorMessage):only-child) {
+    margin-top: 9px;
+  }
+
+  > .FormErrorMessage {
+    grid-row: auto;
+  }
+
+  > :where(.FormErrorMessage ~ .FormErrorMessage) {
+    margin-top: -4px;
+  }
+
+  &:where(
+      :not(:has(.FormLabelWrapper, > .FormHelperText:not(.FormErrorMessage)))
+    ) {
+    grid-template-columns: 0 minmax(0, 1fr);
+    column-gap: 0;
+  }
+
+  &:where(
+      :not(
+        :has(> :not(.FormLabelWrapper, .FormHelperText:not(.FormErrorMessage)))
+      )
+    ),
+  &:where(:has(.FormLabelWrapper):has(> :only-child)) {
+    grid-template-columns: minmax(0, 1fr) 0;
+  }
 }

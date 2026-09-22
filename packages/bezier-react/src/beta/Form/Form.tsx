@@ -3,7 +3,9 @@
 import {
   Children,
   Fragment,
+  cloneElement,
   forwardRef,
+  isValidElement,
   useCallback,
   useMemo,
   useState,
@@ -11,14 +13,11 @@ import {
 
 import classNames from 'classnames'
 
-
-
 import { Divider } from '~/src/beta/Divider'
 import useId from '~/src/hooks/useId'
 import type { FormFieldProps as BaseFormFieldProps } from '~/src/types/props'
 import { ariaAttr } from '~/src/utils/aria'
 import { createContext } from '~/src/utils/react'
-import { isNil } from '~/src/utils/type'
 
 import type {
   ErrorMessagePropsGetter,
@@ -26,7 +25,6 @@ import type {
   FormFieldContainerProps,
   FormFieldContextValue,
   FormFieldProps,
-  FormFieldSize,
   FormProps,
   GroupPropsGetter,
   HelperTextPropsGetter,
@@ -35,16 +33,27 @@ import type {
 
 import styles from './Form.module.scss'
 
-
-
 const [FormFieldContextProvider, useFormFieldContext] = createContext<
   FormFieldContextValue | undefined
 >(undefined)
 
 export { useFormFieldContext }
 
-function normalizeFormFieldSize(size?: string): FormFieldSize {
-  return size === 'l' ? 'l' : 'm'
+// Preserve keys across fragments so stateful controls keep their identity.
+function flattenChildren(
+  children: React.ReactNode,
+  prefix = ''
+): React.ReactNode[] {
+  return Children.toArray(children).flatMap((child, index) => {
+    const key = `${prefix}/${isValidElement(child) ? child.key : index}`
+    if (
+      isValidElement<{ children?: React.ReactNode }>(child) &&
+      child.type === Fragment
+    ) {
+      return flattenChildren(child.props.children, key)
+    }
+    return [isValidElement(child) ? cloneElement(child, { key }) : child]
+  })
 }
 
 /**
@@ -54,7 +63,9 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(function Form(
   { children, className, ...rest },
   forwardedRef
 ) {
-  if (!children) {
+  const fields = flattenChildren(children)
+
+  if (fields.length === 0) {
     return null
   }
 
@@ -64,16 +75,19 @@ export const Form = forwardRef<HTMLFormElement, FormProps>(function Form(
       className={classNames(styles.Form, className)}
       {...rest}
     >
-      {Children.map(children, (child, index) => (
-        <Fragment key={index}>
-          {index > 0 && (
+      {fields.map((child, index) => (
+        <div
+          key={isValidElement(child) ? child.key : index}
+          className={styles.FormItem}
+        >
+          {child}
+          {index < fields.length - 1 && (
             <Divider
               className={styles.FormDivider}
               withoutSideIndent
             />
           )}
-          {child}
-        </Fragment>
+        </div>
       ))}
     </form>
   )
@@ -102,6 +116,15 @@ const FormFieldContainer = forwardRef<HTMLDivElement, FormFieldContainerProps>(
 
 /**
  * `FormField` connects a form field with its label, helper text, error message, and grouped controls.
+ * Control sizes are set on the controls themselves.
+ * With `labelPosition="left"`, direct children share CSS Grid rows. A tall label
+ * or description can push a sibling error below the control. To keep the error
+ * exactly 4px below its control, place both in the same vertical layout container
+ * (for example, `VStack width="100%" spacing={4}`), inside this `FormField`.
+ * Keep the label and description outside that container. Reuse an existing
+ * control container when possible; do not wrap every field during migration.
+ * Top layouts do not need this grouping. Use `FormGroup` for multiple controls
+ * sharing one label, not merely to wrap a single control and its error.
  * It does not render a native `form` element.
  * @example
  *
@@ -120,7 +143,6 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
       children,
       id: idProp,
       labelPosition = 'top',
-      size = 'm',
       hasError = false,
       required,
       readOnly,
@@ -142,17 +164,14 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
     const helperTextId = `${id}-help-text`
     const errorMessageId = `${id}-error-message`
     const fieldId = groupNode ? undefined : id
-    const normalizedSize = normalizeFormFieldSize(size)
 
-    const describerId = useMemo(() => {
-      if (errorMessageNode) {
-        return errorMessageId
-      }
-      if (helperTextNode) {
-        return helperTextId
-      }
-      return undefined
-    }, [errorMessageNode, helperTextNode, errorMessageId, helperTextId])
+    const describerId = useMemo(
+      () =>
+        [helperTextNode && helperTextId, errorMessageNode && errorMessageId]
+          .filter(Boolean)
+          .join(' ') || undefined,
+      [errorMessageNode, helperTextNode, errorMessageId, helperTextId]
+    )
 
     const getGroupProps = useCallback<GroupPropsGetter>(
       (ownProps) => ({
@@ -169,19 +188,15 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
       (ownProps) => ({
         id: labelId,
         htmlFor: fieldId,
-        className: classNames(
-          styles.FormLabelWrapper,
-          labelPosition === 'left' && styles['position-left']
-        ),
+        className: styles.FormLabelWrapper,
         ...ownProps,
       }),
-      [fieldId, labelId, labelPosition]
+      [fieldId, labelId]
     )
 
     const getFieldProps = useCallback<FieldPropsGetter>(
       (ownProps) => ({
         id: fieldId,
-        size: normalizedSize,
         'aria-describedby': groupNode ? undefined : describerId,
         hasError,
         required,
@@ -189,44 +204,29 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
         disabled,
         ...ownProps,
       }),
-      [
-        fieldId,
-        describerId,
-        normalizedSize,
-        hasError,
-        required,
-        readOnly,
-        disabled,
-        groupNode,
-      ]
+      [fieldId, describerId, hasError, required, readOnly, disabled, groupNode]
     )
 
     const getHelperTextProps = useCallback<HelperTextPropsGetter>(
       (ownProps) => ({
         id: helperTextId,
-        visible: isNil(hasError) || !hasError,
+        visible: true,
         ref: setHelperTextNode,
-        className: classNames(
-          styles.FormHelperTextWrapper,
-          labelPosition === 'left' && styles['position-left']
-        ),
+        className: styles.FormHelperTextWrapper,
         ...ownProps,
       }),
-      [helperTextId, labelPosition, hasError]
+      [helperTextId]
     )
 
     const getErrorMessageProps = useCallback<ErrorMessagePropsGetter>(
       (ownProps) => ({
         id: errorMessageId,
-        visible: isNil(hasError) || hasError,
+        visible: hasError,
         ref: setErrorMessageNode,
-        className: classNames(
-          styles.FormHelperTextWrapper,
-          labelPosition === 'left' && styles['position-left']
-        ),
+        className: styles.FormHelperTextWrapper,
         ...ownProps,
       }),
-      [errorMessageId, labelPosition, hasError]
+      [errorMessageId, hasError]
     )
 
     const contextValue = useMemo(
@@ -240,7 +240,6 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
         getFieldProps,
         getHelperTextProps,
         getErrorMessageProps,
-        size: normalizedSize,
         hasError,
         required,
         readOnly,
@@ -256,7 +255,6 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
         getFieldProps,
         getHelperTextProps,
         getErrorMessageProps,
-        normalizedSize,
         hasError,
         required,
         readOnly,
@@ -282,9 +280,9 @@ export const FormField = forwardRef<HTMLDivElement, FormFieldProps>(
   }
 )
 
-export function useFormFieldProps<
-  Props extends BaseFormFieldProps & { size?: FormFieldSize },
->(props?: Props) {
+export function useFormFieldProps<Props extends BaseFormFieldProps>(
+  props?: Props
+) {
   const contextValue = useFormFieldContext()
 
   const formFieldProps = useMemo(() => {
@@ -295,7 +293,6 @@ export function useFormFieldProps<
       readOnly = false,
       required = false,
       hasError = false,
-      size = undefined,
       ...rest
     } = mergedProps
 
@@ -305,7 +302,6 @@ export function useFormFieldProps<
       'aria-invalid': ariaAttr(hasError),
       'aria-required': ariaAttr(required),
       'aria-readonly': ariaAttr(readOnly),
-      size,
       disabled,
       hasError,
       required,

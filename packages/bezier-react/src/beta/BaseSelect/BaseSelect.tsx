@@ -181,10 +181,6 @@ function getOverlayMargins({
     : { marginX: 0, marginY: offset }
 }
 
-function isSelectTriggerSize(size: unknown): size is 'm' | 'l' {
-  return size === 'm' || size === 'l'
-}
-
 function getFocusableOptions(container: HTMLElement | null) {
   if (!container) {
     return []
@@ -315,7 +311,7 @@ function SelectImpl<Value extends SelectValue>(
     keepInContainer = false,
     dropdownWidth,
     dropdownMaxHeight,
-    triggerSize,
+    triggerSize = 'm',
     onShow,
     onHide,
     ...rest
@@ -324,15 +320,8 @@ function SelectImpl<Value extends SelectValue>(
 ) {
   const generatedId = useId()
   const listboxId = rest.id ? `${rest.id}-listbox` : `${generatedId}-listbox`
-  const {
-    disabled,
-    readOnly,
-    hasError,
-    size: formFieldSize,
-    ...triggerOwnProps
-  } = useFormFieldProps(rest)
-  const resolvedTriggerSize =
-    triggerSize ?? (isSelectTriggerSize(formFieldSize) ? formFieldSize : 'm')
+  const { disabled, readOnly, hasError, ...triggerOwnProps } =
+    useFormFieldProps(rest)
   const [uncontrolledOpen, setUncontrolledOpen] = useState(defaultShow)
   const [selectElement, setSelectElement] = useState<HTMLDivElement | null>(
     null
@@ -477,7 +466,7 @@ function SelectImpl<Value extends SelectValue>(
           open,
           selectedOption: selectedOption as SelectOptionData<Value> | null,
           selectedOptions: selectedOptions as SelectOptionData<Value>[],
-          triggerSize: resolvedTriggerSize,
+          triggerSize,
           disabled,
           readOnly,
           hasError,

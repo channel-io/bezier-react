@@ -5,12 +5,9 @@ import type {
   ChildrenProps,
   IdentifierProps,
   MarginProps,
-  SizeProps,
 } from '~/src/types/props'
 
 export type FormFieldLabelPosition = 'top' | 'left'
-
-export type FormFieldSize = 'm' | 'l'
 
 export interface FormProps
   extends BezierComponentProps<'form'>,
@@ -57,7 +54,6 @@ export interface FormFieldContextValue extends BaseFormFieldProps {
   labelId: string
   helperTextId: string
   errorMessageId: string
-  size?: FormFieldSize
   getGroupProps: GroupPropsGetter
   getLabelProps: LabelPropsGetter
   getFieldProps: FieldPropsGetter
@@ -68,6 +64,9 @@ export interface FormFieldContextValue extends BaseFormFieldProps {
 interface FormFieldOwnProps {
   /**
    * Layout position of the label.
+   * Left layouts share grid rows between the label/description and controls.
+   * Group a control and its error in one vertical container with a 4px gap
+   * if the error must stay immediately below the control regardless of label height.
    * @default 'top'
    */
   labelPosition?: FormFieldLabelPosition
@@ -82,7 +81,6 @@ export interface FormFieldProps
   extends BezierComponentProps<'div'>,
     ChildrenProps,
     BaseFormFieldProps,
-    SizeProps<FormFieldSize>,
     FormFieldOwnProps {}
 
 interface FormLabelOwnProps {
