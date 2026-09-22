@@ -1,5 +1,13 @@
 # @channel.io/bezier-codemod
 
+## 0.5.1-next.3
+
+### Patch Changes
+
+- Update beta Form layout, description/error placement, and automatic required markers. ([#2925](https://github.com/channel-io/bezier-react/pull/2925)) by @timok1m
+  Remove `FormField.size` and `FormFieldSize`; set sizes on controls and remove manual required stars.
+  Document grouping controls with errors for left layouts, including CLI and migration guidance.
+
 ## 0.5.1-next.2
 
 ### Patch Changes

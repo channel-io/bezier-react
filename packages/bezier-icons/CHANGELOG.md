@@ -1,5 +1,49 @@
 # @channel.io/bezier-icons
 
+## 0.62.0-next.3
+
+### Minor Changes
+
+- Update icons ([#2928](https://github.com/channel-io/bezier-react/pull/2928)) by @timok1m
+
+  Modified
+
+  - combo-chart.svg
+  - search-graph.svg
+  - view.svg
+
+  Added
+
+  - list-indent-decrease.svg
+  - list-indent-increase.svg
+
+- Update icons ([#2928](https://github.com/channel-io/bezier-react/pull/2928)) by @timok1m
+
+  Modified
+
+  - app-push.svg
+  - auto-writing.svg
+  - book.svg
+  - check-bold.svg
+  - document.svg
+  - eraser.svg
+  - fire.svg
+  - lightning-filled.svg
+  - lightning.svg
+  - list-toggle.svg
+  - marker-pen.svg
+  - moon-sleep.svg
+  - shine.svg
+  - star-circle-filled.svg
+  - star.svg
+  - view-off.svg
+  - weather-cloud.svg
+  - weather-cloudy.svg
+  - weather-rain.svg
+  - weather-snow.svg
+  - weather-thunder.svg
+  - wifi-off.svg
+
 ## 0.62.0-next.2
 
 ### Minor Changes

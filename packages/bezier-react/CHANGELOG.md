@@ -1,5 +1,23 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.21
+
+### Major Changes
+
+- Update beta Form layout, description/error placement, and automatic required markers. ([#2925](https://github.com/channel-io/bezier-react/pull/2925)) by @timok1m
+  Remove `FormField.size` and `FormFieldSize`; set sizes on controls and remove manual required stars.
+  Document grouping controls with errors for left layouts, including CLI and migration guidance.
+
+### Minor Changes
+
+- Add a `size` prop to beta `Help` with the same size options as `Icon`. The default remains 16px. ([#2923](https://github.com/channel-io/bezier-react/pull/2923)) by @timok1m
+
+### Patch Changes
+
+- Include beta component styles in the components cascade layer so consumer style overrides remain effective regardless of stylesheet insertion order. ([#2924](https://github.com/channel-io/bezier-react/pull/2924)) by @timok1m
+
+- Reveal overflowing text while horizontally scrolling beta `TextInput` and `Search`, and restore ellipsis near the starting position without changing the input value, selection, or native scroll position. ([#2922](https://github.com/channel-io/bezier-react/pull/2922)) by @timok1m
+
 ## 4.0.0-next.20
 
 ### Patch Changes
