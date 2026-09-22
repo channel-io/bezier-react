@@ -212,6 +212,7 @@ export default defineConfig([
     output: [
       {
         format: 'cjs',
+        interop: 'auto',
         dir: path.dirname(pkg.main),
         sourcemap: true,
         preserveModules: true,
