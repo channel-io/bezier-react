@@ -61,6 +61,15 @@
 .FormField {
   box-sizing: border-box;
   width: 100%;
+  padding-top: 4px;
+  padding-bottom: 8px;
+
+  // Form already spaces its direct fields and dividers. Nested fields still
+  // need their own padding, as do fields used without Form.
+  :where(.FormItem) > & {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
   > * {
     order: 2;

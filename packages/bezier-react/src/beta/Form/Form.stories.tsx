@@ -604,6 +604,69 @@ export const WrappedLabels: StoryObj<FormFieldProps> = {
   args: { labelPosition: 'left', hasError: true },
 }
 
+export const FieldSpacing: StoryObj<FormFieldProps> = {
+  render: (args) => {
+    const fields = () =>
+      ['Work email', 'Workspace name'].map((label) => (
+        <BezierFormField
+          key={label}
+          {...args}
+        >
+          <BezierFormLabel>{label}</BezierFormLabel>
+          <VStack
+            width="100%"
+            spacing={4}
+          >
+            <TextInput placeholder={label} />
+            <BezierFormErrorMessage>
+              This field is required.
+            </BezierFormErrorMessage>
+          </VStack>
+        </BezierFormField>
+      ))
+
+    return (
+      <HStack
+        spacing={32}
+        align="start"
+        wrap
+      >
+        <VStack width={FIELD_WIDTH}>
+          <Text
+            typo="16"
+            color="text-neutral"
+          >
+            Without Form
+          </Text>
+          {fields()}
+          <Button label="Save" />
+        </VStack>
+        <VStack width={FIELD_WIDTH}>
+          <Text
+            typo="16"
+            color="text-neutral"
+          >
+            Direct Form fields
+          </Text>
+          <Form>{fields()}</Form>
+        </VStack>
+        <VStack width={FIELD_WIDTH}>
+          <Text
+            typo="16"
+            color="text-neutral"
+          >
+            Nested Form fields
+          </Text>
+          <Form>
+            <VStack>{fields()}</VStack>
+          </Form>
+        </VStack>
+      </HStack>
+    )
+  },
+  args: { labelPosition: 'top', hasError: false },
+}
+
 export const ContentCombinations: StoryObj<FormFieldProps> = {
   render: (args) => (
     <Form style={{ width: 520 }}>
