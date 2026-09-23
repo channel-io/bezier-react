@@ -1,5 +1,13 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.22
+
+### Patch Changes
+
+- Fix the CJS build so default-imported external dependencies are unwrapped correctly. Since `4.0.0-next.21` externalized dependencies, `dist/cjs` consumed `require('react-textarea-autosize')` without a `.default` interop, so consumers loading the CJS build (Jest, Node SSR) rendered `TextArea` with a `{ __esModule, default }` object and crashed with "Element type is invalid". Setting rollup `output.interop: 'auto'` emits the `__esModule`-aware helper. ([#2930](https://github.com/channel-io/bezier-react/pull/2930)) by @wes5510
+
+- Restore vertical spacing for standalone and nested beta FormField components. ([#2931](https://github.com/channel-io/bezier-react/pull/2931)) by @timok1m
+
 ## 4.0.0-next.21
 
 ### Major Changes
