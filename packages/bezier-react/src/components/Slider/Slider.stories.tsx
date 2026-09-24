@@ -5,6 +5,11 @@ import { Slider } from './Slider'
 const meta: Meta<typeof Slider> = {
   component: Slider,
   argTypes: {
+    width: {
+      control: {
+        type: 'number',
+      },
+    },
     minStepsBetweenThumbs: {
       control: {
         type: 'number',
