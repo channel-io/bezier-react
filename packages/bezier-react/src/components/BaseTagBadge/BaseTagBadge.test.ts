@@ -24,4 +24,11 @@ describe('BaseTagBadge styles', () => {
       ])
     })
   })
+
+  it('uses the olive text token for the olive variant', () => {
+    const olive = variantBlocks.find(({ variant }) => variant === 'olive')
+    expect(olive?.body).toMatch(
+      /--b-tag-badge-color:\s*var\(--color-text-accent-olive\)/
+    )
+  })
 })
