@@ -151,10 +151,11 @@ const generateConfig = ({ output = [], plugins = [] }) =>
         deps: true,
         peerDeps: true,
         /**
-         * NOTE: ESM-only packages have to stay in the bundle. Externals are emitted as
-         * `require()` in the cjs build, which throws `ERR_REQUIRE_ESM` on Node 20.
+         * NOTE: Bundle ssr-window so the CJS build does not require an ESM-only package.
+         * Bundle react-textarea-autosize so native Node ESM does not receive its
+         * CJS exports object as the default import. CJS interop does not fix ESM imports.
          */
-        exclude: ['ssr-window'],
+        exclude: ['ssr-window', 'react-textarea-autosize'],
         packagePath: './package.json',
       }),
       nodeResolve({ extensions }),
