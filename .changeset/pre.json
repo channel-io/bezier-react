@@ -28,6 +28,7 @@
     "fix-beta-css-layer",
     "fix-modal-close-position",
     "fix-stylelint-stable-tokens",
+    "fix-textarea-esm-interop",
     "fluffy-showers-listen",
     "fresh-rings-smile",
     "gentle-toasts-appear",

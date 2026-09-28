@@ -1,5 +1,11 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.23
+
+### Patch Changes
+
+- Fix TextArea rendering in native ESM environments, including Vitest, by bundling react-textarea-autosize. ([#2935](https://github.com/channel-io/bezier-react/pull/2935)) by @timok1m
+
 ## 4.0.0-next.22
 
 ### Patch Changes
