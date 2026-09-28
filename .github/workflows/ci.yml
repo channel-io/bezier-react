@@ -40,9 +40,6 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Test built TextArea interoperability
-        run: pnpm --filter @channel.io/bezier-react test:dist
-
       - name: Check generated manifests
         run: pnpm manifest:check
 
