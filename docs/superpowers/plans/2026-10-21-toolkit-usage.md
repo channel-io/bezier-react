@@ -54,4 +54,6 @@
 
 - [x] 기존 전체 테스트와 변경 패키지 검증. 실제 generated lookup에서 DropdownMenu → Select 안내 확인.
 - [x] 독립 리뷰와 중요한 finding 회귀 수정 후 검증.
-- [ ] 한국어 changeset/설명으로 Draft PR 생성 및 chat artifact 연결.
+- [x] 한국어 changeset/설명으로 Draft PR 생성 및 chat artifact 연결.
+
+결과: [bezier-react #2937](https://github.com/channel-io/bezier-react/pull/2937), [core-bezier-system #30](https://github.com/channel-io/core-bezier-system/pull/30). 전체 패키지 테스트 1,264개와 manifest node 테스트 16개, core 계약 테스트 19개를 통과했다. 전체 typecheck/lint/build 및 실제 Desk source smoke 검증을 완료했다. 패키지 배포와 Desk 의존성 갱신, 실제 생성 에이전트 실험은 포함하지 않는다.
