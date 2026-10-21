@@ -1,7 +1,52 @@
-import { type AstNode, contextCwd, contextFilename, jsxName } from '../ast.js'
+import {
+  type AstNode,
+  contextCwd,
+  contextFilename,
+  expressionName,
+  jsxName,
+} from '../ast.js'
 import { LegacyOriginAnalyzer } from '../legacy-origin.js'
 import { loadComponentContracts } from '../manifest.js'
 import { createRule } from '../rule.js'
+
+function importedWrapper(
+  name: string,
+  scope: AstNode,
+  seen = new Set<AstNode>()
+): { source: string; imported: string } | null {
+  const [root, member] = name.split('.', 2)
+  let current = scope
+  while (current && !current.set.has(root)) current = current.upper
+  const variable = current?.set.get(root)
+  const definition = variable?.defs[0]
+  if (!definition || seen.has(definition.node)) return null
+  const next = new Set(seen).add(definition.node)
+  if (definition.type === 'ImportBinding') {
+    const source = definition.parent.source.value
+    if (source === '@channel.io/bezier-react') return null
+    const specifier = definition.node
+    const imported =
+      specifier.type === 'ImportNamespaceSpecifier'
+        ? member
+        : specifier.type === 'ImportDefaultSpecifier'
+          ? 'default'
+          : (specifier.imported.name ?? specifier.imported.value)
+    return imported ? { source, imported } : null
+  }
+  if (
+    definition.type !== 'Variable' ||
+    definition.node.id.type !== 'Identifier'
+  )
+    return null
+  const alias = expressionName(definition.node.init)
+  return alias
+    ? importedWrapper(
+        member ? `${alias}.${member}` : alias,
+        variable.scope,
+        next
+      )
+    : null
+}
 
 export const noLegacyRootImport = createRule(
   'Require public beta components instead of the legacy package root.',
@@ -29,19 +74,13 @@ export const noLegacyRootImport = createRule(
       },
       JSXOpeningElement(node: AstNode) {
         const name = jsxName(node.name)
-        if (!name || /^[a-z]/u.test(name)) return
+        if (!name || (!name.includes('.') && /^[a-z]/u.test(name))) return
         const source = context.sourceCode ?? context.getSourceCode()
-        let scope: AstNode = source.getScope?.(node) ?? context.getScope()
-        const root = name.split('.')[0]
-        while (scope && !scope.set.has(root)) scope = scope.upper
-        if (scope && !['module', 'global'].includes(scope.type)) return
-        const definition = scope?.set.get(root)?.defs[0]
-        if (
-          definition?.type === 'ImportBinding' &&
-          definition.parent.source.value === '@channel.io/bezier-react'
-        )
-          return
-        const origin = analyzer.resolveUsed(name)
+        const scope = source.getScope?.(node) ?? context.getScope()
+        const binding = importedWrapper(name, scope)
+        const origin = binding
+          ? analyzer.resolveImported(binding.source, binding.imported)
+          : null
         if (origin)
           context.report({ node, messageId: 'wrapper', data: { name, origin } })
       },

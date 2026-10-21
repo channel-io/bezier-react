@@ -51,6 +51,9 @@ writeFileSync(
   export { Cell as TableBodyCheckboxCell, BetaCell, TextCell, ShadowedCell, LocalAliasCell, UnusedCell } from './cells'
   export { Alias } from './barrel'
   export * from './cycle-a'
+  export { Cell as ClosureSafeCell } from './closure-safe'
+  export { Cell as ClosureLegacyCell } from './closure-legacy'
+  export { UnusedJsxCell, ReturnedJsxCell, ConditionalJsxCell } from './return-path'
 `
 )
 writeFileSync(
@@ -86,6 +89,32 @@ writeFileSync(
   `export * from './cycle-a'; export { Cell as CyclicCell } from './cells'`
 )
 
+writeFileSync(
+  join(tableRoot, 'src/closure-safe.tsx'),
+  `
+  import { Checkbox } from '${beta}'
+  import { Button } from '@channel.io/bezier-react'
+  function Nested() { return <Checkbox /> }
+  export function Cell() { const Checkbox = Button; return <Nested /> }
+`
+)
+writeFileSync(
+  join(tableRoot, 'src/closure-legacy.tsx'),
+  `
+  import { Checkbox } from '@channel.io/bezier-react'
+  function Nested() { return <Checkbox /> }
+  export function Cell() { const Checkbox = () => <span />; return <Nested /> }
+`
+)
+writeFileSync(
+  join(tableRoot, 'src/return-path.tsx'),
+  `
+  import { Checkbox } from '@channel.io/bezier-react'
+  export function UnusedJsxCell() { const unused = <Checkbox />; return <span /> }
+  export function ReturnedJsxCell() { const content = <Checkbox />; return <div>{content}</div> }
+  export function ConditionalJsxCell(flag) { const content = <Checkbox />; return flag ? content : <span /> }
+`
+)
 const sourceRoot = join(crossFileRoot, 'node_modules/@fixture/source')
 mkdirSync(sourceRoot, { recursive: true })
 writeFileSync(
@@ -132,6 +161,18 @@ tester.run('no-legacy-root-import', plugin.rules['no-legacy-root-import'], {
     },
     {
       filename: wrapperConsumer,
+      code: `import { ClosureSafeCell, UnusedJsxCell } from '@fixture/table'; const x = <><ClosureSafeCell /><UnusedJsxCell /></>`,
+    },
+    {
+      filename: wrapperConsumer,
+      code: `import { TableBodyCheckboxCell as Cell } from '@fixture/table'; function View(Cell) { const Alias = Cell; return <Alias /> }`,
+    },
+    {
+      filename: wrapperConsumer,
+      code: `import { TableBodyCheckboxCell as Cell } from '@fixture/table'; function View() { const Cell = () => <span />; const Alias = Cell; return <Alias /> }`,
+    },
+    {
+      filename: wrapperConsumer,
       code: `import { Missing } from '@fixture/table'; const x = <Missing />`,
     },
   ],
@@ -148,6 +189,12 @@ tester.run('no-legacy-root-import', plugin.rules['no-legacy-root-import'], {
       `import * as Cells from '@fixture/table'; const Alias = Cells; const x = <Alias.TableBodyCheckboxCell />`,
       `import { LocalAliasCell } from '@fixture/table'; const x = <LocalAliasCell />`,
       `import { CyclicCell } from '@fixture/table'; const x = <CyclicCell />`,
+      `import { ClosureLegacyCell } from '@fixture/table'; const x = <ClosureLegacyCell />`,
+      `import { ReturnedJsxCell } from '@fixture/table'; const x = <ReturnedJsxCell />`,
+      `import { ConditionalJsxCell } from '@fixture/table'; const x = <ConditionalJsxCell />`,
+      `import { TableBodyCheckboxCell as Cell } from '@fixture/table'; function View() { const Alias = Cell; return <Alias /> }`,
+      `import * as Cells from '@fixture/table'; function View() { const Alias = Cells; return <Alias.TableBodyCheckboxCell /> }`,
+      `import * as cells from '@fixture/table'; function View() { return <cells.TableBodyCheckboxCell /> }`,
       `import { TableBodyCheckboxCell as Cell } from '@fixture/table'; const Alias = Cell; const x = <Alias />`,
     ].map((code) => ({
       filename: wrapperConsumer,

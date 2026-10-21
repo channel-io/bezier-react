@@ -60,11 +60,14 @@ outside this check; no diagnostic does not establish that they use Bezier.
 static dependency reaches a legacy root component. The warning identifies the
 used local component and origin (for example,
 `@channel.io/bezier-react:Checkbox`). It follows named/default imports,
-namespace members and local aliases, barrel re-exports, function components,
+namespace members and lexical local aliases (including aliases inside consumer
+functions), barrel re-exports, function components,
 React `memo`/`forwardRef`/`createElement`, and styled templates. It analyzes only
 the requested export and reachable render dependencies; an unrelated legacy
 export in the same package does not produce a warning. Cyclic export graphs
-terminate without assuming unresolved paths are safe.
+terminate without assuming unresolved paths are safe. Function dependencies use
+their definition scope, and only returned render expressions are followed;
+unreferenced JSX initializers do not count as rendered output.
 
 Package lookup starts from the consumer file using Node resolution. For a root
 package import, an owning package's `src/index` is preferred when present (the

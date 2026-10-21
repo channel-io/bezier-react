@@ -19,9 +19,11 @@ interface Binding {
   source: string
   imported: string
 }
+let nextScopeId = 0
 interface Module {
+  scopeId: number
   filename: string
-  declarations: Map<string, AstNode>
+  declarations: Map<string, { node: AstNode; scope: Module }>
   imports: Map<string, Binding>
   exports: Map<string, AstNode | Binding>
   stars: string[]
@@ -80,6 +82,7 @@ function resolveModule(importer: string, source: string) {
 
 function moduleFromProgram(filename: string, program: AstNode): Module {
   const module: Module = {
+    scopeId: nextScopeId++,
     filename,
     declarations: new Map(),
     imports: new Map(),
@@ -90,10 +93,14 @@ function moduleFromProgram(filename: string, program: AstNode): Module {
     if (node?.type === 'VariableDeclaration') {
       for (const declaration of node.declarations) {
         if (declaration.id.type === 'Identifier') {
-          module.declarations.set(declaration.id.name, declaration.init)
+          module.declarations.set(declaration.id.name, {
+            node: declaration.init,
+            scope: module,
+          })
         }
       }
-    } else if (node?.id?.name) module.declarations.set(node.id.name, node)
+    } else if (node?.id?.name)
+      module.declarations.set(node.id.name, { node, scope: module })
   }
   for (const node of program.body) {
     if (node.type === 'ImportDeclaration' && node.importKind !== 'type') {
@@ -152,6 +159,7 @@ function moduleFromProgram(filename: string, program: AstNode): Module {
 function lexicalModule(module: Module, bindings: AstNode[]): Module {
   const scoped = {
     ...module,
+    scopeId: nextScopeId++,
     declarations: new Map(module.declarations),
     imports: new Map(module.imports),
   }
@@ -159,7 +167,7 @@ function lexicalModule(module: Module, bindings: AstNode[]): Module {
     if (!pattern) return
     if (pattern.type === 'Identifier') {
       scoped.imports.delete(pattern.name)
-      scoped.declarations.set(pattern.name, value)
+      scoped.declarations.set(pattern.name, { node: value, scope: scoped })
     } else if (
       pattern.type === 'AssignmentPattern' ||
       pattern.type === 'RestElement'
@@ -195,22 +203,9 @@ export class LegacyOriginAnalyzer {
     this.input = moduleFromProgram(filename, program)
   }
 
-  resolveUsed(name: string): string | null {
-    const source = this.importedSource(name, new Set())
-    if (!source || source === ROOT) return null
-    return this.resolveName(this.input, name, new Set())
-  }
-
-  private importedSource(name: string, seen: Set<string>): string | null {
-    if (seen.has(name)) return null
-    const next = new Set(seen).add(name)
-    const [root, member] = name.split('.', 2)
-    const binding = this.input.imports.get(root)
-    if (binding) return binding.source
-    const alias = expressionName(this.input.declarations.get(root))
-    return alias
-      ? this.importedSource(member ? `${alias}.${member}` : alias, next)
-      : null
+  resolveImported(source: string, imported: string): string | null {
+    if (source === ROOT) return null
+    return this.follow(this.input, { source, imported }, new Set())
   }
 
   private load(filename: string) {
@@ -273,10 +268,12 @@ export class LegacyOriginAnalyzer {
     name: string,
     seen: Set<string>
   ): string | null {
-    const key = `${module.filename}:local:${name}`
+    const [root, member] = name.split('.', 2)
+    const declaration = module.declarations.get(root)
+    const scope = declaration?.scope ?? module
+    const key = `${scope.scopeId}:local:${name}`
     if (seen.has(key)) return null
     const next = new Set(seen).add(key)
-    const [root, member] = name.split('.', 2)
     const binding = module.imports.get(root)
     if (binding) {
       return this.follow(
@@ -289,12 +286,11 @@ export class LegacyOriginAnalyzer {
         next
       )
     }
-    const declaration = module.declarations.get(root)
     if (member) {
-      const alias = expressionName(declaration)
-      return alias ? this.resolveName(module, `${alias}.${member}`, next) : null
+      const alias = expressionName(declaration?.node)
+      return alias ? this.resolveName(scope, `${alias}.${member}`, next) : null
     }
-    return this.expression(module, declaration, next)
+    return this.expression(scope, declaration?.node, next)
   }
 
   private expression(
@@ -305,6 +301,28 @@ export class LegacyOriginAnalyzer {
     if (!node) return null
     const name = expressionName(node)
     if (name) return this.resolveName(module, name, seen)
+    if (node.type === 'JSXElement' || node.type === 'JSXFragment') {
+      return this.rendered(module, node, seen)
+    }
+    if (node.type === 'ConditionalExpression') {
+      return (
+        this.expression(module, node.consequent, seen) ??
+        this.expression(module, node.alternate, seen)
+      )
+    }
+    if (node.type === 'LogicalExpression') {
+      return (
+        this.expression(module, node.left, seen) ??
+        this.expression(module, node.right, seen)
+      )
+    }
+    if (node.type === 'ArrayExpression') {
+      for (const element of node.elements) {
+        const origin = this.expression(module, element, seen)
+        if (origin) return origin
+      }
+      return null
+    }
     if (node.type === 'TaggedTemplateExpression') {
       let tag = node.tag
       while (
@@ -388,14 +406,28 @@ export class LegacyOriginAnalyzer {
         )
       )
       for (const statement of node.body) {
+        if (
+          [
+            'VariableDeclaration',
+            'FunctionDeclaration',
+            'ExpressionStatement',
+          ].includes(statement.type)
+        )
+          continue
         const origin = this.rendered(scoped, statement, seen)
         if (origin) return origin
       }
       return null
     }
+    if (node.type === 'ReturnStatement') {
+      return this.expression(module, node.argument, seen)
+    }
+    if (node.type === 'JSXExpressionContainer') {
+      return this.expression(module, node.expression, seen)
+    }
     if (node.type === 'JSXOpeningElement') {
       const name = jsxName(node.name)
-      return name && !/^[a-z]/u.test(name)
+      return name && (name.includes('.') || !/^[a-z]/u.test(name))
         ? this.resolveName(module, name, seen)
         : null
     }
