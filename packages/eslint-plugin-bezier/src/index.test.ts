@@ -53,7 +53,7 @@ writeFileSync(
   export * from './cycle-a'
   export { Cell as ClosureSafeCell } from './closure-safe'
   export { Cell as ClosureLegacyCell } from './closure-legacy'
-  export { UnusedJsxCell, ReturnedJsxCell, ConditionalJsxCell } from './return-path'
+  export { UnusedJsxCell, ReturnedJsxCell, ConditionalJsxCell, NestedElementCell, JsxElementCell, PropsElementCell, UnusedElementCell } from './return-path'
 `
 )
 writeFileSync(
@@ -109,10 +109,15 @@ writeFileSync(
 writeFileSync(
   join(tableRoot, 'src/return-path.tsx'),
   `
+  import React from 'react'
   import { Checkbox } from '@channel.io/bezier-react'
   export function UnusedJsxCell() { const unused = <Checkbox />; return <span /> }
   export function ReturnedJsxCell() { const content = <Checkbox />; return <div>{content}</div> }
   export function ConditionalJsxCell(flag) { const content = <Checkbox />; return flag ? content : <span /> }
+  export function NestedElementCell() { return React.createElement('div', null, React.createElement(Checkbox)) }
+  export function JsxElementCell() { return React.createElement('div', null, <Checkbox />) }
+  export function PropsElementCell() { return React.createElement('div', { children: React.createElement(Checkbox) }) }
+  export function UnusedElementCell() { const unused = React.createElement(Checkbox); return React.createElement('div', { unrelated: <Checkbox /> }) }
 `
 )
 const sourceRoot = join(crossFileRoot, 'node_modules/@fixture/source')
@@ -161,7 +166,7 @@ tester.run('no-legacy-root-import', plugin.rules['no-legacy-root-import'], {
     },
     {
       filename: wrapperConsumer,
-      code: `import { ClosureSafeCell, UnusedJsxCell } from '@fixture/table'; const x = <><ClosureSafeCell /><UnusedJsxCell /></>`,
+      code: `import { ClosureSafeCell, UnusedJsxCell, UnusedElementCell } from '@fixture/table'; const x = <><ClosureSafeCell /><UnusedJsxCell /><UnusedElementCell /></>`,
     },
     {
       filename: wrapperConsumer,
@@ -192,6 +197,9 @@ tester.run('no-legacy-root-import', plugin.rules['no-legacy-root-import'], {
       `import { ClosureLegacyCell } from '@fixture/table'; const x = <ClosureLegacyCell />`,
       `import { ReturnedJsxCell } from '@fixture/table'; const x = <ReturnedJsxCell />`,
       `import { ConditionalJsxCell } from '@fixture/table'; const x = <ConditionalJsxCell />`,
+      `import { NestedElementCell } from '@fixture/table'; const x = <NestedElementCell />`,
+      `import { JsxElementCell } from '@fixture/table'; const x = <JsxElementCell />`,
+      `import { PropsElementCell } from '@fixture/table'; const x = <PropsElementCell />`,
       `import { TableBodyCheckboxCell as Cell } from '@fixture/table'; function View() { const Alias = Cell; return <Alias /> }`,
       `import * as Cells from '@fixture/table'; function View() { const Alias = Cells; return <Alias.TableBodyCheckboxCell /> }`,
       `import * as cells from '@fixture/table'; function View() { return <cells.TableBodyCheckboxCell /> }`,

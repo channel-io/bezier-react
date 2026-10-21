@@ -348,7 +348,24 @@ export class LegacyOriginAnalyzer {
         return this.expression(module, node.arguments[0], seen)
       }
       if (this.isImported(module, node.callee, 'react', ['createElement'])) {
-        return this.expression(module, node.arguments[0], seen)
+        const rendered = [node.arguments[0], ...node.arguments.slice(2)]
+        const props = node.arguments[1]
+        if (props?.type === 'ObjectExpression') {
+          for (const property of props.properties) {
+            if (
+              property.type === 'Property' &&
+              !property.computed &&
+              (property.key.name ?? property.key.value) === 'children'
+            ) {
+              rendered.push(property.value)
+            }
+          }
+        }
+        for (const child of rendered) {
+          const origin = this.expression(module, child, seen)
+          if (origin) return origin
+        }
+        return null
       }
       return null
     }
@@ -435,8 +452,7 @@ export class LegacyOriginAnalyzer {
       node.type === 'CallExpression' &&
       this.isImported(module, node.callee, 'react', ['createElement'])
     ) {
-      const origin = this.expression(module, node.arguments[0], seen)
-      if (origin) return origin
+      return this.expression(module, node, seen)
     }
     for (const [key, value] of Object.entries(node)) {
       if (['parent', 'loc', 'range', 'tokens', 'comments'].includes(key))
