@@ -2,17 +2,11 @@ export interface BezierMemberMetadata {
   requiresAncestor?: readonly string[]
 }
 
-export interface BezierUsageMetadata {
-  when?: readonly string[]
-  avoid?: readonly string[]
-}
-
 export interface BezierMetadata {
   model: 'compound' | 'independent'
   root: string
   parts: Readonly<Record<string, BezierMemberMetadata>>
   independent: Readonly<Record<string, Record<string, never>>>
-  usage?: BezierUsageMetadata
 }
 
 /**

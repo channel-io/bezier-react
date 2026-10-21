@@ -26,7 +26,9 @@ interface CachedContracts {
 const cache = new Map<string, CachedContracts>()
 
 function isStringArray(value: unknown): value is string[] {
-  return Array.isArray(value) && value.every((entry) => typeof entry === 'string')
+  return (
+    Array.isArray(value) && value.every((entry) => typeof entry === 'string')
+  )
 }
 
 export function loadComponentContracts(cwd: string) {
@@ -51,7 +53,7 @@ export function loadComponentContracts(cwd: string) {
   }
   if (
     typeof parsed.schemaVersion !== 'string' ||
-    !parsed.schemaVersion.startsWith('1.') ||
+    !/^[12]\.\d+\.\d+$/u.test(parsed.schemaVersion) ||
     !Array.isArray(parsed.components)
   ) {
     throw new Error(

@@ -8,6 +8,7 @@ import {
   type BezierPackageSpec,
   type InstalledManifestResult,
   SUPPORTED_MANIFEST_SCHEMA_MAJOR,
+  SUPPORTED_REACT_MANIFEST_SCHEMA_MAJORS,
 } from './types.js'
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -47,8 +48,58 @@ function validateManifestShape(
 }
 
 function schemaMajor(schemaVersion: string): number | null {
-  const match = /^(\d+)\./.exec(schemaVersion)
+  const match = /^(\d+)\.\d+\.\d+$/u.exec(schemaVersion)
   return match ? Number(match[1]) : null
+}
+
+function validRule(value: unknown): boolean {
+  if (!isRecord(value)) return false
+  if (typeof value.condition !== 'string' || !value.condition.trim())
+    return false
+  if (!['web', 'mobile', null].includes(value.platform as string | null))
+    return false
+  if (
+    ![value.because, value.useInstead].every(
+      (field) => field === null || typeof field === 'string'
+    )
+  )
+    return false
+  if (
+    'guidance' in value &&
+    (typeof value.guidance !== 'string' || !value.guidance.trim())
+  )
+    return false
+  return Object.keys(value).every((key) =>
+    ['condition', 'because', 'useInstead', 'platform', 'guidance'].includes(key)
+  )
+}
+
+function validUsage(value: unknown): boolean {
+  if (value === null) return true
+  if (!isRecord(value) || !isRecord(value.source)) return false
+  if (
+    ![value.when, value.avoid].every(
+      (rules) =>
+        Array.isArray(rules) && rules.length > 0 && rules.every(validRule)
+    )
+  )
+    return false
+  const source = value.source
+  return (
+    Object.keys(value).every((key) =>
+      ['when', 'avoid', 'source'].includes(key)
+    ) &&
+    Object.keys(source).every((key) =>
+      ['repository', 'commit', 'path', 'sha256'].includes(key)
+    ) &&
+    source.repository === 'https://github.com/channel-io/core-bezier-system' &&
+    typeof source.commit === 'string' &&
+    /^[a-f0-9]{40}$/u.test(source.commit) &&
+    typeof source.path === 'string' &&
+    /^docs\/components\/[A-Za-z][A-Za-z0-9]*-spec\.md$/u.test(source.path) &&
+    typeof source.sha256 === 'string' &&
+    /^[a-f0-9]{64}$/u.test(source.sha256)
+  )
 }
 
 export function readInstalledManifest(
@@ -111,7 +162,12 @@ export function readInstalledManifest(
   }
 
   const actualMajor = schemaMajor(parsed.schemaVersion)
-  if (actualMajor !== SUPPORTED_MANIFEST_SCHEMA_MAJOR) {
+  const supported: readonly number[] =
+    spec.kind === 'component'
+      ? SUPPORTED_REACT_MANIFEST_SCHEMA_MAJORS
+      : [SUPPORTED_MANIFEST_SCHEMA_MAJOR]
+  const supportedSchemaMajor = Math.max(...supported)
+  if (actualMajor === null || !supported.includes(actualMajor)) {
     return {
       ok: false,
       issue: {
@@ -119,8 +175,29 @@ export function readInstalledManifest(
         packageName: spec.name,
         path: manifestPath,
         actualSchemaVersion: parsed.schemaVersion,
-        supportedSchemaMajor: SUPPORTED_MANIFEST_SCHEMA_MAJOR,
-        message: `${manifestSpecifier} uses schema ${parsed.schemaVersion}; supported major is ${SUPPORTED_MANIFEST_SCHEMA_MAJOR}.`,
+        supportedSchemaMajor,
+        message: `${manifestSpecifier} uses schema ${parsed.schemaVersion}; supported majors: ${supported.join(', ')}.`,
+      },
+    }
+  }
+
+  if (
+    spec.kind === 'component' &&
+    actualMajor === 2 &&
+    !parsed.components?.every(
+      (component) =>
+        isRecord(component) &&
+        isRecord(component.semantics) &&
+        validUsage(component.semantics.usage)
+    )
+  ) {
+    return {
+      ok: false,
+      issue: {
+        code: 'invalid_manifest',
+        packageName: spec.name,
+        path: manifestPath,
+        message: `${manifestSpecifier} has invalid structured usage criteria.`,
       },
     }
   }

@@ -8,6 +8,9 @@ export {
 export {
   BEZIER_PACKAGES,
   SUPPORTED_MANIFEST_SCHEMA_MAJOR,
+  SUPPORTED_REACT_MANIFEST_SCHEMA_MAJORS,
+  type BezierUsage,
+  type BezierUsageRule,
   type BezierCatalog,
   type CatalogEntity,
   type CatalogLoadResult,

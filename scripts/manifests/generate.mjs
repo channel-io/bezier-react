@@ -12,6 +12,8 @@ import { fileURLToPath } from 'node:url'
 
 import ts from 'typescript'
 
+import { usageForFamily } from './usage.mjs'
+
 export const SCHEMA_VERSION = '1.0.0'
 
 const rootDir = resolve(dirname(fileURLToPath(import.meta.url)), '../..')
@@ -228,6 +230,11 @@ export function validateFamilyMetadata(
   metadata,
   hasStory = true
 ) {
+  if (metadata && Object.hasOwn(metadata, 'usage')) {
+    throw new Error(
+      `${family}: story usage must come from the pinned component spec.`
+    )
+  }
   if (members.length === 1 && !metadata) {
     return {
       model: 'unknown',
@@ -275,10 +282,13 @@ export function validateFamilyMetadata(
     }
   }
   if (findCycle(metadata)) throw new Error(`${family}: ancestor cycle detected`)
-  return { ...metadata, usage: metadata.usage ?? null }
+  return { ...metadata, usage: null }
 }
 
 export function generateReactManifest() {
+  const usageSnapshot = readJson(
+    join(rootDir, 'scripts/manifests/usage.snapshot.json')
+  )
   const packageDir = join(rootDir, 'packages/bezier-react')
   const betaDir = join(packageDir, 'src/beta')
   const configPath = join(packageDir, 'tsconfig.json')
@@ -324,6 +334,7 @@ export function generateReactManifest() {
       readStoryMetadata(storyPath),
       existsSync(storyPath)
     )
+    semantics.usage = usageForFamily(usageSnapshot, family)
     for (const name of names) {
       const target = aliasedSymbol(checker, symbols.get(name))
       const tags = jsDocTags(target)
@@ -384,7 +395,7 @@ export function generateReactManifest() {
     (a, b) => a.name.localeCompare(b.name) || a.family.localeCompare(b.family)
   )
   return {
-    schemaVersion: SCHEMA_VERSION,
+    schemaVersion: '2.0.0',
     package: packageInfo(packageDir),
     source: sourceInfo('src/beta/index.ts'),
     exports,

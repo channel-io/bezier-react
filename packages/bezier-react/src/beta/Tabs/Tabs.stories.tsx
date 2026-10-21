@@ -1,6 +1,9 @@
-import { ArrowRightIcon, OpenInNewIcon, PlusIcon } from '@channel.io/bezier-icons'
+import {
+  ArrowRightIcon,
+  OpenInNewIcon,
+  PlusIcon,
+} from '@channel.io/bezier-icons'
 import { type Meta, type StoryObj } from '@storybook/react'
-
 
 import { Button } from '~/src/beta/Button'
 import { IconButton } from '~/src/beta/IconButton'
@@ -9,7 +12,6 @@ import { defineBezierMetadata } from '~/src/storybook/defineBezierMetadata'
 
 import { TabActions, TabContent, TabItem, TabList, Tabs } from './Tabs'
 import { type TabSize, type TabsProps } from './Tabs.types'
-
 
 function Content({ children }: { children: string }) {
   return (
@@ -42,7 +44,8 @@ const meta: Meta<typeof Tabs> = {
   component: Tabs,
   parameters: {
     bezier: defineBezierMetadata({
-      model: 'compound', root: 'Tabs',
+      model: 'compound',
+      root: 'Tabs',
       parts: {
         TabList: { requiresAncestor: ['Tabs'] },
         TabItem: { requiresAncestor: ['Tabs', 'TabList'] },
@@ -51,10 +54,6 @@ const meta: Meta<typeof Tabs> = {
         TabContent: { requiresAncestor: ['Tabs'] },
       },
       independent: {},
-      usage: {
-        when: ['Switching between peer views'],
-        avoid: ['Sequential multi-step flows'],
-      },
     }),
   },
   argTypes: {

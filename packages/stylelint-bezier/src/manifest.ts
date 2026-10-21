@@ -38,7 +38,7 @@ export function loadComponentContracts(cwd = process.cwd()) {
   }
   if (
     typeof manifest.schemaVersion !== 'string' ||
-    !manifest.schemaVersion.startsWith('1.') ||
+    !/^[12]\.\d+\.\d+$/u.test(manifest.schemaVersion) ||
     !Array.isArray(manifest.components)
   ) {
     throw new Error(
