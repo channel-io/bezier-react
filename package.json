@@ -13,10 +13,11 @@
     "version-packages": "changeset version && pnpm install --lockfile-only",
     "release": "turbo run build --filter='@channel.io/*' && pnpm manifest:generate && changeset publish",
     "manifest:generate": "node scripts/manifests/generate.mjs",
-    "manifest:check": "node scripts/manifests/generate.mjs --check && node --test scripts/manifests/generate.test.mjs",
+    "manifest:check": "node scripts/manifests/generate.mjs --check && node --test scripts/manifests/*.test.mjs",
     "changeset": "changeset",
     "postinstall": "husky install",
-    "knip": "knip --config knip.json --workspace packages/bezier-react --cache"
+    "knip": "knip --config knip.json --workspace packages/bezier-react --cache",
+    "manifest:sync-usage": "node scripts/manifests/sync-usage.mjs"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.10",

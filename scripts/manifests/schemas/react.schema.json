@@ -1,24 +1,75 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://bezier.channel.io/schemas/react-manifest-1.json",
+  "$id": "https://bezier.channel.io/schemas/react-manifest-2.json",
   "title": "Bezier React manifest",
   "type": "object",
-  "required": ["schemaVersion", "package", "source", "exports", "components", "types"],
+  "required": [
+    "schemaVersion",
+    "package",
+    "source",
+    "exports",
+    "components",
+    "types"
+  ],
   "properties": {
-    "schemaVersion": { "const": "1.0.0" },
-    "package": { "$ref": "#/$defs/package" },
-    "source": { "$ref": "#/$defs/source" },
-    "exports": { "type": "array", "items": { "type": "object" } },
-    "components": { "type": "array", "items": { "type": "object" } },
-    "types": { "type": "array", "items": { "type": "object" } }
+    "schemaVersion": {
+      "const": "2.0.0"
+    },
+    "package": {
+      "$ref": "#/$defs/package"
+    },
+    "source": {
+      "$ref": "#/$defs/source"
+    },
+    "exports": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["semantics"],
+        "properties": {
+          "semantics": {
+            "type": "object",
+            "required": ["usage"],
+            "properties": {
+              "usage": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "$ref": "#/$defs/usage"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "types": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
   },
   "$defs": {
     "package": {
       "type": "object",
       "required": ["name", "version"],
       "properties": {
-        "name": { "type": "string" },
-        "version": { "type": "string" }
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
       },
       "additionalProperties": false
     },
@@ -26,9 +77,83 @@
       "type": "object",
       "required": ["repository", "commit", "entrypoint"],
       "properties": {
-        "repository": { "type": "string" },
-        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
-        "entrypoint": { "type": "string" }
+        "repository": {
+          "type": "string"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "entrypoint": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "rule": {
+      "type": "object",
+      "required": ["condition", "because", "useInstead", "platform"],
+      "properties": {
+        "condition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "because": {
+          "type": ["string", "null"]
+        },
+        "useInstead": {
+          "type": ["string", "null"]
+        },
+        "platform": {
+          "enum": ["web", "mobile", null]
+        },
+        "guidance": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "usage": {
+      "type": "object",
+      "required": ["when", "avoid", "source"],
+      "properties": {
+        "when": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/rule"
+          }
+        },
+        "avoid": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/rule"
+          }
+        },
+        "source": {
+          "type": "object",
+          "required": ["repository", "commit", "path", "sha256"],
+          "properties": {
+            "repository": {
+              "const": "https://github.com/channel-io/core-bezier-system"
+            },
+            "commit": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{40}$"
+            },
+            "path": {
+              "type": "string",
+              "pattern": "^docs/components/[A-Za-z][A-Za-z0-9]*-spec\\.md$"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "additionalProperties": false
+        }
       },
       "additionalProperties": false
     }

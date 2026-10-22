@@ -80,3 +80,40 @@ describe('installed manifest catalog', () => {
     expect(third.catalog.packageTuple).not.toBe(first.catalog.packageTuple)
   })
 })
+
+it('returns v2 component selection criteria without losing alternatives or provenance', () => {
+  const manifests = defaultManifests()
+  manifests['@channel.io/bezier-react'].schemaVersion = '2.0.0'
+  const usage = {
+    when: [
+      {
+        condition: '값 선택',
+        because: '값 유지',
+        useInstead: null,
+        platform: 'web',
+      },
+    ],
+    avoid: [
+      {
+        condition: '여러 값',
+        because: '복수 선택',
+        useInstead: 'MultiSelect',
+        platform: null,
+      },
+    ],
+    source: {
+      repository: 'https://github.com/channel-io/core-bezier-system',
+      commit: 'a'.repeat(40),
+      path: 'docs/components/Tabs-spec.md',
+      sha256: 'b'.repeat(64),
+    },
+  }
+  manifests['@channel.io/bezier-react'].components![0].semantics = { usage }
+  const loaded = loadInstalledCatalog(fixtureConsumer(manifests))
+  expect(loaded.ok).toBe(true)
+  if (!loaded.ok) return
+  expect(lookup(loaded.catalog, 'Tabs')).toMatchObject({
+    found: true,
+    matches: [{ data: { semantics: { usage } } }],
+  })
+})

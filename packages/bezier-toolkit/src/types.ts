@@ -1,4 +1,24 @@
 export const SUPPORTED_MANIFEST_SCHEMA_MAJOR = 1
+export const SUPPORTED_REACT_MANIFEST_SCHEMA_MAJORS = [1, 2] as const
+
+export interface BezierUsageRule {
+  condition: string
+  because: string | null
+  useInstead: string | null
+  platform: 'web' | 'mobile' | null
+  guidance?: string
+}
+
+export interface BezierUsage {
+  when: BezierUsageRule[]
+  avoid: BezierUsageRule[]
+  source: {
+    repository: string
+    commit: string
+    path: string
+    sha256: string
+  }
+}
 
 export const BEZIER_PACKAGES = [
   {
