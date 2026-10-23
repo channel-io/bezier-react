@@ -1,7 +1,4 @@
 {
-  "dependencyTypes": [
-    "!peer"
-  ],
   "versionGroups": [
     {
       "label": "Use workspace protocol when developing local packages",
@@ -25,6 +22,5 @@
       ],
       "pinVersion": "8.3.4"
     }
-  ],
-  "lintFormatting": false
+  ]
 }
