@@ -76,7 +76,7 @@ export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(
             htmlFor={id}
             className={styles.Label}
             typo="14"
-            fontWeight="500"
+            fontWeight="400"
             color="text-neutral"
           >
             {children}

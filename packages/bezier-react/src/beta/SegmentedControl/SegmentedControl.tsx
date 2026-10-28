@@ -421,7 +421,7 @@ const Item = forwardRef<HTMLButtonElement, ItemProps>(function Item(
             <Text
               className={styles.SegmentedControlItemLabel}
               typo={getTypography(size)}
-              fontWeight="700"
+              fontWeight="500"
               truncated
             >
               {children}

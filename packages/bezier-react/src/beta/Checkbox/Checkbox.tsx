@@ -93,7 +93,7 @@ function CheckboxImpl<Checked extends CheckedState>(
           htmlFor={id}
           className={styles.Label}
           typo="14"
-          fontWeight="500"
+          fontWeight="400"
           color="text-neutral"
         >
           {children}

@@ -65,7 +65,7 @@ export const BaseTagBadgeText = forwardRef<HTMLElement, BaseTagBadgeTextProps>(
         {...rest}
         ref={forwardedRef}
         typo={getProperTypo(size)}
-        fontWeight={size === 'xs' ? '400' : '500'}
+        fontWeight="400"
         className={classNames(
           styles.label,
           size === 'xs' && styles['label-xs'],
