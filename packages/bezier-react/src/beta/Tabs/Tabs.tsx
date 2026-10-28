@@ -264,7 +264,7 @@ export const TabItem = forwardRef<HTMLButtonElement, TabItemProps>(
             ref={contentRef}
             className={styles.TabItemText}
             typo={getTypography(size)}
-            fontWeight="600"
+            fontWeight="500"
             truncated
             title={isTruncated && typeof children === 'string' ? children : undefined}
           >
@@ -312,7 +312,7 @@ export const TabAction = forwardRef<
         {...rest}
       >
         <Text
-          fontWeight="600"
+          fontWeight="500"
           typo={getActionTypography(size)}
         >
           {children}
@@ -331,7 +331,7 @@ export const TabAction = forwardRef<
         {...rest}
       >
         <Text
-          fontWeight="600"
+          fontWeight="500"
           typo={getActionTypography(size)}
         >
           {children}
