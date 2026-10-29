@@ -15,7 +15,7 @@ import styles from './Spinner.module.scss'
 
 
 
-const DEFAULT_SPINNER_COLOR = 'icon-neutral' satisfies SemanticColor
+const DEFAULT_SPINNER_COLOR = 'fill-neutral-heavy' satisfies SemanticColor
 
 /**
  * `Spinner` is a component for indicating loading state.
@@ -24,7 +24,7 @@ const DEFAULT_SPINNER_COLOR = 'icon-neutral' satisfies SemanticColor
  * ```tsx
  * <Spinner
  *   size="20"
- *   color="icon-neutral"
+ *   color="fill-neutral-heavy"
  * />
  * ```
  */
@@ -58,7 +58,21 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(
           styles[`size-${size}`],
           className
         )}
-      />
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          aria-hidden
+        >
+          {/* NOTE: pathLength normalizes the circumference to 100, so the arc length is set in percent. */}
+          <circle
+            cx="12"
+            cy="12"
+            pathLength="100"
+            className={styles.Arc}
+          />
+        </svg>
+      </div>
     )
   }
 )
