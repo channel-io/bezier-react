@@ -33,14 +33,18 @@
    */
   & :where(.Arc) {
     r: calc(
-      (var(--b-beta-spinner-view-box-size) - var(--b-beta-spinner-stroke-width)) /
-        2
+      (
+          var(--b-beta-spinner-view-box-size) - var(
+              --b-beta-spinner-stroke-width
+            )
+        ) *
+        1px / 2
     );
     fill: none;
     stroke: var(--b-beta-spinner-color, currentColor);
     stroke-dasharray: 75 100;
     stroke-linecap: round;
-    stroke-width: var(--b-beta-spinner-stroke-width);
+    stroke-width: calc(var(--b-beta-spinner-stroke-width) * 1px);
   }
 
   &:where(.size-10) {
@@ -68,19 +72,25 @@
   }
 
   &:where(.size-36) {
-    --b-beta-spinner-stroke-width: calc(4.25 * var(--b-beta-spinner-view-box-size) / 36);
+    --b-beta-spinner-stroke-width: calc(
+      4.25 * var(--b-beta-spinner-view-box-size) / 36
+    );
 
     @include dimension.square(36px);
   }
 
   &:where(.size-42) {
-    --b-beta-spinner-stroke-width: calc(4.5 * var(--b-beta-spinner-view-box-size) / 42);
+    --b-beta-spinner-stroke-width: calc(
+      4.5 * var(--b-beta-spinner-view-box-size) / 42
+    );
 
     @include dimension.square(42px);
   }
 
   &:where(.size-48) {
-    --b-beta-spinner-stroke-width: calc(4.5 * var(--b-beta-spinner-view-box-size) / 48);
+    --b-beta-spinner-stroke-width: calc(
+      4.5 * var(--b-beta-spinner-view-box-size) / 48
+    );
 
     @include dimension.square(48px);
   }
