@@ -140,7 +140,7 @@ $active-selector: ':where(.active, :hover):where(:not(:disabled, [aria-disabled=
   }
 
   &:where(.variant-outlined.semantic-primary) {
-    --b-beta-button-text-color: var(--color-text-neutral-heaviest);
+    --b-beta-button-text-color: var(--color-text-neutral);
     --b-beta-button-icon-color: var(--color-icon-neutral-heavier);
   }
 

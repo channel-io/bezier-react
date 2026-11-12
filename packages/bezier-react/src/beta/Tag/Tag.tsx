@@ -48,7 +48,6 @@ export const Tag = forwardRef<HTMLDivElement, TagProps>(function Tag(
         <BaseTagBadgeText
           size={size}
           truncated
-          className={styles.Text}
         >
           {children}
         </BaseTagBadgeText>
