@@ -1,5 +1,15 @@
 # @channel.io/bezier-react
 
+## 4.0.0-next.24
+
+### Minor Changes
+
+- Reimplement beta `Spinner` with SVG so the arc has round caps. The default color is now `fill-neutral-heavy` (was `icon-neutral`), the stroke eases off at larger sizes (36: 4.25px, 42/48: 4.5px), and the rotation slows down under `prefers-reduced-motion`. ([#2949](https://github.com/channel-io/bezier-react/pull/2949)) by @minkyungsi
+
+### Patch Changes
+
+- Align beta component styles with the latest design: label weights for Checkbox, RadioGroup, Switch, Badge and Tag (400), SegmentedControl and Tabs text (500), outlined primary Button text color, Tabs indicator and spacing, and Badge/Tag xs padding. ([#2948](https://github.com/channel-io/bezier-react/pull/2948)) by @minkyungsi
+
 ## 4.0.0-next.23
 
 ### Patch Changes
