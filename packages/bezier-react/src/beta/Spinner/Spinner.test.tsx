@@ -20,7 +20,7 @@ describe('Spinner', () => {
     expect(spinner).toHaveClass(styles.Spinner)
     expect(spinner).toHaveClass(styles['size-20'])
     expect(spinner).toHaveStyle(
-      `--b-beta-spinner-color: ${colorTokenCssVar('icon-neutral')}`
+      `--b-beta-spinner-color: ${colorTokenCssVar('fill-neutral-heavy')}`
     )
   })
 
