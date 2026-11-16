@@ -10,6 +10,8 @@ import { render } from '~/src/utils/test'
 import { Badge } from './Badge'
 import { type BadgeProps } from './Badge.types'
 
+import styles from './Badge.module.scss'
+
 
 describe('Badge', () => {
   const renderBadge = (props?: Partial<BadgeProps>) =>
@@ -22,6 +24,28 @@ describe('Badge', () => {
     expect(rendered).toHaveClass(baseTagBadgeStyles.BaseTagBadge)
     expect(rendered).toHaveClass(baseTagBadgeStyles['size-m'])
     expect(rendered).toHaveClass(baseTagBadgeStyles['variant-default'])
+  })
+
+  it('should not shrink when it is not truncated', () => {
+    const { getByText } = renderBadge()
+    const rendered = getByText('Badge').parentElement
+
+    expect(rendered).toHaveClass(styles['no-shrink'])
+  })
+
+  it('should stay shrinkable when it is truncated', () => {
+    const { getByText } = renderBadge({ truncated: true })
+    const rendered = getByText('Badge').parentElement
+
+    expect(rendered).not.toHaveClass(styles['no-shrink'])
+  })
+
+  it('should merge given className', () => {
+    const { getByText } = renderBadge({ className: 'custom' })
+    const rendered = getByText('Badge').parentElement
+
+    expect(rendered).toHaveClass('custom')
+    expect(rendered).toHaveClass(styles['no-shrink'])
   })
 
   it('should forward ref', () => {

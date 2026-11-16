@@ -1,0 +1,11 @@
+.Badge {
+  /*
+   * A badge is a single-line label. Keep its intrinsic width so that it does
+   * not shrink (and wrap its label) when placed next to long text in a flex row.
+   * A truncated badge stays shrinkable so that the ellipsis can work.
+   */
+  &:where(.no-shrink) {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}

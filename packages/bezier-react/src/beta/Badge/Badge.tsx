@@ -2,6 +2,8 @@
 
 import { forwardRef } from 'react'
 
+import classNames from 'classnames'
+
 
 import { BaseTagBadge, BaseTagBadgeText } from '~/src/beta/BaseTagBadge'
 import { Icon } from '~/src/beta/Icon'
@@ -9,6 +11,8 @@ import { type IconSemanticColor } from '~/src/types/tokens'
 import { isEmpty } from '~/src/utils/type'
 
 import { type BadgeProps, type BadgeVariant } from './Badge.types'
+
+import styles from './Badge.module.scss'
 
 
 const BADGE_ICON_COLOR_BY_VARIANT = {
@@ -43,7 +47,15 @@ const BADGE_ICON_COLOR_BY_VARIANT = {
  * ```
  */
 export const Badge = forwardRef<HTMLDivElement, BadgeProps>(function Badge(
-  { size = 'm', variant = 'default', truncated, icon, children, ...rest },
+  {
+    size = 'm',
+    variant = 'default',
+    truncated,
+    icon,
+    children,
+    className,
+    ...rest
+  },
   forwardedRef
 ) {
   const ariaLabel =
@@ -55,6 +67,11 @@ export const Badge = forwardRef<HTMLDivElement, BadgeProps>(function Badge(
       size={size}
       variant={variant}
       aria-label={ariaLabel}
+      className={classNames(
+        styles.Badge,
+        !truncated && styles['no-shrink'],
+        className
+      )}
       {...rest}
     >
       {icon && (
