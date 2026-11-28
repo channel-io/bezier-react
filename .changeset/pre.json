@@ -16,6 +16,8 @@
   "changesets": [
     "beige-navigation-list",
     "beta-alignment-patch",
+    "beta-spinner-round-arc",
+    "beta-style-fixes",
     "bright-betas-rename",
     "bundle-styled-syntax",
     "calm-poets-visit",
