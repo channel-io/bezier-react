@@ -9,7 +9,7 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --filter=@channel.io/bezier-react",
-    "lint": "turbo run lint && syncpack lint",
+    "lint": "turbo run lint && syncpack lint --dependency-types dev,prod,local,overrides,pnpmOverrides,resolutions",
     "format": "prettier . --write",
     "typecheck": "turbo run typecheck",
     "test": "turbo run test",
@@ -41,7 +41,7 @@
     "npm-run-all2": "^7.0.1",
     "prettier": "^3.4.2",
     "stylelint": "^16.11.0",
-    "syncpack": "^13.0.0",
+    "syncpack": "^15.3.3",
     "ts-node": "^10.9.2",
     "turbo": "^2.3.3",
     "typescript": "^5.7.2"
