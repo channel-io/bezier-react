@@ -1,5 +1,16 @@
 # @channel.io/bezier-react
 
+## 4.0.0-alpha.0
+
+### Major Changes
+
+- Migrate to alpha version color tokens ([#2588](https://github.com/channel-io/bezier-react/pull/2588)) by @sungik-choi
+
+### Patch Changes
+
+- Updated dependencies
+  - @channel.io/bezier-tokens@0.3.1-alpha.0
+
 ## 3.0.3
 
 ### Patch Changes

@@ -12,5 +12,8 @@
     "bezier-vscode": "0.4.0",
     "@channel.io/stylelint-bezier": "0.2.8"
   },
-  "changesets": []
+  "changesets": [
+    "old-bugs-kick",
+    "shy-toes-argue"
+  ]
 }

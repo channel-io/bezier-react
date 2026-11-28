@@ -1,5 +1,11 @@
 # @channel.io/bezier-tokens
 
+## 0.3.1-alpha.0
+
+### Patch Changes
+
+- Remove 'color-' prefix from alpha color tokens ([#2588](https://github.com/channel-io/bezier-react/pull/2588)) by @sungik-choi
+
 ## 0.3.0
 
 ### Minor Changes
